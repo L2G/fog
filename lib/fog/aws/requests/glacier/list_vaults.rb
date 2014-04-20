@@ -3,7 +3,7 @@ module Fog
     class Glacier
       class Real
 
-        # This operation lists all vaults owned by the calling user’s account.
+        # This operation lists all vaults owned by the calling user's account.
         #
         # ==== Parameters
         # * options<~Hash>

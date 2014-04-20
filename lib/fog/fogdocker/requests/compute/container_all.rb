@@ -3,11 +3,11 @@ module Fog
     class Fogdocker
       class Real
         # filter options
-        # all – true or false, Show all containers. Only running containers are shown by default
-        # limit – Show limit last created containers, include non-running ones.
-        # since – Show only containers created since Id, include non-running ones.
-        # before – Show only containers created before Id, include non-running ones.
-        # size – true or false, Show the containers sizes
+        # all - true or false, Show all containers. Only running containers are shown by default
+        # limit - Show limit last created containers, include non-running ones.
+        # since - Show only containers created since Id, include non-running ones.
+        # before - Show only containers created before Id, include non-running ones.
+        # size - true or false, Show the containers sizes
         def container_all(filters = {})
           Docker::Container.all(filters.merge(:all => true)).map do |container|
             downcase_hash_keys(container.json)

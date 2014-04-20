@@ -5,7 +5,7 @@ module Fog
         extend Fog::Deprecation
         deprecate :post_vm_poweron, :post_power_on_vapp
 
-        # Power on a vApp or VM.
+        # Power on a vApp or VM.
         #
         # If used on a vApp, powers on all VMs in the vApp. If used on a VM,
         # powers on the VM. This operation is available only for a vApp or VM

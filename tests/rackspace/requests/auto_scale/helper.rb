@@ -1,4 +1,4 @@
-### FORMATS
+### FORMATS
 
 LIST_GROUPS_FORMAT =
   { "groups_links"=>[],
