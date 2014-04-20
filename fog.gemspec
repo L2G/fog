@@ -49,6 +49,9 @@ Gem::Specification.new do |s|
   # Modular providers
   s.add_dependency("fog-brightbox")
 
+  # Internationalization (i18n)
+  s.add_dependency('r18n-desktop', '~> 1.1')
+
   ## List your development dependencies here. Development dependencies are
   ## those that are only needed during development
   s.add_development_dependency('minitest')
