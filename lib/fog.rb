@@ -16,6 +16,9 @@ require 'fog/core/parser'
 require 'fog/core/deprecated/connection'
 require 'fog/core/deprecated_connection_accessors'
 
+# Internationalization
+require 'fog/i18n'
+
 # any one of these can be required separately.
 # they all depend on fog/core for shared functionality.
 require 'fog/atmos'
