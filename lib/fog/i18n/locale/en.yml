@@ -1,3 +1,8 @@
 ---
+# General list-making
+list:
+  and: and
+
+# Fog command-line utility (bin/fog)
 bin:
   welcome: Welcome to fog interactive!
