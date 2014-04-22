@@ -46,7 +46,7 @@ module Fog
           [if1, if2]
         end
 
-        def mock_interface name
+        def mock_interface(name)
           {
               :mac    => 'aa:bb:cc:dd:ee:ff',
               :name   => name,

@@ -32,13 +32,13 @@ module Fog
           }
         end
 
-        def find_pool_by_name name
+        def find_pool_by_name(name)
           pool_to_attributes(client.lookup_storage_pool_by_name(name))
         rescue ::Libvirt::RetrieveError
           nil
         end
 
-        def find_pool_by_uuid uuid
+        def find_pool_by_uuid(uuid)
           pool_to_attributes(client.lookup_storage_pool_by_uuid(uuid))
         rescue ::Libvirt::RetrieveError
           nil
@@ -53,7 +53,7 @@ module Fog
           [pool1, pool2]
         end
 
-        def mock_pool name
+        def mock_pool(name)
           {
               :uuid           => 'pool.uuid',
               :persistent     => true,

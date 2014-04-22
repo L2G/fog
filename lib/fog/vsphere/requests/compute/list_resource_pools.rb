@@ -18,7 +18,7 @@ module Fog
           [cluster.resourcePool, cluster.resourcePool.resourcePool].flatten
         end
 
-        def resource_pool_attributes resource_pool, cluster, datacenter
+        def resource_pool_attributes(resource_pool, cluster, datacenter)
           {
             :id                   => managed_obj_id(resource_pool),
             :name                 => resource_pool.name,

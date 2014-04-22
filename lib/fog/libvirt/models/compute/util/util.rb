@@ -17,7 +17,7 @@ module Fog
          attribute.nil? ? (xml / path).map : (xml / path).map{|element| element[attribute.to_sym]}
       end
 
-      def to_xml template_name = nil
+      def to_xml(template_name = nil)
         # figure out our ERB template filename
         erb = template_name || self.class.to_s.split('::').last.downcase
         path     = File.join(File.dirname(__FILE__), '..', 'templates', "#{erb}.xml.erb")

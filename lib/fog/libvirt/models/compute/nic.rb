@@ -21,7 +21,7 @@ module Fog
           mac.nil?
         end
 
-        def initialize attributes
+        def initialize(attributes)
           super defaults.merge(attributes)
           raise Fog::Errors::Error.new("#{type} is not a supported nic type") if new? && !TYPES.include?(type)
         end

@@ -14,7 +14,7 @@ module Fog
     service(:compute, 'Compute')
 
     # This helper was originally added as Fog.class_as_string and moved to core but only used here
-    def self.class_from_string classname, defaultpath = ''
+    def self.class_from_string(classname, defaultpath = '')
       if classname and classname.is_a? String then
         chain = classname.split('::')
         klass = Kernel

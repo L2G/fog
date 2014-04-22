@@ -18,7 +18,7 @@ module Fog
 
         protected
 
-        def network_attributes network, datacenter
+        def network_attributes(network, datacenter)
           {
             :id         => managed_obj_id(network),
             :name       => network.name,

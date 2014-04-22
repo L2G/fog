@@ -45,7 +45,7 @@ module Fog
           [net1, net2]
         end
 
-        def mock_network name
+        def mock_network(name)
           {
               :uuid        => 'net.uuid',
               :name        => name,

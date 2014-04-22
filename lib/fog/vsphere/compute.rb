@@ -129,7 +129,7 @@ module Fog
           props_to_attr_hash vm_mob_ref, props
         end
 
-        def props_to_attr_hash vm_mob_ref, props
+        def props_to_attr_hash(vm_mob_ref, props)
           # NOTE: Object.tap is in 1.8.7 and later.
           # Here we create the hash object that this method returns, but first we need
           # to add a few more attributes that require additional calls to the vSphere
@@ -162,7 +162,7 @@ module Fog
         # provides both real RbVmomi object and its name.
         # e.g.
         #[Datacenter("datacenter-2"), "dc-name"]
-        def parent_attribute path, type
+        def parent_attribute(path, type)
           element = case type
                       when :datacenter
                         RbVmomi::VIM::Datacenter
@@ -179,7 +179,7 @@ module Fog
         end
 
         # returns vmware managed obj id string
-        def managed_obj_id obj
+        def managed_obj_id(obj)
           obj.to_s.match(/\("([^"]+)"\)/)[1]
         end
 

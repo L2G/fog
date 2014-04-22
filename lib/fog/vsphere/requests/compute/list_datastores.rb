@@ -17,7 +17,7 @@ module Fog
         end
         protected
 
-        def datastore_attributes datastore, datacenter
+        def datastore_attributes(datastore, datacenter)
           {
             :id          => managed_obj_id(datastore),
             :name        => datastore.name,

@@ -2,7 +2,7 @@ module Fog
   module Compute
     class Vsphere
       class Real
-        def create_vm attributes = {}
+        def create_vm(attributes = {})
           # build up vm configuration
 
           vm_cfg        = {
@@ -31,13 +31,13 @@ module Fog
 
         # this methods defines where the vm config files would be located,
         # by default we prefer to keep it at the same place the (first) vmdk is located
-        def vm_path_name attributes
+        def vm_path_name(attributes)
           datastore = attributes[:volumes].first.datastore unless attributes[:volumes].empty?
           datastore ||= 'datastore1'
           "[#{datastore}]"
         end
 
-        def device_change attributes
+        def device_change(attributes)
           devices = []
           if (nics = attributes[:interfaces])
             devices << nics.map { |nic| create_interface(nic, nics.index(nic), :add, attributes) }
@@ -50,7 +50,7 @@ module Fog
           devices.flatten
         end
 
-        def create_nic_backing nic, attributes
+        def create_nic_backing(nic, attributes)
           raw_network = get_raw_network(nic.network, attributes[:datacenter], if nic.virtualswitch then nic.virtualswitch end)
 
           if raw_network.kind_of? RbVmomi::VIM::DistributedVirtualPortgroup
@@ -65,7 +65,7 @@ module Fog
           end
         end
 
-        def create_interface nic, index = 0, operation = :add, attributes = {}
+        def create_interface(nic, index = 0, operation = :add, attributes = {})
           {
             :operation => operation,
             :device    => nic.type.new(
@@ -80,7 +80,7 @@ module Fog
           }
         end
 
-        def create_controller options = nil
+        def create_controller(options = nil)
           options = if options
                       controller_default_options.merge(Hash[options.map{|k,v| [k.to_sym,v] }])
                     else
@@ -105,7 +105,7 @@ module Fog
           { :operation => 'add', :type => RbVmomi::VIM.VirtualLsiLogicController.class, :key => 1000, :bus_id => 0, :shared => false }
         end
 
-        def controller_get_shared_from_options options
+        def controller_get_shared_from_options(options)
           if (options.has_key? :shared and options[:shared] == false) or not options.has_key? :shared then
             :noSharing
           elsif options[:shared] == true then
@@ -117,7 +117,7 @@ module Fog
           end
         end
 
-        def create_disk disk, index = 0, operation = :add, controller_key = 1000
+        def create_disk(disk, index = 0, operation = :add, controller_key = 1000)
           payload = {
             :operation     => operation,
             :fileOperation => operation == :add ? :create : :destroy,
@@ -141,7 +141,7 @@ module Fog
           payload
         end
 
-        def extra_config attributes
+        def extra_config(attributes)
           [
             {
               :key   => 'bios.bootOrder',
@@ -153,7 +153,7 @@ module Fog
       end
 
       class Mock
-        def create_vm attributes = {}
+        def create_vm(attributes = {})
         end
 
       end

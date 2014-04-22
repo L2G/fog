@@ -12,7 +12,7 @@ Shindo.tests('Fog::Compute[:vsphere]', ['vsphere']) do
         @parent = @_ref = 'vm-123'
       end
 
-      def collect! *pathSet
+      def collect!(*pathSet)
         { '_ref' => 'vm-123', 'name' => 'fakevm' }
       end
     end

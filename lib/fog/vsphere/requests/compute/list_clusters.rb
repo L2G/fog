@@ -16,7 +16,7 @@ module Fog
 
         protected
 
-        def cluster_attributes cluster, datacenter_name
+        def cluster_attributes(cluster, datacenter_name)
           {
             :id             => managed_obj_id(cluster),
             :name           => cluster.name,

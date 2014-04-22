@@ -37,7 +37,7 @@ module Fog
           self
         end
 
-        def set_target new_target
+        def set_target(new_target)
           new_target = new_target.self_link unless new_target.class == String
           self.target = new_target
           service.set_forwarding_rule_target(self, new_target)

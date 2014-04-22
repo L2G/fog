@@ -53,25 +53,25 @@ module Fog
           operation
         end
 
-        def add_instance instance
+        def add_instance(instance)
           instance = instance.self_link unless instance.class == String
           service.add_target_pool_instances(self, [instance])
           reload
         end
 
-        def remove_instance instance
+        def remove_instance(instance)
           instance = instance.self_link unless instance.class == String
           service.remove_target_pool_instances(self, [instance])
           reload
         end
 
-        def add_health_check health_check
+        def add_health_check(health_check)
           health_check = health_check.self_link unless health_check.class == String
           service.add_target_pool_health_checks(self, [health_check])
           reload
         end
 
-        def remove_health_check health_check
+        def remove_health_check(health_check)
           health_check = health_check.self_link unless health_check.class == String
           service.remove_target_pool_health_checks(self, [health_check])
           reload

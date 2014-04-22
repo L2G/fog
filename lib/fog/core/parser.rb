@@ -26,11 +26,11 @@ module Fog
       # ###############################################################################
       # This is a workaround. Original implementation from Nokogiri is overwritten with
       # one that does not join namespace prefix with local name.
-      def start_element_namespace name, attrs = [], prefix = nil, uri = nil, ns = []
+      def start_element_namespace(name, attrs = [], prefix = nil, uri = nil, ns = [])
         start_element name, attrs
       end
 
-      def end_element_namespace name, prefix = nil, uri = nil
+      def end_element_namespace(name, prefix = nil, uri = nil)
         end_element name
       end
 

@@ -186,22 +186,22 @@ module Fog
           attributes[:interfaces] ||= id.nil? ? [] : service.interfaces( :server => self )
         end
 
-        def interface_ready? attrs
+        def interface_ready?(attrs)
           (attrs.is_a? Hash and attrs[:blocking]) or attrs.is_a? Fog::Compute::Vsphere::Interface
         end
 
-        def add_interface attrs
+        def add_interface(attrs)
           Fog::Logger.deprecation('<server>.add_interface is deprecated. Call <server>.interfaces.create instead.')
 
           interfaces.create(attrs)
         end
 
-        def update_interface attrs
+        def update_interface(attrs)
           wait_for { not ready? } if interface_ready? attrs
           service.update_vm_interface(id, attrs)
         end
 
-        def destroy_interface attrs
+        def destroy_interface(attrs)
           Fog::Logger.deprecation('<server>.destroy_vm_interface is deprecated. Call <server>.interfaces.get(:key => <nic_key>).destroy instead.')
 
           interfaces.get(attrs[:key] || attrs['key']).destroy

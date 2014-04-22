@@ -4,7 +4,7 @@ module Fog
       module Shared
         private
 
-        def validate_instantiate_vapp_template_options options
+        def validate_instantiate_vapp_template_options(options)
           # :network_uri removed, if not specified will use template network config.
           valid_opts = [:catalog_item_uri, :name, :vdc_uri]
           unless valid_opts.all? { |opt| options.has_key?(opt) }
@@ -70,7 +70,7 @@ module Fog
       class Real
         include Shared
 
-        def instantiate_vapp_template options = {}
+        def instantiate_vapp_template(options = {})
           validate_instantiate_vapp_template_options options
           request(
             :body     => generate_instantiate_vapp_template_request(options),

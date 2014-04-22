@@ -9,31 +9,31 @@ module Fog
         attribute :path
         attribute :status
 
-        def clusters filters = {}
+        def clusters(filters = {})
           service.clusters({ :datacenter => path.join('/') }.merge(filters))
         end
 
-        def networks filters = {}
+        def networks(filters = {})
           service.networks({ :datacenter => path.join('/') }.merge(filters))
         end
 
-        def datastores filters = {}
+        def datastores(filters = {})
           service.datastores({ :datacenter => path.join('/') }.merge(filters))
         end
 
-        def vm_folders filters = {}
+        def vm_folders(filters = {})
           service.folders({ :datacenter => path.join('/'), :type => :vm }.merge(filters))
         end
 
-        def virtual_machines filters = {}
+        def virtual_machines(filters = {})
           service.servers({ :datacenter => path.join('/') }.merge(filters))
         end
 
-        def servertypes filters = {}
+        def servertypes(filters = {})
           service.servertypes({ :datacenter => name }.merge(filters))
         end
 
-        def customfields filters = {}
+        def customfields(filters = {})
           service.customfields({ :datacenter => path.join('/') }.merge(filters))
         end
 

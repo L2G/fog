@@ -23,7 +23,7 @@ module Fog
 
         private
 
-        def node_attr attr, xml
+        def node_attr(attr, xml)
           xml_element(xml, "sysinfo/system/entry[@name='#{attr}']").strip
         end
 

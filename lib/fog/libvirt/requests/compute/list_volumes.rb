@@ -35,7 +35,7 @@ module Fog
           }
         end
 
-        def bytes_to_gb bytes
+        def bytes_to_gb(bytes)
           bytes / 1024**3
         end
 
@@ -46,7 +46,7 @@ module Fog
           end
         end
 
-        def get_volume filter = {}, raw = false
+        def get_volume(filter = {}, raw = false)
           raw_volumes do |pool|
             vol = case filter.keys.first
                     when :name
@@ -71,7 +71,7 @@ module Fog
           [vol1, vol2]
         end
 
-        def mock_volume name
+        def mock_volume(name)
           {
               :pool_name   => 'vol.pool.name',
               :key         => 'vol.key',

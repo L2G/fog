@@ -20,7 +20,7 @@ module Fog
       module Shared
         private
 
-        def domain_display xml
+        def domain_display(xml)
           attrs = {}
           [:type, :port, :password, :listen].each do |element|
             attrs[element] = xml_element(xml, 'domain/devices/graphics',element.to_s) rescue nil
@@ -28,15 +28,15 @@ module Fog
           attrs.reject{|k,v| v.nil? or v == ''}
         end
 
-        def domain_volumes xml
+        def domain_volumes(xml)
           xml_elements(xml, 'domain/devices/disk/source', 'file')
         end
 
-        def boot_order xml
+        def boot_order(xml)
           xml_elements(xml, 'domain/os/boot', 'dev')
         end
 
-        def domain_interfaces xml
+        def domain_interfaces(xml)
           ifs = xml_elements(xml, 'domain/devices/interface')
           ifs.map { |i|
             nics.new({
@@ -80,7 +80,7 @@ module Fog
           [dom1, dom2, dom3]
         end
 
-        def mock_domain name
+        def mock_domain(name)
           xml = read_xml 'domain.xml'
           {
               :id              => 'dom.uuid',

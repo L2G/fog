@@ -35,7 +35,7 @@ module Fog
           child_folders(folder).flatten.compact
         end
 
-        def child_folders folder
+        def child_folders(folder)
           [folder, folder.childEntity.grep(RbVmomi::VIM::Folder).map(&method(:child_folders)).flatten]
         end
 

@@ -52,17 +52,17 @@ module Fog
           )
         end
 
-        def add_interface attrs
+        def add_interface(attrs)
           wait_for { stopped? } if attrs[:blocking]
           service.add_interface(id, attrs)
         end
 
-        def update_interface attrs
+        def update_interface(attrs)
           wait_for { stopped? } if attrs[:blocking]
           service.update_interface(id, attrs)
         end
 
-        def destroy_interface attrs
+        def destroy_interface(attrs)
           wait_for { stopped? } if attrs[:blocking]
           service.destroy_interface(id, attrs)
         end
@@ -74,12 +74,12 @@ module Fog
           )
         end
 
-        def add_volume attrs
+        def add_volume(attrs)
           wait_for { stopped? } if attrs[:blocking]
           service.add_volume(id, attrs)
         end
 
-        def destroy_volume attrs
+        def destroy_volume(attrs)
           wait_for { stopped? } if attrs[:blocking]
           service.destroy_volume(id, attrs)
         end

@@ -196,7 +196,7 @@ module Fog
           Fog::SSH.new(ssh_ip_address, username, credentials).run(commands)
         end
 
-        def update_display attrs = {}
+        def update_display(attrs = {})
           service.update_display attrs.merge(:uuid => uuid)
           reload
         end
@@ -376,7 +376,7 @@ module Fog
           %w[hd cdrom network]
         end
 
-        def verify_boot_order order = []
+        def verify_boot_order(order = [])
           if order
             order.each do |b|
               raise 'invalid boot order, possible values are: hd, network and/or cdrom' unless default_boot_order.include?(b)

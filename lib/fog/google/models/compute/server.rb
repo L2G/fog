@@ -173,7 +173,7 @@ module Fog
           zone.nil? ? nil : zone.split('/')[-1]
         end
 
-        def add_ssh_key username, key
+        def add_ssh_key(username, key)
           if self.metadata.nil?
             self.metadata = Hash.new('')
           end

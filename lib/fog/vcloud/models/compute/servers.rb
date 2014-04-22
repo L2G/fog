@@ -24,7 +24,7 @@ module Fog
           nil
         end
 
-        def create options
+        def create(options)
           check_href!
           options[:vdc_uri] = href
           data = service.instantiate_vapp_template(options).body

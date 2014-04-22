@@ -2,7 +2,7 @@ module Fog
   module Rackspace
     class Monitoring
       class Real
-        def get_monitoring_zone by_id
+        def get_monitoring_zone(by_id)
           request(
             :expects  => [200],
             :method   => 'GET',

@@ -19,7 +19,7 @@ module Fog
         end
 
         # return a hash of VNC attributes required to view the console
-        def vm_get_vnc uuid
+        def vm_get_vnc(uuid)
 
           search_filter = { :uuid => uuid, 'vmSearch' => true, 'instanceUuid' => true }
           vm = @connection.searchIndex.FindAllByUuid(search_filter).first
@@ -38,7 +38,7 @@ module Fog
           { 'task_state' => 'success' }
         end
 
-        def vm_get_vnc uuid
+        def vm_get_vnc(uuid)
           { :password => 'secret', :port => '5900', :enabled => 'true' }
         end
       end
