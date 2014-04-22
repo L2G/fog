@@ -47,7 +47,7 @@ module Fog
                             'NextRecordIdentifier' => nil,
                             'IsTruncated' => nil})
 
-          begin
+          loop do
             options = {
                 :name => next_record_name,
                 :type => next_record_type,
@@ -62,7 +62,8 @@ module Fog
             merge_attributes(batch.reject {|key, value| !['IsTruncated', 'MaxItems', 'NextRecordName', 'NextRecordType', 'NextRecordIdentifier'].include?(key)})
 
             data.concat(batch['ResourceRecordSets'])
-          end while is_truncated
+            break unless is_truncated
+          end
 
           load(data)
         end

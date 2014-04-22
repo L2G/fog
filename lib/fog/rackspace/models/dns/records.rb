@@ -25,7 +25,7 @@ module Fog
           return self unless block_given?
 
           entries = 0
-          begin
+          loop do
             body = service.list_records(zone.id, :offset => entries).body
             entries += body['records'].size
 
@@ -34,7 +34,8 @@ module Fog
             subset = dup.load(body['records'])
             subset.each_record_this_page {|record| yield record }
 
-          end while entries < total_entries
+            break unless entries < total_entries
+          end
 
           self
         end

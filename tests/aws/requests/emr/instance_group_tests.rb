@@ -70,14 +70,15 @@ Shindo.tests('AWS::EMR | instance groups', ['aws', 'emr']) do
       AWS[:emr].add_job_flow_steps(@job_flow_id, @job_flow_steps)
 
       # Wait until job has started before modifying the instance group
-      begin
+      loop do
         sleep 10
 
         result = AWS[:emr].describe_job_flows('JobFlowIds' => [@job_flow_id]).body
         job_flow = result['JobFlows'].first
         state = job_flow['ExecutionStatusDetail']['State']
         print "."
-      end while(state == 'STARTING')
+        break unless state == 'STARTING'
+      end
 
       # Check results
       result = AWS[:emr].modify_instance_groups('InstanceGroups' => [{'InstanceGroupId' => @instance_group_id, 'InstanceCount' => 4}]).body

@@ -12,10 +12,11 @@ module Fog
         def all
           ids = []
 
-          begin
+          loop do
             result = service.list_pipelines
             ids << result['pipelineIdList'].map { |id| id['id'] }
-          end while (result['hasMoreResults'] && result['marker'])
+            break unless (result['hasMoreResults'] && result['marker'])
+          end
 
           load(service.describe_pipelines(ids.flatten)['pipelineDescriptionList'])
         end

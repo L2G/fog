@@ -40,12 +40,13 @@ module Fog
         # This will execute a block for each snapshot, fetching new pages of snapshots as required.
         def each(filters = filters)
           if block_given?
-            begin
+            loop do
               page = self.all(filters)
               # We need to explicitly use the base 'each' method here on the page, otherwise we get infinite recursion
               base_each = Fog::Collection.instance_method(:each)
               base_each.bind(page).call { |snapshot| yield snapshot }
-            end while self.filters[:marker]
+              break unless self.filters[:marker]
+            end
           end
           self
         end
