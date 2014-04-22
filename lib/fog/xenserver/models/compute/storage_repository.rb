@@ -54,8 +54,7 @@ module Fog
           # host is not a model attribute (not in XAPI at least),
           # but we need it here
           host = attributes[:host]
-          raise ArgumentError.new('host is required for this operation') unless
-            host
+          raise ArgumentError.new('host is required for this operation') unless host
 
           # Not sure if this is always required, so not raising exception if nil
           device_config = attributes[:device_config]

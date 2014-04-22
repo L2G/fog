@@ -27,8 +27,9 @@ module Fog
 
       class Mock
         def delete_ec2_credential(user_id, access)
-          raise Fog::Identity::OpenStack::NotFound unless
-            self.data[:ec2_credentials][user_id][access]
+          unless self.data[:ec2_credentials][user_id][access]
+            raise Fog::Identity::OpenStack::NotFound
+          end
 
           self.data[:ec2_credentials][user_id].delete access
 

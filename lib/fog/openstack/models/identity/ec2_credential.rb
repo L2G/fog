@@ -24,8 +24,9 @@ module Fog
         end
 
         def save
-          raise Fog::Errors::Error, 'Existing credentials cannot be altered' if
-            access
+          if access
+            raise Fog::Errors::Error, 'Existing credentials cannot be altered'
+          end
 
           self.user_id   ||= user.id
           self.tenant_id ||= user.tenant_id
