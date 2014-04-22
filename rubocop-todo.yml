@@ -14,12 +14,6 @@ AccessorMethodName:
 AlignArray:
   Enabled: false
 
-# Offense count: 451
-# Cop supports --auto-correct.
-# Configuration parameters: EnforcedHashRocketStyle, EnforcedColonStyle, EnforcedLastArgumentHashStyle, SupportedLastArgumentHashStyles.
-AlignHash:
-  Enabled: false
-
 # Offense count: 2  --LINT--
 AmbiguousRegexpLiteral:
   Enabled: false
