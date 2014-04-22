@@ -15,11 +15,6 @@ AccessModifierIndentation:
 AccessorMethodName:
   Enabled: false
 
-# Offense count: 60
-# Cop supports --auto-correct.
-Alias:
-  Enabled: false
-
 # Offense count: 139
 # Cop supports --auto-correct.
 AlignArray:
