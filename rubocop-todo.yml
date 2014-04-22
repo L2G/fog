@@ -20,12 +20,6 @@ AlignArray:
 AlignHash:
   Enabled: false
 
-# Offense count: 106
-# Cop supports --auto-correct.
-# Configuration parameters: EnforcedStyle, SupportedStyles.
-AlignParameters:
-  Enabled: false
-
 # Offense count: 2  --LINT--
 AmbiguousRegexpLiteral:
   Enabled: false
