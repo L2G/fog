@@ -21,7 +21,7 @@ end
 
 def report(label, n = 10, &block)
   puts label
-  puts "%.4f" % n.times.map{ time_in_fork &block }.avg
+  puts "%.4f" % n.times.map{ time_in_fork(&block) }.avg
   puts
 end
 
