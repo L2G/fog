@@ -57,7 +57,6 @@ Shindo.tests('Fog::Compute[:aws] | image requests', ['aws']) do
 
       @server = Fog::Compute[:aws].servers.create
       @server.wait_for{state == 'running'}
-      @created_image
       tests("#create_image").formats(@create_image_format) do
         result = Fog::Compute[:aws].create_image(@server.id, 'Fog-Test-Image', 'Fog Test Image', false).body
         @created_image = Fog::Compute[:aws].images.get(result['imageId'])

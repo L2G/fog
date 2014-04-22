@@ -6,7 +6,6 @@ module Fog
         class InstantiateVappTemplate < TerremarkParser
 
           def reset
-            @property_key
             @response = { 'Links' => [] }
           end
 

@@ -58,9 +58,6 @@ module Fog
           data = service.create_dhcp_options(dhcp_configuration_set).body['dhcpOptionsSet'].first
           new_attributes = data.reject {|key,value| key == 'requestId'}
           merge_attributes(new_attributes)
-          true
-
-          true
         end
       end
     end

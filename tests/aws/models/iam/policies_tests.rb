@@ -15,9 +15,9 @@ Shindo.tests("Fog::Compute[:iam] | policies", ['aws','iam']) do
   tests('#create') do 
     tests('a valid policy').succeeds do
       policy = @user.policies.create(:id => @policy_name, :document => @policy_document)
-      policy.id == @policy_name
-      policy.username == @username
-      policy.document == @policy_document
+      policy.id == @policy_name &&
+        policy.username == @username &&
+        policy.document == @policy_document
     end
     
     # The mocking doesn't validate the document policy
@@ -35,9 +35,9 @@ Shindo.tests("Fog::Compute[:iam] | policies", ['aws','iam']) do
   tests('#get') do
     tests('a valid policy').succeeds do
       policy = @user.policies.get(@policy_name)
-      policy.id == @polic_name
-      policy.username == @username
-      policy.document == @policy_document   
+      policy.id == @policy_name &&
+        policy.username == @username &&
+        policy.document == @policy_document
     end
     
     tests('an invalid policy').succeeds do

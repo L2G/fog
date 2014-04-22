@@ -14,11 +14,11 @@ Shindo.tests("Fog::Compute[:iam] | access_keys", ['aws','iam']) do
   
   tests('#create','an access key').succeeds do
     access_key = @user.access_keys.create
-    access_key.id =~ /[A-Z0-9]{20}/
-    access_key.secret_access_key =~ /[\S]{40}/
-    access_key.status == "Active"
-    access_key.username == @username
     @access_key_id = access_key.id
+    access_key.id =~ /[A-Z0-9]{20}/ &&
+      access_key.secret_access_key =~ /[\S]{40}/ &&
+      access_key.status == "Active" &&
+      access_key.username == @username
   end
   
   @user.access_keys.create
@@ -30,10 +30,10 @@ Shindo.tests("Fog::Compute[:iam] | access_keys", ['aws','iam']) do
   tests('#get') do
     tests('a valid access key id').succeeds do
       access_key = @user.access_keys.get(@access_key_id)
-      access_key.id == @access_key_id
-      access_key.secret_access_key == nil
-      access_key.status == "Active"
-      access_key.username == @username
+      access_key.id == @access_key_id &&
+        access_key.secret_access_key == nil &&
+        access_key.status == "Active" &&
+        access_key.username == @username
     end
     
     tests('an invalid access key').succeeds do

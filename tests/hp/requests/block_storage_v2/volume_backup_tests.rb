@@ -62,10 +62,10 @@ Shindo.tests("Fog::HP::BlockStorageV2 | volume backup requests", ['hp', 'v2', 'b
       restored_volume_id = data['volume_id']
       restored_volume = HP[:block_storage_v2].get_volume_details(restored_volume_id).body['volume']
       test ('should create a new volume with backup restored') do
-        restored_volume['display_name'] == @volume.name
-        restored_volume['display_description'] == @volume.description
-        restored_volume['availability_zone'] == @volume.availability_zone
-        restored_volume['size'] == @volume.size
+        restored_volume['display_name'] == @volume.name &&
+          restored_volume['display_description'] == @volume.description &&
+          restored_volume['availability_zone'] == @volume.availability_zone &&
+          restored_volume['size'] == @volume.size
       end
       data
     end
@@ -76,11 +76,11 @@ Shindo.tests("Fog::HP::BlockStorageV2 | volume backup requests", ['hp', 'v2', 'b
       restored_volume_id = data['volume_id']
       restored_volume = HP[:block_storage_v2].get_volume_details(restored_volume_id).body['volume']
       test ('should overwrite the existing volume with backup restored') do
-        restored_volume['id'] == @target_volume.id
-        restored_volume['display_name'] == @volume.name
-        restored_volume['display_description'] == @volume.description
-        restored_volume['availability_zone'] == @volume.availability_zone
-        restored_volume['size'] == @volume.size
+        restored_volume['id'] == @target_volume.id &&
+          restored_volume['display_name'] == @volume.name &&
+          restored_volume['display_description'] == @volume.description &&
+          restored_volume['availability_zone'] == @volume.availability_zone &&
+          restored_volume['size'] == @volume.size
       end
       data
     end

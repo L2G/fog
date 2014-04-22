@@ -71,9 +71,6 @@ module Fog
           data = service.create_internet_gateway.body['internetGatewaySet'].first
           new_attributes = data.reject {|key,value| key == 'requestId'}
           merge_attributes(new_attributes)
-          true
-
-          true
         end
       end
     end
