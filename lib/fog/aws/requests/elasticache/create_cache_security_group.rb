@@ -41,7 +41,7 @@ module Fog
           Excon::Response.new(
               {
                   :body => {
-                      'ResponseMetadata'=>{ 'RequestId'=> Fog::AWS::Mock.request_id },
+                      'ResponseMetadata' => { 'RequestId' => Fog::AWS::Mock.request_id },
                       'CacheSecurityGroup' => data
                   }
               }

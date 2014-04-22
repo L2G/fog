@@ -1,17 +1,17 @@
 Shindo.tests('Fog::Compute[:cloudsigma] | server model', ['cloudsigma']) do
   service = Fog::Compute[:cloudsigma]
   servers = Fog::Compute[:cloudsigma].servers
-  server_create_args =  {:name => 'fogtest', :cpu => 2000, :mem => 512*1024**2, :vnc_password => 'myrandompass'}
+  server_create_args =  {:name => 'fogtest', :cpu => 2000, :mem => 512 * 1024**2, :vnc_password => 'myrandompass'}
 
   model_tests(servers, server_create_args, true) do
     tests('start_stop').succeeds do
       @instance.start
 
-      @instance.wait_for(timeout=60)  { status == 'running' }
+      @instance.wait_for(timeout = 60)  { status == 'running' }
 
       @instance.stop
 
-      @instance.wait_for(timeout=60)  { status == 'stopped' }
+      @instance.wait_for(timeout = 60)  { status == 'stopped' }
     end
 
     tests('attach_dhcp_nic').succeeds do
@@ -27,7 +27,7 @@ Shindo.tests('Fog::Compute[:cloudsigma] | server model', ['cloudsigma']) do
     tests('attach_vlan') do
       if Fog.mocking?
         # Do not buy subscription with real account
-        service.subscriptions.create({:period=>"1 month", :amount=>1, :resource=>"vlan"})
+        service.subscriptions.create({:period => "1 month", :amount => 1, :resource => "vlan"})
         vlan = service.vlans.first
         vlan.meta['name'] = 'fog-test'
         vlan.save

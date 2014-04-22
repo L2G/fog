@@ -54,7 +54,7 @@ module Fog
              "isextractable"           => false
           }
 
-          self.data[:volumes][volume_id]= volume
+          self.data[:volumes][volume_id] = volume
           {'createvolumeresponse' => volume}
         end
       end

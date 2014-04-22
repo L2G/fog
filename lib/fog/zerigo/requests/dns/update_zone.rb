@@ -26,33 +26,33 @@ module Fog
         #   * 'status'<~Integer> - 200 for success
         def update_zone(zone_id, options = {})
 
-          optional_tags= ''
+          optional_tags = ''
           options.each { |option, value|
             case option
             when :default_ttl
-              optional_tags+= "<default-ttl>#{value}</default-ttl>"
+              optional_tags += "<default-ttl>#{value}</default-ttl>"
             when :ns_type
-              optional_tags+= "<ns-type>#{value}</ns-type>"
+              optional_tags += "<ns-type>#{value}</ns-type>"
             when :ns1
-              optional_tags+= "<ns1>#{value}</ns1>"
+              optional_tags += "<ns1>#{value}</ns1>"
             when :nx_ttl
-              optional_tags+= "<nx-ttl type='interger'>#{value}</nx-ttl>"
+              optional_tags += "<nx-ttl type='interger'>#{value}</nx-ttl>"
             when :slave_nameservers
-              optional_tags+= "<slave-nameservers>#{value}</slave-nameservers>"
+              optional_tags += "<slave-nameservers>#{value}</slave-nameservers>"
             when :axfr_ips
-              optional_tags+= "<axfr-ips>#{value}</axfr-ips>"
+              optional_tags += "<axfr-ips>#{value}</axfr-ips>"
             when :custom_nameservers
-              optional_tags+= "<custom-nameservers>#{value}</custom-nameservers>"
+              optional_tags += "<custom-nameservers>#{value}</custom-nameservers>"
             when :custom_ns
-              optional_tags+= "<custom-ns>#{value}</custom-ns>"
+              optional_tags += "<custom-ns>#{value}</custom-ns>"
             when :hostmaster
-              optional_tags+= "<hostmaster>#{value}</hostmaster>"
+              optional_tags += "<hostmaster>#{value}</hostmaster>"
             when :notes
-              optional_tags+= "<notes>#{value}</notes>"
+              optional_tags += "<notes>#{value}</notes>"
             when :restrict_axfr
-              optional_tags+= "<restrict-axfr>#{value}</restrict-axfr>"
+              optional_tags += "<restrict-axfr>#{value}</restrict-axfr>"
             when :tag_list
-              optional_tags+= "<tag-list>#{value}</tag-list>"
+              optional_tags += "<tag-list>#{value}</tag-list>"
             end
           }
 

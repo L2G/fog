@@ -31,7 +31,7 @@ module Fog
             response.status = 200
             response.body = {
               "access" => {
-                "token"=> {
+                "token" => {
                   "id" => Fog::Mock.random_hex(32),
                   "expires" => (Time.now.utc + 86400).strftime("%Y-%m-%dT%H:%M:%S.%LZ"),
                   "tenant" => { "id" => compute_tenant, "name" => compute_tenant }

@@ -10,7 +10,7 @@ module Fog
 
     def self.keep(hash, *keys)
       {}.tap do |kept|
-        keys.each{|k| kept[k]= hash[k] if hash.key?(k)}
+        keys.each{|k| kept[k] = hash[k] if hash.key?(k)}
       end
     end
 

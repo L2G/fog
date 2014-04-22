@@ -41,7 +41,7 @@ Shindo.tests('Fog::Compute[:ibm] | image requests', ['ibm']) do
   @create_image_format = {
     "name"        => String,
     "createdTime" => Integer,
-    "productCodes"=> Array,
+    "productCodes" => Array,
     "id"          => String,
     "description" => String,
     "visibility"  => String,

@@ -136,19 +136,19 @@ module Fog
             end
 
             # add the default network
-            addresses = {'hpcloud' => [{'version'=>4, 'addr'=>Fog::HP::Mock.ip_address}] }
+            addresses = {'hpcloud' => [{'version' => 4, 'addr' => Fog::HP::Mock.ip_address}] }
             if networks = options['networks']
                networks.each do |_|
-                 addresses["Network #{rand(100)}"] = [{'version'=>4, 'addr'=>Fog::HP::Mock.ip_address}]
+                 addresses["Network #{rand(100)}"] = [{'version' => 4, 'addr' => Fog::HP::Mock.ip_address}]
                end
             end
 
             id = Fog::HP::Mock.uuid.to_s
             data = {
               'addresses' => addresses,
-              'flavor'    => {"id"=>"#{flavor_id}", "links"=>[{"href"=>"http://nova1:8774/admin/flavors/#{flavor_id}", "rel"=>"bookmark"}]},
+              'flavor'    => {"id" => "#{flavor_id}", "links" => [{"href" => "http://nova1:8774/admin/flavors/#{flavor_id}", "rel" => "bookmark"}]},
               'id'        => id,
-              'links'     => [{"href"=>"http://nova1:8774/v1.1/admin/servers/5", "rel"=>"self"}, {"href"=>"http://nova1:8774/admin/servers/5", "rel"=>"bookmark"}],
+              'links'     => [{"href" => "http://nova1:8774/v1.1/admin/servers/5", "rel" => "self"}, {"href" => "http://nova1:8774/admin/servers/5", "rel" => "bookmark"}],
               'hostId'    => '123456789ABCDEF01234567890ABCDEF',
               'metadata'  => options['metadata'] || {},
               'name'      => name || "server_#{rand(999)}",
@@ -161,7 +161,7 @@ module Fog
               'user_id'   => Fog::HP::Mock.user_id.to_s,
               'tenant_id' => Fog::Mock.random_numbers(14).to_s,
               'config_drive' => '',
-              'security_groups' => [{'name'=>"#{sec_group_name}"}],
+              'security_groups' => [{'name' => "#{sec_group_name}"}],
               'key_name'  => options['key_name'] || ''
             }
             self.data[:last_modified][:servers][data['id']] = Time.now

@@ -36,7 +36,7 @@ module Fog
             elsif @in_attachment_set
               case name
                 when 'item'
-                  @internet_gateway['attachmentSet']=@attachment
+                  @internet_gateway['attachmentSet'] = @attachment
                   @attachment = {}
                 when 'vpcId', 'state'
                   @attachment[name] = value

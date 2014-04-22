@@ -3,7 +3,7 @@ module Fog
     class Libvirt
       class Real
         def list_pools(filter = { })
-          data=[]
+          data = []
           if filter.has_key?(:name)
             data << find_pool_by_name(filter[:name])
           elsif filter.has_key?(:uuid)
@@ -18,7 +18,7 @@ module Fog
 
         private
         def pool_to_attributes(pool)
-          states=[:inactive, :building, :running, :degrated, :inaccessible]
+          states = [:inactive, :building, :running, :degrated, :inaccessible]
           {
             :uuid           => pool.uuid,
             :persistent     => pool.persistent?,

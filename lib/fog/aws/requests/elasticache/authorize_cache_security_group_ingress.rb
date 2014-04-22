@@ -45,7 +45,7 @@ module Fog
                 {
                     :status => 200,
                     :body => {
-                        'ResponseMetadata'=>{ 'RequestId'=> Fog::AWS::Mock.request_id },
+                        'ResponseMetadata' => { 'RequestId' => Fog::AWS::Mock.request_id },
                         'CacheSecurityGroup' => sec_group
                     }
                 }

@@ -40,7 +40,7 @@ module Fog
           if server_set = self.data[:servers].delete(identifier)
             response.status = 200
             response.body = {
-              "ResponseMetadata"=>{ "RequestId"=> Fog::AWS::Mock.request_id },
+              "ResponseMetadata" => { "RequestId" => Fog::AWS::Mock.request_id },
               "DeleteDBInstanceResult" => { "DBInstance" => server_set }
             }
             response

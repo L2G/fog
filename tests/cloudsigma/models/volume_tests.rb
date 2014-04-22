@@ -3,7 +3,7 @@ Shindo.tests('Fog::Compute[:cloudsigma] | volume model', ['cloudsigma']) do
   volume_create_args = {:name => 'fogmodeltest', :size => 1000**3, :media => :cdrom}
 
   model_tests(volumes, volume_create_args, true) do
-    @instance.wait_for(timeout=60) { status == 'unmounted' }
+    @instance.wait_for(timeout = 60) { status == 'unmounted' }
 
     tests('#update').succeeds do
       @instance.media = 'disk'
@@ -11,7 +11,7 @@ Shindo.tests('Fog::Compute[:cloudsigma] | volume model', ['cloudsigma']) do
       @instance.save
 
       @instance.reload
-      @instance.wait_for(timeout=60) { status == 'unmounted' }
+      @instance.wait_for(timeout = 60) { status == 'unmounted' }
 
       #returns(1024**3) { @instance.size }
       returns('disk') { @instance.media }

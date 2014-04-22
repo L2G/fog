@@ -14,7 +14,7 @@ Shindo.tests("Fog::Compute[:vsphere] | vm_clone request", 'vsphere') do
     %w{ vm_ref new_vm task_ref }.each do |key|
       test("have a #{key} key") { response.has_key? key }
     end
-    test("creates a new server") { compute.servers.size == servers_size+1 }
+    test("creates a new server") { compute.servers.size == servers_size + 1 }
     test("new server name is set") { compute.get_virtual_machine(response['new_vm']['id'])['name'] == 'cloning_vm' }
   end
 
@@ -25,7 +25,7 @@ Shindo.tests("Fog::Compute[:vsphere] | vm_clone request", 'vsphere') do
     %w{ vm_ref new_vm task_ref }.each do |key|
       test("have a #{key} key") { response.has_key? key }
     end
-    test("creates a new server") { compute.servers.size == servers_size+1 }
+    test("creates a new server") { compute.servers.size == servers_size + 1 }
     test("new server name is set") { compute.get_virtual_machine(response['new_vm']['id'])['name'] == 'cloning_vm' }
   end
 
@@ -36,7 +36,7 @@ Shindo.tests("Fog::Compute[:vsphere] | vm_clone request", 'vsphere') do
     %w{ vm_ref new_vm task_ref }.each do |key|
       test("have a #{key} key") { response.has_key? key }
     end
-    test("creates a new server") { compute.servers.size == servers_size+1 }
+    test("creates a new server") { compute.servers.size == servers_size + 1 }
     test("new server name is set") { compute.get_virtual_machine(response['new_vm']['id'])['name'] == 'cloning_vm_linked' }
   end
 

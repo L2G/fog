@@ -11,7 +11,7 @@ module Fog
             begin
               connection = options[:connection] || Excon.new(INSTANCE_METADATA_HOST)
               role_name = connection.get(:path => INSTANCE_METADATA_PATH, :expects => 200).body
-              role_data = connection.get(:path => INSTANCE_METADATA_PATH+role_name, :expects => 200).body
+              role_data = connection.get(:path => INSTANCE_METADATA_PATH + role_name, :expects => 200).body
 
               session = Fog::JSON.decode(role_data)
               credentials = {}

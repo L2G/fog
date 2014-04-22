@@ -23,7 +23,7 @@ module Fog
           response = Excon::Response.new
           response.status = 200
           response.body = {
-            "values"=> [
+            "values" => [
               {
                 "id"           => entity_id,
                 "label"        => entity_label,

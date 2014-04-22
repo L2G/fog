@@ -21,7 +21,7 @@ module Fog
         def associate_address(server_id, ip_address)
           response = Excon::Response.new
           if server = self.data[:servers][server_id]
-            data = {"version"=>4, "addr"=>"#{ip_address}"}
+            data = {"version" => 4, "addr" => "#{ip_address}"}
             if server['addresses']['private']
               server['addresses']['private'] << data
             else

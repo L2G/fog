@@ -44,11 +44,11 @@ module Fog
           route_table = self.data[:route_tables].find { |routetable| routetable["routeTableId"].eql? route_table_id }
           if !route_table.nil? && destination_cidr_block
             if !options['gatewayId'].nil? || !options['instanceId'].nil? || !options['networkInterfaceId'].nil?
-              if !options['gatewayId'].nil? && self.internet_gateways.all('internet-gateway-id'=>options['gatewayId']).first.nil?
+              if !options['gatewayId'].nil? && self.internet_gateways.all('internet-gateway-id' => options['gatewayId']).first.nil?
                 raise Fog::Compute::AWS::NotFound.new("The gateway ID '#{options['gatewayId']}' does not exist")
-              elsif !options['instanceId'].nil? && self.servers.all('instance-id'=>options['instanceId']).first.nil?
+              elsif !options['instanceId'].nil? && self.servers.all('instance-id' => options['instanceId']).first.nil?
                 raise Fog::Compute::AWS::NotFound.new("The instance ID '#{options['instanceId']}' does not exist")
-              elsif !options['networkInterfaceId'].nil? && self.network_interfaces.all('networkInterfaceId'=>options['networkInterfaceId']).first.nil?
+              elsif !options['networkInterfaceId'].nil? && self.network_interfaces.all('networkInterfaceId' => options['networkInterfaceId']).first.nil?
                 raise Fog::Compute::AWS::NotFound.new("The networkInterface ID '#{options['networkInterfaceId']}' does not exist")
               elsif route_table['routeSet'].find { |route| route['destinationCidrBlock'].eql? destination_cidr_block }.nil?
                 raise Fog::Compute::AWS::Error, "RouteAlreadyExists => The route identified by #{destination_cidr_block} doesn't exist."
@@ -61,7 +61,7 @@ module Fog
 
                 response.status = 200
                 response.body = {
-                  'requestId'=> Fog::AWS::Mock.request_id,
+                  'requestId' => Fog::AWS::Mock.request_id,
                   'return' => true
                 }
                 response

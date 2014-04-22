@@ -34,7 +34,7 @@ module Fog
       model      :vault
       collection :vaults
 
-      MEGABYTE = 1024*1024
+      MEGABYTE = 1024 * 1024
 
       class TreeHash
 
@@ -46,7 +46,7 @@ module Fog
           while digests.length > 1
             digests = digests.each_slice(2).collect do |pair|
               if pair.length == 2
-                Digest::SHA256.digest(pair[0]+pair[1])
+                Digest::SHA256.digest(pair[0] + pair[1])
               else
                 pair.first
               end

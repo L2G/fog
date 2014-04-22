@@ -14,7 +14,7 @@ module Fog
         # * response<~Excon::Response>:
         #   * body<~Hash>:
         def describe_db_parameter_groups(name=nil, opts={})
-          params={}
+          params = {}
           if opts[:marker]
             params['Marker'] = opts[:marker]
           end
@@ -51,7 +51,7 @@ module Fog
 
           response.status = 200
           response.body = {
-            "ResponseMetadata"=>{ "RequestId"=> Fog::AWS::Mock.request_id },
+            "ResponseMetadata" => { "RequestId" => Fog::AWS::Mock.request_id },
             "DescribeDBParameterGroupsResult" => { "DBParameterGroups" => parameter_set }
           }
           response

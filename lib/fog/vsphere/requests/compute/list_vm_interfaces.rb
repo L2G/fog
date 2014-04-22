@@ -50,7 +50,7 @@ module Fog
           else
             raise ArgumentError, "Either key or name is a required parameter. options: #{options}" unless options.has_key? :key or options.has_key? :mac or options.has_key? :name
             list_vm_interfaces(vm_id).find do | nic |
-              (options.has_key? :key and nic[:key]==options[:key].to_i) or (options.has_key? :mac and nic[:mac]==options[:mac]) or (options.has_key? :name and nic[:name]==options[:name])
+              (options.has_key? :key and nic[:key] == options[:key].to_i) or (options.has_key? :mac and nic[:mac] == options[:mac]) or (options.has_key? :name and nic[:name] == options[:name])
             end
           end
         end

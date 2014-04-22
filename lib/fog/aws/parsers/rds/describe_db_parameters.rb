@@ -6,7 +6,7 @@ module Fog
         class DescribeDBParameters < Fog::Parsers::Base
 
           def reset
-            @response = { 'DescribeDBParametersResult' =>{}, 'ResponseMetadata' => {} }
+            @response = { 'DescribeDBParametersResult' => {}, 'ResponseMetadata' => {} }
             @parameter = {}
             @parameters = []
           end

@@ -15,7 +15,7 @@ Shindo.tests('AWS::CloudWatch | metric requests', ['aws', 'cloudwatch']) do
           }],
         'NextToken' => Fog::Nullable::String,
       },
-      'ResponseMetadata' => {"RequestId"=> String},
+      'ResponseMetadata' => {"RequestId" => String},
     }
     @instanceId = 'i-2f3eab59'
     @dimension_filtered_metrics_list_format = {
@@ -32,7 +32,7 @@ Shindo.tests('AWS::CloudWatch | metric requests', ['aws', 'cloudwatch']) do
           }],
         'NextToken' => Fog::Nullable::String,
       },
-      'ResponseMetadata' => {"RequestId"=> String},
+      'ResponseMetadata' => {"RequestId" => String},
     }
 
     tests("#list_metrics").formats(@metrics_list_format) do

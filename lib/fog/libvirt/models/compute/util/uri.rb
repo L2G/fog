@@ -10,8 +10,8 @@ module Fog
         attr_reader :uri
 
         def initialize(uri)
-          @parsed_uri=::URI.parse(uri)
-          @uri=uri
+          @parsed_uri = ::URI.parse(uri)
+          @uri = uri
           return self
         end
 
@@ -19,7 +19,7 @@ module Fog
         # The part after the plus sign
         # f.i. qemu+ssh
         def transport
-          scheme=@parsed_uri.scheme
+          scheme = @parsed_uri.scheme
           return nil if scheme.nil?
 
           return scheme.split(/\+/)[1]
@@ -30,7 +30,7 @@ module Fog
         end
 
         def driver
-          scheme=@parsed_uri.scheme
+          scheme = @parsed_uri.scheme
           return nil if scheme.nil?
 
           return scheme.split(/\+/).first
@@ -85,10 +85,10 @@ module Fog
         end
 
         def no_verify?
-          no_verify=value("no_verify")
+          no_verify = value("no_verify")
           return false if no_verify.nil?
 
-          if no_verify.to_s=="0"
+          if no_verify.to_s == "0"
             return false
           else
             return true
@@ -100,11 +100,11 @@ module Fog
         end
 
         def no_tty?
-          no_tty=value("no_tty")
+          no_tty = value("no_tty")
 
           return false if no_tty.nil?
 
-          if no_tty=="0"
+          if no_tty == "0"
             return false
           else
             return true
@@ -126,7 +126,7 @@ module Fog
         private
         def value(name)
           unless @parsed_uri.query.nil?
-            params=CGI.parse(@parsed_uri.query)
+            params = CGI.parse(@parsed_uri.query)
             if params.has_key?(name)
               return params[name].first
             else

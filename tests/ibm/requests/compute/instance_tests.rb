@@ -25,7 +25,7 @@ Shindo.tests('Fog::Compute[:ibm] | instance requests', ['ibm']) do
     'secondaryIP'   => Array,
     'status'        => Integer,
     'software'      => Array,
-    'expirationTime'=> Integer,
+    'expirationTime' => Integer,
     'owner'         => String,
   }
 

@@ -21,7 +21,7 @@ Shindo.tests('Fog::Storage[:rackspace] | container requests', ["rackspace"]) do
     end
 
     tests("#put_container('fogcontainertests', 'X-Container-Meta-Color'=>'green')").succeeds do
-      Fog::Storage[:rackspace].put_container('fogcontainertests', 'X-Container-Meta-Color'=>'green')
+      Fog::Storage[:rackspace].put_container('fogcontainertests', 'X-Container-Meta-Color' => 'green')
       response = Fog::Storage[:rackspace].head_container('fogcontainertests')
       returns('green') { response.headers['X-Container-Meta-Color'] }
     end

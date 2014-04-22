@@ -36,7 +36,7 @@ module Fog
           params = {}
           tags.each_with_index do |tag, i|
             tag.each do |key, value|
-              params["Tags.member.#{i+1}.#{key}"] = value unless value.nil?
+              params["Tags.member.#{i + 1}.#{key}"] = value unless value.nil?
             end
           end
           request({

@@ -79,12 +79,12 @@ module Fog
         private
 
         def defaults
-          default_type=Fog.credentials[:default_nic_type] || RbVmomi::VIM::VirtualE1000
+          default_type = Fog.credentials[:default_nic_type] || RbVmomi::VIM::VirtualE1000
           {
-            :name=>"Network adapter",
-            :network=>"VM Network",
-            :summary=>"VM Network",
-            :type=> Fog::Vsphere.class_from_string(default_type, "RbVmomi::VIM"),
+            :name => "Network adapter",
+            :network => "VM Network",
+            :summary => "VM Network",
+            :type => Fog::Vsphere.class_from_string(default_type, "RbVmomi::VIM"),
           }
         end
 

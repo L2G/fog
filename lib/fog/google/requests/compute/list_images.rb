@@ -20,7 +20,7 @@ module Fog
 
         def list_images(project=nil)
           api_method = @compute.images.list
-          project=@project if project.nil?
+          project = @project if project.nil?
           parameters = {
             'project' => project
           }

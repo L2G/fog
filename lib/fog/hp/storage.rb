@@ -231,7 +231,7 @@ module Fog
           # the @os_account_meta_temp_url_key is given.
           if @os_account_meta_temp_url_key then
             hmac      = OpenSSL::HMAC.new(@os_account_meta_temp_url_key, OpenSSL::Digest::SHA1.new)
-            signature= hmac.update(string_to_sign).hexdigest
+            signature = hmac.update(string_to_sign).hexdigest
           else
             # Only works with 1.9+ Not compatible with 1.8.7
             #signed_string = Digest::HMAC.hexdigest(string_to_sign, @hp_secret_key, Digest::SHA1)

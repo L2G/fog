@@ -25,11 +25,11 @@ module Libvirt # deviates from other bin stuff to accomodate gem
 
     def available?
       begin
-        availability=true unless Gem::Specification::find_by_name("ruby-libvirt").nil?
+        availability = true unless Gem::Specification::find_by_name("ruby-libvirt").nil?
       rescue Gem::LoadError
-        availability=false
+        availability = false
       rescue
-        availability_gem=Gem.available?("ruby-libvirt")
+        availability_gem = Gem.available?("ruby-libvirt")
       end
 
       if availability

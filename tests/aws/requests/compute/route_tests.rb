@@ -66,7 +66,7 @@ Shindo.tests('Fog::Compute[:aws] | route table requests', ['aws']) do
 
     # Test associate_route_table
     #
-    tests("#associate_route_table('#{@route_table_id}', '#{@subnet_id}')").formats({'requestId'=>String, 'associationId'=>String}) do
+    tests("#associate_route_table('#{@route_table_id}', '#{@subnet_id}')").formats({'requestId' => String, 'associationId' => String}) do
       data = Fog::Compute[:aws].associate_route_table(@route_table_id, @subnet_id).body
       @association_id = data['associationId']
       data
@@ -136,7 +136,7 @@ Shindo.tests('Fog::Compute[:aws] | route table requests', ['aws']) do
       Fog::Compute[:aws].delete_route(@route_table_id, '10.0.10.0/22').body
     end
 
-    Fog::Compute[:aws].servers.all('instance-id'=>instance.id).first.destroy
+    Fog::Compute[:aws].servers.all('instance-id' => instance.id).first.destroy
     if !Fog.mocking?
       instance.wait_for { state.eql? "terminated" }
     end
@@ -276,7 +276,7 @@ Shindo.tests('Fog::Compute[:aws] | route table requests', ['aws']) do
     # Test describe_route_tables
     #   - passing a nonexisiting vpc
     #
-    tests("#describe_route_tables('vpc-id' => 'vpc-00000000").formats({'routeTableSet'=>Array, 'requestId'=>String}) do
+    tests("#describe_route_tables('vpc-id' => 'vpc-00000000").formats({'routeTableSet' => Array, 'requestId' => String}) do
       Fog::Compute[:aws].describe_route_tables('vpc-id' => 'vpc-00000000').body
     end
 
@@ -320,7 +320,7 @@ Shindo.tests('Fog::Compute[:aws] | route table requests', ['aws']) do
       Fog::Compute[:aws].delete_route_table(@route_table_id)
     end
 
-    Fog::Compute[:aws].servers.all('instance-id'=>instance.id).first.destroy
+    Fog::Compute[:aws].servers.all('instance-id' => instance.id).first.destroy
     if !Fog.mocking?
       instance.wait_for { state.eql? "terminated" }
     end

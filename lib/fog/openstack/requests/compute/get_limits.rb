@@ -43,7 +43,7 @@ module Fog
                   'verb'           => 'POST',
                   'remaining'      => 50,
                   'value'          => 50} ],
-              'uri'=>'*/servers' },
+              'uri' => '*/servers' },
             { 'regex' => '.*changes-since.*',
               'limit' => [
                 { 'next-available' => '2012-11-23T00:46:14Z',

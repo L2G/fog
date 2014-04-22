@@ -104,7 +104,7 @@ module Fog
           case type
           when 'private'
             {
-              "AccessControlList"=> [
+              "AccessControlList" => [
                 {
                   "Permission" => "FULL_CONTROL",
                   "Scope" => {"ID" => "2744ccd10c7533bd736ad890f9dd5cab2adb27b07d500b9493f29cdc420cb2e0", "type" => "UserById"}
@@ -114,7 +114,7 @@ module Fog
             }
           when 'public-read'
             {
-              "AccessControlList"=> [
+              "AccessControlList" => [
                 {
                   "Permission" => "FULL_CONTROL",
                   "Scope" => {"ID" => "2744ccd10c7533bd736ad890f9dd5cab2adb27b07d500b9493f29cdc420cb2e0", "type" => "UserById"}
@@ -128,7 +128,7 @@ module Fog
             }
           when 'public-read-write'
             {
-              "AccessControlList"=> [
+              "AccessControlList" => [
                 {
                   "Permission" => "FULL_CONTROL",
                   "Scope" => {"ID" => "2744ccd10c7533bd736ad890f9dd5cab2adb27b07d500b9493f29cdc420cb2e0", "type" => "UserById"}
@@ -146,7 +146,7 @@ module Fog
             }
           when 'authenticated-read'
             {
-              "AccessControlList"=> [
+              "AccessControlList" => [
                 {
                   "Permission" => "FULL_CONTROL",
                   "Scope" => {"ID" => "2744ccd10c7533bd736ad890f9dd5cab2adb27b07d500b9493f29cdc420cb2e0", "type" => "UserById"}

@@ -22,7 +22,7 @@ module Fog
 
           health_results = target_pool.instances.collect do |instance|
             body = { 'instance' => instance }
-            resp = build_response(build_result(api_method, parameters, body_object=body))
+            resp = build_response(build_result(api_method, parameters, body_object = body))
             [instance, resp.data[:body]['healthStatus']]
           end
           Hash[health_results]

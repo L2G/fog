@@ -40,7 +40,7 @@ module Fog
               response = Excon::Response.new
               response.status = 200
               response.body = {
-                'requestId'=> Fog::AWS::Mock.request_id,
+                'requestId' => Fog::AWS::Mock.request_id,
                 'return' => true
               }
               response

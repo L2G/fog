@@ -15,7 +15,7 @@ module Fog
         def all
           check_href!("Vapp")
           vapp.load_unless_loaded!
-          load(vapp.children||[])
+          load(vapp.children || [])
         end
 
         def get(uri)

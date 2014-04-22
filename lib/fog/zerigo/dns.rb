@@ -88,7 +88,7 @@ module Fog
 
         def request(params)
           params[:headers] ||= {}
-          key= "#{@zerigo_email}:#{@zerigo_token}"
+          key = "#{@zerigo_email}:#{@zerigo_token}"
           params[:headers].merge!({
             'Authorization' => "Basic #{Base64.encode64(key).delete("\r\n")}"
           })

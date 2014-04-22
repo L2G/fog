@@ -56,7 +56,7 @@ module Fog
             "X-RateLimit-Remaining" => "49627",
             "X-RateLimit-Window"    => "24 hours",
             "X-RateLimit-Type"      => "global",
-            "X-Response-Id"         =>" zsdvasdtrq345",
+            "X-Response-Id"         => " zsdvasdtrq345",
             "X-LB"                  => "dfw1-maas-prod-api0",
             "Vary"                  => "Accept-Encoding",
             "Transfer-Encoding"     => "chunked"

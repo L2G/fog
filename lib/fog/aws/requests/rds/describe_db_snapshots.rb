@@ -58,7 +58,7 @@ module Fog
           # Build response
           response.status = 200
           response.body = {
-            "ResponseMetadata"=>{ "RequestId"=> Fog::AWS::Mock.request_id },
+            "ResponseMetadata" => { "RequestId" => Fog::AWS::Mock.request_id },
             "DescribeDBSnapshotsResult" => { "DBSnapshots" => snapshots }
           }
           response

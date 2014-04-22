@@ -33,12 +33,12 @@ module Fog
       class Mock
         def get_organizations
           body =
-            {:href=>make_href('org/'),
-             :type=>"application/vnd.vmware.vcloud.orgList+xml",
-             :Org=>
-              [{:href=>make_href("org/#{data[:org][:uuid]}"),
-                :name=>data[:org][:name],
-                :type=>"application/vnd.vmware.vcloud.org+xml"}]}
+            {:href => make_href('org/'),
+             :type => "application/vnd.vmware.vcloud.orgList+xml",
+             :Org =>
+              [{:href => make_href("org/#{data[:org][:uuid]}"),
+                :name => data[:org][:name],
+                :type => "application/vnd.vmware.vcloud.org+xml"}]}
 
           Excon::Response.new(
             :body => body,

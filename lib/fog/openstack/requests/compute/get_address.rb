@@ -22,7 +22,7 @@ module Fog
             "X-Compute-Request-Id" => "req-d4a21158-a86c-44a6-983a-e25645907f26",
             "Content-Type" => "application/json",
             "Content-Length" => "105",
-            "Date"=> Date.new
+            "Date" => Date.new
           }
           response.body = {
             "floating_ip" => {

@@ -36,17 +36,17 @@ module Fog
           response = Excon::Response.new
           response.status = 200
           response.body = [{
-            'count'=>143,
-            'duration_start'=>'2013-04-03T23:44:21',
-            'min'=>10.0,
-            'max'=>10.0,
-            'duration_end'=>'2013-04-04T23:24:21',
-            'period'=>0,
-            'period_end'=>'2013-04-04T23:24:21',
-            'duration'=>85200.0,
-            'period_start'=>'2013-04-03T23:44:21',
-            'avg'=>10.0,
-            'sum'=>1430.0}]
+            'count' => 143,
+            'duration_start' => '2013-04-03T23:44:21',
+            'min' => 10.0,
+            'max' => 10.0,
+            'duration_end' => '2013-04-04T23:24:21',
+            'period' => 0,
+            'period_end' => '2013-04-04T23:24:21',
+            'duration' => 85200.0,
+            'period_start' => '2013-04-03T23:44:21',
+            'avg' => 10.0,
+            'sum' => 1430.0}]
           response
         end
       end

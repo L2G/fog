@@ -2,14 +2,14 @@ Shindo.tests('Fog::Compute::RackspaceV2 | virtual_interface_tests', ['rackspace'
   @service   = Fog::Compute.new(:provider => 'Rackspace', :version => 'V2')
 
   virtual_interface_format = {
-    "virtual_interfaces"=> [{
-      "ip_addresses"=> [{
-        "network_id"=> String,
-        "network_label"=> String,
-        "address"=> String
+    "virtual_interfaces" => [{
+      "ip_addresses" => [{
+        "network_id" => String,
+        "network_label" => String,
+        "address" => String
       }],
-      "id"=> String,
-      "mac_address"=> String
+      "id" => String,
+      "mac_address" => String
     }]
   }
 

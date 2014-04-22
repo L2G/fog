@@ -25,11 +25,11 @@ module Vmfusion # deviates from other bin stuff to accomodate gem
 
     def available?
       begin
-        availability=true unless Gem::Specification::find_by_name("fission").nil?
+        availability = true unless Gem::Specification::find_by_name("fission").nil?
       rescue Gem::LoadError
-        availability=false
+        availability = false
       rescue
-        availability_gem=Gem.available?("fission")
+        availability_gem = Gem.available?("fission")
       end
 
       if availability

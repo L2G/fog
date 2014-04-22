@@ -42,16 +42,16 @@ module Fog
           if sec_group = self.data[:security_groups][name]
             if opts.key?('CIDRIP')
               sec_group['IPRanges'].each do |iprange|
-                iprange['Status']= 'revoking' if iprange['CIDRIP'] == opts['CIDRIP']
+                iprange['Status'] = 'revoking' if iprange['CIDRIP'] == opts['CIDRIP']
               end
             else
               sec_group['EC2SecurityGroups'].each do |ec2_secg|
-                ec2_secg['Status']= 'revoking' if ec2_secg['EC2SecurityGroupName'] == opts['EC2SecurityGroupName']
+                ec2_secg['Status'] = 'revoking' if ec2_secg['EC2SecurityGroupName'] == opts['EC2SecurityGroupName']
               end
             end
             response.status = 200
             response.body = {
-              "ResponseMetadata"=>{ "RequestId"=> Fog::AWS::Mock.request_id },
+              "ResponseMetadata" => { "RequestId" => Fog::AWS::Mock.request_id },
               'RevokeDBSecurityGroupIngressResult' => {
                 'DBSecurityGroup' => sec_group
               }

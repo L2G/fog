@@ -40,7 +40,7 @@ module Fog
               {"virtualmachine" => server}
           }
 
-          self.data[:jobs][job_id]= job
+          self.data[:jobs][job_id] = job
           self.data[:servers].delete(identity)
 
           {"destroyvirtualmachineresponse" => {"jobid" => job_id}}

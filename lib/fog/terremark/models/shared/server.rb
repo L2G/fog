@@ -175,9 +175,9 @@ module Fog
           if powerOn
           end
           data = service.instantiate_vapp_template(
-              server_name=name,
-              vapp_template=image,
-              options={
+              server_name = name,
+              vapp_template = image,
+              options = {
                   'ssh_key_fingerprint' => sshkeyFingerPrint,
                   'cpus' => vcpus,
                   'memory' => memory

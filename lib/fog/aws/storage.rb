@@ -140,7 +140,7 @@ module Fog
         def signed_url(params, expires)
           expires = expires.to_i
           if @aws_session_token
-            params[:headers]||= {}
+            params[:headers] ||= {}
             params[:headers]['x-amz-security-token'] = @aws_session_token
           end
           signature = signature(params, expires)

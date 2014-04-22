@@ -46,11 +46,11 @@ module Fog
           route_table = self.data[:route_tables].find { |routetable| routetable["routeTableId"].eql? route_table_id }
           if !route_table.nil? && destination_cidr_block
             if !internet_gateway_id.nil? || !instance_id.nil? || !network_interface_id.nil?
-              if !internet_gateway_id.nil? && self.internet_gateways.all('internet-gateway-id'=>internet_gateway_id).first.nil?
+              if !internet_gateway_id.nil? && self.internet_gateways.all('internet-gateway-id' => internet_gateway_id).first.nil?
                 raise Fog::Compute::AWS::NotFound.new("The gateway ID '#{internet_gateway_id}' does not exist")
-              elsif !instance_id.nil? && self.servers.all('instance-id'=>instance_id).first.nil?
+              elsif !instance_id.nil? && self.servers.all('instance-id' => instance_id).first.nil?
                 raise Fog::Compute::AWS::NotFound.new("The instance ID '#{instance_id}' does not exist")
-              elsif !network_interface_id.nil? && self.network_interfaces.all('networkInterfaceId'=>network_interface_id).first.nil?
+              elsif !network_interface_id.nil? && self.network_interfaces.all('networkInterfaceId' => network_interface_id).first.nil?
                 raise Fog::Compute::AWS::NotFound.new("The networkInterface ID '#{network_interface_id}' does not exist")
               elsif !route_table['routeSet'].find { |route| route['destinationCidrBlock'].eql? destination_cidr_block }.nil?
                 raise Fog::Compute::AWS::Error, "RouteAlreadyExists => The route identified by #{destination_cidr_block} already exists."
@@ -59,15 +59,15 @@ module Fog
                 route_table['routeSet'].push({
                   "destinationCidrBlock" => destination_cidr_block,
                   "gatewayId" => internet_gateway_id,
-                  "instanceId"=>instance_id,
-                  "instanceOwnerId"=>instance_owner_id,
-                  "networkInterfaceId"=>network_interface_id,
+                  "instanceId" => instance_id,
+                  "instanceOwnerId" => instance_owner_id,
+                  "networkInterfaceId" => network_interface_id,
                   "state" => "pending",
                   "origin" => "CreateRoute"
                 })
                 response.status = 200
                 response.body = {
-                  'requestId'=> Fog::AWS::Mock.request_id,
+                  'requestId' => Fog::AWS::Mock.request_id,
                   'return' => true
                 }
                 response

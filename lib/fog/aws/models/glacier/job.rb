@@ -17,12 +17,12 @@ module Fog
         attribute :completed_at,    :aliases => "CompletionDate", :type => :time
         attribute :created_at,      :aliases => "CreationDate", :type => :time
         attribute :inventory_size,  :aliases => "InventorySizeInBytes", :type => :integer
-        attribute :description,     :aliases=> "JobDescription"
-        attribute :tree_hash,       :aliases=> "SHA256TreeHash"
+        attribute :description,     :aliases => "JobDescription"
+        attribute :tree_hash,       :aliases => "SHA256TreeHash"
         attribute :sns_topic,       :aliases => "SNSTopic"
-        attribute :status_code,     :aliases=> "StatusCode"
-        attribute :status_message,  :aliases=> "StatusMessage"
-        attribute :vault_arn,       :aliases=> "VaultARN"
+        attribute :status_code,     :aliases => "StatusCode"
+        attribute :status_message,  :aliases => "StatusMessage"
+        attribute :vault_arn,       :aliases => "VaultARN"
         attribute :format
         attribute :type
 

@@ -87,7 +87,7 @@ module Fog
               @in_db_security_groups = false
               @db_instance['DBSecurityGroups'] = @db_security_groups
             when 'DBSecurityGroupName'
-              @db_security_group[name]=value
+              @db_security_group[name] = value
             when 'DBSecurityGroup'
               @db_security_groups << @db_security_group
               @db_security_group = {}
@@ -117,7 +117,7 @@ module Fog
               # Unfortunately, status is used in VpcSecurityGroupMemebership and
               # DBSecurityGroups
               if @in_db_security_groups
-                @db_security_group[name]=value
+                @db_security_group[name] = value
               end
               if @in_vpc_security_groups
                 @vpc_security_group[name] = value

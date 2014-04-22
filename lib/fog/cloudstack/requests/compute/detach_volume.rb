@@ -26,7 +26,7 @@ module Fog
             raise Fog::Compute::Cloudstack::BadRequest.new("Unable to execute API command attachvolume due to invalid value. Object volumes(uuid: #{volume_id}) does not exist.")
           end
 
-          volume['virtualmachineid']= volume['vmname']= volume['vmdisplayname']= nil
+          volume['virtualmachineid'] = volume['vmname'] = volume['vmdisplayname'] = nil
 
           job_id = Fog::Cloudstack.uuid
 
@@ -48,7 +48,7 @@ module Fog
               {"volume"     => volume}
           }
 
-          self.data[:jobs][job_id]= job
+          self.data[:jobs][job_id] = job
 
           {
             "detachvolumeresponse" => {

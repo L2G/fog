@@ -44,7 +44,7 @@ Shindo.tests('Fog::Redshift[:aws] | cluster snapshot requests', ['aws']) do
                                          :node_type            => 'dw.hs1.xlarge',
                                          :cluster_type         => 'single-node')
       Fog.wait_for do
-        "available" == Fog::AWS[:redshift].describe_clusters(:cluster_identifier=>cluster).body['ClusterSet'].first['Cluster']['ClusterStatus']
+        "available" == Fog::AWS[:redshift].describe_clusters(:cluster_identifier => cluster).body['ClusterSet'].first['Cluster']['ClusterStatus']
       end
       body = Fog::AWS[:redshift].create_cluster_snapshot(:snapshot_identifier => identifier,
                                                          :cluster_identifier  => cluster).body
@@ -54,16 +54,16 @@ Shindo.tests('Fog::Redshift[:aws] | cluster snapshot requests', ['aws']) do
 
     tests('describe_cluster_snaphots').formats(@describe_cluster_snapshots_format) do
       sleep 30 unless Fog.mocking?
-      body = Fog::AWS[:redshift].describe_cluster_snapshots(:start_time=>start_time).body
+      body = Fog::AWS[:redshift].describe_cluster_snapshots(:start_time => start_time).body
       body
     end
 
     tests('delete_cluster_snapshot').formats(@cluster_snapshot_format) do
       Fog.wait_for do
-        "available" == Fog::AWS[:redshift].describe_cluster_snapshots(:snapshot_identifier=>identifier).body['Snapshots'].first['Snapshot']['Status']
+        "available" == Fog::AWS[:redshift].describe_cluster_snapshots(:snapshot_identifier => identifier).body['Snapshots'].first['Snapshot']['Status']
       end
       sleep 30 unless Fog.mocking?
-      body = Fog::AWS[:redshift].delete_cluster_snapshot(:snapshot_identifier=>identifier).body
+      body = Fog::AWS[:redshift].delete_cluster_snapshot(:snapshot_identifier => identifier).body
       body
     end
 

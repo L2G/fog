@@ -28,7 +28,7 @@ module Fog
         #       * 'ResourceID'<~Integer>: ID of the resource record updated
         def domain_resource_update(domain_id, resource_id, options = {})
 
-          query= {}
+          query = {}
           request(
             :expects  => 200,
             :method   => 'GET',

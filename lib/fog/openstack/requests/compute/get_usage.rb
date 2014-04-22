@@ -21,7 +21,7 @@ module Fog
         def get_usage(tenant_id, date_start, date_end)
           response        = Excon::Response.new
           response.status = 200
-          response.body   = {"tenant_usage"=>
+          response.body   = {"tenant_usage" =>
                               {"total_memory_mb_usage" => 0.0,
                                "total_vcpus_usage"     => 0.0,
                                "total_hours"           => 0.0,
@@ -29,7 +29,7 @@ module Fog
                                "stop"                  => date_start,
                                "start"                 => date_end,
                                "total_local_gb_usage"  => 0.0,
-                               "server_usages" =>[{
+                               "server_usages" => [{
                                  "hours"       => 0.0,
                                  "uptime"      => 69180,
                                  "local_gb"    => 0,

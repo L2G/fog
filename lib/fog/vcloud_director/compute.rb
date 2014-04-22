@@ -256,7 +256,7 @@ module Fog
         def initialize(attrs={})
           super(attrs)
           lazy_load_attrs.each do |attr|
-            attributes[attr]= NonLoaded if attributes[attr].nil?
+            attributes[attr] = NonLoaded if attributes[attr].nil?
             make_lazy_load_method(attr)
           end
           self.class.attributes.each {|attr| make_attr_loaded_method(attr)}
@@ -542,8 +542,8 @@ module Fog
                   :Gateway => '192.168.1.1',
                   :InterfaceType => "internal",
                   :IpRanges => [{
-                    :StartAddress=>'192.168.1.2',
-                    :EndAddress=>'192.168.1.254'
+                    :StartAddress => '192.168.1.2',
+                    :EndAddress => '192.168.1.254'
                   }],
                   :IsInherited => false,
                   :Netmask => '255.255.255.0',
@@ -567,8 +567,8 @@ module Fog
                   :DnsSuffix => 'example.com',
                   :InterfaceType => "internal",
                   :IpRanges => [{
-                    :StartAddress=>'10.1.0.100',
-                    :EndAddress=>'10.1.0.200'
+                    :StartAddress => '10.1.0.100',
+                    :EndAddress => '10.1.0.200'
                   }],
                   :IsInherited => false,
                   :Netmask => '255.255.255.0',
@@ -591,8 +591,8 @@ module Fog
                   :DnsSuffix => 'example.com',
                   :InterfaceType => "internal",
                   :IpRanges => [{
-                    :StartAddress=>'10.2.0.100',
-                    :EndAddress=>'10.2.0.200'
+                    :StartAddress => '10.2.0.100',
+                    :EndAddress => '10.2.0.200'
                   }],
                   :IsInherited => false,
                   :Netmask => '255.255.255.0',
@@ -617,8 +617,8 @@ module Fog
                   :Gateway => '198.51.100.1',
                   :InterfaceType => "uplink",
                   :IpRanges => [{
-                    :StartAddress=>'198.51.100.2',
-                    :EndAddress=>'198.51.100.254'
+                    :StartAddress => '198.51.100.2',
+                    :EndAddress => '198.51.100.254'
                   }],
                   :IsInherited => false,
                   :Netmask => '255.255.255.0',

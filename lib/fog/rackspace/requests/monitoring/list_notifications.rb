@@ -24,16 +24,16 @@ module Fog
           response = Excon::Response.new
           response.status = 200
           response.body = {
-            "values"=> [
+            "values" => [
               {
-                  "created_at"=>1378783452067,
-                  "details"=>{
-                      "address"=>"test@test.com"
+                  "created_at" => 1378783452067,
+                  "details" => {
+                      "address" => "test@test.com"
                   },
-                  "id"=>"ntnJN3MQrA",
-                  "label"=>"my email update test",
-                  "type"=>"email",
-                  "updated_at"=>1378784136307
+                  "id" => "ntnJN3MQrA",
+                  "label" => "my email update test",
+                  "type" => "email",
+                  "updated_at" => 1378784136307
               }
           ],
             "metadata" => {

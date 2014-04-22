@@ -90,7 +90,7 @@ module Fog
         require 'time'
 
         def post_distribution(options = {})
-          if self.data[:distributions].values.any? { |d| (d['CNAME'] & (options['CNAME']||[])).empty? }
+          if self.data[:distributions].values.any? { |d| (d['CNAME'] & (options['CNAME'] || [])).empty? }
             Fog::CDN::AWS::Mock.error(:invalid_argument, 'CNAME is already in use')
           end
 

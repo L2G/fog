@@ -26,7 +26,7 @@ module Fog
         #     * DATA<~Hash>:
         #       * 'ResourceID'<~Integer>: ID of the resource record created
         def domain_resource_create(domain_id, type, options = {})
-          query= {}
+          query = {}
           request(
             :expects  => 200,
             :method   => 'GET',

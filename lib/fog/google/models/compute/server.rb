@@ -60,7 +60,7 @@ module Fog
         end
 
         def flavor_id=(flavor_id)
-          machine_type=flavor_id
+          machine_type = flavor_id
         end
 
         def destroy(async=true)

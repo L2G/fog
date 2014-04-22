@@ -144,7 +144,7 @@ module Fog
       end
       hp_auth_uri = options[:hp_auth_uri] || "https://region-a.geo-1.identity.hpcloudsvc.com:35357/v2.0/tokens"
       # append /tokens if missing from auth uri
-      @hp_auth_uri = hp_auth_uri.include?('tokens')? hp_auth_uri : hp_auth_uri + "tokens"
+      @hp_auth_uri = hp_auth_uri.include?('tokens') ? hp_auth_uri : hp_auth_uri + "tokens"
       endpoint = URI.parse(@hp_auth_uri)
       @scheme = endpoint.scheme || "https"
       @host = endpoint.host || "region-a.geo-1.identity.hpcloudsvc.com"

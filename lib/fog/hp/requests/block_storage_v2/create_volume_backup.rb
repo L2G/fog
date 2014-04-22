@@ -59,14 +59,14 @@ module Fog
               'created_at'          => Time.now.to_s,
               'volume_id'           => volume_id,
               'size'                => volume['size'],
-              'links'               => [{'href'=>"http://cinder:8776/v1/#{tenant_id}/backups/#{id}", 'rel'=>'self'}, {'href'=>"http://cinder:8776/v1/#{tenant_id}/backups/#{id}", 'rel'=>'bookmark'}],
+              'links'               => [{'href' => "http://cinder:8776/v1/#{tenant_id}/backups/#{id}", 'rel' => 'self'}, {'href' => "http://cinder:8776/v1/#{tenant_id}/backups/#{id}", 'rel' => 'bookmark'}],
               'fail_reason'         => '',
               'object_count'        => 1
             }
             resp_data = {
               'id'                  => id,
               'name'                => options['name'] || '',
-              'links'               => [{'href'=>"http://cinder:8776/v1/#{tenant_id}/backups/#{id}", 'rel'=>'self'}, {'href'=>"http://cinder:8776/v1/#{tenant_id}/backups/#{id}", 'rel'=>'bookmark'}]
+              'links'               => [{'href' => "http://cinder:8776/v1/#{tenant_id}/backups/#{id}", 'rel' => 'self'}, {'href' => "http://cinder:8776/v1/#{tenant_id}/backups/#{id}", 'rel' => 'bookmark'}]
             }
             self.data[:volume_backups][data['id']] = data
             response.status = 202

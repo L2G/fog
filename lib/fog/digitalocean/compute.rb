@@ -120,7 +120,7 @@ module Fog
 
             if response.body && response.body['error_message'] =~ /There is already a pending event for the droplet/
               count += 1
-              sleep count ** 3
+              sleep count**3
             else
               break
             end

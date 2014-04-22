@@ -68,7 +68,7 @@ module Fog
             :type => "application/vnd.vmware.admin.edgeGateway+xml",
             :href => make_href("admin/edgeGateway/#{id}"),
             :xsi_schemaLocation => xsi_schema_location,
-            :Link =>[{:rel => "up",
+            :Link => [{:rel => "up",
                       :type => "application/vnd.vmware.vcloud.vdc+xml",
                       :href => make_href("vdc/#{vdc_id}")},
                      {:rel => "edgeGateway:redeploy",

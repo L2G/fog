@@ -372,7 +372,7 @@ class VcloudDirector
         :isBusy => String,
         :name => String,
         :numberOfExtNetworks => String,
-        :numberOfOrgNetworks=> String,
+        :numberOfOrgNetworks => String,
         :vdc => String
       })
 
@@ -621,7 +621,7 @@ class VcloudDirector
             :Netmask => String,
             :Dns1 => String,
             :Dns2 => String,
-            :IsEnabled=> String,
+            :IsEnabled => String,
           }
         },
         :FenceMode => String,

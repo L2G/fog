@@ -27,7 +27,7 @@ module Fog
             Excon::Response.new(
                 {
                     :status => 200,
-                    :body =>   { 'ResponseMetadata'=>{ 'RequestId'=> Fog::AWS::Mock.request_id } }
+                    :body =>   { 'ResponseMetadata' => { 'RequestId' => Fog::AWS::Mock.request_id } }
                 }
             )
           else

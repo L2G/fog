@@ -92,27 +92,27 @@ module Fog
         end
 
         def start(options = {})
-          service.container_action(:id =>id, :action => :start!)
+          service.container_action(:id => id, :action => :start!)
           reload
         end
 
         def stop(options = {})
           action = options['force'] ? :kill : :stop
-          service.container_action(:id =>id, :action => action)
+          service.container_action(:id => id, :action => action)
           reload
         end
 
         def restart(options = {})
-          service.container_action(:id =>id, :action => :restart!)
+          service.container_action(:id => id, :action => :restart!)
           reload
         end
 
         def commit(options = {})
-          service.container_commit({:id=>id}.merge(options))
+          service.container_commit({:id => id}.merge(options))
         end
 
         def destroy(options = {})
-          service.container_action(:id =>id, :action => :kill)
+          service.container_action(:id => id, :action => :kill)
           service.container_delete(:id => id)
         end
 

@@ -5,7 +5,7 @@ class AWS
         "ResourceRecords" => Array,
         "Name" => String,
         "Type" => String,
-        "AliasTarget"=> Fog::Nullable::Hash,
+        "AliasTarget" => Fog::Nullable::Hash,
         "TTL" => Fog::Nullable::String
       }
 

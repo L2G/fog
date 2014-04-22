@@ -3,7 +3,7 @@ module Fog
     class Libvirt
       class Real
         def list_interfaces(filter = { })
-          data=[]
+          data = []
           if filter.keys.empty?
             active_networks = client.list_interfaces rescue []
             defined_networks = client.list_defined_interfaces rescue []

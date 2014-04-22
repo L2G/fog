@@ -179,7 +179,7 @@ module Fog
               else
                 r1 = r1.to_i
                 return nil  if r1 < r0  # backwards range is syntactically invalid
-                r1 = size-1  if r1 >= size
+                r1 = size - 1  if r1 >= size
               end
             end
             ranges << (r0..r1)  if r0 <= r1

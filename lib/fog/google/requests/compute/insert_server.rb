@@ -11,15 +11,15 @@ module Fog
           options.delete('disks').each do |disk|
             disk = Disk.new(disk) unless disk.is_a? Disk
             disks << {
-              "kind"=>"compute#attachedDisk",
-              "index"=>i,
-              "type"=>"PERSISTENT",
-              "mode"=>"READ_WRITE",
-              "source"=>"https://www.googleapis.com/compute/#{api_version}/projects/#{@project}/zones/#{zone_name}/disks/#{disk.name}",
-              "deviceName"=>"persistent-disk-#{i}",
-              "boot"=>true
+              "kind" => "compute#attachedDisk",
+              "index" => i,
+              "type" => "PERSISTENT",
+              "mode" => "READ_WRITE",
+              "source" => "https://www.googleapis.com/compute/#{api_version}/projects/#{@project}/zones/#{zone_name}/disks/#{disk.name}",
+              "deviceName" => "persistent-disk-#{i}",
+              "boot" => true
             }
-            i+=1
+            i += 1
           end
           disks
         end
@@ -181,7 +181,7 @@ module Fog
           body_object.merge!(options) # Adds in all remaining options that weren't explicitly handled.
 
           result = self.build_result(api_method, parameters,
-                                     body_object=body_object)
+                                     body_object = body_object)
           response = self.build_response(result)
         end
       end

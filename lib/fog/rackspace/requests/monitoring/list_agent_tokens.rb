@@ -21,7 +21,7 @@ module Fog
           response = Excon::Response.new
           response.status = 200
           response.body = {
-            "values"=> [
+            "values" => [
               {
                 "id"      => token,
                 "token"   => token,
@@ -43,7 +43,7 @@ module Fog
             "X-RateLimit-Remaining" => "49627",
             "X-RateLimit-Window"    => "24 hours",
             "X-RateLimit-Type"      => "global",
-            "X-Response-Id"         =>" j23jlk234jl2j34j",
+            "X-Response-Id"         => " j23jlk234jl2j34j",
             "X-LB"                  => "dfw1-maas-prod-api0",
             "Vary"                  => "Accept-Encoding",
             "Transfer-Encoding"     => "chunked"

@@ -35,17 +35,17 @@ DELETE_DATA_FORMAT = {
 }
 
 LIST_MONITORING_ZONE = {
-    "values"=>
-      [{"id"=>String,
-        "label"=> Fog::Nullable::String,
-        "country_code"=> String,
-        "source_ips"=>[String, String]}],
-     "metadata"=>
-      {"count"=>Integer,
-       "limit"=>Integer,
-       "marker"=>Fog::Nullable::String,
-       "next_marker"=>Fog::Nullable::String,
-       "next_href"=>Fog::Nullable::String
+    "values" =>
+      [{"id" => String,
+        "label" => Fog::Nullable::String,
+        "country_code" => String,
+        "source_ips" => [String, String]}],
+     "metadata" =>
+      {"count" => Integer,
+       "limit" => Integer,
+       "marker" => Fog::Nullable::String,
+       "next_marker" => Fog::Nullable::String,
+       "next_href" => Fog::Nullable::String
      }
 }
 
@@ -112,7 +112,7 @@ CHECK_CREATE_OPTIONS = {
 
 OVERVIEW_FORMAT = {
   :status => Integer,
-  :body=> {
+  :body => {
     :values => [
       {
         :entity => {

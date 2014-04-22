@@ -119,7 +119,7 @@ module Fog
         end
 
         def floating_ip_addresses
-          all_floating=addresses.values.flatten.select{ |data| data["OS-EXT-IPS:type"]=="floating" }.map{|addr| addr["addr"] }
+          all_floating = addresses.values.flatten.select{ |data| data["OS-EXT-IPS:type"] == "floating" }.map{|addr| addr["addr"] }
 
           # Return them all, leading with manually assigned addresses
           manual = all_addresses.map{|addr| addr["ip"]}

@@ -53,7 +53,7 @@ module Fog
       class Mock
 
         def list_hosted_zones(options = {})
-          maxitems = [options[:max_items]||100,100].min
+          maxitems = [options[:max_items] || 100,100].min
 
           if options[:marker].nil?
             start = 0

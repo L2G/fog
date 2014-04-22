@@ -48,7 +48,7 @@ module Fog
                                   ia << {'currentState' => { 'code' => 0, 'name' => 'stopping' },
                                          'previousState' => instance['instanceState'],
                                          'instanceId' => instance['instanceId'] }
-                                  instance['instanceState'] = {'code'=>0, 'name'=>'stopping'}
+                                  instance['instanceState'] = {'code' => 0, 'name' => 'stopping'}
                                   ia
               end
             }

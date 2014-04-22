@@ -30,9 +30,9 @@ Shindo.tests('AWS::Glacier | models', ['aws', 'glacier']) do
         archive.destroy
       end
       tests('create multipart') do
-        body = StringIO.new('x'*1024*1024*2)
+        body = StringIO.new('x' * 1024 * 1024 * 2)
         body.rewind
-        archive = vault.archives.create(:body => body, :multipart_chunk_size => 1024*1024)
+        archive = vault.archives.create(:body => body, :multipart_chunk_size => 1024 * 1024)
         tests('sets id').returns(true) {!archive.id.nil?}
         archive.destroy
       end

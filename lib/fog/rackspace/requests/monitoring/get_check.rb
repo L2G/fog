@@ -25,7 +25,7 @@ module Fog
             "id"                    => check_id,
             "label"                 => nil,
             "type"                  => "remote.ping",
-            "details"               => {"count"=>5},
+            "details"               => {"count" => 5},
             "monitoring_zones_poll" => ["mzord", "mzdfw", "mziad"],
             "timeout"               => 10,
             "period"                => 30,

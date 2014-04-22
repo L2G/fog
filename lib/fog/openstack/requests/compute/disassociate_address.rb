@@ -17,7 +17,7 @@ module Fog
           response.headers = {
             "Content-Type" => "text/html, charset=UTF-8",
             "Content-Length" => "0",
-            "Date"=> Date.new
+            "Date" => Date.new
           }
           response
         end

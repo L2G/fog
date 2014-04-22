@@ -25,7 +25,7 @@ module Fog
             "listtemplatesresponse" =>
               {
                 "count" => templates.size,
-                "template"=> templates
+                "template" => templates
               }
           }
         end

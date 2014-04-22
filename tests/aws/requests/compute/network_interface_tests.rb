@@ -120,7 +120,7 @@ Shindo.tests('Fog::Compute[:aws] | network interface requests', ['aws']) do
 
     @server = Fog::Compute[:aws].servers.create({:flavor_id => 'm1.small', :subnet_id => @subnet_id })
     @server.wait_for { ready? }
-    @instance_id=@server.id
+    @instance_id = @server.id
 
       # attach
     tests('#attach_network_interface').formats(@attach_network_interface_format) do

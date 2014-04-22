@@ -32,7 +32,7 @@ module Fog
             "listserviceofferingsresponse" =>
             {
               "count" => flavors.size,
-              "serviceoffering"=> flavors
+              "serviceoffering" => flavors
             }
           }
         end

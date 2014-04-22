@@ -41,7 +41,7 @@ module Fog
                 when 'item'
                   unless @in_value_set
                     @dhcp_options['dhcpConfigurationSet'][@dhcp_configuration['key']] = @value_set
-                    @value_set=[]
+                    @value_set = []
                   @dhcp_configuration = {}
                   end
                 when 'key', 'value'

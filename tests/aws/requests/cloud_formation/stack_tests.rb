@@ -151,7 +151,7 @@ Shindo.tests('AWS::CloudFormation | stack requests', ['aws', 'cloudformation']) 
 
     tests("list_stack_resources").succeeds do
       pending if Fog.mocking?
-      Fog::AWS[:cloud_formation].list_stack_resources("StackName"=>@stack_name).body
+      Fog::AWS[:cloud_formation].list_stack_resources("StackName" => @stack_name).body
     end
 
     unless Fog.mocking?

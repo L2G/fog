@@ -87,7 +87,7 @@ module Fog
               :size => media[:size].to_s,
               :bytesTransferred => media[:file][:bytes_transferred].to_s,
               :name => 'file',
-              :Link=> {
+              :Link => {
                 :href => make_href("transfer/#{media[:file][:uuid]}/file"),
                 :rel => 'upload:default'
               }

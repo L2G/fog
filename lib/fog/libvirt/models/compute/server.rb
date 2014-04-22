@@ -137,9 +137,9 @@ module Fog
         def ssh(commands)
           requires :ssh_ip_address, :username
 
-          ssh_options={}
+          ssh_options = {}
           ssh_options[:password] = password unless password.nil?
-          ssh_options[:proxy]= ssh_proxy unless ssh_proxy.nil?
+          ssh_options[:proxy] = ssh_proxy unless ssh_proxy.nil?
 
           super(commands, ssh_options)
         end
@@ -147,7 +147,7 @@ module Fog
         def ssh_proxy
           # if this is a direct connection, we don't need a proxy to be set.
           return nil unless connection.uri.ssh_enabled?
-          user_string= service.uri.user ? "-l #{service.uri.user}" : ""
+          user_string = service.uri.user ? "-l #{service.uri.user}" : ""
           Net::SSH::Proxy::Command.new("ssh #{user_string} #{service.uri.host} nc %h %p")
         end
 
@@ -158,7 +158,7 @@ module Fog
           scp_options = {}
           scp_options[:password] = password unless self.password.nil?
           scp_options[:key_data] = [private_key] if self.private_key
-          scp_options[:proxy]= ssh_proxy unless self.ssh_proxy.nil?
+          scp_options[:proxy] = ssh_proxy unless self.ssh_proxy.nil?
 
           Fog::SCP.new(ssh_ip_address, username, scp_options).upload(local_path, remote_path, upload_options)
         end
@@ -167,7 +167,7 @@ module Fog
         def setup(credentials = {})
           requires :public_key, :ssh_ip_address, :username
 
-          credentials[:proxy]= ssh_proxy unless ssh_proxy.nil?
+          credentials[:proxy] = ssh_proxy unless ssh_proxy.nil?
           credentials[:password] = password unless self.password.nil?
           credentails[:key_data] = [private_key] if self.private_key
 
@@ -215,35 +215,35 @@ module Fog
         # Currently only one ip address is returned, but in the future this could be multiple
         # if the server has multiple network interface
         def addresses(service=service, options={})
-          mac=self.mac
+          mac = self.mac
 
           # Aug 24 17:34:41 juno arpwatch: new station 10.247.4.137 52:54:00:88:5a:0a eth0.4
           # Aug 24 17:37:19 juno arpwatch: changed ethernet address 10.247.4.137 52:54:00:27:33:00 (52:54:00:88:5a:0a) eth0.4
           # Check if another ip_command string was provided
-          ip_command_global=service.ip_command.nil? ? 'grep $mac /var/log/arpwatch.log|sed -e "s/new station//"|sed -e "s/changed ethernet address//g" |sed -e "s/reused old ethernet //" |tail -1 |cut -d ":" -f 4-| cut -d " " -f 3' : service.ip_command
-          ip_command_local=options[:ip_command].nil? ? ip_command_global : options[:ip_command]
+          ip_command_global = service.ip_command.nil? ? 'grep $mac /var/log/arpwatch.log|sed -e "s/new station//"|sed -e "s/changed ethernet address//g" |sed -e "s/reused old ethernet //" |tail -1 |cut -d ":" -f 4-| cut -d " " -f 3' : service.ip_command
+          ip_command_local = options[:ip_command].nil? ? ip_command_global : options[:ip_command]
 
-          ip_command="mac=#{mac}; server_name=#{name}; "+ip_command_local
+          ip_command = "mac=#{mac}; server_name=#{name}; " + ip_command_local
 
-          ip_address=nil
+          ip_address = nil
 
           if service.uri.ssh_enabled?
 
             # Retrieve the parts we need from the service to setup our ssh options
-            user=service.uri.user #could be nil
-            host=service.uri.host
-            keyfile=service.uri.keyfile
-            port=service.uri.port
+            user = service.uri.user #could be nil
+            host = service.uri.host
+            keyfile = service.uri.keyfile
+            port = service.uri.port
 
             # Setup the options
-            ssh_options={}
-            ssh_options[:keys]=[ keyfile ] unless keyfile.nil?
-            ssh_options[:port]=port unless keyfile.nil?
-            ssh_options[:paranoid]=true if service.uri.no_verify?
+            ssh_options = {}
+            ssh_options[:keys] = [ keyfile ] unless keyfile.nil?
+            ssh_options[:port] = port unless keyfile.nil?
+            ssh_options[:paranoid] = true if service.uri.no_verify?
 
 
             begin
-              result=Fog::SSH.new(host, user, ssh_options).run(ip_command)
+              result = Fog::SSH.new(host, user, ssh_options).run(ip_command)
             rescue Errno::ECONNREFUSED
               raise Fog::Errors::Error.new("Connection was refused to host #{host} to retrieve the ip_address for #{mac}")
             rescue Net::SSH::AuthenticationFailed
@@ -253,7 +253,7 @@ module Fog
 
             # Check for a clean exit code
             if result.first.status == 0
-              ip_address=result.first.stdout.strip
+              ip_address = result.first.stdout.strip
             else
               # We got a failure executing the command
               raise Fog::Errors::Error.new("The command #{ip_command} failed to execute with a clean exit code")
@@ -261,41 +261,41 @@ module Fog
 
           else
             # It's not ssh enabled, so we assume it is
-            if service.uri.transport=="tls"
+            if service.uri.transport == "tls"
               raise Fog::Errors::Error.new("TlS remote transport is not currently supported, only ssh")
             end
 
             # Execute the ip_command locally
             # Initialize empty ip_address string
-            ip_address=""
+            ip_address = ""
 
             IO.popen("#{ip_command}") do |p|
               p.each_line do |l|
-                ip_address+=l
+                ip_address += l
               end
-              status=Process.waitpid2(p.pid)[1].exitstatus
-              if status!=0
+              status = Process.waitpid2(p.pid)[1].exitstatus
+              if status != 0
                 raise Fog::Errors::Error.new("The command #{ip_command} failed to execute with a clean exit code")
               end
             end
 
             #Strip any new lines from the string
-            ip_address=ip_address.chomp
+            ip_address = ip_address.chomp
           end
 
 
           # The Ip-address command has been run either local or remote now
 
-          if ip_address==""
+          if ip_address == ""
             #The grep didn't find an ip address result"
-            ip_address=nil
+            ip_address = nil
           else
             # To be sure that the command didn't return another random string
             # We check if the result is an actual ip-address
             # otherwise we return nil
-            unless ip_address=~/^(\d{1,3}\.){3}\d{1,3}$/
+            unless ip_address =~ /^(\d{1,3}\.){3}\d{1,3}$/
               raise Fog::Errors::Error.new(
-                        "The result of #{ip_command} does not have valid ip-address format\n"+
+                        "The result of #{ip_command} does not have valid ip-address format\n" +
                             "Result was: #{ip_address}\n"
                     )
             end
@@ -361,7 +361,7 @@ module Fog
           {
             :persistent             => true,
             :cpus                   => 1,
-            :memory_size            => 256 *1024,
+            :memory_size            => 256 * 1024,
             :name                   => randomized_name,
             :os_type                => "hvm",
             :arch                   => "x86_64",

@@ -76,7 +76,7 @@ module Fog
           @use_iam_profile = options[:use_iam_profile]
           setup_credentials(options)
           @connection_options     = options[:connection_options] || {}
-          @nil_string = options[:nil_string]|| 'nil'
+          @nil_string = options[:nil_string] || 'nil'
 
           options[:region] ||= 'us-east-1'
           @host = options[:host] || case options[:region]

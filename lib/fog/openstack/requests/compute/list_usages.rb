@@ -24,7 +24,7 @@ module Fog
           params = Hash.new
           response        = Excon::Response.new
           response.status = 200
-          response.body   = {"tenant_usages"=>[{
+          response.body   = {"tenant_usages" => [{
                                "total_memory_mb_usage" => 0.00036124444444444445,
                                "total_vcpus_usage"     => 7.055555555555556e-07,
                                "start"                 => "2012-03-06 05:05:56.349001",

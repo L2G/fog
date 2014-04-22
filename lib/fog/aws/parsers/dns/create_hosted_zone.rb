@@ -19,7 +19,7 @@ module Fog
               when 'Id'
                 @hosted_zone[name] = value.sub('/hostedzone/', '')
               when 'Name', 'CallerReference', 'Comment'
-                @hosted_zone[name]= value
+                @hosted_zone[name] = value
               when 'HostedZone'
                 @response['HostedZone'] = @hosted_zone
                 @hosted_zone = {}
@@ -28,7 +28,7 @@ module Fog
             elsif @section == :change_info
               case name
               when 'Id'
-                @change_info[name]= value.sub('/change/', '')
+                @change_info[name] = value.sub('/change/', '')
               when 'Status', 'SubmittedAt'
                 @change_info[name] = value
               when 'ChangeInfo'

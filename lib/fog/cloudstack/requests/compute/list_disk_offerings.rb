@@ -20,7 +20,7 @@ module Fog
         # TODO: add id, name filters and paging params
         def list_disk_offerings(options={})
           disk_offerings = self.data[:disk_offerings]
-          { "listdiskofferingsresponse" => { "count"=> disk_offerings.count, "diskoffering"=> disk_offerings.values } }
+          { "listdiskofferingsresponse" => { "count" => disk_offerings.count, "diskoffering" => disk_offerings.values } }
         end
 
       end

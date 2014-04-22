@@ -10,7 +10,7 @@ module Fog
 
       class Mock
         def image_create(attrs)
-          {'id'=>'a6b02c7ca29a22619f7d0e59062323247739bc0cd375d619f305f0b519af4ef2'}
+          {'id' => 'a6b02c7ca29a22619f7d0e59062323247739bc0cd375d619f305f0b519af4ef2'}
         end
 
       end

@@ -2,10 +2,10 @@ Shindo.tests('Fog::Compute[:aws] | internet_gateway requests', ['aws']) do
 
   tests('success') do
 
-    @vpc=Fog::Compute[:aws].vpcs.create('cidr_block' => '10.0.10.0/24')
+    @vpc = Fog::Compute[:aws].vpcs.create('cidr_block' => '10.0.10.0/24')
     @vpc_id = @vpc.id
 
-    @subnet=Fog::Compute[:aws].subnets.create('vpc_id' => @vpc_id, 'cidr_block' => '10.0.10.0/24')
+    @subnet = Fog::Compute[:aws].subnets.create('vpc_id' => @vpc_id, 'cidr_block' => '10.0.10.0/24')
     @subnet_id = @subnet.subnet_id
 
     @network_interface = Fog::Compute[:aws].network_interfaces.new(:subnet_id => @subnet_id)
@@ -16,11 +16,11 @@ Shindo.tests('Fog::Compute[:aws] | internet_gateway requests', ['aws']) do
     @second_ip_address = Fog::AWS::Mock.ip_address
 
     tests("#assign_private_ip_addresses('#{@network_interface_id}', {'PrivateIpAddresses'=>['#{@ip_address}','#{@second_ip_address}']})").formats(AWS::Compute::Formats::BASIC) do
-      Fog::Compute[:aws].assign_private_ip_addresses(@network_interface_id, { 'PrivateIpAddresses' =>[@ip_address, @second_ip_address]}).body
+      Fog::Compute[:aws].assign_private_ip_addresses(@network_interface_id, { 'PrivateIpAddresses' => [@ip_address, @second_ip_address]}).body
     end
 
     tests("#assign_private_ip_addresses('#{@network_interface_id}', {'SecondaryPrivateIpAddressCount'=>4})").formats(AWS::Compute::Formats::BASIC) do
-      Fog::Compute[:aws].assign_private_ip_addresses(@network_interface_id, {'SecondaryPrivateIpAddressCount'=>4}).body
+      Fog::Compute[:aws].assign_private_ip_addresses(@network_interface_id, {'SecondaryPrivateIpAddressCount' => 4}).body
     end
 
     @network_interface.destroy
@@ -29,10 +29,10 @@ Shindo.tests('Fog::Compute[:aws] | internet_gateway requests', ['aws']) do
   end
 
   tests('failure') do
-    @vpc=Fog::Compute[:aws].vpcs.create('cidr_block' => '10.0.10.0/24')
+    @vpc = Fog::Compute[:aws].vpcs.create('cidr_block' => '10.0.10.0/24')
     @vpc_id = @vpc.id
 
-    @subnet=Fog::Compute[:aws].subnets.create('vpc_id' => @vpc_id, 'cidr_block' => '10.0.10.0/24')
+    @subnet = Fog::Compute[:aws].subnets.create('vpc_id' => @vpc_id, 'cidr_block' => '10.0.10.0/24')
     @subnet_id = @subnet.subnet_id
 
     @network_interface = Fog::Compute[:aws].network_interfaces.new(:subnet_id => @subnet_id)
@@ -42,7 +42,7 @@ Shindo.tests('Fog::Compute[:aws] | internet_gateway requests', ['aws']) do
     @ip_address = Fog::AWS::Mock.ip_address
 
     tests("#assign_private_ip_addresses('#{@network_interface_id}', {'PrivateIpAddresses'=>['#{@ip_address}','#{@second_ip_address}'], 'SecondaryPrivateIpAddressCount'=>4 })").raises(Fog::Compute::AWS::Error) do
-      Fog::Compute[:aws].assign_private_ip_addresses(@network_interface_id, { 'PrivateIpAddresses' =>[@ip_address, @second_ip_address], 'SecondaryPrivateIpAddressCount'=>4 }).body
+      Fog::Compute[:aws].assign_private_ip_addresses(@network_interface_id, { 'PrivateIpAddresses' => [@ip_address, @second_ip_address], 'SecondaryPrivateIpAddressCount' => 4 }).body
     end
 
     @network_interface.destroy

@@ -21,7 +21,7 @@ module Fog
             'target' => target
           }
 
-          result = self.build_result(api_method, parameters, body_object=body)
+          result = self.build_result(api_method, parameters, body_object = body)
           self.build_response(result)
         end
 

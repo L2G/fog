@@ -21,7 +21,7 @@ module Fog
           zones = self.data[:zones].values
 
           {
-            "listzonesresponse"=>
+            "listzonesresponse" =>
             {
               "count" => zones.size,
               "zone" => zones

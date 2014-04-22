@@ -64,7 +64,7 @@ module Fog
       class Mock
 
         def list_resource_record_sets(zone_id, options = {})
-          maxitems = [options[:max_items]||100,100].min
+          maxitems = [options[:max_items] || 100,100].min
 
           response = Excon::Response.new
 

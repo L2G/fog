@@ -50,7 +50,7 @@ module Fog
       class Mock
         def self.data
           @data ||= Hash.new do |hash, key|
-            hash[key] =case key
+            hash[key] = case key
                        when :instrumentation
                          { 'module' => "cpu",
                            'stat' => "usage",

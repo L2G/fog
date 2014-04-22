@@ -99,7 +99,7 @@ module Fog
           {
             "name"        => name,
             "createdTime" => Fog::IBM::Mock.launch_time,
-            "productCodes"=> [],
+            "productCodes" => [],
             "id"          => Fog::IBM::Mock.instance_id,
             "description" => description,
             "visibility"  => "PRIVATE",
@@ -126,11 +126,11 @@ module Fog
             "secondaryIP"   => [],
             "status"        => 1,
             "software"      => [
-              { "name"=>"SUSE Linux Enterprise Server",
-                "type"=>"OS",
-                "version"=>"11 SP1" }
+              { "name" => "SUSE Linux Enterprise Server",
+                "type" => "OS",
+                "version" => "11 SP1" }
             ],
-            "expirationTime"=> Fog::IBM::Mock.expiry_time,
+            "expirationTime" => Fog::IBM::Mock.expiry_time,
             "owner"         => Fog::IBM::Mock.owner
           }
         end
@@ -152,7 +152,7 @@ module Fog
             "owner"       => Fog::IBM::Mock.owner,
             "createdTime" => Fog::IBM::Mock.launch_time,
             "location"    => location_id,
-            "productCodes"=> [],
+            "productCodes" => [],
             "format"      => format,
             "name"        => name,
             "id"          => Fog::IBM::Mock.id,
@@ -164,7 +164,7 @@ module Fog
           {
             "id"        => Fog::IBM::Mock.id,
             "location"  => location_id,
-            "offeringId"=> offering_id,
+            "offeringId" => offering_id,
             "ip"        => "",
             "state"     => 0
           }

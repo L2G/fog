@@ -6,16 +6,16 @@ Shindo.tests("Vcloud::Compute | disk_requests", ['vcloud']) do
   }
 
   def disk_hash
-    [{:"rasd:AddressOnParent"=>"0",
-       :"rasd:Description"=>"Hard disk",
-       :"rasd:ElementName"=>"Hard disk 1",
-       :"rasd:HostResource"=>
-       {:vcloud_capacity=>"8192",
-         :vcloud_busType=>"6",
-         :vcloud_busSubType=>"lsilogic"},
-       :"rasd:InstanceID"=>"2000",
-       :"rasd:Parent"=>"2",
-       :"rasd:ResourceType"=>"17"}]
+    [{:"rasd:AddressOnParent" => "0",
+       :"rasd:Description" => "Hard disk",
+       :"rasd:ElementName" => "Hard disk 1",
+       :"rasd:HostResource" =>
+       {:vcloud_capacity => "8192",
+         :vcloud_busType => "6",
+         :vcloud_busSubType => "lsilogic"},
+       :"rasd:InstanceID" => "2000",
+       :"rasd:Parent" => "2",
+       :"rasd:ResourceType" => "17"}]
   end
 
   def nokogiri_load
@@ -84,16 +84,16 @@ EOF
     pending if Fog.mocking?
     disks = disk_hash
     disks << {
-      :"rasd:AddressOnParent"=>"1",
-      :"rasd:Description"=>"Hard disk",
-      :"rasd:ElementName"=>"Hard disk 2",
-      :"rasd:HostResource"=>
-      {:vcloud_capacity=>"4096",
-        :vcloud_busType=>"6",
-        :vcloud_busSubType=>"lsilogic"},
-      :"rasd:InstanceID"=>"2000",
-      :"rasd:Parent"=>"2",
-      :"rasd:ResourceType"=>"17"}
+      :"rasd:AddressOnParent" => "1",
+      :"rasd:Description" => "Hard disk",
+      :"rasd:ElementName" => "Hard disk 2",
+      :"rasd:HostResource" =>
+      {:vcloud_capacity => "4096",
+        :vcloud_busType => "6",
+        :vcloud_busSubType => "lsilogic"},
+      :"rasd:InstanceID" => "2000",
+      :"rasd:Parent" => "2",
+      :"rasd:ResourceType" => "17"}
     xml = Vcloud[:compute].generate_configure_vm_disks_request('http://blah', disks)
     ng = Nokogiri::XML(xml)
     [

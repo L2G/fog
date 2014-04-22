@@ -75,8 +75,8 @@ module Fog
 
           if tags = options.delete('Tags')
             tags.each_with_index do |(key, value), i|
-              options["Tags.member.#{i+1}.Key"] = key.to_s # turns symbol into string
-              options["Tags.member.#{i+1}.Value"] = value
+              options["Tags.member.#{i + 1}.Key"] = key.to_s # turns symbol into string
+              options["Tags.member.#{i + 1}.Value"] = value
             end
           end
           if termination_policies = options.delete('TerminationPolicies')

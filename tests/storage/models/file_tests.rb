@@ -22,7 +22,7 @@ for provider, config in storage_providers
 
         tests("#public=(true)").succeeds do
           pending if Fog.mocking? && !config[:mocked] || !Fog::Storage[provider].respond_to?(:public=)
-          @instance.public=(true)
+          @instance.public = (true)
         end
 
         test("@instance.public_url.nil? || Excon.get(@instance.public_url).body == lorem_file.read") do

@@ -2,12 +2,12 @@ Shindo.tests('AWS::ELB | models', ['aws', 'elb']) do
   require 'fog'
   @availability_zones = Fog::Compute[:aws].describe_availability_zones('state' => 'available').body['availabilityZoneInfo'].collect{ |az| az['zoneName'] }
   @key_name = 'fog-test-model'
-  @vpc=Fog::Compute[:aws].vpcs.create('cidr_block' => '10.0.10.0/24')
+  @vpc = Fog::Compute[:aws].vpcs.create('cidr_block' => '10.0.10.0/24')
   @vpc_id = @vpc.id
   @subnet = Fog::Compute[:aws].subnets.create({:vpc_id => @vpc_id, :cidr_block => '10.0.10.0/24'})
   @subnet_id = @subnet.subnet_id
   @scheme = 'internal'
-  @igw=Fog::Compute[:aws].internet_gateways.create
+  @igw = Fog::Compute[:aws].internet_gateways.create
   @igw_id = @igw.id
   @igw.attach(@vpc_id)
 
@@ -201,22 +201,22 @@ Shindo.tests('AWS::ELB | models', ['aws', 'elb']) do
 
     tests('default health check') do
       default_health_check = {
-        "HealthyThreshold"=>10,
-        "Timeout"=>5,
-        "UnhealthyThreshold"=>2,
-        "Interval"=>30,
-        "Target"=>"TCP:80"
+        "HealthyThreshold" => 10,
+        "Timeout" => 5,
+        "UnhealthyThreshold" => 2,
+        "Interval" => 30,
+        "Target" => "TCP:80"
       }
       returns(default_health_check) { elb.health_check }
     end
 
     tests('configure_health_check') do
       new_health_check = {
-        "HealthyThreshold"=>5,
-        "Timeout"=>10,
-        "UnhealthyThreshold"=>3,
-        "Interval"=>15,
-        "Target"=>"HTTP:80/index.html"
+        "HealthyThreshold" => 5,
+        "Timeout" => 10,
+        "UnhealthyThreshold" => 3,
+        "Interval" => 15,
+        "Target" => "HTTP:80/index.html"
       }
       elb.configure_health_check(new_health_check)
       returns(new_health_check) { elb.health_check }

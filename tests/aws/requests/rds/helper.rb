@@ -15,8 +15,8 @@ class AWS
 
       DB_PARAMETER_GROUP = {
           'DBParameterGroupFamily' => String,
-          'DBParameterGroupName'=> String,
-          'Description'=> String
+          'DBParameterGroupName' => String,
+          'Description' => String
       }
       CREATE_DB_PARAMETER_GROUP = {
         'ResponseMetadata' => {'RequestId' => String},
@@ -79,7 +79,7 @@ class AWS
 
       DESCRIBE_DB_PARAMETER_GROUP = {
         'ResponseMetadata' => {'RequestId' => String},
-        'DescribeDBParameterGroupsResult' =>{
+        'DescribeDBParameterGroupsResult' => {
           'DBParameterGroups' => [DB_PARAMETER_GROUP]
         }
       }
@@ -96,7 +96,7 @@ class AWS
       }
 
       DESCRIBE_ORDERABLE_DB_INSTANCE_OPTION = BASIC.merge({
-          'DescribeOrderableDBInstanceOptionsResult' =>{
+          'DescribeOrderableDBInstanceOptionsResult' => {
               'OrderableDBInstanceOptions' => [ORDERABLE_DB_INSTANCE_OPTION]
           }
       })
@@ -140,7 +140,7 @@ class AWS
         }
       })
 
-      SNAPSHOT={
+      SNAPSHOT = {
         'AllocatedStorage' => Integer,
         'AvailabilityZone' => String,
         'DBInstanceIdentifier' => String,
@@ -193,15 +193,15 @@ class AWS
           'AllocatedStorage'      => Fog::Nullable::Integer,
           'Port'                  => Fog::Nullable::Integer
         },
-        'PreferredBackupWindow'=> String,
-        'PreferredMaintenanceWindow'=> String,
-        'ReadReplicaDBInstanceIdentifiers'=> [Fog::Nullable::String]
+        'PreferredBackupWindow' => String,
+        'PreferredMaintenanceWindow' => String,
+        'ReadReplicaDBInstanceIdentifiers' => [Fog::Nullable::String]
       }
 
       REPLICA_INSTANCE = INSTANCE.merge({
         'BackupRetentionPeriod' => Fog::Nullable::String,
         'PreferredBackupWindow' => Fog::Nullable::String,
-        'ReadReplicaSourceDBInstanceIdentifier'=> String
+        'ReadReplicaSourceDBInstanceIdentifier' => String
       })
 
       CREATE_DB_INSTANCE = BASIC.merge({

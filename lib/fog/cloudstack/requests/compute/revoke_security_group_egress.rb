@@ -32,7 +32,7 @@ module Fog
             "jobresult"     => { "securitygroup" => security_group }
           }
 
-          self.data[:jobs][job_id]= job
+          self.data[:jobs][job_id] = job
 
           {"revokesecuritygroupegress" => { "jobid" => job_id }}
         end

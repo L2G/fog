@@ -2,14 +2,14 @@ Shindo.tests('Fog::DNS[:bluebox] | DNS requests', ['bluebox', 'dns']) do
 
   @domain = ''
   @new_zones = []
-  @new_records =[]
+  @new_records = []
 
   tests( 'success') do
 
     test('get current zone count') do
       pending if Fog.mocking?
 
-      @org_zone_count= 0
+      @org_zone_count = 0
       response = Fog::DNS[:bluebox].get_zones()
       if response.status == 200
         zones = response.body['zones']
@@ -36,7 +36,7 @@ Shindo.tests('Fog::DNS[:bluebox] | DNS requests', ['bluebox', 'dns']) do
       pending if Fog.mocking?
 
       options = { :ttl => 60, :retry => 3600, :refresh => 1800, :minimum => 30 }
-      @domain= generate_unique_domain
+      @domain = generate_unique_domain
       response = Fog::DNS[:bluebox].create_zone(options.merge(:name => @domain))
       if response.status == 202
         @zone_id = response.body['id']
@@ -70,8 +70,8 @@ Shindo.tests('Fog::DNS[:bluebox] | DNS requests', ['bluebox', 'dns']) do
       response = Fog::DNS[:bluebox].get_zones()
       if response.status == 200
         zones = response.body['zones']
-        if (@org_zone_count+2) == zones.count
-          result= true;
+        if (@org_zone_count + 2) == zones.count
+          result = true;
         end
       end
 
@@ -81,7 +81,7 @@ Shindo.tests('Fog::DNS[:bluebox] | DNS requests', ['bluebox', 'dns']) do
     test('get zones - check all parameters for a zone') do
       pending if Fog.mocking?
 
-      result= false
+      result = false
 
       response = Fog::DNS[:bluebox].get_zones()
       if response.status == 200
@@ -94,7 +94,7 @@ Shindo.tests('Fog::DNS[:bluebox] | DNS requests', ['bluebox', 'dns']) do
              end
           end
         }
-        if (@org_zone_count+2) == zones.count
+        if (@org_zone_count + 2) == zones.count
           result = true;
         end
       end
@@ -105,8 +105,8 @@ Shindo.tests('Fog::DNS[:bluebox] | DNS requests', ['bluebox', 'dns']) do
     test('create record - simple A record') do
       pending if Fog.mocking?
 
-      host= 'www.' + @domain
-      zone_id= @new_zones[1]
+      host = 'www.' + @domain
+      zone_id = @new_zones[1]
       response = Fog::DNS[:bluebox].create_record(zone_id, 'A', host, '1.2.3.4')
       if response.status == 202
         record_id = response.body['id']
@@ -119,8 +119,8 @@ Shindo.tests('Fog::DNS[:bluebox] | DNS requests', ['bluebox', 'dns']) do
     test('create record - A record - all parameters set') do
       pending if Fog.mocking?
 
-      host= 'ftp.' + @domain
-      zone_id= @new_zones[1]
+      host = 'ftp.' + @domain
+      zone_id = @new_zones[1]
       response = Fog::DNS[:bluebox].create_record( zone_id, 'A', host, '1.2.3.4')
       if response.status == 202
         record_id = response.body['id']
@@ -133,7 +133,7 @@ Shindo.tests('Fog::DNS[:bluebox] | DNS requests', ['bluebox', 'dns']) do
     test('create record - CNAME record') do
       pending if Fog.mocking?
 
-      zone_id= @new_zones[1]
+      zone_id = @new_zones[1]
       response = Fog::DNS[:bluebox].create_record( zone_id, 'CNAME', 'mail', @domain)
       if response.status == 202
         record_id = response.body['id']
@@ -147,7 +147,7 @@ Shindo.tests('Fog::DNS[:bluebox] | DNS requests', ['bluebox', 'dns']) do
       pending if Fog.mocking?
 
       ns_domain = 'ns.' + @domain
-      zone_id= @new_zones[1]
+      zone_id = @new_zones[1]
       response = Fog::DNS[:bluebox].create_record( zone_id, 'NS', @domain, ns_domain)
       if response.status == 202
         record_id = response.body['id']
@@ -161,7 +161,7 @@ Shindo.tests('Fog::DNS[:bluebox] | DNS requests', ['bluebox', 'dns']) do
       pending if Fog.mocking?
 
       mail_domain = 'mail.' + @domain
-      zone_id= @new_zones[1]
+      zone_id = @new_zones[1]
       response = Fog::DNS[:bluebox].create_record(  zone_id, 'MX', @domain, mail_domain, :priority => 10)
       if response.status == 202
         @record_id = response.body['id']
@@ -174,14 +174,14 @@ Shindo.tests('Fog::DNS[:bluebox] | DNS requests', ['bluebox', 'dns']) do
     test("get record #{@record_id} - verify all parameters") do
       pending if Fog.mocking?
 
-      result= false
+      result = false
 
       response = Fog::DNS[:bluebox].get_record(@new_zones[1], @record_id)
       if response.status == 200
         mail_domain = 'mail.' + @domain + "."
         record = response.body
         if (record['type'] == 'MX') and (record['name'] == @domain) and (record['content'] == mail_domain) and (record['priority'] == '10')
-          result= true
+          result = true
         end
       end
 
@@ -191,7 +191,7 @@ Shindo.tests('Fog::DNS[:bluebox] | DNS requests', ['bluebox', 'dns']) do
     test('get records - verify all parameters for one record') do
       pending if Fog.mocking?
 
-      result= false
+      result = false
 
       response = Fog::DNS[:bluebox].get_records(@new_zones[1])
       if response.status == 200
@@ -203,7 +203,7 @@ Shindo.tests('Fog::DNS[:bluebox] | DNS requests', ['bluebox', 'dns']) do
 
             mail_domain = 'mail.' + @domain + "."
             if (record['type'] == 'MX') and (record['name'] == @domain) and (record['content'] == mail_domain) and (record['priority'] == '10')
-              result= true
+              result = true
               break
             end
 
@@ -217,11 +217,11 @@ Shindo.tests('Fog::DNS[:bluebox] | DNS requests', ['bluebox', 'dns']) do
     test("delete #{@new_records.count} records created") do
       pending if Fog.mocking?
 
-      result= true
+      result = true
       @new_records.each { |record_id|
         response = Fog::DNS[:bluebox].delete_record(@new_zones[1], record_id)
         if response.status != 200
-            result= false;
+            result = false;
         end
       }
       result
@@ -230,12 +230,12 @@ Shindo.tests('Fog::DNS[:bluebox] | DNS requests', ['bluebox', 'dns']) do
     test("delete #{@new_zones.count} zones created") do
       pending if Fog.mocking?
 
-      result= true
+      result = true
 
       @new_zones.each { |zone_id|
         response = Fog::DNS[:bluebox].delete_zone( zone_id)
         if response.status != 200
-            result= false;
+            result = false;
         end
       }
 

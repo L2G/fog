@@ -6,7 +6,7 @@ module Fog
         def put_metadata_value(vm_id, metadata_key, metadata_value)
           Fog::Logger.deprecation("#{self} => ##{put_metadata_value} is deprecated, use ##{put_vapp_metadata_item_metadata} instead [light_black](#{caller.first})[/]")
 
-          body="
+          body = "
           <MetadataValue xmlns=\"http://www.vmware.com/vcloud/v1.5\">
               <Value>#{metadata_value}</Value>
            </MetadataValue>"

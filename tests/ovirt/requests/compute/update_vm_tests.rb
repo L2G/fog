@@ -2,7 +2,7 @@ Shindo.tests('Fog::Compute[:ovirt] | vm_update request', ['ovirt']) do
 
   compute = Fog::Compute[:ovirt]
   if compute.servers.all(:search => 'fog-*').empty?
-    compute.create_vm(:name => 'fog-'+Time.now.to_i.to_s, :cluster_name => 'Default')
+    compute.create_vm(:name => 'fog-' + Time.now.to_i.to_s, :cluster_name => 'Default')
   end
   vm = compute.servers.all(:search => 'fog-*').last
 

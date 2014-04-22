@@ -6,7 +6,7 @@ Shindo.tests("AWS::CloudWatch | metric_statistics", ['aws', 'cloudwatch']) do
     instanceId = 'i-420c352f'
     metricName = 'DiskReadBytes'
     namespace = 'AWS/EC2'
-    startTime = (Time.now-600).iso8601
+    startTime = (Time.now - 600).iso8601
     endTime = Time.now.iso8601
     period = 60
     statisticTypes = ['Minimum','Maximum','Sum','SampleCount','Average']

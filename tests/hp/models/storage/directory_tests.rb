@@ -26,7 +26,7 @@ Shindo.tests("Fog::Storage[:hp] | directory", ['hp', 'storage']) do
 
       tests("#cdn_enable=(true)").succeeds do
         pending if Fog.mocking?
-        @instance.cdn_enable=(true)
+        @instance.cdn_enable = (true)
         tests("cdn_enabled?").returns(true) do
           pending if Fog.mocking?
           @instance.cdn_enable?

@@ -24,7 +24,7 @@ module Fog
         if klass.is_a? Class then
           klass
         elsif defaultpath != nil then
-          class_from_string((defaultpath.split("::")+chain).join("::"), nil)
+          class_from_string((defaultpath.split("::") + chain).join("::"), nil)
         else
           nil
         end
@@ -34,7 +34,7 @@ module Fog
         nil
       end
     rescue NameError
-      defaultpath != nil ? class_from_string((defaultpath.split("::")+chain).join("::"), nil) : nil
+      defaultpath != nil ? class_from_string((defaultpath.split("::") + chain).join("::"), nil) : nil
     end
   end
 end

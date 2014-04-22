@@ -29,14 +29,14 @@ module Fog
           h = {
             'label'       => label,
             'metadata'    => metadata,
-            'target_alias'=> target_alias,
+            'target_alias' => target_alias,
             'target_resolver' => target_resolver,
             'target_hostname' => target_hostname,
             'period' => period,
-            'timeout'=> timeout,
-            'details'=> details,
-            'monitoring_zones_poll'=> monitoring_zones_poll,
-            'disabled'=> disabled
+            'timeout' => timeout,
+            'details' => details,
+            'monitoring_zones_poll' => monitoring_zones_poll,
+            'disabled' => disabled
           }.merge(options)
 
           h.reject {|key, value| value.nil?}

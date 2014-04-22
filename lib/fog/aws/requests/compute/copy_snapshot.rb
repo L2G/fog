@@ -21,7 +21,7 @@ module Fog
         def copy_snapshot(source_snapshot_id, source_region, description = nil)
           request(
             'Action'          => 'CopySnapshot',
-            'SourceSnapshotId'=> source_snapshot_id,
+            'SourceSnapshotId' => source_snapshot_id,
             'SourceRegion'    => source_region,
             'Description'     => description,
             :parser       => Fog::Parsers::Compute::AWS::CopySnapshot.new

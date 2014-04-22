@@ -33,17 +33,17 @@ module Fog
         #   * 'status'<~Integer> - 201 if successful
         def create_host(zone_id, host_type, data, options = {})
 
-          optional_tags= ''
+          optional_tags = ''
           options.each { |option, value|
             case option
             when :hostname
-              optional_tags+= "<hostname>#{value}</hostname>"
+              optional_tags += "<hostname>#{value}</hostname>"
             when :notes
-              optional_tags+= "<notes>#{value}</notes>"
+              optional_tags += "<notes>#{value}</notes>"
             when :priority
-              optional_tags+= "<priority>#{value}</priority>"
+              optional_tags += "<priority>#{value}</priority>"
             when :ttl
-              optional_tags+= "<ttl>#{value}</ttl>"
+              optional_tags += "<ttl>#{value}</ttl>"
             end
           }
 

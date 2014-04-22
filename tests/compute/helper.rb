@@ -36,7 +36,7 @@ def compute_providers
          :environment_name, :organization_uri].each do |k|
           key = "ecloud_#{k}".to_sym
           if Fog.credentials[key]
-            hash[k]= Fog.credentials[key]
+            hash[k] = Fog.credentials[key]
           end
         end
       end,
@@ -50,7 +50,7 @@ def compute_providers
         [:zone_id, :network_ids, :template_id, :service_offering_id].each do |k|
           key = "cloudstack_#{k}".to_sym
           if Fog.credentials[key]
-            hash[k]= Fog.credentials[key]
+            hash[k] = Fog.credentials[key]
           end
         end
       end,
@@ -58,7 +58,7 @@ def compute_providers
         [:zone_id, :disk_offering_id].each do |k|
           key = "cloudstack_#{k}".to_sym
           if Fog.credentials[key]
-            hash[k]= Fog.credentials[key]
+            hash[k] = Fog.credentials[key]
           end
         end
       end,
@@ -66,7 +66,7 @@ def compute_providers
         [:volume_id, :domain_id, :policy_id].each do |k|
           key = "cloudstack_#{k}".to_sym
           if Fog.credentials[key]
-            hash[k]= Fog.credentials[key]
+            hash[k] = Fog.credentials[key]
           end
         end
       end,

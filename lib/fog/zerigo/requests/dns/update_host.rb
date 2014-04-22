@@ -20,21 +20,21 @@ module Fog
         #
         def update_host(host_id, options = {})
 
-          optional_tags= ''
+          optional_tags = ''
           options.each { |option, value|
             case option
             when :host_type
-              optional_tags+= "<host-type>#{value}</host-type>"
+              optional_tags += "<host-type>#{value}</host-type>"
             when :data
-              optional_tags+= "<data>#{value}</data>"
+              optional_tags += "<data>#{value}</data>"
             when :hostname
-              optional_tags+= "<hostname>#{value}</hostname>"
+              optional_tags += "<hostname>#{value}</hostname>"
             when :notes
-              optional_tags+= "<notes>#{value}</notes>"
+              optional_tags += "<notes>#{value}</notes>"
             when :priority
-              optional_tags+= "<priority>#{value}</priority>"
+              optional_tags += "<priority>#{value}</priority>"
             when :ttl
-              optional_tags+= "<ttl>#{value}</ttl>"
+              optional_tags += "<ttl>#{value}</ttl>"
             end
           }
 

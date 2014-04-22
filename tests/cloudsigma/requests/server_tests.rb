@@ -21,7 +21,7 @@ Shindo.tests('Fog::Compute[:cloudsigma] | server requests', ['cloudsigma']) do
       'nics' => Array
   }
 
-  @server_create_args = {:name => 'fogtest', :cpu => 2000, :mem => 512*1024**2, :vnc_password => 'myrandompass'}
+  @server_create_args = {:name => 'fogtest', :cpu => 2000, :mem => 512 * 1024**2, :vnc_password => 'myrandompass'}
 
   tests('success') do
 

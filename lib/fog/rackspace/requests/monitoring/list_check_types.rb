@@ -22,16 +22,16 @@ module Fog
               {
                 "type"   => "remote",
                 "id"     => "remote.dns",
-                "channel"=> "stable",
+                "channel" => "stable",
                 "fields" => [
                   {
                     "name"       => "port",
-                    "description"=> "Port number (default: 53)",
+                    "description" => "Port number (default: 53)",
                     "optional"   => true
                   },
                   {
                     "name"       => "query",
-                    "description"=> "DNS Query",
+                    "description" => "DNS Query",
                     "optional"   => false
                   },
                   {
@@ -46,7 +46,7 @@ module Fog
               {
                 "type"    => "agent",
                 "id"      => "agent.memory",
-                "channel" =>"stable",
+                "channel" => "stable",
                 "fields"  => [],
                 "supported_platforms" => [
                   "Linux",

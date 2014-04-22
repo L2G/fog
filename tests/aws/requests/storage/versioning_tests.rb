@@ -171,7 +171,7 @@ Shindo.tests('Fog::Storage[:aws] | versioning', ["aws"]) do
       end
 
       tests("there are two versions: the original and the delete marker").
-          returns(file_count*2) do
+          returns(file_count * 2) do
         versions = Fog::Storage[:aws].get_bucket_object_versions(
                       @aws_bucket_name)
         versions.body['Versions'].size

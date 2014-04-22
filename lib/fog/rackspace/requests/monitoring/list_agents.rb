@@ -17,7 +17,7 @@ module Fog
           response = Excon::Response.new
           response.status = 200
           response.body = {
-          "values"=>[
+          "values" => [
           {
             "id" => Fog::Rackspace::MockData.uuid,
             "last_connected"  => Time.now.to_i - 100

@@ -15,7 +15,7 @@ module Fog
 
           server = data[:servers][server_id]
           server["addresses"]['mocknet'] ||= []
-          ip_hash = {"OS-EXT-IPS-MAC:mac_addr"=>"fa:16:3e:85:47:40", "version"=>4, "addr"=>ip_address, "OS-EXT-IPS:type"=>"floating"}
+          ip_hash = {"OS-EXT-IPS-MAC:mac_addr" => "fa:16:3e:85:47:40", "version" => 4, "addr" => ip_address, "OS-EXT-IPS:type" => "floating"}
           server["addresses"]['mocknet'] << ip_hash
 
           response = Excon::Response.new
@@ -23,7 +23,7 @@ module Fog
           response.headers = {
             "Content-Type" => "text/html, charset=UTF-8",
             "Content-Length" => "0",
-            "Date"=> Date.new
+            "Date" => Date.new
           }
           response
         end

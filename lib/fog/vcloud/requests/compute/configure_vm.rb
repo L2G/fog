@@ -21,7 +21,7 @@ module Fog
           xmlns_rasd = 'http://schemas.dmtf.org/wbem/wscim/1/cim-schema/2/CIM_ResourceAllocationSettingData'
           xmlns_vssd = 'http://schemas.dmtf.org/wbem/wscim/1/cim-schema/2/CIM_VirtualSystemSettingData'
 
-          builder = Builder::XmlMarkup.new(:target=>STDOUT, :indent=>2) # TODO - remove params
+          builder = Builder::XmlMarkup.new(:target => STDOUT, :indent => 2) # TODO - remove params
           builder.VirtualHardwareSection(
                                          :"vcloud:href" => vm_data[:"vcloud_href"],
                                          :"vcloud:type" => vm_data[:"vcloud_type"],

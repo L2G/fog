@@ -5,7 +5,7 @@ module Fog
 
         def create_image(attributes)
           data = {
-            'Content-Type'                  =>'application/octet-stream',
+            'Content-Type'                  => 'application/octet-stream',
             'x-image-meta-name'             => attributes[:name],
             'x-image-meta-disk-format'      => attributes[:disk_format],
             'x-image-meta-container-format' => attributes[:container_format],
@@ -70,7 +70,7 @@ module Fog
             'owner'            => attributes[:owner],
             'properties'       => attributes[:properties] || {}
           }
-          response.body = { 'image'=> image }
+          response.body = { 'image' => image }
           response
         end
       end

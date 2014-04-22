@@ -14,7 +14,7 @@ module Fog
 
         def list_snapshots(project=nil)
           api_method = @compute.snapshots.list
-          project=@project if project.nil?
+          project = @project if project.nil?
           parameters = {
             'project' => project
           }

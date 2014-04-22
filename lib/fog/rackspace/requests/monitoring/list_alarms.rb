@@ -39,11 +39,11 @@ module Fog
             ],
               "metadata" =>
               {
-                "count"       =>1,
-                "limit"       =>100,
-                "marker"      =>nil,
-                "next_marker" =>nil,
-                "next_href"   =>nil
+                "count"       => 1,
+                "limit"       => 100,
+                "marker"      => nil,
+                "next_marker" => nil,
+                "next_href"   => nil
               }
           }
           response.headers = {

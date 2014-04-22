@@ -36,7 +36,7 @@ Shindo.tests('Fog::Redshift[:aws] | cluster requests', ['aws']) do
   }
   @describe_clusters_format = {
     "ClusterSet" => [{
-      'Cluster' => @cluster_format['Cluster'].merge({"ClusterCreateTime"=>Time, "AvailabilityZone"=>String, "EndPoint"=>{"Port"=>Integer, "Address"=>String}})
+      'Cluster' => @cluster_format['Cluster'].merge({"ClusterCreateTime" => Time, "AvailabilityZone" => String, "EndPoint" => {"Port" => Integer, "Address" => String}})
     }]
   }
 
@@ -48,21 +48,21 @@ Shindo.tests('Fog::Redshift[:aws] | cluster requests', ['aws']) do
                                                 :node_type            => 'dw.hs1.xlarge',
                                                 :cluster_type         => 'single-node').body
       Fog.wait_for do
-        "available" == Fog::AWS[:redshift].describe_clusters(:cluster_identifier=>identifier).body['ClusterSet'].first['Cluster']['ClusterStatus']
+        "available" == Fog::AWS[:redshift].describe_clusters(:cluster_identifier => identifier).body['ClusterSet'].first['Cluster']['ClusterStatus']
       end
       body
     end
 
     tests('describe_clusters').formats(@describe_clusters_format["ClusterSet"]) do
       sleep 30 unless Fog.mocking?
-      body = Fog::AWS[:redshift].describe_clusters(:cluster_identifier=>identifier).body["ClusterSet"]
+      body = Fog::AWS[:redshift].describe_clusters(:cluster_identifier => identifier).body["ClusterSet"]
       body
     end
 
 
     tests('reboot_cluster') do
       sleep 30 unless Fog.mocking?
-      body = Fog::AWS[:redshift].reboot_cluster(:cluster_identifier=>identifier).body
+      body = Fog::AWS[:redshift].reboot_cluster(:cluster_identifier => identifier).body
       tests("verify reboot").returns("rebooting") { body['Cluster']['ClusterStatus']}
       body
     end
@@ -70,10 +70,10 @@ Shindo.tests('Fog::Redshift[:aws] | cluster requests', ['aws']) do
 
     tests('delete_cluster') do
       Fog.wait_for do
-        "available" == Fog::AWS[:redshift].describe_clusters(:cluster_identifier=>identifier).body['ClusterSet'].first['Cluster']['ClusterStatus']
+        "available" == Fog::AWS[:redshift].describe_clusters(:cluster_identifier => identifier).body['ClusterSet'].first['Cluster']['ClusterStatus']
       end
       sleep 30 unless Fog.mocking?
-      body = Fog::AWS[:redshift].delete_cluster(:cluster_identifier=>identifier, :skip_final_cluster_snapshot=>true).body
+      body = Fog::AWS[:redshift].delete_cluster(:cluster_identifier => identifier, :skip_final_cluster_snapshot => true).body
       tests("verify delete").returns("deleting") { body['Cluster']['ClusterStatus']}
       body
     end

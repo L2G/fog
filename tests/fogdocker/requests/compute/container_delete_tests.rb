@@ -6,7 +6,7 @@ Shindo.tests('Fog::Compute[:fogdocker] | container_delete request', ['fogdocker'
 
   tests('The response should') do
     response = compute.container_delete(:id => container.id)
-    test('be a success') { response ? true: false }
+    test('be a success') { response ? true : false }
   end
 
   tests('The expected options') do

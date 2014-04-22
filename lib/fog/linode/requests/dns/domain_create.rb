@@ -25,7 +25,7 @@ module Fog
         #     * DATA<~Hash>:
         #       * 'DomainID'<~Integer>: domain ID
         def domain_create(domain, type, options = {})
-          query= {}
+          query = {}
           request(
             :expects  => 200,
             :method   => 'GET',

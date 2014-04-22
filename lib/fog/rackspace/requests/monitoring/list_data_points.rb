@@ -26,12 +26,12 @@ module Fog
           response.status = 200
           response.body = {
             "values"  => [],
-            "metadata"=> {
-              "count"       =>0,
-              "limit"       =>nil,
-              "marker"      =>nil,
-              "next_marker" =>nil,
-              "next_href"   =>nil
+            "metadata" => {
+              "count"       => 0,
+              "limit"       => nil,
+              "marker"      => nil,
+              "next_marker" => nil,
+              "next_href"   => nil
             }
           }
           response.headers = {

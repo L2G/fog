@@ -356,7 +356,7 @@ module Fog
             'x-tmrk-version' => @version,
             'Date'           => Time.now.utc.strftime("%a, %d %b %Y %H:%M:%S GMT"),
           }.merge(params[:headers] || {})
-          if params[:method]=="POST" || params[:method]=="PUT"
+          if params[:method] == "POST" || params[:method] == "PUT"
             params[:headers].merge!({"Content-Type" => 'application/xml'}) unless params[:headers]['Content-Type']
             params[:headers].merge!({"Accept" => 'application/xml'})
           end
@@ -364,7 +364,7 @@ module Fog
             params[:headers].merge!({"x-tmrk-contenthash" => "Sha256 #{Base64.encode64(Digest::SHA2.digest(params[:body].to_s)).chomp}"})
           end
           if @authentication_method == :basic_auth
-            params[:headers].merge!({'Authorization' => "Basic #{Base64.encode64(@username+":"+@password).delete("\r\n")}"})
+            params[:headers].merge!({'Authorization' => "Basic #{Base64.encode64(@username + ":" + @password).delete("\r\n")}"})
           elsif @authentication_method == :cloud_api_auth
             signature = cloud_api_signature(params)
             params[:headers].merge!({
@@ -676,7 +676,7 @@ module Fog
                                   :MonthlyCost => "0"
                                 }
                               },
-                              :NetworkAdapter=> {
+                              :NetworkAdapter => {
                                 :Minimum    => "1",
                                 :Maximum    => "4",
                                 :StepFactor => "1"

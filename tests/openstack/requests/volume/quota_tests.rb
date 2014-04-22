@@ -22,8 +22,8 @@ Shindo.tests('Fog::Volume[:openstack] | quota requests', ['openstack']) do
     tests('#update_quota') do
 
       new_values = @quota.merge({
-        'volumes'   => @quota['volumes']/2,
-        'snapshots' => @quota['snapshots']/2
+        'volumes'   => @quota['volumes'] / 2,
+        'snapshots' => @quota['snapshots'] / 2
       })
 
       succeeds do

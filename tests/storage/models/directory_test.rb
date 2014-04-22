@@ -12,7 +12,7 @@ for provider, config in storage_providers
 
         tests("#public=(true)").succeeds do
           pending if Fog.mocking? && !config[:mocked]
-          @instance.public=(true)
+          @instance.public = (true)
         end
 
         tests('responds_to(:public_url)') do

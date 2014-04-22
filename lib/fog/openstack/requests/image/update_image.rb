@@ -39,7 +39,7 @@ module Fog
           response.status = 200
           image = self.images.last
           response.body = {
-            'image'=> {
+            'image' => {
               'name'             => attributes[:name] || image.name,
               'size'             => image.size,
               'min_disk'         => (attributes[:min_disk] || image.min_disk).to_i,

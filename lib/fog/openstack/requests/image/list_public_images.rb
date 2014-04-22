@@ -16,7 +16,7 @@ module Fog
           response = Excon::Response.new
           response.status = [200, 204][rand(1)]
           response.body = {
-            "images"=>[{
+            "images" => [{
               "name"             => Fog::Mock.random_letters(10),
               "size"             => Fog::Mock.random_numbers(8).to_i,
               "disk_format"      => "iso",

@@ -11,7 +11,7 @@ Shindo.tests('Fog::Rackspace::Monitoring | list_tests', ['rackspace','rackspace_
 
   metric_name = "idle_percent_average"
   now = Time.now.to_i
-  SLEEP_TIME= 2
+  SLEEP_TIME = 2
   sleep(SLEEP_TIME) unless Fog.mocking?
 
   tests('success') do
@@ -52,7 +52,7 @@ Shindo.tests('Fog::Rackspace::Monitoring | list_tests', ['rackspace','rackspace_
       options = {
         :points => 1,
         :from => now * 1000,
-        :to => (now+SLEEP_TIME) * 1000
+        :to => (now + SLEEP_TIME) * 1000
       }
       account.list_data_points(entity_id,check_id,metric_name,options).data[:headers]
     end

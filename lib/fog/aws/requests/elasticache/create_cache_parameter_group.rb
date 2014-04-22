@@ -41,8 +41,8 @@ module Fog
           self.data[:parameter_groups][name] = data
 
           response.body = {
-            "ResponseMetadata"=>{ "RequestId"=> Fog::AWS::Mock.request_id },
-            "CreateCacheParameterGroupResult"=> {"CacheParameterGroup"=> data}
+            "ResponseMetadata" => { "RequestId" => Fog::AWS::Mock.request_id },
+            "CreateCacheParameterGroupResult" => {"CacheParameterGroup" => data}
           }
           response.status = 200
           response

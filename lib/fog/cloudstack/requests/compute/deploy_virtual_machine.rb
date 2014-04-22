@@ -120,7 +120,7 @@ module Fog
             "nic" => nic
           }
 
-          self.data[:servers][identity]= virtual_machine
+          self.data[:servers][identity] = virtual_machine
           {'deployvirtualmachineresponse' => virtual_machine}
         end
       end # Mock

@@ -17,7 +17,7 @@ module Fog
             #look out for start of <hosts> section
             #needed as some of the tags have the same name as the parent <zone> section
             if name == 'hosts'
-              @in_hosts= true
+              @in_hosts = true
             end
           end
 

@@ -10,7 +10,7 @@ Shindo.tests('HP::Network | networking floating ip requests', ['hp', 'networking
     'port_id'             => Fog::Nullable::String
   }
 
-  @ext_network_id = HP[:network].list_networks({'router:external'=>true}).body['networks'][0]['id']
+  @ext_network_id = HP[:network].list_networks({'router:external' => true}).body['networks'][0]['id']
   s_data = HP[:network].create_port(@ext_network_id, {:name => 'fog_port'}).body['port']
   @port_id = s_data['id']
 

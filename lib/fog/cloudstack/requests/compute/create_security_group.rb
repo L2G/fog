@@ -19,7 +19,7 @@ module Fog
             "id" => security_group_id,
           }.merge(options)
 
-          self.data[:security_groups][security_group_id]= security_group
+          self.data[:security_groups][security_group_id] = security_group
           {"createsecuritygroupresponse" => { "securitygroup" => security_group}}
         end
       end

@@ -21,7 +21,7 @@ Shindo.tests('Fog::Compute[:aws] | subnet requests', ['aws']) do
   }
 
   tests('success') do
-    @vpc=Fog::Compute[:aws].vpcs.create('cidr_block' => '10.0.10.0/24')
+    @vpc = Fog::Compute[:aws].vpcs.create('cidr_block' => '10.0.10.0/24')
     @vpc_id = @vpc.id
     @subnet_id = nil
 

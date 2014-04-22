@@ -86,8 +86,8 @@ Shindo.tests('Fog::Compute::RackspaceV2 | server', ['rackspace']) do
     tests('#update').succeeds do
       new_name = "fog_server_update#{Time.now.to_i}"
       @instance.name = new_name
-      @instance.access_ipv4_address= "10.10.0.1"
-      @instance.access_ipv6_address= "::1"
+      @instance.access_ipv4_address = "10.10.0.1"
+      @instance.access_ipv6_address = "::1"
       @instance.save
       sleep 60 unless Fog.mocking?
       @instance.reload

@@ -43,7 +43,7 @@ module Fog
             'user_id' => self.data[:users].first, # TODO use current user
             'account_id' => self.data[:accounts].first, # TODO use current user
             'cmd' => 'com.cloud.api.commands.DeleteSnapshotCmd',
-            'job_status'=> 1,
+            'job_status' => 1,
             'job_result_type' => nil,
             'job_result_code' => 0,
             'job_proc_status' => 0,

@@ -155,17 +155,17 @@ Shindo.tests('Fog::CDN::Rackspace', ['rackspace']) do
 
     tests('urls_from_headers') do
       headers = {
-        "X-Cdn-Streaming-Uri"=>"http://168e307d41afe64f1a62-d1e9259b2132e81da48ed3e1e802ef22.r2.stream.cf1.rackcdn.com",
-        "X-Cdn-Uri"=>"http://6e8f4bf5125c9c2e4e3a-d1e9259b2132e81da48ed3e1e802ef22.r2.cf1.rackcdn.com",
-        "Date"=>"Fri, 15 Feb 2013 18:36:41 GMT",
-        "Content-Length"=>"0",
-        "X-Trans-Id"=>"tx424df53b79bc43fe994d3cec0c4d2d8a",
-        "X-Ttl"=>"3600",
-        "X-Cdn-Ssl-Uri"=>"https://f83cb7d39e0b9ff9581b-d1e9259b2132e81da48ed3e1e802ef22.ssl.cf1.rackcdn.com",
-        "X-Cdn-Ios-Uri"=>"http://a590286a323fec6aed22-d1e9259b2132e81da48ed3e1e802ef22.iosr.cf1.rackcdn.com",
-        "X-Cdn-Enabled"=>"True",
-        "Content-Type"=>"text/html; charset=UTF-8",
-        "X-Log-Retention"=>"False"
+        "X-Cdn-Streaming-Uri" => "http://168e307d41afe64f1a62-d1e9259b2132e81da48ed3e1e802ef22.r2.stream.cf1.rackcdn.com",
+        "X-Cdn-Uri" => "http://6e8f4bf5125c9c2e4e3a-d1e9259b2132e81da48ed3e1e802ef22.r2.cf1.rackcdn.com",
+        "Date" => "Fri, 15 Feb 2013 18:36:41 GMT",
+        "Content-Length" => "0",
+        "X-Trans-Id" => "tx424df53b79bc43fe994d3cec0c4d2d8a",
+        "X-Ttl" => "3600",
+        "X-Cdn-Ssl-Uri" => "https://f83cb7d39e0b9ff9581b-d1e9259b2132e81da48ed3e1e802ef22.ssl.cf1.rackcdn.com",
+        "X-Cdn-Ios-Uri" => "http://a590286a323fec6aed22-d1e9259b2132e81da48ed3e1e802ef22.iosr.cf1.rackcdn.com",
+        "X-Cdn-Enabled" => "True",
+        "Content-Type" => "text/html; charset=UTF-8",
+        "X-Log-Retention" => "False"
       }
 
         urls = @cdn.send(:urls_from_headers, headers)

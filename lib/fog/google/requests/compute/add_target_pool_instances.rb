@@ -23,7 +23,7 @@ module Fog
             'instances' => instances.collect { |i| { 'instance' => i } }
           }
 
-          result = self.build_result(api_method, parameters, body_object=body)
+          result = self.build_result(api_method, parameters, body_object = body)
           self.build_response(result)
         end
 

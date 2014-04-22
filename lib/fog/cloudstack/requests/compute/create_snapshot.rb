@@ -35,7 +35,7 @@ module Fog
              "intervaltype"            => "weekly"
           }
 
-          self.data[:snapshots][snapshot_id]= snapshot
+          self.data[:snapshots][snapshot_id] = snapshot
           {'createsnapshotresponse' => snapshot}
         end
       end

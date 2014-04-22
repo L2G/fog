@@ -15,7 +15,7 @@ module Fog
         end
 
         def all
-          data = service.list_access_keys('UserName'=> @username).body['AccessKeys']
+          data = service.list_access_keys('UserName' => @username).body['AccessKeys']
           # AWS response doesn't contain the UserName, this injects it
           data.each {|access_key| access_key['UserName'] = @username }
           load(data)

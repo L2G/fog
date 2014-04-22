@@ -3,7 +3,7 @@ module Fog
     class Libvirt
       class Real
         def list_domains(filter = { })
-          data=[]
+          data = []
 
           if filter.has_key?(:uuid)
             data << client.lookup_domain_by_uuid(filter[:uuid])
@@ -41,16 +41,16 @@ module Fog
           ifs.map { |i|
             nics.new({
               :type    => i['type'],
-              :mac     => (i/'mac').first[:address],
-              :network => ((i/'source').first[:network] rescue nil),
-              :bridge  => ((i/'source').first[:bridge] rescue nil),
-              :model   => ((i/'model').first[:type] rescue nil),
+              :mac     => (i / 'mac').first[:address],
+              :network => ((i / 'source').first[:network] rescue nil),
+              :bridge  => ((i / 'source').first[:bridge] rescue nil),
+              :model   => ((i / 'model').first[:type] rescue nil),
             }.reject{|k,v| v.nil?})
           }
         end
 
         def domain_to_attributes(dom)
-          states= %w(nostate running blocked paused shutting-down shutoff crashed)
+          states = %w(nostate running blocked paused shutting-down shutoff crashed)
           {
             :id              => dom.uuid,
             :uuid            => dom.uuid,

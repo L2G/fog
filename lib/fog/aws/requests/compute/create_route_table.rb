@@ -45,9 +45,9 @@ module Fog
               'routeSet' => [{
                 "destinationCidrBlock" => vpc["cidrBlock"],
                 "gatewayId" => "local",
-                "instanceId"=>nil,
-                "instanceOwnerId"=>nil,
-                "networkInterfaceId"=>nil,
+                "instanceId" => nil,
+                "instanceOwnerId" => nil,
+                "networkInterfaceId" => nil,
                 "state" => "pending",
                 "origin" => "CreateRouteTable"
               }],
@@ -56,7 +56,7 @@ module Fog
             }
             self.data[:route_tables].push(route_table)
             response.body = {
-              'requestId'=> Fog::AWS::Mock.request_id,
+              'requestId' => Fog::AWS::Mock.request_id,
               'routeTable' => [route_table]
             }
             response

@@ -69,7 +69,7 @@ module Fog
               self.data[:servers][db_name]["DBInstanceStatus"] = "modifying"
               response.status = 200
               response.body = {
-                "ResponseMetadata"=>{ "RequestId"=> Fog::AWS::Mock.request_id },
+                "ResponseMetadata" => { "RequestId" => Fog::AWS::Mock.request_id },
                 "ModifyDBInstanceResult" => { "DBInstance" => self.data[:servers][db_name] }
               }
               response

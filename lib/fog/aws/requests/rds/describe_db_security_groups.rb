@@ -72,7 +72,7 @@ module Fog
 
           response.status = 200
           response.body = {
-            "ResponseMetadata"=>{ "RequestId"=> Fog::AWS::Mock.request_id },
+            "ResponseMetadata" => { "RequestId" => Fog::AWS::Mock.request_id },
             "DescribeDBSecurityGroupsResult" => { "DBSecurityGroups" => sec_group_set }
           }
           response

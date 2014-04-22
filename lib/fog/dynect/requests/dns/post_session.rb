@@ -29,11 +29,11 @@ module Fog
               "version" => Fog::Dynect::Mock.version
             },
             "job_id" => Fog::Dynect::Mock.job_id,
-            "msgs"=>[{
-              "INFO"=>"login: Login successful",
-              "SOURCE"=>"BLL",
-              "ERR_CD"=>nil,
-              "LVL"=>"INFO"
+            "msgs" => [{
+              "INFO" => "login: Login successful",
+              "SOURCE" => "BLL",
+              "ERR_CD" => nil,
+              "LVL" => "INFO"
             }]
           }
           response

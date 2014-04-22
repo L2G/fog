@@ -28,7 +28,7 @@ module Fog
           if key_exists? key_name
             self.data[:keys].delete(key_name)
             response.status = 200
-            response.body = {"success"=>true}
+            response.body = {"success" => true}
           else
             response.status = 404
           end

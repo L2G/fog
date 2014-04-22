@@ -32,7 +32,7 @@ module Fog
 
         def map_ip(ip)
           ip = ip.each_with_object({}) { |(k, v), h| h[k.downcase.to_sym] = v  }
-          ip.merge! :id => ip[:ipaddressid], :ip => ip[:ipaddress], :public => ip[:ispublic]==1
+          ip.merge! :id => ip[:ipaddressid], :ip => ip[:ipaddress], :public => ip[:ispublic] == 1
         end
       end
     end

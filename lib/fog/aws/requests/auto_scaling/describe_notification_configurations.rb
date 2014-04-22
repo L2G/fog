@@ -51,8 +51,8 @@ module Fog
 
         def describe_notification_configurations(options = {})
           results = { 'NotificationConfigurations' => [] }
-          (options['AutoScalingGroupNames']||self.data[:notification_configurations].keys).each do |asg_name|
-            (self.data[:notification_configurations][asg_name]||{}).each do |topic_arn, notification_types|
+          (options['AutoScalingGroupNames'] || self.data[:notification_configurations].keys).each do |asg_name|
+            (self.data[:notification_configurations][asg_name] || {}).each do |topic_arn, notification_types|
               notification_types.each do |notification_type|
                 results['NotificationConfigurations'] << {
                   'AutoScalingGroupName' => asg_name,

@@ -152,7 +152,7 @@ module Fog
         def normalize_permissions(options)
           normalized_permissions = []
           if options['SourceSecurityGroupName']
-            source_group_id=self.data[:security_groups][options['SourceSecurityGroupName']]['groupId']
+            source_group_id = self.data[:security_groups][options['SourceSecurityGroupName']]['groupId']
             ['tcp', 'udp'].each do |protocol|
               normalized_permissions << {
                 'ipProtocol' => protocol,

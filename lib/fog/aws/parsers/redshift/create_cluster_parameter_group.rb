@@ -9,7 +9,7 @@ module Fog
           # :description - (String)
 
           def reset
-            @response = {'ClusterParameterGroup'=>{}}
+            @response = {'ClusterParameterGroup' => {}}
           end
 
           def start_element(name, attrs = [])

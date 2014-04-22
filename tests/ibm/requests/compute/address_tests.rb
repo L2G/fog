@@ -2,7 +2,7 @@ Shindo.tests('Fog::Compute[:ibm] | address requests', ['ibm']) do
 
   @address_format = {
     "state"     => Integer,
-    "offeringId"=> String,
+    "offeringId" => String,
     "location"  => String,
     "ip"        => String,
     "id"        => String,

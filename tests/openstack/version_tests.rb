@@ -17,7 +17,7 @@ Shindo.tests('OpenStack | versions', ['openstack']) do
                                                                   }
                                                                 ]
             },
-            { "status" => "SUPPORTED", "id"=>"v1.0", "links" => [ {
+            { "status" => "SUPPORTED", "id" => "v1.0", "links" => [ {
                                                                       "href" => "http://example:9292/v1/",
                                                                       "rel" => "self"
                                                                   }

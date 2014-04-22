@@ -6,7 +6,7 @@ Shindo.tests("AWS::RDS | server", ['aws', 'rds']) do
     # We'll need this later; create it early to avoid waiting
     @instance_with_final_snapshot = Fog::AWS[:rds].servers.create(rds_default_server_params.merge(:id => uniq_id("fog-snapshot-test"), :backup_retention_period => 1))
 
-    @instance.wait_for(20*60) { ready? }
+    @instance.wait_for(20 * 60) { ready? }
 
     test('#read_replica_identifiers is []') do
       returns([]) { @instance.read_replica_identifiers }

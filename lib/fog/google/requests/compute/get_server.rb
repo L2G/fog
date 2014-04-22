@@ -28,7 +28,7 @@ module Fog
           creation_time = Time.iso8601(server['creationTimestamp'])
           case server['status']
           when 'PROVISIONING'
-            if Time.now - creation_time > Fog::Mock.delay/2
+            if Time.now - creation_time > Fog::Mock.delay / 2
               server['status'] = 'STAGING'
             end
           when 'STAGING'

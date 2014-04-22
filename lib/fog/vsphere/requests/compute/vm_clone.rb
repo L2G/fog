@@ -191,7 +191,7 @@ module Fog
           end
           customization_spec ||= nil
 
-          relocation_spec=nil
+          relocation_spec = nil
           if ( options['linked_clone'] )
             # cribbed heavily from the rbvmomi clone_vm.rb
             # this chunk of code reconfigures the disk of the clone source to be read only,
@@ -291,7 +291,7 @@ module Fog
             "name" => options['name'],
             "id" => id,
             "instance_uuid" => id,
-            "path" => "/Datacenters/#{options['datacenter']}/#{options['dest_folder'] ? options['dest_folder']+"/" : ""}#{options['name']}"
+            "path" => "/Datacenters/#{options['datacenter']}/#{options['dest_folder'] ? options['dest_folder'] + "/" : ""}#{options['name']}"
           })
           self.data[:servers][id] = new_vm
 

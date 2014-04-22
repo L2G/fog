@@ -23,7 +23,7 @@ module Fog
             when 'DBParameterGroupName'
               @db_parameter_group['DBParameterGroupName'] = value
             when 'DBParameterGroup'
-              @response['CreateDBParameterGroupResult']['DBParameterGroup']= @db_parameter_group
+              @response['CreateDBParameterGroupResult']['DBParameterGroup'] = @db_parameter_group
             when 'RequestId'
               @response['ResponseMetadata'][name] = value
             end

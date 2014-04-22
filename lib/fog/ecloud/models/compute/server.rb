@@ -161,7 +161,7 @@ module Fog
 
         def add_disk(size)
           index = disks.map { |d| d[:Index].to_i }.sort[-1] + 1
-          vm_disks = disks << {:Index => index.to_s, :Size=>{:Unit => "GB", :Value => size.to_s}, :Name => "Hard Disk #{index + 1}"}
+          vm_disks = disks << {:Index => index.to_s, :Size => {:Unit => "GB", :Value => size.to_s}, :Name => "Hard Disk #{index + 1}"}
           data = service.virtual_machine_edit_hardware_configuration(href + "/hardwareConfiguration", _configuration_data(:disks => vm_disks)).body
           task = self.service.tasks.new(data)
         end

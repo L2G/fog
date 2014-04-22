@@ -81,7 +81,7 @@ module Fog
         def create_disks
           @swap = disks.create :type => :swap, :name => @name, :size => @flavor.ram
           @disk = disks.create(:type => @type, :image => @image, :stack_script => @stack_script,
-                               :password => @password, :name => @name, :size => (@flavor.disk*1024)-@flavor.ram)
+                               :password => @password, :name => @name, :size => (@flavor.disk * 1024) - @flavor.ram)
         end
 
         def create_config

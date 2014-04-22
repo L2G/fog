@@ -57,10 +57,10 @@ module Fog
            },
            "job_id" => Fog::Dynect::Mock.job_id,
            "msgs" => [{
-             "INFO"=>"add: Record added",
-             "SOURCE"=>"BLL",
-             "ERR_CD"=>nil,
-             "LVL"=>"INFO"
+             "INFO" => "add: Record added",
+             "SOURCE" => "BLL",
+             "ERR_CD" => nil,
+             "LVL" => "INFO"
            }]
           }
 

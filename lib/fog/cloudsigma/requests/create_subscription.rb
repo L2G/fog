@@ -17,7 +17,7 @@ module Fog
           id = Fog::Mock.random_numbers(3).to_i
           defaults = {'id' => id,
                       'start_time' => DateTime.now,
-                      'end_time' => DateTime.now + 30 * 24 * 60 *60,
+                      'end_time' => DateTime.now + 30 * 24 * 60 * 60,
                       'auto_renew' => false,
                       'amount' => 1.0}
 

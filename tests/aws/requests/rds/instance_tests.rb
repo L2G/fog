@@ -37,7 +37,7 @@ Shindo.tests('AWS::RDS | instance requests', ['aws', 'rds']) do
 
     new_storage = 6
     tests("#modify_db_instance with immediate apply").formats(AWS::RDS::Formats::MODIFY_DB_INSTANCE) do
-      body = Fog::AWS[:rds].modify_db_instance(@db_instance_id, true, 'AllocatedStorage'=> new_storage).body
+      body = Fog::AWS[:rds].modify_db_instance(@db_instance_id, true, 'AllocatedStorage' => new_storage).body
       tests 'pending storage' do
         instance = body['ModifyDBInstanceResult']['DBInstance']
         returns(new_storage){instance['PendingModifiedValues']['AllocatedStorage']}
@@ -122,7 +122,7 @@ Shindo.tests('AWS::RDS | instance requests', ['aws', 'rds']) do
       raises(Fog::AWS::RDS::NotFound) {Fog::AWS[:rds].delete_db_snapshot('doesntexist')}
     end
     tests "modifying non existing instance" do
-      raises(Fog::AWS::RDS::NotFound) { Fog::AWS[:rds].modify_db_instance 'doesntexit', true, 'AllocatedStorage'=> 10}
+      raises(Fog::AWS::RDS::NotFound) { Fog::AWS[:rds].modify_db_instance 'doesntexit', true, 'AllocatedStorage' => 10}
     end
   end
 end

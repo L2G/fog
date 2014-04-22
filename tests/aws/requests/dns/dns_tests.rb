@@ -12,7 +12,7 @@ Shindo.tests('Fog::DNS[:aws] | DNS requests', ['aws', 'dns']) do
   tests('success') do
 
     test('get current zone count') do
-      @org_zone_count= 0
+      @org_zone_count = 0
       response = @r53_connection.list_hosted_zones
       if response.status == 200
         @hosted_zones = response.body['HostedZones']
@@ -90,11 +90,11 @@ Shindo.tests('Fog::DNS[:aws] | DNS requests', ['aws', 'dns']) do
       response = @r53_connection.list_hosted_zones
       if response.status == 200
 
-        zones= response.body['HostedZones']
+        zones = response.body['HostedZones']
         if (zones.count > 0)
           zone = zones[0]
           zone_id = zone['Id']
-          zone_name= zone['Name']
+          zone_name = zone['Name']
           caller_ref = zone['CallerReference']
         end
         max_items = response.body['MaxItems']

@@ -7,7 +7,7 @@ module Fog
                   :method => 'POST',
                   :expects => [200, 202],
                   :query => {:do => :extend},
-                  :body=>data)
+                  :body => data)
         end
       end
 

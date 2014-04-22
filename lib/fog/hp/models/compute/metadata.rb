@@ -60,7 +60,7 @@ module Fog
         private
         def meta_hash(data=nil)
           if data.nil?
-            data={}
+            data = {}
             self.each do |meta|
               if meta.is_a?(Fog::Compute::HP::Meta) then
                 data.store(meta.key, meta.value)

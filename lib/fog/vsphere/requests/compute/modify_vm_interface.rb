@@ -7,21 +7,21 @@ module Fog
           raise ArgumentError, "instance id is a required parameter" unless vmid
 
           interface = get_interface_from_options(vmid, options.merge(:server_id => vmid))
-          vm_reconfig_hardware('instance_uuid' => vmid, 'hardware_spec' => {'deviceChange'=>[create_interface(interface)]})
+          vm_reconfig_hardware('instance_uuid' => vmid, 'hardware_spec' => {'deviceChange' => [create_interface(interface)]})
         end
 
         def destroy_vm_interface(vmid, options = {})
           raise ArgumentError, "instance id is a required parameter" unless vmid
 
           interface = get_interface_from_options(vmid, options.merge(:server_id => vmid))
-          vm_reconfig_hardware('instance_uuid' => vmid, 'hardware_spec' => {'deviceChange'=>[create_interface(interface, interface.key, :remove)]})
+          vm_reconfig_hardware('instance_uuid' => vmid, 'hardware_spec' => {'deviceChange' => [create_interface(interface, interface.key, :remove)]})
         end
 
         def update_vm_interface(vmid, options = {})
           raise ArgumentError, "instance id is a required parameter" unless vmid
 
           interface = get_interface_from_options(vmid, options.merge(:server_id => vmid))
-          vm_reconfig_hardware('instance_uuid' => vmid, 'hardware_spec' => {'deviceChange'=>[create_interface(interface, interface.key, :edit)]})
+          vm_reconfig_hardware('instance_uuid' => vmid, 'hardware_spec' => {'deviceChange' => [create_interface(interface, interface.key, :edit)]})
         end
 
         private
@@ -29,7 +29,7 @@ module Fog
           if options and options[:interface]
             options[:interface]
 
-          elsif options[:key] and options[:key]>0
+          elsif options[:key] and options[:key] > 0
             oldattributes = get_vm_interface(vmid, options)
             Fog::Compute::Vsphere::Interface.new(oldattributes.merge(options))
 

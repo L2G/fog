@@ -3,12 +3,12 @@ Shindo.tests('Fog::Compute[:glesys] | server requests', ['glesys']) do
     @serverid = nil
     @hostname = "fog-#{Time.now.to_i}"
 
-    @create = ":hostname => #@hostname, :rootpassword => 'pw#{Time.now.to_i}', "+
-    ":datacenter => 'Falkenberg', :platform => 'Xen', :templatename => 'Debian-6 x64', "+
+    @create = ":hostname => #@hostname, :rootpassword => 'pw#{Time.now.to_i}', " +
+    ":datacenter => 'Falkenberg', :platform => 'Xen', :templatename => 'Debian-6 x64', " +
     ":disksize => '10', :memorysize => '512', :cpucores => '1', :transfer => '500'"
 
-    @create_vz = ":hostname => #@hostname, :rootpassword => 'pw#{Time.now.to_i}', "+
-    ":datacenter => 'Stockholm', :platform => 'OpenVZ', :templatename => 'Debian 6.0 64-bit', "+
+    @create_vz = ":hostname => #@hostname, :rootpassword => 'pw#{Time.now.to_i}', " +
+    ":datacenter => 'Stockholm', :platform => 'OpenVZ', :templatename => 'Debian 6.0 64-bit', " +
     ":disksize => '10', :memorysize => '256', :cpucores => '2', :transfer => '500'"
 
   tests('success') do

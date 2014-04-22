@@ -54,7 +54,7 @@ module Fog
 
           def fresh_cluster
             { 'ClusterParameterGroups' => [], 'ClusterSecurityGroups' => [], 'VpcSecurityGroups' => [],
-              'EndPoint' => {}, 'PendingModifiedValues'=> {}, 'RestoreStatus' => {}}
+              'EndPoint' => {}, 'PendingModifiedValues' => {}, 'RestoreStatus' => {}}
           end
 
           def start_element(name, attrs = [])

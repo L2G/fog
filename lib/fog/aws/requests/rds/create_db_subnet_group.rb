@@ -53,7 +53,7 @@ module Fog
           }
           self.data[:subnet_groups][name] = data
           response.body = {
-            "ResponseMetadata"=>{ "RequestId"=> Fog::AWS::Mock.request_id },
+            "ResponseMetadata" => { "RequestId" => Fog::AWS::Mock.request_id },
             'CreateDBSubnetGroupResult' => { 'DBSubnetGroup' => data }
           }
           response

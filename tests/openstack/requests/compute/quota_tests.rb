@@ -32,8 +32,8 @@ Shindo.tests('Fog::Compute[:openstack] | quota requests', ['openstack']) do
     tests('#update_quota') do
 
       new_values = @quota.merge({
-        'floating_ips' => @quota['floating_ips']/2,
-        'cores' => @quota['cores']/2
+        'floating_ips' => @quota['floating_ips'] / 2,
+        'cores' => @quota['cores'] / 2
       })
 
       succeeds do

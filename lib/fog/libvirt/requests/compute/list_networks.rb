@@ -4,7 +4,7 @@ module Fog
       class Real
         def list_networks(filter = { })
 
-          data=[]
+          data = []
           if filter.keys.empty?
             (client.list_networks + client.list_defined_networks).each do |network_name|
               data << network_to_attributes(client.lookup_network_by_name(network_name))

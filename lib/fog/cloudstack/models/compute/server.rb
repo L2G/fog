@@ -70,7 +70,7 @@ module Fog
         end
 
         def security_groups=(security_groups)
-          self.security_group_ids= Array(security_groups).map(&:id)
+          self.security_group_ids = Array(security_groups).map(&:id)
         end
 
         def security_group_ids

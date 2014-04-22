@@ -15,7 +15,7 @@ module Fog
           requires :username
 
           if !persisted?
-            data = service.create_access_key('UserName'=> username).body["AccessKey"]
+            data = service.create_access_key('UserName' => username).body["AccessKey"]
           else
             data = service.update_access_key(id, status, "UserName" => username).body["AccessKey"]
           end
@@ -27,7 +27,7 @@ module Fog
           requires :id
           requires :username
 
-          service.delete_access_key(id,'UserName'=> username)
+          service.delete_access_key(id,'UserName' => username)
           true
         end
 

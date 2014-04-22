@@ -17,9 +17,9 @@ module Fog
             :userdevice => "0",
             :bootable => true,
             :mode => 'RW',
-            :qos_algorithm_type=> '',
-            :qos_algorithm_params=> {},
-            :qos_supported_algorithms=> [],
+            :qos_algorithm_type => '',
+            :qos_algorithm_params => {},
+            :qos_supported_algorithms => [],
             :type => 'Disk'
           }.merge config
 

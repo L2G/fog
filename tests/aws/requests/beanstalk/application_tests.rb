@@ -28,7 +28,7 @@ Shindo.tests('AWS::ElasticBeanstalk | application_tests', ['aws', 'beanstalk']) 
                 'DateUpdated' => Time,
                 'Versions' => [String]
             ]},
-        'ResponseMetadata' => {'RequestId'=> String},
+        'ResponseMetadata' => {'RequestId' => String},
     }
 
     tests("#describe_applications format").formats(@describe_applications_format) do

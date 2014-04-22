@@ -20,10 +20,10 @@ module Fog
           data = {
             'server' => {
               :vps_os   => image_id,
-              :vps_hdd => options[:vps_hdd]?options[:vps_hdd]:5,
-              :vps_memory => options[:vps_memory]?options[:vps_memory]:256,
-              :vps_memory_max => options[:vps_memory_max]?options[:vps_memory_max]:1024,
-              :vps_admin => options[:vps_admin]?options[:vps_admin]:1
+              :vps_hdd => options[:vps_hdd] ? options[:vps_hdd] : 5,
+              :vps_memory => options[:vps_memory] ? options[:vps_memory] : 256,
+              :vps_memory_max => options[:vps_memory_max] ? options[:vps_memory_max] : 1024,
+              :vps_admin => options[:vps_admin] ? options[:vps_admin] : 1
             }
           }
 
@@ -64,7 +64,7 @@ module Fog
             'vps_os_title' => "OSTitle",
             'vps_root_pass' => data['adminPass'],
             'status' => "is_running",
-            'addresses' => {'public' =>[{
+            'addresses' => {'public' => [{
                                           'primary_ip' => true,
                                           'isp' => false,
                                           'ip' => '66.6.6.66'

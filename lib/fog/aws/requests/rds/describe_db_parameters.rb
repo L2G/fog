@@ -14,7 +14,7 @@ module Fog
         # * response<~Excon::Response>:
         #   * body<~Hash>:
         def describe_db_parameters(name, opts={})
-          params={}
+          params = {}
           if opts[:marker]
             params['Marker'] = opts[:marker]
           end

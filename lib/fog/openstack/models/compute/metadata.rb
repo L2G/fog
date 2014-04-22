@@ -49,7 +49,7 @@ module Fog
 
         def to_hash(data=nil)
           if data.nil?
-            data={}
+            data = {}
             self.each do |meta|
               if meta.is_a?(Fog::Compute::OpenStack::Metadatum) then
                 data.store(meta.key, meta.value)

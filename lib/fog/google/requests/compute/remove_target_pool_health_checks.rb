@@ -23,7 +23,7 @@ module Fog
             'healthChecks' => health_checks.collect { |i| { 'healthCheck' => i } }
           }
 
-          result = self.build_result(api_method, parameters, body_object=body)
+          result = self.build_result(api_method, parameters, body_object = body)
           self.build_response(result)
         end
 

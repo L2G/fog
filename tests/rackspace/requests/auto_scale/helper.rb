@@ -1,16 +1,16 @@
 ### FORMATS
 
 LIST_GROUPS_FORMAT =
-  { "groups_links"=>[],
-    "groups"=> [
+  { "groups_links" => [],
+    "groups" => [
       {
         "state" => {
-          "paused"=> Fog::Boolean,
-          "desiredCapacity"=> Integer,
-          "active"=>[],
-          "pendingCapacity"=> Integer,
-          "activeCapacity"=> Integer,
-          "name"=> String
+          "paused" => Fog::Boolean,
+          "desiredCapacity" => Integer,
+          "active" => [],
+          "pendingCapacity" => Integer,
+          "activeCapacity" => Integer,
+          "name" => String
         }
       }
     ]
@@ -18,34 +18,34 @@ LIST_GROUPS_FORMAT =
 
 GROUP_STATE_FORMAT =  {
   "group" => {
-    "paused"=> Fog::Boolean,
+    "paused" => Fog::Boolean,
     "desiredCapacity" => Integer,
-    "active"=>[],
+    "active" => [],
     "pendingCapacity" => Integer,
     "activeCapacity" => Integer,
-    "name"=> String
+    "name" => String
     }
   }
 
 GET_GROUP_HEADERS_FORMAT = {
-  "Content-Type"=>String,
-  "Via"=>String,
-  "x-response-id"=>String,
-  "Date"=>String,
-  "Transfer-Encoding"=>String,
-  "Server"=>String
+  "Content-Type" => String,
+  "Via" => String,
+  "x-response-id" => String,
+  "Date" => String,
+  "Transfer-Encoding" => String,
+  "Server" => String
 }
 
 GROUP_DELETE_DATA_FORMAT = {
-  :headers=> {
-    "Content-Type"=>String,
-    "Via"=>String,
-    "x-response-id"=>String,
-    "Date"=>String,
-    "Server"=>String
+  :headers => {
+    "Content-Type" => String,
+    "Via" => String,
+    "x-response-id" => String,
+    "Date" => String,
+    "Server" => String
   },
-  :status=>Integer,
-  :remote_ip=>String
+  :status => Integer,
+  :remote_ip => String
 }
 
 LAUNCH_CONFIG_FORMAT = {
@@ -97,12 +97,12 @@ GROUP_CONFIG_FORMAT = {
 }
 
 POLICY_FORMAT = {
-    "name"=> String,
-    "links"=> Array,
-    "cooldown"=>Integer,
-    "type"=>String,
-    "id"=>String,
-    "change"=>Integer
+    "name" => String,
+    "links" => Array,
+    "cooldown" => Integer,
+    "type" => String,
+    "id" => String,
+    "change" => Integer
   }
 
 POLICIES_FORMAT = [POLICY_FORMAT]
@@ -133,8 +133,8 @@ LIST_WEBHOOKS_FORMAT = [
   {
     "id" => String,
     "name" => String,
-    "links"=>[{"href" => String, "rel" => String }],
-    "metadata"=>{}
+    "links" => [{"href" => String, "rel" => String }],
+    "metadata" => {}
   }
 ]
 

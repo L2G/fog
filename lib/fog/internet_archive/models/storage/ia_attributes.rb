@@ -10,7 +10,7 @@ module Fog
 
       module ClassMethods
         def ia_metadata_attribute(name)
-          attribute(name, :aliases=>['amz','archive'].collect{|p|"x-#{p}-#{name.to_s.tr('_','-')}"})
+          attribute(name, :aliases => ['amz','archive'].collect{|p|"x-#{p}-#{name.to_s.tr('_','-')}"})
         end
       end
 
@@ -27,7 +27,7 @@ module Fog
             options["x-archive-meta-#{array_attribute.to_s[0..-2]}"] = values.first
           elsif values.size > 1
             values[0,99].each_with_index do |value, i|
-              options["x-archive-meta#{format("%02d", i+1)}-#{array_attribute.to_s[0..-2]}"] = value
+              options["x-archive-meta#{format("%02d", i + 1)}-#{array_attribute.to_s[0..-2]}"] = value
             end
           end
 
