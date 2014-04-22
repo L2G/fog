@@ -27,7 +27,7 @@ Shindo.tests('Fog::Compute[:brightbox] | interface requests', ['brightbox']) do
 
     tests('#get_interface()').raises(ArgumentError) do
       pending if Fog.mocking?
-      @test_service.get_interface()
+      @test_service.get_interface
     end
   end
 end

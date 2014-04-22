@@ -10,7 +10,7 @@ Shindo.tests('Fog::DNS[:linode] | DNS requests', ['linode', 'dns']) do
       pending if Fog.mocking?
 
       @org_zone_count = 0
-      response = Fog::DNS[:linode].domain_list()
+      response = Fog::DNS[:linode].domain_list
       if response.status == 200
         zones = response.body['DATA']
         @org_zone_count = zones.count

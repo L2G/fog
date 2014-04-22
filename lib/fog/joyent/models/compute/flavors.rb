@@ -10,7 +10,7 @@ module Fog
         model Fog::Compute::Joyent::Flavor
 
         def all
-          load(service.list_packages().body)
+          load(service.list_packages.body)
         end
 
         def get(id)

@@ -15,7 +15,7 @@ Shindo.tests('AWS::DataPipeline | pipeline_tests', ['aws', 'data_pipeline']) do
     end
 
     tests('#list_pipelines').formats(AWS::DataPipeline::Formats::LIST_PIPELINES) do
-      Fog::AWS[:data_pipeline].list_pipelines()
+      Fog::AWS[:data_pipeline].list_pipelines
     end
 
     tests('#describe_pipelines').formats(AWS::DataPipeline::Formats::DESCRIBE_PIPELINES) do

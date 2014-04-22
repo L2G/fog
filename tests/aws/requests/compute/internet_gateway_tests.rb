@@ -17,7 +17,7 @@ Shindo.tests('Fog::Compute[:aws] | internet_gateway requests', ['aws']) do
     @igw_id = nil
 
     tests('#create_internet_gateway').formats(@internet_gateways_format) do
-      data = Fog::Compute[:aws].create_internet_gateway().body
+      data = Fog::Compute[:aws].create_internet_gateway.body
       @igw_id = data['internetGatewaySet'].first['internetGatewayId']
       data
     end

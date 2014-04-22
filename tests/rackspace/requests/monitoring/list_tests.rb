@@ -30,22 +30,22 @@ Shindo.tests('Fog::Rackspace::Monitoring | list_tests', ['rackspace','rackspace_
       account.list_checks(entity_id).data[:headers]
     end
     tests('#get list of check types').formats(LIST_HEADERS_FORMAT) do
-      account.list_check_types().data[:headers]
+      account.list_check_types.data[:headers]
     end
     tests('#get list of entities').formats(LIST_HEADERS_FORMAT) do
-      account.list_entities().data[:headers]
+      account.list_entities.data[:headers]
     end
     tests('#get list of metrics').formats(LIST_HEADERS_FORMAT) do
      account.list_metrics(entity_id,check_id).data[:headers]
     end
     tests('#get overview list').formats(LIST_HEADERS_FORMAT) do
-      account.list_overview().data[:headers]
+      account.list_overview.data[:headers]
     end
     tests('#list notification plans').formats(LIST_HEADERS_FORMAT) do
-      account.list_notification_plans().data[:headers]
+      account.list_notification_plans.data[:headers]
     end
     tests('#list notifications').formats(LIST_HEADERS_FORMAT) do
-      account.list_notifications().data[:headers]
+      account.list_notifications.data[:headers]
     end
     tests('#get list of data points').formats(LIST_HEADERS_FORMAT) do
       options = {

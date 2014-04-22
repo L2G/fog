@@ -12,11 +12,11 @@ module Fog
         attr_accessor :vm
 
         def all(filters = {})
-          load service.list_customfields()
+          load service.list_customfields
         end
 
         def get(key)
-          load(service.list_customfields()).find do | cv |
+          load(service.list_customfields).find do | cv |
             cv.key == ((key.is_a? String) ? key.to_i : key)
           end
         end

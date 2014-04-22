@@ -6,7 +6,7 @@ Shindo.tests('Fog::DNS[:dnsimple] | DNS requests', ['dnsimple', 'dns']) do
   tests('success') do
 
     test('get current domain count') do
-      response = Fog::DNS[:dnsimple].list_domains()
+      response = Fog::DNS[:dnsimple].list_domains
       if response.status == 200
         @domain_count = response.body.size
       end

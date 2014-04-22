@@ -10,7 +10,7 @@ namespace :google do
       Dir.glob('./examples/*.rb').each do |file|
         puts "Running #{file}:"
         require file
-        test()
+        test
       end
     end
   end

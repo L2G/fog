@@ -5,7 +5,7 @@ Shindo.tests('Fog::Rackspace::Monitoring | alarm_example_tests', ['rackspace','r
   example_id = 'remote.http_body_match_1'
   tests('success') do
     tests('#list alarm examples').formats(LIST_HEADERS_FORMAT) do
-      account.list_alarm_examples().data[:headers]
+      account.list_alarm_examples.data[:headers]
     end
     tests('#get alarm example').formats(LIST_HEADERS_FORMAT) do
       account.get_alarm_example(example_id).data[:headers]

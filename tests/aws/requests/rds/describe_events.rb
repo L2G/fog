@@ -6,7 +6,7 @@ Shindo.tests('AWS::RDS | describe DB events requests',['aws', 'rds']) do
     tests(
     '#describe_events'
     ).formats(AWS::RDS::Formats::EVENT_LIST) do
-      AWS[:rds].describe_events().body['Events']
+      AWS[:rds].describe_events.body['Events']
     end
   end
 

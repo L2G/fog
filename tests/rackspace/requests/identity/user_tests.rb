@@ -77,7 +77,7 @@ Shindo.tests('Fog::Rackspace::Identity | users', ['rackspace']) do
     end
 
     tests('#list_users').formats(USERS_FORMAT) do
-      service.list_users().body
+      service.list_users.body
     end
 
     tests('#update_user').formats(USER_FORMAT) do

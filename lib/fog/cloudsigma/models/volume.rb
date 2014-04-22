@@ -40,7 +40,7 @@ module Fog
         def update
           requires :identity, :name, :size, :media
 
-          data = attributes()
+          data = attributes
 
           response = service.update_volume(identity, data)
           new_attributes = response.body

@@ -11,7 +11,7 @@ Shindo.tests('AWS::AutoScaling | auto_scaling_tests', ['aws', 'auto_scaling']) d
     end
 
     tests('#describe_launch_configurations').formats(AWS::AutoScaling::Formats::DESCRIBE_LAUNCH_CONFIGURATIONS) do
-      Fog::AWS[:auto_scaling].describe_launch_configurations().body
+      Fog::AWS[:auto_scaling].describe_launch_configurations.body
     end
     tests('#describe_launch_configurations').formats(AWS::AutoScaling::Formats::DESCRIBE_LAUNCH_CONFIGURATIONS) do
       Fog::AWS[:auto_scaling].describe_launch_configurations('LaunchConfigurationNames' => @lc_name).body
@@ -28,7 +28,7 @@ Shindo.tests('AWS::AutoScaling | auto_scaling_tests', ['aws', 'auto_scaling']) d
     end
 
     tests('#describe_auto_scaling_groups').formats(AWS::AutoScaling::Formats::DESCRIBE_AUTO_SCALING_GROUPS) do
-      Fog::AWS[:auto_scaling].describe_auto_scaling_groups().body
+      Fog::AWS[:auto_scaling].describe_auto_scaling_groups.body
     end
     tests('#describe_auto_scaling_groups').formats(AWS::AutoScaling::Formats::DESCRIBE_AUTO_SCALING_GROUPS) do
       Fog::AWS[:auto_scaling].describe_auto_scaling_groups('AutoScalingGroupNames' => @asg_name).body
@@ -38,12 +38,12 @@ Shindo.tests('AWS::AutoScaling | auto_scaling_tests', ['aws', 'auto_scaling']) d
     end
 
     tests('#describe_auto_scaling_instances').formats(AWS::AutoScaling::Formats::DESCRIBE_AUTO_SCALING_INSTANCES) do
-      Fog::AWS[:auto_scaling].describe_auto_scaling_instances().body
+      Fog::AWS[:auto_scaling].describe_auto_scaling_instances.body
     end
 
     tests('#describe_scaling_activities').formats(AWS::AutoScaling::Formats::DESCRIBE_SCALING_ACTIVITIES) do
       pending if Fog.mocking?
-      Fog::AWS[:auto_scaling].describe_scaling_activities().body
+      Fog::AWS[:auto_scaling].describe_scaling_activities.body
     end
     tests('#describe_scaling_activities').formats(AWS::AutoScaling::Formats::DESCRIBE_SCALING_ACTIVITIES) do
       pending if Fog.mocking?

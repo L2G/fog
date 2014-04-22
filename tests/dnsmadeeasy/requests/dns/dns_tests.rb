@@ -8,7 +8,7 @@ Shindo.tests('Fog::DNS[:dnsmadeeasy] | DNS requests', ['dnsmadeeasy', 'dns']) do
     test('get current domain count') do
       pending if Fog.mocking?
 
-      response = Fog::DNS[:dnsmadeeasy].list_domains()
+      response = Fog::DNS[:dnsmadeeasy].list_domains
       if response.status == 200
         @domain_count = response.body['list'].size
       end

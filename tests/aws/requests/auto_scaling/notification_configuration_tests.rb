@@ -80,7 +80,7 @@ Shindo.tests('AWS::AutoScaling | notification configuration requests', ['aws', '
 
     tests('#describe_notification_configurations(all)').formats(AWS::AutoScaling::Formats::DESCRIBE_NOTIFICATION_CONFIGURATIONS) do
       pending if Fog.mocking?
-      body = Fog::AWS[:auto_scaling].describe_notification_configurations().body
+      body = Fog::AWS[:auto_scaling].describe_notification_configurations.body
       notification_configurations = body['DescribeNotificationConfigurationsResult']['NotificationConfigurations']
       returns(true, 'at least 2 configurations') do
         notification_configurations.size >= 2

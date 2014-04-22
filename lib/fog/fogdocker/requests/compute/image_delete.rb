@@ -6,7 +6,7 @@ module Fog
         def image_delete(options = {})
           raise ArgumentError, 'instance id is a required parameter' unless options.has_key? :id
           image = Docker::Image.get(options[:id])
-          image.remove()
+          image.remove
         end
 
       end

@@ -9,7 +9,7 @@ module Fog
         model Fog::Compute::Joyent::Server
 
         def all
-          load(service.list_machines().body)
+          load(service.list_machines.body)
         end
 
         def create(params = {})

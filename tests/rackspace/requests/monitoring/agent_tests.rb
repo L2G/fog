@@ -12,7 +12,7 @@ Shindo.tests('Fog::Rackspace::Monitoring | agent_tests', ['rackspace','rackspace
       response
     end
     tests('#list agent tokens').formats(LIST_HEADERS_FORMAT) do
-      account.list_agent_tokens().data[:headers]
+      account.list_agent_tokens.data[:headers]
     end
     tests('#list_agents') do
       data_matches_schema(values_format, :allow_extra_keys => true) { account.list_agents.body }

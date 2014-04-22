@@ -6,7 +6,7 @@ Shindo.tests('Fog::Compute[:ninefold] | async job requests', ['ninefold']) do
 
     tests('#list_async_jobs()').formats(Ninefold::Compute::Formats::Jobs::JOBS) do
       pending if Fog.mocking?
-      jobs = Fog::Compute[:ninefold].list_async_jobs()
+      jobs = Fog::Compute[:ninefold].list_async_jobs
       unless jobs[0]
         raise 'No async jobs in system yet - create a VM through web UI to create'
       end

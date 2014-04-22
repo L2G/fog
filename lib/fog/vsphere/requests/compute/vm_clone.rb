@@ -165,7 +165,7 @@ module Fog
             cust_domain = cust_options['domain']
             cust_ip_settings = RbVmomi::VIM::CustomizationIPSettings.new(cust_options['ipsettings']) if cust_options.has_key?('ipsettings')
             cust_ip_settings.ip = RbVmomi::VIM::CustomizationFixedIp('ipAddress' => cust_options['ipsettings']['ip']) if cust_options.has_key?('ipsettings')
-            cust_ip_settings ||= RbVmomi::VIM::CustomizationIPSettings.new('ip' => RbVmomi::VIM::CustomizationDhcpIpGenerator.new())
+            cust_ip_settings ||= RbVmomi::VIM::CustomizationIPSettings.new('ip' => RbVmomi::VIM::CustomizationDhcpIpGenerator.new)
             cust_ip_settings.dnsDomain = cust_domain
             cust_global_ip_settings = RbVmomi::VIM::CustomizationGlobalIPSettings.new
             cust_global_ip_settings.dnsServerList = cust_ip_settings.dnsServerList

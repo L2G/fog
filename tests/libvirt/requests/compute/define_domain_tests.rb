@@ -1,7 +1,7 @@
 Shindo.tests('Fog::Compute[:libvirt] | define_domain request', 'libvirt') do
 
   compute = Fog::Compute[:libvirt]
-  xml = compute.servers.new().to_xml
+  xml = compute.servers.new.to_xml
 
   tests('Define Domain') do
     response = compute.define_domain(xml)

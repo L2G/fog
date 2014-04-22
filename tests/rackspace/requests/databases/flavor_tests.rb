@@ -6,7 +6,7 @@ Shindo.tests('Fog::Rackspace::Database | flavor_tests', ['rackspace']) do
 
   tests('success') do
     tests('#list_flavors_details').formats(LIST_FLAVORS_FORMAT) do
-      service.list_flavors().body
+      service.list_flavors.body
     end
 
     tests('#get_flavor(1)').formats(GET_FLAVOR_FORMAT) do

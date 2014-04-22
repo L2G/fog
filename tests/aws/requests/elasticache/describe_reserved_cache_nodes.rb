@@ -7,7 +7,7 @@ Shindo.tests('AWS::Elasticache | describe reserved cache nodes',
     tests(
     '#describe_reserved_cache_nodes'
     ).formats(AWS::Elasticache::Formats::RESERVED_CACHE_NODES) do
-      AWS[:elasticache].describe_reserved_cache_nodes().body['ReservedCacheNodes']
+      AWS[:elasticache].describe_reserved_cache_nodes.body['ReservedCacheNodes']
     end
   end
 

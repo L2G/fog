@@ -25,7 +25,7 @@ Shindo.tests('Fog::DNS[:zerigo] | DNS requests', ['zerigo', 'dns']) do
       pending if Fog.mocking?
 
       @org_zone_count = 0
-      response = Fog::DNS[:zerigo].count_zones()
+      response = Fog::DNS[:zerigo].count_zones
       if response.status == 200
         @org_zone_count = response.body['count']
       end
@@ -161,7 +161,7 @@ Shindo.tests('Fog::DNS[:zerigo] | DNS requests', ['zerigo', 'dns']) do
 
       result = false
 
-      response = Fog::DNS[:zerigo].list_zones()
+      response = Fog::DNS[:zerigo].list_zones
       if response.status == 200
         zones = response.body['zones']
         if (@org_zone_count + 1) == zones.count
@@ -191,7 +191,7 @@ Shindo.tests('Fog::DNS[:zerigo] | DNS requests', ['zerigo', 'dns']) do
         end
       end
 
-      total_zone_count_response = Fog::DNS[:zerigo].list_zones()
+      total_zone_count_response = Fog::DNS[:zerigo].list_zones
       if total_zone_count_response.status == 200
         if number_zones_to_create > 0
           zones_we_should_see = @new_zones.dup

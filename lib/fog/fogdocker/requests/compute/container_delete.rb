@@ -6,7 +6,7 @@ module Fog
         def container_delete(options = {})
           raise ArgumentError, 'instance id is a required parameter' unless options.has_key? :id
           container = Docker::Container.get(options[:id])
-          container.delete()
+          container.delete
           true
         end
 

@@ -37,7 +37,7 @@ module Fog
         def save
           raise Fog::Errors::Error.new('Resaving an existing object may create a duplicate') if persisted?
           requires :password_id
-          data = service.support_password_list()
+          data = service.support_password_list
           merge_attributes(data.body)
           true
         end

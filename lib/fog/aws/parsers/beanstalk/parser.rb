@@ -56,7 +56,7 @@ module Fog
                 @response['ResponseMetadata'][name] = value
               else
                 if @list_tags.has_key?(name) || @tags[name] == :object
-                  @parse_stack.pop()
+                  @parse_stack.pop
                 elsif @tags.has_key?(name)
                   set_value(name, value, @tags[name])
                 end

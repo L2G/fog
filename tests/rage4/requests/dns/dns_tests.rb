@@ -12,7 +12,7 @@ Shindo.tests('Fog::DNS[:rage4] | DNS requests', ['rage4', 'dns']) do
     test('get current domain count') do
       pending if Fog.mocking?
 
-      response = Fog::DNS[:rage4].list_domains()
+      response = Fog::DNS[:rage4].list_domains
       if response.status == 200
         @domain_count = response.body.size
       end
@@ -118,7 +118,7 @@ Shindo.tests('Fog::DNS[:rage4] | DNS requests', ['rage4', 'dns']) do
     test('show_global_usage') do
       pending if Fog.mocking?
 
-      response = Fog::DNS[:rage4].show_global_usage()
+      response = Fog::DNS[:rage4].show_global_usage
       returns(200) { response.status }
       returns([])  { response.body }
     end
@@ -126,7 +126,7 @@ Shindo.tests('Fog::DNS[:rage4] | DNS requests', ['rage4', 'dns']) do
     test('list_record_types') do
       pending if Fog.mocking?
 
-      response = Fog::DNS[:rage4].list_record_types()
+      response = Fog::DNS[:rage4].list_record_types
       response.body.each do |record_type|
         returns(true) { !record_type['name'].nil? }
         returns(true) { !record_type['value'].nil? }
@@ -139,7 +139,7 @@ Shindo.tests('Fog::DNS[:rage4] | DNS requests', ['rage4', 'dns']) do
     test('list_geo_regions') do
       pending if Fog.mocking?
 
-      response = Fog::DNS[:rage4].list_geo_regions()
+      response = Fog::DNS[:rage4].list_geo_regions
       response.body.each do |record_type|
         returns(true) { !record_type['name'].nil? }
         returns(true) { !record_type['value'].nil? }

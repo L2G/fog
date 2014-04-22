@@ -93,7 +93,7 @@ module Fog
 
         def sign(string)
           value = @hmac.sign(string)
-          Base64.encode64( value ).chomp()
+          Base64.encode64( value ).chomp
         end
 
         def reload
@@ -113,7 +113,7 @@ module Fog
           params[:headers]['Content-Type'] ||= 'application/octet-stream'
 
           # Add request date
-          params[:headers]['date'] = Time.now().httpdate()
+          params[:headers]['date'] = Time.now.httpdate
           params[:headers]['x-emc-uid'] = @storage_token
 
           # Build signature string
@@ -143,15 +143,15 @@ module Fog
               customheaders[ key.downcase ] = value
             end
           }
-          header_arr = customheaders.sort()
+          header_arr = customheaders.sort
 
           header_arr.each { |key,value|
             # Values are lowercase and whitespace-normalized
             signstring += key + ':' + value.strip.chomp.squeeze( ' ' ) + "\n"
           }
 
-          digest = @hmac.sign(signstring.chomp())
-          signature = Base64.encode64( digest ).chomp()
+          digest = @hmac.sign(signstring.chomp)
+          signature = Base64.encode64( digest ).chomp
           params[:headers]['x-emc-signature'] = signature
 
           params.delete(:host) #invalid excon request parameter

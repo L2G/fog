@@ -68,10 +68,10 @@ module Fog
             sb = "GET\n"
             sb += uri.path.downcase + "\n"
             sb += service.uid + "\n"
-            sb += String(expires.to_i())
+            sb += String(expires.to_i)
 
             signature = service.sign( sb )
-            uri.query = "uid=#{CGI::escape(service.uid)}&expires=#{expires.to_i()}&signature=#{CGI::escape(signature)}"
+            uri.query = "uid=#{CGI::escape(service.uid)}&expires=#{expires.to_i}&signature=#{CGI::escape(signature)}"
             uri.to_s
           else
             nil

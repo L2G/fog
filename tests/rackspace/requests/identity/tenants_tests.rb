@@ -15,7 +15,7 @@ Shindo.tests('Fog::Rackspace::Identity | tenants', ['rackspace']) do
 
   tests('success') do
     tests('#list_tenants').formats(TENANTS_FORMATS) do
-      service.list_tenants().body
+      service.list_tenants.body
     end
   end
 end

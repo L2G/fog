@@ -4,7 +4,7 @@ module Fog
 
       class Mock
         def list_packages
-          response = Excon::Response.new()
+          response = Excon::Response.new
           response.status = 200
           response.body = self.data[:packages].values
           response

@@ -10,7 +10,7 @@ Shindo.tests('Fog::DNS[:bluebox] | DNS requests', ['bluebox', 'dns']) do
       pending if Fog.mocking?
 
       @org_zone_count = 0
-      response = Fog::DNS[:bluebox].get_zones()
+      response = Fog::DNS[:bluebox].get_zones
       if response.status == 200
         zones = response.body['zones']
         @org_zone_count = zones.count
@@ -67,7 +67,7 @@ Shindo.tests('Fog::DNS[:bluebox] | DNS requests', ['bluebox', 'dns']) do
 
       result = false
 
-      response = Fog::DNS[:bluebox].get_zones()
+      response = Fog::DNS[:bluebox].get_zones
       if response.status == 200
         zones = response.body['zones']
         if (@org_zone_count + 2) == zones.count
@@ -83,7 +83,7 @@ Shindo.tests('Fog::DNS[:bluebox] | DNS requests', ['bluebox', 'dns']) do
 
       result = false
 
-      response = Fog::DNS[:bluebox].get_zones()
+      response = Fog::DNS[:bluebox].get_zones
       if response.status == 200
         zones = response.body['zones']
         zones.each { |zone|

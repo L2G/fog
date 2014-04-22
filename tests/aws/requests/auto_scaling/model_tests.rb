@@ -59,12 +59,12 @@ Shindo.tests('AWS::AutoScaling | model_tests', ['aws', 'auto_scaling']) do
       end
 
       tests('suspend processes') do
-        asg.suspend_processes()
+        asg.suspend_processes
         tests('processes suspended').returns([]) { asg.suspended_processes }
       end
 
       tests('resume processes') do
-        asg.resume_processes()
+        asg.resume_processes
         tests('no processes suspended').returns([]) { asg.suspended_processes }
       end
 

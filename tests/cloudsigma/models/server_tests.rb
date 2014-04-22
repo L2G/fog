@@ -15,7 +15,7 @@ Shindo.tests('Fog::Compute[:cloudsigma] | server model', ['cloudsigma']) do
     end
 
     tests('attach_dhcp_nic').succeeds do
-      @instance.add_public_nic()
+      @instance.add_public_nic
       @instance.save
 
       @instance.reload

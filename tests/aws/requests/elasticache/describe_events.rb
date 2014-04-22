@@ -7,7 +7,7 @@ Shindo.tests('AWS::Elasticache | describe cache cluster events',
     tests(
     '#describe_events'
     ).formats(AWS::Elasticache::Formats::EVENT_LIST) do
-      AWS[:elasticache].describe_events().body['Events']
+      AWS[:elasticache].describe_events.body['Events']
     end
   end
 
