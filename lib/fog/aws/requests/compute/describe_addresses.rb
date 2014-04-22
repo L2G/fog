@@ -22,7 +22,7 @@ module Fog
         def describe_addresses(filters = {})
           unless filters.is_a?(Hash)
             Fog::Logger.deprecation("describe_addresses with #{filters.class} param is deprecated, use describe_addresses('public-ip' => []) instead [light_black](#{caller.first})[/]")
-            filters = {'public-ip' => [*filters]}
+            filters = { 'public-ip' => [*filters] }
           end
           params = Fog::AWS.indexed_filters(filters)
           request({
@@ -39,14 +39,14 @@ module Fog
         def describe_addresses(filters = {})
           unless filters.is_a?(Hash)
             Fog::Logger.deprecation("describe_addresses with #{filters.class} param is deprecated, use describe_addresses('public-ip' => []) instead [light_black](#{caller.first})[/]")
-            filters = {'public-ip' => [*filters]}
+            filters = { 'public-ip' => [*filters] }
           end
 
           response = Excon::Response.new
 
           addresses_set = self.data[:addresses].values
 
-          aliases = {'public-ip' => 'publicIp', 'instance-id' => 'instanceId', 'allocation-id' => 'allocationId'}
+          aliases = { 'public-ip' => 'publicIp', 'instance-id' => 'instanceId', 'allocation-id' => 'allocationId' }
           for filter_key, filter_value in filters
             aliased_key = aliases[filter_key]
             addresses_set = addresses_set.reject{|address| ![*filter_value].include?(address[aliased_key])}

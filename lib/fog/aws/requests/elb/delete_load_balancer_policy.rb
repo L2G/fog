@@ -16,7 +16,7 @@ module Fog
         #     * 'ResponseMetadata'<~Hash>:
         #       * 'RequestId'<~String> - Id of request
         def delete_load_balancer_policy(lb_name, policy_name)
-          params = {'PolicyName' => policy_name}
+          params = { 'PolicyName' => policy_name }
 
           request({
             'Action'           => 'DeleteLoadBalancerPolicy',

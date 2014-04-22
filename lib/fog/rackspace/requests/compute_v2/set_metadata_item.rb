@@ -32,7 +32,7 @@ module Fog
 
           response = Excon::Response.new
           response.status = 202
-          response.body = {'meta' => {key => value}}
+          response.body = { 'meta' => { key => value } }
           response
         end
       end

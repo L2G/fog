@@ -6,7 +6,7 @@ module Fog
         class GetRolePolicy < Fog::Parsers::Base
 
           def reset
-            @response = {'Policy' => {}}
+            @response = { 'Policy' => {} }
           end
 
           def end_element(name)

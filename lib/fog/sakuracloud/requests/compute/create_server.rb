@@ -12,7 +12,7 @@ module Fog
               'ServerPlan' => {
                 'ID' => serverplan.to_i
               },
-              'ConnectedSwitches' => [{'Scope' => 'shared', 'BandWidthMbps' => 100}]
+              'ConnectedSwitches' => [{ 'Scope' => 'shared', 'BandWidthMbps' => 100 }]
             }
           }
 

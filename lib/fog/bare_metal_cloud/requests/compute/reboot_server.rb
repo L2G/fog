@@ -14,7 +14,7 @@ module Fog
             :method   => 'GET',
             :parser   => Fog::ToHashDocument.new,
             :path     => 'api/rebootServer',
-            :query    => {'serverId' => server_id}
+            :query    => { 'serverId' => server_id }
           )
         end
 

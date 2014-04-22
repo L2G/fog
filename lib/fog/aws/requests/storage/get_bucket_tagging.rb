@@ -27,7 +27,7 @@ module Fog
             :idempotent => true,
             :method     => 'GET',
             :parser     => Fog::Parsers::Storage::AWS::GetBucketTagging.new,
-            :query      => {'tagging' => nil}
+            :query      => { 'tagging' => nil }
           )
         end
 
@@ -39,10 +39,10 @@ module Fog
           response = Excon::Response.new
           if self.data[:buckets][bucket_name] && self.data[:bucket_tagging][bucket_name]
             response.status = 200
-            response.body = {'BucketTagging' => self.data[:bucket_tagging][bucket_name]}
+            response.body = { 'BucketTagging' => self.data[:bucket_tagging][bucket_name] }
           else
             response.status = 404
-            raise(Excon::Errors.status_error({:expects => 200}, response))
+            raise(Excon::Errors.status_error({ :expects => 200 }, response))
           end
           response
         end

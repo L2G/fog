@@ -26,7 +26,7 @@ Shindo.tests('Fog::Compute[:brightbox] | cloud ip requests', ['brightbox']) do
     end
 
     unless Fog.mocking?
-      map_options = {:destination => @server.interfaces.first['id']}
+      map_options = { :destination => @server.interfaces.first['id'] }
     end
 
     tests("#map_cloud_ip('#{@cloud_ip_id}', #{map_options.inspect})") do
@@ -46,7 +46,7 @@ Shindo.tests('Fog::Compute[:brightbox] | cloud ip requests', ['brightbox']) do
     end
 
     unless Fog.mocking?
-      update_options = {:reverse_dns => "public.#{@server.id}.gb1.brightbox.com"}
+      update_options = { :reverse_dns => "public.#{@server.id}.gb1.brightbox.com" }
     end
 
     tests("#update_cloud_ip('#{@cloud_ip_id}', #{update_options.inspect})") do

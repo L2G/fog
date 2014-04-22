@@ -22,14 +22,14 @@ module Fog
           response.body = {
           'DiskPlans' =>
             [
-            {'Index' => 0,
+            { 'Index' => 0,
               'ID' => 4,
               'Name' => 'SSDプラン',
-              'Availability' => 'available'},
-            {'Index' => 1,
+              'Availability' => 'available' },
+            { 'Index' => 1,
               'ID' => 2,
               'Name' => '標準プラン',
-              'Availability' => 'available'}
+              'Availability' => 'available' }
             ]
           }
           response

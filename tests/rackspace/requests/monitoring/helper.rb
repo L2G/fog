@@ -36,12 +36,12 @@ DELETE_DATA_FORMAT = {
 
 LIST_MONITORING_ZONE = {
     'values' =>
-      [{'id' => String,
+      [{ 'id' => String,
         'label' => Fog::Nullable::String,
         'country_code' => String,
-        'source_ips' => [String, String]}],
+        'source_ips' => [String, String] }],
      'metadata' =>
-      {'count' => Integer,
+      { 'count' => Integer,
        'limit' => Integer,
        'marker' => Fog::Nullable::String,
        'next_marker' => Fog::Nullable::String,
@@ -115,7 +115,7 @@ OVERVIEW_FORMAT = {
         :entity => {
           :id => String,
           :label => String,
-          :ip_addresses => { },
+          :ip_addresses => {},
           :metadata => String
         },
         :checks => [

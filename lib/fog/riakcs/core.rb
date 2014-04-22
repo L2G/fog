@@ -64,7 +64,7 @@ module Fog
             boundary = extract_boundary(headers.to_hash['content-type'].first)
             parse(body, boundary)
           else
-            {:headers => headers.to_hash, :body => body}
+            { :headers => headers.to_hash, :body => body }
           end
         end
       end

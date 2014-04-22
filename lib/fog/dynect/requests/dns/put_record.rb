@@ -15,7 +15,7 @@ module Fog
         def put_record(type, zone, fqdn, rdata, options = {})
           options.merge!('rdata' => rdata)
           type.to_s.upcase!
-          options = {"#{type}Records" => [options]} unless options['record_id']
+          options = { "#{type}Records" => [options] } unless options['record_id']
           path = ["#{type}Record", zone, fqdn].join('/')
           path += "/#{options.delete('record_id')}" if options['record_id']
           request(

@@ -30,7 +30,7 @@ module Fog
         #       * 'remote_ip_prefix'<~String> - IP cidr range address i.e. '0.0.0.0/0'
         #       * 'tenant_id'<~String> - Tenant id that owns the security group rule
         def create_security_group(options = {})
-          data              = {'security_group' => {}}
+          data              = { 'security_group' => {} }
           desired_options   = [:name, :description, :tenant_id]
           selected_options  = desired_options.select{|o| options[o]}
           selected_options.each { |key| data['security_group'][key] = options[key] }
@@ -85,7 +85,7 @@ module Fog
           }
 
           self.data[:security_groups][data['id']] = data
-          response.body = {'security_group' => data}
+          response.body = { 'security_group' => data }
           response
         end
       end

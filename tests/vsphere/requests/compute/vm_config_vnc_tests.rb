@@ -3,7 +3,7 @@ Shindo.tests('Fog::Compute[:vsphere] | vm_config_vnc request', ['vsphere']) do
   compute = Fog::Compute[:vsphere]
 
   reconfig_target = '50137835-88a1-436e-768e-9b2677076e67'
-  vnc_spec = {:port => '5900', :password => 'ssaaa', :enabled => 'true'}
+  vnc_spec = { :port => '5900', :password => 'ssaaa', :enabled => 'true' }
 
   tests('The response should') do
     response = compute.vm_config_vnc('instance_uuid' => reconfig_target).merge(vnc_spec)

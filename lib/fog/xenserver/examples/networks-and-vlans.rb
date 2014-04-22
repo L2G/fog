@@ -25,8 +25,8 @@ end
 
 # We want to create these new VLANs
 vlans = [
-  { 'name' => 'VLAN 44', 'vlanid' => 44},
-  { 'name' => 'VLAN 55', 'vlanid' => 55}
+  { 'name' => 'VLAN 44', 'vlanid' => 44 },
+  { 'name' => 'VLAN 55', 'vlanid' => 55 }
 ]
 
 vlans.each do |vlan|

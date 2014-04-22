@@ -27,7 +27,7 @@ module Fog
 
           response = Excon::Response.new
           response.status = 404
-          raise(Excon::Errors.status_error({:expects => 200}, response))
+          raise(Excon::Errors.status_error({ :expects => 200 }, response))
         end
 
         def get_upload_info(bucket_name, upload_id, delete = false)
@@ -40,7 +40,7 @@ module Fog
           if !upload_info
             response = Excon::Response.new
             response.status = 404
-            raise(Excon::Errors.status_error({:expects => 200}, response))
+            raise(Excon::Errors.status_error({ :expects => 200 }, response))
           end
 
           upload_info

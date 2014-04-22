@@ -81,7 +81,7 @@ module Fog
           volumes.first.path if volumes and volumes.first
         end
 
-        def destroy(options = { :destroy_volumes => false})
+        def destroy(options = { :destroy_volumes => false })
           poweroff unless stopped?
           service.vm_action(uuid, :undefine)
           volumes.each { |vol| vol.destroy } if options[:destroy_volumes]
@@ -298,7 +298,7 @@ module Fog
             end
           end
 
-          return { :public => [ip_address], :private => [ip_address]}
+          return { :public => [ip_address], :private => [ip_address] }
         end
 
         def ip_address(key)
@@ -320,7 +320,7 @@ module Fog
         end
 
         def create_or_clone_volume
-          options = {:name => volume_name || default_volume_name}
+          options = { :name => volume_name || default_volume_name }
           # Check if a disk template was specified
           if volume_template_name
             template_volume = service.volumes.all(:name => volume_template_name).first
@@ -385,7 +385,7 @@ module Fog
         end
 
         def default_display
-          {:port => '-1', :listen => '127.0.0.1', :type => 'vnc', :password => '' }
+          { :port => '-1', :listen => '127.0.0.1', :type => 'vnc', :password => '' }
         end
 
       end

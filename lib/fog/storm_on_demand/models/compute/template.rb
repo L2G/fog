@@ -20,7 +20,7 @@ module Fog
 
       def restore(options)
         requires :identity
-        service.restore_template({:id => identity}.merge!(options))
+        service.restore_template({ :id => identity }.merge!(options))
       end
 
     end

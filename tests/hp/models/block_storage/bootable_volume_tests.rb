@@ -2,7 +2,7 @@ Shindo.tests('HP::BlockStorage | bootable volumes', ['hp', 'block_storage', 'vol
 
   @base_image_id = ENV['BASE_IMAGE_ID'] || 1242
 
-  model_tests(HP[:block_storage].bootable_volumes, {:name => 'fogbvoltests', :description => 'fogbvoltests-desc', :size => 10, :image_id => @base_image_id}, true)
+  model_tests(HP[:block_storage].bootable_volumes, { :name => 'fogbvoltests', :description => 'fogbvoltests-desc', :size => 10, :image_id => @base_image_id }, true)
 
   tests('new volume') do
     @volume = HP[:block_storage].bootable_volumes.create(:name => 'testbvol', :size => 10, :image_id => @base_image_id)

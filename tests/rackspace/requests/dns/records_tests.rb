@@ -4,7 +4,7 @@ Shindo.tests('Fog::DNS[:rackspace] | dns records requests', ['rackspace', 'dns']
 
   domain_name = uniq_id + '.com'
 
-  domain_tests(Fog::DNS[:rackspace], :name => domain_name, :email => 'hostmaster@' + domain_name, :records => [{:ttl => 300, :name => domain_name, :type => 'A', :data => '192.168.1.1'}]) do
+  domain_tests(Fog::DNS[:rackspace], :name => domain_name, :email => 'hostmaster@' + domain_name, :records => [{ :ttl => 300, :name => domain_name, :type => 'A', :data => '192.168.1.1' }]) do
 
     tests('success on single record') do
 
@@ -13,7 +13,7 @@ Shindo.tests('Fog::DNS[:rackspace] | dns records requests', ['rackspace', 'dns']
       end
 
       tests("add_records(#{@domain_id}, [{ :name => 'test1.#{domain_name}', :type => 'A', :data => '192.168.2.1', :ttl => 550}])").formats(RECORD_LIST_FORMAT) do
-        response = wait_for Fog::DNS[:rackspace], Fog::DNS[:rackspace].add_records(@domain_id, [{ :name => 'test1.' + domain_name, :type => 'A', :data => '192.168.2.1', :ttl => 550}])
+        response = wait_for Fog::DNS[:rackspace], Fog::DNS[:rackspace].add_records(@domain_id, [{ :name => 'test1.' + domain_name, :type => 'A', :data => '192.168.2.1', :ttl => 550 }])
         @record_id = response.body['response']['records'].first['id']
         response.body['response']
       end
@@ -35,8 +35,8 @@ Shindo.tests('Fog::DNS[:rackspace] | dns records requests', ['rackspace', 'dns']
 
       records_attributes =
         [
-          { :name => 'test1.' + domain_name, :type => 'A', :data => '192.168.2.1'},
-          { :name => domain_name, :type => 'MX', :priority => 10, :data => 'mx.' + domain_name}
+          { :name => 'test1.' + domain_name, :type => 'A', :data => '192.168.2.1' },
+          { :name => domain_name, :type => 'MX', :priority => 10, :data => 'mx.' + domain_name }
         ]
 
       tests("add_records(#{@domain_id}, #{records_attributes})").formats(RECORD_LIST_FORMAT) do
@@ -76,7 +76,7 @@ Shindo.tests('Fog::DNS[:rackspace] | dns records requests', ['rackspace', 'dns']
       end
 
       tests("add_record(#{@domain_id}, [{ :name => '', :type => '', :data => ''}])").raises(Fog::Rackspace::Errors::BadRequest) do
-        Fog::DNS[:rackspace].add_records(@domain_id, [{ :name => '', :type => '', :data => ''}])
+        Fog::DNS[:rackspace].add_records(@domain_id, [{ :name => '', :type => '', :data => '' }])
       end
     end
   end

@@ -15,7 +15,7 @@ module Fog
           end
 
           def reset_load_balancer
-            @load_balancer = { 'Subnets' => [], 'SecurityGroups' => [], 'ListenerDescriptions' => [], 'Instances' => [], 'AvailabilityZones' => [], 'Policies' => {'AppCookieStickinessPolicies' => [], 'LBCookieStickinessPolicies' => [], 'OtherPolicies' => []}, 'HealthCheck' => {}, 'SourceSecurityGroup' => {}, 'BackendServerDescriptions' => [] }
+            @load_balancer = { 'Subnets' => [], 'SecurityGroups' => [], 'ListenerDescriptions' => [], 'Instances' => [], 'AvailabilityZones' => [], 'Policies' => { 'AppCookieStickinessPolicies' => [], 'LBCookieStickinessPolicies' => [], 'OtherPolicies' => [] }, 'HealthCheck' => {}, 'SourceSecurityGroup' => {}, 'BackendServerDescriptions' => [] }
           end
 
           def reset_listener_description

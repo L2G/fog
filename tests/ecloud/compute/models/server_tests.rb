@@ -34,7 +34,7 @@ Shindo.tests("Fog::Compute[:#{provider}] | servers", [provider.to_s, 'operations
   end
 
   tests('#get_server_flavor').succeeds do
-    @server.flavor_id == {:ram => 1024, :cpus => 2}
+    @server.flavor_id == { :ram => 1024, :cpus => 2 }
   end
 
   @hwc = @server.hardware_configuration

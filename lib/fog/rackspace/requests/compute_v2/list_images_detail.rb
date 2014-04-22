@@ -37,7 +37,7 @@ module Fog
             :expects => [200, 203],
             :method => 'GET',
             :path => 'images/detail',
-            :query => {'format' => 'json'}.merge!(options)
+            :query => { 'format' => 'json' }.merge!(options)
           )
         end
       end
@@ -45,7 +45,7 @@ module Fog
       class Mock
         def list_images_detail(options = {})
           images = self.data[:images].values
-          response(:body => {'images' => images})
+          response(:body => { 'images' => images })
         end
       end
     end

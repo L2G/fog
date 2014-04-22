@@ -82,7 +82,7 @@ module Fog
         def all(filters = filters)
           unless filters.is_a?(Hash)
             Fog::Logger.deprecation("all with #{filters.class} param is deprecated, use all('key-name' => []) instead [light_black](#{caller.first})[/]")
-            filters = {'key-name' => [*filters]}
+            filters = { 'key-name' => [*filters] }
           end
           self.filters = filters
           data = service.describe_key_pairs(filters).body

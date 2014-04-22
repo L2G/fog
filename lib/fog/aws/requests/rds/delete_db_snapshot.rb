@@ -36,7 +36,7 @@ module Fog
           response.status = 200
           response.body = {
             'ResponseMetadata' => { 'RequestId' => Fog::AWS::Mock.request_id },
-            'DeleteDBSnapshotResult' => {'DBSnapshot' => snapshot_data}
+            'DeleteDBSnapshotResult' => { 'DBSnapshot' => snapshot_data }
           }
           response
         end

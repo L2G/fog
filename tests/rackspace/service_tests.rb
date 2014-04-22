@@ -24,7 +24,7 @@ Shindo.tests('Fog::Rackspace::Service', ['rackspace']) do
     tests('process body with hash').returns(:a => 2, :b => 3) do
       response = Excon::Response.new
       response.headers['Content-Type'] = 'application/json'
-      response.body = {:a => 2, :b => 3}
+      response.body = { :a => 2, :b => 3 }
       @service.send(:process_response, response)
       response.body
     end
@@ -60,19 +60,19 @@ Shindo.tests('Fog::Rackspace::Service', ['rackspace']) do
     end
 
     tests('with options containing :header key').returns(HEADER_HASH.merge(:a => 3)) do
-       @service.send(:headers, :headers => {:a => 3})
+       @service.send(:headers, :headers => { :a => 3 })
     end
   end
 
   tests('request_params') do
     REQUEST_HASH = {
       :path => '/endpoint/my_service',
-      :headers => {'Content-Type' => 'application/json', 'Accept' => 'application/json', 'X-Auth-Token' => 'my_auth_token'},
+      :headers => { 'Content-Type' => 'application/json', 'Accept' => 'application/json', 'X-Auth-Token' => 'my_auth_token' },
     }.freeze
 
     uri = URI.parse('http://fog.io/endpoint')
     @service.instance_variable_set('@uri', uri)
-    params = {:path => 'my_service'}
+    params = { :path => 'my_service' }
 
     tests('returns request hash').returns(REQUEST_HASH) do
       @service.send(:request_params, params)

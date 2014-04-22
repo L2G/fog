@@ -10,7 +10,7 @@ module Fog
         # * 'sg_name'<~String> - Name of security group to remove from the server
         #
         def remove_security_group(server_id, sg_name)
-          body = { 'removeSecurityGroup' => { 'name' => sg_name }}
+          body = { 'removeSecurityGroup' => { 'name' => sg_name } }
           server_action(server_id, body)
         end
 

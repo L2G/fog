@@ -15,7 +15,7 @@ module Fog
       class Mock
         def list_policies(group_id)
           group = self.data[:autoscale_groups][group_id]
-          response(:body => {'policies' => group['scalingPolicies']})
+          response(:body => { 'policies' => group['scalingPolicies'] })
         end
       end
     end

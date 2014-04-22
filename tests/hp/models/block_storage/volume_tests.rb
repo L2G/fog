@@ -1,6 +1,6 @@
 Shindo.tests('HP::BlockStorage | volumes', ['hp', 'block_storage', 'volumes']) do
 
-  model_tests(HP[:block_storage].volumes, {:name => 'fogvoltests', :description => 'fogvoltests-desc', :size => 1}, true)
+  model_tests(HP[:block_storage].volumes, { :name => 'fogvoltests', :description => 'fogvoltests-desc', :size => 1 }, true)
 
   tests('new volume') do
     @volume = HP[:block_storage].volumes.create(:name => 'testvol', :size => 1)

@@ -84,7 +84,7 @@ module Fog
 
             self.data[:volumes][volume_id] = volume
 
-            response(:body => {'volume' => volume})
+            response(:body => { 'volume' => volume })
           end
         end
       end

@@ -30,8 +30,8 @@ Shindo.tests('Fog::Network[:openstack] | lb_health_monitor requests', ['openstac
       delay = 1
       timeout = 5
       max_retries = 10
-      attributes = {:http_method => 'GET', :url_path => '/', :expected_codes => '200, 201',
-                    :admin_state_up => true, :tenant_id => 'tenant_id'}
+      attributes = { :http_method => 'GET', :url_path => '/', :expected_codes => '200, 201',
+                    :admin_state_up => true, :tenant_id => 'tenant_id' }
       Fog::Network[:openstack].create_lb_health_monitor(type, delay, timeout, max_retries, attributes).body
     end
 
@@ -46,9 +46,9 @@ Shindo.tests('Fog::Network[:openstack] | lb_health_monitor requests', ['openstac
 
     tests('#update_lb_health_monitor').formats('health_monitor' => @lb_health_monitor_format) do
       lb_health_monitor_id = Fog::Network[:openstack].lb_health_monitors.all.first.id
-      attributes = {:delay => 5, :timeout => 10, :max_retries => 20,
+      attributes = { :delay => 5, :timeout => 10, :max_retries => 20,
                     :http_method => 'POST', :url_path => '/varz', :expected_codes => '200',
-                    :admin_state_up => false}
+                    :admin_state_up => false }
       Fog::Network[:openstack].update_lb_health_monitor(lb_health_monitor_id, attributes).body
     end
 

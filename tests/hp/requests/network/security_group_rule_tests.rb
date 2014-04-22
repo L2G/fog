@@ -15,14 +15,14 @@ Shindo.tests('HP::Network | networking security group rule requests', ['hp', 'ne
 
   tests('success') do
 
-    attributes = {:name => 'my_security_group', :description => 'tests group'}
+    attributes = { :name => 'my_security_group', :description => 'tests group' }
     data = HP[:network].create_security_group(attributes).body['security_group']
     @sec_group_id = data['id']
 
     @sec_group_rule_id = nil
 
     tests("#create_security_group_rule(#{@sec_group_id}, 'ingress', attributes)").formats(@security_group_rule_format) do
-      attributes = {:remote_ip_prefix => '0.0.0.0/0', :protocol => 'tcp', :port_range_min => 22, :port_range_max => 22}
+      attributes = { :remote_ip_prefix => '0.0.0.0/0', :protocol => 'tcp', :port_range_min => 22, :port_range_max => 22 }
       data = HP[:network].create_security_group_rule(@sec_group_id, 'ingress', attributes).body['security_group_rule']
       @sec_group_rule_id = data['id']
       data

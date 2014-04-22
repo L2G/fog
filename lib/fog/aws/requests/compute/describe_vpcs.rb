@@ -28,7 +28,7 @@ module Fog
         def describe_vpcs(filters = {})
           unless filters.is_a?(Hash)
             Fog::Logger.warning("describe_vpcs with #{filters.class} param is deprecated, use describe_vpcs('vpc-id' => []) instead [light_black](#{caller.first})[/]")
-            filters = {'vpc-id' => [*filters]}
+            filters = { 'vpc-id' => [*filters] }
           end
           params = Fog::AWS.indexed_filters(filters)
           request({

@@ -284,9 +284,9 @@ module Fog
 
     def self.set_user_agent_header(conn_opts, base_str, client_str)
       if client_str
-        user_agent = {'User-Agent' => base_str + " (#{client_str})"}
+        user_agent = { 'User-Agent' => base_str + " (#{client_str})" }
       else
-        user_agent = {'User-Agent' => base_str}
+        user_agent = { 'User-Agent' => base_str }
       end
       if conn_opts[:headers]
         conn_opts[:headers] = user_agent.merge!(conn_opts[:headers])

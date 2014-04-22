@@ -42,7 +42,7 @@ module Fog
             :object_name => object_name,
             :method     => 'POST',
             :parser     => Fog::Parsers::Storage::AWS::CompleteMultipartUpload.new,
-            :query      => {'uploadId' => upload_id}
+            :query      => { 'uploadId' => upload_id }
           )
         end
 

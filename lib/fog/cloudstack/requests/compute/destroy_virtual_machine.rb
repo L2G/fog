@@ -37,13 +37,13 @@ module Fog
             'jobresultcode' => 0,
             'jobresulttype' => 'object',
             'jobresult'     =>
-              {'virtualmachine' => server}
+              { 'virtualmachine' => server }
           }
 
           self.data[:jobs][job_id] = job
           self.data[:servers].delete(identity)
 
-          {'destroyvirtualmachineresponse' => {'jobid' => job_id}}
+          { 'destroyvirtualmachineresponse' => { 'jobid' => job_id } }
         end
       end
     end # Cloudstack

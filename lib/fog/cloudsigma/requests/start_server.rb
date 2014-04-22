@@ -5,7 +5,7 @@ module Fog
         def start_server(server_id, start_params = {})
           request(:path => "servers/#{server_id}/action/",
                   :method => 'POST',
-                  :query => {:do => :start}.merge!(start_params),
+                  :query => { :do => :start }.merge!(start_params),
                   :expects => [200, 202])
         end
       end

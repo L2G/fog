@@ -54,7 +54,7 @@ DATA
             :objects        => {},
             'Name'          => bucket_name,
             'CreationDate'  => Time.now,
-            'Owner'         => { 'DisplayName' => 'owner', 'ID' => 'some_id'},
+            'Owner'         => { 'DisplayName' => 'owner', 'ID' => 'some_id' },
             'Payer'         => 'BucketOwner'
           }
           if options['LocationConstraint']
@@ -66,7 +66,7 @@ DATA
             self.data[:buckets][bucket_name] = bucket
           else
             response.status = 409
-            raise(Excon::Errors.status_error({:expects => 200}, response))
+            raise(Excon::Errors.status_error({ :expects => 200 }, response))
           end
           response
         end

@@ -3,7 +3,7 @@ class AWS
     module Formats
 
       BASIC = {
-        'ResponseMetadata' => {'RequestId' => String}
+        'ResponseMetadata' => { 'RequestId' => String }
       }
 
       PAGINATED = {
@@ -29,7 +29,7 @@ class AWS
 
       BLOCK_DEVICE_MAPPING = {
         'DeviceName' => String,
-        'Ebs' => {'SnapshotId' => String, 'VolumeSize' => Integer},
+        'Ebs' => { 'SnapshotId' => String, 'VolumeSize' => Integer },
         'VirtualName' => String
       }
 
@@ -111,7 +111,7 @@ class AWS
         'BlockDeviceMappings' => [BLOCK_DEVICE_MAPPING],
         'CreatedTime' => Time,
         'ImageId' => String,
-        'InstanceMonitoring' => {'Enabled' => Fog::Boolean},
+        'InstanceMonitoring' => { 'Enabled' => Fog::Boolean },
         'InstanceType' => String,
         'KernelId' => Fog::Nullable::String,
         'KeyName' => Fog::Nullable::String,
@@ -136,7 +136,7 @@ class AWS
 
       DESCRIBE_ADJUSTMENT_TYPES = BASIC.merge(
         'DescribeAdjustmentTypesResult' => {
-          'AdjustmentTypes' => [{'AdjustmentType' => String}]
+          'AdjustmentTypes' => [{ 'AdjustmentType' => String }]
         }
       )
 
@@ -166,8 +166,8 @@ class AWS
 
       DESCRIBE_METRIC_COLLECTION_TYPES = BASIC.merge(
         'DescribeMetricCollectionTypesResult' => {
-          'Granularities' => [{'Granularity' => String}],
-          'Metrics' => [{'Metric' => String}]
+          'Granularities' => [{ 'Granularity' => String }],
+          'Metrics' => [{ 'Metric' => String }]
         }
       )
 

@@ -4,7 +4,7 @@ module Fog
       class Real
 
         def provision_server( ref )
-          @connection.request({:parser => Fog::Parsers::XenServer::Base.new, :method => 'VM.provision'}, ref)
+          @connection.request({ :parser => Fog::Parsers::XenServer::Base.new, :method => 'VM.provision' }, ref)
         end
 
       end

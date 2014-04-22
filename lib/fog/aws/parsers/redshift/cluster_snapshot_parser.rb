@@ -34,7 +34,7 @@ module Fog
           end
 
           def fresh_snapshot
-            {'Snapshot' =>  { 'AccountsWithRestoreAccess' => [] }}
+            { 'Snapshot' =>  { 'AccountsWithRestoreAccess' => [] } }
           end
 
           def start_element(name, attrs = [])

@@ -27,7 +27,7 @@ module Fog
           request(
             :body    => body,
             :expects => 202,
-            :headers => {'Content-Type' => 'application/vnd.vmware.vcloud.vm+xml'},
+            :headers => { 'Content-Type' => 'application/vnd.vmware.vcloud.vm+xml' },
             :method  => 'PUT',
             :parser  => Fog::ToHashDocument.new,
             :path    => "vApp/#{id}"

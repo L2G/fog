@@ -20,7 +20,7 @@ module Fog
             if options[:ips]
               ip = options[:ips][options[:network_uri].index(uri)]
             end
-            {:href => uri, :name => network[:name], :ip => ip}
+            { :href => uri, :name => network[:name], :ip => ip }
           end
           options
         end

@@ -18,7 +18,7 @@ module Fog
         #     * 'ResponseMetadata'<~Hash>:
         #       * 'RequestId'<~String> - Id of request
         def create_app_cookie_stickiness_policy(lb_name, policy_name, cookie_name)
-          params = {'CookieName' => cookie_name, 'PolicyName' => policy_name}
+          params = { 'CookieName' => cookie_name, 'PolicyName' => policy_name }
 
           request({
             'Action'           => 'CreateAppCookieStickinessPolicy',

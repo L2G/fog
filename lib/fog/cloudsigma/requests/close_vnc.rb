@@ -5,7 +5,7 @@ module Fog
         def close_vnc(server_id)
           request(:path => "servers/#{server_id}/action/",
                   :method => 'POST',
-                  :query => {:do => :close_vnc},
+                  :query => { :do => :close_vnc },
                   :expects => [200, 202])
         end
       end

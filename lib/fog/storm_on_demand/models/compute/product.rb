@@ -25,7 +25,7 @@ module Fog
 
         def price(options)
           requires :identity
-          service.get_product_price({:code => identity}.merge!(options)).body
+          service.get_product_price({ :code => identity }.merge!(options)).body
         end
 
         def starting_price

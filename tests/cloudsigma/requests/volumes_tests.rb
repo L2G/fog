@@ -17,7 +17,7 @@ Shindo.tests('Fog::Compute[:cloudsigma] | volume requests', ['cloudsigma']) do
       'allow_multimount' => Fog::Boolean
   }
 
-  @volume_create_args = {:name => 'fogtest', :size => 1024**3, :media => :cdrom}
+  @volume_create_args = { :name => 'fogtest', :size => 1024**3, :media => :cdrom }
 
   tests('success') do
 

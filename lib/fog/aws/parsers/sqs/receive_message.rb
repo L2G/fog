@@ -7,7 +7,7 @@ module Fog
 
           def reset
             @message  = { 'Attributes' => {} }
-            @response = { 'ResponseMetadata' => {}, 'Message' => []}
+            @response = { 'ResponseMetadata' => {}, 'Message' => [] }
           end
 
           def end_element(name)

@@ -10,7 +10,7 @@ module Fog
                 'port' => port,
                 'condition' => condition
               }
-          ]}
+          ] }
           if options.has_key?(:weight)
             data['nodes'][0]['weight'] = options[:weight]
           end

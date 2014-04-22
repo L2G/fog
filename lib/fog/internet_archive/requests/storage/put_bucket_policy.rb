@@ -17,7 +17,7 @@ module Fog
             :headers  => {},
             :host     => "#{bucket_name}.#{@host}",
             :method   => 'PUT',
-            :query    => {'policy' => nil}
+            :query    => { 'policy' => nil }
           )
         end
 

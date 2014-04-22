@@ -95,7 +95,7 @@ Shindo.tests('Fog::Compute[:openstack] | server', ['openstack']) do
         image  = fog.images.first.id
 
         server = fog.servers.new(:name       => 'test server',
-                                 :metadata => {'foo' => 'bar'},
+                                 :metadata => { 'foo' => 'bar' },
                                  :flavor_ref => flavor,
                                  :image_ref  => image)
 

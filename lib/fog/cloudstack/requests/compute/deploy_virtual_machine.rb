@@ -121,7 +121,7 @@ module Fog
           }
 
           self.data[:servers][identity] = virtual_machine
-          {'deployvirtualmachineresponse' => virtual_machine}
+          { 'deployvirtualmachineresponse' => virtual_machine }
         end
       end # Mock
     end # Cloudstack

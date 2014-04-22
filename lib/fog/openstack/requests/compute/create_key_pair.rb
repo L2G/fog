@@ -31,7 +31,7 @@ module Fog
             'X-Compute-Request-Id' => 'req-c373a42c-2825-4e60-8d34-99416ea850be',
             'Content-Type' => 'application/json',
             'Content-Length' => '1289',
-            'Date' => Date.new}
+            'Date' => Date.new }
           response.body = {
             'keypair' => {
               'public_key' => "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAAAgQDCdAZLjljntJbLVVkNHjWFSoKen2nZbk39ZfqhZJOMdeFdz02GWBS45rcuboeGg/gozKRwsLu4N6NLPlYtbK/NapJIvgO/djBp+FQG1QZNtLPsx7j4hVJac3yISGms+Xtu4cEv6j5sFDzAgTQbWez0Z1+9qOq9ngdaoW+YClfQ== vagrant@nova\n",

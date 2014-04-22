@@ -7,8 +7,8 @@ module Fog
 
           def reset
             @group = {}
-            @ip_permission = { 'groups' => [], 'ipRanges' => []}
-            @ip_permission_egress = { 'groups' => [], 'ipRanges' => []}
+            @ip_permission = { 'groups' => [], 'ipRanges' => [] }
+            @ip_permission_egress = { 'groups' => [], 'ipRanges' => [] }
             @ip_range = {}
             @security_group = { 'ipPermissions' => [], 'ipPermissionsEgress' => [] }
             @response = { 'securityGroupInfo' => [] }
@@ -77,10 +77,10 @@ module Fog
                 @ip_range = {}
               elsif @in_ip_permissions
                 @security_group['ipPermissions'] << @ip_permission
-                @ip_permission = { 'groups' => [], 'ipRanges' => []}
+                @ip_permission = { 'groups' => [], 'ipRanges' => [] }
               elsif @in_ip_permissions_egress
                 @security_group['ipPermissionsEgress'] << @ip_permission_egress
-                @ip_permission_egress = { 'groups' => [], 'ipRanges' => []}
+                @ip_permission_egress = { 'groups' => [], 'ipRanges' => [] }
               else
                 @response['securityGroupInfo'] << @security_group
                 @security_group = { 'ipPermissions' => [], 'ipPermissionsEgress' => [] }

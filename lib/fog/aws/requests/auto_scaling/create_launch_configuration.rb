@@ -88,7 +88,7 @@ module Fog
             'CreatedTime'             => Time.now.utc,
             'IamInstanceProfile'      => nil,
             'ImageId'                 => image_id,
-            'InstanceMonitoring'      => {'Enabled' => true},
+            'InstanceMonitoring'      => { 'Enabled' => true },
             'InstanceType'            => instance_type,
             'KernelId'                => nil,
             'KeyName'                 => nil,

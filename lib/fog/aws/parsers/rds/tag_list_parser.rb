@@ -10,7 +10,7 @@ module Fog
             @this_key   = nil
             @this_value = nil
             @tags       = Hash.new
-            @response   = {'ListTagsForResourceResult' => {'TagList' => {}}}
+            @response   = { 'ListTagsForResourceResult' => { 'TagList' => {} } }
           end
 
           def end_element(name)

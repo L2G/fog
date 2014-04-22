@@ -11,7 +11,7 @@ module Fog
         attr_accessor :datacenter
         attr_accessor :servertype
 
-        def all(filters = { })
+        def all(filters = {})
           requires :servertype
           case servertype
             when Fog::Compute::Vsphere::Servertype

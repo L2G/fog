@@ -42,7 +42,7 @@ module Fog
 
           self.data[:disk_offerings][disk_offering_id] = disk_offering
 
-          {'creatediskofferingresponse' => disk_offering}
+          { 'creatediskofferingresponse' => disk_offering }
         end
       end
 

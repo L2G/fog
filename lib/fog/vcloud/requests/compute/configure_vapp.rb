@@ -99,7 +99,7 @@ module Fog
           request(
             :body     => generate_configure_vapp_request(vapp_uri, vapp_data),
             :expects  => 202,
-            :headers  => {'Content-Type' => 'application/vnd.vmware.vcloud.vApp+xml' },
+            :headers  => { 'Content-Type' => 'application/vnd.vmware.vcloud.vApp+xml' },
             :method   => 'PUT',
             :uri      => vapp_uri,
             :parse    => true

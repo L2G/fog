@@ -34,7 +34,7 @@ module Fog
             :object_name => object_name,
             :method     => 'POST',
             :parser     => Fog::Parsers::Storage::AWS::InitiateMultipartUpload.new,
-            :query      => {'uploads' => nil}
+            :query      => { 'uploads' => nil }
           )
         end
 

@@ -235,7 +235,7 @@ class Ninefold
         }
       end
       module Networks
-        NETWORKS = [{'id' => Integer,
+        NETWORKS = [{ 'id' => Integer,
                     'name' => String,
                     'displaytext' => String,
                     'broadcastdomaintype' => String,
@@ -287,7 +287,7 @@ class Ninefold
           'virtualmachinename' => Fog::Nullable::String
         }
         ADDRESSES = [ADDRESS]
-        DISASSOC_ADDRESS = {'jobid' => Integer}
+        DISASSOC_ADDRESS = { 'jobid' => Integer }
       end
       module Nat
         ENABLE_NAT_RESPONSE = {

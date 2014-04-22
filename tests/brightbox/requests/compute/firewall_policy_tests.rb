@@ -25,7 +25,7 @@ Shindo.tests('Fog::Compute[:brightbox] | firewall policy requests', ['brightbox'
       end
     end
 
-    update_options = {:name => 'Fog test policy B'}
+    update_options = { :name => 'Fog test policy B' }
     tests("#update_firewall_policy('#{@firewall_policy_id}', #{update_options.inspect})") do
       result = Fog::Compute[:brightbox].update_firewall_policy(@firewall_policy_id, update_options)
       data_matches_schema(Brightbox::Compute::Formats::Full::FIREWALL_POLICY, :allow_extra_keys => true) { result }

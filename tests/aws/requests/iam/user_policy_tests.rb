@@ -4,7 +4,7 @@ Shindo.tests('AWS::IAM | user policy requests', ['aws']) do
 
   tests('success') do
 
-    @policy = {'Statement' => [{'Effect' => 'Allow', 'Action' => '*', 'Resource' => '*'}]}
+    @policy = { 'Statement' => [{ 'Effect' => 'Allow', 'Action' => '*', 'Resource' => '*' }] }
 
     tests("#put_user_policy('fog_user_policy_tests', 'fog_policy', #{@policy.inspect})").formats(AWS::IAM::Formats::BASIC) do
       Fog::AWS[:iam].put_user_policy('fog_user_policy_tests', 'fog_policy', @policy).body

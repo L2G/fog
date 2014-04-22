@@ -5,8 +5,8 @@ Shindo.tests('AWS::RDS | tagging', ['aws', 'rds']) do
   Formatador.display_line "Waiting for instance #{@server.id} to be ready"
   @server.wait_for { ready? }
 
-  tags1 = {'key1' => 'val1'}
-  tags2 = {'key2' => 'val2'}
+  tags1 = { 'key1' => 'val1' }
+  tags2 = { 'key2' => 'val2' }
 
   tests 'add and remove tags from a running RDS model' do
     returns({})                 { @server.tags }

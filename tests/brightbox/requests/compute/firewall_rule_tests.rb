@@ -24,7 +24,7 @@ Shindo.tests('Fog::Compute[:brightbox] | firewall rule requests', ['brightbox'])
       end
     end
 
-    update_options = {:source => nil, :destination => '127.0.0.1'}
+    update_options = { :source => nil, :destination => '127.0.0.1' }
     tests("#update_firewall_rule('#{@firewall_rule_id}', #{update_options.inspect})") do
       data_matches_schema(Brightbox::Compute::Formats::Full::FIREWALL_RULE, :allow_extra_keys => true) do
         Fog::Compute[:brightbox].update_firewall_rule(@firewall_rule_id, update_options)

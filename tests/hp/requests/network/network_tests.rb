@@ -16,7 +16,7 @@ Shindo.tests('HP::Network | networking network requests', ['hp',  'networking', 
     @network_id = nil
 
     tests('#create_network').formats(@network_format) do
-      attributes = {:name => 'my_network', :admin_state_up => true, :shared => false}
+      attributes = { :name => 'my_network', :admin_state_up => true, :shared => false }
       data = HP[:network].create_network(attributes).body['network']
       @network_id = data['id']
       data
@@ -31,7 +31,7 @@ Shindo.tests('HP::Network | networking network requests', ['hp',  'networking', 
     end
 
     tests("#update_network(#{@network_id})").formats('network' => @network_format) do
-      attributes = {:name => 'my_network_upd', :shared => false, :admin_state_up => true}
+      attributes = { :name => 'my_network_upd', :shared => false, :admin_state_up => true }
       HP[:network].update_network(@network_id, attributes).body
     end
 

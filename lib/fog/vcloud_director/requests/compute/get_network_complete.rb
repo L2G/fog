@@ -63,13 +63,13 @@ module Fog
 
           body[:Configuration][:IpScopes][:IpScope][:IpRanges][:IpRange] =
             network[:IpRanges].map do |ip_range|
-              {:StartAddress => ip_range[:StartAddress],
-               :EndAddress   => ip_range[:EndAddress]}
+              { :StartAddress => ip_range[:StartAddress],
+               :EndAddress   => ip_range[:EndAddress] }
             end
 
           Excon::Response.new(
             :status => 200,
-            :headers => {'Content-Type' => "#{body[:type]};version=#{api_version}"},
+            :headers => { 'Content-Type' => "#{body[:type]};version=#{api_version}" },
             :body => body
           )
 

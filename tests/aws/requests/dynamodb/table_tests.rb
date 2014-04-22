@@ -22,7 +22,7 @@ Shindo.tests('Fog::AWS[:dynamodb] | table requests', ['aws']) do
 
     tests("#create_table(#{@table_name}, {'HashKeyElement' => {'AttributeName' => 'id', 'AttributeType' => 'S'}, {'ReadCapacityUnits' => 5, 'WriteCapacityUnits' => 5})").formats('TableDescription' => @table_format) do
       pending if Fog.mocking?
-      Fog::AWS[:dynamodb].create_table(@table_name, {'HashKeyElement' => {'AttributeName' => 'id', 'AttributeType' => 'S'}}, 'ReadCapacityUnits' => 5, 'WriteCapacityUnits' => 5).body
+      Fog::AWS[:dynamodb].create_table(@table_name, { 'HashKeyElement' => { 'AttributeName' => 'id', 'AttributeType' => 'S' } }, 'ReadCapacityUnits' => 5, 'WriteCapacityUnits' => 5).body
     end
 
     tests("#describe_table(#{@table_name})").formats('Table' => @table_format) do

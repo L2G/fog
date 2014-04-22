@@ -29,7 +29,7 @@ module Fog
         #
 
         def put_metric_data(namespace, metric_data)
-          options = {'Namespace' => namespace}
+          options = { 'Namespace' => namespace }
 
           #first index the dimensions for any of the datums that have dimensions
           metric_data.collect! do |metric_datum|

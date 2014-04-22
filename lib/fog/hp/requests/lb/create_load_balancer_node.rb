@@ -58,7 +58,7 @@ module Fog
             }
 
             self.data[:lbs][load_balancer_id]['nodes'] << data
-            response.body = {'nodes' => [data]}
+            response.body = { 'nodes' => [data] }
             response
           else
             raise Fog::HP::LB::NotFound

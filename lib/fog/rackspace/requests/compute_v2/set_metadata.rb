@@ -31,7 +31,7 @@ module Fog
 
           response = Excon::Response.new
           response.status = 202
-          response.body = {'metadata' => {'environment' => 'dev'}}
+          response.body = { 'metadata' => { 'environment' => 'dev' } }
           response
         end
       end

@@ -65,7 +65,7 @@ module Fog
         class VmNetwork < VcloudDirectorParser
 
           def reset
-            @response = { }
+            @response = {}
           end
 
           def start_element(name, attributes)

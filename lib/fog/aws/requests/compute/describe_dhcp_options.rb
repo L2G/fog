@@ -28,7 +28,7 @@ module Fog
         def describe_dhcp_options(filters = {})
           unless filters.is_a?(Hash)
             Fog::Logger.warning("describe_dhcp_options with #{filters.class} param is deprecated, use dhcp_options('dhcp-options-id' => []) instead [light_black](#{caller.first})[/]")
-            filters = {'dhcp-options-id' => [*filters]}
+            filters = { 'dhcp-options-id' => [*filters] }
           end
           params = Fog::AWS.indexed_filters(filters)
           request({

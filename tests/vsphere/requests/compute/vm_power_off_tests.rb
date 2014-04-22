@@ -12,7 +12,7 @@ Shindo.tests('Fog::Compute[:vsphere] | vm_power_off request', ['vsphere']) do
   end
 
   # When forcing the shutdown, we expect the result to be
-  { true => 'cut_power', false => 'shutdown_guest'}.each do |force, expected|
+  { true => 'cut_power', false => 'shutdown_guest' }.each do |force, expected|
     tests("When 'force' => #{force}") do
       response = compute.vm_power_off('instance_uuid' => powered_on_vm, 'force' => force)
       test('should retur power_off_type of #{expected}') { response['power_off_type'] == expected }

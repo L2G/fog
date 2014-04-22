@@ -5,13 +5,13 @@ Shindo.tests('HP::Network | networking router model', ['hp', 'networking', 'rout
   @subnet = HP[:network].subnets.create(:name => 'fogsubnet', :network_id => @network.id, :cidr => '13.13.13.13/13', :ip_version => 4)
   @port = HP[:network].ports.create(:name => 'fogport', :network_id => @network.id)
 
-  attributes = {:name => 'fogrouter', :admin_state_up => true}
+  attributes = { :name => 'fogrouter', :admin_state_up => true }
   model_tests(HP[:network].routers, attributes, true)
 
   tests('success') do
 
     tests('#create').succeeds do
-      attributes = {:name => 'my_router', :admin_state_up => true}
+      attributes = { :name => 'my_router', :admin_state_up => true }
       @router = HP[:network].routers.create(attributes)
       @router.wait_for { ready? } unless Fog.mocking?
       !@router.id.nil?

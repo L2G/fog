@@ -28,7 +28,7 @@ module Fog
           response = Excon::Response.new
           if lb = get_load_balancer(load_balancer_id).body
             response.status = 200
-            response.body   = {'nodes' => lb['nodes']}
+            response.body   = { 'nodes' => lb['nodes'] }
             response
           else
             raise Fog::HP::LB::NotFound

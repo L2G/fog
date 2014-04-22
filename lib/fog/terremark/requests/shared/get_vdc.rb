@@ -55,8 +55,8 @@ module Fog
               body['StorageCapacity'] = { 'Units' => 'bytes * 10^9' }
               vdc[:storage].each { |k,v| body['StorageCapacity'][k.to_s.capitalize] = v.to_s }
 
-              body['ComputeCapacity'] = { 'InstantiatedVmsQuota' => {'Limit' => '-1', 'Used' => '-1'},
-                                           'DeployedVmsQuota' => {'Limit' => '-1', 'Used' => '-1'},
+              body['ComputeCapacity'] = { 'InstantiatedVmsQuota' => { 'Limit' => '-1', 'Used' => '-1' },
+                                           'DeployedVmsQuota' => { 'Limit' => '-1', 'Used' => '-1' },
                                            'Cpu' => { 'Units' => 'hz * 10^6' },
                                            'Memory' => { 'Units' => 'bytes * 2^20' } }
 

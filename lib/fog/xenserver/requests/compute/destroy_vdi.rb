@@ -5,7 +5,7 @@ module Fog
       class Real
 
         def destroy_vdi( vdi_ref, extra_args = {})
-          @connection.request({:parser => Fog::Parsers::XenServer::Base.new, :method => 'VDI.destroy'}, vdi_ref)
+          @connection.request({ :parser => Fog::Parsers::XenServer::Base.new, :method => 'VDI.destroy' }, vdi_ref)
         end
 
       end

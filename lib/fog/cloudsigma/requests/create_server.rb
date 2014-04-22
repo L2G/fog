@@ -11,7 +11,7 @@ module Fog
         def create_server(data)
           uuid = self.class.random_uuid
 
-          defaults = {'uuid' => uuid,
+          defaults = { 'uuid' => uuid,
                       'status' => 'stopped',
                       'smp' => 1,
                       'hv_relaxed' => false,

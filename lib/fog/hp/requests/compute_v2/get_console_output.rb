@@ -14,7 +14,7 @@ module Fog
         #     * 'output'<~String> - Console output
         #
         def get_console_output(server_id, num_lines)
-          body = { 'os-getConsoleOutput' => { 'length' => num_lines }}
+          body = { 'os-getConsoleOutput' => { 'length' => num_lines } }
           server_action(server_id, body, 200)
         end
 

@@ -12,12 +12,12 @@ Shindo.tests('Fog::Compute[:aws] | instance requests', ['aws']) do
     'ebsOptimized'        => Fog::Boolean,
     'imageId'             => String,
     'instanceId'          => String,
-    'instanceState'       => {'code' => Integer, 'name' => String},
+    'instanceState'       => { 'code' => Integer, 'name' => String },
     'instanceType'        => String,
     'kernelId'            => Fog::Nullable::String,
     'keyName'             => Fog::Nullable::String,
     'launchTime'          => Time,
-    'monitoring'          => {'state' => Fog::Boolean},
+    'monitoring'          => { 'state' => Fog::Boolean },
     'networkInterfaceId'  => Fog::Nullable::String,
     'placement'           => {
       'availabilityZone' => String,
@@ -82,9 +82,9 @@ Shindo.tests('Fog::Compute[:aws] | instance requests', ['aws']) do
 
   @terminate_instances_format = {
     'instancesSet'  => [{
-      'currentState' => {'code' => Integer, 'name' => String},
+      'currentState' => { 'code' => Integer, 'name' => String },
       'instanceId'    => String,
-      'previousState' => {'code' => Integer, 'name' => String},
+      'previousState' => { 'code' => Integer, 'name' => String },
     }],
     'requestId'     => String
   }

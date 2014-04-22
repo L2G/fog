@@ -17,7 +17,7 @@ Shindo.tests('Fog::Rackspace::Queues | claim_tests', ['rackspace']) do
     tests('with messages in the queue') do
 
       before do
-        service.create_message(client_id, queue_name, { :message => 'message-body'}, 300)
+        service.create_message(client_id, queue_name, { :message => 'message-body' }, 300)
       end
 
       #TODO - Fix it so simple text bodies pass validation

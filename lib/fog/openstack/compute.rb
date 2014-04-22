@@ -196,7 +196,7 @@ module Fog
                   'minRam'    => 0,
                   'minDisk'   => 0,
                   'metadata'  => {},
-                  'links'     => [{'href' => 'http://nova1:8774/v1.1/admin/images/1', 'rel' => 'self'}, {'href' => 'http://nova1:8774/admin/images/2', 'rel' => 'bookmark'}]
+                  'links'     => [{ 'href' => 'http://nova1:8774/v1.1/admin/images/1', 'rel' => 'self' }, { 'href' => 'http://nova1:8774/admin/images/2', 'rel' => 'bookmark' }]
                 }
               },
               :servers => {},

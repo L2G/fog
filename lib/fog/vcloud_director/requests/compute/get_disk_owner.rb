@@ -60,7 +60,7 @@ module Fog
 
           Excon::Response.new(
             :status => 200,
-            :headers => {'Content-Type' => "#{body[:type]};version=#{@version}"},
+            :headers => { 'Content-Type' => "#{body[:type]};version=#{@version}" },
             :body => body
           )
         end

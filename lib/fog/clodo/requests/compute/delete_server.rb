@@ -26,7 +26,7 @@ module Fog
           if server = list_servers_detail.body['servers'].detect {|_| _['id'].to_i == server_id }
             if server['status'] == 'is_install'
               response.status = 405
-              raise(Excon::Errors.status_error({:expects => 204}, response))
+              raise(Excon::Errors.status_error({ :expects => 204 }, response))
             else
               self.data[:last_modified][:servers].delete(server_id)
               self.data[:servers].delete(server_id)

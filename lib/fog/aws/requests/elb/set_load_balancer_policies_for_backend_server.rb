@@ -18,7 +18,7 @@ module Fog
         #     * 'ResponseMetadata'<~Hash>:
         #       * 'RequestId'<~String> - Id of request
         def set_load_balancer_policies_for_backend_server(lb_name, instance_port, policy_names)
-          params = {'InstancePort' => instance_port}
+          params = { 'InstancePort' => instance_port }
           if policy_names.any?
             params.merge!(Fog::AWS.indexed_param('PolicyNames.member', policy_names))
           else

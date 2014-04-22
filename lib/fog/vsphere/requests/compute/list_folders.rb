@@ -20,7 +20,7 @@ module Fog
         #  mydc = vspconn.datacenters.first
         #  folders = mydc.vm_folders
         #
-        def list_folders(filters = { })
+        def list_folders(filters = {})
           path            = filters[:path] || filters['path'] || ''
           datacenter_name = filters[:datacenter]
           get_raw_vmfolders(path, datacenter_name).map do |folder|

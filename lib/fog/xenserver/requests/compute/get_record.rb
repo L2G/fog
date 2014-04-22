@@ -11,7 +11,7 @@ module Fog
         end
 
         def get_record_by_ref( ref, klass, options = {} )
-          @connection.request({:parser => Fog::Parsers::XenServer::Base.new, :method => "#{klass}.get_record"}, ref).merge(:reference => ref)
+          @connection.request({ :parser => Fog::Parsers::XenServer::Base.new, :method => "#{klass}.get_record" }, ref).merge(:reference => ref)
         end
 
       end

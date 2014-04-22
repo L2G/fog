@@ -6,7 +6,7 @@ module Fog
         class DescribeOrderableDBInstanceOptions < Fog::Parsers::Base
 
           def reset
-            @response = { 'DescribeOrderableDBInstanceOptionsResult' => {'OrderableDBInstanceOptions' => []}, 'ResponseMetadata' => {} }
+            @response = { 'DescribeOrderableDBInstanceOptionsResult' => { 'OrderableDBInstanceOptions' => [] }, 'ResponseMetadata' => {} }
             @db_instance_option = {}
             @db_instance_options = []
           end

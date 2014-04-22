@@ -24,7 +24,7 @@ module Fog
             super
             case name
             when 'ClusterSubnetGroups'
-              @cluster_subnet_group = {'Subnets' => []}
+              @cluster_subnet_group = { 'Subnets' => [] }
             end
           end
 
@@ -34,12 +34,12 @@ module Fog
             when 'Marker'
               @response[name] = value
             when 'ClusterSubnetGroup'
-              @response['ClusterSubnetGroups'] << {name => @cluster_subnet_group}
-              @cluster_subnet_group = {'Subnets' => []}
+              @response['ClusterSubnetGroups'] << { name => @cluster_subnet_group }
+              @cluster_subnet_group = { 'Subnets' => [] }
             when 'ClusterSubnetGroupName', 'Description', 'VpcId', 'SubnetGroupStatus'
               @cluster_subnet_group[name] = value
             when 'Subnet'
-              @cluster_subnet_group['Subnets'] << {name => @subnet} if @subnet
+              @cluster_subnet_group['Subnets'] << { name => @subnet } if @subnet
               @subnet = {}
             when 'SubnetAvailabilityZone'
               @subnet['SubnetAvailabilityZone'] = {}

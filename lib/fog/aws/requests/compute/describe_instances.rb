@@ -57,7 +57,7 @@ module Fog
         def describe_instances(filters = {})
           unless filters.is_a?(Hash)
             Fog::Logger.deprecation("describe_instances with #{filters.class} param is deprecated, use describe_instances('instance-id' => []) instead [light_black](#{caller.first})[/]")
-            filters = {'instance-id' => [*filters]}
+            filters = { 'instance-id' => [*filters] }
           end
           params = {}
           if filters['instance-id']
@@ -83,7 +83,7 @@ module Fog
         def describe_instances(filters = {})
           unless filters.is_a?(Hash)
             Fog::Logger.deprecation("describe_instances with #{filters.class} param is deprecated, use describe_instances('instance-id' => []) instead [light_black](#{caller.first})[/]")
-            filters = {'instance-id' => [*filters]}
+            filters = { 'instance-id' => [*filters] }
           end
 
           response = Excon::Response.new

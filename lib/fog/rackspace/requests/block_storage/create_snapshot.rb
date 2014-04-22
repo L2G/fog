@@ -69,7 +69,7 @@ module Fog
 
             self.data[:snapshots][snapshot_id] = snapshot
 
-            response(:body => {'snapshot' => snapshot})
+            response(:body => { 'snapshot' => snapshot })
           end
         end
       end

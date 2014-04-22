@@ -5,7 +5,7 @@ module Fog
 
         class DescribeAccountAttributes < Fog::Parsers::Base
           def reset
-            @attribute = { 'values' => []}
+            @attribute = { 'values' => [] }
             @account_attributes = []
             @response = { 'accountAttributeSet' => [] }
           end
@@ -28,7 +28,7 @@ module Fog
               @response[name] = value
             when 'item'
               @response['accountAttributeSet'] << @attribute
-              @attribute = { 'values' => []} unless @in_attribute_value_set
+              @attribute = { 'values' => [] } unless @in_attribute_value_set
             when 'attributeValueSet'
               @in_attribute_value_set = false
             else

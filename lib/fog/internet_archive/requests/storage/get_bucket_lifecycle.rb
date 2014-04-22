@@ -27,7 +27,7 @@ module Fog
                     :idempotent => true,
                     :method   => 'GET',
                     :parser   => Fog::Parsers::Storage::InternetArchive::GetBucketLifecycle.new,
-                    :query    => {'lifecycle' => nil}
+                    :query    => { 'lifecycle' => nil }
                   )
         end
 

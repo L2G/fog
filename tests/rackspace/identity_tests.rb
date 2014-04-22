@@ -2,7 +2,7 @@ Shindo.tests('Fog::Rackspace::Identity', ['rackspace']) do
 
   tests('current authentication') do
     tests('variables populated').returns(200)  do
-      @service = Fog::Rackspace::Identity.new :rackspace_auth_url => 'https://identity.api.rackspacecloud.com/v2.0', :connection_options => {:ssl_verify_peer => true}
+      @service = Fog::Rackspace::Identity.new :rackspace_auth_url => 'https://identity.api.rackspacecloud.com/v2.0', :connection_options => { :ssl_verify_peer => true }
       returns(true, 'auth token populated') { !@service.auth_token.nil? }
       returns(false, 'path populated') { @service.instance_variable_get('@uri').host.nil? }
       returns(false, 'service catalog populated') { @service.service_catalog.nil? }

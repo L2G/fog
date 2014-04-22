@@ -47,7 +47,7 @@ module Fog
 
           policy['webhooks'] << webhook
 
-          body = {'webhook' => webhook}
+          body = { 'webhook' => webhook }
           response(:body => body)
 
         end

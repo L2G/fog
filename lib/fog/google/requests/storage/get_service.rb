@@ -42,7 +42,7 @@ module Fog
           end
           response.body = {
             'Buckets' => buckets,
-            'Owner'   => { 'ID' => 'some_id'}
+            'Owner'   => { 'ID' => 'some_id' }
           }
           response
         end

@@ -39,7 +39,7 @@ module Fog
             bucket[:objects].delete(object_name)
           else
             response.status = 404
-            raise(Excon::Errors.status_error({:expects => 204}, response))
+            raise(Excon::Errors.status_error({ :expects => 204 }, response))
           end
           response
         end

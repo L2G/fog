@@ -10,7 +10,7 @@ module Fog
         # * ip_address<~String> - IP address to associate with the server
         #
         def disassociate_address(server_id, ip_address)
-          body = { 'removeFloatingIp' => { 'server' => server_id, 'address' => ip_address }}
+          body = { 'removeFloatingIp' => { 'server' => server_id, 'address' => ip_address } }
           server_action(server_id, body)
         end
 
@@ -28,7 +28,7 @@ module Fog
           else
             #raise Fog::Compute::HP::NotFound
             response.status = 500
-            raise(Excon::Errors.status_error({:expects => 200}, response))
+            raise(Excon::Errors.status_error({ :expects => 200 }, response))
           end
           response
         end

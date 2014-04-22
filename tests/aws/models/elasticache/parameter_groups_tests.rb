@@ -4,12 +4,12 @@ Shindo.tests('AWS::Elasticache | parameter groups', ['aws', 'elasticache']) do
 
   model_tests(
     AWS[:elasticache].parameter_groups,
-    {:id => group_name, :description => description}, true
+    { :id => group_name, :description => description }, true
   )
 
   collection_tests(
     AWS[:elasticache].parameter_groups,
-    {:id => group_name, :description => description}, true
+    { :id => group_name, :description => description }, true
   )
 
 end

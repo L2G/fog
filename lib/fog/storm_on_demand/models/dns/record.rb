@@ -37,24 +37,24 @@ module Fog
 
         def update(options = {})
           requires :identity
-          service.update_record({:id => identity}.merge!(options))
+          service.update_record({ :id => identity }.merge!(options))
           true
         end
 
         def create_region(options)
           requires :identity
-          service.create_record_region({:record_id => identity}.merge!(options))
+          service.create_record_region({ :record_id => identity }.merge!(options))
           true
         end
 
         def delete_region(options)
           requires :identity
-          service.delete_record_region({:record_id => identity}.merge!(options))
+          service.delete_record_region({ :record_id => identity }.merge!(options))
         end
 
         def update_region(options)
           requires :identity
-          service.update_record_region({:record_id => identity}.merge!(options))
+          service.update_record_region({ :record_id => identity }.merge!(options))
         end
 
       end

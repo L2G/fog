@@ -2,7 +2,7 @@ module Fog
   module Compute
     class Vsphere
       class Real
-        def list_virtual_machines(options = { })
+        def list_virtual_machines(options = {})
           # Listing all VM's can be quite slow and expensive.  Try and optimize
           # based on the available options we have.  These conditions are in
           # ascending order of time to complete for large deployments.
@@ -28,7 +28,7 @@ module Fog
           vms.map(&method(:convert_vm_mob_ref_to_attr_hash))
         end
 
-        def list_all_virtual_machines(options = { })
+        def list_all_virtual_machines(options = {})
           datacenters = find_datacenters(options[:datacenter])
 
           vms = datacenters.map do |dc|
@@ -60,7 +60,7 @@ module Fog
           nil
         end
 
-        def list_virtual_machines(options = { })
+        def list_virtual_machines(options = {})
           if options['instance_uuid'].nil? and options['mo_ref'].nil?
             self.data[:servers].values
           elsif !options['instance_uuid'].nil?

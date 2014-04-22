@@ -18,7 +18,7 @@ module Fog
             :headers  => {},
             :host     => "#{bucket_name}.#{@host}",
             :method   => 'DELETE',
-            :query    => {'website' => nil}
+            :query    => { 'website' => nil }
           )
         end
 

@@ -8,7 +8,7 @@ module Fog
       class Volumes < Fog::Collection
         model Fog::Volume::OpenStack::Volume
 
-        def all(options = {:detailed => true})
+        def all(options = { :detailed => true })
           # the parameter has been "detailed = true" before. Make sure we are
           # backwards compatible
           detailed = options.is_a?(Hash) ? options.delete(:detailed) : options

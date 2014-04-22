@@ -23,7 +23,7 @@ module Fog
           body = { 'rebuild' => {
             'imageRef' => image_id,
             'name' => name
-          }}
+          } }
           l_options = ['metadata', 'accessIPv4', 'accessIPv6']
           l_options.select{|o| options[o]}.each do |key|
             body['rebuild'][key] = options[key]

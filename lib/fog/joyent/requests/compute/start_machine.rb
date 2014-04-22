@@ -6,7 +6,7 @@ module Fog
           request(
             :method => 'POST',
             :path => "/my/machines/#{id}",
-            :query => {'action' => 'start'},
+            :query => { 'action' => 'start' },
             :expects => 202
           )
         end

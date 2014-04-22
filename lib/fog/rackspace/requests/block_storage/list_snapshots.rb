@@ -32,7 +32,7 @@ module Fog
         def list_snapshots
           snapshots = self.data[:snapshots].values
 
-          response(:body => {'snapshots' => snapshots})
+          response(:body => { 'snapshots' => snapshots })
         end
       end
     end

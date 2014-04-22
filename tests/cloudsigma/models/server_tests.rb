@@ -1,7 +1,7 @@
 Shindo.tests('Fog::Compute[:cloudsigma] | server model', ['cloudsigma']) do
   service = Fog::Compute[:cloudsigma]
   servers = Fog::Compute[:cloudsigma].servers
-  server_create_args =  {:name => 'fogtest', :cpu => 2000, :mem => 512 * 1024**2, :vnc_password => 'myrandompass'}
+  server_create_args =  { :name => 'fogtest', :cpu => 2000, :mem => 512 * 1024**2, :vnc_password => 'myrandompass' }
 
   model_tests(servers, server_create_args, true) do
     tests('start_stop').succeeds do
@@ -48,7 +48,7 @@ Shindo.tests('Fog::Compute[:cloudsigma] | server model', ['cloudsigma']) do
     end
 
     tests('attach_volume') do
-      volume_create_args = {:name => 'fogservermodeltest', :size => 1000**3, :media => :cdrom}
+      volume_create_args = { :name => 'fogservermodeltest', :size => 1000**3, :media => :cdrom }
       v = service.volumes.create(volume_create_args)
       volume_uuid = v.uuid
 

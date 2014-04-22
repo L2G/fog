@@ -6,7 +6,7 @@ module Fog
         class VmCustomization < VcloudDirectorParser
 
           def reset
-            @response = { }
+            @response = {}
           end
 
           def start_element(name, attributes)

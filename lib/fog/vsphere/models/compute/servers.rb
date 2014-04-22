@@ -16,7 +16,7 @@ module Fog
 
         # 'folder' => '/Datacenters/vm/Jeff/Templates' will be MUCH faster.
         # than simply listing everything.
-        def all(filters = { })
+        def all(filters = {})
           f = {
             :datacenter    => datacenter,
             :cluster       => cluster,

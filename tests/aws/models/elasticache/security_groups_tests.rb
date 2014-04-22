@@ -6,7 +6,7 @@ Shindo.tests('AWS::Elasticache | security groups', ['aws', 'elasticache']) do
 
   model_tests(
   AWS[:elasticache].security_groups,
-  {:id => group_name, :description => description}, false
+  { :id => group_name, :description => description }, false
   ) do
 
     # An EC2 group to authorize
@@ -46,7 +46,7 @@ Shindo.tests('AWS::Elasticache | security groups', ['aws', 'elasticache']) do
 
   collection_tests(
     AWS[:elasticache].security_groups,
-    {:id => group_name, :description => description}, false
+    { :id => group_name, :description => description }, false
   )
 
 end

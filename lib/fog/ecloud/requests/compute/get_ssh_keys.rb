@@ -14,7 +14,7 @@ module Fog
           ssh_keys = self.data[:ssh_keys].values.select{|key| key[:admin_organization_id] == organization_id}
           ssh_keys = ssh_keys.map{|key| Fog::Ecloud.slice(key, :id, :admin_organization)}
 
-          ssh_key_response = {:SshKey => (ssh_keys.size > 1 ? ssh_keys : ssh_keys.first)} # GAH
+          ssh_key_response = { :SshKey => (ssh_keys.size > 1 ? ssh_keys : ssh_keys.first) } # GAH
           body = {
             :href  => "/cloudapi/ecloud/admin/organizations/#{organization_id}/sshKeys",
             :type  => 'application/vnd.tmrk.cloud.sshKey; type=collection',

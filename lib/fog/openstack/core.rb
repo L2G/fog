@@ -104,9 +104,9 @@ module Fog
           response = Fog::Core::Connection.new(
             "#{uri.scheme}://#{uri.host}:#{uri.port}/v2.0/tenants", false, connection_options).request(
             :expects => [200, 204],
-            :headers => {'Content-Type' => 'application/json',
-                         'Accept' => 'application/json',
-                         'X-Auth-Token' => body['access']['token']['id']},
+            :headers => { 'Content-Type' => 'application/json',
+                          'Accept' => 'application/json',
+                          'X-Auth-Token' => body['access']['token']['id'] },
             :method  => 'GET'
           )
 
@@ -186,7 +186,7 @@ module Fog
       uri         = options[:openstack_auth_uri]
 
       connection = Fog::Core::Connection.new(uri.to_s, false, connection_options)
-      request_body = {:auth => Hash.new}
+      request_body = { :auth => Hash.new }
 
       if auth_token
         request_body[:auth][:token] = {
@@ -202,7 +202,7 @@ module Fog
 
       response = connection.request(
         :expects  => [200, 204],
-        :headers  => {'Content-Type' => 'application/json'},
+        :headers  => { 'Content-Type' => 'application/json' },
         :body     => Fog::JSON.encode(request_body),
         :method   => 'POST',
         :path     => (uri.path and not uri.path.empty?) ? uri.path : 'v2.0'
@@ -215,9 +215,9 @@ module Fog
       connection = Fog::Core::Connection.new("#{uri.scheme}://#{uri.host}:#{uri.port}", false, connection_options)
       response = connection.request(
         :expects => [200, 204, 300],
-        :headers => {'Content-Type' => 'application/json',
-                     'Accept' => 'application/json',
-                     'X-Auth-Token' => auth_token},
+        :headers => { 'Content-Type' => 'application/json',
+                      'Accept' => 'application/json',
+                      'X-Auth-Token' => auth_token },
         :method  => 'GET'
       )
 

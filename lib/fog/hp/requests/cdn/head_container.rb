@@ -20,7 +20,7 @@ module Fog
             :expects  => 204,
             :method   => 'HEAD',
             :path     => Fog::HP.escape(name),
-            :query    => {'format' => 'json'}
+            :query    => { 'format' => 'json' }
           )
           response
         end

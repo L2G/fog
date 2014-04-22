@@ -55,7 +55,7 @@ module Fog
 
         def new(attributes = {})
           requires :zone
-          super({:zone => zone}.merge!(attributes))
+          super({ :zone => zone }.merge!(attributes))
         end
 
       end

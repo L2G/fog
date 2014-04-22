@@ -24,7 +24,7 @@ module Fog
             new_args
           end
           if parameter_changes.empty?
-            parameter_changes = {'ResetAllParameters' => 'true'}
+            parameter_changes = { 'ResetAllParameters' => 'true' }
           end
           # Merge the Cache Security Group parameters with the normal options
           request(parameter_changes.merge(

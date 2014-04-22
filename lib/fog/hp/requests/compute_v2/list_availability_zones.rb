@@ -30,12 +30,12 @@ module Fog
           response.status = 200
           response.body = {
             'availabilityZoneInfo' => [
-                {'zoneState' => {'available' => true},
+                { 'zoneState' => { 'available' => true },
                  'hosts' => nil,
-                 'zoneName' => 'az1'},
-                {'zoneState' => {'available' => true},
+                 'zoneName' => 'az1' },
+                { 'zoneState' => { 'available' => true },
                  'hosts' => nil,
-                 'zoneName' => 'az2'}
+                 'zoneName' => 'az2' }
             ]
           }
           response

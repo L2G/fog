@@ -5,9 +5,9 @@ module Fog
         def list_tenants
           response = @identity_connection.request(
             :expects => [200, 204],
-            :headers => {'Content-Type' => 'application/json',
+            :headers => { 'Content-Type' => 'application/json',
                          'Accept' => 'application/json',
-                         'X-Auth-Token' => @auth_token},
+                         'X-Auth-Token' => @auth_token },
             :method  => 'GET',
             :path    => '/v2.0/tenants'
           )
@@ -23,18 +23,18 @@ module Fog
           response.body = {
             'tenants_links' => [],
             'tenants' => [
-              {'id' => '1',
+              { 'id' => '1',
                'description' => 'Has access to everything',
                'enabled' => true,
-               'name' => 'admin'},
-              {'id' => '2',
+               'name' => 'admin' },
+              { 'id' => '2',
                'description' => 'Normal tenant',
                'enabled' => true,
-               'name' => 'default'},
-              {'id' => '3',
+               'name' => 'default' },
+              { 'id' => '3',
                'description' => 'Disabled tenant',
                'enabled' => false,
-               'name' => 'disabled'}
+               'name' => 'disabled' }
             ]
           }
           response

@@ -19,7 +19,7 @@ EOF
           request(
                   :body     => builder,
                   :expects  => 202,
-                  :headers  => {'Content-Type' => 'application/vnd.vmware.vcloud.undeployVAppParams+xml' },
+                  :headers  => { 'Content-Type' => 'application/vnd.vmware.vcloud.undeployVAppParams+xml' },
                   :method   => 'POST',
                   :uri      => vapp_uri + '/action/undeploy',
                   :parse    => true

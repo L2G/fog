@@ -18,7 +18,7 @@ module Fog
             super
             case name
             when 'Cluster'
-              @response = {name => @cluster}
+              @response = { name => @cluster }
             end
           end
         end

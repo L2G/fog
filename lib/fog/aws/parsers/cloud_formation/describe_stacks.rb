@@ -56,7 +56,7 @@ module Fog
               case name
               when 'member'
                 @response['Stacks'] << @stack
-                @stack = { 'Outputs' => [], 'Parameters' => [], 'Capabilities' => []}
+                @stack = { 'Outputs' => [], 'Parameters' => [], 'Capabilities' => [] }
               when 'RequestId'
                 @response[name] = value
               when 'CreationTime'

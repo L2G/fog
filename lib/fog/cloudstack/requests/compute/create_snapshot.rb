@@ -36,7 +36,7 @@ module Fog
           }
 
           self.data[:snapshots][snapshot_id] = snapshot
-          {'createsnapshotresponse' => snapshot}
+          { 'createsnapshotresponse' => snapshot }
         end
       end
     end

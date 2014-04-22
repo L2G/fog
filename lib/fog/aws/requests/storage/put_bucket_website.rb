@@ -37,7 +37,7 @@ DATA
             :headers  => {},
             :bucket_name => bucket_name,
             :method   => 'PUT',
-            :query    => {'website' => nil}
+            :query    => { 'website' => nil }
           )
         end
 
@@ -51,7 +51,7 @@ DATA
             response.status = 200
           else
             response.status = 404
-            raise(Excon::Errors.status_error({:expects => 200}, response))
+            raise(Excon::Errors.status_error({ :expects => 200 }, response))
           end
 
           response

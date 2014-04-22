@@ -5,7 +5,7 @@ module Fog
       class Mock
         def list_aggregated_disks(options = {})
           # Create a Hash of unique zones from the disks Array previously filled when disks are created
-          zones = Hash[self.data[:disks].values.map { |disk| ["zones/#{disk['zone'].split('/')[-1]}", {'disks' => [] }] }]
+          zones = Hash[self.data[:disks].values.map { |disk| ["zones/#{disk['zone'].split('/')[-1]}", { 'disks' => [] }] }]
           if options[:filter]
             # Look up for the disk name
             disk = self.data[:disks][options[:filter].gsub(/name eq \.\*/, '')]

@@ -1,6 +1,6 @@
 Shindo.tests('AWS::RDS | security_group', ['aws', 'rds']) do
   group_name = 'fog-test'
-  params = {:id => group_name, :description => 'fog test'}
+  params = { :id => group_name, :description => 'fog test' }
 
   model_tests(Fog::AWS[:rds].security_groups, params) do
 

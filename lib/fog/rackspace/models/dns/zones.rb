@@ -27,7 +27,7 @@ module Fog
         def each
           return self unless block_given?
 
-          params = { :limit => 100} # prime loop (100 Records is default page size for Rackspace Cloud)
+          params = { :limit => 100 } # prime loop (100 Records is default page size for Rackspace Cloud)
           while params
             body = service.list_domains(params).body
             subset = dup.load(body['domains'])

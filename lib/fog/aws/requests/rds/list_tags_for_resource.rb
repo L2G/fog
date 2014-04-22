@@ -30,7 +30,7 @@ module Fog
             response.status = 200
             response.body = {
               'ListTagsForResourceResult' =>
-                {'TagList' =>  self.data[:tags][rds_id]}
+                { 'TagList' =>  self.data[:tags][rds_id] }
             }
             response
           else

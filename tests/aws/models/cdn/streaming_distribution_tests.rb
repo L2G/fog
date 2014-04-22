@@ -1,5 +1,5 @@
 Shindo.tests('Fog::CDN[:aws] | streaming_distribution', ['aws', 'cdn']) do
-  params = { :s3_origin => { 'DNSName' => 'fog_test_cdn.s3.amazonaws.com'}, :enabled => true }
+  params = { :s3_origin => { 'DNSName' => 'fog_test_cdn.s3.amazonaws.com' }, :enabled => true }
   model_tests(Fog::CDN[:aws].streaming_distributions, params, true) do
     # distribution needs to be ready before being disabled
     tests('#ready? - may take 15 minutes to complete...').succeeds do

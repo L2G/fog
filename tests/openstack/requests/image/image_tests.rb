@@ -7,8 +7,8 @@ Shindo.tests('Fog::Image[:openstack] | image requests', ['openstack']) do
     :copy_from        => 'http://website.com/image.iso',
     :disk_format      => 'iso',
     :properties       =>
-      {:user_id       => openstack.current_user['id'],
-       :owner_id      => openstack.current_tenant['id']},
+      { :user_id       => openstack.current_user['id'],
+       :owner_id      => openstack.current_tenant['id'] },
     :container_format => 'bare' }
 
   @image_format = {
@@ -66,7 +66,7 @@ Shindo.tests('Fog::Image[:openstack] | image requests', ['openstack']) do
   }
 
   @image_members_format = [
-    {'can_share' => Fog::Nullable::Boolean,
+    { 'can_share' => Fog::Nullable::Boolean,
       'member_id' => String
     }
   ]

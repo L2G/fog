@@ -6,7 +6,7 @@ module Fog
         class GetMetricStatistics < Fog::Parsers::Base
 
           def reset
-            @response = { 'GetMetricStatisticsResult' => {'Datapoints' => []}, 'ResponseMetadata' => {} }
+            @response = { 'GetMetricStatisticsResult' => { 'Datapoints' => [] }, 'ResponseMetadata' => {} }
             reset_datapoint
           end
 

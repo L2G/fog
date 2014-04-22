@@ -71,7 +71,7 @@ DATA
             :headers  => {},
             :host     => "#{bucket_name}.#{@host}",
             :method   => 'PUT',
-            :query    => {'logging' => nil}
+            :query    => { 'logging' => nil }
           )
         end
 

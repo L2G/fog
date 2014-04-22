@@ -27,7 +27,7 @@ module Fog
             :idempotent => true,
             :method     => 'GET',
             :parser     => Fog::Parsers::Storage::AWS::GetBucketVersioning.new,
-            :query      => {'versioning' => nil}
+            :query      => { 'versioning' => nil }
           )
         end
       end
@@ -58,7 +58,7 @@ module Fog
               }
             }
 
-            raise(Excon::Errors.status_error({:expects => 200}, response))
+            raise(Excon::Errors.status_error({ :expects => 200 }, response))
           end
 
           response

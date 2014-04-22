@@ -2,7 +2,7 @@ module Fog
   module Compute
     class Libvirt
       class Real
-        def list_pools(filter = { })
+        def list_pools(filter = {})
           data = []
           if filter.has_key?(:name)
             data << find_pool_by_name(filter[:name])
@@ -47,7 +47,7 @@ module Fog
       end
 
       class Mock
-        def list_pools(filter = { })
+        def list_pools(filter = {})
           pool1 = mock_pool 'pool1'
           pool2 = mock_pool 'pool1'
           [pool1, pool2]

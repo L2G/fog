@@ -28,9 +28,9 @@ Shindo.tests('Fog::Rackspace::DNS | zones', ['rackspace']) do
     returns(nil, 'no body') { zones.send(:next_params, nil)}
     returns(nil, 'no links') { zones.send(:next_params, {}) }
     returns(nil, 'links are empty') { zones.send(:next_params, 'links' => []) }
-    returns(nil, 'links does not contain next hash') { zones.send(:next_params, 'links' => [ {'rel' => 'previous'} ] ) }
-    returns(nil, 'contains a link without parameters') { zones.send(:next_params, 'links' => [ {'rel' => 'next', 'href' => 'http://localhost/next'} ] ) }
-    returns({'offset' => ['3'], 'limit' => ['3']}, 'contains a link without parameters') { zones.send(:next_params, 'links' => [ {'rel' => 'next', 'href' => 'http://localhost/next?offset=3&limit=3'} ] ) }
+    returns(nil, 'links does not contain next hash') { zones.send(:next_params, 'links' => [ { 'rel' => 'previous' } ] ) }
+    returns(nil, 'contains a link without parameters') { zones.send(:next_params, 'links' => [ { 'rel' => 'next', 'href' => 'http://localhost/next' } ] ) }
+    returns({ 'offset' => ['3'], 'limit' => ['3'] }, 'contains a link without parameters') { zones.send(:next_params, 'links' => [ { 'rel' => 'next', 'href' => 'http://localhost/next?offset=3&limit=3' } ] ) }
   end
 
 end

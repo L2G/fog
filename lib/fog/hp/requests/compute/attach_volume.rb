@@ -43,7 +43,7 @@ module Fog
             if server['volumeAttachments'] && server['volumeAttachments'].select {|v| v['id'] == volume_id}
               response.status = 400
               response.body = '{"badRequest": {"message": "Volume status must be available", "code": 400}}'
-              raise(Excon::Errors.status_error({:expects => 200}, response))
+              raise(Excon::Errors.status_error({ :expects => 200 }, response))
             else
               resp_data = { 'volumeAttachment' =>
                             {

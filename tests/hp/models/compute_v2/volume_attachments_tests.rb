@@ -9,7 +9,7 @@ Shindo.tests('Fog::Compute::HPV2 | volume attachments collection', ['hp', 'v2', 
   @volume = HP[:block_storage_v2].volumes.create(:name => 'fogvolumetest', :size => 1)
   @volume.wait_for { ready? }
 
-  collection_tests(@server.volume_attachments, {:server_id => @server.id, :volume_id => @volume.id, :device => '/dev/sdf'}, true)
+  collection_tests(@server.volume_attachments, { :server_id => @server.id, :volume_id => @volume.id, :device => '/dev/sdf' }, true)
 
   @volume.destroy
   @server.destroy

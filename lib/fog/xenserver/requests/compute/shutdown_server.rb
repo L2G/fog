@@ -5,7 +5,7 @@ module Fog
       class Real
 
         def shutdown_server( vm_ref, stype = 'clean' )
-          @connection.request({:parser => Fog::Parsers::XenServer::Base.new, :method => "VM.#{stype}_shutdown"}, vm_ref)
+          @connection.request({ :parser => Fog::Parsers::XenServer::Base.new, :method => "VM.#{stype}_shutdown" }, vm_ref)
         end
 
       end

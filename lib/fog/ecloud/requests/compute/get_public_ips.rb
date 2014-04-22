@@ -16,7 +16,7 @@ module Fog
 
           public_ips = public_ips.map{|pi| Fog::Ecloud.slice(pi, :id, :environment_id)}
 
-          public_ip_response = {:PublicIp => (public_ips.size > 1 ? public_ips : public_ips.first)} # GAH
+          public_ip_response = { :PublicIp => (public_ips.size > 1 ? public_ips : public_ips.first) } # GAH
           body = {
             :href  => uri,
             :type  => 'application/vnd.tmrk.cloud.publicIp; type=collection',

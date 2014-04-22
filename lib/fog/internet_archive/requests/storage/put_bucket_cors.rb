@@ -33,7 +33,7 @@ module Fog
             :headers  => headers,
             :host     => "#{bucket_name}.#{@host}",
             :method   => 'PUT',
-            :query    => {'cors' => nil}
+            :query    => { 'cors' => nil }
           )
         end
       end

@@ -42,7 +42,7 @@ module Fog
           response = request(
             :body    => body,
             :expects => 201,
-            :headers => {'Content-Type' => 'application/vnd.vmware.vcloud.media+xml'},
+            :headers => { 'Content-Type' => 'application/vnd.vmware.vcloud.media+xml' },
             :method  => 'POST',
             :parser  => Fog::ToHashDocument.new,
             :path    => "vdc/#{vdc_id}/media"
@@ -110,7 +110,7 @@ module Fog
 
           Excon::Response.new(
             :status => 201,
-            :headers => {'Content-Type' => "#{body[:type]};version=#{api_version}"},
+            :headers => { 'Content-Type' => "#{body[:type]};version=#{api_version}" },
             :body => body
           )
         end

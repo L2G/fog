@@ -27,7 +27,7 @@ module Fog
           request(
             :body    => body,
             :expects => 202,
-            :headers => {'Content-Type' => 'application/vnd.vmware.vcloud.diskAttachOrDetachParams+xml'},
+            :headers => { 'Content-Type' => 'application/vnd.vmware.vcloud.diskAttachOrDetachParams+xml' },
             :method  => 'POST',
             :parser  => Fog::ToHashDocument.new,
             :path    => "vApp/#{id}/disk/action/detach"

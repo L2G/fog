@@ -114,7 +114,7 @@ module Fog
         end
 
         def format_metadata(metadata)
-          { 'items' => metadata.map {|k,v| {'key' => k, 'value' => v}} }
+          { 'items' => metadata.map {|k,v| { 'key' => k, 'value' => v }} }
         end
 
         def insert_server(server_name, zone_name, options = {}, *deprecated_args)
@@ -127,7 +127,7 @@ module Fog
               'project' => @project,
               'zone' => zone_name,
           }
-          body_object = {:name => server_name}
+          body_object = { :name => server_name }
 
           body_object['machineType'] = @api_url + @project + "/zones/#{zone_name}/machineTypes/#{options.delete 'machineType'}"
           network = nil
@@ -138,7 +138,7 @@ module Fog
           end
 
           # ExternalIP is default value for server creation
-          access_config = {'type' => 'ONE_TO_ONE_NAT', 'name' => 'External NAT'}
+          access_config = { 'type' => 'ONE_TO_ONE_NAT', 'name' => 'External NAT' }
           # leave natIP undefined to use an IP from a shared ephemeral IP address pool
           if options.has_key? 'externalIp'
             access_config['natIP'] = options.delete 'externalIp'

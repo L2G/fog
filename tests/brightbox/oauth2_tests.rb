@@ -20,7 +20,7 @@ Shindo.tests('Fog::Brightbox::OAuth2', ['brightbox']) do
     end
 
     tests('with user credentials') do
-      options = {:username => @username, :password => @password}
+      options = { :username => @username, :password => @password }
       credentials = Fog::Brightbox::OAuth2::CredentialSet.new(@client_id, @client_secret, options)
       tests('#user_details?').returns(true) { credentials.user_details? }
       tests('#access_token?').returns(false) { credentials.access_token? }
@@ -73,7 +73,7 @@ Shindo.tests('Fog::Brightbox::OAuth2', ['brightbox']) do
   end
 
   tests('UserCredentialsStrategy') do
-    options = {:username => @username, :password => @password}
+    options = { :username => @username, :password => @password }
     credentials = Fog::Brightbox::OAuth2::CredentialSet.new(@client_id, @client_secret, options)
     strategy = Fog::Brightbox::OAuth2::UserCredentialsStrategy.new(credentials)
 
@@ -92,7 +92,7 @@ Shindo.tests('Fog::Brightbox::OAuth2', ['brightbox']) do
 
   tests('RefreshTokenStrategy') do
     refresh_token = 'ab4b39dddf909'
-    options = {:refresh_token => refresh_token}
+    options = { :refresh_token => refresh_token }
     credentials = Fog::Brightbox::OAuth2::CredentialSet.new(@client_id, @client_secret, options)
     strategy = Fog::Brightbox::OAuth2::RefreshTokenStrategy.new(credentials)
 

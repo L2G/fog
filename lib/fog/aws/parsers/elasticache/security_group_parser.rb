@@ -12,7 +12,7 @@ module Fog
           end
 
           def reset_security_group
-            @security_group = {'EC2SecurityGroups' => []}
+            @security_group = { 'EC2SecurityGroups' => [] }
           end
 
           def start_element(name, attrs = [])

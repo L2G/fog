@@ -34,7 +34,7 @@ module Fog
 
           request(
             :body       => Fog::JSON.encode(body),
-            :headers    => {'x-amz-target' => 'DynamoDB_20111205.DeleteItem'},
+            :headers    => { 'x-amz-target' => 'DynamoDB_20111205.DeleteItem' },
             :idempotent => true
           )
         end

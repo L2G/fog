@@ -53,7 +53,7 @@ module Fog
             'jobresultcode' => 0,
             'jobresulttype' => 'object',
             'jobresult'     =>
-              {'volume'     => volume}
+              { 'volume'     => volume }
           }
 
           self.data[:jobs][job_id] = job

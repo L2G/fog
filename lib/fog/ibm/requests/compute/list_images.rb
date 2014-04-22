@@ -48,7 +48,7 @@ module Fog
         def list_images
           response = Excon::Response.new
           response.status = 200
-          response.body = {'images' => self.data[:images].values}
+          response.body = { 'images' => self.data[:images].values }
           response
         end
 

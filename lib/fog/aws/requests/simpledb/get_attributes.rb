@@ -30,7 +30,7 @@ module Fog
         def get_attributes(domain_name, item_name, options = {})
           if options.is_a?(Array)
             Fog::Logger.deprecation("get_attributes with array attributes param is deprecated, use 'AttributeName' => attributes) instead [light_black](#{caller.first})[/]")
-            options = {'AttributeName' => options}
+            options = { 'AttributeName' => options }
           end
           options['AttributeName'] ||= []
           request({
@@ -73,7 +73,7 @@ module Fog
             }
           else
             response.status = 400
-            raise(Excon::Errors.status_error({:expects => 200}, response))
+            raise(Excon::Errors.status_error({ :expects => 200 }, response))
           end
           response
         end

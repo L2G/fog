@@ -108,7 +108,7 @@ module Fog
                           :path     => "#{@api_path}/rest/#{params[:path]}"
                         )
           # Set default method and headers
-          params = {:method => 'GET', :headers => {}}.merge params
+          params = { :method => 'GET', :headers => {} }.merge params
 
           params[:headers]['Content-Type'] ||= 'application/octet-stream'
 

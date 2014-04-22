@@ -4,11 +4,11 @@ module Fog
       class Real
 
         def add_vm_volume(volume)
-          vm_reconfig_hardware('instance_uuid' => volume.server_id, 'hardware_spec' => {'deviceChange' => [create_disk(volume, volume.unit_number, :add)]})
+          vm_reconfig_hardware('instance_uuid' => volume.server_id, 'hardware_spec' => { 'deviceChange' => [create_disk(volume, volume.unit_number, :add)] })
         end
 
         def destroy_vm_volume(volume)
-          vm_reconfig_hardware('instance_uuid' => volume.server_id, 'hardware_spec' => {'deviceChange' => [create_disk(volume, volume.unit_number, :remove)]})
+          vm_reconfig_hardware('instance_uuid' => volume.server_id, 'hardware_spec' => { 'deviceChange' => [create_disk(volume, volume.unit_number, :remove)] })
         end
       end
 

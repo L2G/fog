@@ -62,7 +62,7 @@ Shindo.tests('AWS::Storage | object requests', ['aws']) do
           'Grantee' => @aws_owner,
           'Permission' => 'FULL_CONTROL'
         }
-      ]}
+      ] }
     tests("#put_object_acl('#{@directory.identity}', 'fog_object', hash with id)").returns(acl) do
       Fog::Storage[:aws].put_object_acl(@directory.identity, 'fog_object', acl)
       Fog::Storage[:aws].get_object_acl(@directory.identity, 'fog_object').body
@@ -95,7 +95,7 @@ Shindo.tests('AWS::Storage | object requests', ['aws']) do
           'Grantee' => { 'URI' => 'http://acs.amazonaws.com/groups/global/AllUsers' },
           'Permission' => 'FULL_CONTROL'
         }
-      ]}
+      ] }
     tests("#put_object_acl('#{@directory.identity}', 'fog_object', hash with uri)").returns(acl) do
       Fog::Storage[:aws].put_object_acl(@directory.identity, 'fog_object', acl)
       Fog::Storage[:aws].get_object_acl(@directory.identity, 'fog_object').body

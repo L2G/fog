@@ -19,7 +19,7 @@ Shindo.tests('Fog::Rackspace::AutoScale | group builder', ['rackspace', 'rackspa
     end
   end
 
-  tests('networks_to_hash').returns([{'uuid' => '00000000-0000-0000-0000-000000000000'}]) do
+  tests('networks_to_hash').returns([{ 'uuid' => '00000000-0000-0000-0000-000000000000' }]) do
     builder.send(:networks_to_hash, ['00000000-0000-0000-0000-000000000000'])
   end
 
@@ -106,7 +106,7 @@ Shindo.tests('Fog::Rackspace::AutoScale | group builder', ['rackspace', 'rackspa
           }
         ],
         :launch_config_type => :launch_server,
-        :load_balancers => { 'port' => 8080, 'loadBalancerId' => 9099}
+        :load_balancers => { 'port' => 8080, 'loadBalancerId' => 9099 }
       }
 
       builder.build_server_launch_config(attributes).args

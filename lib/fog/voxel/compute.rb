@@ -31,21 +31,21 @@ module Fog
               :servers => [],
               :statuses => {},
               :images  => [
-                {'id' => 1,   'name' => 'CentOS 4, 32-bit, base install'},
-                {'id' => 2,   'name' => 'CentOS 4, 64-bit, base install'},
-                {'id' => 3,   'name' => 'CentOS 5, 32-bit, base install'},
-                {'id' => 4,   'name' => 'CentOS 5, 64-bit, base install'},
-                {'id' => 7,   'name' => 'Fedora 10, 32-bit, base install'},
-                {'id' => 8,   'name' => 'Fedora 10, 64-bit, base install'},
-                {'id' => 10,  'name' => 'OpenSUSE 11, 64-bit, base install'},
-                {'id' => 11,  'name' => "Debian 5.0 \"lenny\", 32-bit, base install"},
-                {'id' => 12,  'name' => "Debian 5.0 \"lenny\", 64-bit, base install"},
-                {'id' => 13,  'name' => "Ubuntu 8.04 \"Hardy\", 32-bit, base install"},
-                {'id' => 14,  'name' => "Ubuntu 8.04 \"Hardy\", 64-bit, base install"},
-                {'id' => 15,  'name' => 'Voxel Server Environment (VSE), 32-bit, base install'},
-                {'id' => 16,  'name' => 'Voxel Server Environment (VSE), 64-bit, base install'},
-                {'id' => 32,  'name' => 'Pantheon Official Mercury Stack for Drupal (based on VSE/64)'},
-                {'id' => 55,  'name' => "Ubuntu 10.04 \"Lucid\", 64-bit, base install"} ]
+                { 'id' => 1,   'name' => 'CentOS 4, 32-bit, base install' },
+                { 'id' => 2,   'name' => 'CentOS 4, 64-bit, base install' },
+                { 'id' => 3,   'name' => 'CentOS 5, 32-bit, base install' },
+                { 'id' => 4,   'name' => 'CentOS 5, 64-bit, base install' },
+                { 'id' => 7,   'name' => 'Fedora 10, 32-bit, base install' },
+                { 'id' => 8,   'name' => 'Fedora 10, 64-bit, base install' },
+                { 'id' => 10,  'name' => 'OpenSUSE 11, 64-bit, base install' },
+                { 'id' => 11,  'name' => "Debian 5.0 \"lenny\", 32-bit, base install" },
+                { 'id' => 12,  'name' => "Debian 5.0 \"lenny\", 64-bit, base install" },
+                { 'id' => 13,  'name' => "Ubuntu 8.04 \"Hardy\", 32-bit, base install" },
+                { 'id' => 14,  'name' => "Ubuntu 8.04 \"Hardy\", 64-bit, base install" },
+                { 'id' => 15,  'name' => 'Voxel Server Environment (VSE), 32-bit, base install' },
+                { 'id' => 16,  'name' => 'Voxel Server Environment (VSE), 64-bit, base install' },
+                { 'id' => 32,  'name' => 'Pantheon Official Mercury Stack for Drupal (based on VSE/64)' },
+                { 'id' => 55,  'name' => "Ubuntu 10.04 \"Lucid\", 64-bit, base install" } ]
             }
           end
         end

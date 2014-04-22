@@ -46,7 +46,7 @@ module Fog
 
           response.body = {
             'ResponseMetadata' => { 'RequestId' => Fog::AWS::Mock.request_id },
-            'CreateDBParameterGroupResult' => {'DBParameterGroup' => data}
+            'CreateDBParameterGroupResult' => { 'DBParameterGroup' => data }
           }
           response.status = 200
           response

@@ -23,9 +23,9 @@ Shindo.tests('HP::Network | networking port requests', ['hp', 'networking', 'por
     @port_id = nil
 
     tests('#create_port').formats(@port_format) do
-      attributes = {:name => 'myport', :fixed_ips => [],
+      attributes = { :name => 'myport', :fixed_ips => [],
                     :mac_address => 'fa:16:3e:71:26:c8', :admin_state_up => true,
-                    :device_owner => '2222222', :device_id => '3333333', :tenant_id => '111111111'}
+                    :device_owner => '2222222', :device_id => '3333333', :tenant_id => '111111111' }
       data = HP[:network].create_port(@network_id, attributes).body['port']
       @port_id = data['id']
       data
@@ -40,9 +40,9 @@ Shindo.tests('HP::Network | networking port requests', ['hp', 'networking', 'por
     end
 
     tests("#update_port(#{@port_id})").formats('port' => @port_format) do
-      attributes = {:name => 'myport_upd', :fixed_ips => [],
+      attributes = { :name => 'myport_upd', :fixed_ips => [],
                     :admin_state_up => true, :device_owner => 'device_owner',
-                    :device_id => 'device_id'}
+                    :device_id => 'device_id' }
       HP[:network].update_port(@port_id, attributes).body
     end
 

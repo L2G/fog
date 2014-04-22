@@ -46,7 +46,7 @@ module Fog
             'duration' => 85200.0,
             'period_start' => '2013-04-03T23:44:21',
             'avg' => 10.0,
-            'sum' => 1430.0}]
+            'sum' => 1430.0 }]
           response
         end
       end

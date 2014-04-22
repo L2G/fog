@@ -2,7 +2,7 @@ module Fog
   module Compute
     class Vsphere
       class Real
-        def list_networks(filters = { })
+        def list_networks(filters = {})
           datacenter_name = filters[:datacenter]
           # default to show all networks
           only_active = filters[:accessible] || false

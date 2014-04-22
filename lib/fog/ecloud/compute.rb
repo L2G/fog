@@ -649,7 +649,7 @@ module Fog
                                     },
                                     :StepFactor => {
                                       :Unit => 'GB',
-                                      :Value => '1'}
+                                      :Value => '1' }
                                   },
                                   :MonthlyCost => '0'
                                 },
@@ -762,25 +762,25 @@ module Fog
                           }
 
                           {
-                            :compute_pools             => {compute_pool_id            => compute_pool},
-                            :environments              => {environment_id             => environment},
-                            :public_ips                => {public_ip_id               => public_ip},
-                            :internet_services         => {internet_service_id        => internet_service},
-                            :node_services             => {node_service_id            => node_service},
-                            :networks                  => {network_id                 => network},
-                            :organizations             => {organization_id            => organization},
-                            :admin_organizations       => {organization_id            => admin_organization},
-                            :operating_systems         => {operating_system_id        => operating_system},
-                            :operating_system_families => {operating_system_family_id => operating_system_family},
+                            :compute_pools             => { compute_pool_id            => compute_pool },
+                            :environments              => { environment_id             => environment },
+                            :public_ips                => { public_ip_id               => public_ip },
+                            :internet_services         => { internet_service_id        => internet_service },
+                            :node_services             => { node_service_id            => node_service },
+                            :networks                  => { network_id                 => network },
+                            :organizations             => { organization_id            => organization },
+                            :admin_organizations       => { organization_id            => admin_organization },
+                            :operating_systems         => { operating_system_id        => operating_system },
+                            :operating_system_families => { operating_system_family_id => operating_system_family },
                             :servers                   => {},
                             :tasks                     => {},
-                            :templates                 => {template_id                => template},
-                            :ssh_keys                  => {ssh_key_id                 => ssh_key},
+                            :templates                 => { template_id                => template },
+                            :ssh_keys                  => { ssh_key_id                 => ssh_key },
                             :detached_disks            => {},
                             :template_href             => (Fog.credentials[:ecloud_template_href] || "/cloudapi/ecloud/templates/#{template_id}/computepools/#{compute_pool_id}"),
                             :rows                      => {},
                             :groups                    => {},
-                            :layouts                   => {environment_id             => layout},
+                            :layouts                   => { environment_id             => layout },
                           }
                         end
           end

@@ -24,7 +24,7 @@ module Fog
           request(
             :body    => data,
             :expects => 201,
-            :headers => {'Content-Type' => 'application/vnd.vmware.vcloud.instantiateVAppTemplateParams+xml'},
+            :headers => { 'Content-Type' => 'application/vnd.vmware.vcloud.instantiateVAppTemplateParams+xml' },
             :method  => 'POST',
             :parser  => Fog::ToHashDocument.new,
             :path    => "vdc/#{params[:vdc_id]}/action/instantiateVAppTemplate"

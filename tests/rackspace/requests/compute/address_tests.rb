@@ -6,7 +6,7 @@ Shindo.tests('Fog::Compute[:rackspace] | address requests', ['rackspace']) do
 
     @server = @service.servers.create(:flavor_id => 1, :image_id => 19)
 
-    tests("#list_addresses(#{@server.id})").formats('addresses' => {'private' => [String], 'public' => [String]}) do
+    tests("#list_addresses(#{@server.id})").formats('addresses' => { 'private' => [String], 'public' => [String] }) do
       @service.list_addresses(@server.id).body
     end
 

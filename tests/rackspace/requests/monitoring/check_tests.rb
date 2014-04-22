@@ -13,7 +13,7 @@ Shindo.tests('Fog::Rackspace::Monitoring | check_tests', ['rackspace', 'rackspac
       account.get_check(entity_id,check_id).data[:headers]
     end
     tests('#update check').formats(DATA_FORMAT) do
-      options = { :label => 'Bar'}
+      options = { :label => 'Bar' }
       account.update_check(entity_id,check_id,options).data
     end
     tests('#delete check').formats(DELETE_DATA_FORMAT) do

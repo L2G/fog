@@ -191,7 +191,7 @@ Shindo.tests('Fog::Storage[:internetarchive] | bucket requests', ['internetarchi
     tests('bucket lifecycle') do
       pending if Fog.mocking?
 
-      lifecycle = {'Rules' => [{'ID' => 'test rule', 'Prefix' => '/prefix', 'Enabled' => true, 'Days' => 42}]}
+      lifecycle = { 'Rules' => [{ 'ID' => 'test rule', 'Prefix' => '/prefix', 'Enabled' => true, 'Days' => 42 }] }
       tests('non-existant bucket') do
         tests('#put_bucket_lifecycle').returns([404, 'NoSuchBucket']) do
           begin
@@ -233,13 +233,13 @@ Shindo.tests('Fog::Storage[:internetarchive] | bucket requests', ['internetarchi
       tests('read').formats(@bucket_lifecycle_format) do
         Fog::Storage[:internetarchive].get_bucket_lifecycle(@ia_bucket_name).body
       end
-      lifecycle = { 'Rules' => 5.upto(6).map { |i| {'ID' => "rule\##{i}", 'Prefix' => i.to_s, 'Enabled' => true, 'Days' => i} } }
-      lifecycle_return = { 'Rules' => 5.upto(6).map { |i| {'ID' => "rule\##{i}", 'Prefix' => i.to_s, 'Enabled' => true, 'Expiration' => {'Days' => i}} } }
+      lifecycle = { 'Rules' => 5.upto(6).map { |i| { 'ID' => "rule\##{i}", 'Prefix' => i.to_s, 'Enabled' => true, 'Days' => i } } }
+      lifecycle_return = { 'Rules' => 5.upto(6).map { |i| { 'ID' => "rule\##{i}", 'Prefix' => i.to_s, 'Enabled' => true, 'Expiration' => { 'Days' => i } } } }
       tests('update').returns(lifecycle_return) do
         Fog::Storage[:internetarchive].put_bucket_lifecycle(@ia_bucket_name, lifecycle)
         Fog::Storage[:internetarchive].get_bucket_lifecycle(@ia_bucket_name).body
       end
-      lifecycle = {'Rules' => [{'ID' => 'test rule', 'Prefix' => '/prefix', 'Enabled' => true, 'Expiration' => {'Date' => '2012-12-31T00:00:00.000Z'}}]}
+      lifecycle = { 'Rules' => [{ 'ID' => 'test rule', 'Prefix' => '/prefix', 'Enabled' => true, 'Expiration' => { 'Date' => '2012-12-31T00:00:00.000Z' } }] }
       tests('date').returns(lifecycle) do
         Fog::Storage[:internetarchive].put_bucket_lifecycle(@ia_bucket_name, lifecycle)
         Fog::Storage[:internetarchive].get_bucket_lifecycle(@ia_bucket_name).body
@@ -257,7 +257,7 @@ Shindo.tests('Fog::Storage[:internetarchive] | bucket requests', ['internetarchi
     end
 
     tests("put_bucket_cors('#{@ia_bucket_name}', cors)").succeeds do
-      cors =  {'CORSConfiguration' =>
+      cors =  { 'CORSConfiguration' =>
                   [
                     {
                       'AllowedOrigin' => 'http://localhost:3000',

@@ -5,7 +5,7 @@ module Fog
         def stop_server(server_id)
           request(:path => "servers/#{server_id}/action/",
                   :method => 'POST',
-                  :query => {:do => :stop},
+                  :query => { :do => :stop },
                   :expects => [200, 202])
         end
       end

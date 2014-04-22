@@ -1,7 +1,7 @@
 Shindo.tests('Fog::Network[:openstack] | security_group_rules collection', ['openstack']) do
 
   @secgroup   = Fog::Network[:openstack].security_groups.create(:name => 'my_secgroup')
-  attributes  = {:security_group_id => @secgroup.id, :direction => 'ingress'}
+  attributes  = { :security_group_id => @secgroup.id, :direction => 'ingress' }
   collection_tests(Fog::Network[:openstack].security_group_rules, attributes, true)
 
   tests('success') do

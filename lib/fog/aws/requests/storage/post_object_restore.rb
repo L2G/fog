@@ -33,7 +33,7 @@ module Fog
             :expects  => [200, 202, 409],
             :body     => data,
             :method   => 'POST',
-            :query    => {'restore' => nil},
+            :query    => { 'restore' => nil },
             :path     => CGI.escape(object_name)
           )
         end

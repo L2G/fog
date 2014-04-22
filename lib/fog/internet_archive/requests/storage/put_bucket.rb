@@ -54,7 +54,7 @@ DATA
             :objects        => {},
             'Name'          => bucket_name,
             'CreationDate'  => Time.now,
-            'Owner'         => { 'DisplayName' => 'owner', 'ID' => 'some_id'},
+            'Owner'         => { 'DisplayName' => 'owner', 'ID' => 'some_id' },
             'Payer'         => 'BucketOwner'
           }
           if options['LocationConstraint']

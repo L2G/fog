@@ -16,10 +16,10 @@ Shindo.tests('Fog::Network[:openstack] | port requests', ['openstack']) do
   tests('success') do
     tests('#create_port').formats('port' => @port_format) do
       network_id = 'net_id'
-      attributes = {:name => 'port_name', :fixed_ips => [],
+      attributes = { :name => 'port_name', :fixed_ips => [],
                     :mac_address => 'fa:16:3e:62:91:7f', :admin_state_up => true,
                     :device_owner => 'device_owner', :device_id => 'device_id',
-                    :tenant_id => 'tenant_id'}
+                    :tenant_id => 'tenant_id' }
       Fog::Network[:openstack].create_port(network_id, attributes).body
     end
 
@@ -34,9 +34,9 @@ Shindo.tests('Fog::Network[:openstack] | port requests', ['openstack']) do
 
     tests('#update_port').formats('port' => @port_format) do
       port_id = Fog::Network[:openstack].ports.all.first.id
-      attributes = {:name => 'port_name', :fixed_ips => [],
+      attributes = { :name => 'port_name', :fixed_ips => [],
                     :admin_state_up => true, :device_owner => 'device_owner',
-                    :device_id => 'device_id'}
+                    :device_id => 'device_id' }
       Fog::Network[:openstack].update_port(port_id, attributes).body
     end
 

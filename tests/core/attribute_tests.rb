@@ -11,22 +11,22 @@ Shindo.tests('Fog::Attributes', 'core') do
   tests('squash') do
 
     tests('"keys" => {:id => "value"}').returns('value') do
-      @model.merge_attributes('keys' => {:id => 'value'})
+      @model.merge_attributes('keys' => { :id => 'value' })
       @model.key
     end
 
     tests('"keys" => {"id" => "value"}').returns('value') do
-      @model.merge_attributes('keys' => {'id' => 'value'})
+      @model.merge_attributes('keys' => { 'id' => 'value' })
       @model.key
     end
 
     tests('"keys" => {"id" => false}').returns(false) do
-      @model.merge_attributes('keys' => {'id' => false })
+      @model.merge_attributes('keys' => { 'id' => false })
       @model.key
     end
 
     tests('"keys" => {:id => false}').returns(false) do
-      @model.merge_attributes('keys' => {:id => false })
+      @model.merge_attributes('keys' => { :id => false })
       @model.key
     end
   end

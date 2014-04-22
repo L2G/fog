@@ -19,7 +19,7 @@ module Fog
           request(
             :expects => 204,
             :method => 'POST',
-            :headers => {'Content-Type' => 'application/octet-stream', 'X-Guest-User' => options[:credentials][:user], 'X-Guest-Password' => options[:credentials][:password], 'Content-Range' => "0-#{options[:file].bytesize - 1}/#{options[:file].bytesize}"},
+            :headers => { 'Content-Type' => 'application/octet-stream', 'X-Guest-User' => options[:credentials][:user], 'X-Guest-Password' => options[:credentials][:password], 'Content-Range' => "0-#{options[:file].bytesize - 1}/#{options[:file].bytesize}" },
             :body => options[:file],
             :uri => vm_uri + "?path=#{options[:path]}",
             :parse => true

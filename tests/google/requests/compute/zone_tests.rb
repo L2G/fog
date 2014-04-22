@@ -14,7 +14,7 @@ Shindo.tests('Fog::Compute[:google] | zone requests', ['google']) do
       'quotas' => [{
         'metric' => String,
         'limit' => Float,
-        'usage' => Float},
+        'usage' => Float },
       ],
   }
 

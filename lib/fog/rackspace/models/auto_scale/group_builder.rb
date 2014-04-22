@@ -23,7 +23,7 @@ module Fog
 
           def build_server_launch_config(attributes)
             return nil unless attributes[:launch_config_type] == :launch_server
-            args = {'server' => build_server_template(attributes) }
+            args = { 'server' => build_server_template(attributes) }
             args['loadBalancers'] = build_load_balancers(attributes) if attributes[:load_balancers]
 
             Fog::Rackspace::AutoScale::LaunchConfig.new :type => :launch_server, :args => args
@@ -76,7 +76,7 @@ module Fog
           end
 
           def networks_to_hash(networks)
-            networks.collect {|n| {'uuid' => n}}
+            networks.collect {|n| { 'uuid' => n }}
           end
         end
       end

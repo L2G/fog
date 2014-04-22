@@ -40,7 +40,7 @@ module Fog
             'X-Compute-Request-Id' => "req-#{Fog::Mock.random_hex(32)}",
             'Content-Type'   => 'application/json',
             'Content-Length' => Fog::Mock.random_numbers(3).to_s,
-            'Date'           => Date.new}
+            'Date'           => Date.new }
           response.body = {
             'security_group' => self.data[:security_groups][security_group_id.to_s]
           }

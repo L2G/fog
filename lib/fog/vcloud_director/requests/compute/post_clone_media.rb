@@ -39,7 +39,7 @@ module Fog
           response = request(
             :body    => body,
             :expects => 201,
-            :headers => {'Content-Type' => 'application/vnd.vmware.vcloud.cloneMediaParams+xml'},
+            :headers => { 'Content-Type' => 'application/vnd.vmware.vcloud.cloneMediaParams+xml' },
             :method  => 'POST',
             :parser  => Fog::ToHashDocument.new,
             :path    => "vdc/#{vdc_id}/action/cloneMedia"
@@ -92,7 +92,7 @@ module Fog
 
           Excon::Response.new(
             :status => 201,
-            :headers => {'Content-Type' => "#{body[:type]};version=#{api_version}"},
+            :headers => { 'Content-Type' => "#{body[:type]};version=#{api_version}" },
             :body => body
           )
         end

@@ -10,8 +10,8 @@ module Fog
             @contexts = ['BootstrapActions', 'ExecutionStatusDetail', 'Instances', 'Steps', 'InstanceGroups', 'Args']
 
             @response = { 'JobFlows' => [] }
-            @bootstrap_actions = {'ScriptBootstrapActionConfig' => {'Args' => []}}
-            @instance = { 'InstanceGroups' => [], 'Placement' => {}}
+            @bootstrap_actions = { 'ScriptBootstrapActionConfig' => { 'Args' => [] } }
+            @instance = { 'InstanceGroups' => [], 'Placement' => {} }
             @step = {
               'ExecutionStatusDetail' => {},
               'StepConfig' => {
@@ -21,7 +21,7 @@ module Fog
                 }
               }
             }
-            @flow = {'Instances' => [], 'ExecutionStatusDetail' => {}, 'BootstrapActions' => [], 'Steps' => []}
+            @flow = { 'Instances' => [], 'ExecutionStatusDetail' => {}, 'BootstrapActions' => [], 'Steps' => [] }
             @instance_group_detail = {}
             @execution_status_detail = {}
           end
@@ -42,7 +42,7 @@ module Fog
                 @bootstrap_actions['ScriptBootstrapActionConfig'][name] = value
               when 'BootstrapActions'
                 @flow['BootstrapActions'] = @bootstrap_actions
-                @bootstrap_actions = {'ScriptBootstrapActionConfig' => {'Args' => []}}
+                @bootstrap_actions = { 'ScriptBootstrapActionConfig' => { 'Args' => [] } }
               end
             end
 
@@ -74,7 +74,7 @@ module Fog
                 @instance_group_detail = {}
               when 'Instances'
                 @flow['Instances'] = @instance
-                @instance = { 'InstanceGroups' => [], 'Placement' => {}}
+                @instance = { 'InstanceGroups' => [], 'Placement' => {} }
               end
             end
 
@@ -124,7 +124,7 @@ module Fog
                 @flow[name] = value
               when 'member'
                 @response['JobFlows'] << @flow
-                @flow = {'Instances' => [], 'ExecutionStatusDetail' => {}, 'BootstrapActions' => [], 'Steps' => []}
+                @flow = { 'Instances' => [], 'ExecutionStatusDetail' => {}, 'BootstrapActions' => [], 'Steps' => [] }
               end
             end
 

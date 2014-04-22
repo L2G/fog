@@ -66,7 +66,7 @@ module Fog
       end
 
       class Mock
-        def get_folder(path, filters = { })
+        def get_folder(path, filters = {})
         end
       end
 

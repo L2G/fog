@@ -7,7 +7,7 @@ Shindo.tests('AWS::CloudWatch | alarm_data', ['aws', 'cloudwatch']) do
       Fog::AWS[:cloud_watch].alarm_data.all
     end
 
-    alarm_name_prefix = {'AlarmNamePrefix' => 'tmp'}
+    alarm_name_prefix = { 'AlarmNamePrefix' => 'tmp' }
     tests('#all_by_prefix').succeeds do
       Fog::AWS[:cloud_watch].alarm_data.all(alarm_name_prefix)
     end

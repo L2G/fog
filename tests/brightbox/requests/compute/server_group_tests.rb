@@ -34,28 +34,28 @@ Shindo.tests('Fog::Compute[:brightbox] | server group requests', ['brightbox']) 
       data_matches_schema(Brightbox::Compute::Formats::Full::SERVER_GROUP, :allow_extra_keys => true) { result }
     end
 
-    update_options = {:name => "Fog@#{Time.now.iso8601}"}
+    update_options = { :name => "Fog@#{Time.now.iso8601}" }
     tests("#update_server_group('#{@server_group_id}', #{update_options.inspect})") do
       pending if Fog.mocking?
       result = Fog::Compute[:brightbox].update_server_group(@server_group_id, update_options)
       data_matches_schema(Brightbox::Compute::Formats::Full::SERVER_GROUP, :allow_extra_keys => true) { result }
     end
 
-    remove_options = {:servers => [{:server => server_id}]}
+    remove_options = { :servers => [{ :server => server_id }] }
     tests("#remove_servers_server_group('#{@server_group_id}', #{remove_options.inspect})") do
       pending if Fog.mocking?
       result = Fog::Compute[:brightbox].remove_servers_server_group(@server_group_id, remove_options)
       data_matches_schema(Brightbox::Compute::Formats::Full::SERVER_GROUP, :allow_extra_keys => true) { result }
     end
 
-    add_options = {:servers => [{:server => server_id}]}
+    add_options = { :servers => [{ :server => server_id }] }
     tests("#add_servers_server_group('#{@server_group_id}', #{remove_options.inspect})") do
       pending if Fog.mocking?
       result = Fog::Compute[:brightbox].add_servers_server_group(@server_group_id, add_options)
       data_matches_schema(Brightbox::Compute::Formats::Full::SERVER_GROUP, :allow_extra_keys => true) { result }
     end
 
-    move_options = {:destination => @default_group_id, :servers => [{:server => server_id}]}
+    move_options = { :destination => @default_group_id, :servers => [{ :server => server_id }] }
     tests("#move_servers_server_group('#{@server_group_id}', #{move_options.inspect})") do
       pending if Fog.mocking?
       result = Fog::Compute[:brightbox].move_servers_server_group(@server_group_id, move_options)

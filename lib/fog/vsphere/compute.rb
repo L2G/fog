@@ -220,7 +220,7 @@ module Fog
                       'size_gb'   => 8
                      }],
                  'interfaces'       =>
-                    [{'mac'     => '00:50:56:a9:00:28',
+                    [{ 'mac'     => '00:50:56:a9:00:28',
                       'network' => 'VM Network',
                       'name'    => 'Network adapter 1',
                       'status'  => 'ok',
@@ -252,7 +252,7 @@ module Fog
                  'overall_status'   => 'green',
                  'datacenter'       => 'Solutions',
                  'volumes'          =>
-                    [{'thin'      => false,
+                    [{ 'thin'      => false,
                       'size_gb'   => 10,
                       'datastore' => 'datastore1',
                       'filename'  => '[datastore1] i-1342439683/i-1342439683.vmdk',
@@ -307,7 +307,7 @@ module Fog
                 }
               },
               :datacenters => {
-                'Solutions' => {:name => 'Solutions', :status => 'grey'}
+                'Solutions' => { :name => 'Solutions', :status => 'grey' }
               }
             }
           end

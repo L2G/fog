@@ -22,7 +22,7 @@ module Fog
                 'disk_format' => 'ami',
                 'container_format' => 'ami',
                 'id' => '0e09fbd6-43c5-448a-83e9-0d3d05f9747e',
-                'checksum' => '2f81976cae15c16ef0010c51e3a6c163'}]
+                'checksum' => '2f81976cae15c16ef0010c51e3a6c163' }]
           }
           response
         end # def list_tenants

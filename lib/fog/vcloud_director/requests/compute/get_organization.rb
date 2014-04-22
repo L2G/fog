@@ -35,62 +35,62 @@ module Fog
           org = data[:org]
 
           body =
-            {:href => make_href("org/#{id}"),
+            { :href => make_href("org/#{id}"),
              :type => 'application/vnd.vmware.vcloud.org+xml',
              :id => "urn:vcloud:org:#{id}",
              :name => org[:name],
              :Link =>
-              [{:href => make_href("tasksList/#{id}"),
+              [{ :href => make_href("tasksList/#{id}"),
                 :type => 'application/vnd.vmware.vcloud.tasksList+xml',
-                :rel => 'down'},
-               {:href => make_href("admin/org/#{id}/catalogs"),
+                :rel => 'down' },
+               { :href => make_href("admin/org/#{id}/catalogs"),
                 :type => 'application/vnd.vmware.admin.catalog+xml',
-                :rel => 'add'},
-               {:href => make_href("org/#{id}/metadata"),
+                :rel => 'add' },
+               { :href => make_href("org/#{id}/metadata"),
                 :type => 'application/vnd.vmware.vcloud.metadata+xml',
-                :rel => 'down'}],
+                :rel => 'down' }],
              :Description => org[:description] || '',
-             :Tasks => {:Task => []},
-             :FullName => org[:full_name]}
+             :Tasks => { :Task => [] },
+             :FullName => org[:full_name] }
 
           body[:Link] += data[:catalogs].map do |catalog_id, catalog|
-            [{:href => make_href("catalog/#{catalog_id}"),
+            [{ :href => make_href("catalog/#{catalog_id}"),
               :name => catalog[:name],
               :type => 'application/vnd.vmware.vcloud.catalog+xml',
-              :rel => 'down'},
-             {:href => make_href("org/#{id}/catalog/#{catalog_id}/controlAccess/"),
+              :rel => 'down' },
+             { :href => make_href("org/#{id}/catalog/#{catalog_id}/controlAccess/"),
               :type => 'application/vnd.vmware.vcloud.controlAccess+xml',
-              :rel => 'down'},
-             {:href =>
+              :rel => 'down' },
+             { :href =>
                make_href("org/#{id}/catalog/#{catalog_id}/action/controlAccess"),
               :type => 'application/vnd.vmware.vcloud.controlAccess+xml',
-              :rel => 'controlAccess'}]
+              :rel => 'controlAccess' }]
           end.flatten
 
           body[:Link] += data[:networks].map do |network_id, network|
-            {:href => make_href("network/#{network_id}"),
+            { :href => make_href("network/#{network_id}"),
              :name => network[:name],
              :type => 'application/vnd.vmware.vcloud.orgNetwork+xml',
-             :rel => 'down'}
+             :rel => 'down' }
           end
 
           body[:Link] += data[:vdcs].map do |vdc_id, vdc|
-            {:href => make_href("vdc/#{vdc_id}"),
+            { :href => make_href("vdc/#{vdc_id}"),
              :name => vdc[:name],
              :type => 'application/vnd.vmware.vcloud.vdc+xml',
-             :rel => 'down'}
+             :rel => 'down' }
           end
 
           if api_version.to_f >= 5.1
             body[:Link] <<
-              {:href => make_href('supportedSystemsInfo/'),
+              { :href => make_href('supportedSystemsInfo/'),
                :type => 'application/vnd.vmware.vcloud.supportedSystemsInfo+xml',
-               :rel => 'down'}
+               :rel => 'down' }
           end
 
           Excon::Response.new(
             :body    => body,
-            :headers => {'Content-Type' => "#{body[:type]};version=#{api_version}"},
+            :headers => { 'Content-Type' => "#{body[:type]};version=#{api_version}" },
             :status  => 200
           )
         end

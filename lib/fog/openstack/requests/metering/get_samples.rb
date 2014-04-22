@@ -45,7 +45,7 @@ module Fog
             'counter_volume' => 10.0,
             'project_id' => 'd646b40dea6347dfb8caee2da1484c56',
             'message_id' => '14e4a902-9cf3-11e2-a054-003048f5eafc',
-            'counter_type' => 'gauge'}]
+            'counter_type' => 'gauge' }]
           response
         end
       end

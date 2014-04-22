@@ -14,7 +14,7 @@ Shindo.tests('Fog::Network[:openstack] | security_grouprule requests', ['opensta
   }
 
   tests('success') do
-    attributes          = {:name => 'my_security_group', :description => 'tests group'}
+    attributes          = { :name => 'my_security_group', :description => 'tests group' }
     data                = Fog::Network[:openstack].create_security_group(attributes).body['security_group']
     @sec_group_id       = data['id']
     @sec_group_rule_id  = nil

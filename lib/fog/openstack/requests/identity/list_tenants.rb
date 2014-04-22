@@ -22,18 +22,18 @@ module Fog
             :body => {
               'tenants_links' => [],
               'tenants' => [
-                {'id' => '1',
+                { 'id' => '1',
                  'description' => 'Has access to everything',
                  'enabled' => true,
-                 'name' => 'admin'},
-                {'id' => '2',
+                 'name' => 'admin' },
+                { 'id' => '2',
                  'description' => 'Normal tenant',
                  'enabled' => true,
-                 'name' => 'default'},
-                {'id' => '3',
+                 'name' => 'default' },
+                { 'id' => '3',
                  'description' => 'Disabled tenant',
                  'enabled' => false,
-                 'name' => 'disabled'}
+                 'name' => 'disabled' }
               ]
             },
             :status => [200, 204][rand(1)]

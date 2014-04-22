@@ -41,7 +41,7 @@ module Fog
                   'unit'           => 'DAY',
                   'verb'           => 'POST',
                   'remaining'      => 50,
-                  'value'          => 50} ],
+                  'value'          => 50 } ],
               'uri' => '*/servers' },
             { 'regex' => '.*changes-since.*',
               'limit' => [

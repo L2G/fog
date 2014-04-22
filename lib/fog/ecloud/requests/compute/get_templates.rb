@@ -14,7 +14,7 @@ module Fog
           templates = self.data[:templates].values.select{|template| template[:compute_pool_id] == compute_pool_id}
           templates = templates.map{|template| Fog::Ecloud.slice(template, :id, :compute_pool)}
 
-          template_response = {:Template => (templates.size > 1 ? templates : templates.first)} # GAH
+          template_response = { :Template => (templates.size > 1 ? templates : templates.first) } # GAH
           body = {
             :href  => uri,
             :type  => 'application/vnd.tmrk.cloud.template; type=collection',

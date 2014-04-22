@@ -8,7 +8,7 @@ module Fog
       end
       class Mock
         def api_version
-          {'Version' => '1.6'}
+          { 'Version' => '1.6' }
         end
       end
     end

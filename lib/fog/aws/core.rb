@@ -63,7 +63,7 @@ module Fog
         end
         return options
       else
-        return {key => value}
+        return { key => value }
       end
     end
 
@@ -314,7 +314,7 @@ module Fog
         matcher = lambda {|s| s.match(/(?:.*<Code>(.*)<\/Code>)(?:.*<Message>(.*)<\/Message>)/m)}
         [error.message, error.response.body].each(&Proc.new {|s|
           match = matcher.call(s)
-          return {:code => match[1].split('.').last, :message => match[2]} if match
+          return { :code => match[1].split('.').last, :message => match[2] } if match
         })
         {} # we did not match the message or response body
       end

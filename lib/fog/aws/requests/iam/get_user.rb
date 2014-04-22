@@ -40,7 +40,7 @@ module Fog
             "The user with name #{user} cannot be found."
           ) unless self.data[:users].key?(user)
           Excon::Response.new.tap do |response|
-            response.body = {'User' =>  {
+            response.body = { 'User' =>  {
                                           'UserId'     => data[:users][user][:user_id],
                                           'Path'       => data[:users][user][:path],
                                           'UserName'   => user,

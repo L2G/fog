@@ -2,7 +2,7 @@ module Fog
   module Compute
     class Vsphere
       class Real
-        def list_clusters(filters = { })
+        def list_clusters(filters = {})
           datacenter_name = filters[:datacenter]
 
           raw_clusters(datacenter_name).map do |cluster|
@@ -29,7 +29,7 @@ module Fog
 
       end
       class Mock
-        def list_clusters(filters = { })
+        def list_clusters(filters = {})
         end
       end
     end

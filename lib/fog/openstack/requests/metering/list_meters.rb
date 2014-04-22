@@ -40,7 +40,7 @@ module Fog
             'resource_id' => 'glance',
             'project_id' => 'd646b40dea6347dfb8caee2da1484c56',
             'type' => 'gauge',
-            'unit' => 'bytes'}]
+            'unit' => 'bytes' }]
           response
         end
       end

@@ -70,7 +70,7 @@ module Fog
           request(
             :body    => body,
             :expects => 201,
-            :headers => {'Content-Type' => 'application/vnd.vmware.vcloud.diskCreateParams+xml'},
+            :headers => { 'Content-Type' => 'application/vnd.vmware.vcloud.diskCreateParams+xml' },
             :method  => 'POST',
             :parser  => Fog::ToHashDocument.new,
             :path    => "vdc/#{id}/disk"
@@ -123,7 +123,7 @@ module Fog
 
           Excon::Response.new(
             :status => 201,
-            :headers => {'Content-Type' => "#{body[:type]};version=#{api_version}"},
+            :headers => { 'Content-Type' => "#{body[:type]};version=#{api_version}" },
             :body => body
           )
         end

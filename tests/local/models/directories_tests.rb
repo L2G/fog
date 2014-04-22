@@ -5,7 +5,7 @@ Shindo.tests('Storage[:local] | directories', ['local']) do
   @options = { :local_root => '/tmp/fogtests' }
   @collection = Fog::Storage::Local.new(@options).directories
 
-  collection_tests(@collection, {:key => 'fogdirtests'}, true)
+  collection_tests(@collection, { :key => 'fogdirtests' }, true)
 
   tests('#all') do
     tests('succeeds when :local_root does not exist').succeeds do

@@ -20,7 +20,7 @@ module Fog
         def all(filters = filters, options = {})
           unless filters.is_a?(Hash)
             Fog::Logger.deprecation("all with #{filters.class} param is deprecated, use all('snapshot-id' => []) instead [light_black](#{caller.first})[/]")
-            filters = {'snapshot-id' => [*filters]}
+            filters = { 'snapshot-id' => [*filters] }
           end
           self.filters = filters
           data = service.describe_snapshots(filters.merge!(options)).body

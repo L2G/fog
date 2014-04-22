@@ -7,7 +7,7 @@ Shindo.tests('HP::LB | virtual ips requests', ['hp', 'lb', 'virtual_ips']) do
   }
 
   tests('success') do
-    @nodes = [{'address' => '15.185.1.1', 'port' => '80'}]
+    @nodes = [{ 'address' => '15.185.1.1', 'port' => '80' }]
     @virtual_ip = [{
                      'ipVersion' => 'IPV4',
                      'type' => 'PUBLIC',

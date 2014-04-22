@@ -61,7 +61,7 @@ module Fog
         def describe_images(filters = {})
           unless filters.is_a?(Hash)
             Fog::Logger.deprecation("describe_images with #{filters.class} param is deprecated, use describe_images('image-id' => []) instead [light_black](#{caller.first})[/]")
-            filters = {'image-id' => [*filters]}
+            filters = { 'image-id' => [*filters] }
           end
 
           if filters.keys.any? {|key| key =~ /^block-device/}

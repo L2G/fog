@@ -6,12 +6,12 @@ module Fog
         class DescribeAlarms < Fog::Parsers::Base
 
           def reset
-            @response = { 'DescribeAlarmsResult' => {'MetricAlarms' => []}, 'ResponseMetadata' => {} }
+            @response = { 'DescribeAlarmsResult' => { 'MetricAlarms' => [] }, 'ResponseMetadata' => {} }
             reset_metric_alarms
           end
 
           def reset_metric_alarms
-            @metric_alarms = {'Dimensions' => []}
+            @metric_alarms = { 'Dimensions' => [] }
           end
 
           def reset_dimension

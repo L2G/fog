@@ -37,7 +37,7 @@ module Fog
             when 'IsModifiable'
               @parameter[name] = (value == 'true')
             when 'Parameter'
-              @response['Parameters'] << {name => @parameter}
+              @response['Parameters'] << { name => @parameter }
               @parameter = {}
             end
           end

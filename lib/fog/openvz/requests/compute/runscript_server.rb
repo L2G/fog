@@ -4,7 +4,7 @@ module Fog
       class Real
 
         def runscript_server(id,args = [])
-          vzctl('runscript',{:ctid => id},args)
+          vzctl('runscript',{ :ctid => id },args)
         end
 
       end

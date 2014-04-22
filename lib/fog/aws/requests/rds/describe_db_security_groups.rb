@@ -16,7 +16,7 @@ module Fog
         # * response<~Excon::Response>:
         #   * body<~Hash>:
         def describe_db_security_groups(opts = {})
-          opts = {'DBSecurityGroupName' => opts} if opts.is_a?(String)
+          opts = { 'DBSecurityGroupName' => opts } if opts.is_a?(String)
 
           request({
             'Action'  => 'DescribeDBSecurityGroups',

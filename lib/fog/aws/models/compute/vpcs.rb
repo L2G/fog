@@ -58,7 +58,7 @@ module Fog
         def all(filters = filters)
           unless filters.is_a?(Hash)
             Fog::Logger.warning("all with #{filters.class} param is deprecated, use all('vpc-id' => []) instead [light_black](#{caller.first})[/]")
-            filters = {'vpc-id' => [*filters]}
+            filters = { 'vpc-id' => [*filters] }
           end
           self.filters = filters
           data = service.describe_vpcs(filters).body

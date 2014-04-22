@@ -19,7 +19,7 @@ Shindo.tests('Fog::Compute::RackspaceV2 | virtual_interface', ['rackspace']) do
       @network = service.networks.create net_options
       @server.wait_for { ready? }
 
-      model_tests(@server.virtual_interfaces, {:network => @network}, false)
+      model_tests(@server.virtual_interfaces, { :network => @network }, false)
 
     ensure
       if @server

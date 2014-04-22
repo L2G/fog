@@ -36,7 +36,7 @@ module Fog
 
           response(
             :status => 200,
-            :body   => {'server' => server_response}
+            :body   => { 'server' => server_response }
           )
         end
       end

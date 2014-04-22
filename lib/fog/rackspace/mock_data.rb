@@ -172,7 +172,7 @@ module Fog
 
             webhook = {
               'name' => 'webhook name',
-              'metadata' => {'foo' => 'bar'}
+              'metadata' => { 'foo' => 'bar' }
             }
 
             mock_data = {
@@ -189,7 +189,7 @@ module Fog
               :volumes            => {},
               :snapshots          => {},
               :volume_attachments => [],
-              :volume_types       => {volume_type1_id => volume_type1, volume_type2_id => volume_type2},
+              :volume_types       => { volume_type1_id => volume_type1, volume_type2_id => volume_type2 },
 
               #Autoscale
               :autoscale_groups => {}

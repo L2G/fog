@@ -11,7 +11,7 @@ module Fog
           end
 
           def fresh_instance
-            {'PendingModifiedValues' => [], 'DBSecurityGroups' => [], 'ReadReplicaDBInstanceIdentifiers' => [], 'Endpoint' => {}}
+            { 'PendingModifiedValues' => [], 'DBSecurityGroups' => [], 'ReadReplicaDBInstanceIdentifiers' => [], 'Endpoint' => {} }
           end
 
           def start_element(name, attrs = [])

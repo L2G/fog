@@ -5,7 +5,7 @@ module Fog
 
         def evaluate_alarm_example(id, options = {})
           options ||= {}
-          data = {:values => options.dup}
+          data = { :values => options.dup }
           request(
             :body     => JSON.encode(data),
             :expects  => [200],

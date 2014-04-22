@@ -42,7 +42,7 @@ module Fog
           request(
             :body     => data,
             :expects  => 200,
-            :headers  => {'Content-Type' => 'application/xml'},
+            :headers  => { 'Content-Type' => 'application/xml' },
             :method   => 'POST',
             :parser   => Fog::Parsers::Terremark::Shared::InternetService.new,
             :path     => "api/extensions/v1.6/publicIp/#{ip_id}/internetServices",

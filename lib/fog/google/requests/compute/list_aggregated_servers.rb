@@ -5,7 +5,7 @@ module Fog
       class Mock
         def list_aggregated_servers(options = {})
           # Create a Hash of unique zones from the servers Array previously filled when servers are created
-          zones = Hash[self.data[:servers].values.map { |server| ["zones/#{server['zone'].split('/')[-1]}", {'instances' => [] }] }]
+          zones = Hash[self.data[:servers].values.map { |server| ["zones/#{server['zone'].split('/')[-1]}", { 'instances' => [] }] }]
           if options[:filter]
             # Look up for the server name
             server = self.data[:servers][options[:filter].gsub(/name eq \.\*/, '')]

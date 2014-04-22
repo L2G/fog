@@ -62,7 +62,7 @@ Shindo.tests('OpenStack | authenticate', ['openstack']) do
           'roles' => [
             Fog::Mock.random_numbers(8).to_s,
             Fog::Mock.random_numbers(8).to_s,
-            Fog::Mock.random_numbers(8).to_s,]}}}
+            Fog::Mock.random_numbers(8).to_s,] } } }
 
     tests('v2') do
       Excon.stub({ :method => 'POST', :path => '/v2.0/tokens' },
@@ -143,8 +143,8 @@ Shindo.tests('OpenStack | authenticate', ['openstack']) do
         'Date'            => 'Wed, 07 Aug 2013 11:11:11 GMT'
       }
 
-      Excon.stub({:method => 'GET', :path => '/auth/v1.0'},
-                 {:status => 200, :body => '', :headers => headers})
+      Excon.stub({ :method => 'GET', :path => '/auth/v1.0' },
+                 { :status => 200, :body => '', :headers => headers })
 
       returns('https://swift.myhost.com/v1/AUTH_tenant') do
         Fog::OpenStack.authenticate_v1(

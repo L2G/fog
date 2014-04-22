@@ -25,22 +25,22 @@ module Fog
 
         def add_node(options)
           requires :identity
-          service.add_balancer_node({:uniq_id => identity}.merge!(options))
+          service.add_balancer_node({ :uniq_id => identity }.merge!(options))
         end
 
         def remove_node(options)
           requires :identity
-          service.remove_balancer_node({:uniq_id => identity}.merge!(options))
+          service.remove_balancer_node({ :uniq_id => identity }.merge!(options))
         end
 
         def add_service(options)
           requires :identity
-          service.add_balancer_service({:uniq_id => identity}.merge!(options))
+          service.add_balancer_service({ :uniq_id => identity }.merge!(options))
         end
 
         def remove_service(options)
           requires :identity
-          service.remove_balancer_service({:uniq_id => identity}.merge!(options))
+          service.remove_balancer_service({ :uniq_id => identity }.merge!(options))
         end
 
         def destroy
@@ -50,7 +50,7 @@ module Fog
 
         def update(options)
           requires :identity
-          service.update_balancer({:uniq_id => identity}.merge!(options))
+          service.update_balancer({ :uniq_id => identity }.merge!(options))
         end
 
       end

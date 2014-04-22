@@ -95,11 +95,11 @@ module Fog
               end
             else
               response.status = 404
-              raise(Excon::Errors.status_error({:expects => 200}, response))
+              raise(Excon::Errors.status_error({ :expects => 200 }, response))
             end
           else
               response.status = 400
-              raise(Excon::Errors.status_error({:expects => 200}, response))
+              raise(Excon::Errors.status_error({ :expects => 200 }, response))
           end
           response
         end

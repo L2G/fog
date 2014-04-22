@@ -42,7 +42,7 @@ module Fog
 
         def cross_zone_load_balancing= value
           requires :id
-          service.modify_load_balancer_attributes(id, 'CrossZoneLoadBalancing' => {'Enabled' => value})
+          service.modify_load_balancer_attributes(id, 'CrossZoneLoadBalancing' => { 'Enabled' => value })
         end
 
         def register_instances(instances)

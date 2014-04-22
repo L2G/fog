@@ -4,7 +4,7 @@ module Fog
       class Real
 
         def destroy_server(id, options = {})
-          vzctl('destroy',{:ctid => id}.merge(options))
+          vzctl('destroy',{ :ctid => id }.merge(options))
         end
 
       end

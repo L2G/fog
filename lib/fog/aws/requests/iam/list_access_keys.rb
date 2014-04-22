@@ -52,7 +52,7 @@ module Fog
 
           Excon::Response.new.tap do |response|
             response.body = { 'AccessKeys' => access_keys_data.map do |akey|
-                                                {'Status' => akey['Status'], 'AccessKeyId' => akey['AccessKeyId']}
+                                                { 'Status' => akey['Status'], 'AccessKeyId' => akey['AccessKeyId'] }
                                               end,
                                'IsTruncated' => false,
                                'RequestId' => Fog::AWS::Mock.request_id }

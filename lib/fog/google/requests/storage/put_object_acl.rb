@@ -43,7 +43,7 @@ DATA
             :headers  => {},
             :host     => "#{bucket_name}.#{@host}",
             :method   => 'PUT',
-            :query    => {'acl' => nil},
+            :query    => { 'acl' => nil },
             :path     => CGI.escape(object_name)
           )
 

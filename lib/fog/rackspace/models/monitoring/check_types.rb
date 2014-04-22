@@ -14,7 +14,7 @@ module Fog
         end
 
         def new(attributes = {})
-          super({ }.merge!(attributes))
+          super({}.merge!(attributes))
         end
 
       end

@@ -7,7 +7,7 @@ module Fog
 
           def reset
             @in_tag = {}
-            @response = {'BucketTagging' => {}}
+            @response = { 'BucketTagging' => {} }
           end
 
           def start_element(name, *args)
@@ -25,7 +25,7 @@ module Fog
             when 'Key'
               @in_tag[value] = nil
             when 'Value'
-              @in_tag = {@in_tag.keys.first => value}
+              @in_tag = { @in_tag.keys.first => value }
             end
           end
 

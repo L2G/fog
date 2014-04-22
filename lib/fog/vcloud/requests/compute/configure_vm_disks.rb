@@ -82,7 +82,7 @@ module Fog
           request(
             :body     => body,
             :expects  => 202,
-            :headers  => {'Content-Type' => 'application/vnd.vmware.vcloud.rasdItem+xml' },
+            :headers  => { 'Content-Type' => 'application/vnd.vmware.vcloud.rasdItem+xml' },
             :method   => 'PUT',
             :uri      => disk_href,
             :parse    => true

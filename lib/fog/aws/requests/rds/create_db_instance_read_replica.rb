@@ -67,7 +67,7 @@ module Fog
           response = Excon::Response.new
           response.body = {
             'ResponseMetadata' => { 'RequestId' => Fog::AWS::Mock.request_id },
-            'CreateDBInstanceReadReplicaResult' => {'DBInstance' => data}
+            'CreateDBInstanceReadReplicaResult' => { 'DBInstance' => data }
           }
           response.status = 200
           # This values aren't showed at creating time but at available time

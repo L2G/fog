@@ -31,7 +31,7 @@ module Fog
             :method   => 'GET',
             :parser   => Fog::ToHashDocument.new,
             :path     => 'api/getServer',
-            :query    => {'serverId' => server_id}
+            :query    => { 'serverId' => server_id }
           )
         end
 

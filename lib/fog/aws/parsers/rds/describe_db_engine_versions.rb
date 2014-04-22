@@ -8,7 +8,7 @@ module Fog
         class DescribeDBEngineVersions < Fog::Parsers::AWS::RDS::DBEngineVersionParser
 
           def reset
-            @response = { 'DescribeDBEngineVersionsResult' => {'DBEngineVersions' => []}, 'ResponseMetadata' => {} }
+            @response = { 'DescribeDBEngineVersionsResult' => { 'DBEngineVersions' => [] }, 'ResponseMetadata' => {} }
             super
           end
 

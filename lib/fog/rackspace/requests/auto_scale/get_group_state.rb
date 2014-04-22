@@ -53,7 +53,7 @@ module Fog
             'paused' => false
           }
 
-          response(:body => {'group' => state})
+          response(:body => { 'group' => state })
         end
       end
 

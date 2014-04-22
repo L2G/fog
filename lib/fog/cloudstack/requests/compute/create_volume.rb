@@ -55,7 +55,7 @@ module Fog
           }
 
           self.data[:volumes][volume_id] = volume
-          {'createvolumeresponse' => volume}
+          { 'createvolumeresponse' => volume }
         end
       end
     end

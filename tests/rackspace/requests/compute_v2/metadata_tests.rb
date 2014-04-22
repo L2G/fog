@@ -6,7 +6,7 @@ Shindo.tests('Fog::Compute::RackspaceV2 | metadata_tests', ['rackspace']) do
 
   tests('success') do
     begin
-      metadata = {'tag' => 'database'}
+      metadata = { 'tag' => 'database' }
 
       unless Fog.mocking?
         name = "fog-server-metadata-#{Time.now.to_i}"
@@ -28,16 +28,16 @@ Shindo.tests('Fog::Compute::RackspaceV2 | metadata_tests', ['rackspace']) do
           tests('list_metadata').returns('metadata' => metadata) do
             @service.list_metadata('servers', @server_id).body
           end
-          tests('set_metadata').returns('metadata' => {'environment' => 'dev'}) do
+          tests('set_metadata').returns('metadata' => { 'environment' => 'dev' }) do
             @service.set_metadata('servers', @server_id, 'environment' => 'dev').body
           end
-          tests('update_metadata').returns('metadata' => {'environment' => 'dev', 'tag' => 'database'}) do
+          tests('update_metadata').returns('metadata' => { 'environment' => 'dev', 'tag' => 'database' }) do
             @service.update_metadata('servers', @server_id, 'environment' => 'dev', 'tag' => 'database').body
           end
-          tests('get_metadata_item').returns('meta' => {'environment' => 'dev'}) do
+          tests('get_metadata_item').returns('meta' => { 'environment' => 'dev' }) do
             @service.get_metadata_item('servers', @server_id, 'environment').body
           end
-          tests('set_metadata_item').returns('meta' => {'environment' => 'test'}) do
+          tests('set_metadata_item').returns('meta' => { 'environment' => 'test' }) do
             @service.set_metadata_item('servers', @server_id, 'environment', 'test').body
           end
           tests('delete_metadata_item').succeeds do
@@ -60,10 +60,10 @@ Shindo.tests('Fog::Compute::RackspaceV2 | metadata_tests', ['rackspace']) do
             h = @service.update_metadata('images', @image_id, 'environment' => 'dev', 'tag' => 'database').body
             h['metadata'].reject {|k,v| !['environment', 'tag'].include?(k.downcase)} #only look at the metadata we created
           end
-          tests('get_metadata_item').returns('meta' => {'environment' => 'dev'}) do
+          tests('get_metadata_item').returns('meta' => { 'environment' => 'dev' }) do
             @service.get_metadata_item('images', @image_id, 'environment').body
           end
-          tests('set_metadata_item').returns('meta' => {'environment' => 'test'}) do
+          tests('set_metadata_item').returns('meta' => { 'environment' => 'test' }) do
             @service.set_metadata_item('images', @image_id, 'environment', 'test').body
           end
           tests('delete_metadata_item').succeeds do

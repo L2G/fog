@@ -18,22 +18,22 @@ Shindo.tests('Fog::Storage::InternetArchive | ACL utils', ['internetarchive']) d
     end
 
     tests(".hash_to_acl('Owner' => {'ID' => 'abcdef0123456789'}) at xpath //AccessControlPolicy/Owner/ID").returns('abcdef0123456789', 'returns the Owner ID') do
-      xml = Fog::Storage::InternetArchive.hash_to_acl('Owner' => {'ID' => 'abcdef0123456789'})
+      xml = Fog::Storage::InternetArchive.hash_to_acl('Owner' => { 'ID' => 'abcdef0123456789' })
       Nokogiri::XML(xml).xpath('//AccessControlPolicy/Owner/ID').first.content
     end
 
     tests(".hash_to_acl('Owner' => {'DisplayName' => 'bob'}) at xpath //AccessControlPolicy/Owner/ID").returns(nil, 'does not have an Owner ID element') do
-      xml = Fog::Storage::InternetArchive.hash_to_acl('Owner' => {'DisplayName' => 'bob'})
+      xml = Fog::Storage::InternetArchive.hash_to_acl('Owner' => { 'DisplayName' => 'bob' })
       Nokogiri::XML(xml).xpath('//AccessControlPolicy/Owner/ID').first
     end
 
     tests(".hash_to_acl('Owner' => {'DisplayName' => 'bob'}) at xpath //AccessControlPolicy/Owner/DisplayName").returns('bob', 'returns the Owner DisplayName') do
-      xml = Fog::Storage::InternetArchive.hash_to_acl('Owner' => {'DisplayName' => 'bob'})
+      xml = Fog::Storage::InternetArchive.hash_to_acl('Owner' => { 'DisplayName' => 'bob' })
       Nokogiri::XML(xml).xpath('//AccessControlPolicy/Owner/DisplayName').first.content
     end
 
     tests(".hash_to_acl('Owner' => {'ID' => 'abcdef0123456789'}) at xpath //AccessControlPolicy/Owner/DisplayName").returns(nil, 'does not have an Owner DisplayName element') do
-      xml = Fog::Storage::InternetArchive.hash_to_acl('Owner' => {'ID' => 'abcdef0123456789'})
+      xml = Fog::Storage::InternetArchive.hash_to_acl('Owner' => { 'ID' => 'abcdef0123456789' })
       Nokogiri::XML(xml).xpath('//AccessControlPolicy/Owner/DisplayName').first
     end
 

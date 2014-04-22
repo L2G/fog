@@ -25,7 +25,7 @@ Shindo.tests('Fog::Compute[:brightbox] | api client requests', ['brightbox']) do
       data_matches_schema(Brightbox::Compute::Formats::Full::APPLICATION, :allow_extra_keys => true) { result }
     end
 
-    update_options = {:name => "Fog@#{Time.now.iso8601}"}
+    update_options = { :name => "Fog@#{Time.now.iso8601}" }
     tests("#update_application('#{@application_id}', #{update_options.inspect})") do
       pending if Fog.mocking?
       result = Fog::Compute[:brightbox].update_application(@application_id, update_options)

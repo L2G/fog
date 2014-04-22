@@ -192,21 +192,21 @@ module Fog
                     'ipPermissionsEgress' => [],
                     'ipPermissions'       => [
                       {
-                        'groups'      => [{'groupName' => 'default', 'userId' => owner_id, 'groupId' => security_group_id }],
+                        'groups'      => [{ 'groupName' => 'default', 'userId' => owner_id, 'groupId' => security_group_id }],
                         'fromPort'    => -1,
                         'toPort'      => -1,
                         'ipProtocol'  => 'icmp',
                         'ipRanges'    => []
                       },
                       {
-                        'groups'      => [{'groupName' => 'default', 'userId' => owner_id, 'groupId' => security_group_id}],
+                        'groups'      => [{ 'groupName' => 'default', 'userId' => owner_id, 'groupId' => security_group_id }],
                         'fromPort'    => 0,
                         'toPort'      => 65535,
                         'ipProtocol'  => 'tcp',
                         'ipRanges'    => []
                       },
                       {
-                        'groups'      => [{'groupName' => 'default', 'userId' => owner_id, 'groupId' => security_group_id}],
+                        'groups'      => [{ 'groupName' => 'default', 'userId' => owner_id, 'groupId' => security_group_id }],
                         'fromPort'    => 0,
                         'toPort'      => 65535,
                         'ipProtocol'  => 'udp',

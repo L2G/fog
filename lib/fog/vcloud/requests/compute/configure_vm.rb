@@ -94,7 +94,7 @@ module Fog
           request(
             :body     => generate_configure_vm_request(vm_uri, vm_data),
             :expects  => 202,
-            :headers  => {'Content-Type' => 'application/vnd.vmware.vcloud.vm+xml' },
+            :headers  => { 'Content-Type' => 'application/vnd.vmware.vcloud.vm+xml' },
             :method   => 'PUT',
             :uri      => vm_uri,
             :parse    => true

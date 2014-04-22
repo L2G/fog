@@ -54,7 +54,7 @@ module Fog
       module Shared
         # converts an OVIRT object into an hash for fog to consume.
         def ovirt_attrs obj
-          opts = {:raw => obj}
+          opts = { :raw => obj }
           obj.instance_variables.each do |v|
             key = v.to_s.gsub('@','').to_sym
             value = obj.instance_variable_get(v)

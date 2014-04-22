@@ -33,7 +33,7 @@ module Fog
           request(
             :body       => body,
             :expects    => 201,
-            :headers    => {'Content-Type' => 'text/xml'},
+            :headers    => { 'Content-Type' => 'text/xml' },
             :idempotent => true,
             :method     => 'POST',
             :parser     => Fog::Parsers::CDN::AWS::PostInvalidation.new,

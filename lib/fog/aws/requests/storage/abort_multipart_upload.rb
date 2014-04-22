@@ -18,7 +18,7 @@ module Fog
             :bucket_name => bucket_name,
             :object_name => object_name,
             :method     => 'DELETE',
-            :query      => {'uploadId' => upload_id}
+            :query      => { 'uploadId' => upload_id }
           )
         end
 
@@ -37,7 +37,7 @@ module Fog
             response
           else
             response.status = 404
-            raise(Excon::Errors.status_error({:expects => 204}, response))
+            raise(Excon::Errors.status_error({ :expects => 204 }, response))
           end
         end
       end # Mock

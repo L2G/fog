@@ -17,7 +17,7 @@ Shindo.tests('Fog::Network[:openstack] | lb_member requests', ['openstack']) do
       address = '10.0.0.1'
       protocol_port = 80
       weight = 100
-      attributes = {:admin_state_up => true, :tenant_id => 'tenant_id'}
+      attributes = { :admin_state_up => true, :tenant_id => 'tenant_id' }
       Fog::Network[:openstack].create_lb_member(pool_id, address, protocol_port, weight, attributes).body
     end
 
@@ -32,8 +32,8 @@ Shindo.tests('Fog::Network[:openstack] | lb_member requests', ['openstack']) do
 
     tests('#update_lb_member').formats('member' => @lb_member_format) do
       lb_member_id = Fog::Network[:openstack].lb_members.all.first.id
-      attributes = {:pool_id => 'new_pool_id', :weight => 50,
-                    :admin_state_up => false}
+      attributes = { :pool_id => 'new_pool_id', :weight => 50,
+                    :admin_state_up => false }
       Fog::Network[:openstack].update_lb_member(lb_member_id, attributes).body
     end
 

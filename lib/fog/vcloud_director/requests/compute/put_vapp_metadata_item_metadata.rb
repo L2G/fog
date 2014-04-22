@@ -38,7 +38,7 @@ module Fog
           request(
             :body    => body,
             :expects => 202,
-            :headers => {'Content-Type' => 'application/vnd.vmware.vcloud.metadata.value+xml'},
+            :headers => { 'Content-Type' => 'application/vnd.vmware.vcloud.metadata.value+xml' },
             :method  => 'PUT',
             :parser  => Fog::ToHashDocument.new,
             :path    => "vApp/#{id}/metadata/#{URI.escape(key)}"

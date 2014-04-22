@@ -23,7 +23,7 @@ module Fog
             :method   => 'GET',
             :parser   => Fog::ToHashDocument.new,
             :path     => 'api/addServer',
-            :query    => {'planId' => plan_id}.merge!(options)
+            :query    => { 'planId' => plan_id }.merge!(options)
           )
         end
 

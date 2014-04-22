@@ -8,7 +8,7 @@ module Fog
         class DescribeDBSecurityGroups < Fog::Parsers::AWS::RDS::SecurityGroupParser
 
           def reset
-            @response = { 'DescribeDBSecurityGroupsResult' => {'DBSecurityGroups' => []}, 'ResponseMetadata' => {} }
+            @response = { 'DescribeDBSecurityGroupsResult' => { 'DBSecurityGroups' => [] }, 'ResponseMetadata' => {} }
             super
           end
 

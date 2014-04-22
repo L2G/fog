@@ -23,7 +23,7 @@ EOF
           request(
             :body     => body,
             :expects  => 202, # it returns a task object
-            :headers  => {'Content-Type' => 'application/vnd.vmware.vcloud.metadata+xml' },
+            :headers  => { 'Content-Type' => 'application/vnd.vmware.vcloud.metadata+xml' },
             :method   => 'POST',
             :uri      => opts[:href],
             :parse    => true

@@ -30,7 +30,7 @@ module Fog
         # @see http://docs.rackspace.com/files/api/v1/cf-devguide/content/Large_Object_Creation-d1e2019.html
         def put_dynamic_obj_manifest(container, object, options = {})
           path = "#{Fog::Rackspace.escape(container)}/#{Fog::Rackspace.escape(object)}"
-          headers = {'X-Object-Manifest' => path}.merge(options)
+          headers = { 'X-Object-Manifest' => path }.merge(options)
           request(
             :expects  => 201,
             :headers  => headers,

@@ -27,7 +27,7 @@ module Fog
           request(
             :body    => body,
             :expects => 202,
-            :headers => {'Content-Type' => 'application/vnd.vmware.vcloud.mediaInsertOrEjectParams+xml'},
+            :headers => { 'Content-Type' => 'application/vnd.vmware.vcloud.mediaInsertOrEjectParams+xml' },
             :method  => 'POST',
             :parser  => Fog::ToHashDocument.new,
             :path    => "vApp/#{id}/media/action/ejectMedia"

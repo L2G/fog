@@ -22,7 +22,7 @@ module Fog
             :Nics           => server_hardware_configuration[:Nics],
           }
 
-          response(:body => {:HardwareConfiguration => new_hardware_configuration})
+          response(:body => { :HardwareConfiguration => new_hardware_configuration })
         end
       end
     end

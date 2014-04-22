@@ -10,7 +10,7 @@ module Fog
         # * size<~String> - new size. call list_flavors to get available flavors
         #
         def resize_server(server_id, flavor_id)
-          body = { 'resize' => { 'flavorRef' => flavor_id }}
+          body = { 'resize' => { 'flavorRef' => flavor_id } }
           server_action(server_id, body)
         end
 

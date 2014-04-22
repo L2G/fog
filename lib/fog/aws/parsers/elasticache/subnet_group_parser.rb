@@ -28,7 +28,7 @@ module Fog
           end
 
           def fresh_subnet_group
-            {'Subnets' => []}
+            { 'Subnets' => [] }
           end
 
         end

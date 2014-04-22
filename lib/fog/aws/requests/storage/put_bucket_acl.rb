@@ -48,7 +48,7 @@ module Fog
             :headers  => headers,
             :bucket_name => bucket_name,
             :method   => 'PUT',
-            :query    => {'acl' => nil}
+            :query    => { 'acl' => nil }
           )
         end
       end

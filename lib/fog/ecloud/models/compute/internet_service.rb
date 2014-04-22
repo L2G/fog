@@ -51,7 +51,7 @@ module Fog
         end
 
         def create_monitor(options = {})
-          options = {:type => :default}.merge(options)
+          options = { :type => :default }.merge(options)
           case options[:type]
           when :default
             data = service.monitors_create_default(href + '/action/createDefaultMonitor').body

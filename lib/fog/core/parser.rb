@@ -64,7 +64,7 @@ module Fog
       last = @stack.pop
       if last.empty? && @value.empty?
         @stack.last[name.to_sym] = ''
-      elsif last == {:i_nil => 'true'}
+      elsif last == { :i_nil => 'true' }
         @stack.last[name.to_sym] = nil
       elsif !@value.empty?
         @stack.last[name.to_sym] = @value
@@ -92,7 +92,7 @@ module Fog
         parsed_attributes[key.gsub(':','_').to_sym] = value
       end
       if @stack.last.is_a?(Array)
-        @stack.last << {name.to_sym => parsed_attributes}
+        @stack.last << { name.to_sym => parsed_attributes }
       else
         data =
           if @stack.empty?

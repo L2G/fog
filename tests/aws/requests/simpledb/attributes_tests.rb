@@ -18,7 +18,7 @@ Shindo.tests('AWS::SimpleDB | attributes requests', ['aws']) do
       Fog::AWS[:simpledb].get_attributes(@domain_name, 'AttributeName' => 'notanattribute')
     end
 
-    tests("#select('select * from #{@domain_name}', {'ConsistentRead' => true}).body['Items']").returns('a' => { 'b' => ['c'], 'd' => ['e']}, 'x' => { 'y' => ['z'] } ) do
+    tests("#select('select * from #{@domain_name}', {'ConsistentRead' => true}).body['Items']").returns('a' => { 'b' => ['c'], 'd' => ['e'] }, 'x' => { 'y' => ['z'] } ) do
       pending if Fog.mocking?
       Fog::AWS[:simpledb].select("select * from #{@domain_name}", 'ConsistentRead' => true).body['Items']
     end

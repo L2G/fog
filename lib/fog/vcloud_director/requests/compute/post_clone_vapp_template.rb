@@ -40,7 +40,7 @@ module Fog
           request(
             :body    => body,
             :expects => 201,
-            :headers => {'Content-Type' => 'application/vnd.vmware.vcloud.cloneVAppTemplateParams+xml'},
+            :headers => { 'Content-Type' => 'application/vnd.vmware.vcloud.cloneVAppTemplateParams+xml' },
             :method  => 'POST',
             :parser  => Fog::ToHashDocument.new,
             :path    => "vdc/#{vdc_id}/action/cloneVAppTemplate"

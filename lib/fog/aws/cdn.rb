@@ -83,18 +83,18 @@ module Fog
         end
 
         CDN_ERRORS = {
-          :access_denies => {:code => 'AccessDenied',:msg  => 'Access denied.',:status => 403},
-          :inappropriate_xml => {:code => 'InappropriateXML',:msg  => 'The XML document you provided was well-formed and valid, but not appropriate for this operation.',:status => 400},
-          :internal_error => {:code => 'InternalError',:msg  => 'We encountered an internal error. Please try again.',:status => 500},
-          :invalid_action => {:code => 'InvalidAction',:msg  => 'The action specified is not valid.',:status => 400},
-          :invalid_argument => {:code => 'InvalidArgument',:msg  => '%s', :status => 400},
-          :not_implemented => {:code => 'NotImplemented', :msg  => 'Not implemented.',:status => 501},
+          :access_denies => { :code => 'AccessDenied',:msg  => 'Access denied.',:status => 403 },
+          :inappropriate_xml => { :code => 'InappropriateXML',:msg  => 'The XML document you provided was well-formed and valid, but not appropriate for this operation.',:status => 400 },
+          :internal_error => { :code => 'InternalError',:msg  => 'We encountered an internal error. Please try again.',:status => 500 },
+          :invalid_action => { :code => 'InvalidAction',:msg  => 'The action specified is not valid.',:status => 400 },
+          :invalid_argument => { :code => 'InvalidArgument',:msg  => '%s', :status => 400 },
+          :not_implemented => { :code => 'NotImplemented', :msg  => 'Not implemented.',:status => 501 },
           :no_such_distribution => { :code => 'NoSuchDistribution', :msg => 'The specified distribution does not exist', :status => 404 },
           :no_such_streaming_distribution => { :code => 'NoSuchStreamingDistribution', :msg => 'The specified streaming distribution does not exist', :status => 404 },
           :no_such_invalidation => { :code => 'NoSuchInvalidation', :msg => 'The specified invalidation does not exist', :status => 404 },
           :cname_exists => { :code => 'CNAMEAlreadyExists', :msg => 'One or more of the CNAMEs you provided are already associated with a different distribution', :status => 409 },
           :illegal_update => { :code => 'IllegalUpdate', :msg => 'Origin and CallerReference cannot be updated.', :status => 400 },
-          :invalid_if_match_version => { :code => 'InvalidIfMatchVersion', :msg => 'The If-Match version is missing or not valid for the distribution.', :status => 400},
+          :invalid_if_match_version => { :code => 'InvalidIfMatchVersion', :msg => 'The If-Match version is missing or not valid for the distribution.', :status => 400 },
           :distribution_not_disabled => { :code => 'DistributionNotDisabled', :msg => 'The distribution you are trying to delete has not been disabled.', :status => 409 },
 
         }
@@ -119,7 +119,7 @@ module Fog
 </ErrorResponse>
 EOF
 
-          raise(Excon::Errors.status_error({:expects => 201}, response))
+          raise(Excon::Errors.status_error({ :expects => 201 }, response))
         end
       end
 

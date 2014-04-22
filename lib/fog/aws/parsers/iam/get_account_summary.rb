@@ -8,7 +8,7 @@ module Fog
           def reset
             super
             @stack = []
-            @response = {'Summary' => {}}
+            @response = { 'Summary' => {} }
           end
 
           def start_element(name, attrs = [])

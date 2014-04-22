@@ -6,7 +6,7 @@ module Fog
           request(:path => "subscriptions/#{sub_id}/action/",
                   :method => 'POST',
                   :expects => [200, 202],
-                  :query => {:do => :extend},
+                  :query => { :do => :extend },
                   :body => data)
         end
       end

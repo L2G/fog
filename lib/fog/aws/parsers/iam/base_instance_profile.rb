@@ -15,7 +15,7 @@ module Fog
             case name
 
             when 'InstanceProfile'
-              @instance_profile = {'Roles' => []}
+              @instance_profile = { 'Roles' => [] }
             when 'InstanceProfiles'
               @stack << 'InstanceProfiles'
             when 'Roles'
@@ -23,7 +23,7 @@ module Fog
             when 'member'
               case @stack.last
               when 'InstanceProfiles'
-                @instance_profile = {'Roles' => []}
+                @instance_profile = { 'Roles' => [] }
               when 'Roles'
                 if @instance_profile
                   @role = {}

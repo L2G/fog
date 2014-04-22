@@ -1,7 +1,7 @@
-SINGLE_NODE_FORMAT = {'address' => String, 'id' => Integer, 'status' => String, 'weight' => Fog::Nullable::Integer, 'port' => Integer, 'condition' => String, 'type' => String}
-NODE_FORMAT = {'node' => SINGLE_NODE_FORMAT.merge( 'metadata' => [])}
-NODES_FORMAT = {'nodes' => [SINGLE_NODE_FORMAT]}
-VIRTUAL_IP_FORMAT = {'type' => String, 'id' => Integer, 'type' => String, 'ipVersion' => String, 'address' => String}
+SINGLE_NODE_FORMAT = { 'address' => String, 'id' => Integer, 'status' => String, 'weight' => Fog::Nullable::Integer, 'port' => Integer, 'condition' => String, 'type' => String }
+NODE_FORMAT = { 'node' => SINGLE_NODE_FORMAT.merge( 'metadata' => []) }
+NODES_FORMAT = { 'nodes' => [SINGLE_NODE_FORMAT] }
+VIRTUAL_IP_FORMAT = { 'type' => String, 'id' => Integer, 'type' => String, 'ipVersion' => String, 'address' => String }
 VIRTUAL_IPS_FORMAT = { 'virtualIps' => [VIRTUAL_IP_FORMAT] }
 SOURCE_ADDRESSES = {
   'ipv4Servicenet'  => String,

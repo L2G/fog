@@ -16,7 +16,7 @@ module Fog
         #       * 'url'<~String> - Url to access a VNC console of a server from a browser
         #
         def get_vnc_console(server_id, type = 'novnc')
-          body = { 'os-getVNCConsole' => { 'type' => type }}
+          body = { 'os-getVNCConsole' => { 'type' => type } }
           server_action(server_id, body, 200)
         end
 

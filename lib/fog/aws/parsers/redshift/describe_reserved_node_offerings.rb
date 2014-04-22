@@ -21,7 +21,7 @@ module Fog
           end
 
           def fresh_reserved_node_offering
-           {'RecurringCharges' => []}
+           { 'RecurringCharges' => [] }
           end
 
           def start_element(name, attrs = [])
@@ -50,10 +50,10 @@ module Fog
             when 'RecurringChargeFrequency'
               @recurring_charge[name] = value
             when 'RecurringCharge'
-              @reserved_node_offering['RecurringCharges'] << {name => @recurring_charge}
+              @reserved_node_offering['RecurringCharges'] << { name => @recurring_charge }
               @recurring_charge = {}
             when 'ReservedNodeOffering'
-              @response['ReservedNodeOfferings'] << {name => @reserved_node_offering}
+              @response['ReservedNodeOfferings'] << { name => @reserved_node_offering }
               @reserved_node_offering = fresh_reserved_node_offering
             end
           end

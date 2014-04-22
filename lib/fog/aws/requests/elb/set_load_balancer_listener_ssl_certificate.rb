@@ -47,7 +47,7 @@ module Fog
           unless listener = load_balancer['ListenerDescriptions'].find { |listener| listener['Listener']['LoadBalancerPort'] == load_balancer_port }
             response.status = 400
             response.body = "<?xml version=\"1.0\"?><Response><Errors><Error><Code>ListenerNotFound</Code><Message>LoadBalancer does not have a listnener configured at the given port.</Message></Error></Errors><RequestID>#{Fog::AWS::Mock.request_id}</RequestId></Response>"
-            raise Excon::Errors.status_error({:expects => 200}, response)
+            raise Excon::Errors.status_error({ :expects => 200 }, response)
           end
 
           listener['Listener']['SSLCertificateId'] = ssl_certificate_id

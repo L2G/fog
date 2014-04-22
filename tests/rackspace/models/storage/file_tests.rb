@@ -107,7 +107,7 @@ Shindo.tests('Fog::Rackspace::Storage | file', ['rackspace']) do
 
       begin
         tests('sets metadata on create').returns('true') do
-          @file = @directory.files.create :key => 'meta-test', :body => lorem_file, :metadata => {:works => true }
+          @file = @directory.files.create :key => 'meta-test', :body => lorem_file, :metadata => { :works => true }
           object_meta_attributes(@file)['X-Object-Meta-Works']
         end
 

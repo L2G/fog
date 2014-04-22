@@ -41,7 +41,7 @@ module Fog
         def describe_route_tables(filters = {})
           unless filters.is_a?(Hash)
             Fog::Logger.deprecation("describe_route_tables with #{filters.class} param is deprecated, use describe_route_tables('route-table-id' => []) instead [light_black](#{caller.first})[/]")
-            filters = {'route-table-id' => [*filters]}
+            filters = { 'route-table-id' => [*filters] }
           end
           params = Fog::AWS.indexed_filters(filters)
           request({
@@ -55,7 +55,7 @@ module Fog
         def describe_route_tables(filters = {})
           unless filters.is_a?(Hash)
             Fog::Logger.deprecation("describe_route_tables with #{filters.class} param is deprecated, use describe_route_tables('route-table-id' => []) instead [light_black](#{caller.first})[/]")
-            filters = {'route-table-id' => [*filters]}
+            filters = { 'route-table-id' => [*filters] }
           end
 
           display_routes = self.data[:route_tables].dup

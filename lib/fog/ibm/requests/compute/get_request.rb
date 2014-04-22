@@ -47,12 +47,12 @@ module Fog
         def get_request(request_id)
           response = Excon::Response.new
           response.status = 200
-          response.body =  {'instances' =>
-             [{'name' => 'test from fog',
+          response.body =  { 'instances' =>
+             [{ 'name' => 'test from fog',
                'location' => '101',
                'keyName' => 'mykey',
                'primaryIP' =>
-                {'type' => 0, 'ip' => '42.42.42.42 ', 'hostname' => '42.42.42.42 '},
+                { 'type' => 0, 'ip' => '42.42.42.42 ', 'hostname' => '42.42.42.42 ' },
                'productCodes' => [],
                'requestId' => '75364',
                'imageId' => '20020159',
@@ -64,11 +64,11 @@ module Fog
                'secondaryIP' => [],
                'status' => 1,
                'software' =>
-                [{'name' => 'SUSE Linux Enterprise Server',
+                [{ 'name' => 'SUSE Linux Enterprise Server',
                   'type' => 'OS',
-                  'version' => '11 SP1'}],
+                  'version' => '11 SP1' }],
                'expirationTime' => 1367084229205,
-               'owner' => 'user@example.com'}]}
+               'owner' => 'user@example.com' }] }
           response
         end
 

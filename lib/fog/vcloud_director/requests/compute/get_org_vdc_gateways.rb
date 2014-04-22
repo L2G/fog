@@ -37,7 +37,7 @@ module Fog
           end
 
           body =
-            {:xmlns => xmlns,
+            { :xmlns => xmlns,
              :xmlns_xsi => xmlns_xsi,
              :total => '1',
              :pageSize => '25',
@@ -47,20 +47,20 @@ module Fog
              :href => make_href("admin/vdc/#{vdc_id}edgeGateways?page=1&pageSize=25&format=records"),
              :xsi_schemaLocation => xsi_schema_location,
              :Link =>
-              [{:rel => 'alternate',
+              [{ :rel => 'alternate',
                 :type => 'application/vnd.vmware.vcloud.query.references+xml',
-                :href => make_href("admin/vdc/#{vdc_id}edgeGateways?page=1&pageSize=25&format=references")},
-               {:rel => 'alternate',
+                :href => make_href("admin/vdc/#{vdc_id}edgeGateways?page=1&pageSize=25&format=references") },
+               { :rel => 'alternate',
                 :type => 'application/vnd.vmware.vcloud.query.idrecords+xml',
-                :href => make_href("admin/vdc/#{vdc_id}edgeGateways?page=1&pageSize=25&format=records")}],
-             :EdgeGatewayRecord => []}
+                :href => make_href("admin/vdc/#{vdc_id}edgeGateways?page=1&pageSize=25&format=records") }],
+             :EdgeGatewayRecord => [] }
 
           vdc_edge_gateways = data[:edge_gateways].select do |id, edge_gateway|
             edge_gateway[:vdc] == vdc_id
           end
 
           body[:EdgeGatewayRecord] += vdc_edge_gateways.map do |id, edge_gateway|
-            {:vdc => make_href("vdc/#{vdc_id}"),
+            { :vdc => make_href("vdc/#{vdc_id}"),
              :numberOfOrgNetworks => '1',
              :numberOfExtNetworks => '1',
              :name => edge_gateway[:name],
@@ -68,12 +68,12 @@ module Fog
              :haStatus => 'DISABLED',
              :gatewayStatus => 'READY',
              :href => make_href("admin/edgeGateway/#{id}"),
-             :isSyslogServerSettingInSync => 'true'}
+             :isSyslogServerSettingInSync => 'true' }
           end
 
           Excon::Response.new(
             :status => 200,
-            :headers => {'Content-Type' => "#{body[:type]};version=#{api_version}"},
+            :headers => { 'Content-Type' => "#{body[:type]};version=#{api_version}" },
             :body => body
           )
         end

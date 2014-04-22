@@ -25,7 +25,7 @@ Shindo.tests('HP::Network | networking router requests', ['hp', 'networking', 'r
     @router_id = nil
 
     tests('#create_router').formats(@router_format) do
-      attributes = {:name => 'my_router', :admin_state_up => true}
+      attributes = { :name => 'my_router', :admin_state_up => true }
       data = HP[:network].create_router(attributes).body['router']
       @router_id = data['id']
       data

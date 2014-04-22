@@ -24,7 +24,7 @@ Shindo.tests('Fog::DNS[:linode] | DNS requests', ['linode', 'dns']) do
 
       type = 'master'
       domain = generate_unique_domain
-      options = { :SOA_email => "netops@#{domain}", :description => 'Sample-Domain Inc', :status => 0}
+      options = { :SOA_email => "netops@#{domain}", :description => 'Sample-Domain Inc', :status => 0 }
       response = Fog::DNS[:linode].domain_create( domain, type, options)
       if response.status == 200
         @master_zone_id = response.body['DATA']['DomainID']
@@ -138,7 +138,7 @@ Shindo.tests('Fog::DNS[:linode] | DNS requests', ['linode', 'dns']) do
     test('create record - NS record') do
       pending if Fog.mocking?
 
-      options = { :name => @domain, :target => 'ns.' + @domain}
+      options = { :name => @domain, :target => 'ns.' + @domain }
       response = Fog::DNS[:linode].domain_resource_create( @master_zone_id, 'NS', options)
       if response.status == 200
         record_id = response.body['DATA']['ResourceID']

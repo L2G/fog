@@ -70,7 +70,7 @@ Shindo.tests('Fog::Compute[:clodo] | server requests', ['clodo']) do
       clodo.list_servers.body['servers'].reject {|s| !['is_running', 'is_disabled'].include?(s['status']) }
     end
 
-    tests('- list_servers(not ready)').formats([@server_format.merge('addresses' => {'public' => NilClass})]) do
+    tests('- list_servers(not ready)').formats([@server_format.merge('addresses' => { 'public' => NilClass })]) do
       clodo.list_servers.body['servers'].reject {|s| !['is_request'].include?(s['status']) }
     end
 

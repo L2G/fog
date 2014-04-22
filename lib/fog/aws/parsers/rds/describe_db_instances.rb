@@ -8,7 +8,7 @@ module Fog
         class DescribeDBInstances < Fog::Parsers::AWS::RDS::DbParser
 
           def reset
-            @response = { 'DescribeDBInstancesResult' => {'DBInstances' => []}, 'ResponseMetadata' => {} }
+            @response = { 'DescribeDBInstancesResult' => { 'DBInstances' => [] }, 'ResponseMetadata' => {} }
             super
           end
 

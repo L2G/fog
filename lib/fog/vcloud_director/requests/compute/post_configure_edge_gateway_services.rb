@@ -26,7 +26,7 @@ module Fog
           request(
               :body => body,
               :expects => 202,
-              :headers => {'Content-Type' => 'application/vnd.vmware.admin.edgeGatewayServiceConfiguration+xml'},
+              :headers => { 'Content-Type' => 'application/vnd.vmware.admin.edgeGatewayServiceConfiguration+xml' },
               :method => 'POST',
               :parser => Fog::ToHashDocument.new,
               :path => "admin/edgeGateway/#{id}/action/configureServices"
@@ -43,7 +43,7 @@ module Fog
                   )
           end
 
-          owner = {:href => '', :name => nil, :type => nil} #known-bug: admin-api does not return owner.
+          owner = { :href => '', :name => nil, :type => nil } #known-bug: admin-api does not return owner.
           task_id = enqueue_task(
               "Configuring edgegateway(#{id})", 'networkConfigureEdgeGatewayServices', owner,
               :on_success => lambda do
@@ -59,7 +59,7 @@ module Fog
 
           Excon::Response.new(
               :status => 202,
-              :headers => {'Content-Type' => "#{body[:type]};version=#{api_version}"},
+              :headers => { 'Content-Type' => "#{body[:type]};version=#{api_version}" },
               :body => body
           )
         end

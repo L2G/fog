@@ -28,7 +28,7 @@ module Fog
         def describe_snapshots(filters = {}, options = {})
           unless filters.is_a?(Hash)
             Fog::Logger.deprecation("describe_snapshots with #{filters.class} param is deprecated, use describe_snapshots('snapshot-id' => []) instead [light_black](#{caller.first})[/]")
-            filters = {'snapshot-id' => [*filters]}
+            filters = { 'snapshot-id' => [*filters] }
           end
           unless options.empty?
             Fog::Logger.deprecation("describe_snapshots with a second param is deprecated, use describe_snapshots(options) instead [light_black](#{caller.first})[/]")
@@ -55,7 +55,7 @@ module Fog
         def describe_snapshots(filters = {}, options = {})
           unless filters.is_a?(Hash)
             Fog::Logger.deprecation("describe_snapshots with #{filters.class} param is deprecated, use describe_snapshots('snapshot-id' => []) instead [light_black](#{caller.first})[/]")
-            filters = {'snapshot-id' => [*filters]}
+            filters = { 'snapshot-id' => [*filters] }
           end
           unless options.empty?
             Fog::Logger.deprecation("describe_snapshots with a second param is deprecated, use describe_snapshots(options) instead [light_black](#{caller.first})[/]")

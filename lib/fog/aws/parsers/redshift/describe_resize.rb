@@ -12,7 +12,7 @@ module Fog
           # :import_tables_in_progress - (Array)
           # :import_tables_not_started - (Array)
           def reset
-            @response = { 'ImportTablesCompleted' => [], 'ImportTablesInProgress' => [], 'ImportTablesNotStarted' => []}
+            @response = { 'ImportTablesCompleted' => [], 'ImportTablesInProgress' => [], 'ImportTablesNotStarted' => [] }
           end
 
           def start_element(name, attrs = [])

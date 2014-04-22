@@ -22,7 +22,7 @@ module Fog
               'disk_format'      => 'iso',
               'container_format' => 'bare',
               'id'               => Fog::Mock.random_hex(36),
-              'checksum'         => Fog::Mock.random_hex(32)}]
+              'checksum'         => Fog::Mock.random_hex(32) }]
           }
           response
         end # def list_tenants

@@ -2,7 +2,7 @@ module Fog
   module Compute
     class Libvirt
       class Real
-        def list_domains(filter = { })
+        def list_domains(filter = {})
           data = []
 
           if filter.has_key?(:uuid)
@@ -73,7 +73,7 @@ module Fog
       end
 
       class Mock
-        def list_domains(filter = { })
+        def list_domains(filter = {})
           dom1 = mock_domain 'fog-dom1'
           dom2 = mock_domain 'fog-dom2'
           dom3 = mock_domain 'a-fog-dom3'

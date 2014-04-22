@@ -61,7 +61,7 @@ module Fog
             }.merge!(data)
           else
             response.status = 400
-            raise(Excon::Errors.status_error({:expects => 200}, response))
+            raise(Excon::Errors.status_error({ :expects => 200 }, response))
           end
           response
         end

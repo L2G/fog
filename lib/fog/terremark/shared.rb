@@ -183,12 +183,12 @@ module Fog
         end
 
         def self.error_headers
-          {'X-Powered-By' => 'ASP.NET',
+          { 'X-Powered-By' => 'ASP.NET',
            'Date' => Time.now.to_s,
            'Content-Type' => 'text/html',
            'Content-Length' => '0',
            'Server' => 'Microsoft-IIS/7.0',
-           'Cache-Control' => 'private'}
+           'Cache-Control' => 'private' }
         end
 
         def self.unathorized_status
@@ -196,13 +196,13 @@ module Fog
         end
 
         def self.headers(body, content_type)
-          {'X-Powered-By' => 'ASP.NET',
+          { 'X-Powered-By' => 'ASP.NET',
            'Date' => Time.now.to_s,
            'Content-Type' => content_type,
            'Content-Length' => body.to_s.length,
            'Server' => 'Microsoft-IIS/7.0',
            'Set-Cookie' => 'vcloud-token=ecb37bfc-56f0-421d-97e5-bf2gdf789457; path=/',
-           'Cache-Control' => 'private'}
+           'Cache-Control' => 'private' }
         end
 
         def self.status

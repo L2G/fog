@@ -49,7 +49,7 @@ module Fog
           else
             response.status = 400
             response.body = "<?xml version=\"1.0\"?><Response><Errors><Error><Code>AddressLimitExceeded</Code><Message>Too many addresses allocated</Message></Error></Errors><RequestID>#{Fog::AWS::Mock.request_id}</RequestID></Response>"
-            raise(Excon::Errors.status_error({:expects => 200}, response))
+            raise(Excon::Errors.status_error({ :expects => 200 }, response))
           end
         end
 

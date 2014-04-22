@@ -2,17 +2,17 @@ Shindo.tests('HP::Network | networking floating ip model', ['hp', 'networking', 
 
   @ext_network = HP[:network].networks.all('router:external' => true).first
 
-  attributes = {:floating_network_id => @ext_network.id}
+  attributes = { :floating_network_id => @ext_network.id }
   model_tests(HP[:network].floating_ips, attributes, true)
 
   tests('success') do
 
     @network = HP[:network].networks.create(:name => 'my_network')
-    attributes = {:name => 'port1', :network_id => @network.id}
+    attributes = { :name => 'port1', :network_id => @network.id }
     @port = HP[:network].ports.create(attributes)
 
     tests('#create').succeeds do
-      attributes = {:floating_network_id => @ext_network.id}
+      attributes = { :floating_network_id => @ext_network.id }
       @fip = HP[:network].floating_ips.create(attributes)
       @fip.wait_for { ready? } unless Fog.mocking?
       !@fip.id.nil?

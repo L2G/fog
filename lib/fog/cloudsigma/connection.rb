@@ -11,12 +11,12 @@ module Fog
               unless @username and @password
                 raise ArgumentError, 'Username and password required for basic auth'
               end
-              {'Authorization' => 'Basic ' << Base64.encode64("#{@username}:#{@password}").gsub("\n", '')}
+              { 'Authorization' => 'Basic ' << Base64.encode64("#{@username}:#{@password}").gsub("\n", '') }
             else
               unless @username and @password
                 raise ArgumentError, 'Username and password required for basic auth'
               end
-              {'Authorization' => 'Basic ' << Base64.encode64("#{@username}:#{@password}").gsub("\n", '')}
+              { 'Authorization' => 'Basic ' << Base64.encode64("#{@username}:#{@password}").gsub("\n", '') }
           end
         end
 
@@ -64,7 +64,7 @@ module Fog
         end
 
         def list_request(path, override_params = {})
-          default_params = {:method => 'GET', :expects => 200, :query => {:limit => 0}}
+          default_params = { :method => 'GET', :expects => 200, :query => { :limit => 0 } }
           override_params[:path] = path
           params = default_params.merge(override_params)
 
@@ -72,7 +72,7 @@ module Fog
         end
 
         def get_request(path, override_params = {})
-          default_params = {:method => 'GET', :expects => 200}
+          default_params = { :method => 'GET', :expects => 200 }
           override_params[:path] = path
           params = default_params.merge(override_params)
 
@@ -80,7 +80,7 @@ module Fog
         end
 
         def delete_request(path, override_params = {})
-          default_params = {:method => 'DELETE', :expects => 204}
+          default_params = { :method => 'DELETE', :expects => 204 }
           override_params[:path] = path
           params = default_params.merge(override_params)
 
@@ -88,7 +88,7 @@ module Fog
         end
 
         def create_request(path, data, override_params = {})
-          default_params = {:method => 'POST', :expects => [200, 201, 202]}
+          default_params = { :method => 'POST', :expects => [200, 201, 202] }
 
           override_params[:path] = path
           override_params[:body] = data
@@ -98,7 +98,7 @@ module Fog
         end
 
         def update_request(path, data, override_params = {})
-          default_params = {:method => 'PUT', :expects => [200, 202]}
+          default_params = { :method => 'PUT', :expects => [200, 202] }
 
           override_params[:path] = path
           override_params[:body] = data
@@ -130,7 +130,7 @@ module Fog
         def mock_list(collection, status)
           data_array = self.data[collection].values
 
-          Excon::Response.new(:body => {'objects' => data_array}, :status => status)
+          Excon::Response.new(:body => { 'objects' => data_array }, :status => status)
         end
 
         def mock_update(data, obj_or_collection, status, key, &clean_before_update)
@@ -183,7 +183,7 @@ module Fog
           response_data = final_data.dup
 
           response = Excon::Response.new
-          response.body = {'objects' => [response_data]}
+          response.body = { 'objects' => [response_data] }
           response.status = status
 
           response

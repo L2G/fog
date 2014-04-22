@@ -133,7 +133,7 @@ LIST_WEBHOOKS_FORMAT = [
   {
     'id' => String,
     'name' => String,
-    'links' => [{'href' => String, 'rel' => String }],
+    'links' => [{ 'href' => String, 'rel' => String }],
     'metadata' => {}
   }
 ]
@@ -212,7 +212,7 @@ GROUP_OPTIONS = {
 
 WEBHOOK_OPTIONS = {
     'name' => 'webhook name',
-    'metadata' => {'foo' => 'bar'}
+    'metadata' => { 'foo' => 'bar' }
 }
 
 def deactive_auto_scale_group(group)

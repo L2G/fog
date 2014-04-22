@@ -199,7 +199,7 @@ Shindo.tests('Fog::Storage[:aws] | bucket requests', ['aws']) do
     tests('bucket lifecycle') do
       pending if Fog.mocking?
 
-      lifecycle = {'Rules' => [{'ID' => 'test rule', 'Prefix' => '/prefix', 'Enabled' => true, 'Days' => 42}]}
+      lifecycle = { 'Rules' => [{ 'ID' => 'test rule', 'Prefix' => '/prefix', 'Enabled' => true, 'Days' => 42 }] }
       tests('non-existant bucket') do
         tests('#put_bucket_lifecycle').returns([404, 'NoSuchBucket']) do
           begin
@@ -241,18 +241,18 @@ Shindo.tests('Fog::Storage[:aws] | bucket requests', ['aws']) do
       tests('read').formats(@bucket_lifecycle_format) do
         Fog::Storage[:aws].get_bucket_lifecycle(@aws_bucket_name).body
       end
-      lifecycle = { 'Rules' => 5.upto(6).map { |i| {'ID' => "rule\##{i}", 'Prefix' => i.to_s, 'Enabled' => true, 'Days' => i} } }
-      lifecycle_return = { 'Rules' => 5.upto(6).map { |i| {'ID' => "rule\##{i}", 'Prefix' => i.to_s, 'Enabled' => true, 'Expiration' => {'Days' => i}} } }
+      lifecycle = { 'Rules' => 5.upto(6).map { |i| { 'ID' => "rule\##{i}", 'Prefix' => i.to_s, 'Enabled' => true, 'Days' => i } } }
+      lifecycle_return = { 'Rules' => 5.upto(6).map { |i| { 'ID' => "rule\##{i}", 'Prefix' => i.to_s, 'Enabled' => true, 'Expiration' => { 'Days' => i } } } }
       tests('update').returns(lifecycle_return) do
         Fog::Storage[:aws].put_bucket_lifecycle(@aws_bucket_name, lifecycle)
         Fog::Storage[:aws].get_bucket_lifecycle(@aws_bucket_name).body
       end
-      lifecycle = {'Rules' => [{'ID' => 'test rule', 'Prefix' => '/prefix', 'Enabled' => true, 'Expiration' => {'Days' => 42}, 'Transition' => {'Days' => 6, 'StorageClass' => 'GLACIER'}}]}
+      lifecycle = { 'Rules' => [{ 'ID' => 'test rule', 'Prefix' => '/prefix', 'Enabled' => true, 'Expiration' => { 'Days' => 42 }, 'Transition' => { 'Days' => 6, 'StorageClass' => 'GLACIER' } }] }
       tests('transition').returns(lifecycle) do
         Fog::Storage[:aws].put_bucket_lifecycle(@aws_bucket_name, lifecycle)
         Fog::Storage[:aws].get_bucket_lifecycle(@aws_bucket_name).body
       end
-      lifecycle = {'Rules' => [{'ID' => 'test rule', 'Prefix' => '/prefix', 'Enabled' => true, 'Expiration' => {'Date' => '2012-12-31T00:00:00.000Z'}}]}
+      lifecycle = { 'Rules' => [{ 'ID' => 'test rule', 'Prefix' => '/prefix', 'Enabled' => true, 'Expiration' => { 'Date' => '2012-12-31T00:00:00.000Z' } }] }
       tests('date').returns(lifecycle) do
         Fog::Storage[:aws].put_bucket_lifecycle(@aws_bucket_name, lifecycle)
         Fog::Storage[:aws].get_bucket_lifecycle(@aws_bucket_name).body
@@ -270,7 +270,7 @@ Shindo.tests('Fog::Storage[:aws] | bucket requests', ['aws']) do
     end
 
     tests("put_bucket_cors('#{@aws_bucket_name}', cors)").succeeds do
-      cors =  {'CORSConfiguration' =>
+      cors =  { 'CORSConfiguration' =>
                   [
                     {
                       'AllowedOrigin' => 'http://localhost:3000',
@@ -290,7 +290,7 @@ Shindo.tests('Fog::Storage[:aws] | bucket requests', ['aws']) do
       end
 
       tests("#get_bucket_tagging('#{@aws_bucket_name}')").
-        returns('BucketTagging' => {'Key1' => 'Value1', 'Key2' => 'Value2'}) do
+        returns('BucketTagging' => { 'Key1' => 'Value1', 'Key2' => 'Value2' }) do
         Fog::Storage[:aws].get_bucket_tagging(@aws_bucket_name).body
       end
 

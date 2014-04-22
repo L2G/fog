@@ -18,7 +18,7 @@ module Fog
         def common_lookup_list(lookup, options = {})
           request(
             :path     => 'common/lookup/list',
-            :query    => {'lookup' => lookup}.merge!(options)
+            :query    => { 'lookup' => lookup }.merge!(options)
           )
         end
 

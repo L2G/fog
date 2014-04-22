@@ -22,7 +22,7 @@ module Fog
             :expects  => 204,
             :method   => 'HEAD',
             :path     => path,
-            :query    => {'format' => 'json'}
+            :query    => { 'format' => 'json' }
           )
           response
         end

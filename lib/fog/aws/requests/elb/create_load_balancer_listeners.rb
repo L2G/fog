@@ -67,7 +67,7 @@ module Fog
                   (%w( TCP SSL).include?(listener['Protocol']) && !%w( TCP SSL ).include?(listener['InstanceProtocol']))
                 raise Fog::AWS::ELB::ValidationError
               end if listener['Protocol'] && listener['InstanceProtocol']
-              load_balancer['ListenerDescriptions'] << {'Listener' => listener, 'PolicyNames' => []}
+              load_balancer['ListenerDescriptions'] << { 'Listener' => listener, 'PolicyNames' => [] }
             end
 
             response.status = 200

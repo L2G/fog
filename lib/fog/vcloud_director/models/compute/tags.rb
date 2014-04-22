@@ -33,7 +33,7 @@ module Fog
 
         def item_list
           @items = []
-          hash_items.each_pair{ |k,v| @items << {:id => k, :value => v }.merge(:vm => vm) }
+          hash_items.each_pair{ |k,v| @items << { :id => k, :value => v }.merge(:vm => vm) }
           @items
         end
 

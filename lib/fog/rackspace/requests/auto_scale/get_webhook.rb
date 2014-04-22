@@ -30,7 +30,7 @@ module Fog
             raise Fog::Rackspace::AutoScale::NotFound
           end
 
-          response(:body => {'webhook' => webhook})
+          response(:body => { 'webhook' => webhook })
         end
       end
 

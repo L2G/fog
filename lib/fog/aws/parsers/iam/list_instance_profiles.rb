@@ -8,7 +8,7 @@ module Fog
 
           def reset
             super
-            @response = {'InstanceProfiles' => []}
+            @response = { 'InstanceProfiles' => [] }
           end
 
           def finished_instance_profile(profile)

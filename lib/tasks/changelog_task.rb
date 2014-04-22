@@ -175,7 +175,7 @@ Watchers      | #{watchers}
       end
 
       def collaborators
-        response = Excon.get('https://api.github.com/repos/fog/fog/collaborators', :headers => {'User-Agent' => 'geemus'})
+        response = Excon.get('https://api.github.com/repos/fog/fog/collaborators', :headers => { 'User-Agent' => 'geemus' })
         data = Fog::JSON.decode(response.body)
         data.length
       end
@@ -194,7 +194,7 @@ Watchers      | #{watchers}
 
       def repo_metadata
         return @repo_metadata if @repo_metadata
-        response = Excon.get('https://api.github.com/repos/fog/fog', :headers => {'User-Agent' => 'geemus'})
+        response = Excon.get('https://api.github.com/repos/fog/fog', :headers => { 'User-Agent' => 'geemus' })
         data = Fog::JSON.decode(response.body)
         @repo_metadata = data.select {|key, value| ['forks', 'open_issues', 'watchers'].include?(key)}
       end

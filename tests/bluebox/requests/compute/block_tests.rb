@@ -5,10 +5,10 @@ Shindo.tests('Fog::Compute[:bluebox] | block requests', ['bluebox']) do
     'description'     => String,
     'hostname'        => String,
     'id'              => String,
-    'ips'             => [{'address' => String}],
+    'ips'             => [{ 'address' => String }],
     'lb_applications' => [],
     'memory'          => Integer,
-    'product'         => {'cost' => String, 'description' => String, 'id' => String},
+    'product'         => { 'cost' => String, 'description' => String, 'id' => String },
     'status'          => String,
     'storage'         => Integer,
     'location_id'     => String
@@ -23,7 +23,7 @@ Shindo.tests('Fog::Compute[:bluebox] | block requests', ['bluebox']) do
 
     @block_id = nil
 
-    tests("create_block('#{@flavor_id}', '#{@image_id}', '#{@location_id}', {'password' => '#{@password}'})").formats(@block_format.merge('add_to_lb_application_results' => {'text' => String})) do
+    tests("create_block('#{@flavor_id}', '#{@image_id}', '#{@location_id}', {'password' => '#{@password}'})").formats(@block_format.merge('add_to_lb_application_results' => { 'text' => String })) do
       pending if Fog.mocking?
       data = Fog::Compute[:bluebox].create_block(@flavor_id, @image_id, @location_id, 'password' => @password).body
       @block_id = data['id']
@@ -44,7 +44,7 @@ Shindo.tests('Fog::Compute[:bluebox] | block requests', ['bluebox']) do
       Fog::Compute[:bluebox].get_blocks.body
     end
 
-    tests("reboot_block('#{@block_id}')").formats([{'status' => String}, {'text' => String}]) do
+    tests("reboot_block('#{@block_id}')").formats([{ 'status' => String }, { 'text' => String }]) do
       pending if Fog.mocking?
       Fog::Compute[:bluebox].reboot_block(@block_id).body
     end

@@ -47,7 +47,7 @@ module Fog
             options[:expect].each do |ck, cv|
               if self.data[:domains][domain_name][item_name][ck] != [cv]
                 response.status = 409
-                raise(Excon::Errors.status_error({:expects => 200}, response))
+                raise(Excon::Errors.status_error({ :expects => 200 }, response))
               end
             end
             attributes.each do |key, value|
@@ -66,7 +66,7 @@ module Fog
             }
           else
             response.status = 400
-            raise(Excon::Errors.status_error({:expects => 200}, response))
+            raise(Excon::Errors.status_error({ :expects => 200 }, response))
 
           end
           response

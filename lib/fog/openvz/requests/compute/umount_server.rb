@@ -4,7 +4,7 @@ module Fog
       class Real
 
         def umount_server(id, options = {})
-          vzctl('umount',{:ctid => id}.merge(options))
+          vzctl('umount',{ :ctid => id }.merge(options))
         end
 
       end

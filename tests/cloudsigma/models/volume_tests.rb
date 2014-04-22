@@ -1,6 +1,6 @@
 Shindo.tests('Fog::Compute[:cloudsigma] | volume model', ['cloudsigma']) do
   volumes = Fog::Compute[:cloudsigma].volumes
-  volume_create_args = {:name => 'fogmodeltest', :size => 1000**3, :media => :cdrom}
+  volume_create_args = { :name => 'fogmodeltest', :size => 1000**3, :media => :cdrom }
 
   model_tests(volumes, volume_create_args, true) do
     @instance.wait_for(timeout = 60) { status == 'unmounted' }

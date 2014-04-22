@@ -23,7 +23,7 @@ module Fog
 
         def update(options = {})
           requires :identity
-          service.update_pool({:uniq_id => identity}.merge!(options))
+          service.update_pool({ :uniq_id => identity }.merge!(options))
         end
 
       end

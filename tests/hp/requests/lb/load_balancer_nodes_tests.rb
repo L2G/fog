@@ -8,7 +8,7 @@ Shindo.tests('HP::LB | load balancer nodes', ['hp', 'lb', 'nodes']) do
   }
 
   tests('successs') do
-    data = HP[:lb].create_load_balancer('rg-fog-lb2', [{'address' => '15.185.1.1', 'port' => '80'}]).body
+    data = HP[:lb].create_load_balancer('rg-fog-lb2', [{ 'address' => '15.185.1.1', 'port' => '80' }]).body
     @lb_id = data['id']
 
     tests("#create_load_balancer_node(#{@lb_id}, '15.185.2.2', '88')").formats('nodes' => [@node_format]) do

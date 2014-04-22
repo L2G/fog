@@ -1,6 +1,6 @@
 Shindo.tests('AWS::RDS | db instance options', ['aws', 'rds']) do
 
-  params = {:engine => 'mysql'}
+  params = { :engine => 'mysql' }
 
   pending if Fog.mocking?
 

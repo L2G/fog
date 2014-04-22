@@ -26,7 +26,7 @@ module Fog
         # * response<~Excon::Response>:
         #   * body<~Hash>:
         def configure_health_check(lb_name, health_check)
-          params = {'LoadBalancerName' => lb_name}
+          params = { 'LoadBalancerName' => lb_name }
           health_check.each {|key, value| params["HealthCheck.#{key}"] = value }
 
           request({

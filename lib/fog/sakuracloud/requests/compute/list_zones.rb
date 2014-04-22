@@ -22,14 +22,14 @@ module Fog
           response.body = {
           'Zones' =>
             [
-            {'Index' => 0,
+            { 'Index' => 0,
                'ID' => 31001,
                'Name' => 'is1a',
-               'Description' => '石狩第1ゾーン'},
-            {'Index' => 1,
+               'Description' => '石狩第1ゾーン' },
+            { 'Index' => 1,
                'ID' => 31002,
                'Name' => 'is1b',
-               'Description' => '石狩第2ゾーン'}
+               'Description' => '石狩第2ゾーン' }
             ]
           }
           response

@@ -14,7 +14,7 @@ module Fog
                    Dir.entries(service.local_root).select do |entry|
                      entry[0...1] != '.' && ::File.directory?(service.path_to(entry))
                    end.map do |entry|
-                     {:key => entry}
+                     { :key => entry }
                    end
                  else
                    []

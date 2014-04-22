@@ -2,7 +2,7 @@ Shindo.tests('Fog::Compute[:hp] | security_group', ['hp']) do
   # Disabled due to https://github.com/fog/fog/1546
   pending
 
-  model_tests(Fog::Compute[:hp].security_groups, {:name => 'foggroupname', :description => 'foggroupdescription'}, true)
+  model_tests(Fog::Compute[:hp].security_groups, { :name => 'foggroupname', :description => 'foggroupdescription' }, true)
 
   tests('a group with trailing whitespace') do
     @group = Fog::Compute[:hp].security_groups.create(:name => '   foggroup with spaces   ', :description => '   fog group desc   ')

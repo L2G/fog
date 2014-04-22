@@ -11,7 +11,7 @@ Shindo.tests('AWS::ELB | load_balancer_tests', ['aws', 'elb']) do
 
     tests('#create_load_balancer').formats(AWS::ELB::Formats::CREATE_LOAD_BALANCER) do
       zones = ['us-east-1a']
-      listeners = [{'LoadBalancerPort' => 80, 'InstancePort' => 80, 'InstanceProtocol' => 'HTTP', 'Protocol' => 'HTTP'}]
+      listeners = [{ 'LoadBalancerPort' => 80, 'InstancePort' => 80, 'InstanceProtocol' => 'HTTP', 'Protocol' => 'HTTP' }]
       Fog::AWS[:elb].create_load_balancer(zones, @load_balancer_id, listeners).body
     end
 
@@ -26,7 +26,7 @@ Shindo.tests('AWS::ELB | load_balancer_tests', ['aws', 'elb']) do
     tests('#describe_load_balancers with SSL listener') do
       sleep 5 unless Fog.mocking?
       listeners = [
-        {'Protocol' => 'HTTPS', 'LoadBalancerPort' => 443, 'InstancePort' => 443, 'SSLCertificateId' => @certificate['Arn']},
+        { 'Protocol' => 'HTTPS', 'LoadBalancerPort' => 443, 'InstancePort' => 443, 'SSLCertificateId' => @certificate['Arn'] },
       ]
       Fog::AWS[:elb].create_load_balancer_listeners(@load_balancer_id, listeners)
       response = Fog::AWS[:elb].describe_load_balancers('LoadBalancerNames' => @load_balancer_id).body
@@ -37,7 +37,7 @@ Shindo.tests('AWS::ELB | load_balancer_tests', ['aws', 'elb']) do
     end
 
     tests('modify_load_balancer_attributes') do
-      Fog::AWS[:elb].modify_load_balancer_attributes(@load_balancer_id, 'CrossZoneLoadBalancing' => {'Enabled' => true}).body
+      Fog::AWS[:elb].modify_load_balancer_attributes(@load_balancer_id, 'CrossZoneLoadBalancing' => { 'Enabled' => true }).body
       response = Fog::AWS[:elb].describe_load_balancer_attributes(@load_balancer_id).body
       response['DescribeLoadBalancerAttributesResult']['LoadBalancerAttributes']['CrossZoneLoadBalancing']['Enabled'] == true
     end

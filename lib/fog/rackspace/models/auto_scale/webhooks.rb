@@ -55,7 +55,7 @@ module Fog
         end
 
         def new(attributes = {})
-          super({:group => group, :policy => policy}.merge(attributes))
+          super({ :group => group, :policy => policy }.merge(attributes))
         end
       end
     end

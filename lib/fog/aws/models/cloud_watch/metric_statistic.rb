@@ -23,7 +23,7 @@ module Fog
           requires :namespace
           requires :unit
 
-          put_opts = {'MetricName' => metric_name, 'Unit' => unit}
+          put_opts = { 'MetricName' => metric_name, 'Unit' => unit }
           put_opts.merge!('Dimensions' => dimensions) if dimensions
           if value
             put_opts.merge!('Value' => value)

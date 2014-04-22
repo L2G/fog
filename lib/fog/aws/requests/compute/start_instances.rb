@@ -33,7 +33,7 @@ module Fog
           instance_ids = Array(instance_id)
 
           instance_set = self.data[:instances].values
-          instance_set = apply_tag_filters(instance_set, {'instance_id' => instance_ids}, 'instanceId')
+          instance_set = apply_tag_filters(instance_set, { 'instance_id' => instance_ids }, 'instanceId')
           instance_set = instance_set.find_all {|x| instance_ids.include?(x['instanceId']) }
 
           if instance_set.empty?
@@ -44,10 +44,10 @@ module Fog
 
             response.body = {
               'instancesSet' => instance_set.inject([]) do |ia, instance|
-                                  ia << {'currentState' => { 'code' => 0, 'name' => 'pending' },
+                                  ia << { 'currentState' => { 'code' => 0, 'name' => 'pending' },
                                          'previousState' => instance['instanceState'],
                                          'instanceId' => instance['instanceId'] }
-                                  instance['instanceState'] = {'code' => 0, 'name' => 'pending'}
+                                  instance['instanceState'] = { 'code' => 0, 'name' => 'pending' }
                                   ia
               end
             }

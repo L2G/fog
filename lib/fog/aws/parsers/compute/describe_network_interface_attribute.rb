@@ -5,7 +5,7 @@ module Fog
 
         class DescribeNetworkInterfaceAttribute < NetworkInterfaceParser
           def reset
-            @response             = { }
+            @response             = {}
             @in_description       = false
             @in_group_set         = false
             @in_source_dest_check = false

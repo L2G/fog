@@ -139,16 +139,16 @@ module Fog
                 }
               }
 
-              raise(Excon::Errors.status_error({:expects => 200}, response))
+              raise(Excon::Errors.status_error({ :expects => 200 }, response))
             else
               response.status = 404
               response.body = "...<Code>NoSuchKey<\/Code>..."
-              raise(Excon::Errors.status_error({:expects => 200}, response))
+              raise(Excon::Errors.status_error({ :expects => 200 }, response))
             end
           else
             response.status = 404
             response.body = '...<Code>NoSuchBucket</Code>...'
-            raise(Excon::Errors.status_error({:expects => 200}, response))
+            raise(Excon::Errors.status_error({ :expects => 200 }, response))
           end
           response
         end

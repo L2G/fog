@@ -18,7 +18,7 @@ module Fog
       class Mock
         def container_all(filters = {})
           [
-              {'id'         => '2ce79789656e4f7474624be6496dc6d988899af30d556574389a19aade2f9650',
+              { 'id'         => '2ce79789656e4f7474624be6496dc6d988899af30d556574389a19aade2f9650',
                'image'      => 'mattdm/fedora:f19',
                'command'    => '/bin/bash',
                'created'    => '1389876158',

@@ -33,7 +33,7 @@ module Fog
             raise ArgumentError.new('object_name is required')
           end
           if version_id = options.delete('versionId')
-            query = {'versionId' => version_id}
+            query = { 'versionId' => version_id }
           end
           headers = {}
           headers['If-Modified-Since'] = Fog::Time.at(options['If-Modified-Since'].to_i).to_date_header if options['If-Modified-Since']

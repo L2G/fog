@@ -23,7 +23,7 @@ DATA
             :headers  => {},
             :bucket_name => bucket_name,
             :method   => 'PUT',
-            :query    => {'requestPayment' => nil}
+            :query    => { 'requestPayment' => nil }
           )
         end
 
@@ -38,7 +38,7 @@ DATA
             bucket['Payer'] = payer
           else
             response.status = 404
-            raise(Excon::Errors.status_error({:expects => 200}, response))
+            raise(Excon::Errors.status_error({ :expects => 200 }, response))
           end
           response
         end

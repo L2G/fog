@@ -33,7 +33,7 @@ module Fog
           else
             type = type.dup
             type['id'] = type['id'].to_s
-            response(:body => {'volume_type' => type})
+            response(:body => { 'volume_type' => type })
           end
         end
       end

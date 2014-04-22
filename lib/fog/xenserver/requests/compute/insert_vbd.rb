@@ -5,7 +5,7 @@ module Fog
       class Real
 
         def insert_vbd(ref, vdi_ref, extra_args = {})
-          @connection.request({:parser => Fog::Parsers::XenServer::Base.new, :method => 'VBD.insert'}, ref, vdi_ref)
+          @connection.request({ :parser => Fog::Parsers::XenServer::Base.new, :method => 'VBD.insert' }, ref, vdi_ref)
         end
 
       end

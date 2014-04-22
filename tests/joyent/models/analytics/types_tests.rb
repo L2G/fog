@@ -7,7 +7,7 @@ Shindo.tests('Fog::Joyent[:analytics] | types', %w{joyent}) do
   end
 
   tests('#new').succeeds do
-    @types.new(['string', {'arity' => 'discrete', 'unit' => ''}])
+    @types.new(['string', { 'arity' => 'discrete', 'unit' => '' }])
   end
 
 end

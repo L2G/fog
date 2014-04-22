@@ -8,7 +8,7 @@ module Fog
         class DescribeDBSnapshots < Fog::Parsers::AWS::RDS::SnapshotParser
 
           def reset
-            @response = { 'DescribeDBSnapshotsResult' => {'DBSnapshots' => []}, 'ResponseMetadata' => {} }
+            @response = { 'DescribeDBSnapshotsResult' => { 'DBSnapshots' => [] }, 'ResponseMetadata' => {} }
             super
           end
 

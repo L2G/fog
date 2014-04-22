@@ -19,7 +19,7 @@ module Fog
           if self.data[:roles].empty?
             ['admin', 'Member'].each do |name|
               id = Fog::Mock.random_hex(32)
-              self.data[:roles][id] = {'id' => id, 'name' => name}
+              self.data[:roles][id] = { 'id' => id, 'name' => name }
             end
           end
 

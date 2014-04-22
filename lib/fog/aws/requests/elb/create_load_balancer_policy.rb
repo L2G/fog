@@ -55,7 +55,7 @@ module Fog
               if key == 'CookieExpirationPeriod' && !value
                 value = 0
               end
-              {'AttributeName' => key, 'AttributeValue' => value.to_s}
+              { 'AttributeName' => key, 'AttributeValue' => value.to_s }
             end
 
             load_balancer['Policies']['Proper'] << {

@@ -28,7 +28,7 @@ module Fog
           request(
             :body     => generate_clone_vapp_request(vapp_uri, options),
             :expects  => 202,
-            :headers  => {'Content-Type' => 'application/vnd.vmware.vcloud.cloneVAppParams+xml'},
+            :headers  => { 'Content-Type' => 'application/vnd.vmware.vcloud.cloneVAppParams+xml' },
             :method   => 'POST',
             :uri      => vdc_uri + '/action/clonevapp',
             :parse    => true

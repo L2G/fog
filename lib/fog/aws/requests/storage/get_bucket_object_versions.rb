@@ -59,7 +59,7 @@ module Fog
             :idempotent => true,
             :method   => 'GET',
             :parser   => Fog::Parsers::Storage::AWS::GetBucketObjectVersions.new,
-            :query    => {'versions' => nil}.merge!(options)          )
+            :query    => { 'versions' => nil }.merge!(options)          )
         end
 
       end
@@ -152,7 +152,7 @@ module Fog
               }
             }
 
-            raise(Excon::Errors.status_error({:expects => 200}, response))
+            raise(Excon::Errors.status_error({ :expects => 200 }, response))
           end
           response
         end

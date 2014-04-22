@@ -17,7 +17,7 @@ module Fog
           end
 
           def fresh_orderable_cluster_option
-           {'AvailabilityZones' => []}
+           { 'AvailabilityZones' => [] }
           end
 
           def start_element(name, attrs = [])
@@ -40,10 +40,10 @@ module Fog
             when 'Name'
               @availability_zone[name] = value
             when 'AvailabilityZone'
-              @orderable_cluster_option['AvailabilityZones'] << {name => @availability_zone}
+              @orderable_cluster_option['AvailabilityZones'] << { name => @availability_zone }
               @availability_zone = {}
             when 'OrderableClusterOption'
-              @response['OrderableClusterOptions'] << {name => @orderable_cluster_option}
+              @response['OrderableClusterOptions'] << { name => @orderable_cluster_option }
               @orderable_cluster_option = fresh_orderable_cluster_option
             end
           end

@@ -28,12 +28,12 @@ Shindo.tests('AWS::Elasticache | subnet group', ['aws', 'elasticache']) do
 
     model_tests(
       AWS[:elasticache].subnet_groups,
-      {:name => group_name, :subnet_ids => subnet_ids, :description => description}, true
+      { :name => group_name, :subnet_ids => subnet_ids, :description => description }, true
     )
 
     collection_tests(
       AWS[:elasticache].subnet_groups,
-      {:name => group_name, :subnet_ids => subnet_ids, :description => description}, true
+      { :name => group_name, :subnet_ids => subnet_ids, :description => description }, true
     )
   end
 

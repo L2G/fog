@@ -41,7 +41,7 @@ module Fog
                              'name' => 'Debian 6 64 bits',
                              'status' => 'ACTIVE',
                              'vps_type' => 'ScaleServer'
-                           }},
+                           } },
                          { 'os_type' => 'centos',
                            'os_bits' => '32',
                            'os_hvm' => '0',
@@ -50,7 +50,7 @@ module Fog
                              'id' => '31',
                              'vps_type' => 'VirtualServer',
                              'status' => 'ACTIVE',
-                           }}]
+                           } }]
           }
           response
         end

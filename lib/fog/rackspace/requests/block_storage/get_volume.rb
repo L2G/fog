@@ -46,7 +46,7 @@ module Fog
             if volume.nil?
               raise Fog::Rackspace::BlockStorage::NotFound
             else
-              response(:body => {'volume' => volume})
+              response(:body => { 'volume' => volume })
             end
           end
         end

@@ -42,8 +42,8 @@ module Fog
               raise Fog::Compute::AWS::NotFound.new("The instance ID '#{instance_ids}' does not exist")
             end
           end
-          instances_set = [*instance_ids].inject([]) { |memo, id| memo << {'instanceId' => id, 'monitoring' => 'disabled'} }
-          response.body = {'requestId' => 'some_request_id', 'instancesSet' => instances_set}
+          instances_set = [*instance_ids].inject([]) { |memo, id| memo << { 'instanceId' => id, 'monitoring' => 'disabled' } }
+          response.body = { 'requestId' => 'some_request_id', 'instancesSet' => instances_set }
           response
         end
 

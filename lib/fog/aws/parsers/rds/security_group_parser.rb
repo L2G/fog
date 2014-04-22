@@ -10,7 +10,7 @@ module Fog
           end
 
           def fresh_security_group
-            {'EC2SecurityGroups' => [], 'IPRanges' => []}
+            { 'EC2SecurityGroups' => [], 'IPRanges' => [] }
           end
 
           def start_element(name, attrs = [])

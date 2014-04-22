@@ -104,7 +104,7 @@ Shindo.tests('AWS::CloudFormation | stack requests', ['aws', 'cloudformation']) 
       Fog::AWS[:cloud_formation].create_stack(
         @stack_name,
         'TemplateURL' => @template_url,
-        'Parameters'  => {'KeyName' => 'cloudformation'}
+        'Parameters'  => { 'KeyName' => 'cloudformation' }
       ).body
     end
 
@@ -113,7 +113,7 @@ Shindo.tests('AWS::CloudFormation | stack requests', ['aws', 'cloudformation']) 
       Fog::AWS[:cloud_formation].update_stack(
         @stack_name,
         'TemplateURL' => @template_url,
-        'Parameters'  => {'KeyName' => 'cloudformation'}
+        'Parameters'  => { 'KeyName' => 'cloudformation' }
       ).body
     end
 

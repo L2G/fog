@@ -58,7 +58,7 @@ module Fog
 
           response.body = {
             'ResponseMetadata' => { 'RequestId' => Fog::AWS::Mock.request_id },
-            'CreateDBSnapshotResult' => {'DBSnapshot' => snapshot_data.dup}
+            'CreateDBSnapshotResult' => { 'DBSnapshot' => snapshot_data.dup }
           }
           response.status = 200
           # SnapshotCreateTime is not part of the response.

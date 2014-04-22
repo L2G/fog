@@ -57,8 +57,8 @@ module Fog
           response = Excon::Response.new
           if self.data[:security_groups].detect {|_,v| v['name'] == name}
             response.status = 400
-            response.body = { 'badRequest' => {'message' => "Security group #{name} already exists", 'code' => 400}}
-            raise(Excon::Errors.status_error({:expects => 200}, response))
+            response.body = { 'badRequest' => { 'message' => "Security group #{name} already exists", 'code' => 400 } }
+            raise(Excon::Errors.status_error({ :expects => 200 }, response))
           else
             response.status = 200
             data = {

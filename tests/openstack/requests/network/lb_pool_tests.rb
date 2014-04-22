@@ -31,8 +31,8 @@ Shindo.tests('Fog::Network[:openstack] | lb_pool requests', ['openstack']) do
       subnet_id = 'subnet_id'
       protocol = 'HTTP'
       lb_method = 'ROUND_ROBIN'
-      attributes = {:name => 'test-pool', :description => 'Test Pool',
-                    :admin_state_up => true, :tenant_id => 'tenant_id'}
+      attributes = { :name => 'test-pool', :description => 'Test Pool',
+                    :admin_state_up => true, :tenant_id => 'tenant_id' }
       Fog::Network[:openstack].create_lb_pool(subnet_id, protocol, lb_method, attributes).body
     end
 
@@ -52,8 +52,8 @@ Shindo.tests('Fog::Network[:openstack] | lb_pool requests', ['openstack']) do
 
     tests('#update_lb_pool').formats('pool' => @lb_pool_format) do
       lb_pool_id = Fog::Network[:openstack].lb_pools.all.first.id
-      attributes = {:name => 'new-test-pool', :description => 'New Test Pool',
-                    :lb_method => 'LEAST_CONNECTIONS', :admin_state_up => false}
+      attributes = { :name => 'new-test-pool', :description => 'New Test Pool',
+                    :lb_method => 'LEAST_CONNECTIONS', :admin_state_up => false }
       Fog::Network[:openstack].update_lb_pool(lb_pool_id, attributes).body
     end
 

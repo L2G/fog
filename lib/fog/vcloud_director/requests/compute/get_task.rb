@@ -88,7 +88,7 @@ module Fog
           #
           # We'd prefer that Owner is always present; if nothing else, this
           # let's the tests pass.
-          response.body[:Owner] ||= {:href => '', :name => nil, :type => nil}
+          response.body[:Owner] ||= { :href => '', :name => nil, :type => nil }
 
           response
         end
@@ -110,7 +110,7 @@ module Fog
 
           Excon::Response.new(
             :status => 200,
-            :headers => {'Type' => "application/#{body[:type]};version=#{api_version}"},
+            :headers => { 'Type' => "application/#{body[:type]};version=#{api_version}" },
             :body => body
           )
         end

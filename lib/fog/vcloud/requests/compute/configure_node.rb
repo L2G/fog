@@ -25,7 +25,7 @@ module Fog
           request(
             :body     => generate_configure_node_request(node_data),
             :expects  => 200,
-            :headers  => {'Content-Type' => 'application/vnd.vmware.vcloud.nodeService+xml'},
+            :headers  => { 'Content-Type' => 'application/vnd.vmware.vcloud.nodeService+xml' },
             :method   => 'PUT',
             :uri      => node_uri,
             :parse    => true

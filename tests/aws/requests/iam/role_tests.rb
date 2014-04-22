@@ -95,7 +95,7 @@ Shindo.tests('AWS::IAM | role requests', ['aws']) do
       Fog::AWS[:iam].list_instance_profiles.body
     end
 
-    sample_policy = {'Statement' => [{'Effect' => 'Allow', 'Action' => '*', 'Resource' => '*'}]}
+    sample_policy = { 'Statement' => [{ 'Effect' => 'Allow', 'Action' => '*', 'Resource' => '*' }] }
 
     tests('put_role_policy').formats(AWS::IAM::Formats::BASIC) do
       pending if Fog.mocking?

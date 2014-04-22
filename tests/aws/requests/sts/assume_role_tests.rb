@@ -1,6 +1,6 @@
 Shindo.tests('AWS::STS | assume role', ['aws']) do
 
-  @policy = {'Statement' => [{'Effect' => 'Allow', 'Action' => '*', 'Resource' => '*'}]}
+  @policy = { 'Statement' => [{ 'Effect' => 'Allow', 'Action' => '*', 'Resource' => '*' }] }
 
   @response_format = {
     'SessionToken' => String,

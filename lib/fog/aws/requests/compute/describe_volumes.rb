@@ -34,7 +34,7 @@ module Fog
         def describe_volumes(filters = {})
           unless filters.is_a?(Hash)
             Fog::Logger.deprecation("describe_volumes with #{filters.class} param is deprecated, use describe_volumes('volume-id' => []) instead [light_black](#{caller.first})[/]")
-            filters = {'volume-id' => [*filters]}
+            filters = { 'volume-id' => [*filters] }
           end
           params = Fog::AWS.indexed_filters(filters)
           request({
@@ -51,7 +51,7 @@ module Fog
         def describe_volumes(filters = {})
           unless filters.is_a?(Hash)
             Fog::Logger.deprecation("describe_volumes with #{filters.class} param is deprecated, use describe_volumes('volume-id' => []) instead [light_black](#{caller.first})[/]")
-            filters = {'volume-id' => [*filters]}
+            filters = { 'volume-id' => [*filters] }
           end
 
           response = Excon::Response.new

@@ -44,32 +44,32 @@ module Fog
 
         def reboot(options = {})
           requires :identity
-          service.reboot_server({:uniq_id => identity}.merge!(options))
+          service.reboot_server({ :uniq_id => identity }.merge!(options))
           true
         end
 
         def clone(options)
           requires :identity
-          service.clone_server({:uniq_id => identity}.merge!(options))
+          service.clone_server({ :uniq_id => identity }.merge!(options))
           true
         end
 
         def resize(options)
           requires :identity
-          service.resize_server({:uniq_id => identity}.merge!(options))
+          service.resize_server({ :uniq_id => identity }.merge!(options))
           true
         end
 
         def history(options = {})
           requires :identity
-          params = {:uniq_id => identity}.merge!(options)
+          params = { :uniq_id => identity }.merge!(options)
           res = service.server_history(params).body
           res['items']
         end
 
         def shutdown(options = {})
           requires :identity
-          service.shutdown_server({:uniq_id => identity}.merge!(options)).body
+          service.shutdown_server({ :uniq_id => identity }.merge!(options)).body
         end
 
         def start
@@ -84,7 +84,7 @@ module Fog
 
         def update(options)
           requires :identity
-          service.update_server({:uniq_id => identity}.merge!(options)).body
+          service.update_server({ :uniq_id => identity }.merge!(options)).body
         end
 
       end

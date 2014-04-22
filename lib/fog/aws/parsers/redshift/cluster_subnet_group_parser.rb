@@ -19,7 +19,7 @@ module Fog
           end
 
           def fresh_subnet
-            {'SubnetAvailabilityZone' => {}}
+            { 'SubnetAvailabilityZone' => {} }
           end
 
           def start_element(name, attrs = [])
@@ -40,7 +40,7 @@ module Fog
             when 'Name'
               @subnet['SubnetAvailabilityZone'][name] = value
             when 'Subnet'
-              @response['Subnets'] << {name => @subnet}
+              @response['Subnets'] << { name => @subnet }
               @subnet = fresh_subnet
             end
           end

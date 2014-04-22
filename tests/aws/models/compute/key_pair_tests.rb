@@ -1,6 +1,6 @@
 Shindo.tests('Fog::Compute[:aws] | key_pair', ['aws']) do
 
-  model_tests(Fog::Compute[:aws].key_pairs, {:name => 'fogkeyname'}, true)
+  model_tests(Fog::Compute[:aws].key_pairs, { :name => 'fogkeyname' }, true)
 
   after do
     @keypair.destroy

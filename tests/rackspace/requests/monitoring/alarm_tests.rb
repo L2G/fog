@@ -18,7 +18,7 @@ Shindo.tests('Fog::Rackspace::Monitoring | alarm_tests', ['rackspace','rackspace
       response
     end
     tests('#update alarm').formats(DATA_FORMAT) do
-      options = { :label => 'Bar'}
+      options = { :label => 'Bar' }
       account.update_alarm(entity_id,alarm_id,options).data
     end
     tests('#list alarms').formats(LIST_HEADERS_FORMAT) do

@@ -445,8 +445,8 @@ module Fog
             hash[key1] ||= []
             hash[key1] = [hash[key1]] if hash[key1].is_a?(Hash)
           else
-            hash[key1] ||= {key2 => []}
-            hash[key1] = {key2 => []} if hash[key1].empty?
+            hash[key1] ||= { key2 => [] }
+            hash[key1] = { key2 => [] } if hash[key1].empty?
             hash[key1][key2] = [hash[key1][key2]] if hash[key1][key2].is_a?(Hash)
           end
           hash
@@ -511,7 +511,7 @@ module Fog
                   :Configuration => {
                     :GatewayBackingConfig => 'compact',
                     :GatewayInterfaces => {
-                      :GatewayInterface => []},
+                      :GatewayInterface => [] },
                     :EdgeGatewayServiceConfiguration => {
                       :FirewallService => {
                         :IsEnabled => 'true',
@@ -519,7 +519,7 @@ module Fog
                         :LogDefaultAction => 'false',
                         :FirewallRule => []
                       },
-                      :NatService => {:IsEnabled => 'true'}},
+                      :NatService => { :IsEnabled => 'true' } },
                     :HaEnabled => 'false',
                     :UseDefaultRouteForDnsRelay => 'false'
                   }

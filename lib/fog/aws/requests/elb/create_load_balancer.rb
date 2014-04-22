@@ -69,7 +69,7 @@ module Fog
             if listener['SSLCertificateId'] and !certificate_ids.include? listener['SSLCertificateId']
               raise Fog::AWS::IAM::NotFound.new('CertificateNotFound')
             end
-            {'Listener' => listener, 'PolicyNames' => []}
+            { 'Listener' => listener, 'PolicyNames' => [] }
           end
 
           dns_name = Fog::AWS::ELB::Mock.dns_name(lb_name, @region)
@@ -120,7 +120,7 @@ module Fog
             },
             'Instances' => [],
             'ListenerDescriptions' => listeners,
-            'LoadBalancerAttributes' => {'CrossZoneLoadBalancing' => {'Enabled' => false}},
+            'LoadBalancerAttributes' => { 'CrossZoneLoadBalancing' => { 'Enabled' => false } },
             'LoadBalancerName' => lb_name,
             'Policies' => {
               'AppCookieStickinessPolicies' => [],

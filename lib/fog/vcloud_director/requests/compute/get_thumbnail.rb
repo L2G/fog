@@ -16,7 +16,7 @@ module Fog
         def get_thumbnail(id)
           request(
             :expects    => 200,
-            :headers    => {'Accept' => "image/*;version=#{@api_version}"},
+            :headers    => { 'Accept' => "image/*;version=#{@api_version}" },
             :idempotent => true,
             :method     => 'GET',
             :path       => "vApp/#{id}/screen"

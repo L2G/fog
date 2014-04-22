@@ -131,13 +131,13 @@ module Fog
         def perm_acl_to_header(read_perm_acl, write_perm_acl)
           header = {}
           if read_perm_acl.nil? && write_perm_acl.nil?
-            header = {'X-Container-Read' => '', 'X-Container-Write' => ''}
+            header = { 'X-Container-Read' => '', 'X-Container-Write' => '' }
           elsif !read_perm_acl.nil? && write_perm_acl.nil?
-            header = {'X-Container-Read' => "#{read_perm_acl.join(',')}", 'X-Container-Write' => ''}
+            header = { 'X-Container-Read' => "#{read_perm_acl.join(',')}", 'X-Container-Write' => '' }
           elsif read_perm_acl.nil? && !write_perm_acl.nil?
-            header = {'X-Container-Read' => '', 'X-Container-Write' => "#{write_perm_acl.join(',')}"}
+            header = { 'X-Container-Read' => '', 'X-Container-Write' => "#{write_perm_acl.join(',')}" }
           elsif !read_perm_acl.nil? && !write_perm_acl.nil?
-            header = {'X-Container-Read' => "#{read_perm_acl.join(',')}", 'X-Container-Write' => "#{write_perm_acl.join(',')}"}
+            header = { 'X-Container-Read' => "#{read_perm_acl.join(',')}", 'X-Container-Write' => "#{write_perm_acl.join(',')}" }
           end
           header
         end

@@ -4,11 +4,11 @@ module Fog
       class Real
 
         def get_vm_by_name(label)
-          @connection.request({:parser => Fog::Parsers::XenServer::Base.new, :method => 'VM.get_by_name_label' }, label)
+          @connection.request({ :parser => Fog::Parsers::XenServer::Base.new, :method => 'VM.get_by_name_label' }, label)
         end
 
         def get_vm_by_uuid(uuid)
-          @connection.request({:parser => Fog::Parsers::XenServer::Base.new, :method => 'VM.get_by_uuid' }, uuid)
+          @connection.request({ :parser => Fog::Parsers::XenServer::Base.new, :method => 'VM.get_by_uuid' }, uuid)
         end
 
         def create_server_raw(config = {})
@@ -56,7 +56,7 @@ module Fog
             :actions_after_shutdown =>  'Destroy',
             :actions_after_reboot =>    'Restart',
             :actions_after_crash =>     'Restart',
-            :platform =>                { 'nx' => false, 'acpi' => true, 'apic' => 'true', 'pae' => true, 'viridian' => true},
+            :platform =>                { 'nx' => false, 'acpi' => true, 'apic' => 'true', 'pae' => true, 'viridian' => true },
             :platform =>                {},
             :other_config =>            {},
             :pool_name =>               '',
@@ -71,7 +71,7 @@ module Fog
             :PCI_bus =>                 '',
             :recommendations =>         '',
           }.merge config
-          ref = @connection.request({:parser => Fog::Parsers::XenServer::Base.new, :method => 'VM.create' }, vm_record)
+          ref = @connection.request({ :parser => Fog::Parsers::XenServer::Base.new, :method => 'VM.create' }, vm_record)
           ref
         end
 
@@ -104,7 +104,7 @@ module Fog
             create_vif ref, n.reference
           end
           if !extra_args[:auto_start] == false
-            @connection.request({:parser => Fog::Parsers::XenServer::Base.new, :method => 'VM.provision'}, ref)
+            @connection.request({ :parser => Fog::Parsers::XenServer::Base.new, :method => 'VM.provision' }, ref)
             start_vm( ref )
           end
 

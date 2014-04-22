@@ -26,7 +26,7 @@ module Fog
                 ip = self.IpAddress,
                 name = self.Name,
                 port = self.Port,
-                options = {'Enabled' => 'true',
+                options = { 'Enabled' => 'true',
                            'Description' => self.Name,
                 }
 

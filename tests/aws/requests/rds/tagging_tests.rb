@@ -11,8 +11,8 @@ Shindo.tests('AWS::RDS | tagging requests', ['aws', 'rds']) do
 
   tests('success') do
 
-    single_tag  = {'key1' => 'value1'}
-    two_tags    = {'key2' => 'value2', 'key3' => 'value3'}
+    single_tag  = { 'key1' => 'value1' }
+    two_tags    = { 'key2' => 'value2', 'key3' => 'value3' }
 
     tests('#add_tags_to_resource with a single tag').
     formats(AWS::RDS::Formats::BASIC) do

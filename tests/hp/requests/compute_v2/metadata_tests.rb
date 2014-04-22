@@ -20,7 +20,7 @@ Shindo.tests('Fog::Compute::HPV2 | metadata requests', ['hp', 'v2', 'compute']) 
     else
       #@server = service.servers.create(:name => @server_name, :flavor_id => 100, :image_id => @base_image_id, :metadata => {'Meta1' => 'MetaValue1', 'Meta2' => 'MetaValue2'} )
       #@server.wait_for { ready? }
-      data = service.create_server(@server_name, 100, @base_image_id, 'metadata' => {'Meta1' => 'MetaValue1', 'Meta2' => 'MetaValue2'} ).body['server']
+      data = service.create_server(@server_name, 100, @base_image_id, 'metadata' => { 'Meta1' => 'MetaValue1', 'Meta2' => 'MetaValue2' } ).body['server']
       @server_id = data['id']
     end
 

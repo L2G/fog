@@ -3,37 +3,37 @@ require 'fog/rackspace/models/identity/service_catalog'
 Shindo.tests('Fog::Rackspace::ServiceCatalog | users', ['rackspace']) do
 
     tests('successful') do
-      before_hash = {'access' => {'token' => {'expires' => '2013-02-20T10:31:00.000-06:00', 'tenant' => {'name' => '777', 'id' => '777'}, 'id' => '6ca10877-7c50-4a5c-b58f-004d835c39c3'},
-      'serviceCatalog' => [{'type' => 'volume', 'endpoints' => [{'region' => 'DFW', 'tenantId' => '777', 'publicURL' => 'https://dfw.blockstorage.api.rackspacecloud.com/v1/777'},
-      {'region' => 'ORD', 'tenantId' => '777', 'publicURL' => 'https://ord.blockstorage.api.rackspacecloud.com/v1/777'}], 'name' => 'cloudBlockStorage'},
-      {'type' => 'rax:load-balancer', 'endpoints' => [{'region' => 'ORD', 'tenantId' => '777', 'publicURL' => 'https://ord.loadbalancers.api.rackspacecloud.com/v1.0/777'},
-      {'region' => 'DFW', 'tenantId' => '777', 'publicURL' => 'https://dfw.loadbalancers.api.rackspacecloud.com/v1.0/777'}], 'name' => 'cloudLoadBalancers'},
-      {'type' => 'object-store', 'endpoints' => [{'internalURL' => 'https://snet-storage101.dfw1.clouddrive.com/v1/Mosso777', 'region' => 'DFW',
+      before_hash = { 'access' => { 'token' => { 'expires' => '2013-02-20T10:31:00.000-06:00', 'tenant' => { 'name' => '777', 'id' => '777' }, 'id' => '6ca10877-7c50-4a5c-b58f-004d835c39c3' },
+      'serviceCatalog' => [{ 'type' => 'volume', 'endpoints' => [{ 'region' => 'DFW', 'tenantId' => '777', 'publicURL' => 'https://dfw.blockstorage.api.rackspacecloud.com/v1/777' },
+      { 'region' => 'ORD', 'tenantId' => '777', 'publicURL' => 'https://ord.blockstorage.api.rackspacecloud.com/v1/777' }], 'name' => 'cloudBlockStorage' },
+      { 'type' => 'rax:load-balancer', 'endpoints' => [{ 'region' => 'ORD', 'tenantId' => '777', 'publicURL' => 'https://ord.loadbalancers.api.rackspacecloud.com/v1.0/777' },
+      { 'region' => 'DFW', 'tenantId' => '777', 'publicURL' => 'https://dfw.loadbalancers.api.rackspacecloud.com/v1.0/777' }], 'name' => 'cloudLoadBalancers' },
+      { 'type' => 'object-store', 'endpoints' => [{ 'internalURL' => 'https://snet-storage101.dfw1.clouddrive.com/v1/Mosso777', 'region' => 'DFW',
       'tenantId' => 'Mosso777',
-      'publicURL' => 'https://storage101.dfw1.clouddrive.com/v1/Mosso777'},
-      {'internalURL' => 'https://snet-storage101.ord1.clouddrive.com/v1/Mosso777', 'region' => 'ORD',
+      'publicURL' => 'https://storage101.dfw1.clouddrive.com/v1/Mosso777' },
+      { 'internalURL' => 'https://snet-storage101.ord1.clouddrive.com/v1/Mosso777', 'region' => 'ORD',
       'tenantId' => 'Mosso777',
-      'publicURL' => 'https://storage101.ord1.clouddrive.com/v1/Mosso777'}], 'name' => 'cloudFiles'}, {'type' => 'rax:database',
-      'endpoints' => [{'region' => 'DFW', 'tenantId' => '777', 'publicURL' => 'https://dfw.databases.api.rackspacecloud.com/v1.0/777'}, {'region' => 'ORD', 'tenantId' => '777',
-      'publicURL' => 'https://ord.databases.api.rackspacecloud.com/v1.0/777'}], 'name' => 'cloudDatabases'}, {'type' => 'rax:dns', 'endpoints' => [{'tenantId' => '777',
-      'publicURL' => 'https://dns.api.rackspacecloud.com/v1.0/777'}], 'name' => 'cloudDNS'}, {'type' => 'compute', 'endpoints' => [{'versionId' => '1.0', 'tenantId' => '777',
+      'publicURL' => 'https://storage101.ord1.clouddrive.com/v1/Mosso777' }], 'name' => 'cloudFiles' }, { 'type' => 'rax:database',
+      'endpoints' => [{ 'region' => 'DFW', 'tenantId' => '777', 'publicURL' => 'https://dfw.databases.api.rackspacecloud.com/v1.0/777' }, { 'region' => 'ORD', 'tenantId' => '777',
+      'publicURL' => 'https://ord.databases.api.rackspacecloud.com/v1.0/777' }], 'name' => 'cloudDatabases' }, { 'type' => 'rax:dns', 'endpoints' => [{ 'tenantId' => '777',
+      'publicURL' => 'https://dns.api.rackspacecloud.com/v1.0/777' }], 'name' => 'cloudDNS' }, { 'type' => 'compute', 'endpoints' => [{ 'versionId' => '1.0', 'tenantId' => '777',
       'versionList' => 'https://servers.api.rackspacecloud.com/', 'versionInfo' => 'https://servers.api.rackspacecloud.com/v1.0',
-      'publicURL' => 'https://servers.api.rackspacecloud.com/v1.0/777'}], 'name' => 'cloudServers'}, {'type' => 'compute', 'endpoints' => [{'region' => 'DFW', 'versionId' => '2',
+      'publicURL' => 'https://servers.api.rackspacecloud.com/v1.0/777' }], 'name' => 'cloudServers' }, { 'type' => 'compute', 'endpoints' => [{ 'region' => 'DFW', 'versionId' => '2',
       'tenantId' => '777', 'versionList' => 'https://dfw.servers.api.rackspacecloud.com/', 'versionInfo' => 'https://dfw.servers.api.rackspacecloud.com/v2',
-      'publicURL' => 'https://dfw.servers.api.rackspacecloud.com/v2/777'}, {'region' => 'ORD', 'versionId' => '2', 'tenantId' => '777',
+      'publicURL' => 'https://dfw.servers.api.rackspacecloud.com/v2/777' }, { 'region' => 'ORD', 'versionId' => '2', 'tenantId' => '777',
       'versionList' => 'https://ord.servers.api.rackspacecloud.com/', 'versionInfo' => 'https://ord.servers.api.rackspacecloud.com/v2',
-      'publicURL' => 'https://ord.servers.api.rackspacecloud.com/v2/777'}, {'versionId' => '2', 'tenantId' => '777', 'versionList' => 'https://servers.api.rackspacecloud.com/', 'versionInfo' => 'https://servers.api.rackspacecloud.com/v2', 'publicURL' => 'https://servers.api.rackspacecloud.com/v2/777'}], 'name' => 'cloudServersOpenStack'}, {'type' => 'rax:monitor', 'endpoints' => [{'tenantId' => '777',
-      'publicURL' => 'https://monitoring.api.rackspacecloud.com/v1.0/777'}], 'name' => 'cloudMonitoring'}, {'type' => 'rax:object-cdn', 'endpoints' => [{'region' => 'DFW',
-      'tenantId' => 'Mosso777', 'publicURL' => 'https://cdn1.clouddrive.com/v1/Mosso777'},
-      {'region' => 'ORD', 'tenantId' => 'Mosso777',
-      'publicURL' => 'https://cdn2.clouddrive.com/v1/Mosso777'}], 'name' => 'cloudFilesCDN'},
+      'publicURL' => 'https://ord.servers.api.rackspacecloud.com/v2/777' }, { 'versionId' => '2', 'tenantId' => '777', 'versionList' => 'https://servers.api.rackspacecloud.com/', 'versionInfo' => 'https://servers.api.rackspacecloud.com/v2', 'publicURL' => 'https://servers.api.rackspacecloud.com/v2/777' }], 'name' => 'cloudServersOpenStack' }, { 'type' => 'rax:monitor', 'endpoints' => [{ 'tenantId' => '777',
+      'publicURL' => 'https://monitoring.api.rackspacecloud.com/v1.0/777' }], 'name' => 'cloudMonitoring' }, { 'type' => 'rax:object-cdn', 'endpoints' => [{ 'region' => 'DFW',
+      'tenantId' => 'Mosso777', 'publicURL' => 'https://cdn1.clouddrive.com/v1/Mosso777' },
+      { 'region' => 'ORD', 'tenantId' => 'Mosso777',
+      'publicURL' => 'https://cdn2.clouddrive.com/v1/Mosso777' }], 'name' => 'cloudFilesCDN' },
 
-      {'type' => 'not_here', 'name' => 'not_here', 'endpoints' => [{'tenantId' => '777', 'region' => 'LON',
-      'publicURL' => 'https://monitoring.api.rackspacecloud.com/v1.0/777'}]}
+      { 'type' => 'not_here', 'name' => 'not_here', 'endpoints' => [{ 'tenantId' => '777', 'region' => 'LON',
+      'publicURL' => 'https://monitoring.api.rackspacecloud.com/v1.0/777' }] }
       ],
 
-      'user' => {'roles' => [{'description' => "User Admin
-      Role.", 'name' => 'identity:user-admin', 'id' => '3'}], 'name' => 'joe-racker', 'RAX-AUTH:defaultRegion' => '', 'id' => 'TK421'}}}
+      'user' => { 'roles' => [{ 'description' => "User Admin
+      Role.", 'name' => 'identity:user-admin', 'id' => '3' }], 'name' => 'joe-racker', 'RAX-AUTH:defaultRegion' => '', 'id' => 'TK421' } } }
 
       @service_catalog = Fog::Rackspace::Identity::ServiceCatalog.from_response(nil, before_hash)
     end
@@ -45,7 +45,7 @@ Shindo.tests('Fog::Rackspace::ServiceCatalog | users', ['rackspace']) do
     end
 
   tests('get_endpoints') do
-    endpoints = [{'region' => 'DFW', 'versionId' => '2', 'tenantId' => '777', 'versionList' => 'https://dfw.servers.api.rackspacecloud.com/', 'versionInfo' => 'https://dfw.servers.api.rackspacecloud.com/v2', 'publicURL' => 'https://dfw.servers.api.rackspacecloud.com/v2/777'}, {'region' => 'ORD', 'versionId' => '2', 'tenantId' => '777', 'versionList' => 'https://ord.servers.api.rackspacecloud.com/', 'versionInfo' => 'https://ord.servers.api.rackspacecloud.com/v2', 'publicURL' => 'https://ord.servers.api.rackspacecloud.com/v2/777'}, {'versionId' => '2', 'tenantId' => '777', 'versionList' => 'https://servers.api.rackspacecloud.com/', 'versionInfo' => 'https://servers.api.rackspacecloud.com/v2', 'publicURL' => 'https://servers.api.rackspacecloud.com/v2/777'}]
+    endpoints = [{ 'region' => 'DFW', 'versionId' => '2', 'tenantId' => '777', 'versionList' => 'https://dfw.servers.api.rackspacecloud.com/', 'versionInfo' => 'https://dfw.servers.api.rackspacecloud.com/v2', 'publicURL' => 'https://dfw.servers.api.rackspacecloud.com/v2/777' }, { 'region' => 'ORD', 'versionId' => '2', 'tenantId' => '777', 'versionList' => 'https://ord.servers.api.rackspacecloud.com/', 'versionInfo' => 'https://ord.servers.api.rackspacecloud.com/v2', 'publicURL' => 'https://ord.servers.api.rackspacecloud.com/v2/777' }, { 'versionId' => '2', 'tenantId' => '777', 'versionList' => 'https://servers.api.rackspacecloud.com/', 'versionInfo' => 'https://servers.api.rackspacecloud.com/v2', 'publicURL' => 'https://servers.api.rackspacecloud.com/v2/777' }]
     returns(endpoints) { @service_catalog.get_endpoints(:cloudServersOpenStack) }
     returns(endpoints) { @service_catalog.get_endpoints('cloudServersOpenStack') }
     returns({}) { @service_catalog.get_endpoints('non-existent') }
@@ -62,7 +62,7 @@ Shindo.tests('Fog::Rackspace::ServiceCatalog | users', ['rackspace']) do
 
     tests('with one endpoint') do
       tests('catalog contains global endpoint') do
-        catalog_hash =  [{'type' => 'volume', 'endpoints' => [{'tenantId' => '777', 'publicURL' => 'https://blockstorage.api.rackspacecloud.com/v1/777'}], 'name' => 'cloudBlockStorage'}]
+        catalog_hash =  [{ 'type' => 'volume', 'endpoints' => [{ 'tenantId' => '777', 'publicURL' => 'https://blockstorage.api.rackspacecloud.com/v1/777' }], 'name' => 'cloudBlockStorage' }]
         @service_catalog = Fog::Rackspace::Identity::ServiceCatalog.new(:service => nil, :catalog => catalog_hash)
 
         tests('no region specifed').returns('https://blockstorage.api.rackspacecloud.com/v1/777') do
@@ -73,7 +73,7 @@ Shindo.tests('Fog::Rackspace::ServiceCatalog | users', ['rackspace']) do
         end
       end
       tests('catalog does not contain global endpoint') do
-        catalog_hash =   [{'type' => 'volume', 'endpoints' => [{'region' => 'ORD', 'tenantId' => '777', 'publicURL' => 'https://ord.blockstorage.api.rackspacecloud.com/v1/777'}], 'name' => 'cloudBlockStorage'}]
+        catalog_hash =   [{ 'type' => 'volume', 'endpoints' => [{ 'region' => 'ORD', 'tenantId' => '777', 'publicURL' => 'https://ord.blockstorage.api.rackspacecloud.com/v1/777' }], 'name' => 'cloudBlockStorage' }]
         @service_catalog = Fog::Rackspace::Identity::ServiceCatalog.new(:service => nil, :catalog => catalog_hash)
 
         tests('non-existing region') do
@@ -86,12 +86,12 @@ Shindo.tests('Fog::Rackspace::ServiceCatalog | users', ['rackspace']) do
     end
 
     tests('endpoint type') do
-      catalog_hash =  [{'type' => 'object-store', 'endpoints' => [{'internalURL' => 'https://snet-storage101.dfw1.clouddrive.com/v1/Mosso777', 'region' => 'DFW',
+      catalog_hash =  [{ 'type' => 'object-store', 'endpoints' => [{ 'internalURL' => 'https://snet-storage101.dfw1.clouddrive.com/v1/Mosso777', 'region' => 'DFW',
       'tenantId' => 'Mosso777',
-      'publicURL' => 'https://storage101.dfw1.clouddrive.com/v1/Mosso777'},
-      {'internalURL' => 'https://snet-storage101.ord1.clouddrive.com/v1/Mosso777', 'region' => 'ORD',
+      'publicURL' => 'https://storage101.dfw1.clouddrive.com/v1/Mosso777' },
+      { 'internalURL' => 'https://snet-storage101.ord1.clouddrive.com/v1/Mosso777', 'region' => 'ORD',
       'tenantId' => 'Mosso777',
-      'publicURL' => 'https://storage101.ord1.clouddrive.com/v1/Mosso777'}], 'name' => 'cloudFiles'}]
+      'publicURL' => 'https://storage101.ord1.clouddrive.com/v1/Mosso777' }], 'name' => 'cloudFiles' }]
       @service_catalog = Fog::Rackspace::Identity::ServiceCatalog.new(:service => nil, :catalog => catalog_hash)
 
       returns('https://storage101.ord1.clouddrive.com/v1/Mosso777') { @service_catalog.get_endpoint(:cloudFiles, :ord) }
@@ -114,7 +114,7 @@ Shindo.tests('Fog::Rackspace::ServiceCatalog | users', ['rackspace']) do
 
     service = Fog::Identity[:rackspace]
     service_catalog = service.service_catalog
-    service_catalog.catalog << {'name' => 'fakeService', 'endpoints' => [{ 'publicURL' => 'http:///fake-endpoint.com'}]}
+    service_catalog.catalog << { 'name' => 'fakeService', 'endpoints' => [{ 'publicURL' => 'http:///fake-endpoint.com' }] }
     returns('http:///fake-endpoint.com') { service_catalog.get_endpoint :fakeService }
     returns('http:///fake-endpoint.com') { service.service_catalog.get_endpoint :fakeService }
     service_catalog.reload
@@ -125,23 +125,23 @@ Shindo.tests('Fog::Rackspace::ServiceCatalog | users', ['rackspace']) do
   tests('display_service_regions') do
 
     tests('with global endpoint').returns(':dfw, :ord, :global') do
-      catalog_hash =  [{'type' => 'compute', 'endpoints' => [{'region' => 'DFW', 'versionId' => '2',
+      catalog_hash =  [{ 'type' => 'compute', 'endpoints' => [{ 'region' => 'DFW', 'versionId' => '2',
       'tenantId' => '777', 'versionList' => 'https://dfw.servers.api.rackspacecloud.com/', 'versionInfo' => 'https://dfw.servers.api.rackspacecloud.com/v2',
-      'publicURL' => 'https://dfw.servers.api.rackspacecloud.com/v2/777'}, {'region' => 'ORD', 'versionId' => '2', 'tenantId' => '777',
+      'publicURL' => 'https://dfw.servers.api.rackspacecloud.com/v2/777' }, { 'region' => 'ORD', 'versionId' => '2', 'tenantId' => '777',
       'versionList' => 'https://ord.servers.api.rackspacecloud.com/', 'versionInfo' => 'https://ord.servers.api.rackspacecloud.com/v2',
-      'publicURL' => 'https://ord.servers.api.rackspacecloud.com/v2/777'}, {'versionId' => '2', 'tenantId' => '777', 'versionList' => 'https://servers.api.rackspacecloud.com/', 'versionInfo' => 'https://servers.api.rackspacecloud.com/v2', 'publicURL' => 'https://servers.api.rackspacecloud.com/v2/777'}], 'name' => 'cloudServersOpenStack'}]
+      'publicURL' => 'https://ord.servers.api.rackspacecloud.com/v2/777' }, { 'versionId' => '2', 'tenantId' => '777', 'versionList' => 'https://servers.api.rackspacecloud.com/', 'versionInfo' => 'https://servers.api.rackspacecloud.com/v2', 'publicURL' => 'https://servers.api.rackspacecloud.com/v2/777' }], 'name' => 'cloudServersOpenStack' }]
       @service_catalog = Fog::Rackspace::Identity::ServiceCatalog.new(:service => nil, :catalog => catalog_hash)
 
      @service_catalog.display_service_regions(:cloudServersOpenStack)
     end
 
     tests('endpoint types') do
-      catalog_hash =  [{'type' => 'object-store', 'endpoints' => [{'internalURL' => 'https://snet-storage101.dfw1.clouddrive.com/v1/Mosso777', 'region' => 'DFW',
+      catalog_hash =  [{ 'type' => 'object-store', 'endpoints' => [{ 'internalURL' => 'https://snet-storage101.dfw1.clouddrive.com/v1/Mosso777', 'region' => 'DFW',
       'tenantId' => 'Mosso777',
-      'publicURL' => 'https://storage101.dfw1.clouddrive.com/v1/Mosso777'},
+      'publicURL' => 'https://storage101.dfw1.clouddrive.com/v1/Mosso777' },
       { 'region' => 'ORD',
       'tenantId' => 'Mosso777',
-      'publicURL' => 'https://storage101.ord1.clouddrive.com/v1/Mosso777'}], 'name' => 'cloudFiles'},]
+      'publicURL' => 'https://storage101.ord1.clouddrive.com/v1/Mosso777' }], 'name' => 'cloudFiles' },]
       @service_catalog = Fog::Rackspace::Identity::ServiceCatalog.new(:service => nil, :catalog => catalog_hash)
       tests('public').returns(':dfw, :ord') do
         @service_catalog.display_service_regions(:cloudFiles)

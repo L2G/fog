@@ -6,7 +6,7 @@ module Fog
         class GetQueueAttributes < Fog::Parsers::Base
 
           def reset
-            @response = { 'ResponseMetadata' => {}, 'Attributes' => {}}
+            @response = { 'ResponseMetadata' => {}, 'Attributes' => {} }
           end
 
           def end_element(name)

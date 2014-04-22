@@ -24,7 +24,7 @@ Shindo.tests('Fog::Compute.new', ['brightbox']) do
       :brightbox_token_management => false
     }.each_pair do |option, sample|
       tests("recognises :#{option}").returns(true) do
-        options = {:provider => 'Brightbox'}
+        options = { :provider => 'Brightbox' }
         options[option] = sample
         begin
           Fog::Compute.new(options)
@@ -37,7 +37,7 @@ Shindo.tests('Fog::Compute.new', ['brightbox']) do
   end
 
   tests('automatic token management') do
-    service_options = {:provider => 'Brightbox'}
+    service_options = { :provider => 'Brightbox' }
 
     tests('when enabled (default)') do
       service_options[:brightbox_token_management] = true

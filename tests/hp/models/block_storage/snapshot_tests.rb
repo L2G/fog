@@ -3,7 +3,7 @@ Shindo.tests('HP::BlockStorage | snapshots', ['hp', 'block_storage', 'snapshots'
   @volume = HP[:block_storage].volumes.create(:name => 'testsnapvol', :size => 1)
   @volume.wait_for { ready? } unless Fog.mocking?
 
-  model_tests(HP[:block_storage].snapshots, {:name => 'fogsnaptests', :description => 'fogsnaptests-desc', :volume_id => @volume.id}, true)
+  model_tests(HP[:block_storage].snapshots, { :name => 'fogsnaptests', :description => 'fogsnaptests-desc', :volume_id => @volume.id }, true)
 
   tests('new snapshot') do
     @snapshot = HP[:block_storage].snapshots.create(:name => 'testvol', :volume_id => @volume.id)

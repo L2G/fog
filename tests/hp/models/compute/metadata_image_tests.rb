@@ -4,7 +4,7 @@ Shindo.tests('Fog::Compute[:hp] | metadata for images', ['hp']) do
 
   @server = Fog::Compute[:hp].servers.create(:name => 'fogsermdtests', :flavor_id => 100, :image_id => @base_image_id)
   @server.wait_for { ready? }
-  response = @server.create_image('fogimgmetadatatests', :metadata => {'Meta1' => 'MetaValue1', 'Meta2' => 'MetaValue2'})
+  response = @server.create_image('fogimgmetadatatests', :metadata => { 'Meta1' => 'MetaValue1', 'Meta2' => 'MetaValue2' })
   unless Fog.mocking?
     sleep(10)
   end

@@ -6,7 +6,7 @@ module Fog
         request(
           :method => 'POST',
           :path => "/my/machines/#{id}",
-          :query => {'action' => 'resize', 'package' => package},
+          :query => { 'action' => 'resize', 'package' => package },
           :expects => [202]
         )
       end

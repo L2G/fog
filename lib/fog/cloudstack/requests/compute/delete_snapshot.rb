@@ -30,7 +30,7 @@ module Fog
             snapshots.delete(snapshot_id)
             job_id = add_delete_snapshot_job(snapshot_id)
 
-            {'deletesnapshotresponse' => {'jobid' => job_id}}
+            { 'deletesnapshotresponse' => { 'jobid' => job_id } }
           end
           # TODO add cases for empty or wrong id
         end

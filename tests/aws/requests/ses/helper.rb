@@ -5,7 +5,7 @@ class AWS
     module Formats
 
       BASIC = {
-        'ResponseMetadata' => {'RequestId' => String}
+        'ResponseMetadata' => { 'RequestId' => String }
       }
 
     end

@@ -47,7 +47,7 @@ module Fog
         def list_keys
           response = Excon::Response.new
           response.status = 200
-          response.body = {'keys' => self.data[:keys].values}
+          response.body = { 'keys' => self.data[:keys].values }
           response
         end
 

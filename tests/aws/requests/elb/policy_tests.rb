@@ -2,7 +2,7 @@ Shindo.tests('AWS::ELB | policy_tests', ['aws', 'elb']) do
   @load_balancer_id = 'fog-test-policies'
 
   tests('success') do
-    listeners = [{'LoadBalancerPort' => 80, 'InstancePort' => 80, 'Protocol' => 'HTTP'}]
+    listeners = [{ 'LoadBalancerPort' => 80, 'InstancePort' => 80, 'Protocol' => 'HTTP' }]
     Fog::AWS[:elb].create_load_balancer(['us-east-1a'], @load_balancer_id, listeners)
 
     tests('#describe_load_balancer_policy_types').formats(AWS::ELB::Formats::DESCRIBE_LOAD_BALANCER_POLICY_TYPES) do
@@ -83,15 +83,15 @@ Shindo.tests('AWS::ELB | policy_tests', ['aws', 'elb']) do
     tests('#describe_load_balancer includes all policies') do
       lb = Fog::AWS[:elb].describe_load_balancers('LoadBalancerNames' => [@load_balancer_id]).body['DescribeLoadBalancersResult']['LoadBalancerDescriptions'].first
       returns([
-               {'PolicyName' => 'fog-app-policy', 'CookieName' => 'fog-app-cookie'}
+               { 'PolicyName' => 'fog-app-policy', 'CookieName' => 'fog-app-cookie' }
               ]) { lb['Policies']['AppCookieStickinessPolicies'] }
 
       returns([
-               {'PolicyName' => 'fog-lb-expiry', 'CookieExpirationPeriod' => 300}
+               { 'PolicyName' => 'fog-lb-expiry', 'CookieExpirationPeriod' => 300 }
               ]) { lb['Policies']['LBCookieStickinessPolicies'].select{|e| e['PolicyName'] == 'fog-lb-expiry'} }
 
       returns([
-               {'PolicyName' => 'fog-lb-no-expiry'}
+               { 'PolicyName' => 'fog-lb-no-expiry' }
               ]) { lb['Policies']['LBCookieStickinessPolicies'].select{|e| e['PolicyName'] == 'fog-lb-no-expiry'} }
 
       returns([

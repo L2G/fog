@@ -37,7 +37,7 @@ module Fog
             :idempotent => true,
             :method     => 'GET',
             :parser     => Fog::Parsers::Storage::AWS::AccessControlList.new,
-            :query      => {'acl' => nil}
+            :query      => { 'acl' => nil }
           )
         end
 
@@ -58,7 +58,7 @@ module Fog
             end
           else
             response.status = 404
-            raise(Excon::Errors.status_error({:expects => 200}, response))
+            raise(Excon::Errors.status_error({ :expects => 200 }, response))
           end
           response
         end

@@ -69,12 +69,12 @@ module Fog
           case name
           when /FAIL:\ (\d{3})/
             response.status = $1.to_i
-            raise Excon::Errors.status_error({:expects => 200}, response)
+            raise Excon::Errors.status_error({ :expects => 200 }, response)
           else
             instance = Fog::IBM::Mock.create_instance(name, image_id, instance_type, location, options)
             self.data[:instances][instance['id']] = instance
             response.status = 200
-            response.body = {'instances' => [ instance ]}
+            response.body = { 'instances' => [ instance ] }
             response
           end
         end

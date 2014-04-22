@@ -107,7 +107,7 @@ module Fog
         end
 
         def remove(ip, options = {})
-          new service.ip_remove({:ipaddress => ip_from_object(ip)}.merge!(options)).data.body['response']['details']
+          new service.ip_remove({ :ipaddress => ip_from_object(ip) }.merge!(options)).data.body['response']['details']
         end
 
         private

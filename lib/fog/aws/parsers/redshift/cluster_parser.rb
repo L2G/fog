@@ -54,7 +54,7 @@ module Fog
 
           def fresh_cluster
             { 'ClusterParameterGroups' => [], 'ClusterSecurityGroups' => [], 'VpcSecurityGroups' => [],
-              'EndPoint' => {}, 'PendingModifiedValues' => {}, 'RestoreStatus' => {}}
+              'EndPoint' => {}, 'PendingModifiedValues' => {}, 'RestoreStatus' => {} }
           end
 
           def start_element(name, attrs = [])
@@ -127,13 +127,13 @@ module Fog
               @in_pending_modified_values = false
 
             when 'ClusterParameterGroup'
-              @cluster['ClusterParameterGroups'] << {name => @cluster_parameter_group}
+              @cluster['ClusterParameterGroups'] << { name => @cluster_parameter_group }
               @cluster_parameter_group = {}
             when 'ClusterSecurityGroup'
-              @cluster['ClusterSecurityGroups'] << {name => @cluster_security_group}
+              @cluster['ClusterSecurityGroups'] << { name => @cluster_security_group }
               @cluster_security_group = {}
             when 'VpcSecurityGroup'
-              @cluster['VpcSecurityGroups'] << {name => @vpc_security_group}
+              @cluster['VpcSecurityGroups'] << { name => @vpc_security_group }
               @vpc_security_group = {}
             end
           end

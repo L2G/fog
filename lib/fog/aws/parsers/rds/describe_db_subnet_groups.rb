@@ -8,7 +8,7 @@ module Fog
         class DescribeDBSubnetGroups < Fog::Parsers::AWS::RDS::SubnetGroupParser
 
           def reset
-            @response = { 'DescribeDBSubnetGroupsResult' => {'DBSubnetGroups' => []}, 'ResponseMetadata' => {} }
+            @response = { 'DescribeDBSubnetGroupsResult' => { 'DBSubnetGroups' => [] }, 'ResponseMetadata' => {} }
             super
           end
 

@@ -30,7 +30,7 @@ module Fog
             :idempotent => true,
             :method     => 'GET',
             :parser     => Fog::Parsers::Storage::AWS::GetBucketWebsite.new,
-            :query      => {'website' => nil}
+            :query      => { 'website' => nil }
           )
         end
 

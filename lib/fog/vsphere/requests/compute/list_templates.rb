@@ -2,7 +2,7 @@ module Fog
   module Compute
     class Vsphere
       class Real
-        def list_templates(options = { })
+        def list_templates(options = {})
           options[:folder] ||= options['folder']
           if options[:folder] then
             list_all_templates_in_folder(options[:folder], options[:datacenter])
@@ -41,7 +41,7 @@ module Fog
 
       end
       class Mock
-        def list_templates(filters = { })
+        def list_templates(filters = {})
         end
       end
     end

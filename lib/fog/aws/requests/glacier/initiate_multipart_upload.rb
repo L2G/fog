@@ -22,7 +22,7 @@ module Fog
           account_id = options['account_id'] || '-'
           path = "/#{account_id}/vaults/#{Fog::AWS.escape(name)}/multipart-uploads"
 
-          headers = {'x-amz-part-size' => part_size.to_s}
+          headers = { 'x-amz-part-size' => part_size.to_s }
           headers['x-amz-archive-description'] = Fog::AWS.escape(options['description']) if options['description']
           request(
             :expects  => 201,

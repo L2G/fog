@@ -2,7 +2,7 @@ module Fog
   module Compute
     class Vsphere
       class Real
-        def list_datastores(filters = { })
+        def list_datastores(filters = {})
           datacenter_name = filters[:datacenter]
           # default to show all datastores
           only_active = filters[:accessible] || false

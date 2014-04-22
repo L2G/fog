@@ -32,7 +32,7 @@ module Fog
             :Links => {
               :Link => Fog::Ecloud.keep(environment, :name, :href, :type)
             },
-            :Networks => {:Network => (networks.size > 1 ? networks : networks.first)},
+            :Networks => { :Network => (networks.size > 1 ? networks : networks.first) },
           }
 
           response(:body =>  body)

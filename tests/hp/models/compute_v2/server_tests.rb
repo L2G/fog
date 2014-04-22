@@ -4,7 +4,7 @@ Shindo.tests('Fog::Compute::HPV2 | server model', ['hp', 'v2', 'compute']) do
 
   @base_image_id = ENV['BASE_IMAGE_ID'] || '7f60b54c-cd15-433f-8bed-00acbcd25a17'
 
-  model_tests(service.servers, {:name => 'fogservertest', :flavor_id => 100, :image_id => @base_image_id}, true) do
+  model_tests(service.servers, { :name => 'fogservertest', :flavor_id => 100, :image_id => @base_image_id }, true) do
 
     @server = service.servers.create(:name => 'fogservertest', :flavor_id => 100, :image_id => @base_image_id)
 

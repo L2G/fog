@@ -113,11 +113,11 @@ module Fog
             sec_group_name = 'default'
           end
           data = {
-            'addresses' => { 'private' => [{'version' => 4, 'addr' => Fog::HP::Mock.ip_address}] },
-            'flavor'    => {'id' => "#{flavor_id}", 'links' => [{'href' => "http://nova1:8774/admin/flavors/#{flavor_id}", 'rel' => 'bookmark'}]},
+            'addresses' => { 'private' => [{ 'version' => 4, 'addr' => Fog::HP::Mock.ip_address }] },
+            'flavor'    => { 'id' => "#{flavor_id}", 'links' => [{ 'href' => "http://nova1:8774/admin/flavors/#{flavor_id}", 'rel' => 'bookmark' }] },
             'id'        => Fog::Mock.random_numbers(6).to_i,
-            'image'     => {'id' => "#{image_id}", 'links' => [{'href' => "http://nova1:8774/admin/images/#{image_id}", 'rel' => 'bookmark'}]},
-            'links'     => [{'href' => 'http://nova1:8774/v1.1/admin/servers/5', 'rel' => 'self'}, {'href' => 'http://nova1:8774/admin/servers/5', 'rel' => 'bookmark'}],
+            'image'     => { 'id' => "#{image_id}", 'links' => [{ 'href' => "http://nova1:8774/admin/images/#{image_id}", 'rel' => 'bookmark' }] },
+            'links'     => [{ 'href' => 'http://nova1:8774/v1.1/admin/servers/5', 'rel' => 'self' }, { 'href' => 'http://nova1:8774/admin/servers/5', 'rel' => 'bookmark' }],
             'hostId'    => '123456789ABCDEF01234567890ABCDEF',
             'metadata'  => options['metadata'] || {},
             'name'      => name || "server_#{rand(999)}",
@@ -131,7 +131,7 @@ module Fog
             'tenant_id' => Fog::HP::Mock.user_id.to_s,
             'uuid'      => '95253a45-9ead-43c6-90b3-65da2ef048b3',
             'config_drive' => '',
-            'security_groups' => [{'name' => "#{sec_group_name}", 'links' => [{'href' => 'http://nova1:8774/v1.1/admin//os-security-groups/111', 'rel' => 'bookmark'}], 'id' => 111}],
+            'security_groups' => [{ 'name' => "#{sec_group_name}", 'links' => [{ 'href' => 'http://nova1:8774/v1.1/admin//os-security-groups/111', 'rel' => 'bookmark' }], 'id' => 111 }],
             'key_name'  => options['key_name'] || ''
           }
           self.data[:last_modified][:servers][data['id']] = Time.now

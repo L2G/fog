@@ -5,7 +5,7 @@ module Fog
       class Real
 
         def destroy_server( vm_ref , extra_args = {})
-          @connection.request({:parser => Fog::Parsers::XenServer::Base.new, :method => 'VM.destroy'}, vm_ref)
+          @connection.request({ :parser => Fog::Parsers::XenServer::Base.new, :method => 'VM.destroy' }, vm_ref)
         end
 
       end

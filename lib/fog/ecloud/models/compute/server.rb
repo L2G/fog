@@ -31,7 +31,7 @@ module Fog
         end
 
         def flavor_id
-          {:ram => hardware_configuration.memory.to_i, :cpus => hardware_configuration.processor_count}
+          { :ram => hardware_configuration.memory.to_i, :cpus => hardware_configuration.processor_count }
         end
 
         def storage
@@ -89,7 +89,7 @@ module Fog
         end
 
         def copy(options = {})
-          options = {:type => :copy}.merge(options)
+          options = { :type => :copy }.merge(options)
           options[:source] ||= href
           if options[:type] == :copy
             options[:cpus] ||= 1
@@ -161,7 +161,7 @@ module Fog
 
         def add_disk(size)
           index = disks.map { |d| d[:Index].to_i }.sort[-1] + 1
-          vm_disks = disks << {:Index => index.to_s, :Size => {:Unit => 'GB', :Value => size.to_s}, :Name => "Hard Disk #{index + 1}"}
+          vm_disks = disks << { :Index => index.to_s, :Size => { :Unit => 'GB', :Value => size.to_s }, :Name => "Hard Disk #{index + 1}" }
           data = service.virtual_machine_edit_hardware_configuration(href + '/hardwareConfiguration', _configuration_data(:disks => vm_disks)).body
           task = self.service.tasks.new(data)
         end
@@ -197,7 +197,7 @@ module Fog
 
         def add_nic(network)
           unit_number = nics.map { |n| n[:UnitNumber].to_i }.sort[-1] + 1
-          vm_nics = nics << {:UnitNumber => unit_number, :Network => {:href => network.href, :name => network.name, :type => 'application/vnd.tmrk.cloud.network'}}
+          vm_nics = nics << { :UnitNumber => unit_number, :Network => { :href => network.href, :name => network.name, :type => 'application/vnd.tmrk.cloud.network' } }
           data = service.virtual_machine_edit_hardware_configuration(href + '/hardwareConfiguration', _configuration_data(:nics => vm_nics)).body
           task = self.service.tasks.new(:href => data[:href])[0]
         end
@@ -211,9 +211,9 @@ module Fog
           slice_networks = if slice_ips.empty?
                              []
                            else
-                             ips.map { |ip| {:href => ip.network.href, :name => ip.network.name.split(' ')[0], :type => ip.network.type} }.push(:href => options[:href], :name => options[:network_name], :type => 'application/vnd.tmrk.cloud.network').uniq
+                             ips.map { |ip| { :href => ip.network.href, :name => ip.network.name.split(' ')[0], :type => ip.network.type } }.push(:href => options[:href], :name => options[:network_name], :type => 'application/vnd.tmrk.cloud.network').uniq
                            end
-          slice_ips = slice_ips.map { |i| {:name => i.address.name, :network_name => i.network.name} }.push(:name => options[:ip], :network_name => options[:network_name]).uniq
+          slice_ips = slice_ips.map { |i| { :name => i.address.name, :network_name => i.network.name } }.push(:name => options[:ip], :network_name => options[:network_name]).uniq
           slice_ips.each do |ip|
             slice_networks.each do |network|
               if network[:name] == ip[:network_name]
@@ -243,7 +243,7 @@ module Fog
                                }
                              end#.delete_if { |ip| ip[:href] == options[:href] && ip[:name] == options[:network_name] }
                            end
-          slice_ips.map! { |i| {:name => i.address.name, :network_name => i.network.name, :network_name => i.network.name } }.delete_if { |ip| ip[:name] == options[:ip] }
+          slice_ips.map! { |i| { :name => i.address.name, :network_name => i.network.name, :network_name => i.network.name } }.delete_if { |ip| ip[:name] == options[:ip] }
           slice_ips.each do |ip|
             slice_networks.each do |network|
               if network[:name] == ip[:network_name]
@@ -302,7 +302,7 @@ module Fog
         private
 
         def _configuration_data(options = {})
-          {:cpus => (options[:cpus] || hardware_configuration.processor_count), :memory => (options[:memory] || hardware_configuration.memory), :disks => (options[:disks] || disks), :nics => (options[:nics] || nics)}
+          { :cpus => (options[:cpus] || hardware_configuration.processor_count), :memory => (options[:memory] || hardware_configuration.memory), :disks => (options[:disks] || disks), :nics => (options[:nics] || nics) }
         end
 
         def power_operation(op)

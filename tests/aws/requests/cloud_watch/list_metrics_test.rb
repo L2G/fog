@@ -15,7 +15,7 @@ Shindo.tests('AWS::CloudWatch | metric requests', ['aws', 'cloudwatch']) do
           }],
         'NextToken' => Fog::Nullable::String,
       },
-      'ResponseMetadata' => {'RequestId' => String},
+      'ResponseMetadata' => { 'RequestId' => String },
     }
     @instanceId = 'i-2f3eab59'
     @dimension_filtered_metrics_list_format = {
@@ -32,7 +32,7 @@ Shindo.tests('AWS::CloudWatch | metric requests', ['aws', 'cloudwatch']) do
           }],
         'NextToken' => Fog::Nullable::String,
       },
-      'ResponseMetadata' => {'RequestId' => String},
+      'ResponseMetadata' => { 'RequestId' => String },
     }
 
     tests('#list_metrics').formats(@metrics_list_format) do
@@ -42,7 +42,7 @@ Shindo.tests('AWS::CloudWatch | metric requests', ['aws', 'cloudwatch']) do
 
     tests('#dimension_filtered_list_metrics').formats(@dimension_filtered_metrics_list_format) do
       pending if Fog.mocking?
-      Fog::AWS[:cloud_watch].list_metrics('Dimensions' => [{'Name' => 'InstanceId', 'Value' => @instanceId}]).body
+      Fog::AWS[:cloud_watch].list_metrics('Dimensions' => [{ 'Name' => 'InstanceId', 'Value' => @instanceId }]).body
     end
 
     tests('#metric_name_filtered_list_metrics').returns(true) do

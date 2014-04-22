@@ -36,7 +36,7 @@ module Fog
                        sm_config        = {} )
 
           @connection.request(
-            {:parser => Fog::Parsers::XenServer::Base.new, :method => 'SR.create'},
+            { :parser => Fog::Parsers::XenServer::Base.new, :method => 'SR.create' },
             host_ref,
             device_config || {},
             physical_size || '0',

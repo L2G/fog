@@ -35,7 +35,7 @@ module Fog
 
           params = { :headers => {} }
           if version_id = options.delete('versionId')
-            params[:query] = {'versionId' => version_id}
+            params[:query] = { 'versionId' => version_id }
           end
           params[:headers].merge!(options)
           if options['If-Modified-Since']
@@ -101,7 +101,7 @@ module Fog
             end
           else
             response.status = 404
-            raise(Excon::Errors.status_error({:expects => 200}, response))
+            raise(Excon::Errors.status_error({ :expects => 200 }, response))
           end
           response
         end

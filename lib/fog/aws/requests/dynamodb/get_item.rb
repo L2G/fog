@@ -32,7 +32,7 @@ module Fog
 
           request(
             :body       => Fog::JSON.encode(body),
-            :headers    => {'x-amz-target' => 'DynamoDB_20111205.GetItem'},
+            :headers    => { 'x-amz-target' => 'DynamoDB_20111205.GetItem' },
             :idempotent => true
           )
         end

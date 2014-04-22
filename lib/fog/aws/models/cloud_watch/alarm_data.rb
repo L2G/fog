@@ -13,10 +13,10 @@ module Fog
         end
 
         def get(namespace, metric_name, dimensions = nil, period = nil, statistic = nil, unit = nil)
-          list_opts = {'Namespace' => namespace, 'MetricName' => metric_name}
+          list_opts = { 'Namespace' => namespace, 'MetricName' => metric_name }
           if dimensions
             dimensions_array = dimensions.collect do |name, value|
-              {'Name' => name, 'Value' => value}
+              { 'Name' => name, 'Value' => value }
             end
             list_opts.merge!('Dimensions' => dimensions_array)
           end

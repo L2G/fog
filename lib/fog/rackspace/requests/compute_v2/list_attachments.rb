@@ -30,7 +30,7 @@ module Fog
       class Mock
         def list_attachments(server_id)
           volumes_array = self.data[:volume_attachments].select { |va| va['serverId'] == server_id }
-          response(:body => {'volumeAttachments' => volumes_array})
+          response(:body => { 'volumeAttachments' => volumes_array })
         end
       end
     end

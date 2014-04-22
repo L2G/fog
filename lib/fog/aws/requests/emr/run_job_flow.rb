@@ -74,7 +74,7 @@ module Fog
             'Name' => 'Setup Hive',
             'HadoopJarStep' => {
               'Jar' => 's3://us-east-1.elasticmapreduce/libs/script-runner/script-runner.jar',
-              'Args' => ['s3://us-east-1.elasticmapreduce/libs/hive/hive-script', '--base-path', 's3://us-east-1.elasticmapreduce/libs/hive/', '--install-hive']},
+              'Args' => ['s3://us-east-1.elasticmapreduce/libs/hive/hive-script', '--base-path', 's3://us-east-1.elasticmapreduce/libs/hive/', '--install-hive'] },
             'ActionOnFailure' => 'TERMINATE_JOB_FLOW'
           }
 

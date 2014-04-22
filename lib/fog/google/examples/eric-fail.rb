@@ -24,7 +24,7 @@ def test
     :disks => [disk],
     :machine_type => 'n1-standard-1',
     :zone_name => zone,
-    :metadata => {'foo' => 'bar'},
+    :metadata => { 'foo' => 'bar' },
     :tags => ['t1', 't2', 't3'],
     :servce_accounts => scopes
   )

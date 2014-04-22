@@ -36,7 +36,7 @@ module Fog
             :expects  => 200,
             :method   => 'GET',
             :path     => path,
-            :query    => {'format' => 'json'}.merge!(options)
+            :query    => { 'format' => 'json' }.merge!(options)
           )
           response
         end

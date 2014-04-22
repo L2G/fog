@@ -24,12 +24,12 @@ module Fog
 
         def update(options = {})
           requires :identity
-          service.update_image({:id => identity}.merge!(options)).body
+          service.update_image({ :id => identity }.merge!(options)).body
         end
 
         def restore(options = {})
           requires :identity
-          service.restore_image({:id => identity}.merge!(options))
+          service.restore_image({ :id => identity }.merge!(options))
           true
         end
 

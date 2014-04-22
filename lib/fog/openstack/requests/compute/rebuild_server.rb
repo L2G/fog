@@ -8,7 +8,7 @@ module Fog
           body = { 'rebuild' => {
             'imageRef' => image_ref,
             'name' => name
-          }}
+          } }
           body['rebuild']['adminPass'] = admin_pass if admin_pass
           body['rebuild']['metadata'] = metadata if metadata
           if personality

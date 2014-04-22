@@ -37,7 +37,7 @@ module Fog
             :object_name => object_name,
             :idempotent => true,
             :method     => 'GET',
-            :query      => {'torrent' => nil}
+            :query      => { 'torrent' => nil }
           )
         end
 

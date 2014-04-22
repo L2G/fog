@@ -18,7 +18,7 @@ module Fog
             :headers  => {},
             :bucket_name => bucket_name,
             :method   => 'DELETE',
-            :query    => {'cors' => nil}
+            :query    => { 'cors' => nil }
           )
         end
 

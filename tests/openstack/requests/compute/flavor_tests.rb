@@ -29,11 +29,11 @@ Shindo.tests('Fog::Compute[:openstack] | flavor requests', ['openstack']) do
     end
 
     tests('#create_flavor(attributes)').data_matches_schema('flavor' => @flavor_format) do
-      attributes = {:flavor_id => '100', :name => 'shindo test flavor', :disk => 10, :ram => 10, :vcpus => 10, :swap => '0', :rxtx_factor => 2.4, :ephemeral => 0, :is_public => false}
+      attributes = { :flavor_id => '100', :name => 'shindo test flavor', :disk => 10, :ram => 10, :vcpus => 10, :swap => '0', :rxtx_factor => 2.4, :ephemeral => 0, :is_public => false }
       Fog::Compute[:openstack].create_flavor(attributes).body
     end
 
-    tests('add_flavor_access(flavor_ref, tenant_id)').data_matches_schema('flavor_access' => [{'tenant_id' => String, 'flavor_id' => String}]) do
+    tests('add_flavor_access(flavor_ref, tenant_id)').data_matches_schema('flavor_access' => [{ 'tenant_id' => String, 'flavor_id' => String }]) do
       Fog::Compute[:openstack].add_flavor_access(100, 1).body
     end
 
@@ -41,7 +41,7 @@ Shindo.tests('Fog::Compute[:openstack] | flavor requests', ['openstack']) do
       Fog::Compute[:openstack].remove_flavor_access(100, 1).body
     end
 
-    tests('list_tenants_with_flavor_access(flavor_ref)').data_matches_schema('flavor_access' => [{'tenant_id' => String, 'flavor_id' => String}]) do
+    tests('list_tenants_with_flavor_access(flavor_ref)').data_matches_schema('flavor_access' => [{ 'tenant_id' => String, 'flavor_id' => String }]) do
       Fog::Compute[:openstack].list_tenants_with_flavor_access(100).body
     end
 

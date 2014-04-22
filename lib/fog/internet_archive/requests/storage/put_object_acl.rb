@@ -28,7 +28,7 @@ module Fog
         # @see http://docs.amazonwebservices.com/AmazonS3/latest/API/RESTObjectPUTacl.html
 
         def put_object_acl(bucket_name, object_name, acl, options = {})
-          query = {'acl' => nil}
+          query = { 'acl' => nil }
           data = ''
           headers = {}
 

@@ -2,13 +2,13 @@ Shindo.tests('HP::DNS | record model', ['hp', 'dns', 'record']) do
 
   @domain = HP[:dns].domains.create(:name => 'www.fogtest.com.', :email => 'test@fogtest.com')
 
-  attributes = {:domain_id => @domain.id, :name => 'www.fogtest.com.', :type => 'A', :data => '15.185.100.152'}
+  attributes = { :domain_id => @domain.id, :name => 'www.fogtest.com.', :type => 'A', :data => '15.185.100.152' }
   model_tests(@domain.records, attributes, true)
 
   tests('success') do
 
     tests('#create').succeeds do
-      attributes = {:domain_id => @domain.id, :name => 'www.fogtest.com.', :type => 'A', :data => '15.185.200.152', :description => 'test record'}
+      attributes = { :domain_id => @domain.id, :name => 'www.fogtest.com.', :type => 'A', :data => '15.185.200.152', :description => 'test record' }
       @record = HP[:dns].records.create(attributes)
       !@record.id.nil?
     end

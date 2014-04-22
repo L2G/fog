@@ -31,7 +31,7 @@ module Fog
             :host       => "#{bucket_name}.#{@host}",
             :method     => 'PUT',
             :path       => CGI.escape(object_name),
-            :query      => {'uploadId' => upload_id, 'partNumber' => part_number}
+            :query      => { 'uploadId' => upload_id, 'partNumber' => part_number }
           )
         end
 

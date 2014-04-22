@@ -18,7 +18,7 @@ module Fog
             :host       => "#{bucket_name}.#{@host}",
             :method     => 'DELETE',
             :path       => CGI.escape(object_name),
-            :query      => {'uploadId' => upload_id}
+            :query      => { 'uploadId' => upload_id }
           )
         end
 

@@ -21,8 +21,8 @@ module Fog
           response.body = {
             'status' => 'OK',
             'regions'  => [
-              {'id' => 1,'name' => 'New York 1'},
-              {'id' => 2,'name' => 'Amsterdam 1'}
+              { 'id' => 1,'name' => 'New York 1' },
+              { 'id' => 2,'name' => 'Amsterdam 1' }
             ]
           }
           response

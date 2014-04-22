@@ -1,6 +1,6 @@
 Shindo.tests('HP::BlockStorage | volume model', ['hp', 'v2', 'block_storage', 'volumes']) do
 
-  model_tests(HP[:block_storage_v2].volumes, {:name => 'fogvol2tests', :description => 'fogvol2tests-desc', :size => 1}, true) do
+  model_tests(HP[:block_storage_v2].volumes, { :name => 'fogvol2tests', :description => 'fogvol2tests-desc', :size => 1 }, true) do
 
     test("get(#{@instance.id})") do
       HP[:block_storage_v2].volumes.get(@instance.id) != nil?

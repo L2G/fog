@@ -47,7 +47,7 @@ module Fog
             when 'RecurringChargeFrequency'
               @recurring_charge[name] = value
             when 'RecurringCharge'
-              @response['RecurringCharges'] << {name => @recurring_charge}
+              @response['RecurringCharges'] << { name => @recurring_charge }
               @recurring_charge = {}
             end
           end

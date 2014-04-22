@@ -3,14 +3,14 @@ module Fog
     class Clodo
       class Real
         def stop_server(id)
-          body = {'stop' => {}}
+          body = { 'stop' => {} }
           server_action(id, body)
         end
       end
 
       class Mock
         def stop_server(id)
-          body = {'stop' => {}}
+          body = { 'stop' => {} }
           server_action(id, body)
         end
       end

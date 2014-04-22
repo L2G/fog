@@ -56,8 +56,8 @@ Shindo.tests('Fog::Network[:openstack] | network requests', ['openstack']) do
 
     tests('#update_network').formats('network' => @network_format) do
       network_id = Fog::Network[:openstack].networks.all.first.id
-      attributes = {:name => 'net_name', :shared => false,
-                    :admin_state_up => true}
+      attributes = { :name => 'net_name', :shared => false,
+                    :admin_state_up => true }
       Fog::Network[:openstack].update_network(network_id, attributes).body
     end
 

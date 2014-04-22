@@ -7,7 +7,7 @@ module Fog
           request(
             :method => 'POST',
             :path => "/my/machines/#{machine_id}/snapshots",
-            :body => {'name' => snapshot_name },
+            :body => { 'name' => snapshot_name },
             :expects => [201]
           )
         end

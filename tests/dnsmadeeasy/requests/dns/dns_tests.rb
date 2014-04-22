@@ -70,7 +70,7 @@ Shindo.tests('Fog::DNS[:dnsmadeeasy] | DNS requests', ['dnsmadeeasy', 'dns']) do
 
       domain = @domain['name']
       record_id = @record['id']
-      options = {:name => '', :type => 'A', :data => '2.3.4.5', :ttl => 600}
+      options = { :name => '', :type => 'A', :data => '2.3.4.5', :ttl => 600 }
 
       response = Fog::DNS[:dnsmadeeasy].update_record(domain, record_id, options)
 

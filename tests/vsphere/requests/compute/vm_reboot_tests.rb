@@ -12,7 +12,7 @@ Shindo.tests('Fog::Compute[:vsphere] | vm_reboot request', ['vsphere']) do
   end
 
   # When forcing the shutdown, we expect the result to be
-  { true => 'reset_power', false => 'reboot_guest'}.each do |force, expected|
+  { true => 'reset_power', false => 'reboot_guest' }.each do |force, expected|
     tests("When force => #{force}") do
       response = compute.vm_reboot('instance_uuid' => powered_on_vm, 'force' => force)
       test("should return reboot_type of #{expected}") { response['reboot_type'] == expected }

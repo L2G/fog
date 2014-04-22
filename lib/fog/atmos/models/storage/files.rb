@@ -20,7 +20,7 @@ module Fog
           directory ? ns = directory.key : ns = ''
           ns = ns + '/' unless ns =~ /\/$/
           data = service.get_namespace(ns).body[:DirectoryList]
-          data = {:DirectoryEntry => []} if data.kind_of? String
+          data = { :DirectoryEntry => [] } if data.kind_of? String
           data[:DirectoryEntry] = [data[:DirectoryEntry]] if data[:DirectoryEntry].kind_of? Hash
           files = data[:DirectoryEntry].select {|de| de[:FileType] == 'regular'}
           files.each do |s|

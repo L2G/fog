@@ -68,18 +68,18 @@ module Fog
             :type => 'application/vnd.vmware.admin.edgeGateway+xml',
             :href => make_href("admin/edgeGateway/#{id}"),
             :xsi_schemaLocation => xsi_schema_location,
-            :Link => [{:rel => 'up',
+            :Link => [{ :rel => 'up',
                       :type => 'application/vnd.vmware.vcloud.vdc+xml',
-                      :href => make_href("vdc/#{vdc_id}")},
-                     {:rel => 'edgeGateway:redeploy',
-                      :href => make_href("admin/edgeGateway/#{id}/action/redeploy")},
-                     {:rel => 'edgeGateway:configureServices',
+                      :href => make_href("vdc/#{vdc_id}") },
+                     { :rel => 'edgeGateway:redeploy',
+                      :href => make_href("admin/edgeGateway/#{id}/action/redeploy") },
+                     { :rel => 'edgeGateway:configureServices',
                       :type => 'application/vnd.vmware.admin.edgeGatewayServiceConfiguration+xml',
-                      :href => make_href("admin/edgeGateway/#{id}/action/configureServices")},
-                     {:rel => 'edgeGateway:reapplyServices',
-                      :href => make_href("admin/edgeGateway/#{id}/action/reapplyServices")},
-                     {:rel => 'edgeGateway:syncSyslogSettings',
-                      :href => make_href("admin/edgeGateway/#{id}/action/syncSyslogServerSettings")}],
+                      :href => make_href("admin/edgeGateway/#{id}/action/configureServices") },
+                     { :rel => 'edgeGateway:reapplyServices',
+                      :href => make_href("admin/edgeGateway/#{id}/action/reapplyServices") },
+                     { :rel => 'edgeGateway:syncSyslogSettings',
+                      :href => make_href("admin/edgeGateway/#{id}/action/syncSyslogServerSettings") }],
             :Description => 'vCloud CI (nft00052i2)',
             :Configuration => edge_gateway[:Configuration].dup
           }
@@ -99,7 +99,7 @@ module Fog
 
           Excon::Response.new(
             :status => 200,
-            :headers => {'Content-Type' => "#{body[:type]};version=#{api_version}"},
+            :headers => { 'Content-Type' => "#{body[:type]};version=#{api_version}" },
             :body => body
           )
         end

@@ -52,7 +52,7 @@ module Fog
                  region = 'us-east-1'
                  server['DBInstanceStatus'] = 'available'
                  server['AvailabilityZone'] ||= region + 'a'
-                 server['Endpoint'] = {'Port' => 3306,
+                 server['Endpoint'] = { 'Port' => 3306,
                                        'Address' => Fog::AWS::Mock.rds_address(server['DBInstanceIdentifier'],region) }
                  server['PendingModifiedValues'] = {}
                end

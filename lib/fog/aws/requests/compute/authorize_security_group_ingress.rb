@@ -158,7 +158,7 @@ module Fog
                 'ipProtocol' => protocol,
                 'fromPort' => 1,
                 'toPort' => 65535,
-                'groups' => [{'groupName' => options['SourceSecurityGroupName'], 'userId' => options['SourceSecurityGroupOwnerId'] || self.data[:owner_id], 'groupId' => source_group_id }],
+                'groups' => [{ 'groupName' => options['SourceSecurityGroupName'], 'userId' => options['SourceSecurityGroupOwnerId'] || self.data[:owner_id], 'groupId' => source_group_id }],
                 'ipRanges' => []
               }
             end
@@ -166,7 +166,7 @@ module Fog
               'ipProtocol' => 'icmp',
               'fromPort' => -1,
               'toPort' => -1,
-              'groups' => [{'groupName' => options['SourceSecurityGroupName'], 'userId' => options['SourceSecurityGroupOwnerId'] || self.data[:owner_id], 'groupId' => source_group_id }],
+              'groups' => [{ 'groupName' => options['SourceSecurityGroupName'], 'userId' => options['SourceSecurityGroupOwnerId'] || self.data[:owner_id], 'groupId' => source_group_id }],
               'ipRanges' => []
             }
           elsif options['CidrIp']
@@ -175,7 +175,7 @@ module Fog
               'fromPort' => Integer(options['FromPort']),
               'toPort' => Integer(options['ToPort']),
               'groups' => [],
-              'ipRanges' => [{'cidrIp' => options['CidrIp']}]
+              'ipRanges' => [{ 'cidrIp' => options['CidrIp'] }]
             }
           elsif options['IpPermissions']
             options['IpPermissions'].each do |permission|
@@ -191,7 +191,7 @@ module Fog
                                        self.data[:security_groups].values.find { |sg| sg['groupId'] == group_id }
                                      end
 
-                    {'groupName' => authorized_group['GroupName'] || security_group['groupName'], 'userId' => authorized_group['UserId'] || self.data[:owner_id], 'groupId' => authorized_group['GroupId'] || security_group['groupId']}
+                    { 'groupName' => authorized_group['GroupName'] || security_group['groupName'], 'userId' => authorized_group['UserId'] || self.data[:owner_id], 'groupId' => authorized_group['GroupId'] || security_group['groupId'] }
                   end,
                   'ipRanges' => (permission['IpRanges'] || []).map {|r| { 'cidrIp' => r['CidrIp'] } }
                 }
@@ -205,7 +205,7 @@ module Fog
                                        self.data[:security_groups].values.find { |sg| sg['groupId'] == group_id }
                                      end
 
-                    {'groupName' => authorized_group['GroupName'] || security_group['groupName'], 'userId' => authorized_group['UserId'] || self.data[:owner_id], 'groupId' => authorized_group['GroupId'] || security_group['groupId']}
+                    { 'groupName' => authorized_group['GroupName'] || security_group['groupName'], 'userId' => authorized_group['UserId'] || self.data[:owner_id], 'groupId' => authorized_group['GroupId'] || security_group['groupId'] }
                   end,
                   'ipRanges' => (permission['IpRanges'] || []).map {|r| { 'cidrIp' => r['CidrIp'] } }
                 }

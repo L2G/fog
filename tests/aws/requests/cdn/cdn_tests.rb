@@ -20,7 +20,7 @@ Shindo.tests('Fog::CDN[:aws] | CDN requests', ['aws', 'cdn']) do
 
       result = false
 
-      response = @cf_connection.post_distribution('S3Origin' => { 'DNSName' => 'test_cdn.s3.amazonaws.com'}, 'Enabled' => true)
+      response = @cf_connection.post_distribution('S3Origin' => { 'DNSName' => 'test_cdn.s3.amazonaws.com' }, 'Enabled' => true)
       if response.status == 201
         @dist_id = response.body['Id']
         @etag = response.headers['ETag']
@@ -115,7 +115,7 @@ Shindo.tests('Fog::CDN[:aws] | CDN requests', ['aws', 'cdn']) do
 
       result = false
 
-      response = @cf_connection.put_distribution_config(@dist_id, @etag, 'S3Origin' => { 'DNSName' => 'test_cdn.s3.amazonaws.com'}, 'Enabled' => false, 'CallerReference' => @caller_reference)
+      response = @cf_connection.put_distribution_config(@dist_id, @etag, 'S3Origin' => { 'DNSName' => 'test_cdn.s3.amazonaws.com' }, 'Enabled' => false, 'CallerReference' => @caller_reference)
       if response.status == 200
         @etag = response.headers['ETag']
         unless @etag.nil?
@@ -164,7 +164,7 @@ Shindo.tests('Fog::CDN[:aws] | CDN requests', ['aws', 'cdn']) do
 
       result = false
 
-      response = @cf_connection.post_streaming_distribution('S3Origin' => { 'DNSName' => 'test_cdn.s3.amazonaws.com'}, 'Enabled' => true)
+      response = @cf_connection.post_streaming_distribution('S3Origin' => { 'DNSName' => 'test_cdn.s3.amazonaws.com' }, 'Enabled' => true)
       if response.status == 201
         @dist_id = response.body['Id']
         @etag = response.headers['ETag']
@@ -219,7 +219,7 @@ Shindo.tests('Fog::CDN[:aws] | CDN requests', ['aws', 'cdn']) do
 
       result = false
 
-      response = @cf_connection.put_streaming_distribution_config(@dist_id, @etag, 'S3Origin' => { 'DNSName' => 'test_cdn.s3.amazonaws.com'}, 'Enabled' => false, 'CallerReference' => @caller_reference)
+      response = @cf_connection.put_streaming_distribution_config(@dist_id, @etag, 'S3Origin' => { 'DNSName' => 'test_cdn.s3.amazonaws.com' }, 'Enabled' => false, 'CallerReference' => @caller_reference)
       if response.status == 200
         @etag = response.headers['ETag']
         unless @etag.nil?

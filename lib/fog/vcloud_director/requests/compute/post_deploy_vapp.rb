@@ -39,7 +39,7 @@ module Fog
           request(
             :body    => body,
             :expects => 202,
-            :headers => {'Content-Type' => 'application/vnd.vmware.vcloud.deployVAppParams+xml'},
+            :headers => { 'Content-Type' => 'application/vnd.vmware.vcloud.deployVAppParams+xml' },
             :method  => 'POST',
             :parser  => Fog::ToHashDocument.new,
             :path    => "vApp/#{id}/action/deploy"

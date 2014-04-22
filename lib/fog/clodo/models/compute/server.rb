@@ -109,7 +109,7 @@ module Fog
         end
 
         def ssh(commands)
-          super(commands, password ? {:password => password} : {})
+          super(commands, password ? { :password => password } : {})
         end
 
         def password

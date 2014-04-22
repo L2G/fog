@@ -19,7 +19,7 @@ EOF
           request(
             :body     => body,
             :expects  => 202,
-            :headers  => {'Content-Type' => vmdata[:type] },
+            :headers  => { 'Content-Type' => vmdata[:type] },
             :method   => 'PUT',
             :uri      => "#{edit_uri}",
             :parse    => true

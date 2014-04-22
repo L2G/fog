@@ -9,7 +9,7 @@ module Fog
 
         model Fog::Compute::Libvirt::Node
 
-        def all(filter = { })
+        def all(filter = {})
           load(service.get_node_info)
         end
 

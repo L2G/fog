@@ -2,7 +2,7 @@ module Fog
   module Compute
     class Vsphere
       class Real
-        def create_vm attributes = { }
+        def create_vm attributes = {}
           # build up vm configuration
 
           vm_cfg        = {
@@ -102,7 +102,7 @@ module Fog
         end
 
         def controller_default_options
-          {:operation => 'add', :type => RbVmomi::VIM.VirtualLsiLogicController.class, :key => 1000, :bus_id => 0, :shared => false }
+          { :operation => 'add', :type => RbVmomi::VIM.VirtualLsiLogicController.class, :key => 1000, :bus_id => 0, :shared => false }
         end
 
         def controller_get_shared_from_options options
@@ -153,7 +153,7 @@ module Fog
       end
 
       class Mock
-        def create_vm attributes = { }
+        def create_vm attributes = {}
         end
 
       end

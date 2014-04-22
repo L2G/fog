@@ -180,7 +180,7 @@ module Fog
 
         # Simply spawn an SSH session.
         def ssh(commands)
-          super(commands, password ? {:password => password} : {})
+          super(commands, password ? { :password => password } : {})
         end
 
         # SCP something to our VM.

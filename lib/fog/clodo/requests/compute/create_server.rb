@@ -64,7 +64,7 @@ module Fog
             'vps_os_title' => 'OSTitle',
             'vps_root_pass' => data['adminPass'],
             'status' => 'is_running',
-            'addresses' => {'public' => [{
+            'addresses' => { 'public' => [{
                                           'primary_ip' => true,
                                           'isp' => false,
                                           'ip' => '66.6.6.66'
@@ -73,7 +73,7 @@ module Fog
                                           'primary_ip' => false,
                                           'isp' => false,
                                           'ip' => '13.13.13.13'
-                                        }]},
+                                        }] },
             'vps_createdate' => "#{Time.now}",
             'vps_hdd_max' => '5',
             'vps_traff' => nil,

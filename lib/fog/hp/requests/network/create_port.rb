@@ -68,7 +68,7 @@ module Fog
               'id'             => Fog::HP::Mock.uuid.to_s,
               'name'           => options[:name] || '',
               'network_id'     => network_id,
-              'fixed_ips'      => options[:fixed_ips] || [{'subnet_id' => "#{Fog::HP::Mock.uuid}", 'ip_address' => "#{Fog::HP::Mock.ip_address}"}],
+              'fixed_ips'      => options[:fixed_ips] || [{ 'subnet_id' => "#{Fog::HP::Mock.uuid}", 'ip_address' => "#{Fog::HP::Mock.ip_address}" }],
               'mac_address'    => options[:mac_address] || Fog::HP::Mock.mac_address.to_s,
               'status'         => 'ACTIVE',
               'admin_state_up' => options[:admin_state_up] || true,

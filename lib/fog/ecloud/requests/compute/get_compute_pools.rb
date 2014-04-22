@@ -15,7 +15,7 @@ module Fog
 
           compute_pools = compute_pools.map{|cp| Fog::Ecloud.slice(cp, :id, :environment_id)}
 
-          compute_pool_response = {:ComputePool => (compute_pools.size > 1 ? compute_pools : compute_pools.first)} # GAH
+          compute_pool_response = { :ComputePool => (compute_pools.size > 1 ? compute_pools : compute_pools.first) } # GAH
           body = {
             :href  => uri,
             :type  => 'application/vnd.tmrk.cloud.computePool; type=collection',

@@ -81,7 +81,7 @@ Shindo.tests('AWS::EMR | instance groups', ['aws', 'emr']) do
       end
 
       # Check results
-      result = AWS[:emr].modify_instance_groups('InstanceGroups' => [{'InstanceGroupId' => @instance_group_id, 'InstanceCount' => 4}]).body
+      result = AWS[:emr].modify_instance_groups('InstanceGroups' => [{ 'InstanceGroupId' => @instance_group_id, 'InstanceCount' => 4 }]).body
 
       # Check the it actually modified the instance count
       tests('modify worked?') do

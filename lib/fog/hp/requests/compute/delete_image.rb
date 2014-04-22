@@ -25,7 +25,7 @@ module Fog
           if image = list_images_detail.body['images'].detect {|_| _['id'] == image_id}
             if image['status'] == 'SAVING'
               response.status = 409
-              raise(Excon::Errors.status_error({:expects => 202}, response))
+              raise(Excon::Errors.status_error({ :expects => 202 }, response))
             else
               self.data[:last_modified][:images].delete(image_id)
               self.data[:images].delete(image_id)
@@ -34,7 +34,7 @@ module Fog
             response
           else
             response.status = 500
-            raise(Excon::Errors.status_error({:expects => 202}, response))
+            raise(Excon::Errors.status_error({ :expects => 202 }, response))
           end
 
         end

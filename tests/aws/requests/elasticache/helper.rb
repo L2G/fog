@@ -3,7 +3,7 @@ class AWS
     module Formats
 
       BASIC = {
-        'ResponseMetadata' => {'RequestId' => String}
+        'ResponseMetadata' => { 'RequestId' => String }
       }
 
       # Cache Security Groups
@@ -14,7 +14,7 @@ class AWS
         'OwnerId'                 => String,
       }
       SINGLE_SECURITY_GROUP = BASIC.merge('CacheSecurityGroup' => SECURITY_GROUP)
-      DESCRIBE_SECURITY_GROUPS = {'CacheSecurityGroups' => [SECURITY_GROUP]}
+      DESCRIBE_SECURITY_GROUPS = { 'CacheSecurityGroups' => [SECURITY_GROUP] }
 
       CACHE_SUBNET_GROUP = {
         'CacheSubnetGroupName' => String,
@@ -43,7 +43,7 @@ class AWS
       }
       SINGLE_PARAMETER_GROUP = BASIC.merge('CacheParameterGroup' => PARAMETER_GROUP)
       DESCRIBE_PARAMETER_GROUPS = BASIC.merge('CacheParameterGroups' => [PARAMETER_GROUP])
-      MODIFY_PARAMETER_GROUP = {'CacheParameterGroupName' => String }
+      MODIFY_PARAMETER_GROUP = { 'CacheParameterGroupName' => String }
       PARAMETER_SET = {
         'Parameters'                      => Array,
         'CacheNodeTypeSpecificParameters' => Array,

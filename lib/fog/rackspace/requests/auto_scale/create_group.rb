@@ -52,7 +52,7 @@ module Fog
           self.data[:autoscale_groups][group_id] = group
 
           # Response
-          body = {'group' => group}
+          body = { 'group' => group }
           response(:body => body)
         end
       end

@@ -2,9 +2,9 @@ module Fog
   module Compute
     class Libvirt
       class Real
-        def update_display(options = { })
+        def update_display(options = {})
           raise ArgumentError, 'uuid is a required parameter' unless options.has_key? :uuid
-          display          = { }
+          display          = {}
           display[:type]   = options[:type] || 'vnc'
           display[:port]   = (options[:port] || -1).to_s
           display[:listen] = options[:listen].to_s   if options[:listen]
@@ -21,7 +21,7 @@ module Fog
       end
 
       class Mock
-        def update_display(options = { })
+        def update_display(options = {})
           raise ArgumentError, 'uuid is a required parameter' unless options.has_key? :uuid
           true
         end

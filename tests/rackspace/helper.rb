@@ -15,8 +15,8 @@ module Shindo
             :name => ('fog' + Time.now.to_i.to_s),
             :protocol => 'HTTP',
             :port => 80,
-            :virtual_ips => [{ :type => 'PUBLIC'}],
-            :nodes => [{ :address => '1.1.1.1', :port => 80, :condition => 'ENABLED'}]
+            :virtual_ips => [{ :type => 'PUBLIC' }],
+            :nodes => [{ :address => '1.1.1.1', :port => 80, :condition => 'ENABLED' }]
           )
         @lb.wait_for { ready? }
       begin

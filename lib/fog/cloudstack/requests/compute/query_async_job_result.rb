@@ -23,7 +23,7 @@ module Fog
             raise Fog::Compute::Cloudstack::BadRequest.new("Unknown job id #{job_id}")
           end
 
-          {'queryasyncjobresultresponse' => job }
+          { 'queryasyncjobresultresponse' => job }
         end
       end
 

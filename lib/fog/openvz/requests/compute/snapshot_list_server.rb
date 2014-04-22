@@ -4,7 +4,7 @@ module Fog
       class Real
 
         def snapshot_list_server(id,options = {})
-          vzctl('snapshot-list',{:ctid => id}.merge(options))
+          vzctl('snapshot-list',{ :ctid => id }.merge(options))
         end
 
       end

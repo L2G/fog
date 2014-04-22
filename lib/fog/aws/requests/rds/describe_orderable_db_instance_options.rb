@@ -44,18 +44,18 @@ module Fog
           response = Excon::Response.new
           if engine
             (opts[:db_instance_class] || %w(db.m2.xlarge db.m1.large)).each do |size|
-              instance_options << {'MultiAZCapable' => true,
+              instance_options << { 'MultiAZCapable' => true,
                                    'Engine' => engine,
                                    'LicenseModel' => opts[:license_model] || 'general-public-license',
                                    'ReadReplicaCapable' => true,
                                    'EngineVersion' => opts[:engine_version] || '5.6.12',
                                    'AvailabilityZones' => [
-                                      {'Name' => 'us-east-1b', 'ProvisionedIopsCapable' => true},
-                                      {'Name' => 'us-east-1c', 'ProvisionedIopsCapable' => true},
-                                      {'Name' => 'us-east-1d', 'ProvisionedIopsCapable' => false},
-                                      {'Name' => 'us-east-1e', 'ProvisionedIopsCapable' => true}],
+                                      { 'Name' => 'us-east-1b', 'ProvisionedIopsCapable' => true },
+                                      { 'Name' => 'us-east-1c', 'ProvisionedIopsCapable' => true },
+                                      { 'Name' => 'us-east-1d', 'ProvisionedIopsCapable' => false },
+                                      { 'Name' => 'us-east-1e', 'ProvisionedIopsCapable' => true }],
                                    'DBInstanceClass' => size,
-                                   'Vpc' => opts[:vpc].nil? ? true : opts[:vpc]}
+                                   'Vpc' => opts[:vpc].nil? ? true : opts[:vpc] }
 
             end
           else

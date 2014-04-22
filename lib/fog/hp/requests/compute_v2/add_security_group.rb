@@ -10,7 +10,7 @@ module Fog
         # * 'sg_name'<~String> - Name of security group to add to the server
         #
         def add_security_group(server_id, sg_name)
-          body = { 'addSecurityGroup' => { 'name' => sg_name }}
+          body = { 'addSecurityGroup' => { 'name' => sg_name } }
           server_action(server_id, body)
         end
 
@@ -21,7 +21,7 @@ module Fog
         def add_security_group(server_id, sg_name)
           response = Excon::Response.new
           if server = self.data[:servers][server_id]
-            data = {'name' => "#{sg_name}"}
+            data = { 'name' => "#{sg_name}" }
             if server['security_groups']
               server['security_groups'] << data
             else

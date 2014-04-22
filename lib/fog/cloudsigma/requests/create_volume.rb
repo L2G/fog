@@ -11,7 +11,7 @@ module Fog
         def create_volume(data)
           uuid = self.class.random_uuid
 
-          defaults = {'uuid' => uuid,
+          defaults = { 'uuid' => uuid,
                       'status' => 'unmounted',
                       'tags' => [],
                       'mounted_on' => [],

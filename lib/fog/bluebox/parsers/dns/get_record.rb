@@ -6,7 +6,7 @@ module Fog
         class GetRecord < Fog::Parsers::Base
 
           def reset
-            @response = { }
+            @response = {}
           end
 
           def end_element(name)

@@ -420,10 +420,10 @@ module Fog
                       }
                     ],
                     'quotas' => [
-                      {'metric' => 'INSTANCES', 'limit' => 16.0, 'usage' => 0.0},
-                      {'metric' => 'CPUS', 'limit' => 24.0, 'usage' => 0.0},
-                      {'metric' => 'DISKS', 'limit' => 16.0, 'usage' => 0.0},
-                      {'metric' => 'DISKS_TOTAL_GB', 'limit' => 2048.0, 'usage' => 0.0}
+                      { 'metric' => 'INSTANCES', 'limit' => 16.0, 'usage' => 0.0 },
+                      { 'metric' => 'CPUS', 'limit' => 24.0, 'usage' => 0.0 },
+                      { 'metric' => 'DISKS', 'limit' => 16.0, 'usage' => 0.0 },
+                      { 'metric' => 'DISKS_TOTAL_GB', 'limit' => 2048.0, 'usage' => 0.0 }
                     ],
                     'region' => "https://www.googleapis.com/compute/#{api_version}/projects/#{key}/regions/europe-west1"
                   },
@@ -437,10 +437,10 @@ module Fog
                     'status' => 'UP',
                     'maintenanceWindows' => nil,
                     'quotas' => [
-                      {'metric' => 'INSTANCES', 'limit' => 16.0, 'usage' => 1.0},
-                      {'metric' => 'CPUS', 'limit' => 24.0, 'usage' => 1.0},
-                      {'metric' => 'DISKS', 'limit' => 16.0, 'usage' => 0.0},
-                      {'metric' => 'DISKS_TOTAL_GB', 'limit' => 2048.0, 'usage' => 0.0}
+                      { 'metric' => 'INSTANCES', 'limit' => 16.0, 'usage' => 1.0 },
+                      { 'metric' => 'CPUS', 'limit' => 24.0, 'usage' => 1.0 },
+                      { 'metric' => 'DISKS', 'limit' => 16.0, 'usage' => 0.0 },
+                      { 'metric' => 'DISKS_TOTAL_GB', 'limit' => 2048.0, 'usage' => 0.0 }
                     ],
                     'region' => "https://www.googleapis.com/compute/#{api_version}/projects/#{key}/regions/us-central1"
                   },
@@ -452,15 +452,15 @@ module Fog
                     'name' => 'us-central1-b',
                     'description' => 'us-central1-b',
                     'status' => 'UP',
-                    'maintenanceWindows' => [{'name' => '2013-10-26-planned-outage',
+                    'maintenanceWindows' => [{ 'name' => '2013-10-26-planned-outage',
                       'description' => 'maintenance zone',
                     'beginTime' => '2013-10-26T12:00:00.000-07:00',
-                    'endTime' => '2013-11-10T12:00:00.000-08:00'}],
+                    'endTime' => '2013-11-10T12:00:00.000-08:00' }],
                     'quotas' => [
-                      {'metric' => 'INSTANCES', 'limit' => 16.0, 'usage' => 0.0},
-                      {'metric' => 'CPUS', 'limit' => 24.0, 'usage' => 0.0},
-                      {'metric' => 'DISKS', 'limit' => 16.0, 'usage' => 0.0},
-                      {'metric' => 'DISKS_TOTAL_GB', 'limit' => 2048.0, 'usage' => 0.0}
+                      { 'metric' => 'INSTANCES', 'limit' => 16.0, 'usage' => 0.0 },
+                      { 'metric' => 'CPUS', 'limit' => 24.0, 'usage' => 0.0 },
+                      { 'metric' => 'DISKS', 'limit' => 16.0, 'usage' => 0.0 },
+                      { 'metric' => 'DISKS_TOTAL_GB', 'limit' => 2048.0, 'usage' => 0.0 }
                     ],
                     'region' => "https://www.googleapis.com/compute/#{api_version}/projects/#{key}/regions/us-central1"
                   },
@@ -481,10 +481,10 @@ module Fog
                       }
                     ],
                     'quotas' => [
-                      {'metric' => 'INSTANCES', 'limit' => 16.0, 'usage' => 0.0},
-                      {'metric' => 'CPUS', 'limit' => 24.0, 'usage' => 0.0},
-                      {'metric' => 'DISKS', 'limit' => 16.0, 'usage' => 0.0},
-                      {'metric' => 'DISKS_TOTAL_GB', 'limit' => 2048.0, 'usage' => 0.0}
+                      { 'metric' => 'INSTANCES', 'limit' => 16.0, 'usage' => 0.0 },
+                      { 'metric' => 'CPUS', 'limit' => 24.0, 'usage' => 0.0 },
+                      { 'metric' => 'DISKS', 'limit' => 16.0, 'usage' => 0.0 },
+                      { 'metric' => 'DISKS_TOTAL_GB', 'limit' => 2048.0, 'usage' => 0.0 }
                     ],
                     'region' => "https://www.googleapis.com/compute/#{api_version}/projects/#{key}/regions/us-central2"
                   }

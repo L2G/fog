@@ -3,7 +3,7 @@ class AWS
     module Formats
 
       BASIC = {
-        'ResponseMetadata' => {'RequestId' => String}
+        'ResponseMetadata' => { 'RequestId' => String }
       }
 
       LOAD_BALANCER = {
@@ -13,7 +13,7 @@ class AWS
         'CanonicalHostedZoneNameID' => String,
         'CreatedTime' => Time,
         'DNSName' => String,
-        'HealthCheck' => {'HealthyThreshold' => Integer, 'Timeout' => Integer, 'UnhealthyThreshold' => Integer, 'Interval' => Integer, 'Target' => String},
+        'HealthCheck' => { 'HealthyThreshold' => Integer, 'Timeout' => Integer, 'UnhealthyThreshold' => Integer, 'Interval' => Integer, 'Target' => String },
         'Instances' => Array,
         'ListenerDescriptions' => [{
           'PolicyNames' => Array,
@@ -26,10 +26,10 @@ class AWS
           }
         }],
         'LoadBalancerName' => String,
-        'Policies' => {'LBCookieStickinessPolicies' => Array, 'AppCookieStickinessPolicies' => Array, 'OtherPolicies' => Array},
+        'Policies' => { 'LBCookieStickinessPolicies' => Array, 'AppCookieStickinessPolicies' => Array, 'OtherPolicies' => Array },
         'Scheme' => String,
         'SecurityGroups' => [Fog::Nullable::String],
-        'SourceSecurityGroup' => {'GroupName' => String, 'OwnerAlias' => String},
+        'SourceSecurityGroup' => { 'GroupName' => String, 'OwnerAlias' => String },
         'Subnets' => [Fog::Nullable::String]
       }
 
@@ -38,7 +38,7 @@ class AWS
       )
 
       DESCRIBE_LOAD_BALANCERS = BASIC.merge(
-        'DescribeLoadBalancersResult' => {'LoadBalancerDescriptions' => [LOAD_BALANCER], 'NextMarker' => Fog::Nullable::String}
+        'DescribeLoadBalancersResult' => { 'LoadBalancerDescriptions' => [LOAD_BALANCER], 'NextMarker' => Fog::Nullable::String }
       )
 
       POLICY_ATTRIBUTE_DESCRIPTION = {
@@ -71,17 +71,17 @@ class AWS
       }
 
       DESCRIBE_LOAD_BALANCER_POLICY_TYPES = BASIC.merge(
-        'DescribeLoadBalancerPolicyTypesResult' => {'PolicyTypeDescriptions' => [POLICY_TYPE] }
+        'DescribeLoadBalancerPolicyTypesResult' => { 'PolicyTypeDescriptions' => [POLICY_TYPE] }
       )
 
       CONFIGURE_HEALTH_CHECK = BASIC.merge(
-        'ConfigureHealthCheckResult' => {'HealthCheck' => {
+        'ConfigureHealthCheckResult' => { 'HealthCheck' => {
         'Target' => String,
         'Interval' => Integer,
         'Timeout' => Integer,
         'UnhealthyThreshold' => Integer,
         'HealthyThreshold' => Integer
-      }}
+      } }
       )
 
       DELETE_LOAD_BALANCER = BASIC.merge(

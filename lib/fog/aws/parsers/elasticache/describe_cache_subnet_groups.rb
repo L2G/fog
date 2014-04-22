@@ -8,7 +8,7 @@ module Fog
         class DescribeCacheSubnetGroups < Fog::Parsers::AWS::Elasticache::SubnetGroupParser
 
           def reset
-            @response = { 'DescribeCacheSubnetGroupsResult' => {'CacheSubnetGroups' => []}, 'ResponseMetadata' => {} }
+            @response = { 'DescribeCacheSubnetGroupsResult' => { 'CacheSubnetGroups' => [] }, 'ResponseMetadata' => {} }
             super
           end
 

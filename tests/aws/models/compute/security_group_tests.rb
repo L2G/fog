@@ -1,6 +1,6 @@
 Shindo.tests('Fog::Compute[:aws] | security_group', ['aws']) do
 
-  model_tests(Fog::Compute[:aws].security_groups, {:description => 'foggroupdescription', :name => 'foggroupname'}, true)
+  model_tests(Fog::Compute[:aws].security_groups, { :description => 'foggroupdescription', :name => 'foggroupname' }, true)
 
   tests('authorize and revoke helpers') do
     @group = Fog::Compute[:aws].security_groups.create(:name => 'foggroup', :description => 'fog group desc')
@@ -35,7 +35,7 @@ Shindo.tests('Fog::Compute[:aws] | security_group', ['aws']) do
     group_forms = [
       "#{@other_group.owner_id}:#{@other_group.group_id}", # deprecated form
       @other_group.group_id,
-      {@other_group.owner_id => @other_group.group_id}
+      { @other_group.owner_id => @other_group.group_id }
     ]
 
     group_forms.each do |group_arg|

@@ -10,7 +10,7 @@ module Fog
                 'address' => address,
                 'type' => type
               }
-          ]}
+          ] }
           request(
             :body     => Fog::JSON.encode(data),
             :expects  => [200, 202],

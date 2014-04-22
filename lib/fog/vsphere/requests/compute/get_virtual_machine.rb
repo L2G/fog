@@ -13,7 +13,7 @@ module Fog
           vm = case is_uuid?(id)
             # UUID based
             when true
-              params = {:uuid => id, :vmSearch => true, :instanceUuid => true}
+              params = { :uuid => id, :vmSearch => true, :instanceUuid => true }
               params[:datacenter] = raw_datacenter if dc
               @connection.searchIndex.FindByUuid(params)
             else

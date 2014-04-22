@@ -22,9 +22,9 @@ Shindo.tests('HP::Network | networking subnet requests', ['hp', 'networking', 's
     @subnet_id = nil
 
     tests('#create_subnet').formats(@subnet_format) do
-      attributes = {:name => 'mysubnet', :gateway_ip => '10.0.3.1',
+      attributes = { :name => 'mysubnet', :gateway_ip => '10.0.3.1',
                     :allocation_pools => [], :dns_nameservers => [],
-                    :host_routes => [], :enable_dhcp => true, :tenant_id => '111111111'}
+                    :host_routes => [], :enable_dhcp => true, :tenant_id => '111111111' }
       data = HP[:network].create_subnet(@network_id, '10.0.3.0/24', 4, attributes).body['subnet']
       @subnet_id = data['id']
       data
@@ -39,9 +39,9 @@ Shindo.tests('HP::Network | networking subnet requests', ['hp', 'networking', 's
     end
 
     tests("#update_subnet(#{@subnet_id})").formats('subnet' => @subnet_format) do
-      attributes = {:name => 'mysubnet_upd',:gateway_ip => '10.0.3.1',
+      attributes = { :name => 'mysubnet_upd',:gateway_ip => '10.0.3.1',
                           :dns_nameservers => [], :host_routes => [],
-                          :enable_dhcp => true}
+                          :enable_dhcp => true }
       HP[:network].update_subnet(@subnet_id, attributes).body
     end
 

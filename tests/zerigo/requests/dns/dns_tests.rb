@@ -254,7 +254,7 @@ Shindo.tests('Fog::DNS[:zerigo] | DNS requests', ['zerigo', 'dns']) do
       #using the zone methods)
       sub_domain = 'subdomain'        # that we want to delete DNS for
       ns_host = 'ns.' + @domain
-      options = { :hostname => sub_domain}
+      options = { :hostname => sub_domain }
       response = Fog::DNS[:zerigo].create_host( @zone_id, 'NS', ns_host, options)
       if response.status == 201
         record_id = response.body['id']
@@ -268,7 +268,7 @@ Shindo.tests('Fog::DNS[:zerigo] | DNS requests', ['zerigo', 'dns']) do
       pending if Fog.mocking?
 
       mail_domain = 'mail.' + @domain
-      options = { :hostname => @domain, :ttl => 3600, :priority => '3'}
+      options = { :hostname => @domain, :ttl => 3600, :priority => '3' }
       response = Fog::DNS[:zerigo].create_host( @zone_id, 'MX', mail_domain, options)
       if response.status == 201
         @record_id = response.body['id']

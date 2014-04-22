@@ -54,7 +54,7 @@ def compute_providers
           end
         end
       end,
-      :volume_attributes => {:name => 'somevolume'}.tap do |hash|
+      :volume_attributes => { :name => 'somevolume' }.tap do |hash|
         [:zone_id, :disk_offering_id].each do |k|
           key = "cloudstack_#{k}".to_sym
           if Fog.credentials[key]
@@ -62,7 +62,7 @@ def compute_providers
           end
         end
       end,
-      :snapshot_attributes => {:volume_id => '89198f7c-0245-aa1d-136a-c5f479ef9db7'}.tap do |hash|
+      :snapshot_attributes => { :volume_id => '89198f7c-0245-aa1d-136a-c5f479ef9db7' }.tap do |hash|
         [:volume_id, :domain_id, :policy_id].each do |k|
           key = "cloudstack_#{k}".to_sym
           if Fog.credentials[key]
@@ -70,7 +70,7 @@ def compute_providers
           end
         end
       end,
-      :security_group_attributes => {:name => "cloudstack.sg.#{Time.now.to_i}"},
+      :security_group_attributes => { :name => "cloudstack.sg.#{Time.now.to_i}" },
       :security_group_rule_attributes => {
         :cidr => '0.0.0.0/0',
         :start_port => 123,

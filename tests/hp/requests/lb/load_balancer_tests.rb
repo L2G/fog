@@ -13,7 +13,7 @@ Shindo.tests('HP::LB | load balancers requests', ['hp', 'lb', 'load_balancer']) 
 
   tests('success') do
     @lb_name = 'fog-lb'
-    @nodes = [{'address' => '15.185.1.1', 'port' => '80'}]
+    @nodes = [{ 'address' => '15.185.1.1', 'port' => '80' }]
 
     tests("#create_load_balancer(#{@lb_name}, #{@nodes})").formats(@lb_format) do
       data = HP[:lb].create_load_balancer(@lb_name, @nodes).body

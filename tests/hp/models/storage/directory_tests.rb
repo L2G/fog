@@ -1,6 +1,6 @@
 Shindo.tests('Fog::Storage[:hp] | directory', ['hp', 'storage']) do
 
-  model_tests(Fog::Storage[:hp].directories, {:key => 'fogdirtests'}, true) do
+  model_tests(Fog::Storage[:hp].directories, { :key => 'fogdirtests' }, true) do
 
     tests('success') do
 
@@ -74,7 +74,7 @@ Shindo.tests('Fog::Storage[:hp] | directory', ['hp', 'storage']) do
 
       # metadata set via setter
       tests('#metadata=').succeeds do
-        @instance.metadata = {'X-Container-Meta-Two' => 'Two'}
+        @instance.metadata = { 'X-Container-Meta-Two' => 'Two' }
         @instance.save
       end
 

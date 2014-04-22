@@ -5,7 +5,7 @@ module Fog
       class Real
 
         def snapshot_revert( snapshot_ref, extra_args = {})
-          @connection.request({:parser => Fog::Parsers::XenServer::Base.new, :method => 'VM.revert'}, snapshot_ref)
+          @connection.request({ :parser => Fog::Parsers::XenServer::Base.new, :method => 'VM.revert' }, snapshot_ref)
         end
 
       end

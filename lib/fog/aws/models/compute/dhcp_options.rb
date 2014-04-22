@@ -56,7 +56,7 @@ module Fog
         def all(filters = filters)
           unless filters.is_a?(Hash)
             Fog::Logger.warning("all with #{filters.class} param is deprecated, use all('internet-gateway-id' => []) instead [light_black](#{caller.first})[/]")
-            filters = {'dhcp-options-id' => [*filters]}
+            filters = { 'dhcp-options-id' => [*filters] }
           end
           self.filters = filters
           data = service.describe_dhcp_options(filters).body

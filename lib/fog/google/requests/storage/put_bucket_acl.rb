@@ -30,7 +30,7 @@ DATA
             :headers  => {},
             :host     => "#{bucket_name}.#{@host}",
             :method   => 'PUT',
-            :query    => {'acl' => nil}
+            :query    => { 'acl' => nil }
           )
         end
 

@@ -46,7 +46,7 @@ Shindo.tests('Fog::Rackspace::BlockStorage', ['rackspace']) do
     pending if Fog.mocking?
 
     tests('variables populated').succeeds  do
-      @service = Fog::Rackspace::BlockStorage.new :rackspace_auth_url => 'https://identity.api.rackspacecloud.com/v2.0', :connection_options => {:ssl_verify_peer => true}
+      @service = Fog::Rackspace::BlockStorage.new :rackspace_auth_url => 'https://identity.api.rackspacecloud.com/v2.0', :connection_options => { :ssl_verify_peer => true }
       returns(true, 'auth token populated') { !@service.send(:auth_token).nil? }
       returns(false, 'path populated') { @service.instance_variable_get('@uri').host.nil? }
 

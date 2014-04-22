@@ -13,7 +13,7 @@ module Fog
             :VM => vm_ref,
             :VDI => vdi_ref,
             :empty => false,
-            :other_config => {'owner' => ''},
+            :other_config => { 'owner' => '' },
             :userdevice => '0',
             :bootable => true,
             :mode => 'RW',
@@ -23,7 +23,7 @@ module Fog
             :type => 'Disk'
           }.merge config
 
-          @connection.request({:parser => Fog::Parsers::XenServer::Base.new, :method => 'VBD.create'}, default_config )
+          @connection.request({ :parser => Fog::Parsers::XenServer::Base.new, :method => 'VBD.create' }, default_config )
         end
       end
 

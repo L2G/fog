@@ -25,7 +25,7 @@ module Fog
                     [Fog::Ecloud.keep(compute_pool, :name, :href, :type),]
                   end
 
-          server_response = {:VirtualMachine => (servers.size > 1 ? servers : servers.first)} # GAH
+          server_response = { :VirtualMachine => (servers.size > 1 ? servers : servers.first) } # GAH
           body = {
             :href  => uri,
             :type  => 'application/vnd.tmrk.cloud.virtualMachine; type=collection',

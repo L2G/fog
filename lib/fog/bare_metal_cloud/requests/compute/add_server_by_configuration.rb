@@ -23,7 +23,7 @@ module Fog
             :method   => 'GET',
             :parser   => Fog::ToHashDocument.new,
             :path     => 'api/addServerByConfiguration',
-            :query    => {'configuration' => config}.merge!(options)
+            :query    => { 'configuration' => config }.merge!(options)
           )
         end
 

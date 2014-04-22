@@ -3,7 +3,7 @@ module Fog
     class CloudSigma
       class Real
         def get_pricing(currency = nil, subscription = false)
-          query = {:limit => 0}
+          query = { :limit => 0 }
           if currency
             query[:currency] = currency
           end

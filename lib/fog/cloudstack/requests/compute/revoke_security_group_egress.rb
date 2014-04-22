@@ -34,7 +34,7 @@ module Fog
 
           self.data[:jobs][job_id] = job
 
-          {'revokesecuritygroupegress' => { 'jobid' => job_id }}
+          { 'revokesecuritygroupegress' => { 'jobid' => job_id } }
         end
       end # Mock
     end

@@ -22,7 +22,7 @@ module Fog
           response.body = {
           'Disks' =>
             [
-            {'Index' => 0,
+            { 'Index' => 0,
               'ID' => 112600053890,
               'Name' => 'foober1',
               'Connection' => 'virtio',
@@ -30,8 +30,8 @@ module Fog
               'SizeMB' => 20480,
               'Plan' => {},
               'SourceDisk' => nil,
-              'SourceArchive' => {}},
-            {'Index' => 1,
+              'SourceArchive' => {} },
+            { 'Index' => 1,
               'ID' => 112600053891,
               'Name' => 'foober2',
               'Connection'  => 'virtio',
@@ -39,7 +39,7 @@ module Fog
               'SizeMB' => 20480,
               'Plan' => {},
               'SourceDisk' => nil,
-              'SourceArchive' => {}}
+              'SourceArchive' => {} }
             ]
           }
           response

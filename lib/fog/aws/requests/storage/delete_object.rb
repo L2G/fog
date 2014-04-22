@@ -58,7 +58,7 @@ module Fog
                 else
                   response.status = 400
                   response.body = invalid_version_id_payload(version_id)
-                  raise(Excon::Errors.status_error({:expects => 200}, response))
+                  raise(Excon::Errors.status_error({ :expects => 200 }, response))
                 end
               else
                 delete_marker = {
@@ -83,7 +83,7 @@ module Fog
               if version_id && version_id != 'null'
                 response.status = 400
                 response.body = invalid_version_id_payload(version_id)
-                raise(Excon::Errors.status_error({:expects => 200}, response))
+                raise(Excon::Errors.status_error({ :expects => 200 }, response))
               else
                 bucket[:objects].delete(object_name)
 
@@ -92,7 +92,7 @@ module Fog
             end
           else
             response.status = 404
-            raise(Excon::Errors.status_error({:expects => 204}, response))
+            raise(Excon::Errors.status_error({ :expects => 204 }, response))
           end
           response
         end

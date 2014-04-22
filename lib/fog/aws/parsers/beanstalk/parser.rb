@@ -15,7 +15,7 @@ module Fog
           def reset
             @response = { @result_name => {}, 'ResponseMetadata' => {} }
             # Push root object to top of stack
-            @parse_stack = [ { :type => :object, :value => @response[@result_name]} ]
+            @parse_stack = [ { :type => :object, :value => @response[@result_name] } ]
           end
 
           def tag name, *traits

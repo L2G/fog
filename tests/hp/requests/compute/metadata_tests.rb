@@ -11,7 +11,7 @@ Shindo.tests('Fog::Compute[:hp] | metadata requests', ['hp']) do
 
   tests('success') do
     @server_name = 'fogmetadatatest'
-    @server = Fog::Compute[:hp].servers.create(:name => @server_name, :flavor_id => 100, :image_id => @base_image_id, :metadata => {'Meta1' => 'MetaValue1', 'Meta2' => 'MetaValue2'} )
+    @server = Fog::Compute[:hp].servers.create(:name => @server_name, :flavor_id => 100, :image_id => @base_image_id, :metadata => { 'Meta1' => 'MetaValue1', 'Meta2' => 'MetaValue2' } )
     @server.wait_for { ready? }
 
     tests("#list_metadata('servers', #{@server.id})").formats(@metadata_format) do

@@ -11,7 +11,7 @@ module Fog
         #
         def destroy_sr( sr_ref )
           @connection.request(
-            {:parser => Fog::Parsers::XenServer::Base.new, :method => 'SR.destroy'},
+            { :parser => Fog::Parsers::XenServer::Base.new, :method => 'SR.destroy' },
             sr_ref
           )
         end

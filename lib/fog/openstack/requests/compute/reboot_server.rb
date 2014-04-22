@@ -4,7 +4,7 @@ module Fog
       class Real
 
         def reboot_server(server_id, type = 'SOFT')
-          body = { 'reboot' => { 'type' => type }}
+          body = { 'reboot' => { 'type' => type } }
           server_action(server_id, body)
         end
 

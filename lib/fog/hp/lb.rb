@@ -47,7 +47,7 @@ module Fog
             hash[key] = {
                 :versions => {
                   'v1.1' => { 'id' => 'v1.1',
-                              'links' => [{'href' => 'http://api-docs.hpcloud.com', 'rel' => 'self'}],
+                              'links' => [{ 'href' => 'http://api-docs.hpcloud.com', 'rel' => 'self' }],
                               'status' => 'CURRENT',
                               'updated' => '2012-12-18T18:30:02.25Z'
                   }
@@ -69,7 +69,7 @@ module Fog
                 },
                 :algorithms => {
                   'ROUND_ROBIN'       => { 'name' => 'ROUND_ROBIN' },
-                  'LEAST_CONNECTIONS' => { 'name' => 'LEAST_CONNECTIONS'}
+                  'LEAST_CONNECTIONS' => { 'name' => 'LEAST_CONNECTIONS' }
                 }
             }
           end

@@ -25,7 +25,7 @@ module Fog
           request(
             :body    => body,
             :expects => 204, # this might be wrong
-            :headers => {'Content-Type' => 'application/vnd.vmware.vcloud.vmPendingAnswer+xml'},
+            :headers => { 'Content-Type' => 'application/vnd.vmware.vcloud.vmPendingAnswer+xml' },
             :method  => 'POST',
             :path    => "vApp/#{id}/quesiton/action/answer"
           )

@@ -128,7 +128,7 @@ EOF
       request(
             :body     => body,
             :expects  => 202,
-            :headers  => {'Content-Type' => 'Application/vnd.vmware.vcloud.networkConfigSection+xml' },
+            :headers  => { 'Content-Type' => 'Application/vnd.vmware.vcloud.networkConfigSection+xml' },
             :method   => 'PUT',
             :uri      => "#{vapp_id}/networkConfigSection",
             :parse    => true

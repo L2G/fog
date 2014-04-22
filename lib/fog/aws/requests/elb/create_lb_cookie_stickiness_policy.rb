@@ -20,7 +20,7 @@ module Fog
         #     * 'ResponseMetadata'<~Hash>:
         #       * 'RequestId'<~String> - Id of request
         def create_lb_cookie_stickiness_policy(lb_name, policy_name, cookie_expiration_period = nil)
-          params = {'PolicyName' => policy_name, 'CookieExpirationPeriod' => cookie_expiration_period}
+          params = { 'PolicyName' => policy_name, 'CookieExpirationPeriod' => cookie_expiration_period }
 
           request({
             'Action'           => 'CreateLBCookieStickinessPolicy',

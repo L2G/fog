@@ -37,7 +37,7 @@ module Fog
           response = request(
             :body     => data,
             :expects  => 200,
-            :headers  => {'Content-Type' => 'application/vnd.tmrk.vCloud.nodeService+xml'},
+            :headers  => { 'Content-Type' => 'application/vnd.tmrk.vCloud.nodeService+xml' },
             :method   => 'POST',
             :parser   => Fog::Parsers::Terremark::Shared::NodeService.new,
             :path     => "api/extensions/v1.6/internetService/#{service_id}/nodeServices",

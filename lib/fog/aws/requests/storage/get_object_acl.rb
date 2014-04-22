@@ -36,7 +36,7 @@ module Fog
           unless object_name
             raise ArgumentError.new('object_name is required')
           end
-          query = {'acl' => nil}
+          query = { 'acl' => nil }
           if version_id = options.delete('versionId')
             query['versionId'] = version_id
           end
@@ -69,7 +69,7 @@ module Fog
             end
           else
             response.status = 404
-            raise(Excon::Errors.status_error({:expects => 200}, response))
+            raise(Excon::Errors.status_error({ :expects => 200 }, response))
           end
           response
         end

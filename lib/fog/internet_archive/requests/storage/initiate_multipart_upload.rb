@@ -34,7 +34,7 @@ module Fog
             :method     => 'POST',
             :parser     => Fog::Parsers::Storage::InternetArchive::InitiateMultipartUpload.new,
             :path       => CGI.escape(object_name),
-            :query      => {'uploads' => nil}
+            :query      => { 'uploads' => nil }
           )
         end
 

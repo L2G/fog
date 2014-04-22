@@ -4,7 +4,7 @@ Shindo.tests('Fog::Compute[:aws] | network_interfaces', ['aws']) do
   @subnet_id = @subnet.subnet_id
 
   collection_tests(Fog::Compute[:aws].network_interfaces,
-                   {:description => 'nic_desc', :name => 'nic_name', :subnet_id => @subnet_id},
+                   { :description => 'nic_desc', :name => 'nic_name', :subnet_id => @subnet_id },
                    true)
 
   @subnet.destroy

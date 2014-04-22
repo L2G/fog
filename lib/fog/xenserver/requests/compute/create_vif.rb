@@ -10,12 +10,12 @@ module Fog
           vm_ref = vm_ref.reference if vm_ref.kind_of? Fog::Model
           network_ref = network_ref.reference if network_ref.kind_of? Fog::Model
           vif_config = default_vif_config(vm_ref, network_ref, device.to_s)
-          @connection.request({:parser => Fog::Parsers::XenServer::Base.new, :method => 'VIF.create'}, vif_config )
+          @connection.request({ :parser => Fog::Parsers::XenServer::Base.new, :method => 'VIF.create' }, vif_config )
         end
 
         def create_vif_custom( conf )
           raise ArgumentError.new('VIF config is not a Hash') if not conf.kind_of?(Hash)
-          @connection.request({:parser => Fog::Parsers::XenServer::Base.new, :method => 'VIF.create'}, conf )
+          @connection.request({ :parser => Fog::Parsers::XenServer::Base.new, :method => 'VIF.create' }, conf )
         end
 
         def default_vif_config( vm_ref, network_ref, device_number = '-1' )

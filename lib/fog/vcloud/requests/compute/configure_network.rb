@@ -16,7 +16,7 @@ module Fog
           request(
             :body     => generate_configure_network_request(network_data),
             :expects  => 200,
-            :headers  => {'Content-Type' => 'application/vnd.vmware.vcloud.networkService+xml'},
+            :headers  => { 'Content-Type' => 'application/vnd.vmware.vcloud.networkService+xml' },
             :method   => 'PUT',
             :uri      => network_uri,
             :parse    => true

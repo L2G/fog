@@ -23,7 +23,7 @@ module Fog
             :idempotent => true,
             :method   => 'GET',
             :parser   => Fog::Parsers::Storage::AWS::GetBucketLocation.new,
-            :query    => {'location' => nil}
+            :query    => { 'location' => nil }
           )
         end
 
@@ -44,10 +44,10 @@ module Fog
             end
 
             response.status = 200
-            response.body = {'LocationConstraint' => location_constraint }
+            response.body = { 'LocationConstraint' => location_constraint }
           else
             response.status = 404
-            raise(Excon::Errors.status_error({:expects => 200}, response))
+            raise(Excon::Errors.status_error({ :expects => 200 }, response))
           end
           response
         end

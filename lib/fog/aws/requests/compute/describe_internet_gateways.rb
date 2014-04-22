@@ -27,7 +27,7 @@ module Fog
         def describe_internet_gateways(filters = {})
           unless filters.is_a?(Hash)
             Fog::Logger.warning("describe_internet_gateways with #{filters.class} param is deprecated, use internet_gateways('internet-gateway-id' => []) instead [light_black](#{caller.first})[/]")
-            filters = {'internet-gateway-id' => [*filters]}
+            filters = { 'internet-gateway-id' => [*filters] }
           end
           params = Fog::AWS.indexed_filters(filters)
           request({

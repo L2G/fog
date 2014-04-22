@@ -33,7 +33,7 @@ module Fog
             :idempotent => true,
             :method     => 'GET',
             :parser     => Fog::Parsers::Storage::AWS::CorsConfiguration.new,
-            :query      => {'cors' => nil}
+            :query      => { 'cors' => nil }
           )
         end
 
@@ -54,7 +54,7 @@ module Fog
             end
           else
             response.status = 404
-            raise(Excon::Errors.status_error({:expects => 200}, response))
+            raise(Excon::Errors.status_error({ :expects => 200 }, response))
           end
           response
         end

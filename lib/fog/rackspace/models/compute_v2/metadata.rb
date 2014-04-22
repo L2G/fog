@@ -93,7 +93,7 @@ module Fog
         def from_hash(hash)
           return unless hash
           metas = []
-          hash.each_pair {|k,v| metas << {:key => k, :value => v} }
+          hash.each_pair {|k,v| metas << { :key => k, :value => v } }
           load(metas)
         end
 

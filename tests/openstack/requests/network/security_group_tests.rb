@@ -12,7 +12,7 @@ Shindo.tests('Fog::Network[:openstack] | security_group requests', ['openstack']
     @sec_group_id = nil
 
     tests("#create_security_group('fog_security_group', 'tests group')").formats(@security_group_format) do
-      attributes    = {:name => 'fog_security_group', :description => 'tests group'}
+      attributes    = { :name => 'fog_security_group', :description => 'tests group' }
       data          = Fog::Network[:openstack].create_security_group(attributes).body['security_group']
       @sec_group_id = data['id']
       data

@@ -6,7 +6,7 @@ module Fog
         class DescribeAlarmHistory < Fog::Parsers::Base
 
           def reset
-            @response = { 'DescribeAlarmHistoryResult' => {'AlarmHistoryItems' => []}, 'ResponseMetadata' => {} }
+            @response = { 'DescribeAlarmHistoryResult' => { 'AlarmHistoryItems' => [] }, 'ResponseMetadata' => {} }
             reset_alarm_history_item
           end
 

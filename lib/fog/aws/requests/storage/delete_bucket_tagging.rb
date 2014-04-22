@@ -18,7 +18,7 @@ module Fog
             :headers  => {},
             :bucket_name => bucket_name,
             :method   => 'DELETE',
-            :query    => {'tagging' => nil}
+            :query    => { 'tagging' => nil }
           )
         end
 
@@ -33,7 +33,7 @@ module Fog
             response.status = 204
           else
             response.status = 404
-            raise(Excon::Errors.status_error({:expects => 204}, response))
+            raise(Excon::Errors.status_error({ :expects => 204 }, response))
           end
 
           response

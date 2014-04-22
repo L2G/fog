@@ -8,7 +8,7 @@ Shindo.tests('Fog::DNS[:aws] | records', ['aws', 'dns']) do
     # A record
     { :name => @zone.domain, :type => 'A', :ttl => 3600, :value => ['1.2.3.4'] },
     # CNAME record
-    { :name => "www.#{@zone.domain}", :type => 'CNAME', :ttl => 300, :value => @zone.domain}
+    { :name => "www.#{@zone.domain}", :type => 'CNAME', :ttl => 300, :value => @zone.domain }
   ]
 
   param_groups.each do |params|

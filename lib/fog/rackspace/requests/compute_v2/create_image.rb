@@ -89,7 +89,7 @@ module Fog
 
           response(
             :status => 202,
-            :headers => {'Location' => "/#{image_id}"}
+            :headers => { 'Location' => "/#{image_id}" }
           )
         end
       end

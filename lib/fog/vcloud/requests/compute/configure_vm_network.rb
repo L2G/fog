@@ -22,7 +22,7 @@ EOF
           request(
             :body     => body,
             :expects  => 202,
-            :headers  => {'Content-Type' => network_info[:"type"] },
+            :headers  => { 'Content-Type' => network_info[:"type"] },
             :method   => 'PUT',
             :uri      => "#{edit_uri}",
             :parse    => true

@@ -24,7 +24,7 @@ module Fog
         def select(select_expression, options = {})
           if options.is_a?(String)
             Fog::Logger.deprecation("get_attributes with string next_token param is deprecated, use 'AttributeName' => attributes) instead [light_black](#{caller.first})[/]")
-            options = {'NextToken' => options}
+            options = { 'NextToken' => options }
           end
           options['NextToken'] ||= nil
           request(

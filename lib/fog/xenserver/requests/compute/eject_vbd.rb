@@ -5,7 +5,7 @@ module Fog
       class Real
 
         def eject_vbd(ref, extra_args = {})
-          @connection.request({:parser => Fog::Parsers::XenServer::Base.new, :method => 'VBD.eject'}, ref)
+          @connection.request({ :parser => Fog::Parsers::XenServer::Base.new, :method => 'VBD.eject' }, ref)
         end
 
       end

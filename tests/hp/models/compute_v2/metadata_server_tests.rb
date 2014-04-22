@@ -4,7 +4,7 @@ Shindo.tests('Fog::Compute::HPV2 | metadata for servers', ['hp', 'v2', 'compute'
 
   @base_image_id = ENV['BASE_IMAGE_ID'] || '7f60b54c-cd15-433f-8bed-00acbcd25a17'
 
-  @server = service.servers.create(:name => 'fogsermetadatatests', :flavor_id => 100, :image_id => @base_image_id, :metadata => {'Meta1' => 'MetaValue1', 'Meta2' => 'MetaValue2'})
+  @server = service.servers.create(:name => 'fogsermetadatatests', :flavor_id => 100, :image_id => @base_image_id, :metadata => { 'Meta1' => 'MetaValue1', 'Meta2' => 'MetaValue2' })
   @server.wait_for { ready? }
 
   tests('success') do

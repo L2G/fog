@@ -5,7 +5,7 @@ module Fog
       class Real
 
         def scan_sr( ref, extra_args = {})
-          @connection.request({:parser => Fog::Parsers::XenServer::Base.new, :method => 'SR.scan'}, ref)
+          @connection.request({ :parser => Fog::Parsers::XenServer::Base.new, :method => 'SR.scan' }, ref)
         end
 
       end

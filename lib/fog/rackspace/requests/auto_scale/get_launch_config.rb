@@ -21,7 +21,7 @@ module Fog
             raise Fog::Rackspace::AutoScale::NotFound
           end
 
-          response(:body => {'launchConfiguration' => group['launchConfiguration']})
+          response(:body => { 'launchConfiguration' => group['launchConfiguration'] })
         end
       end
 

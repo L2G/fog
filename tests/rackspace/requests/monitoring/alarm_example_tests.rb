@@ -11,7 +11,7 @@ Shindo.tests('Fog::Rackspace::Monitoring | alarm_example_tests', ['rackspace','r
       account.get_alarm_example(example_id).data[:headers]
     end
     tests('#evaluate alarm example').formats(LIST_HEADERS_FORMAT) do
-      options = { :string => 'Foo'}
+      options = { :string => 'Foo' }
       account.evaluate_alarm_example(example_id,options).data[:headers]
     end
   end
@@ -23,7 +23,7 @@ Shindo.tests('Fog::Rackspace::Monitoring | alarm_example_tests', ['rackspace','r
       account.get_alarm_example(-1).data[:headers]
     end
     tests('#fail to evaluate alarm example').raises(Fog::Rackspace::Monitoring::BadRequest) do
-      options = { }
+      options = {}
       account.evaluate_alarm_example(example_id,options).data[:headers]
     end
   end

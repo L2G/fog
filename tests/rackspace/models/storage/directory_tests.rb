@@ -88,7 +88,7 @@ Shindo.tests('Fog::Rackspace::Storage | directory', ['rackspace']) do
      end
    end
 
-   directory_attributes[:metadata] = {:draft => 'true'}
+   directory_attributes[:metadata] = { :draft => 'true' }
 
    tests('metadata') do
 

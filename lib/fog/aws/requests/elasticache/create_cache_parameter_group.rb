@@ -42,7 +42,7 @@ module Fog
 
           response.body = {
             'ResponseMetadata' => { 'RequestId' => Fog::AWS::Mock.request_id },
-            'CreateCacheParameterGroupResult' => {'CacheParameterGroup' => data}
+            'CreateCacheParameterGroupResult' => { 'CacheParameterGroup' => data }
           }
           response.status = 200
           response

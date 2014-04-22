@@ -21,7 +21,7 @@ module Fog
           request(
             :body     => generate_configure_network_ip_request(network_ip_data),
             :expects  => 200,
-            :headers  => {'Content-Type' => 'application/vnd.vmware.vcloud.ip+xml' },
+            :headers  => { 'Content-Type' => 'application/vnd.vmware.vcloud.ip+xml' },
             :method   => 'PUT',
             :uri      => network_ip_uri,
             :parse    => true

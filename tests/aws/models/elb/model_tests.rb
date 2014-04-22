@@ -29,7 +29,7 @@ Shindo.tests('AWS::ELB | models', ['aws', 'elb']) do
       end
 
       tests('specifying attributes') do
-        attributes = {:instance_port => 2000, :instance_protocol => 'SSL', :lb_port => 2001, :protocol => 'SSL', :policy_names => ['fake'] }
+        attributes = { :instance_port => 2000, :instance_protocol => 'SSL', :lb_port => 2001, :protocol => 'SSL', :policy_names => ['fake'] }
         listener = Fog::AWS[:elb].listeners.new(attributes)
         tests('instance_port is 2000').returns(2000) { listener.instance_port }
         tests('instance_protocol is SSL').returns('SSL') { listener.instance_protocol }
@@ -113,7 +113,7 @@ Shindo.tests('AWS::ELB | models', ['aws', 'elb']) do
       tests('with invalid Server Cert ARN').raises(Fog::AWS::IAM::NotFound) do
         listeners = [{
           'Listener' => {
-          'LoadBalancerPort' => 443, 'InstancePort' => 80, 'Protocol' => 'HTTPS', 'InstanceProtocol' => 'HTTPS', 'SSLCertificateId' => 'fakecert'}
+          'LoadBalancerPort' => 443, 'InstancePort' => 80, 'Protocol' => 'HTTPS', 'InstanceProtocol' => 'HTTPS', 'SSLCertificateId' => 'fakecert' }
         }]
         Fog::AWS[:elb].load_balancers.create(:id => "#{elb_id}-4", 'ListenerDescriptions' => listeners, :availability_zones => @availability_zones)
       end
@@ -233,7 +233,7 @@ Shindo.tests('AWS::ELB | models', ['aws', 'elb']) do
       end
 
       tests('create') do
-        new_listener = { 'InstancePort' => 443, 'LoadBalancerPort' => 443, 'Protocol' => 'TCP', 'InstanceProtocol' => 'TCP'}
+        new_listener = { 'InstancePort' => 443, 'LoadBalancerPort' => 443, 'Protocol' => 'TCP', 'InstanceProtocol' => 'TCP' }
         elb.listeners.create(:instance_port => 443, :lb_port => 443, :protocol => 'TCP', :instance_protocol => 'TCP')
         returns(2) { elb.listeners.size }
         returns(443) { elb.listeners.get(443).lb_port }
@@ -290,7 +290,7 @@ Shindo.tests('AWS::ELB | models', ['aws', 'elb']) do
 
       public_key_policy_id = 'fog-public-key-policy'
       tests('create public key policy') do
-        elb.policies.create(:id => public_key_policy_id, :type_name => 'PublicKeyPolicyType', :policy_attributes => {'PublicKey' => AWS::IAM::SERVER_CERT_PUBLIC_KEY})
+        elb.policies.create(:id => public_key_policy_id, :type_name => 'PublicKeyPolicyType', :policy_attributes => { 'PublicKey' => AWS::IAM::SERVER_CERT_PUBLIC_KEY })
         policy = elb.policies.get(public_key_policy_id)
 
         returns(public_key_policy_id) { policy.id }

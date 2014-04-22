@@ -159,7 +159,7 @@ module Fog
             :openstack_management_url  => @openstack_management_url,
             :openstack_current_user_id => @openstack_current_user_id,
             :current_user              => @current_user,
-            :current_tenant            => @current_tenant}
+            :current_tenant            => @current_tenant }
         end
       end
 

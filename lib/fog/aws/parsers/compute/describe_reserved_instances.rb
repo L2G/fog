@@ -6,7 +6,7 @@ module Fog
         class DescribeReservedInstances < Fog::Parsers::Base
 
           def get_default_item
-            {'tagSet' => {}, 'recurringCharges' => {}}
+            { 'tagSet' => {}, 'recurringCharges' => {} }
           end
 
           def reset

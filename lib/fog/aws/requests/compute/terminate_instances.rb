@@ -63,7 +63,7 @@ module Fog
               when 'stopped'
                 80
               end
-              state = { 'name' => 'shutting-down', 'code' => 32}
+              state = { 'name' => 'shutting-down', 'code' => 32 }
               response.body['instancesSet'] << {
                 'instanceId'    => id,
                 'previousState' => instance['instanceState'],

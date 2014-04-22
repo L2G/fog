@@ -46,7 +46,7 @@ module Fog
         end
         return options
       else
-        return {key => value}
+        return { key => value }
       end
     end
 

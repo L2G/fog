@@ -43,7 +43,7 @@ image = service.images.find {|image| image.name =~ /Ubuntu/}
 server = service.servers.create :name => 'meta-cumulus',
                                 :flavor_id => flavor.id,
                                 :image_id => image.id,
-                                :metadata => { 'color' => 'red'}
+                                :metadata => { 'color' => 'red' }
 
 puts "Waiting for server to be created\n"
 server.wait_for(600, 5) do

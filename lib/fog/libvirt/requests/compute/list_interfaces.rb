@@ -2,7 +2,7 @@ module Fog
   module Compute
     class Libvirt
       class Real
-        def list_interfaces(filter = { })
+        def list_interfaces(filter = {})
           data = []
           if filter.keys.empty?
             active_networks = client.list_interfaces rescue []
@@ -40,7 +40,7 @@ module Fog
       end
 
       class Mock
-        def list_interfaces(filters = { })
+        def list_interfaces(filters = {})
           if1 = mock_interface 'if1'
           if2 = mock_interface 'if2'
           [if1, if2]

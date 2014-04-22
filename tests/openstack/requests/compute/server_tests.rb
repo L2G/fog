@@ -91,12 +91,12 @@ Shindo.tests('Fog::Compute[:openstack] | server requests', ['openstack']) do
 
     #LIST
     #NOTE: we can remove strict=false if we remove uuid from GET /servers
-    tests('#list_servers').formats({'servers' => [OpenStack::Compute::Formats::SUMMARY]}, false) do
+    tests('#list_servers').formats({ 'servers' => [OpenStack::Compute::Formats::SUMMARY] }, false) do
       Fog::Compute[:openstack].list_servers.body
     end
 
     #DETAILS
-    tests('#list_servers_detail').formats({'servers' => [@detailed_server_format]}, false) do
+    tests('#list_servers_detail').formats({ 'servers' => [@detailed_server_format] }, false) do
       Fog::Compute[:openstack].list_servers_detail.body
     end
 
@@ -133,7 +133,7 @@ Shindo.tests('Fog::Compute[:openstack] | server requests', ['openstack']) do
     Fog::Compute[:openstack].images.get(@snapshot_id).wait_for { ready? }
 
     #REBUILD
-    tests("#rebuild_server(#{@server_id}, #{@snapshot_id}, 'fog')").formats({'server' => @detailed_server_format}, false) do
+    tests("#rebuild_server(#{@server_id}, #{@snapshot_id}, 'fog')").formats({ 'server' => @detailed_server_format }, false) do
       Fog::Compute[:openstack].rebuild_server(@server_id, @snapshot_id, 'fog', 'newpass', 'foo' => 'bar').body
     end
     Fog::Compute[:openstack].servers.get(@server_id).wait_for { ready? } if not Fog.mocking?

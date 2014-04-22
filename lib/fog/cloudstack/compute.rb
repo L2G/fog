@@ -207,7 +207,7 @@ module Fog
 
         def authorize_session(params)
           # set the session id cookie for the request
-          headers = {'Cookie' => "JSESSIONID=#{@cloudstack_session_id};"}
+          headers = { 'Cookie' => "JSESSIONID=#{@cloudstack_session_id};" }
           # set the sesion key for the request, params are not signed using session auth
           params.merge!('sessionkey' => @cloudstack_session_key)
 
@@ -320,8 +320,8 @@ module Fog
                 'domainid'                    => domain_id,
                 'domain'                      => 'ROOT',
                 'service' => [
-                  {'name' => 'UserData'},
-                  {'name' => 'Dhcp'},
+                  { 'name' => 'UserData' },
+                  { 'name' => 'Dhcp' },
                   {
                     'name'       => 'Dns',
                     'capability' => [
@@ -335,7 +335,7 @@ module Fog
                 'networkdomain'     => 'cs1cloud.internal',
                 'physicalnetworkid' => '8f4627c5-1fdd-4504-8a92-f61b4e9cb3e3',
                 'restartrequired'   => false,
-                'specifyipranges'   => true}
+                'specifyipranges'   => true }
               },
               :zones => { zone_id => {
                 'id'                    => zone_id,
@@ -346,7 +346,7 @@ module Fog
                 'securitygroupsenabled' => false,
                 'allocationstate'       => 'Enabled',
                 'zonetoken'             => Fog::Cloudstack.uuid,
-                'dhcpprovider'          => 'VirtualRouter'}},
+                'dhcpprovider'          => 'VirtualRouter' } },
               :images => { image_id => {
                 'id'              => image_id,
                 'name'            => 'CentOS 5.6(64-bit) no GUI (XenServer)',
@@ -371,7 +371,7 @@ module Fog
                 'isextractable'   => true,
                 'checksum'        => '905cec879afd9c9d22ecc8036131a180',
                 'hypervisor'      => 'Xen'
-              }},
+              } },
               :flavors => { flavor_id => {
                 'id'          => flavor_id,
                 'name'        => 'Medium Instance',
@@ -384,7 +384,7 @@ module Fog
                 'offerha'     => false,
                 'limitcpuuse' => false,
                 'issystem'    => false,
-                'defaultuse'  => false}},
+                'defaultuse'  => false } },
               :accounts => { account_id => {
                 'id'                => account_id,
                 'name'              => 'accountname',
@@ -417,9 +417,9 @@ module Fog
                 'networktotal'      => 0,
                 'networkavailable'  => 'Unlimited',
                 'state'             => 'enabled',
-                'user'              => [user]}
+                'user'              => [user] }
               },
-              :domains         => {domain_id => domain},
+              :domains         => { domain_id => domain },
               :servers         => {},
               :jobs            => {},
               :volumes         => {

@@ -38,7 +38,7 @@ module Fog
           instance_ids = [*instance_ids]
           instances = instance_ids.map do |instance|
             raise Fog::AWS::ELB::InvalidInstance unless Fog::Compute::AWS::Mock.data[@region][@aws_access_key_id][:instances][instance]
-            {'InstanceId' => instance}
+            { 'InstanceId' => instance }
           end
 
           response = Excon::Response.new

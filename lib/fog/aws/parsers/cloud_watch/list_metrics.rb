@@ -6,12 +6,12 @@ module Fog
         class ListMetrics < Fog::Parsers::Base
 
           def reset
-            @response = { 'ListMetricsResult' => {'Metrics' => []}, 'ResponseMetadata' => {} }
+            @response = { 'ListMetricsResult' => { 'Metrics' => [] }, 'ResponseMetadata' => {} }
             reset_metric
           end
 
           def reset_metric
-            @metric = {'Dimensions' => []}
+            @metric = { 'Dimensions' => [] }
           end
 
           def reset_dimension

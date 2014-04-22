@@ -13,12 +13,12 @@ module Fog
           end
 
           def reset
-            @response = { 'DescribeDBLogFilesResult' => {'DBLogFiles' => []}, 'ResponseMetadata' => {} }
+            @response = { 'DescribeDBLogFilesResult' => { 'DBLogFiles' => [] }, 'ResponseMetadata' => {} }
             fresh_log_file
           end
 
           def fresh_log_file
-            @db_log_file = {'DBInstanceIdentifier' => @rds_id}
+            @db_log_file = { 'DBInstanceIdentifier' => @rds_id }
           end
 
           def start_element(name, attrs = [])

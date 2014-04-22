@@ -5,7 +5,7 @@ class AWS
     module Formats
 
       BASIC = {
-        'ResponseMetadata' => {'RequestId' => String}
+        'ResponseMetadata' => { 'RequestId' => String }
       }
 
       DB_AVAILABILITY_ZONE_OPTION = {
@@ -19,7 +19,7 @@ class AWS
           'Description' => String
       }
       CREATE_DB_PARAMETER_GROUP = {
-        'ResponseMetadata' => {'RequestId' => String},
+        'ResponseMetadata' => { 'RequestId' => String },
         'CreateDBParameterGroupResult' => {
           'DBParameterGroup' => DB_PARAMETER_GROUP
         }
@@ -78,7 +78,7 @@ class AWS
       )
 
       DESCRIBE_DB_PARAMETER_GROUP = {
-        'ResponseMetadata' => {'RequestId' => String},
+        'ResponseMetadata' => { 'RequestId' => String },
         'DescribeDBParameterGroupsResult' => {
           'DBParameterGroups' => [DB_PARAMETER_GROUP]
         }

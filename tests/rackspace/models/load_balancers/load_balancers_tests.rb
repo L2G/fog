@@ -9,8 +9,8 @@ Shindo.tests('Fog::Rackspace::LoadBalancers | load_balancers', ['rackspace']) do
                        :name => @lb_name,
                        :protocol => 'HTTP',
                        :port => 80,
-                       :virtual_ips => [{ :type => 'PUBLIC'}],
-                       :nodes => [{ :address => '1.1.1.1', :port => 80, :condition => 'ENABLED'}]
+                       :virtual_ips => [{ :type => 'PUBLIC' }],
+                       :nodes => [{ :address => '1.1.1.1', :port => 80, :condition => 'ENABLED' }]
                      },
                      false) do
       @instance.wait_for { ready? }

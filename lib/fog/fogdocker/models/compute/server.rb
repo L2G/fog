@@ -108,7 +108,7 @@ module Fog
         end
 
         def commit(options = {})
-          service.container_commit({:id => id}.merge(options))
+          service.container_commit({ :id => id }.merge(options))
         end
 
         def destroy(options = {})

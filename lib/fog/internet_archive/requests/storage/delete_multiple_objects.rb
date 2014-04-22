@@ -53,7 +53,7 @@ module Fog
             :host       => "#{bucket_name}.#{@host}",
             :method     => 'POST',
             :parser     => Fog::Parsers::Storage::InternetArchive::DeleteMultipleObjects.new,
-            :query      => {'delete' => nil}
+            :query      => { 'delete' => nil }
           )
         end
 
@@ -72,7 +72,7 @@ module Fog
             end
           else
             response.status = 404
-            raise(Excon::Errors.status_error({:expects => 200}, response))
+            raise(Excon::Errors.status_error({ :expects => 200 }, response))
           end
           response
         end

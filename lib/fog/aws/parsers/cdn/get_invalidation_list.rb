@@ -6,7 +6,7 @@ module Fog
         class GetInvalidationList < Fog::Parsers::Base
 
           def reset
-            @invalidation_summary = { }
+            @invalidation_summary = {}
             @response = { 'InvalidationSummary' => [] }
           end
 

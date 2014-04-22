@@ -24,7 +24,7 @@ DATA
             :headers  => {},
             :bucket_name => bucket_name,
             :method   => 'PUT',
-            :query    => {'versioning' => nil}
+            :query    => { 'versioning' => nil }
           )
         end
       end
@@ -50,7 +50,7 @@ DATA
                 }
               }
 
-              raise(Excon::Errors.status_error({:expects => 200}, response))
+              raise(Excon::Errors.status_error({ :expects => 200 }, response))
             end
           else
             response.status = 404
@@ -64,7 +64,7 @@ DATA
               }
             }
 
-            raise(Excon::Errors.status_error({:expects => 200}, response))
+            raise(Excon::Errors.status_error({ :expects => 200 }, response))
           end
 
           response

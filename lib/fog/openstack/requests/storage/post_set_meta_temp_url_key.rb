@@ -26,7 +26,7 @@ module Fog
           request(
             :expects  => [201, 202, 204],
             :method   => 'POST',
-            :headers  => {'X-Account-Meta-Temp-Url-Key' => key}
+            :headers  => { 'X-Account-Meta-Temp-Url-Key' => key }
           )
         end
 

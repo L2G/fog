@@ -28,11 +28,11 @@ module Fog
           def end_element(name)
             case name
             when 'DeleteMarker'
-              @response['Versions'] << {'DeleteMarker' => @delete_marker }
+              @response['Versions'] << { 'DeleteMarker' => @delete_marker }
               @delete_marker = { 'Owner' => {} }
               @in_delete_marker = false
             when 'Version'
-              @response['Versions'] << {'Version' => @version }
+              @response['Versions'] << { 'Version' => @version }
               @version = { 'Owner' => {} }
               @in_version = false
             when 'DisplayName', 'ID'

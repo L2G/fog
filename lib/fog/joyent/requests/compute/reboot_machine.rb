@@ -5,7 +5,7 @@ module Fog
         def reboot_machine(id)
           request(
             :method => 'POST',
-            :query => {'action' => 'reboot'},
+            :query => { 'action' => 'reboot' },
             :path => "/my/machines/#{id}"
           )
         end

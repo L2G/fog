@@ -26,7 +26,7 @@ module Fog
           write_h = options['X-Container-Write'] || ''
           unless options
             read_acl, write_acl = self.class.header_to_perm_acl(read_h, write_h)
-            self.data[:acls][:container][container_name] = {:read_acl => read_acl, :write_acl => write_acl}
+            self.data[:acls][:container][container_name] = { :read_acl => read_acl, :write_acl => write_acl }
           end
 
           response = Excon::Response.new

@@ -12,7 +12,7 @@ module Fog
         attribute :num_cpu_cores
         attribute :overall_status
 
-        def resource_pools(filters = { })
+        def resource_pools(filters = {})
           self.attributes[:resource_pools] ||= id.nil? ? [] : service.resource_pools({
                                                                                           :service => service,
                                                                                           :cluster    => name,

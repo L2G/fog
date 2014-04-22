@@ -37,7 +37,7 @@ module Fog
             :idempotent => true,
             :method     => 'GET',
             :parser     => Fog::Parsers::Storage::InternetArchive::GetBucketLogging.new,
-            :query      => {'logging' => nil}
+            :query      => { 'logging' => nil }
           )
         end
 

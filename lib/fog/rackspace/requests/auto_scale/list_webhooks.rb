@@ -25,7 +25,7 @@ module Fog
             raise Fog::Rackspace::AutoScale::NotFound
           end
 
-          response(:body => {'webhooks' => policy['webhooks']})
+          response(:body => { 'webhooks' => policy['webhooks'] })
         end
       end
     end

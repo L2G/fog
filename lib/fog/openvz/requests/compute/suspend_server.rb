@@ -4,7 +4,7 @@ module Fog
       class Real
 
         def suspend_server(id, options = {})
-          vzctl('suspend',{:ctid => id}.merge(options))
+          vzctl('suspend',{ :ctid => id }.merge(options))
         end
 
       end

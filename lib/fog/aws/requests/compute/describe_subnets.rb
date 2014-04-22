@@ -31,7 +31,7 @@ module Fog
         def describe_subnets(filters = {})
           unless filters.is_a?(Hash)
             Fog::Logger.warning("describe_subnets with #{filters.class} param is deprecated, use describe_subnets('subnet-id' => []) instead [light_black](#{caller.first})[/]")
-            filters = {'subnet-id' => [*filters]}
+            filters = { 'subnet-id' => [*filters] }
           end
           params = Fog::AWS.indexed_filters(filters)
           request({

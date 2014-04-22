@@ -2,7 +2,7 @@ module Fog
   module Compute
     class Vsphere
       class Real
-        def list_resource_pools(filters = { })
+        def list_resource_pools(filters = {})
           datacenter_name = filters[:datacenter]
           cluster_name    = filters[:cluster]
           cluster         = get_raw_cluster(cluster_name, datacenter_name)
@@ -31,7 +31,7 @@ module Fog
 
       end
       class Mock
-        def list_resource_pools(filters = { })
+        def list_resource_pools(filters = {})
         end
       end
     end

@@ -8,7 +8,7 @@ Shindo.tests('Fog CurrentMachine', 'core') do
   tests('ip_address') do
 
     tests('should be thread safe') do
-      Excon.stub({:method => :get, :path => '/'}, {:body => ''})
+      Excon.stub({ :method => :get, :path => '/' }, { :body => '' })
 
       (1..10).map {
         Thread.new { Fog::CurrentMachine.ip_address }
@@ -19,7 +19,7 @@ Shindo.tests('Fog CurrentMachine', 'core') do
     Excon.stubs.clear
 
     tests('should remove trailing endline characters') do
-      Excon.stub({:method => :get,  :path => '/'}, {:body => "192.168.0.1\n"})
+      Excon.stub({ :method => :get,  :path => '/' }, { :body => "192.168.0.1\n" })
       Fog::CurrentMachine.ip_address == '192.168.0.1'
     end
 

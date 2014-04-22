@@ -23,7 +23,7 @@ module Fog
         #     * 'ResponseMetadata'<~Hash>:
         #       * 'RequestId'<~String> - Id of request
         def set_load_balancer_policies_of_listener(lb_name, load_balancer_port, policy_names)
-          params = {'LoadBalancerPort' => load_balancer_port}
+          params = { 'LoadBalancerPort' => load_balancer_port }
           if policy_names.any?
             params.merge!(Fog::AWS.indexed_param('PolicyNames.member', policy_names))
           else
@@ -48,19 +48,19 @@ module Fog
           if policy_names.size > 1
             response.status = 409
             response.body = "<?xml version=\"1.0\"?><Response><Errors><Error><Code>InvalidConfigurationRequest</Code><Message>Requested configuration change is invalid.</Message></Error></Errors><RequestID>#{Fog::AWS::Mock.request_id}</RequestId></Response>"
-            raise Excon::Errors.status_error({:expects => 200}, response)
+            raise Excon::Errors.status_error({ :expects => 200 }, response)
           end
 
           unless listener = load_balancer['ListenerDescriptions'].find { |listener| listener['Listener']['LoadBalancerPort'] == load_balancer_port }
             response.status = 400
             response.body = "<?xml version=\"1.0\"?><Response><Errors><Error><Code>ListenerNotFound</Code><Message>LoadBalancer does not have a listnener configured at the given port.</Message></Error></Errors><RequestID>#{Fog::AWS::Mock.request_id}</RequestId></Response>"
-            raise Excon::Errors.status_error({:expects => 200}, response)
+            raise Excon::Errors.status_error({ :expects => 200 }, response)
           end
 
           unless load_balancer['Policies']['Proper'].find { |policy| policy['PolicyName'] == policy_names.first }
             response.status = 400
             response.body = "<?xml version=\"1.0\"?><Response><Errors><Error><Code>PolicyNotFound</Code><Message>One or more specified policies were not found.</Message></Error></Errors><RequestID>#{Fog::AWS::Mock.request_id}</RequestId></Response>"
-            raise Excon::Errors.status_error({:expects => 200}, response)
+            raise Excon::Errors.status_error({ :expects => 200 }, response)
           end if policy_names.any?
 
           listener['PolicyNames'] = policy_names

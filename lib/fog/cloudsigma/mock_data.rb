@@ -8,7 +8,7 @@ module Fog
               :servers => {},
               :vlans => {},
               :ips => {},
-              :profile => {:login_sms => false,
+              :profile => { :login_sms => false,
                            :town => '',
                            :postcode => '',
                            :reseller => '',
@@ -32,10 +32,10 @@ module Fog
                            :mailing_list => true,
                            :autotopup_amount => 0.0,
                            :country => '',
-                           :address => ''},
+                           :address => '' },
               :subscriptions => {},
               :current_usage => {},
-              :balance => {:balance => 100, :currency => 'CHF'},
+              :balance => { :balance => 100, :currency => 'CHF' },
 
           }
         end

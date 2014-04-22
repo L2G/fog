@@ -33,7 +33,7 @@ module Fog
 
           request(
             :body       => Fog::JSON.encode(body),
-            :headers    => {'x-amz-target' => 'DynamoDB_20111205.DescribeTable'},
+            :headers    => { 'x-amz-target' => 'DynamoDB_20111205.DescribeTable' },
             :idempotent => true
           )
         end

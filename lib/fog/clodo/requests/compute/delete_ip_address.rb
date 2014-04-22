@@ -13,7 +13,7 @@ module Fog
         #
 
         def delete_ip_address(server_id, ip)
-          data = {'ip' => ip}
+          data = { 'ip' => ip }
 
           request(
                   :expects  => [204],

@@ -2,7 +2,7 @@ Shindo.tests('Fog::Rackspace::Monitoring | entity', ['rackspace','rackspace_moni
   pending if Fog.mocking?
   service = Fog::Rackspace::Monitoring.new
 
-  options = { :label => "fog_#{Time.now.to_i}", :ip_addresses => {:default => '127.0.0.1'} }
+  options = { :label => "fog_#{Time.now.to_i}", :ip_addresses => { :default => '127.0.0.1' } }
   model_tests(service.entities, options, false) do
 
     tests('#update').succeeds do

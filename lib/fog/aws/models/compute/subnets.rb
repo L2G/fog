@@ -60,7 +60,7 @@ module Fog
         def all(filters = filters)
           unless filters.is_a?(Hash)
             Fog::Logger.warning("all with #{filters.class} param is deprecated, use all('subnet-id' => []) instead [light_black](#{caller.first})[/]")
-            filters = {'subnet-id' => [*filters]}
+            filters = { 'subnet-id' => [*filters] }
           end
           self.filters = filters
           data = service.describe_subnets(filters).body

@@ -31,7 +31,7 @@ module Fog
             :bucket_name => bucket_name,
             :object_name => object_name,
             :method     => 'PUT',
-            :query      => {'uploadId' => upload_id, 'partNumber' => part_number}
+            :query      => { 'uploadId' => upload_id, 'partNumber' => part_number }
           )
         end
 

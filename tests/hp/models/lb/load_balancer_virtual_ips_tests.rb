@@ -1,6 +1,6 @@
 Shindo.tests('HP::LB | load balancer virtual ips collection', ['hp', 'lb', 'virtual_ip']) do
 
-  attributes = {:name => 'fog-lb', :nodes => [{'address' => '15.185.1.1', 'port' => '80'}]}
+  attributes = { :name => 'fog-lb', :nodes => [{ 'address' => '15.185.1.1', 'port' => '80' }] }
   @lb = HP[:lb].load_balancers.create(attributes)
 
   tests('success') do
