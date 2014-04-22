@@ -51,21 +51,21 @@ module Fog
           response.status = 200
 
           response.body = {
-            "status" => "success",
-            "data" => {
-              "zone" => record[:zone][:zone],
-              "ttl" => record[:ttl],
-              "fqdn" => record[:fqdn],
-              "record_type" => record[:type],
-              "rdata" => record[:rdata],
-              "record_id" => record[:record_id]
+            'status' => 'success',
+            'data' => {
+              'zone' => record[:zone][:zone],
+              'ttl' => record[:ttl],
+              'fqdn' => record[:fqdn],
+              'record_type' => record[:type],
+              'rdata' => record[:rdata],
+              'record_id' => record[:record_id]
            },
-           "job_id" => Fog::Dynect::Mock.job_id,
-           "msgs" => [{
-             "INFO" => "add: Record added",
-             "SOURCE" => "BLL",
-             "ERR_CD" => nil,
-             "LVL" => "INFO"
+           'job_id' => Fog::Dynect::Mock.job_id,
+           'msgs' => [{
+             'INFO' => 'add: Record added',
+             'SOURCE' => 'BLL',
+             'ERR_CD' => nil,
+             'LVL' => 'INFO'
            }]
           }
 

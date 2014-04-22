@@ -26,7 +26,7 @@ module Fog
             :body     => Fog::JSON.encode(data),
             :expects  => 202,
             :method   => 'POST',
-            :path     => "images"
+            :path     => 'images'
           )
         end
 

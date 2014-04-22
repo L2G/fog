@@ -10,7 +10,7 @@ module Fog
             res.body = machine
             res
           else
-            raise Excon::Errors::NotFound, "Not Found"
+            raise Excon::Errors::NotFound, 'Not Found'
           end
         end
       end
@@ -18,7 +18,7 @@ module Fog
       class Real
         def get_machine(uuid)
           request(
-            :method => "GET",
+            :method => 'GET',
             :path => "/my/machines/#{uuid}",
             :expects => [200, 410],
             :idempotent => true

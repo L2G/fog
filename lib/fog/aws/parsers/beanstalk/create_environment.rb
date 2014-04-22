@@ -7,7 +7,7 @@ module Fog
         class CreateEnvironment < Fog::Parsers::AWS::ElasticBeanstalk::BaseParser
 
           def initialize
-            super("CreateEnvironmentResult")
+            super('CreateEnvironmentResult')
             tag 'ApplicationName', :string
             tag 'CNAME', :string
             tag 'DateCreated', :datetime

@@ -29,10 +29,10 @@ Shindo.tests('Compute::VcloudDirector | query requests', ['vclouddirector']) do
 
       pending if Fog.mocking? && (format != 'records' || type != 'orgVdcNetwork')
 
-      tests("#get_execute_query").data_matches_schema(VcloudDirector::Compute::Schema::CONTAINER_TYPE) do
+      tests('#get_execute_query').data_matches_schema(VcloudDirector::Compute::Schema::CONTAINER_TYPE) do
         @body = @service.get_execute_query(type, :format => format).body
       end
-      tests("resource type").returns(link[:type]) { @body[:type] }
+      tests('resource type').returns(link[:type]) { @body[:type] }
 
       unless ( type == 'event' || type == 'edgeGateway' )
         records_key = @body.keys.detect {|key| key.to_s =~ /Record|Reference$/}
@@ -40,7 +40,7 @@ Shindo.tests('Compute::VcloudDirector | query requests', ['vclouddirector']) do
           records.first do |record|
             case format
             when 'records'
-              tests("record is correct schema").data_matches_schema(VcloudDirector::Compute::Schema::REFERENCE_TYPE) do
+              tests('record is correct schema').data_matches_schema(VcloudDirector::Compute::Schema::REFERENCE_TYPE) do
                 record
               end
             end

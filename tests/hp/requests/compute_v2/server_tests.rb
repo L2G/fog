@@ -1,4 +1,4 @@
-Shindo.tests("Fog::Compute::HPV2 | server requests", ['hp', 'v2', 'compute']) do
+Shindo.tests('Fog::Compute::HPV2 | server requests', ['hp', 'v2', 'compute']) do
 
   service = Fog::Compute.new(:provider => 'HP', :version => :v2)
 
@@ -34,7 +34,7 @@ Shindo.tests("Fog::Compute::HPV2 | server requests", ['hp', 'v2', 'compute']) do
     'output' => String
   }
 
-  @base_image_id = ENV["BASE_IMAGE_ID"] || "7f60b54c-cd15-433f-8bed-00acbcd25a17"
+  @base_image_id = ENV['BASE_IMAGE_ID'] || '7f60b54c-cd15-433f-8bed-00acbcd25a17'
 
   tests('success') do
 

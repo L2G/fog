@@ -20,7 +20,7 @@ module Fog
       class Mock # :nodoc:all
 
         def get_object_temp_url(container, object, expires, method)
-          @hp_storage_uri = "https://swift-cluster.example.com:443/v1/account"
+          @hp_storage_uri = 'https://swift-cluster.example.com:443/v1/account'
 
           generate_object_temp_url(container, object, expires, method)
         end

@@ -1,4 +1,4 @@
-Shindo.tests("Fog::Network[:openstack] | port", ['openstack']) do
+Shindo.tests('Fog::Network[:openstack] | port', ['openstack']) do
 
   tests('success') do
 

@@ -76,7 +76,7 @@ module Fog
 
         # not used since v1
         def image
-          Fog::Logger.deprecation("Server.image is deprecated, get source_image from boot disk")
+          Fog::Logger.deprecation('Server.image is deprecated, get source_image from boot disk')
           service.get_image(self.image_name.split('/')[-1])
         end
 
@@ -84,9 +84,9 @@ module Fog
           ip = nil
           if self.network_interfaces.respond_to? :each
             self.network_interfaces.each do |netif|
-              if netif["accessConfigs"].respond_to? :each
-                netif["accessConfigs"].each do |access_config|
-                  if access_config["name"] == "External NAT"
+              if netif['accessConfigs'].respond_to? :each
+                netif['accessConfigs'].each do |access_config|
+                  if access_config['name'] == 'External NAT'
                     ip = access_config['natIP']
                   end
                 end
@@ -175,20 +175,20 @@ module Fog
 
         def add_ssh_key username, key
           if self.metadata.nil?
-            self.metadata = Hash.new("")
+            self.metadata = Hash.new('')
           end
 
           # You can have multiple SSH keys, seperated by newlines.
           # https://developers.google.com/compute/docs/console?hl=en#sshkeys
-          if !self.metadata["sshKeys"]
-            self.metadata["sshKeys"] = ""
+          if !self.metadata['sshKeys']
+            self.metadata['sshKeys'] = ''
           end
 
-          if !self.metadata["sshKeys"].empty?
-            self.metadata["sshKeys"] += "\n"
+          if !self.metadata['sshKeys'].empty?
+            self.metadata['sshKeys'] += "\n"
           end
 
-          self.metadata["sshKeys"] += "#{username}:#{key.strip}"
+          self.metadata['sshKeys'] += "#{username}:#{key.strip}"
 
           return self.metadata
         end
@@ -226,10 +226,10 @@ module Fog
 
           if service_accounts
             options['serviceAccounts'] = [{
-              "kind" => "compute#serviceAccount",
-              "email" => "default",
-              "scopes" => service_accounts.map {
-                |w| w.start_with?("https://") ? w : "https://www.googleapis.com/auth/#{w}"
+              'kind' => 'compute#serviceAccount',
+              'email' => 'default',
+              'scopes' => service_accounts.map {
+                |w| w.start_with?('https://') ? w : "https://www.googleapis.com/auth/#{w}"
               }
             }]
           end

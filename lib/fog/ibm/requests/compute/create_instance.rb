@@ -74,7 +74,7 @@ module Fog
             instance = Fog::IBM::Mock.create_instance(name, image_id, instance_type, location, options)
             self.data[:instances][instance['id']] = instance
             response.status = 200
-            response.body = {"instances" => [ instance ]}
+            response.body = {'instances' => [ instance ]}
             response
           end
         end

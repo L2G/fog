@@ -151,11 +151,11 @@ module Fog
             :href => make_href("admin/network/#{id}"),
             :name => name,
             :id => "urn:vcloud:network:#{id}",
-            :type => "application/vnd.vmware.vcloud.orgVdcNetwork+xml",
+            :type => 'application/vnd.vmware.vcloud.orgVdcNetwork+xml',
             :Link => [
-              {:rel => "up", :type => "application/vnd.vmware.vcloud.vdc+xml", :href => make_href("vdc/#{vdc_id}")},
-              {:rel => "down", :type => "application/vnd.vmware.vcloud.metadata+xml", :href => make_href("admin/network/#{id}/metadata")},
-              {:rel => "down", :type => "application/vnd.vmware.vcloud.allocatedNetworkAddress+xml", :href => make_href("admin/network/#{id}/allocatedAddresses/")},
+              {:rel => 'up', :type => 'application/vnd.vmware.vcloud.vdc+xml', :href => make_href("vdc/#{vdc_id}")},
+              {:rel => 'down', :type => 'application/vnd.vmware.vcloud.metadata+xml', :href => make_href("admin/network/#{id}/metadata")},
+              {:rel => 'down', :type => 'application/vnd.vmware.vcloud.allocatedNetworkAddress+xml', :href => make_href("admin/network/#{id}/allocatedAddresses/")},
             ],
           }.merge(options)
 

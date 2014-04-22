@@ -11,8 +11,8 @@ module Fog
         # @see https://api.gb1.brightbox.com/1.0/#server_get_server
         #
         def get_server(identifier)
-          return nil if identifier.nil? || identifier == ""
-          wrapped_request("get", "/1.0/servers/#{identifier}", [200])
+          return nil if identifier.nil? || identifier == ''
+          wrapped_request('get', "/1.0/servers/#{identifier}", [200])
         end
 
       end

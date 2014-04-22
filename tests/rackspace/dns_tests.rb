@@ -1,7 +1,7 @@
 Shindo.tests('Fog::DNS::Rackspace', ['rackspace']) do
 
   def assert_method(url, method)
-    @service.instance_variable_set "@rackspace_auth_url", url
+    @service.instance_variable_set '@rackspace_auth_url', url
     returns(method) { @service.send :authentication_method }
   end
 
@@ -28,18 +28,18 @@ Shindo.tests('Fog::DNS::Rackspace', ['rackspace']) do
 
     tests('variables populated').succeeds do
       @service = Fog::DNS::Rackspace.new :rackspace_auth_url => 'https://identity.api.rackspacecloud.com/v1.0'
-      returns(true, "auth token populated") { !@service.send(:auth_token).nil? }
-      returns(true, "contains tenant id") {  (@service.instance_variable_get("@uri").path =~ /\/v1\.0\/\d+$/) != nil} #dns does not error if tenant id is missing
-      returns(false, "path populated") { @service.instance_variable_get("@uri").path.nil? }
-      returns(true, "identity_service was not used") { @service.instance_variable_get("@identity_service").nil? }
+      returns(true, 'auth token populated') { !@service.send(:auth_token).nil? }
+      returns(true, 'contains tenant id') {  (@service.instance_variable_get('@uri').path =~ /\/v1\.0\/\d+$/) != nil} #dns does not error if tenant id is missing
+      returns(false, 'path populated') { @service.instance_variable_get('@uri').path.nil? }
+      returns(true, 'identity_service was not used') { @service.instance_variable_get('@identity_service').nil? }
       @service.list_domains
     end
 
     tests('custom endpoint') do
       @service = Fog::DNS::Rackspace.new :rackspace_auth_url => 'https://identity.api.rackspacecloud.com/v1.0',
         :rackspace_dns_url => 'https://my-custom-endpoint.com'
-        returns(true, "auth token populated") { !@service.send(:auth_token).nil? }
-        returns(true, "uses custom endpoint") { (@service.instance_variable_get("@uri").host =~ /my-custom-endpoint\.com/) != nil }
+        returns(true, 'auth token populated') { !@service.send(:auth_token).nil? }
+        returns(true, 'uses custom endpoint') { (@service.instance_variable_get('@uri').host =~ /my-custom-endpoint\.com/) != nil }
     end
   end
 
@@ -48,20 +48,20 @@ Shindo.tests('Fog::DNS::Rackspace', ['rackspace']) do
 
     tests('variables populated').succeeds do
       @service = Fog::DNS::Rackspace.new :rackspace_auth_url => 'https://identity.api.rackspacecloud.com/v2.0', :connection_options => { :ssl_verify_peer => true }
-      returns(true, "auth token populated") { !@service.send(:auth_token).nil? }
-      returns(false, "path populated") { @service.instance_variable_get("@uri").host.nil? }
-      returns(true, "contains tenant id") {  (@service.instance_variable_get("@uri").path =~ /\/v1\.0\/\d+$/) != nil} #dns does not error if tenant id is missing
+      returns(true, 'auth token populated') { !@service.send(:auth_token).nil? }
+      returns(false, 'path populated') { @service.instance_variable_get('@uri').host.nil? }
+      returns(true, 'contains tenant id') {  (@service.instance_variable_get('@uri').path =~ /\/v1\.0\/\d+$/) != nil} #dns does not error if tenant id is missing
 
-      identity_service = @service.instance_variable_get("@identity_service")
-      returns(false, "identity service was used") { identity_service.nil? }
-      returns(true, "connection_options are passed") { identity_service.instance_variable_get("@connection_options").has_key?(:ssl_verify_peer) }
+      identity_service = @service.instance_variable_get('@identity_service')
+      returns(false, 'identity service was used') { identity_service.nil? }
+      returns(true, 'connection_options are passed') { identity_service.instance_variable_get('@connection_options').has_key?(:ssl_verify_peer) }
       @service.list_domains
     end
     tests('custom endpoint') do
       @service = Fog::DNS::Rackspace.new :rackspace_auth_url => 'https://identity.api.rackspacecloud.com/v2.0',
         :rackspace_dns_url => 'https://my-custom-endpoint.com'
-        returns(true, "auth token populated") { !@service.send(:auth_token).nil? }
-        returns(true, "uses custom endpoint") { (@service.instance_variable_get("@uri").host =~ /my-custom-endpoint\.com/) != nil }
+        returns(true, 'auth token populated') { !@service.send(:auth_token).nil? }
+        returns(true, 'uses custom endpoint') { (@service.instance_variable_get('@uri').host =~ /my-custom-endpoint\.com/) != nil }
     end
   end
 
@@ -70,15 +70,15 @@ Shindo.tests('Fog::DNS::Rackspace', ['rackspace']) do
 
     tests('no params').succeeds do
       @service = Fog::DNS::Rackspace.new :rackspace_region => nil
-      returns(true, "auth token populated") { !@service.send(:auth_token).nil? }
-      returns(false, "path populated") { @service.instance_variable_get("@uri").host.nil? }
-      returns(true, "contains tenant id") {  (@service.instance_variable_get("@uri").path =~ /\/v1\.0\/\d+$/) != nil} #dns does not error if tenant id is missing
+      returns(true, 'auth token populated') { !@service.send(:auth_token).nil? }
+      returns(false, 'path populated') { @service.instance_variable_get('@uri').host.nil? }
+      returns(true, 'contains tenant id') {  (@service.instance_variable_get('@uri').path =~ /\/v1\.0\/\d+$/) != nil} #dns does not error if tenant id is missing
       @service.list_domains
     end
     tests('custom endpoint') do
       @service = Fog::DNS::Rackspace.new :rackspace_dns_url => 'https://my-custom-endpoint.com'
-      returns(true, "auth token populated") { !@service.send(:auth_token).nil? }
-      returns(true, "uses custom endpoint") { (@service.instance_variable_get("@uri").host =~ /my-custom-endpoint\.com/) != nil }
+      returns(true, 'auth token populated') { !@service.send(:auth_token).nil? }
+      returns(true, 'uses custom endpoint') { (@service.instance_variable_get('@uri').host =~ /my-custom-endpoint\.com/) != nil }
     end
   end
 
@@ -87,8 +87,8 @@ Shindo.tests('Fog::DNS::Rackspace', ['rackspace']) do
 
     tests('should reauth with valid credentials') do
       @service = Fog::DNS::Rackspace.new
-      returns(true, "auth token populated") { !@service.send(:auth_token).nil? }
-      @service.instance_variable_set("@auth_token", "bad_token")
+      returns(true, 'auth token populated') { !@service.send(:auth_token).nil? }
+      @service.instance_variable_set('@auth_token', 'bad_token')
       returns(200) { @service.list_domains.status }
     end
     tests('should terminate with incorrect credentials') do
@@ -100,11 +100,11 @@ Shindo.tests('Fog::DNS::Rackspace', ['rackspace']) do
     pending if Fog.mocking?
 
     @service = Fog::DNS::Rackspace.new
-    returns("") { @service.send(:array_to_query_string, nil) }
-    returns("param1=1") { @service.send(:array_to_query_string, {:param1 => [1]}) }
-    returns("param1=1") { @service.send(:array_to_query_string, {:param1 => 1}) }
-    returns("param1=1,2") { @service.send(:array_to_query_string, {:param1 => [1,2]}) }
-    returns("param1=1&param2=2") { @service.send(:array_to_query_string, {:param1 => [1], :param2 => [2]}) }
+    returns('') { @service.send(:array_to_query_string, nil) }
+    returns('param1=1') { @service.send(:array_to_query_string, {:param1 => [1]}) }
+    returns('param1=1') { @service.send(:array_to_query_string, {:param1 => 1}) }
+    returns('param1=1,2') { @service.send(:array_to_query_string, {:param1 => [1,2]}) }
+    returns('param1=1&param2=2') { @service.send(:array_to_query_string, {:param1 => [1], :param2 => [2]}) }
   end
 
 end

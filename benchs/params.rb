@@ -18,7 +18,7 @@ def optional(name, a = nil, b = nil, c = nil)
 end
 
 COUNT = 100_000
-data = "Content-Length: 100"
+data = 'Content-Length: 100'
 Benchmark.bmbm(25) do |bench|
   bench.report('hash') do
     COUNT.times do

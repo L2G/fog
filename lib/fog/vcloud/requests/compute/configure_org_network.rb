@@ -24,7 +24,7 @@ EOF
         outbound_rule
         end
         def generate_tcp_rules(tcp_ports)
-          firewall_rules = ""
+          firewall_rules = ''
           tcp_ports.each do |port|
             firewall_rules << <<EOF
                     <ns0:FirewallRule>
@@ -47,7 +47,7 @@ EOF
         end
 
         def generate_udp_rules(udp_ports)
-          firewall_rules = ""
+          firewall_rules = ''
           udp_ports.each do |port|
               firewall_rules << <<EOF
                     <ns0:FirewallRule>
@@ -71,12 +71,12 @@ EOF
 
         def generate_configure_org_network_request(vapp_id, vapp_network, vapp_network_uri, org_network, org_network_uri, enable_firewall = false, portmap = nil)
 
-          firewall_body = ""
+          firewall_body = ''
           if not enable_firewall
-            firewall_body = "<ns0:IsEnabled>false</ns0:IsEnabled>"
+            firewall_body = '<ns0:IsEnabled>false</ns0:IsEnabled>'
 
           else
-            firewall_rules = generate_outbound_rule + generate_tcp_rules(portmap["TCP"]) + generate_udp_rules(portmap["UDP"])
+            firewall_rules = generate_outbound_rule + generate_tcp_rules(portmap['TCP']) + generate_udp_rules(portmap['UDP'])
                     firewall_body = <<EOF
                             <ns0:IsEnabled>true</ns0:IsEnabled>
                             <ns0:DefaultAction>drop</ns0:DefaultAction>

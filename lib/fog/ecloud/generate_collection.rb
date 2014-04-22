@@ -10,10 +10,10 @@ end
 options = {}
 OptionParser.new do |opts|
   opts.banner = "Usage: #{__FILE__} [options]"
-  opts.on("-m", "--model-name NAME", "Model Name") { |v| options[:model] = v }
-  opts.on("-c", "--collection-name NAME", "Collection Name") { |v| options[:collection] = v }
-  opts.on("-M", "--methods a:href,b:href,c:href", Array, "List of methods to be defined and href to the method") { |v| options[:methods] = v.map { |a| a.split(':') } }
-  opts.on("-a", "--attributes name:alias,other_name:other_alias", Array, "List of attributes to be defined") { |v| options[:attributes] = v.map { |a| a.split(':') } }
+  opts.on('-m', '--model-name NAME', 'Model Name') { |v| options[:model] = v }
+  opts.on('-c', '--collection-name NAME', 'Collection Name') { |v| options[:collection] = v }
+  opts.on('-M', '--methods a:href,b:href,c:href', Array, 'List of methods to be defined and href to the method') { |v| options[:methods] = v.map { |a| a.split(':') } }
+  opts.on('-a', '--attributes name:alias,other_name:other_alias', Array, 'List of attributes to be defined') { |v| options[:attributes] = v.map { |a| a.split(':') } }
 end.parse!
 
 if options[:methods]

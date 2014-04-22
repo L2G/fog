@@ -39,7 +39,7 @@ module Fog
                 response.body = { 'RequestId' => Fog::AWS::Mock.request_id }
               end
             else
-              raise Fog::AWS::IAM::Error.new("DeleteConflict => Cannot delete entity, must delete users in group first.")
+              raise Fog::AWS::IAM::Error.new('DeleteConflict => Cannot delete entity, must delete users in group first.')
             end
           else
             raise Fog::AWS::IAM::NotFound.new("The group with name #{group_name} cannot be found.")

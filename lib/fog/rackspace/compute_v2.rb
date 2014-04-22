@@ -187,7 +187,7 @@ module Fog
         end
 
         def request_id_header
-          "x-compute-request-id"
+          'x-compute-request-id'
         end
 
         def region
@@ -225,7 +225,7 @@ module Fog
         end
 
         def deprecation_warnings(options)
-          Fog::Logger.deprecation("The :rackspace_endpoint option is deprecated. Please use :rackspace_compute_url for custom endpoints") if options[:rackspace_endpoint]
+          Fog::Logger.deprecation('The :rackspace_endpoint option is deprecated. Please use :rackspace_compute_url for custom endpoints') if options[:rackspace_endpoint]
 
           if [DFW_ENDPOINT, ORD_ENDPOINT, LON_ENDPOINT].include?(@rackspace_endpoint) && v2_authentication?
             regions = @identity_service.service_catalog.display_service_regions(service_name)
@@ -233,7 +233,7 @@ module Fog
           end
 
           unless options[:rackspace_region]
-            Fog::Logger.deprecation("Default region support will be removed in an upcoming release. Please switch to manually setting your endpoint. This requires setting the :rackspace_region option")
+            Fog::Logger.deprecation('Default region support will be removed in an upcoming release. Please switch to manually setting your endpoint. This requires setting the :rackspace_region option')
           end
         end
 

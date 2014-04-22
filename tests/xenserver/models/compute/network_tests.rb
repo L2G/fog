@@ -26,12 +26,12 @@ Shindo.tests('Fog::Compute[:network] | network model', ['xenserver']) do
         :current_operations,
         :blobs
       ]
-      tests("The network model should respond to") do
+      tests('The network model should respond to') do
         attributes.each do |attribute|
           test("#{attribute}") { network.respond_to? attribute }
         end
       end
-      tests("The attributes hash should have key") do
+      tests('The attributes hash should have key') do
         attributes.each do |attribute|
           test("#{attribute}") { model_attribute_hash.has_key? attribute }
         end
@@ -42,34 +42,34 @@ Shindo.tests('Fog::Compute[:network] | network model', ['xenserver']) do
 
   end
 
-  tests("A real network should") do
-    tests("return valid vifs") do
-      test("as an array") { network.vifs.kind_of? Array }
+  tests('A real network should') do
+    tests('return valid vifs') do
+      test('as an array') { network.vifs.kind_of? Array }
       network.vifs.each { |i|
-          test("and each VIF should be a Fog::Compute::XenServer::VIF") { i.kind_of? Fog::Compute::XenServer::VIF }
+          test('and each VIF should be a Fog::Compute::XenServer::VIF') { i.kind_of? Fog::Compute::XenServer::VIF }
       }
     end
-    tests("return valid PIFs") do
+    tests('return valid PIFs') do
       networks.each do |network|
-          test("as an array") { network.pifs.kind_of? Array }
+          test('as an array') { network.pifs.kind_of? Array }
           network.pifs.each { |i|
-              test("and each PIF should be a Fog::Compute::XenServer::PIF") { i.kind_of? Fog::Compute::XenServer::PIF}
+              test('and each PIF should be a Fog::Compute::XenServer::PIF') { i.kind_of? Fog::Compute::XenServer::PIF}
           }
       end
     end
 
-    test("be able to refresh itself") { network.refresh }
+    test('be able to refresh itself') { network.refresh }
 
   end
 
-  tests("#save") do
+  tests('#save') do
     test 'should create a network' do
       @net = networks.create :name => 'foo-net'
       @net.is_a? Fog::Compute::XenServer::Network
     end
   end
 
-  tests("#destroy") do
+  tests('#destroy') do
     test 'should destroy the network' do
       @net.destroy
       (networks.find { |n| n.reference == @net.reference }).nil?

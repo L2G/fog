@@ -14,8 +14,8 @@ module Fog
 
         def list_records
           request( :expects  => 200,
-                   :method   => "GET",
-                   :path     => "/",
+                   :method   => 'GET',
+                   :path     => '/',
                    :query    => { :cmd => 'dns-list_records' } )
         end
 

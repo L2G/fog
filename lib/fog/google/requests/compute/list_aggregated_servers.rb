@@ -16,10 +16,10 @@ module Fog
             self.data[:servers].values.each { |server| zones["zones/#{server['zone'].split('/')[-1]}"]['instances'].concat([server]) }
           end
           build_response(:body => {
-            "kind" => "compute#instanceAggregatedList",
-            "selfLink" => "https://www.googleapis.com/compute/#{api_version}/projects/#{@project}/aggregated/instances",
-            "id" => "projects/#{@project}/aggregated/instances",
-            "items" => zones
+            'kind' => 'compute#instanceAggregatedList',
+            'selfLink' => "https://www.googleapis.com/compute/#{api_version}/projects/#{@project}/aggregated/instances",
+            'id' => "projects/#{@project}/aggregated/instances",
+            'items' => zones
 
           })
         end

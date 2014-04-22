@@ -20,7 +20,7 @@ module Fog
         # {Amazon API Reference}[http://docs.amazonwebservices.com/AWSEC2/latest/APIReference/ApiReference-query-ModifyImageAttribute.html]
         #
         def modify_image_attribute(image_id, attributes)
-          raise ArgumentError.new("image_id is required") unless image_id
+          raise ArgumentError.new('image_id is required') unless image_id
 
           params = {}
           params.merge!(Fog::AWS.indexed_param('LaunchPermission.Add.%d.Group', attributes['Add.Group'] || []))
@@ -41,7 +41,7 @@ module Fog
       class Mock
 
         def modify_image_attribute(image_id, attributes)
-          raise ArgumentError.new("image_id is required") unless image_id
+          raise ArgumentError.new('image_id is required') unless image_id
 
           unless self.data[:images][image_id]
             raise Fog::Compute::AWS::NotFound.new("The AMI ID '#{image_id}' does not exist")

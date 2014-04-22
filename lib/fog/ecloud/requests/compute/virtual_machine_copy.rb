@@ -28,10 +28,10 @@ module Fog
         def build_request_body_copy(options)
           xml = Builder::XmlMarkup.new
           xml.CopyVirtualMachine(:name => options[:name]) do
-            xml.Source(:href => options[:source], :type => "application/vnd.tmrk.cloud.virtualMachine")
+            xml.Source(:href => options[:source], :type => 'application/vnd.tmrk.cloud.virtualMachine')
             xml.ProcessorCount options[:cpus]
             xml.Memory do
-              xml.Unit "MB"
+              xml.Unit 'MB'
               xml.Value options[:memory]
             end
             xml.Layout do
@@ -44,7 +44,7 @@ module Fog
                   xml.NetworkAdapterSettings do
                     options[:network_uri].each do |uri|
                       xml.NetworkAdapter do
-                        xml.Network(:href => uri[:href], :name => uri[:name], :type => "application/vnd.tmrk.cloud.network")
+                        xml.Network(:href => uri[:href], :name => uri[:name], :type => 'application/vnd.tmrk.cloud.network')
                         xml.IpAddress uri[:ip]
                       end
                     end
@@ -70,7 +70,7 @@ module Fog
                     options[:network_uri] = options[:network_uri].is_a?(String) ? [options[:network_uri]] : options[:network_uri]
                     options[:network_uri].each do |uri|
                       xml.NetworkAdapter do
-                        xml.Network(:href => uri[:href], :name => uri[:name], :type => "application/vnd.tmrk.cloud.network")
+                        xml.Network(:href => uri[:href], :name => uri[:name], :type => 'application/vnd.tmrk.cloud.network')
                         xml.IpAddress uri[:ip]
                       end
                     end

@@ -66,7 +66,7 @@ Shindo.tests('Fog::Rackspace::LoadBalancers | load_balancer', ['rackspace']) do
         @instance.usage(:start_time => '2010-05-10', :end_time => '2010-05-11')
       end
 
-      tests("#health_monitor").returns(nil) do
+      tests('#health_monitor').returns(nil) do
         @instance.health_monitor
       end
 
@@ -76,7 +76,7 @@ Shindo.tests('Fog::Rackspace::LoadBalancers | load_balancer', ['rackspace']) do
       end
 
       @instance.wait_for { ready? }
-      tests("#health_monitor").succeeds do
+      tests('#health_monitor').succeeds do
         monitor = @instance.health_monitor
         returns('CONNECT') { monitor['type'] }
       end
@@ -87,32 +87,32 @@ Shindo.tests('Fog::Rackspace::LoadBalancers | load_balancer', ['rackspace']) do
       end
 
       @instance.wait_for { ready? }
-      tests("#disable_health_monitor").succeeds do
+      tests('#disable_health_monitor').succeeds do
         @instance.disable_health_monitor
       end
 
       @instance.wait_for { ready? }
-      tests("#connection_throttling").returns(nil) do
+      tests('#connection_throttling').returns(nil) do
         @instance.connection_throttling
       end
 
-      tests("#enable_connection_throttling(5, 5, 5, 5)").succeeds do
+      tests('#enable_connection_throttling(5, 5, 5, 5)').succeeds do
         @instance.enable_connection_throttling(5, 5, 5, 5)
       end
 
       @instance.wait_for { ready? }
-      tests("#connection_throttling").succeeds do
+      tests('#connection_throttling').succeeds do
         throttle = @instance.connection_throttling
         returns(5) { throttle['maxConnections'] }
       end
 
       @instance.wait_for { ready? }
-      tests("#disable_connection_throttling").succeeds do
+      tests('#disable_connection_throttling').succeeds do
         @instance.disable_connection_throttling
       end
 
       @instance.wait_for { ready? }
-      tests("#session_persistence").returns(nil) do
+      tests('#session_persistence').returns(nil) do
         @instance.session_persistence
       end
 
@@ -121,18 +121,18 @@ Shindo.tests('Fog::Rackspace::LoadBalancers | load_balancer', ['rackspace']) do
       end
 
       @instance.wait_for { ready? }
-      tests("#connction_throttling").succeeds do
+      tests('#connction_throttling').succeeds do
         persistence = @instance.session_persistence
         returns('HTTP_COOKIE') { persistence['persistenceType'] }
       end
 
       @instance.wait_for { ready? }
-      tests("#disable_session_persistence").succeeds do
+      tests('#disable_session_persistence').succeeds do
         @instance.disable_session_persistence
       end
 
       @instance.wait_for { ready? }
-      tests("#error_page").succeeds do
+      tests('#error_page').succeeds do
         @instance.error_page
       end
 
@@ -142,27 +142,27 @@ Shindo.tests('Fog::Rackspace::LoadBalancers | load_balancer', ['rackspace']) do
       end
 
       @instance.wait_for { ready? }
-      tests("#reset_error_page").succeeds do
+      tests('#reset_error_page').succeeds do
         @instance.reset_error_page
       end
 
       @instance.wait_for { ready? }
-      tests("#ssl_termination is nil").returns(nil) do
+      tests('#ssl_termination is nil').returns(nil) do
         @instance.ssl_termination
       end
 
       @instance.wait_for { ready? }
-      tests("#enable_ssl_termination(443, PRIVATE_KEY, CERTIFICATE").succeeds do
+      tests('#enable_ssl_termination(443, PRIVATE_KEY, CERTIFICATE').succeeds do
         @instance.enable_ssl_termination(443, PRIVATE_KEY, CERTIFICATE)
       end
 
       @instance.wait_for { ready? }
-      tests("#ssl_termination").succeeds do
+      tests('#ssl_termination').succeeds do
         @instance.ssl_termination
       end
 
       @instance.wait_for { ready? }
-      tests("#disable_ssl_termination").succeeds do
+      tests('#disable_ssl_termination').succeeds do
         @instance.disable_ssl_termination
       end
 

@@ -18,7 +18,7 @@ Shindo.tests('Fog::Compute[:bluebox] | template requests', ['bluebox']) do
       Fog::Compute[:bluebox].get_template(@template_id).body
     end
 
-    tests("get_templates").formats([@template_format]) do
+    tests('get_templates').formats([@template_format]) do
       pending if Fog.mocking?
       Fog::Compute[:bluebox].get_templates.body
     end

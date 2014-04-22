@@ -71,9 +71,9 @@ Shindo.tests('Fog::CDN[:aws] | CDN requests', ['aws', 'cdn']) do
       result
     end
 
-    test("invalidate paths") {
+    test('invalidate paths') {
 
-      response = @cf_connection.post_invalidation(@dist_id, ["/test.html", "/path/to/file.html"])
+      response = @cf_connection.post_invalidation(@dist_id, ['/test.html', '/path/to/file.html'])
       if response.status == 201
         @invalidation_id = response.body['Id']
       end
@@ -81,7 +81,7 @@ Shindo.tests('Fog::CDN[:aws] | CDN requests', ['aws', 'cdn']) do
       response.status == 201
     }
 
-    test("list invalidations") {
+    test('list invalidations') {
 
       result = false
 
@@ -95,7 +95,7 @@ Shindo.tests('Fog::CDN[:aws] | CDN requests', ['aws', 'cdn']) do
       result
     }
 
-    test("get invalidation information") {
+    test('get invalidation information') {
 
       result = false
 

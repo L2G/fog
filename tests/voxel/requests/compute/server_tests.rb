@@ -77,7 +77,7 @@ Shindo.tests('Fog::Compute[:voxel] | server requests', ['voxel']) do
 
     tests("#voxcloud_create( :hostname => '#{@name}', :disk_size => 10, :processing_cores => 1, :image_id => 55, :facility => 'LDJ1' )").formats(@server_format) do
       pending if Fog.mocking?
-      data = Fog::Compute[:voxel].voxcloud_create( :hostname => @name, :disk_size => 10, :processing_cores => 1, :image_id => 55, :facility => "LDJ1" ).body
+      data = Fog::Compute[:voxel].voxcloud_create( :hostname => @name, :disk_size => 10, :processing_cores => 1, :image_id => 55, :facility => 'LDJ1' ).body
       @server_id = data['device']['id']
       data
     end

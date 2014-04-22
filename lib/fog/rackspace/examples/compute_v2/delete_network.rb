@@ -39,13 +39,13 @@ end
 # Use username defined in ~/.fog file, if absent prompt for username.
 # For more details on ~/.fog refer to http://fog.io/about/getting_started.html
 def rackspace_username
-  Fog.credentials[:rackspace_username] || get_user_input("Enter Rackspace Username")
+  Fog.credentials[:rackspace_username] || get_user_input('Enter Rackspace Username')
 end
 
 # Use api key defined in ~/.fog file, if absent prompt for api key
 # For more details on ~/.fog refer to http://fog.io/about/getting_started.html
 def rackspace_api_key
-  Fog.credentials[:rackspace_api_key] || get_user_input("Enter Rackspace API key")
+  Fog.credentials[:rackspace_api_key] || get_user_input('Enter Rackspace API key')
 end
 
 # create Next Generation Cloud Server service
@@ -64,10 +64,10 @@ server = service.servers.find {|s| s.name == 'alphabits'}
 
 puts "\n"
 if server
-  puts "Deleting alphabits server..."
+  puts 'Deleting alphabits server...'
   server.destroy
 else
-  puts "Unable to find server alphabits"
+  puts 'Unable to find server alphabits'
 end
 
 wait_for_server_deletion(server)

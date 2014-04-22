@@ -1,4 +1,4 @@
-Shindo.tests("Fog::AWS[:beanstalk] | template", ['aws', 'beanstalk']) do
+Shindo.tests('Fog::AWS[:beanstalk] | template', ['aws', 'beanstalk']) do
 
   pending if Fog.mocking?
 
@@ -20,19 +20,19 @@ Shindo.tests("Fog::AWS[:beanstalk] | template", ['aws', 'beanstalk']) do
 
   model_tests(@beanstalk .templates, @template_opts, false) do
 
-    test("#attributes") do
+    test('#attributes') do
       @instance.name == @template_name &&
           @instance.description == @template_description &&
           @instance.application_name == @application_name &&
           @instance.solution_stack_name == @template_opts[:solution_stack_name]
     end
 
-    test("#options") do
+    test('#options') do
       options = @instance.options
       passed = false
       if options.each { |option|
         # See if we recognize at least one option
-        if option["Name"] == 'LoadBalancerHTTPPort' && option["Namespace"] == 'aws:elb:loadbalancer'
+        if option['Name'] == 'LoadBalancerHTTPPort' && option['Namespace'] == 'aws:elb:loadbalancer'
           passed = true
         end
       }

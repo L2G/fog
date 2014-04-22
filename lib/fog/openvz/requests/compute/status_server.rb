@@ -4,7 +4,7 @@ module Fog
       class Real
 
         def status_server(id, options = {})
-          vzctl("status",{:ctid => id}.merge(options))
+          vzctl('status',{:ctid => id}.merge(options))
         end
 
       end

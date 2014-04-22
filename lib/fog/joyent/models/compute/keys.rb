@@ -22,8 +22,8 @@ module Fog
         end
 
         def create(params = {})
-          raise ArgumentError, "option [name] required" unless params.key?(:name)
-          raise ArgumentError, "option [key] required" unless params.key?(:key)
+          raise ArgumentError, 'option [name] required' unless params.key?(:name)
+          raise ArgumentError, 'option [key] required' unless params.key?(:key)
 
           service.create_key(params)
         end

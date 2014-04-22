@@ -1,4 +1,4 @@
-Shindo.tests("Fog::Compute[:openstack] | security_group", ['openstack']) do
+Shindo.tests('Fog::Compute[:openstack] | security_group', ['openstack']) do
   tests('success') do
     begin
       fog = Fog::Compute[:openstack]
@@ -21,27 +21,27 @@ Shindo.tests("Fog::Compute[:openstack] | security_group", ['openstack']) do
       end
 
       tests('#rules').succeeds do
-        tests("#create").succeeds do
+        tests('#create').succeeds do
           rules_count = security_group.security_group_rules.count
           rule        = security_group.security_group_rules.create(
             :parent_group_id => security_group.id,
             :ip_protocol     => 'tcp',
             :from_port       => 1234,
             :to_port         => 1234,
-            :ip_range        => { "cidr" => "0.0.0.0/0" }
+            :ip_range        => { 'cidr' => '0.0.0.0/0' }
           )
           returns(true) { security_group.security_group_rules.count == (rules_count + 1) }
           security_group_rule = security_group.security_group_rules.detect { |r| r.id == rule.id }
           returns(true) { security_group_rule.attributes == rule.attributes }
         end
 
-        tests("#destroy").succeeds do
+        tests('#destroy').succeeds do
           rule        = security_group.security_group_rules.create(
             :parent_group_id => security_group.id,
             :ip_protocol     => 'tcp',
             :from_port       => 1234,
             :to_port         => 1234,
-            :ip_range        => { "cidr" => "0.0.0.0/0" }
+            :ip_range        => { 'cidr' => '0.0.0.0/0' }
           )
           rule.destroy
           returns(true) { rule.reload == nil }

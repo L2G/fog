@@ -16,7 +16,7 @@ module Fog
         # @see https://api.gb1.brightbox.com/1.0/#database_server_create_database_server
         #
         def create_database_server(options)
-          wrapped_request("post", "/1.0/database_servers", [202], options)
+          wrapped_request('post', '/1.0/database_servers', [202], options)
         end
 
       end

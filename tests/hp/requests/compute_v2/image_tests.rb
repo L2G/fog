@@ -1,4 +1,4 @@
-Shindo.tests("Fog::Compute::HPV2 | image requests", ['hp', 'v2', 'compute']) do
+Shindo.tests('Fog::Compute::HPV2 | image requests', ['hp', 'v2', 'compute']) do
 
   service = Fog::Compute.new(:provider => 'HP', :version => :v2)
 
@@ -22,7 +22,7 @@ Shindo.tests("Fog::Compute::HPV2 | image requests", ['hp', 'v2', 'compute']) do
     'name'      => String
   }
 
-  @base_image_id = ENV["BASE_IMAGE_ID"] || "7f60b54c-cd15-433f-8bed-00acbcd25a17"
+  @base_image_id = ENV['BASE_IMAGE_ID'] || '7f60b54c-cd15-433f-8bed-00acbcd25a17'
 
   tests('success') do
     @server_name = 'fogservertest'
@@ -43,7 +43,7 @@ Shindo.tests("Fog::Compute::HPV2 | image requests", ['hp', 'v2', 'compute']) do
     tests("#create_image(#{@server_id}, #{@image_name})").formats({}) do
       response = service.create_image(@server_id, @image_name)
       # no data is returned for the call, so get id off the header
-      @image_id = response.headers["Location"].split("/")[5]
+      @image_id = response.headers['Location'].split('/')[5]
       {}
     end
 

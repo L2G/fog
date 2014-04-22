@@ -19,7 +19,7 @@ module Fog
       class Mock
 
         def destroy_virtual_machine(options = {})
-          identity = options["id"]
+          identity = options['id']
 
           server = self.data[:servers][identity]
           unless server
@@ -29,21 +29,21 @@ module Fog
           job_id = Fog::Cloudstack.uuid
 
           job = {
-            "cmd"           => "com.cloud.api.commands.DestroyVirtualMachineCmd",
-            "created"       => Time.now.iso8601,
-            "jobid"         => job_id,
-            "jobstatus"     => 1,
-            "jobprocstatus" => 0,
-            "jobresultcode" => 0,
-            "jobresulttype" => "object",
-            "jobresult"     =>
-              {"virtualmachine" => server}
+            'cmd'           => 'com.cloud.api.commands.DestroyVirtualMachineCmd',
+            'created'       => Time.now.iso8601,
+            'jobid'         => job_id,
+            'jobstatus'     => 1,
+            'jobprocstatus' => 0,
+            'jobresultcode' => 0,
+            'jobresulttype' => 'object',
+            'jobresult'     =>
+              {'virtualmachine' => server}
           }
 
           self.data[:jobs][job_id] = job
           self.data[:servers].delete(identity)
 
-          {"destroyvirtualmachineresponse" => {"jobid" => job_id}}
+          {'destroyvirtualmachineresponse' => {'jobid' => job_id}}
         end
       end
     end # Cloudstack

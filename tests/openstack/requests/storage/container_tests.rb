@@ -1,4 +1,4 @@
-Shindo.tests('Fog::Storage[:openstack] | container requests', ["openstack"]) do
+Shindo.tests('Fog::Storage[:openstack] | container requests', ['openstack']) do
 
   @container_format = [String]
 
@@ -20,7 +20,7 @@ Shindo.tests('Fog::Storage[:openstack] | container requests', ["openstack"]) do
       Fog::Storage[:openstack].get_container('fogcontainertests').body
     end
 
-    tests("#get_containers").formats(@containers_format) do
+    tests('#get_containers').formats(@containers_format) do
       pending if Fog.mocking?
       Fog::Storage[:openstack].get_containers.body
     end
@@ -30,7 +30,7 @@ Shindo.tests('Fog::Storage[:openstack] | container requests', ["openstack"]) do
       Fog::Storage[:openstack].head_container('fogcontainertests')
     end
 
-    tests("#head_containers").succeeds do
+    tests('#head_containers').succeeds do
       pending if Fog.mocking?
       Fog::Storage[:openstack].head_containers
     end

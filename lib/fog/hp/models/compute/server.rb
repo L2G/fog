@@ -58,7 +58,7 @@ module Fog
 
         def metadata=(new_metadata = {})
           metas = []
-          new_metadata.each_pair {|k,v| metas << {"key" => k, "value" => v} }
+          new_metadata.each_pair {|k,v| metas << {'key' => k, 'value' => v} }
           metadata.load(metas)
         end
 
@@ -97,7 +97,7 @@ module Fog
         end
 
         def network_name
-          @network_name ||= "private"
+          @network_name ||= 'private'
         end
 
         def private_ip_addresses
@@ -105,7 +105,7 @@ module Fog
           addr = []
           addresses.each { |key, value|
             ipaddr = value.first
-            addr << ipaddr["addr"] unless ipaddr.nil?
+            addr << ipaddr['addr'] unless ipaddr.nil?
           }
           addr
         end
@@ -131,7 +131,7 @@ module Fog
               value = value.dup
               value.delete_at(0)
               value.each { |ipaddr|
-                addr << ipaddr["addr"]
+                addr << ipaddr['addr']
               }
             end
           }
@@ -152,7 +152,7 @@ module Fog
         end
 
         def image_id
-          @image_id ||= (image.nil? ? nil : image["id"])
+          @image_id ||= (image.nil? ? nil : image['id'])
         end
 
         def image_id=(new_image_id)
@@ -160,7 +160,7 @@ module Fog
         end
 
         def flavor_id
-          @flavor_id ||= (flavor.nil? ? nil : flavor["id"])
+          @flavor_id ||= (flavor.nil? ? nil : flavor['id'])
         end
 
         def flavor_id=(new_flavor_id)
@@ -232,7 +232,7 @@ module Fog
         def volume_attachments
           requires :id
           if vols = service.list_server_volumes(id).body
-            vols["volumeAttachments"]
+            vols['volumeAttachments']
           end
         end
 

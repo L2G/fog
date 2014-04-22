@@ -1,12 +1,12 @@
 Shindo.tests('Fog::DNS[:dreamhost] | delete_record request', ['dreamhost', 'dns']) do
 
-  tests("success") do
+  tests('success') do
 
-    test("delete testing records") do
+    test('delete testing records') do
       name = "delete-test.#{test_domain}"
-      type = "A"
-      value = "1.2.3.4"
-      comment = "test"
+      type = 'A'
+      value = '1.2.3.4'
+      comment = 'test'
       Fog::DNS[:dreamhost].create_record(name, type, value, comment)
       response = Fog::DNS[:dreamhost].delete_record(name, type, value)
       response.body['result'] == 'success'

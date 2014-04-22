@@ -156,9 +156,9 @@ module Fog
               :subnets => {
                 subnet_id => {
                   'id'               => subnet_id,
-                  'name'             => "Public",
+                  'name'             => 'Public',
                   'network_id'       => network_id,
-                  'cidr'             => "192.168.0.0/22",
+                  'cidr'             => '192.168.0.0/22',
                   'ip_version'       => 4,
                   'gateway_ip'       => Fog::Mock.random_ip,
                   'allocation_pools' => [],
@@ -175,20 +175,20 @@ module Fog
               :lb_health_monitors => {},
               :lb_vips => {},
               :quota => {
-                "subnet" => 10,
-                "router" => 10,
-                "port" => 50,
-                "network" => 10,
-                "floatingip" => 50
+                'subnet' => 10,
+                'router' => 10,
+                'port' => 50,
+                'network' => 10,
+                'floatingip' => 50
               },
               :quotas => [
                 {
-                  "subnet" => 10,
-                  "network" => 10,
-                  "floatingip" => 50,
-                  "tenant_id" => tenant_id,
-                  "router" => 10,
-                  "port" => 30
+                  'subnet' => 10,
+                  'network' => 10,
+                  'floatingip' => 50,
+                  'tenant_id' => tenant_id,
+                  'router' => 10,
+                  'port' => 30
                 }
               ],
               :security_groups      => {},
@@ -339,7 +339,7 @@ module Fog
           @path   = uri.path
           @path.sub!(/\/$/, '')
           unless @path.match(SUPPORTED_VERSIONS)
-            @path = "/" + Fog::OpenStack.get_supported_version(SUPPORTED_VERSIONS,
+            @path = '/' + Fog::OpenStack.get_supported_version(SUPPORTED_VERSIONS,
                                                                uri,
                                                                @auth_token,
                                                                @connection_options)

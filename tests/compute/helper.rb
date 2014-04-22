@@ -21,14 +21,14 @@ def compute_providers
     },
     :ecloud => {
       :server_attributes => {
-        :name                 => "VM4",
-        :row                  => "Layout Row 1",
-        :group                => "Layout Group 1",
-        :catalog_network_name => "bridged",
-        :description          => "blarg",
+        :name                 => 'VM4',
+        :row                  => 'Layout Row 1',
+        :group                => 'Layout Group 1',
+        :catalog_network_name => 'bridged',
+        :description          => 'blarg',
         :operating_system => {
-          :name =>  "Red Hat Enterprise Linux 5 (64-bit)",
-          :href => "/cloudapi/ecloud/operatingsystems/rhel5_64guest/computepools/963",
+          :name =>  'Red Hat Enterprise Linux 5 (64-bit)',
+          :href => '/cloudapi/ecloud/operatingsystems/rhel5_64guest/computepools/963',
         },
         :organization_uri => 'organizations/2'
       }.tap do |hash|
@@ -54,7 +54,7 @@ def compute_providers
           end
         end
       end,
-      :volume_attributes => {:name => "somevolume"}.tap do |hash|
+      :volume_attributes => {:name => 'somevolume'}.tap do |hash|
         [:zone_id, :disk_offering_id].each do |k|
           key = "cloudstack_#{k}".to_sym
           if Fog.credentials[key]
@@ -62,7 +62,7 @@ def compute_providers
           end
         end
       end,
-      :snapshot_attributes => {:volume_id => "89198f7c-0245-aa1d-136a-c5f479ef9db7"}.tap do |hash|
+      :snapshot_attributes => {:volume_id => '89198f7c-0245-aa1d-136a-c5f479ef9db7'}.tap do |hash|
         [:volume_id, :domain_id, :policy_id].each do |k|
           key = "cloudstack_#{k}".to_sym
           if Fog.credentials[key]
@@ -77,7 +77,7 @@ def compute_providers
         :end_port => 456,
         :protocol => 'tcp'
       },
-      :disk_offering_attributes => { :name => "new disk offering", :display_text => 'New Disk Offering' },
+      :disk_offering_attributes => { :name => 'new disk offering', :display_text => 'New Disk Offering' },
       :mocked => true
     },
     :glesys   => {
@@ -117,14 +117,14 @@ def compute_providers
       :mocked => true,
       :server_attributes => {
         :flavor_ref => 2,
-        :image_ref  => "0e09fbd6-43c5-448a-83e9-0d3d05f9747e",
+        :image_ref  => '0e09fbd6-43c5-448a-83e9-0d3d05f9747e',
         :name       => "fog_#{Time.now.to_i}"
       }
     },
     :rackspace  => {
       :provider_attributes => { :version => :v2 },
       :server_attributes => {
-        :image_id => "23b564c9-c3e6-49f9-bc68-86c7a9ab5018", # Ubuntu 12.04 LTS (Precise Pangolin)
+        :image_id => '23b564c9-c3e6-49f9-bc68-86c7a9ab5018', # Ubuntu 12.04 LTS (Precise Pangolin)
         :flavor_id => 2,
         :name     => "fog_#{Time.now.to_i}"
       },
@@ -136,7 +136,7 @@ def compute_providers
         :disk_size => 10,
         :processing_cores => 1,
         :image_id => 55, # image 55 = Ubuntu 10.04 (Lucid), 64-bit, base install
-        :facility => "LDJ1"
+        :facility => 'LDJ1'
       },
       :mocked => false
     }

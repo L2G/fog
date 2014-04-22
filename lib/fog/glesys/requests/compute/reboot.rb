@@ -4,7 +4,7 @@ module Fog
       class Real
 
         def reboot(param)
-          request("/server/reboot", param)
+          request('/server/reboot', param)
         end
       end
 

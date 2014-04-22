@@ -1,4 +1,4 @@
-Shindo.tests("Fog::Compute::HPV2 | key pair requests", ['hp', 'v2', 'compute']) do
+Shindo.tests('Fog::Compute::HPV2 | key pair requests', ['hp', 'v2', 'compute']) do
 
   service = Fog::Compute.new(:provider => 'HP', :version => :v2)
 
@@ -25,7 +25,7 @@ Shindo.tests("Fog::Compute::HPV2 | key pair requests", ['hp', 'v2', 'compute']) 
 
     tests("#create_key_pair('#{@key_pair_name}')").formats({'keypair' => @keypair_format.merge({'private_key' => String, 'user_id' => String})}) do
       body = service.create_key_pair(@key_pair_name).body
-      tests("private_key").returns(OpenSSL::PKey::RSA, "is a valid private RSA key") do
+      tests('private_key').returns(OpenSSL::PKey::RSA, 'is a valid private RSA key') do
         OpenSSL::PKey::RSA.new(body['keypair']['private_key']).class
       end
       body

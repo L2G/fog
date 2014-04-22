@@ -4,7 +4,7 @@ module Fog
       class Real
 
         def convert_server(id,options = {})
-          vzctl("convert",{:ctid => id}.merge(options))
+          vzctl('convert',{:ctid => id}.merge(options))
         end
 
       end

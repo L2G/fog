@@ -8,7 +8,7 @@ module Fog
 
         def destroy
           requires :identity, :etag, :caller_reference
-          raise "Distribution must be disabled to be deleted" unless disabled?
+          raise 'Distribution must be disabled to be deleted' unless disabled?
           delete_distribution(identity, etag)
           true
         end

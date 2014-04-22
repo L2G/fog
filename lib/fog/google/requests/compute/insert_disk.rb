@@ -15,46 +15,46 @@ module Fog
 
           id = Fog::Mock.random_numbers(19).to_s
           object = {
-            "kind" => "compute#disk",
-            "id" => id,
-            "creationTimestamp" => Time.now.iso8601,
-            "zone" => "https://www.googleapis.com/compute/#{api_version}/projects/#{@project}/zones/#{zone_name}",
-            "status" => "READY",
-            "name" => disk_name,
-            "sizeGb" => options['sizeGb'] || "10",
-            "selfLink" => "https://www.googleapis.com/compute/#{api_version}/projects/#{@project}/zones/#{zone_name}/disks/#{disk_name}"
+            'kind' => 'compute#disk',
+            'id' => id,
+            'creationTimestamp' => Time.now.iso8601,
+            'zone' => "https://www.googleapis.com/compute/#{api_version}/projects/#{@project}/zones/#{zone_name}",
+            'status' => 'READY',
+            'name' => disk_name,
+            'sizeGb' => options['sizeGb'] || '10',
+            'selfLink' => "https://www.googleapis.com/compute/#{api_version}/projects/#{@project}/zones/#{zone_name}/disks/#{disk_name}"
           }
           if image
             object.merge({
-              "sourceImage" => image.self_link,
-              "sourceImageId" => image.id
+              'sourceImage' => image.self_link,
+              'sourceImageId' => image.id
             })
           end
           self.data[:disks][disk_name] = object
 
           if image
             object.merge!({
-              "sourceImage" => image.self_link,
-              "sourceImageId" => image.id
+              'sourceImage' => image.self_link,
+              'sourceImageId' => image.id
             })
           end
           self.data[:disks][disk_name] = object
 
           operation = self.random_operation
           self.data[:operations][operation] = {
-            "kind" => "compute#operation",
-            "id" => Fog::Mock.random_numbers(19).to_s,
-            "name" => operation,
-            "zone" => object["zone"],
-            "operationType" => "insert",
-            "targetLink" => object["selfLink"],
-            "targetId" => id,
-            "status" => Fog::Compute::Google::Operation::PENDING_STATE,
-            "user" => "123456789012-qwertyuiopasdfghjkl1234567890qwe@developer.gserviceaccount.com",
-            "progress" => 0,
-            "insertTime" => Time.now.iso8601,
-            "startTime" => Time.now.iso8601,
-            "selfLink" => "#{object["zone"]}/operations/#{operation}"
+            'kind' => 'compute#operation',
+            'id' => Fog::Mock.random_numbers(19).to_s,
+            'name' => operation,
+            'zone' => object['zone'],
+            'operationType' => 'insert',
+            'targetLink' => object['selfLink'],
+            'targetId' => id,
+            'status' => Fog::Compute::Google::Operation::PENDING_STATE,
+            'user' => '123456789012-qwertyuiopasdfghjkl1234567890qwe@developer.gserviceaccount.com',
+            'progress' => 0,
+            'insertTime' => Time.now.iso8601,
+            'startTime' => Time.now.iso8601,
+            'selfLink' => "#{object["zone"]}/operations/#{operation}"
           }
 
           build_response(:body => self.data[:operations][operation])

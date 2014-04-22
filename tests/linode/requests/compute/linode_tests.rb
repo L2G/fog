@@ -41,15 +41,15 @@ Shindo.tests('Fog::Compute[:linode] | linode requests', ['linode']) do
 
   @disks_format = Linode::Compute::Formats::BASIC.merge({
     'DATA' => [{
-      "UPDATE_DT"  => String,
-      "DISKID"     => Integer,
-      "LABEL"      => String,
-      "TYPE"       => String,
-      "LINODEID"   => Integer,
-      "ISREADONLY" => Integer,
-      "STATUS"     => Integer,
-      "CREATE_DT"  => String,
-      "SIZE"       => Integer
+      'UPDATE_DT'  => String,
+      'DISKID'     => Integer,
+      'LABEL'      => String,
+      'TYPE'       => String,
+      'LINODEID'   => Integer,
+      'ISREADONLY' => Integer,
+      'STATUS'     => Integer,
+      'CREATE_DT'  => String,
+      'SIZE'       => Integer
     }]
   })
 

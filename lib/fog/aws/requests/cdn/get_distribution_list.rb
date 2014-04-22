@@ -44,7 +44,7 @@ module Fog
             :idempotent => true,
             :method   => 'GET',
             :parser   => Fog::Parsers::CDN::AWS::GetDistributionList.new,
-            :path       => "/distribution",
+            :path       => '/distribution',
             :query      => options
           })
         end

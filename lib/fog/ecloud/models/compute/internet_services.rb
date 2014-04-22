@@ -27,11 +27,11 @@ module Fog
 
         def create(options)
           options[:uri] = "#{service.base_path}/internetServices/publicIps/#{public_ip_id}/action/createInternetService"
-          options[:protocol]           ||= "TCP"
+          options[:protocol]           ||= 'TCP'
           options[:enabled]            ||= true
-          options[:description]        ||= ""
+          options[:description]        ||= ''
           options[:persistence]        ||= {}
-          options[:persistence][:type] ||= "None"
+          options[:persistence][:type] ||= 'None'
           data = service.internet_service_create(options).body
           object = new(data)
         end

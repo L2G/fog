@@ -11,8 +11,8 @@ module Fog
         # @see https://api.gb1.brightbox.com/1.0/#server_shutdown_server
         #
         def shutdown_server(identifier)
-          return nil if identifier.nil? || identifier == ""
-          wrapped_request("post", "/1.0/servers/#{identifier}/shutdown", [202])
+          return nil if identifier.nil? || identifier == ''
+          wrapped_request('post', "/1.0/servers/#{identifier}/shutdown", [202])
         end
 
       end

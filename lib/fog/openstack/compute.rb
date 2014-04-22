@@ -188,34 +188,34 @@ module Fog
                 :addresses => {}
               },
               :images  => {
-                "0e09fbd6-43c5-448a-83e9-0d3d05f9747e" => {
-                  "id" => "0e09fbd6-43c5-448a-83e9-0d3d05f9747e",
-                  "name" => "cirros-0.3.0-x86_64-blank",
+                '0e09fbd6-43c5-448a-83e9-0d3d05f9747e' => {
+                  'id' => '0e09fbd6-43c5-448a-83e9-0d3d05f9747e',
+                  'name' => 'cirros-0.3.0-x86_64-blank',
                   'progress'  => 100,
-                  'status'    => "ACTIVE",
-                  'updated'   => "",
+                  'status'    => 'ACTIVE',
+                  'updated'   => '',
                   'minRam'    => 0,
                   'minDisk'   => 0,
                   'metadata'  => {},
-                  'links'     => [{"href" => "http://nova1:8774/v1.1/admin/images/1", "rel" => "self"}, {"href" => "http://nova1:8774/admin/images/2", "rel" => "bookmark"}]
+                  'links'     => [{'href' => 'http://nova1:8774/v1.1/admin/images/1', 'rel' => 'self'}, {'href' => 'http://nova1:8774/admin/images/2', 'rel' => 'bookmark'}]
                 }
               },
               :servers => {},
               :key_pairs => {},
               :security_groups => {
                 0 => {
-                  "id"          => 0,
-                  "tenant_id"   => Fog::Mock.random_hex(8),
-                  "name"        => "default",
-                  "description" => "default",
-                  "rules"       => [
-                    { "id"              => 0,
-                      "parent_group_id" => 0,
-                      "from_port"       => 68,
-                      "to_port"         => 68,
-                      "ip_protocol"     => "udp",
-                      "ip_range"        => { "cidr" => "0.0.0.0/0" },
-                      "group"           => {}, },
+                  'id'          => 0,
+                  'tenant_id'   => Fog::Mock.random_hex(8),
+                  'name'        => 'default',
+                  'description' => 'default',
+                  'rules'       => [
+                    { 'id'              => 0,
+                      'parent_group_id' => 0,
+                      'from_port'       => 68,
+                      'to_port'         => 68,
+                      'ip_protocol'     => 'udp',
+                      'ip_range'        => { 'cidr' => '0.0.0.0/0' },
+                      'group'           => {}, },
                   ],
                 },
               },
@@ -414,7 +414,7 @@ module Fog
           @path.sub!(/\/$/, '')
           unless @path.match(/1\.1|v2/)
             raise Fog::OpenStack::Errors::ServiceUnavailable.new(
-                    "OpenStack binding only supports version 2 (a.k.a. 1.1)")
+                    'OpenStack binding only supports version 2 (a.k.a. 1.1)')
           end
 
           @port   = uri.port

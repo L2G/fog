@@ -33,7 +33,7 @@ module Fog
             {
               :name    => nic.deviceInfo.label,
               :mac     => nic.macAddress,
-              :network => nic.backing.respond_to?("network") ? nic.backing.network.name : nic.backing.port.portgroupKey,
+              :network => nic.backing.respond_to?('network') ? nic.backing.network.name : nic.backing.port.portgroupKey,
               :status  => nic.connectable.status,
               :summary => nic.deviceInfo.summary,
               :type    => nic.class,
@@ -44,7 +44,7 @@ module Fog
         end
 
         def get_vm_interface(vm_id, options = {})
-          raise ArgumentError, "instance id is a required parameter" unless vm_id
+          raise ArgumentError, 'instance id is a required parameter' unless vm_id
           if options.is_a? Fog::Compute::Vsphere::Interface
             options
           else

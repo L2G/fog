@@ -36,15 +36,15 @@ module Fog
           # Add links for HTTP response
           group['scalingPolicies'][0]['links'] = [
             {
-              "href" => "https://ord.autoscale.api.rackspacecloud.com/v1.0/829409/groups/6791761b-821a-4d07-820d-0b2afc7dd7f6/policies/dceb14ac-b2b3-4f06-aac9-a5b6cd5d40e1/",
-              "rel" => "self"
+              'href' => 'https://ord.autoscale.api.rackspacecloud.com/v1.0/829409/groups/6791761b-821a-4d07-820d-0b2afc7dd7f6/policies/dceb14ac-b2b3-4f06-aac9-a5b6cd5d40e1/',
+              'rel' => 'self'
             }
           ]
 
           group['links'] = [
             {
-              "href" => "https://ord.autoscale.api.rackspacecloud.com/v1.0/829409/groups/6791761b-821a-4d07-820d-0b2afc7dd7f6/",
-              "rel" => "self"
+              'href' => 'https://ord.autoscale.api.rackspacecloud.com/v1.0/829409/groups/6791761b-821a-4d07-820d-0b2afc7dd7f6/',
+              'rel' => 'self'
             }
           ]
 

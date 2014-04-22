@@ -35,13 +35,13 @@ end
 # Use username defined in ~/.fog file, if absent prompt for username.
 # For more details on ~/.fog refer to http://fog.io/about/getting_started.html
 def rackspace_username
-  Fog.credentials[:rackspace_username] || get_user_input("Enter Rackspace Username")
+  Fog.credentials[:rackspace_username] || get_user_input('Enter Rackspace Username')
 end
 
 # Use api key defined in ~/.fog file, if absent prompt for api key
 # For more details on ~/.fog refer to http://fog.io/about/getting_started.html
 def rackspace_api_key
-  Fog.credentials[:rackspace_api_key] || get_user_input("Enter Rackspace API key")
+  Fog.credentials[:rackspace_api_key] || get_user_input('Enter Rackspace API key')
 end
 
 # create Cloud Files service

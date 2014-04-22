@@ -48,7 +48,7 @@ module Fog
             'job_result_code' => 0,
             'job_proc_status' => 0,
             'created_at' => Time.now.iso8601,
-            'job_result' => { "success" => true }
+            'job_result' => { 'success' => true }
           }
 
           self.data[:jobs][job_id] = job

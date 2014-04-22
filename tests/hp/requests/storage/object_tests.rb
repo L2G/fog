@@ -1,4 +1,4 @@
-Shindo.tests("Fog::Storage[:hp] | object requests", ['hp', 'storage']) do
+Shindo.tests('Fog::Storage[:hp] | object requests', ['hp', 'storage']) do
 
   @directory = Fog::Storage[:hp].directories.create(:key => 'fogobjecttests')
   @dir_name = @directory.identity
@@ -59,20 +59,20 @@ Shindo.tests("Fog::Storage[:hp] | object requests", ['hp', 'storage']) do
 
     tests("#get_object_http_url('#{@directory.identity}', 'fog_object', expiration timestamp)").returns(true) do
       object_url = Fog::Storage[:hp].get_object_http_url(@dir_name, 'fog_object', (Time.now + 60))
-      object_url.include? "fog_object"
-      object_url.include? "&temp_url_expires="
-      object_url.include? "temp_url_sig="
+      object_url.include? 'fog_object'
+      object_url.include? '&temp_url_expires='
+      object_url.include? 'temp_url_sig='
       object_url.include? @dir_name
-      object_url.start_with? "http://"
+      object_url.start_with? 'http://'
     end
 
     tests("#get_object_https_url('#{@directory.identity}', 'fog_object', expiration timestamp)").returns(true) do
       object_url = Fog::Storage[:hp].get_object_https_url(@dir_name, 'fog_object', (Time.now + 60))
-      object_url.include? "fog_object"
-      object_url.include? "&temp_url_expires="
-      object_url.include? "temp_url_sig="
+      object_url.include? 'fog_object'
+      object_url.include? '&temp_url_expires='
+      object_url.include? 'temp_url_sig='
       object_url.include? @dir_name
-      object_url.start_with? "https://"
+      object_url.start_with? 'https://'
     end
   end
 

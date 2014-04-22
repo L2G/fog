@@ -1,4 +1,4 @@
-Shindo.tests("Fog::DNS[:dreamhost] | records", ['dreamhost', 'dns']) do
+Shindo.tests('Fog::DNS[:dreamhost] | records', ['dreamhost', 'dns']) do
 
   service = Fog::DNS[:dreamhost]
 
@@ -11,7 +11,7 @@ Shindo.tests("Fog::DNS[:dreamhost] | records", ['dreamhost', 'dns']) do
 
     tests('should list Fog::DNS::Dreamhost::Record') do
       records.each do |r|
-        test("as records") { r.is_a?(Fog::DNS::Dreamhost::Record) }
+        test('as records') { r.is_a?(Fog::DNS::Dreamhost::Record) }
       end
     end
   end

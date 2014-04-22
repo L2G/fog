@@ -18,7 +18,7 @@ module Fog
       class Real
         def get_key(keyid)
           request(
-            :method => "GET",
+            :method => 'GET',
             :path => "/my/keys/#{keyid}",
             :expects => 200,
             :idempotent => true

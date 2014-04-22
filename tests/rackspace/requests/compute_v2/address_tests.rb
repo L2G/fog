@@ -13,9 +13,9 @@ Shindo.tests('Fog::Compute::RackspaceV2 | address requests', ['rackspace']) do
       @server_id = 42
     end
 
-    address_format =  { "addresses" => {
-      "private" => [{"addr" => String, "version" => Integer}],
-      "public" => [{"addr" => String, "version" => Integer }, {"addr" => String, "version" => Integer}]}
+    address_format =  { 'addresses' => {
+      'private' => [{'addr' => String, 'version' => Integer}],
+      'public' => [{'addr' => String, 'version' => Integer }, {'addr' => String, 'version' => Integer}]}
     }
 
     begin
@@ -23,8 +23,8 @@ Shindo.tests('Fog::Compute::RackspaceV2 | address requests', ['rackspace']) do
          @service.list_addresses(@server_id).body
       end
 
-      tests("#list_addresses_by_network(#{@server_id}, 'private')").formats(address_format["addresses"].reject {|k,v| k != "private"}) do
-        @service.list_addresses_by_network(@server_id, "private").body
+      tests("#list_addresses_by_network(#{@server_id}, 'private')").formats(address_format['addresses'].reject {|k,v| k != 'private'}) do
+        @service.list_addresses_by_network(@server_id, 'private').body
       end
     ensure
       @server.destroy if @server

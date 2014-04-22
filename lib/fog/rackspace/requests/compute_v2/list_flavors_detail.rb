@@ -31,7 +31,7 @@ module Fog
       class Mock
         def list_flavors_detail
           flavors = self.data[:flavors].values.map { |f| Fog::Rackspace::MockData.keep(f, 'id', 'name', 'links') }
-          response(:body => {"flavors" => flavors})
+          response(:body => {'flavors' => flavors})
         end
       end
     end

@@ -23,17 +23,17 @@ Shindo.tests('Fog::Rackspace::Storage | directory', ['rackspace']) do
          @instance.public_url
         end
 
-        @instance.cdn_cname = "my_cname.com"
+        @instance.cdn_cname = 'my_cname.com'
         tests('cdn_cname').returns(nil) do
           @instance.public_url
         end
 
         @instance.cdn_cname = nil
-        @service.instance_variable_set "@rackspace_cdn_ssl", true
+        @service.instance_variable_set '@rackspace_cdn_ssl', true
         tests('ssl').returns(nil) do
           @instance.public_url
         end
-        @service.instance_variable_set "@rackspace_cdn_ssl", nil
+        @service.instance_variable_set '@rackspace_cdn_ssl', nil
      end
 
      tests('#ios_url').returns(nil) do
@@ -58,17 +58,17 @@ Shindo.tests('Fog::Rackspace::Storage | directory', ['rackspace']) do
            @instance.public_url  =~ /http:\/\//
           end
 
-          @instance.cdn_cname = "my_cname.com"
+          @instance.cdn_cname = 'my_cname.com'
           tests('cdn_cname').returns(0) do
             @instance.public_url  =~ /my_cname\.com/
           end
 
           @instance.cdn_cname = nil
-          @service.instance_variable_set "@rackspace_cdn_ssl", true
+          @service.instance_variable_set '@rackspace_cdn_ssl', true
           tests('ssl').returns(0) do
             @instance.public_url =~ /https:\/\/.+\.ssl\./
           end
-          @service.instance_variable_set "@rackspace_cdn_ssl", nil
+          @service.instance_variable_set '@rackspace_cdn_ssl', nil
        end
 
        tests('#ios_url').returns(0) do
@@ -80,11 +80,11 @@ Shindo.tests('Fog::Rackspace::Storage | directory', ['rackspace']) do
        end
 
      end
-     tests("reload") do
+     tests('reload') do
        @instance.reload
-       returns(nil) { @instance.instance_variable_get("@urls") }
-       returns(nil) { @instance.instance_variable_get("@files") }
-       returns(nil) { @instance.instance_variable_get("@public") }
+       returns(nil) { @instance.instance_variable_get('@urls') }
+       returns(nil) { @instance.instance_variable_get('@files') }
+       returns(nil) { @instance.instance_variable_get('@public') }
      end
    end
 
@@ -95,14 +95,14 @@ Shindo.tests('Fog::Rackspace::Storage | directory', ['rackspace']) do
      model_tests(@service.directories, directory_attributes, Fog.mocking?) do
        tests('sets metadata on create').returns('true') do
          @instance.metadata.data
-         container_meta_attributes["X-Container-Meta-Draft"]
+         container_meta_attributes['X-Container-Meta-Draft']
        end
-       tests('update metadata').returns({"X-Container-Meta-Draft" => "true", "X-Container-Meta-Color" => "green"}) do
+       tests('update metadata').returns({'X-Container-Meta-Draft' => 'true', 'X-Container-Meta-Color' => 'green'}) do
          @instance.metadata[:color] = 'green'
          @instance.save
          container_meta_attributes
        end
-       tests('set metadata to nil').returns({"X-Container-Meta-Draft" => "true"}) do
+       tests('set metadata to nil').returns({'X-Container-Meta-Draft' => 'true'}) do
          @instance.metadata[:color] = nil
          @instance.save
          container_meta_attributes
@@ -114,20 +114,20 @@ Shindo.tests('Fog::Rackspace::Storage | directory', ['rackspace']) do
        end
 
        tests('should retrieve metadata when necessary') do
-         @service.put_container(@instance.key, {"X-Container-Meta-List-Test" => "true"} )
+         @service.put_container(@instance.key, {'X-Container-Meta-List-Test' => 'true'} )
          dir = @service.directories.find {|d| d.key == @instance.key }
-         returns(nil) { dir.instance_variable_get("@metadata") }
+         returns(nil) { dir.instance_variable_get('@metadata') }
          returns('true') { dir.metadata[:list_test] }
        end
 
-       tests("should reload metadata after calling reload").returns("42") do
-         @service.put_container @instance.key, "X-Container-Meta-Answer" => 42
+       tests('should reload metadata after calling reload').returns('42') do
+         @service.put_container @instance.key, 'X-Container-Meta-Answer' => 42
          @instance.reload
          @instance.metadata[:answer]
        end
 
-       tests("should reload metadata after calling reload").returns("42") do
-         @service.put_container @instance.key, "X-Container-Meta-Answer" => 42
+       tests('should reload metadata after calling reload').returns('42') do
+         @service.put_container @instance.key, 'X-Container-Meta-Answer' => 42
          @instance.reload
          @instance.metadata[:answer]
        end

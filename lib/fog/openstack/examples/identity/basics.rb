@@ -3,7 +3,7 @@
 require 'fog'
 require 'pp'
 
-auth_url = "https://example.net/v2.0/tokens"
+auth_url = 'https://example.net/v2.0/tokens'
 username = 'admin@example.net'
 password = 'secret'
 

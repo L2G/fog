@@ -108,7 +108,7 @@ Shindo.tests('Fog::DNS[:aws] | DNS requests', ['aws', 'dns']) do
       result
     end
 
-    test("add a A resource record") {
+    test('add a A resource record') {
       # create an A resource record
       host = 'www.' + @domain_name
       ip_addrs = ['1.2.3.4']
@@ -128,7 +128,7 @@ Shindo.tests('Fog::DNS[:aws] | DNS requests', ['aws', 'dns']) do
       response.status == 200
     }
 
-    test("add a CNAME resource record") {
+    test('add a CNAME resource record') {
       # create a CNAME resource record
       host = 'mail.' + @domain_name
       value = ['www.' + @domain_name]
@@ -148,7 +148,7 @@ Shindo.tests('Fog::DNS[:aws] | DNS requests', ['aws', 'dns']) do
       response.status == 200
     }
 
-    test("add a MX resource record") {
+    test('add a MX resource record') {
       # create a MX resource record
       host = @domain_name
       value = ['7 mail.' + @domain_name]
@@ -168,14 +168,14 @@ Shindo.tests('Fog::DNS[:aws] | DNS requests', ['aws', 'dns']) do
       response.status == 200
     }
 
-    test("add an ALIAS resource record") {
+    test('add an ALIAS resource record') {
       # create a load balancer
-      @elb_connection.create_load_balancer(["us-east-1a"], "fog", [{"Protocol" => "HTTP", "LoadBalancerPort" => "80", "InstancePort" => "80"}])
+      @elb_connection.create_load_balancer(['us-east-1a'], 'fog', [{'Protocol' => 'HTTP', 'LoadBalancerPort' => '80', 'InstancePort' => '80'}])
 
-      elb_response   = @elb_connection.describe_load_balancers("LoadBalancerNames" => "fog")
-      elb            = elb_response.body["DescribeLoadBalancersResult"]["LoadBalancerDescriptions"].first
-      hosted_zone_id = elb["CanonicalHostedZoneNameID"]
-      dns_name       = elb["DNSName"]
+      elb_response   = @elb_connection.describe_load_balancers('LoadBalancerNames' => 'fog')
+      elb            = elb_response.body['DescribeLoadBalancersResult']['LoadBalancerDescriptions'].first
+      hosted_zone_id = elb['CanonicalHostedZoneNameID']
+      dns_name       = elb['DNSName']
 
       # create an ALIAS record
       host = @domain_name
@@ -205,7 +205,7 @@ Shindo.tests('Fog::DNS[:aws] | DNS requests', ['aws', 'dns']) do
       response.status == 200
     }
 
-    tests("list resource records").formats(AWS::DNS::Formats::LIST_RESOURCE_RECORD_SETS)  {
+    tests('list resource records').formats(AWS::DNS::Formats::LIST_RESOURCE_RECORD_SETS)  {
       # get resource records for zone
       @r53_connection.list_resource_record_sets(@zone_id).body
     }
@@ -230,7 +230,7 @@ Shindo.tests('Fog::DNS[:aws] | DNS requests', ['aws', 'dns']) do
 
     test("delete hosted zone #{@zone_id}") {
       # cleanup the ELB as well
-      @elb_connection.delete_load_balancer("fog")
+      @elb_connection.delete_load_balancer('fog')
 
       response = @r53_connection.delete_hosted_zone(@zone_id)
 

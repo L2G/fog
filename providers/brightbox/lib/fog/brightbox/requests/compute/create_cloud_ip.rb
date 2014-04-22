@@ -15,7 +15,7 @@ module Fog
         # @see https://api.gb1.brightbox.com/1.0/#cloud_ip_create_cloud_ip
         #
         def create_cloud_ip(options = {})
-          wrapped_request("post", "/1.0/cloud_ips", [201], options)
+          wrapped_request('post', '/1.0/cloud_ips', [201], options)
         end
 
       end

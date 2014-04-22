@@ -17,7 +17,7 @@ xenserver = Fog::Compute.new({
 # but we need the one without a proper VLAN ID
 #
 bondmaster_pif = xenserver.pifs.find do |pif|
-  pif.vlan == "-1" and pif.device == "bond0"
+  pif.vlan == '-1' and pif.device == 'bond0'
 end
 
 # Another valid way of finding a PIF, without bonding
@@ -25,8 +25,8 @@ end
 
 # We want to create these new VLANs
 vlans = [
-  { "name" => "VLAN 44", "vlanid" => 44},
-  { "name" => "VLAN 55", "vlanid" => 55}
+  { 'name' => 'VLAN 44', 'vlanid' => 44},
+  { 'name' => 'VLAN 55', 'vlanid' => 55}
 ]
 
 

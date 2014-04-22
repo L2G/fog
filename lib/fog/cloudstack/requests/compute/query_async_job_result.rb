@@ -16,7 +16,7 @@ module Fog
       class Mock
         def query_async_job_result(options = {})
           unless job_id = options['jobid']
-            raise Fog::Compute::Cloudstack::BadRequest.new("Missing required parameter jobid")
+            raise Fog::Compute::Cloudstack::BadRequest.new('Missing required parameter jobid')
           end
 
           unless job = self.data[:jobs][job_id]

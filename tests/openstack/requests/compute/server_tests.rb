@@ -52,7 +52,7 @@ Shindo.tests('Fog::Compute[:openstack] | server requests', ['openstack']) do
     @security_group_name = get_security_group_ref
 
     tests('#create_server("test", #{@image_id} , 19)').formats(@create_format, false) do
-      data = Fog::Compute[:openstack].create_server("test", @image_id, @flavor_id).body['server']
+      data = Fog::Compute[:openstack].create_server('test', @image_id, @flavor_id).body['server']
       @server_id = data['id']
       data
     end
@@ -66,7 +66,7 @@ Shindo.tests('Fog::Compute[:openstack] | server requests', ['openstack']) do
 
     #MULTI_CREATE
     tests('#create_server("test", #{@image_id} , 19, {"min_count" => 2, "return_reservation_id" => "True"})').formats(@reservation_format, false) do
-      data = Fog::Compute[:openstack].create_server("test", @image_id, @flavor_id, {"min_count" => 2, "return_reservation_id" => "True"}).body
+      data = Fog::Compute[:openstack].create_server('test', @image_id, @flavor_id, {'min_count' => 2, 'return_reservation_id' => 'True'}).body
       @reservation_id = data['reservation_id']
       data
     end
@@ -126,7 +126,7 @@ Shindo.tests('Fog::Compute[:openstack] | server requests', ['openstack']) do
 
     #CREATE IMAGE WITH METADATA
     tests("#create_image(#{@server_id}, 'fog')").formats('image' => @image_format) do
-      data = Fog::Compute[:openstack].create_image(@server_id, 'fog', {"foo" => "bar"}).body
+      data = Fog::Compute[:openstack].create_image(@server_id, 'fog', {'foo' => 'bar'}).body
       @snapshot_id = data['image']['id']
       data
     end
@@ -134,7 +134,7 @@ Shindo.tests('Fog::Compute[:openstack] | server requests', ['openstack']) do
 
     #REBUILD
     tests("#rebuild_server(#{@server_id}, #{@snapshot_id}, 'fog')").formats({'server' => @detailed_server_format}, false) do
-      Fog::Compute[:openstack].rebuild_server(@server_id, @snapshot_id, 'fog', 'newpass', {"foo" => "bar"}).body
+      Fog::Compute[:openstack].rebuild_server(@server_id, @snapshot_id, 'fog', 'newpass', {'foo' => 'bar'}).body
     end
     Fog::Compute[:openstack].servers.get(@server_id).wait_for { ready? } if not Fog.mocking?
 

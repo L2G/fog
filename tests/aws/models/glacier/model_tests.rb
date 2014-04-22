@@ -9,7 +9,7 @@ Shindo.tests('AWS::Glacier | models', ['aws', 'glacier']) do
       vault = nil
       tests('creating a vault') do
         vault = Fog::AWS[:glacier].vaults.create :id => 'Fog-Test-Vault'
-        tests("id is Fog-Test-Vault").returns('Fog-Test-Vault') {vault.id}
+        tests('id is Fog-Test-Vault').returns('Fog-Test-Vault') {vault.id}
       end
 
       tests('all') do
@@ -22,7 +22,7 @@ Shindo.tests('AWS::Glacier | models', ['aws', 'glacier']) do
       end
     end
 
-    tests("archives") do
+    tests('archives') do
       vault = Fog::AWS[:glacier].vaults.create :id => 'Fog-Test-Vault-upload'
       tests('create') do
         archive = vault.archives.create(:body => 'data')
@@ -39,7 +39,7 @@ Shindo.tests('AWS::Glacier | models', ['aws', 'glacier']) do
     end
 
     vault = Fog::AWS[:glacier].vaults.create :id => 'Fog-Test-Vault'
-    tests("jobs") do
+    tests('jobs') do
       tests('all').returns([]) {vault.jobs}
     end
     vault.destroy

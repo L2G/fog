@@ -27,7 +27,7 @@ module Fog
           private_key = OpenSSL::PKey::RSA.generate(1024)
           public_key = private_key.public_key
           ### The original password is Passw0rd
-          encoded_password = encrypt_using_public_key("Passw0rd", public_key)
+          encoded_password = encrypt_using_public_key('Passw0rd', public_key)
 
           if list_servers_detail.body['servers'].detect {|_| _['id'] == server_id}
             # mock output for this call get_console_output(server_id, 400).body['output']

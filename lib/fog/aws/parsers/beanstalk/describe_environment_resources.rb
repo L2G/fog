@@ -7,7 +7,7 @@ module Fog
         class DescribeEnvironmentResources < Fog::Parsers::AWS::ElasticBeanstalk::BaseParser
 
           def initialize
-            super("DescribeEnvironmentResourcesResult")
+            super('DescribeEnvironmentResourcesResult')
             tag 'EnvironmentResources', :object
             tag 'AutoScalingGroups', :object, :list
             tag 'Name', :string

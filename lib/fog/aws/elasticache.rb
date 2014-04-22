@@ -139,13 +139,13 @@ module Fog
                 :clusters  => {}, # cache cluster data, indexed by cluster ID
                 :security_groups => {}, # security groups
                 :subnet_groups => {},
-                :parameter_groups => {"default.memcached1.4" => { "CacheParameterGroupFamily" => "memcached1.4",
-                                                                  "Description" => "Default parameter group for memcached1.4",
-                                                                  "CacheParameterGroupName" => "default.memcached1.4"
+                :parameter_groups => {'default.memcached1.4' => { 'CacheParameterGroupFamily' => 'memcached1.4',
+                                                                  'Description' => 'Default parameter group for memcached1.4',
+                                                                  'CacheParameterGroupName' => 'default.memcached1.4'
                                                                 },
-                                      "default.redis2.6" =>     {"CacheParameterGroupFamily" => "redis2.6",
-                                                                 "Description" => "Default parameter group for redis2.6",
-                                                                 "CacheParameterGroupName" => "default.redis2.6"
+                                      'default.redis2.6' =>     {'CacheParameterGroupFamily' => 'redis2.6',
+                                                                 'Description' => 'Default parameter group for redis2.6',
+                                                                 'CacheParameterGroupName' => 'default.redis2.6'
                                                                 }
                                       }
                                   }
@@ -186,14 +186,14 @@ module Fog
         # returns an Array of (Mock) elasticache nodes, representated as Hashes
         def create_cache_nodes(cluster_id, num_nodes = 1, port = '11211')
           (1..num_nodes).map do |node_number|
-            node_id = "%04d" % node_number
+            node_id = '%04d' % node_number
             { # each hash represents a cache cluster node
-              "CacheNodeId"           => node_id,
-              "Port"                  => port,
-              "ParameterGroupStatus"  => "in-sync",
-              "CacheNodeStatus"       => "available",
-              "CacheNodeCreateTime"   => Time.now.utc.to_s,
-              "Address" =>
+              'CacheNodeId'           => node_id,
+              'Port'                  => port,
+              'ParameterGroupStatus'  => 'in-sync',
+              'CacheNodeStatus'       => 'available',
+              'CacheNodeCreateTime'   => Time.now.utc.to_s,
+              'Address' =>
                 "#{cluster_id}.#{node_id}.use1.cache.amazonaws.com"
             }
           end

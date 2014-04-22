@@ -36,13 +36,13 @@ end
 # Use username defined in ~/.fog file, if absent prompt for username.
 # For more details on ~/.fog refer to http://fog.io/about/getting_started.html
 def rackspace_username
-  Fog.credentials[:rackspace_username] || get_user_input("Enter Rackspace Username")
+  Fog.credentials[:rackspace_username] || get_user_input('Enter Rackspace Username')
 end
 
 # Use api key defined in ~/.fog file, if absent prompt for api key
 # For more details on ~/.fog refer to http://fog.io/about/getting_started.html
 def rackspace_api_key
-  Fog.credentials[:rackspace_api_key] || get_user_input("Enter Rackspace API key")
+  Fog.credentials[:rackspace_api_key] || get_user_input('Enter Rackspace API key')
 end
 
 #create Next Generation Cloud Server service
@@ -78,13 +78,13 @@ begin
   # Check every 5 seconds to see if server is in the VERIFY_RESIZE state.
   # If the server has not been built in 5 minutes (600 seconds) an exception will be raised.
   server.wait_for(1200, 5) do
-    print "."
+    print '.'
     STDOUT.flush
     ready?('VERIFY_RESIZE', ['ACTIVE', 'ERROR'])
   end
   puts "[DONE]\n\n"
 
-  puts "Server Has Been Successfully Resized!"
+  puts 'Server Has Been Successfully Resized!'
   action = get_user_input "Press 'C' To Confirm Or 'R' to Revert Resize (R/C)"
 
   case action.upcase

@@ -9,27 +9,27 @@ Shindo.tests('Bluebox::BLB | lb_tests', ['bluebox']) do
     @location_id  = compute_providers[:bluebox][:server_attributes][:location_id]
     @password     = SecureRandom.base64(18)
 
-    tests("get_lb_applications").formats(Bluebox::BLB::Formats::LB_APPLICATIONS) do
+    tests('get_lb_applications').formats(Bluebox::BLB::Formats::LB_APPLICATIONS) do
       @lb_applications = Fog::Bluebox[:blb].get_lb_applications.body
     end
 
-    tests("get_lb_application").formats(Bluebox::BLB::Formats::LB_APPLICATION) do
+    tests('get_lb_application').formats(Bluebox::BLB::Formats::LB_APPLICATION) do
       Fog::Bluebox[:blb].get_lb_application(@lb_applications.first['id']).body
     end
 
-    tests("get_lb_services").formats(Bluebox::BLB::Formats::LB_SERVICES) do
+    tests('get_lb_services').formats(Bluebox::BLB::Formats::LB_SERVICES) do
       @lb_services = Fog::Bluebox[:blb].get_lb_services(@lb_applications.first['id']).body
     end
 
-    tests("get_lb_service").formats(Bluebox::BLB::Formats::LB_SERVICE) do
+    tests('get_lb_service').formats(Bluebox::BLB::Formats::LB_SERVICE) do
       Fog::Bluebox[:blb].get_lb_service(@lb_applications.first['id'], @lb_services.first['id']).body
     end
 
-    tests("get_lb_backends").formats(Bluebox::BLB::Formats::LB_BACKENDS) do
+    tests('get_lb_backends').formats(Bluebox::BLB::Formats::LB_BACKENDS) do
       @lb_backends = Fog::Bluebox[:blb].get_lb_backends(@lb_services.first['id']).body
     end
 
-    tests("get_lb_backend").formats(Bluebox::BLB::Formats::LB_BACKEND) do
+    tests('get_lb_backend').formats(Bluebox::BLB::Formats::LB_BACKEND) do
       Fog::Bluebox[:blb].get_lb_backend(@lb_services.first['id'], @lb_backends.first['id']).body
     end
 
@@ -38,7 +38,7 @@ Shindo.tests('Bluebox::BLB | lb_tests', ['bluebox']) do
     @block_id = data['id']
     Fog::Compute[:bluebox].servers.get(@block_id).wait_for { ready? }
 
-    tests("add_machine_to_lb_application").formats(Bluebox::BLB::Formats::ADD_MACHINE_TO_LB) do
+    tests('add_machine_to_lb_application').formats(Bluebox::BLB::Formats::ADD_MACHINE_TO_LB) do
       Fog::Bluebox[:blb].add_machine_to_lb_application(@lb_applications.first['id'], @block_id).body
     end
 

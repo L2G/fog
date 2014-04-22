@@ -25,7 +25,7 @@ module Fog
 
         def all
           data = service.get_catalog(vdc_id).body['CatalogItems'].select do |entity|
-            entity['type'] == "application/vnd.vmware.vcloud.catalogItem+xml"
+            entity['type'] == 'application/vnd.vmware.vcloud.catalogItem+xml'
           end
           load(data)
         end

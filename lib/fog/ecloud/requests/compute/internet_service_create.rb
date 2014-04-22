@@ -25,7 +25,7 @@ module Fog
           request(
             :body => generate_internet_service_request(service_data),
             :expects => 201,
-            :method => "POST",
+            :method => 'POST',
             :headers => {},
             :uri => service_data[:uri],
             :parse => true
@@ -72,7 +72,7 @@ module Fog
           service = {
             :href => "/cloudapi/ecloud/internetServices/#{service_id}",
             :name => service_data[:name],
-            :type => "application/vnd.tmrk.cloud.internetService",
+            :type => 'application/vnd.tmrk.cloud.internetService',
             :Links => {
               :Link => [
                 Fog::Ecloud.keep(public_ip, :href, :name, :type),

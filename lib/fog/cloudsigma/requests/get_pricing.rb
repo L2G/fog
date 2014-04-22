@@ -10,7 +10,7 @@ module Fog
           if subscription
             query[:level] = 0
           end
-          request(:path => "pricing/",
+          request(:path => 'pricing/',
                   :method => 'GET',
                   :expects => 200,
                   :query => query)

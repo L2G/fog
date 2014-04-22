@@ -69,7 +69,7 @@ module Fog
           allow_version_upgrade               = options[:allow_version_upgrade]
           number_of_nodes                     = options[:number_of_nodes]
 
-          path = "/"
+          path = '/'
           params = {
             :idempotent => true,
             :headers    => {},

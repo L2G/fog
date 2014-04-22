@@ -30,8 +30,8 @@ module Fog
       class Mock
         def reboot_server(server_id, type)
           body = {
-            "reboot" => {
-              "type" => type.upcase
+            'reboot' => {
+              'type' => type.upcase
             }
           }
           response(

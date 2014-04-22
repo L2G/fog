@@ -5,11 +5,11 @@ Shindo.tests('AWS::SES | topic lifecycle tests', ['aws', 'sns']) do
     tests("#create_topic('fog_topic_tests')").formats(AWS::SNS::Formats::BASIC.merge('TopicArn' => String)) do
       pending if Fog.mocking?
       body = Fog::AWS[:sns].create_topic('fog_topic_tests').body
-      @topic_arn = body["TopicArn"]
+      @topic_arn = body['TopicArn']
       body
     end
 
-    tests("#list_topics").formats(AWS::SNS::Formats::BASIC.merge('Topics' => [String])) do
+    tests('#list_topics').formats(AWS::SNS::Formats::BASIC.merge('Topics' => [String])) do
       pending if Fog.mocking?
       Fog::AWS[:sns].list_topics.body
     end

@@ -13,9 +13,9 @@ module Fog
               raise(Fog::Compute::Vsphere::NotFound) unless folder
               folder_attributes(folder, datacenter_name)
             when 'network', :network
-              raise "not implemented"
+              raise 'not implemented'
             when 'datastore', :datastore
-              raise "not implemented"
+              raise 'not implemented'
             else
               raise ArgumentError, "#{type} is unknown"
           end
@@ -30,7 +30,7 @@ module Fog
           dc             = find_raw_datacenter(datacenter_name)
           dc_root_folder = dc.vmFolder
           # Filter the root path for this datacenter not to be used."
-          dc_root_folder_path = dc_root_folder.path.map { | id, name | name }.join("/")
+          dc_root_folder_path = dc_root_folder.path.map { | id, name | name }.join('/')
           paths          = path.sub(/^\/?#{Regexp.quote(dc_root_folder_path)}\/?/, '').split('/')
 
           return dc_root_folder if paths.empty?
@@ -53,7 +53,7 @@ module Fog
             :parent     => folder.parent.name,
             :datacenter => datacenter_name,
             :type       => folder_type(folder),
-            :path       => "/" + folder.path.map(&:last).join('/'),
+            :path       => '/' + folder.path.map(&:last).join('/'),
           }
         end
 

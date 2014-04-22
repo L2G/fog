@@ -69,7 +69,7 @@ module Fog
         end
 
         def request(options)
-          raise "Atmos Storage mocks not implemented"
+          raise 'Atmos Storage mocks not implemented'
         end
 
       end
@@ -110,26 +110,26 @@ module Fog
           # Set default method and headers
           params = {:method => 'GET', :headers => {}}.merge params
 
-          params[:headers]["Content-Type"] ||= "application/octet-stream"
+          params[:headers]['Content-Type'] ||= 'application/octet-stream'
 
           # Add request date
-          params[:headers]["date"] = Time.now().httpdate()
-          params[:headers]["x-emc-uid"] = @storage_token
+          params[:headers]['date'] = Time.now().httpdate()
+          params[:headers]['x-emc-uid'] = @storage_token
 
           # Build signature string
-          signstring = ""
+          signstring = ''
           signstring += params[:method]
           signstring += "\n"
-          signstring += params[:headers]["Content-Type"]
+          signstring += params[:headers]['Content-Type']
           signstring += "\n"
-          if( params[:headers]["range"] )
-            signstring += params[:headers]["range"]
+          if( params[:headers]['range'] )
+            signstring += params[:headers]['range']
           end
           signstring += "\n"
-          signstring += params[:headers]["date"]
+          signstring += params[:headers]['date']
           signstring += "\n"
 
-          signstring += "/rest/" + URI.unescape( req_path ).downcase
+          signstring += '/rest/' + URI.unescape( req_path ).downcase
           query_str = params[:query].map{|k,v| "#{k}=#{v}"}.join('&')
           signstring += '?' + query_str unless query_str.empty?
           signstring += "\n"
@@ -147,12 +147,12 @@ module Fog
 
           header_arr.each { |key,value|
             # Values are lowercase and whitespace-normalized
-            signstring += key + ":" + value.strip.chomp.squeeze( " " ) + "\n"
+            signstring += key + ':' + value.strip.chomp.squeeze( ' ' ) + "\n"
           }
 
           digest = @hmac.sign(signstring.chomp())
           signature = Base64.encode64( digest ).chomp()
-          params[:headers]["x-emc-signature"] = signature
+          params[:headers]['x-emc-signature'] = signature
 
           params.delete(:host) #invalid excon request parameter
 

@@ -4,7 +4,7 @@ module Fog
       class Real
 
         def create_server(options = {})
-          vzctl("create",options)
+          vzctl('create',options)
         end
 
       end

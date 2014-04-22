@@ -22,14 +22,14 @@ module Fog
         # @see http://docs.amazonwebservices.com/AmazonS3/latest/API/mpUploadComplete.html
         #
         def complete_multipart_upload(bucket_name, object_name, upload_id, parts)
-          data = "<CompleteMultipartUpload>"
+          data = '<CompleteMultipartUpload>'
           parts.each_with_index do |part, index|
-            data << "<Part>"
+            data << '<Part>'
             data << "<PartNumber>#{index + 1}</PartNumber>"
             data << "<ETag>#{part}</ETag>"
-            data << "</Part>"
+            data << '</Part>'
           end
-          data << "</CompleteMultipartUpload>"
+          data << '</CompleteMultipartUpload>'
           request({
             :body       => data,
             :expects    => 200,

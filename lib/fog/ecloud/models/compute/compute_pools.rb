@@ -12,7 +12,7 @@ module Fog
         model Fog::Compute::Ecloud::ComputePool
 
         def all
-          check_href!(:message => "the Compute Pool href of the Environment you want to enumerate")
+          check_href!(:message => 'the Compute Pool href of the Environment you want to enumerate')
           data = service.get_compute_pools(href).body[:ComputePool]
           load(data)
         end

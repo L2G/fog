@@ -33,12 +33,12 @@ Shindo.tests('Fog::Compute[:xenserver] | StorageRepository model', ['xenserver']
         :virtual_allocation,
         :sm_config
       ]
-      tests("The StorageRepository model should respond to") do
+      tests('The StorageRepository model should respond to') do
         attributes.each do |attribute|
           test("#{attribute}") { storage_repository.respond_to? attribute }
         end
       end
-      tests("The attributes hash should have key") do
+      tests('The attributes hash should have key') do
         attributes.each do |attribute|
           test("#{attribute}") { model_attribute_hash.has_key? attribute }
         end
@@ -49,15 +49,15 @@ Shindo.tests('Fog::Compute[:xenserver] | StorageRepository model', ['xenserver']
 
   end
 
-  tests("A real StorageRepository should") do
-    tests("return a valid list of VDIs") do
+  tests('A real StorageRepository should') do
+    tests('return a valid list of VDIs') do
       storage_repository.vdis.each do |vdi|
         test("where #{vdi.uuid} is a Fog::Compute::XenServer::VDI") {
           vdi.is_a? Fog::Compute::XenServer::VDI
         }
       end
     end
-    tests("return a valid list of PBDs") do
+    tests('return a valid list of PBDs') do
       storage_repository.pbds.each do |pbd|
         test("where #{pbd.uuid} is a Fog::Compute::XenServer::PBD") {
           pbd.is_a? Fog::Compute::XenServer::PBD

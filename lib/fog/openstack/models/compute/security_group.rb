@@ -9,7 +9,7 @@ module Fog
 
         attribute :name
         attribute :description
-        attribute :security_group_rules, :aliases => "rules"
+        attribute :security_group_rules, :aliases => 'rules'
         attribute :tenant_id
 
         def security_group_rules
@@ -41,7 +41,7 @@ module Fog
           true
         end
 
-        def create_security_group_rule(min, max, ip_protocol = "tcp", cidr = "0.0.0.0/0", group_id = nil)
+        def create_security_group_rule(min, max, ip_protocol = 'tcp', cidr = '0.0.0.0/0', group_id = nil)
           Fog::Logger.deprecation('#create_security_group_rule is deprecated. Use the Fog::Compute::Openstack::SecurityGroupRules collection to create new rules.')
           requires :id
           service.create_security_group_rule(id, ip_protocol, min, max, cidr, group_id)

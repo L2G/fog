@@ -88,8 +88,8 @@ module Fog
 
         def create_firewall_acl(options = {})
           options[:uri] = "#{service.base_path}/firewallAcls/environments/#{id}/action/createFirewallAcl"
-          options[:permission] ||= "deny"
-          options[:protocol] ||= "any"
+          options[:permission] ||= 'deny'
+          options[:protocol] ||= 'any'
           data = service.firewall_acls_create(options).body
           acl = Fog::Compute::Ecloud::FirewallAcls.new(:service => service, :href => data[:href])[0]
         end
@@ -101,7 +101,7 @@ module Fog
         def organization
           @organization ||= begin
                              reload unless other_links
-                             organization_link = other_links.find{|l| l[:type] == "application/vnd.tmrk.cloud.organization"}
+                             organization_link = other_links.find{|l| l[:type] == 'application/vnd.tmrk.cloud.organization'}
                              self.service.organizations.new(organization_link)
                            end
         end

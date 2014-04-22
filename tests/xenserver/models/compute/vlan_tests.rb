@@ -19,12 +19,12 @@ Shindo.tests('Fog::Compute[:xenserver] | VLAN model', ['xenserver']) do
         :__tagged_pif,
         :tag
       ]
-      tests("The VLAN model should respond to") do
+      tests('The VLAN model should respond to') do
         attributes.each do |attribute|
           test("#{attribute}") { vlan.respond_to? attribute }
         end
       end
-      tests("The attributes hash should have key") do
+      tests('The attributes hash should have key') do
         attributes.each do |attribute|
           test("#{attribute}") { model_attribute_hash.has_key? attribute }
         end
@@ -35,13 +35,13 @@ Shindo.tests('Fog::Compute[:xenserver] | VLAN model', ['xenserver']) do
 
   end
 
-  tests("#save") do
+  tests('#save') do
     test 'should create a VLAN' do
       @net = service.networks.create :name => 'test-net'
       # try to use a bonded interface first
-      pif = service.pifs.find { |p| p.device == 'bond0' and p.vlan == "-1" }
+      pif = service.pifs.find { |p| p.device == 'bond0' and p.vlan == '-1' }
       unless pif
-        pif = compute.pifs.find { |p| p.device == 'eth0' and p.vlan == "-1" }
+        pif = compute.pifs.find { |p| p.device == 'eth0' and p.vlan == '-1' }
       end
       @vlan = vlans.create :tag => 1499,
                            :pif => pif,
@@ -53,7 +53,7 @@ Shindo.tests('Fog::Compute[:xenserver] | VLAN model', ['xenserver']) do
     end
   end
 
-  tests("#destroy") do
+  tests('#destroy') do
     test 'should destroy the network' do
       @vlan.destroy
       @net.destroy
@@ -61,13 +61,13 @@ Shindo.tests('Fog::Compute[:xenserver] | VLAN model', ['xenserver']) do
     end
   end
 
-  tests("#tagged_pif") do
+  tests('#tagged_pif') do
     test 'should return a PIF' do
       vlans.find.first.tagged_pif.is_a? Fog::Compute::XenServer::PIF
     end
   end
 
-  tests("#untagged_pif") do
+  tests('#untagged_pif') do
     test 'should return a PIF' do
       vlans.find.first.untagged_pif.is_a? Fog::Compute::XenServer::PIF
     end

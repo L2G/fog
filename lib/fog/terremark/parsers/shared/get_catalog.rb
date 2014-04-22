@@ -14,7 +14,7 @@ module Fog
             case name
             when 'CatalogItem'
               catalog_item = extract_attributes(attributes)
-              catalog_item["id"] = catalog_item["href"].split('/').last
+              catalog_item['id'] = catalog_item['href'].split('/').last
               @response['CatalogItems'] << catalog_item
 
             when 'Catalog'

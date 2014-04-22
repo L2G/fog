@@ -27,8 +27,8 @@ module Fog
         attribute :deleted_at, :type => :time
 
         # Links - to be replaced
-        attribute :account_id,  :aliases => "account",      :squash => "id"
-        attribute :image_id,    :aliases => "image",        :squash => "id"
+        attribute :account_id,  :aliases => 'account',      :squash => 'id'
+        attribute :image_id,    :aliases => 'image',        :squash => 'id'
 
         attribute :snapshots
         attribute :cloud_ips
@@ -133,14 +133,14 @@ module Fog
         # @return [String]
         #
         def dns_name
-          ["public", fqdn].join(".")
+          ['public', fqdn].join('.')
         end
 
         def private_ip_address
           if interfaces.empty?
             nil
           else
-            interfaces.first["ipv4_address"]
+            interfaces.first['ipv4_address']
           end
         end
 
@@ -148,18 +148,18 @@ module Fog
           if cloud_ips.empty?
             nil
           else
-            cloud_ips.first["public_ip"]
+            cloud_ips.first['public_ip']
           end
         end
 
         def ready?
-          state == "active"
+          state == 'active'
         end
 
         def activate_console
           requires :identity
           response = service.activate_console_server(identity)
-          [response["console_url"], response["console_token"], response["console_token_expires"]]
+          [response['console_url'], response['console_token'], response['console_token_expires']]
         end
 
         def save
@@ -171,9 +171,9 @@ module Fog
             :zone => zone_id,
             :user_data => user_data,
             :server_groups => server_groups
-          }.delete_if { |k, v| v.nil? || v == "" }
+          }.delete_if { |k, v| v.nil? || v == '' }
 
-          options.merge!(:server_type => flavor_id) unless flavor_id.nil? || flavor_id == ""
+          options.merge!(:server_type => flavor_id) unless flavor_id.nil? || flavor_id == ''
 
           data = service.create_server(options)
           merge_attributes(data)
@@ -184,7 +184,7 @@ module Fog
         #
         # @return [String] the identifier to pass to a Cloud IP mapping request
         def mapping_identity
-          interfaces.first["id"]
+          interfaces.first['id']
         end
 
         private

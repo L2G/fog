@@ -27,7 +27,7 @@ module Fog
       class Mock
 
         def delete_meta(collection_name, parent_id, key)
-          if collection_name == "images" then
+          if collection_name == 'images' then
             if get_image_details(parent_id)
               self.data[:images][parent_id]['metadata'].delete(key)
             else
@@ -35,7 +35,7 @@ module Fog
             end
           end
 
-          if collection_name == "servers" then
+          if collection_name == 'servers' then
             if get_server_details(parent_id)
               self.data[:servers][parent_id]['metadata'].delete(key)
             else

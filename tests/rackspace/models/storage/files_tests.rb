@@ -1,4 +1,4 @@
-Shindo.tests("Fog::Rackspace::Storage | files", ['rackspace', 'storage']) do
+Shindo.tests('Fog::Rackspace::Storage | files', ['rackspace', 'storage']) do
 
   file_attributes = {
     :key => 'fog_files_tests',
@@ -14,7 +14,7 @@ Shindo.tests("Fog::Rackspace::Storage | files", ['rackspace', 'storage']) do
   tests('success') do
     collection_tests(Fog::Storage[:rackspace].directories.create(directory_attributes).files, file_attributes, Fog.mocking?)
 
-    @service = Fog::Storage.new :provider => 'rackspace', :rackspace_temp_url_key => "my_secret"
+    @service = Fog::Storage.new :provider => 'rackspace', :rackspace_temp_url_key => 'my_secret'
 
     @directory = @service.directories.create(directory_attributes)
     @file = @directory.files.create(file_attributes)

@@ -12,9 +12,9 @@ module Fog
 
           def end_element(name)
             case name
-            when "TopicArn", "Protocol", "SubscriptionArn", "Owner", "Endpoint"
+            when 'TopicArn', 'Protocol', 'SubscriptionArn', 'Owner', 'Endpoint'
               @subscription[name] = @value.strip
-            when "member"
+            when 'member'
               @response['Subscriptions'] << @subscription
               @subscription = {}
             when 'RequestId', 'NextToken'

@@ -42,7 +42,7 @@ module Fog
           end
 
           def generate_xml
-            output = ""
+            output = ''
             output << header
             output << body(@attrs)
             output << tail

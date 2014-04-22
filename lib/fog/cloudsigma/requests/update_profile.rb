@@ -3,7 +3,7 @@ module Fog
     class CloudSigma
       class Real
         def update_profile(data)
-          update_request("profile/", data)
+          update_request('profile/', data)
         end
       end
 

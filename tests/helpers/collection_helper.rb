@@ -17,7 +17,7 @@ def collection_tests(collection, params = {}, mocks_implemented = true)
       @instance.wait_for { ready? }
     end
 
-    tests("#all").succeeds do
+    tests('#all').succeeds do
       pending if Fog.mocking? && !mocks_implemented
       collection.all
     end
@@ -44,7 +44,7 @@ def collection_tests(collection, params = {}, mocks_implemented = true)
 
       # JRuby 1.7.5+ issue causes a SystemStackError: stack level too deep
       # https://github.com/jruby/jruby/issues/1265
-      if RUBY_PLATFORM == "java" and JRUBY_VERSION =~ /1\.7\.[5-8]/
+      if RUBY_PLATFORM == 'java' and JRUBY_VERSION =~ /1\.7\.[5-8]/
         methods.delete('all?')
       end
 

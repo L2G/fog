@@ -1,4 +1,4 @@
-Shindo.tests('Fog::Storage[:aws] | multipart upload requests', ["aws"]) do
+Shindo.tests('Fog::Storage[:aws] | multipart upload requests', ['aws']) do
 
   @directory = Fog::Storage[:aws].directories.create(:key => uniq_id('fogmultipartuploadtests'))
 
@@ -107,12 +107,12 @@ Shindo.tests('Fog::Storage[:aws] | multipart upload requests', ["aws"]) do
 
   tests('failure') do
 
-    tests("initiate_multipart_upload")
-    tests("list_multipart_uploads")
-    tests("upload_part")
-    tests("list_parts")
-    tests("complete_multipart_upload")
-    tests("abort_multipart_upload")
+    tests('initiate_multipart_upload')
+    tests('list_multipart_uploads')
+    tests('upload_part')
+    tests('list_parts')
+    tests('complete_multipart_upload')
+    tests('abort_multipart_upload')
 
   end
 

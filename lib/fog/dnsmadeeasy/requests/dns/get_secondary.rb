@@ -18,7 +18,7 @@ module Fog
         def get_secondary(secondary_name)
           request(
             :expects  => 200,
-            :method   => "GET",
+            :method   => 'GET',
             :path     => "/V1.2/secondary/#{secondary_name}"
           )
         end

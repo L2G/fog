@@ -189,7 +189,7 @@ class Glesys
             'ipversion'   => Integer,
             'datacenter'  => String,
             'platform'    => String,
-            "ipaddresses" => Array
+            'ipaddresses' => Array
           },
           'status' => {
             'timestamp' => String,

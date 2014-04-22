@@ -4,10 +4,10 @@ require 'fog/atmos'
 module Fog
   module Storage
     class Ninefold < Fog::Storage::Atmos
-      STORAGE_HOST = "onlinestorage.ninefold.com" #"api.ninefold.com"
-      STORAGE_PATH = "" #"/storage/v1.0"
-      STORAGE_PORT = "80" # "443"
-      STORAGE_SCHEME = "http" # "https"
+      STORAGE_HOST = 'onlinestorage.ninefold.com' #"api.ninefold.com"
+      STORAGE_PATH = '' #"/storage/v1.0"
+      STORAGE_PORT = '80' # "443"
+      STORAGE_SCHEME = 'http' # "https"
 
       requires :ninefold_storage_token, :ninefold_storage_secret
       recognizes :persistent
@@ -30,7 +30,7 @@ module Fog
         end
 
         def request(options)
-          raise "Ninefold Storage mocks not implemented"
+          raise 'Ninefold Storage mocks not implemented'
         end
 
       end

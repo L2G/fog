@@ -36,12 +36,12 @@ Shindo.tests('Fog::Compute[:xenserver] | VBD model', ['xenserver']) do
         :empty,
         :__metrics
       ]
-      tests("The VBD model should respond to") do
+      tests('The VBD model should respond to') do
         attributes.each do |attribute|
           test("#{attribute}") { vbd.respond_to? attribute }
         end
       end
-      tests("The attributes hash should have key") do
+      tests('The attributes hash should have key') do
         attributes.each do |attribute|
           test("#{attribute}") { model_attribute_hash.has_key? attribute }
         end
@@ -52,18 +52,18 @@ Shindo.tests('Fog::Compute[:xenserver] | VBD model', ['xenserver']) do
 
   end
 
-  tests("A real VBD should") do
-    test("have a valid OpaqueRef") do
+  tests('A real VBD should') do
+    test('have a valid OpaqueRef') do
       puts vbd.reference
       (vbd.reference =~ /OpaqueRef:/).eql?(0) and \
-        vbd.reference != "OpaqueRef:NULL"
+        vbd.reference != 'OpaqueRef:NULL'
     end
-    tests("belong to a VM when attached") do
+    tests('belong to a VM when attached') do
       vbds.each do |vbd|
         test("#{vbd.uuid}") do
           if vbd.currently_attached
             (vbd.__vm =~ /OpaqueRef/).eql?(0) and \
-              vbd.__vm != "OpaqueRef:NULL"
+              vbd.__vm != 'OpaqueRef:NULL'
           else
             true
           end
@@ -71,21 +71,21 @@ Shindo.tests('Fog::Compute[:xenserver] | VBD model', ['xenserver']) do
       end
     end
     vbds.each do |vbd|
-      test("return a Fog::Compute::XenServer::VDI when type Disk") do
+      test('return a Fog::Compute::XenServer::VDI when type Disk') do
         if vbd.type == 'Disk'
           vbd.vdi.kind_of? Fog::Compute::XenServer::VDI
         else
           true
         end
       end
-      test("return a nil VDI when type CD") do
+      test('return a nil VDI when type CD') do
         if vbd.type == 'CD'
           vbd.vdi.nil?
         else
           true
         end
       end
-      test("return a VbdMetrics object when attached") do
+      test('return a VbdMetrics object when attached') do
         if vbd.currently_attached
           vbd.metrics.kind_of? Fog::Compute::XenServer::VbdMetrics
         else
@@ -93,11 +93,11 @@ Shindo.tests('Fog::Compute[:xenserver] | VBD model', ['xenserver']) do
         end
       end
     end
-    tests("return valid Server") do
-      test("should be a Fog::Compute::XenServer::Server") { vbd.server.kind_of? Fog::Compute::XenServer::Server }
+    tests('return valid Server') do
+      test('should be a Fog::Compute::XenServer::Server') { vbd.server.kind_of? Fog::Compute::XenServer::Server }
     end
-    test("be able to be unplugged when type is CD") do
-       if vbd.type == "CD"
+    test('be able to be unplugged when type is CD') do
+       if vbd.type == 'CD'
          vbd.unpluggable == true
        else
          vbd.unpluggable == false
@@ -106,8 +106,8 @@ Shindo.tests('Fog::Compute[:xenserver] | VBD model', ['xenserver']) do
 
   end
 
-  tests("VBD Metrics should") do
-    test("have a last_updated Time property") { server.vbds.first.metrics.last_updated.kind_of? Time }
+  tests('VBD Metrics should') do
+    test('have a last_updated Time property') { server.vbds.first.metrics.last_updated.kind_of? Time }
   end
 
   destroy_ephemeral_servers

@@ -32,35 +32,35 @@ module Fog
           end
 
           rule = {
-            "ruleid"    => security_group_rule_id,
-            "cidr"      => cidr,
-            "startport" => start_port,
-            "endport"   => end_port,
-            "protocol"  => protocol
+            'ruleid'    => security_group_rule_id,
+            'cidr'      => cidr,
+            'startport' => start_port,
+            'endport'   => end_port,
+            'protocol'  => protocol
           }
 
           unless security_group = self.data[:security_groups][security_group_id]
             raise Fog::Compute::Cloudstack::BadRequest.new("Security group id #{security_group_id} does not exist")
           end
 
-          security_group["egressrule"] ||= []
-          security_group["egressrule"] << rule
+          security_group['egressrule'] ||= []
+          security_group['egressrule'] << rule
 
           job_id = Fog::Cloudstack.uuid
           job = {
-            "cmd"           => "com.cloud.api.commands.authorizeSecurityGroupEgress",
-            "created"       => Time.now.iso8601,
-            "jobid"         => job_id,
-            "jobstatus"     => 1,
-            "jobprocstatus" => 0,
-            "jobresultcode" => 0,
-            "jobresulttype" => "object",
-            "jobresult"     => { "securitygroup" => security_group }
+            'cmd'           => 'com.cloud.api.commands.authorizeSecurityGroupEgress',
+            'created'       => Time.now.iso8601,
+            'jobid'         => job_id,
+            'jobstatus'     => 1,
+            'jobprocstatus' => 0,
+            'jobresultcode' => 0,
+            'jobresulttype' => 'object',
+            'jobresult'     => { 'securitygroup' => security_group }
           }
 
           self.data[:jobs][job_id] = job
 
-          { "authorizesecuritygroupegressresponse" => { "jobid" => job_id } }
+          { 'authorizesecuritygroupegressresponse' => { 'jobid' => job_id } }
         end
       end # Mock
     end

@@ -16,7 +16,7 @@ module Fog
           request(
             :method   => 'GET',
             :expects  => 200,
-            :path     => "/locations"
+            :path     => '/locations'
           )
         end
 
@@ -27,7 +27,7 @@ module Fog
         def list_locations
           response = Excon::Response.new
           response.status = 200
-          response.body = { "locations" => self.data[:locations].values }
+          response.body = { 'locations' => self.data[:locations].values }
           response
         end
 

@@ -92,8 +92,8 @@ module Fog
               :owner_id => Fog::AWS::Mock.owner_id,
               :server_certificates => {},
               :access_keys => [{
-                "Status" => "Active",
-                "AccessKeyId" => key
+                'Status' => 'Active',
+                'AccessKeyId' => key
               }],
               :devices => [{
                 :enable_date   => Time.now,

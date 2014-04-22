@@ -10,10 +10,10 @@ module Fog
           key = params[:key]
 
           record = {
-            "name" => name,
-            "key" => key,
-            "created" => Time.now.utc,
-            "updated" => Time.now.utc
+            'name' => name,
+            'key' => key,
+            'created' => Time.now.utc,
+            'updated' => Time.now.utc
           }
 
           self.data[:keys][name] = record
@@ -39,13 +39,13 @@ module Fog
         #     * 'key'<~String> - OpenSSH formatted public key
         #
         def create_key(params = {})
-          raise ArgumentError, "error creating key: [name] is required" unless params[:name]
-          raise ArgumentError, "error creating key: [key] is required" unless params[:key]
+          raise ArgumentError, 'error creating key: [name] is required' unless params[:name]
+          raise ArgumentError, 'error creating key: [key] is required' unless params[:key]
 
           request(
-            :method => "POST",
-            :path => "/my/keys",
-            :body => { "name" => params[:name], "key" => params[:key] },
+            :method => 'POST',
+            :path => '/my/keys',
+            :body => { 'name' => params[:name], 'key' => params[:key] },
             :expects => 201
           )
         end

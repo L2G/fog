@@ -198,7 +198,7 @@ module Fog
         def save
           unless persisted?
             #Lame ...
-            raise RuntimeError, "Should not be here"
+            raise RuntimeError, 'Should not be here'
           else
             if on?
               if @changed
@@ -269,7 +269,7 @@ module Fog
           wait_for { off? } # be sure..
           wait_for { ready? } # be doubly sure..
           sleep 2 # API lies. need to give it some time to be happy.
-          service.delete_vapp(href).body[:status] == "running"
+          service.delete_vapp(href).body[:status] == 'running'
         end
         alias_method :delete, :destroy
 
@@ -297,21 +297,21 @@ module Fog
         def memory_mess
           load_unless_loaded!
           if virtual_hardware
-            virtual_hardware.detect { |item| item[:"rasd:ResourceType"] == "4" }
+            virtual_hardware.detect { |item| item[:"rasd:ResourceType"] == '4' }
           end
         end
 
         def cpu_mess
           load_unless_loaded!
           if virtual_hardware
-            virtual_hardware.detect { |item| item[:"rasd:ResourceType"] == "3" }
+            virtual_hardware.detect { |item| item[:"rasd:ResourceType"] == '3' }
           end
         end
 
         def disk_mess
           load_unless_loaded!
           if virtual_hardware
-            virtual_hardware.select { |item| item[:"rasd:ResourceType"] == "17" }
+            virtual_hardware.select { |item| item[:"rasd:ResourceType"] == '17' }
           else
             []
           end

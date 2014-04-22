@@ -1,4 +1,4 @@
-Shindo.tests("HP::LB | virtual ips requests", ['hp', 'lb', 'virtual_ips']) do
+Shindo.tests('HP::LB | virtual ips requests', ['hp', 'lb', 'virtual_ips']) do
   @virtual_ips_format = {
     'id'        => String,
     'address'   => String,

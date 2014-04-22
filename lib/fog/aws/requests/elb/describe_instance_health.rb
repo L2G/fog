@@ -45,9 +45,9 @@ module Fog
             end
 
             {
-              'Description' => "",
+              'Description' => '',
               'InstanceId' => id,
-              'ReasonCode' => "",
+              'ReasonCode' => '',
               'State' => 'OutOfService'
             }
           end

@@ -13,7 +13,7 @@ Shindo.tests('Fog::Compute[:glesys] | server requests', ['glesys']) do
 
   tests('success') do
 
-    tests("#list_servers()").formats(Glesys::Compute::Formats::Servers::LIST) do
+    tests('#list_servers()').formats(Glesys::Compute::Formats::Servers::LIST) do
       pending if Fog.mocking?
       Fog::Compute[:glesys].list_servers.body['response']
     end
@@ -23,13 +23,13 @@ Shindo.tests('Fog::Compute[:glesys] | server requests', ['glesys']) do
       vm =  Fog::Compute[:glesys].create(
               :hostname     => @hostname,
               :rootpassword => "pw#{Time.now.to_i}",
-              :datacenter   => "Falkenberg",
-              :platform     => "Xen",
-              :templatename => "Debian-6 x64",
-              :disksize     => "10",
-              :memorysize   => "512",
-              :cpucores     => "1",
-              :transfer     => "500"
+              :datacenter   => 'Falkenberg',
+              :platform     => 'Xen',
+              :templatename => 'Debian-6 x64',
+              :disksize     => '10',
+              :memorysize   => '512',
+              :cpucores     => '1',
+              :transfer     => '500'
             )
 
       @serverid = vm.body['response']['server']['serverid']
@@ -83,13 +83,13 @@ Shindo.tests('Fog::Compute[:glesys] | server requests', ['glesys']) do
       vm =  Fog::Compute[:glesys].create(
               :hostname     => @hostname,
               :rootpassword => "pw#{Time.now.to_i}",
-              :datacenter   => "Stockholm",
-              :platform     => "OpenVZ",
-              :templatename => "Debian 6.0 64-bit",
-              :disksize     => "10",
-              :memorysize   => "256",
-              :cpucores     => "2",
-              :transfer     => "500"
+              :datacenter   => 'Stockholm',
+              :platform     => 'OpenVZ',
+              :templatename => 'Debian 6.0 64-bit',
+              :disksize     => '10',
+              :memorysize   => '256',
+              :cpucores     => '2',
+              :transfer     => '500'
             )
 
       @serverid = vm.body['response']['server']['serverid']
@@ -115,7 +115,7 @@ Shindo.tests('Fog::Compute[:glesys] | server requests', ['glesys']) do
 
   tests('failure') do
 
-    tests("#create(:hostname => 0)").raises(Excon::Errors::HTTPStatusError) do
+    tests('#create(:hostname => 0)').raises(Excon::Errors::HTTPStatusError) do
       pending if Fog.mocking?
       Fog::Compute[:glesys].create(:hostname => 0)
     end

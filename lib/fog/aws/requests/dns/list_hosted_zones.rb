@@ -43,7 +43,7 @@ module Fog
             :parser  => Fog::Parsers::DNS::AWS::ListHostedZones.new,
             :expects => 200,
             :method  => 'GET',
-            :path    => "hostedzone"
+            :path    => 'hostedzone'
           })
 
         end

@@ -45,7 +45,7 @@ Shindo.tests('AWS::EMR | instance groups', ['aws', 'emr']) do
 
   tests('success') do
 
-    tests("#add_instance_groups").formats(AWS::EMR::Formats::ADD_INSTANCE_GROUPS) do
+    tests('#add_instance_groups').formats(AWS::EMR::Formats::ADD_INSTANCE_GROUPS) do
       pending if Fog.mocking?
 
       result = AWS[:emr].add_instance_groups(@job_flow_id, @instance_groups).body
@@ -55,7 +55,7 @@ Shindo.tests('AWS::EMR | instance groups', ['aws', 'emr']) do
       result
     end
 
-    tests("#describe_job_flows_with_instance_groups").formats(AWS::EMR::Formats::DESCRIBE_JOB_FLOW_WITH_INSTANCE_GROUPS) do
+    tests('#describe_job_flows_with_instance_groups').formats(AWS::EMR::Formats::DESCRIBE_JOB_FLOW_WITH_INSTANCE_GROUPS) do
       pending if Fog.mocking?
 
       result = AWS[:emr].describe_job_flows('JobFlowIds' => [@job_flow_id]).body
@@ -63,7 +63,7 @@ Shindo.tests('AWS::EMR | instance groups', ['aws', 'emr']) do
       result
     end
 
-    tests("#modify_instance_groups").formats(AWS::EMR::Formats::BASIC) do
+    tests('#modify_instance_groups').formats(AWS::EMR::Formats::BASIC) do
       pending if Fog.mocking?
 
       # Add a step so the state doesn't go directly from STARTING to SHUTTING_DOWN
@@ -76,7 +76,7 @@ Shindo.tests('AWS::EMR | instance groups', ['aws', 'emr']) do
         result = AWS[:emr].describe_job_flows('JobFlowIds' => [@job_flow_id]).body
         job_flow = result['JobFlows'].first
         state = job_flow['ExecutionStatusDetail']['State']
-        print "."
+        print '.'
         break unless state == 'STARTING'
       end
 
@@ -84,7 +84,7 @@ Shindo.tests('AWS::EMR | instance groups', ['aws', 'emr']) do
       result = AWS[:emr].modify_instance_groups('InstanceGroups' => [{'InstanceGroupId' => @instance_group_id, 'InstanceCount' => 4}]).body
 
       # Check the it actually modified the instance count
-      tests("modify worked?") do
+      tests('modify worked?') do
         ig_res = AWS[:emr].describe_job_flows('JobFlowIds' => [@job_flow_id]).body
 
         matched = false

@@ -24,8 +24,8 @@ module Fog
           server['status'] = 'off' if server
 
           response.body = {
-            "event_id" => Fog::Mock.random_numbers(1).to_i,
-            "status" => "OK"
+            'event_id' => Fog::Mock.random_numbers(1).to_i,
+            'status' => 'OK'
           }
           response
         end

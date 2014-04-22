@@ -17,7 +17,7 @@ module Fog
         def reboot_cluster(options = {})
           cluster_identifier = options[:cluster_identifier]
 
-          path = "/"
+          path = '/'
           params = {
             :headers    => {},
             :path       => path,

@@ -82,7 +82,7 @@ module Fog
         end
 
         def delete_metadata(keyname)
-          raise ArgumentError, "Must provide a key name to delete" if keyname.nil? || keyname.empty?
+          raise ArgumentError, 'Must provide a key name to delete' if keyname.nil? || keyname.empty?
           requires :id
 
           service.delete_machine_metadata(self.id, keyname)
@@ -108,7 +108,7 @@ module Fog
         def delete_tag(tagname)
           requires :id
 
-          raise ArgumentError, "Must provide a tag name to delete" if tagname.nil? || tagname.empty?
+          raise ArgumentError, 'Must provide a tag name to delete' if tagname.nil? || tagname.empty?
           service.delete_machine_tag(self.id, tagname)
           true
         end

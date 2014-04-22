@@ -6,7 +6,7 @@ module Fog
           @base_url = url
         end
 
-        self.base_url = "http://vcloud.example.com"
+        self.base_url = 'http://vcloud.example.com'
 
         def self.base_url
           @base_url
@@ -35,7 +35,7 @@ module Fog
         end
 
         def href
-          [base_url, self.class.name.split("::").last, object_id].join("/")
+          [base_url, self.class.name.split('::').last, object_id].join('/')
         end
 
         def inspect
@@ -282,13 +282,13 @@ module Fog
 
       class MockTaskList < Base
         def name
-          self[:name] || "Tasks List"
+          self[:name] || 'Tasks List'
         end
       end
 
       class MockCatalog < Base
         def name
-          self[:name] || "Catalog"
+          self[:name] || 'Catalog'
         end
 
         def items
@@ -316,7 +316,7 @@ module Fog
 
       class MockCatalogItemCustomization < Base
         def name
-          self[:name] || "Customization Options"
+          self[:name] || 'Customization Options'
         end
       end
 
@@ -344,12 +344,12 @@ module Fog
         end
 
         def dns
-          "8.8.8.8"
+          '8.8.8.8'
         end
 
         def features
           [
-           { :type => :FenceMode, :value => "isolated" }
+           { :type => :FenceMode, :value => 'isolated' }
           ]
         end
 
@@ -401,11 +401,11 @@ module Fog
         end
 
         def ordered_ips
-          items.values.sort_by {|i| i.ip.split(".").map(&:to_i) }
+          items.values.sort_by {|i| i.ip.split('.').map(&:to_i) }
         end
 
         def name
-          "IP Addresses"
+          'IP Addresses'
         end
       end
 
@@ -424,9 +424,9 @@ module Fog
 
         def status
           if used_by
-            "Assigned"
+            'Assigned'
           else
-            "Available"
+            'Available'
           end
         end
 
@@ -461,7 +461,7 @@ module Fog
         end
 
         def type
-          self[:type] || "DMZ"
+          self[:type] || 'DMZ'
         end
 
         def vlan
@@ -531,9 +531,9 @@ module Fog
           when :base
             super()
           when :power_on
-            super() + "/power/action/powerOn"
+            super() + '/power/action/powerOn'
           when :power_off
-            super() + "/power/action/powerOff"
+            super() + '/power/action/powerOff'
           end
         end
       end
@@ -587,11 +587,11 @@ module Fog
 
       class MockVdcInternetServices < Base
         def href
-          _parent.href + "/internetServices"
+          _parent.href + '/internetServices'
         end
 
         def name
-          "Internet Services"
+          'Internet Services'
         end
 
         def items
@@ -623,7 +623,7 @@ module Fog
         end
 
         def enabled
-          self[:enabled].to_s.downcase != "false"
+          self[:enabled].to_s.downcase != 'false'
         end
 
         def timeout
@@ -645,13 +645,13 @@ module Fog
 
       class MockFirewallAcls < Base
         def name
-          "Firewall Access List"
+          'Firewall Access List'
         end
       end
 
       class MockPublicIps < Base
         def name
-          self[:name] || "Public IPs"
+          self[:name] || 'Public IPs'
         end
 
         def items
@@ -671,7 +671,7 @@ module Fog
 
       class MockPublicIpInternetServices < Base
         def href
-          _parent.href + "/internetServices"
+          _parent.href + '/internetServices'
         end
 
         def items
@@ -723,12 +723,12 @@ module Fog
 
       class MockPublicIpInternetServiceNodes < Base
         def href
-          _parent.href + "/nodeServices"
+          _parent.href + '/nodeServices'
         end
 
         def items
           @items ||= [].tap do |node_array|
-            node_array.instance_variable_set("@default_port", _parent.port)
+            node_array.instance_variable_set('@default_port', _parent.port)
 
             def node_array.<<(node)
               node[:port] ||= @default_port
@@ -756,7 +756,7 @@ module Fog
         end
 
         def enabled
-          self[:enabled].to_s.downcase != "false"
+          self[:enabled].to_s.downcase != 'false'
         end
 
         def enabled=(new_value)

@@ -38,7 +38,7 @@ module Fog
 
           headers['Etag'] = "\"#{Digest::MD5.hexdigest(hashes.join)}\""
           headers['Content-Length'] = length.to_s
-          headers['X-Static-Large-Object'] = "True" if o.static_manifest?
+          headers['X-Static-Large-Object'] = 'True' if o.static_manifest?
 
           response = Excon::Response.new
           response.status = 200

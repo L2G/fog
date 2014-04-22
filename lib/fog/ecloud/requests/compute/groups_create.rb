@@ -10,7 +10,7 @@ module Fog
           request(
             :body => generate_groups_create_request(data),
             :expects => 201,
-            :method => "POST",
+            :method => 'POST',
             :headers => {},
             :uri => data[:uri],
             :parse => true
@@ -22,7 +22,7 @@ module Fog
         def generate_groups_create_request(data)
           xml = Builder::XmlMarkup.new
           xml.CreateLayoutGroup(:name => data[:name]) do
-            xml.Row(:href => data[:href], :name => data[:row_name], :type => "application/vnd.tmrk.cloud.layoutRow")
+            xml.Row(:href => data[:href], :name => data[:row_name], :type => 'application/vnd.tmrk.cloud.layoutRow')
           end
         end
       end

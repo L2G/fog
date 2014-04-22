@@ -10,7 +10,7 @@ Shindo.tests('Fog::Rackspace::AutoScale | webhooks', ['rackspace', 'rackspace_au
     })
 
     policy = group.policies.create({
-      :name => "policy 2",
+      :name => 'policy 2',
       :change => 5,
       :cooldown => 100,
       :type => 'webhook',

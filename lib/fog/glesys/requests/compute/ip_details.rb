@@ -4,7 +4,7 @@ module Fog
       class Real
 
         def ip_details(params)
-          request("/ip/details", params)
+          request('/ip/details', params)
         end
       end
 

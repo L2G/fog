@@ -99,27 +99,27 @@ module Fog
           # tackle the public access differently
           if valid_public_perms.include?(perm)
             case perm
-              when "pr"
-                read_perm_acl = [".r:*",".rlistings"]
-              when "pw"
-                write_perm_acl = ["*"]
-              when "prw"
-                read_perm_acl = [".r:*",".rlistings"]
-                write_perm_acl = ["*"]
+              when 'pr'
+                read_perm_acl = ['.r:*','.rlistings']
+              when 'pw'
+                write_perm_acl = ['*']
+              when 'prw'
+                read_perm_acl = ['.r:*','.rlistings']
+                write_perm_acl = ['*']
             end
           elsif valid_account_perms.include?(perm)
             # tackle the user access differently
             unless (users.nil? || users.empty?)
               # return the correct acls
-              tenant_id = "*"  # this might change later
+              tenant_id = '*'  # this might change later
               acl_array = users.map { |u| "#{tenant_id}:#{u}" }
               #acl_string = acl_array.join(',')
               case perm
-                when "r"
+                when 'r'
                   read_perm_acl = acl_array
-                when "w"
+                when 'w'
                   write_perm_acl = acl_array
-                when "rw"
+                when 'rw'
                   read_perm_acl = acl_array
                   write_perm_acl = acl_array
               end
@@ -131,11 +131,11 @@ module Fog
         def perm_acl_to_header(read_perm_acl, write_perm_acl)
           header = {}
           if read_perm_acl.nil? && write_perm_acl.nil?
-            header = {'X-Container-Read' => "", 'X-Container-Write' => ""}
+            header = {'X-Container-Read' => '', 'X-Container-Write' => ''}
           elsif !read_perm_acl.nil? && write_perm_acl.nil?
-            header = {'X-Container-Read' => "#{read_perm_acl.join(',')}", 'X-Container-Write' => ""}
+            header = {'X-Container-Read' => "#{read_perm_acl.join(',')}", 'X-Container-Write' => ''}
           elsif read_perm_acl.nil? && !write_perm_acl.nil?
-            header = {'X-Container-Read' => "", 'X-Container-Write' => "#{write_perm_acl.join(',')}"}
+            header = {'X-Container-Read' => '', 'X-Container-Write' => "#{write_perm_acl.join(',')}"}
           elsif !read_perm_acl.nil? && !write_perm_acl.nil?
             header = {'X-Container-Read' => "#{read_perm_acl.join(',')}", 'X-Container-Write' => "#{write_perm_acl.join(',')}"}
           end
@@ -160,7 +160,7 @@ module Fog
         # * response<~Excon::Response>:
         #   * body<~String> - url for object
         def get_object_https_url(container, object, expires, options = {})
-          create_temp_url(container, object, expires, "GET", options.merge(:scheme => "https"))
+          create_temp_url(container, object, expires, 'GET', options.merge(:scheme => 'https'))
         end
 
         # Get an expiring object http url
@@ -174,7 +174,7 @@ module Fog
         # * response<~Excon::Response>:
         #   * body<~String> - url for object
         def get_object_http_url(container, object, expires, options = {})
-          create_temp_url(container, object, expires, "GET", options.merge(:scheme => "http"))
+          create_temp_url(container, object, expires, 'GET', options.merge(:scheme => 'http'))
         end
 
         # Get an object http url expiring in the given amount of seconds
@@ -206,8 +206,8 @@ module Fog
         # * response<~Excon::Response>:
         #   * body<~String> - url for object
         def create_temp_url(container, object, expires, method, options = {})
-          raise ArgumentError, "Insufficient parameters specified." unless (container && object && expires && method)
-          raise ArgumentError, "Storage must my instantiated with the :os_account_meta_temp_url_key option" if @os_account_meta_temp_url_key.nil?
+          raise ArgumentError, 'Insufficient parameters specified.' unless (container && object && expires && method)
+          raise ArgumentError, 'Storage must my instantiated with the :os_account_meta_temp_url_key option' if @os_account_meta_temp_url_key.nil?
 
           # POST not allowed
           allowed_methods = %w{GET PUT HEAD}
@@ -240,7 +240,7 @@ module Fog
             hmac = OpenSSL::HMAC.new(@hp_secret_key, OpenSSL::Digest::SHA1.new)
             signed_string = hmac.update(string_to_sign).hexdigest
 
-            signature     = @hp_tenant_id.to_s + ":" + @hp_access_key.to_s + ":" + signed_string
+            signature     = @hp_tenant_id.to_s + ':' + @hp_access_key.to_s + ':' + signed_string
             signature     = Fog::HP.escape(signature)
           end
 
@@ -274,12 +274,12 @@ module Fog
         def initialize(options = {})
           # deprecate hp_account_id
           if options[:hp_account_id]
-            Fog::Logger.deprecation(":hp_account_id is deprecated, please use :hp_access_key instead.")
+            Fog::Logger.deprecation(':hp_account_id is deprecated, please use :hp_access_key instead.')
             @hp_access_key = options.delete(:hp_account_id)
           end
           @hp_access_key = options[:hp_access_key]
           unless @hp_access_key
-            raise ArgumentError.new("Missing required arguments: hp_access_key. :hp_account_id is deprecated, please use :hp_access_key instead.")
+            raise ArgumentError.new('Missing required arguments: hp_access_key. :hp_account_id is deprecated, please use :hp_access_key instead.')
           end
           @hp_secret_key = options[:hp_secret_key]
           @hp_tenant_id = options[:hp_tenant_id]
@@ -304,12 +304,12 @@ module Fog
         def initialize(options = {})
           # deprecate hp_account_id
           if options[:hp_account_id]
-            Fog::Logger.deprecation(":hp_account_id is deprecated, please use :hp_access_key instead.")
+            Fog::Logger.deprecation(':hp_account_id is deprecated, please use :hp_access_key instead.')
             options[:hp_access_key] = options.delete(:hp_account_id)
           end
           @hp_access_key = options[:hp_access_key]
           unless @hp_access_key
-            raise ArgumentError.new("Missing required arguments: hp_access_key. :hp_account_id is deprecated, please use :hp_access_key instead.")
+            raise ArgumentError.new('Missing required arguments: hp_access_key. :hp_account_id is deprecated, please use :hp_access_key instead.')
           end
           @hp_secret_key = options[:hp_secret_key]
           @hp_auth_uri   = options[:hp_auth_uri]
@@ -321,7 +321,7 @@ module Fog
           auth_version = auth_version.to_s.downcase.to_sym
 
           ### Pass the service name for object storage to the authentication call
-          options[:hp_service_type] ||= "Object Storage"
+          options[:hp_service_type] ||= 'Object Storage'
           @hp_tenant_id = options[:hp_tenant_id]
           @hp_avl_zone  = options[:hp_avl_zone]
           @os_account_meta_temp_url_key = options[:os_account_meta_temp_url_key]

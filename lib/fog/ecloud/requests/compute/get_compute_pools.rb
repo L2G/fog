@@ -18,7 +18,7 @@ module Fog
           compute_pool_response = {:ComputePool => (compute_pools.size > 1 ? compute_pools : compute_pools.first)} # GAH
           body = {
             :href  => uri,
-            :type  => "application/vnd.tmrk.cloud.computePool; type=collection",
+            :type  => 'application/vnd.tmrk.cloud.computePool; type=collection',
             :Links => {
               :Link => environment,
             }

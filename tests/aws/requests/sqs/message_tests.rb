@@ -28,7 +28,7 @@ Shindo.tests('AWS::SQS | message requests', ['aws']) do
       }]
     })
 
-    tests("#receive_message").formats(receive_message_format) do
+    tests('#receive_message').formats(receive_message_format) do
       data = Fog::AWS[:sqs].receive_message(@queue_url).body
       @receipt_handle = data['Message'].first['ReceiptHandle']
       data

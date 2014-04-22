@@ -16,10 +16,10 @@ module Fog
 
       module Base
         URI_HEADERS = {
-          "X-Cdn-Ios-Uri" => :ios_uri,
-          "X-Cdn-Uri" => :uri,
-          "X-Cdn-Streaming-Uri" => :streaming_uri,
-          "X-Cdn-Ssl-Uri" => :ssl_uri
+          'X-Cdn-Ios-Uri' => :ios_uri,
+          'X-Cdn-Uri' => :uri,
+          'X-Cdn-Streaming-Uri' => :streaming_uri,
+          'X-Cdn-Ssl-Uri' => :ssl_uri
         }.freeze
 
         def apply_options(options)
@@ -42,7 +42,7 @@ module Fog
         end
 
         def request_id_header
-          "X-Trans-Id"
+          'X-Trans-Id'
         end
 
         # Returns true if CDN service is enabled

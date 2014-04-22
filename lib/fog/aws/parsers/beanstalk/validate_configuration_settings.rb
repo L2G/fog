@@ -7,7 +7,7 @@ module Fog
         class ValidateConfigurationSettings < Fog::Parsers::AWS::ElasticBeanstalk::BaseParser
 
           def initialize
-            super("ValidateConfigurationSettingsResult")
+            super('ValidateConfigurationSettingsResult')
             tag 'Messages', :object, :list
             tag 'Message', :string
             tag 'Namespace', :string

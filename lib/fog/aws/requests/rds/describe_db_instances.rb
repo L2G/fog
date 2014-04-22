@@ -46,43 +46,43 @@ module Fog
           end
 
           server_set.each do |server|
-             case server["DBInstanceStatus"]
-             when "creating"
+             case server['DBInstanceStatus']
+             when 'creating'
                if Time.now - server['InstanceCreateTime'] >= Fog::Mock.delay * 2
-                 region = "us-east-1"
-                 server["DBInstanceStatus"] = "available"
-                 server["AvailabilityZone"] ||= region + 'a'
-                 server["Endpoint"] = {"Port" => 3306,
-                                       "Address" => Fog::AWS::Mock.rds_address(server["DBInstanceIdentifier"],region) }
-                 server["PendingModifiedValues"] = {}
+                 region = 'us-east-1'
+                 server['DBInstanceStatus'] = 'available'
+                 server['AvailabilityZone'] ||= region + 'a'
+                 server['Endpoint'] = {'Port' => 3306,
+                                       'Address' => Fog::AWS::Mock.rds_address(server['DBInstanceIdentifier'],region) }
+                 server['PendingModifiedValues'] = {}
                end
-              when "rebooting"
+              when 'rebooting'
                 if Time.now - self.data[:reboot_time] >= Fog::Mock.delay
                   # apply pending modified values
-                  server.merge!(server["PendingModifiedValues"])
-                  server["PendingModifiedValues"] = {}
+                  server.merge!(server['PendingModifiedValues'])
+                  server['PendingModifiedValues'] = {}
 
-                  server["DBInstanceStatus"] = 'available'
+                  server['DBInstanceStatus'] = 'available'
                   self.data.delete(:reboot_time)
                 end
-              when "modifying"
+              when 'modifying'
                 # TODO there are some fields that only applied after rebooting
                 if Time.now - self.data[:modify_time] >= Fog::Mock.delay
-                  server.merge!(server["PendingModifiedValues"])
-                  server["PendingModifiedValues"] = {}
-                  server["DBInstanceStatus"] = 'available'
+                  server.merge!(server['PendingModifiedValues'])
+                  server['PendingModifiedValues'] = {}
+                  server['DBInstanceStatus'] = 'available'
                 end
-              when "available" # I'm not sure if amazon does this
-                unless server["PendingModifiedValues"].empty?
-                  server["DBInstanceStatus"] = 'modifying'
+              when 'available' # I'm not sure if amazon does this
+                unless server['PendingModifiedValues'].empty?
+                  server['DBInstanceStatus'] = 'modifying'
                 end
              end
           end
 
           response.status = 200
           response.body = {
-            "ResponseMetadata" => { "RequestId" => Fog::AWS::Mock.request_id },
-            "DescribeDBInstancesResult" => { "DBInstances" => server_set }
+            'ResponseMetadata' => { 'RequestId' => Fog::AWS::Mock.request_id },
+            'DescribeDBInstancesResult' => { 'DBInstances' => server_set }
           }
           response
         end

@@ -32,8 +32,8 @@ module Fog
             raise Fog::Rackspace::BlockStorage::NotFound
           else
             type = type.dup
-            type["id"] = type["id"].to_s
-            response(:body => {"volume_type" => type})
+            type['id'] = type['id'].to_s
+            response(:body => {'volume_type' => type})
           end
         end
       end

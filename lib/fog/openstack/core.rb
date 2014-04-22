@@ -145,7 +145,7 @@ module Fog
       end
 
       if service['endpoints'].count > 1
-        regions = service["endpoints"].map{ |e| e['region'] }.uniq.join(',')
+        regions = service['endpoints'].map{ |e| e['region'] }.uniq.join(',')
         raise Fog::Errors::NotFound.new("Multiple regions available choose one of these '#{regions}'")
       end
 
@@ -226,10 +226,10 @@ module Fog
       version = nil
       unless body['versions'].empty?
         supported_version = body['versions'].detect do |x|
-          x["id"].match(supported_versions) &&
-          (x["status"] == "CURRENT" || x["status"] == "SUPPORTED")
+          x['id'].match(supported_versions) &&
+          (x['status'] == 'CURRENT' || x['status'] == 'SUPPORTED')
         end
-        version = supported_version["id"] if supported_version
+        version = supported_version['id'] if supported_version
       end
       if version.nil?
         raise Fog::OpenStack::Errors::ServiceUnavailable.new(

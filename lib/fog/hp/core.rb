@@ -68,15 +68,15 @@ module Fog
 
     # legacy swauth 1.0/1.1 style authentication
     def self.authenticate_v1(options, connection_options = {})
-      hp_auth_uri = options[:hp_auth_uri] || "https://region-a.geo-1.objects.hpcloudsvc.com/auth/v1.0/"
+      hp_auth_uri = options[:hp_auth_uri] || 'https://region-a.geo-1.objects.hpcloudsvc.com/auth/v1.0/'
       endpoint = URI.parse(hp_auth_uri)
-      @scheme = endpoint.scheme || "http"
-      @host = endpoint.host || "region-a.geo-1.objects.hpcloudsvc.com"
-      @port = endpoint.port.to_s || "80"
+      @scheme = endpoint.scheme || 'http'
+      @host = endpoint.host || 'region-a.geo-1.objects.hpcloudsvc.com'
+      @port = endpoint.port.to_s || '80'
       if (endpoint.path)
         @auth_path = endpoint.path.slice(1, endpoint.path.length)  # remove the leading slash
       else
-        @auth_path = "auth/v1.0"
+        @auth_path = 'auth/v1.0'
       end
       service_url = "#{@scheme}://#{@host}:#{@port}"
       # Set the User-Agent
@@ -132,7 +132,7 @@ module Fog
             creds = options[:credentials].clone
             creds[:endpoint_url] = get_endpoint_url(service_catalog, type, zone)
             begin
-              creds[:cdn_endpoint_url] = get_endpoint_url(service_catalog, "CDN", zone)
+              creds[:cdn_endpoint_url] = get_endpoint_url(service_catalog, 'CDN', zone)
             rescue
             end
             return creds
@@ -142,17 +142,17 @@ module Fog
           options.delete(:credentials)
         end
       end
-      hp_auth_uri = options[:hp_auth_uri] || "https://region-a.geo-1.identity.hpcloudsvc.com:35357/v2.0/tokens"
+      hp_auth_uri = options[:hp_auth_uri] || 'https://region-a.geo-1.identity.hpcloudsvc.com:35357/v2.0/tokens'
       # append /tokens if missing from auth uri
-      @hp_auth_uri = hp_auth_uri.include?('tokens') ? hp_auth_uri : hp_auth_uri + "tokens"
+      @hp_auth_uri = hp_auth_uri.include?('tokens') ? hp_auth_uri : hp_auth_uri + 'tokens'
       endpoint = URI.parse(@hp_auth_uri)
-      @scheme = endpoint.scheme || "https"
-      @host = endpoint.host || "region-a.geo-1.identity.hpcloudsvc.com"
-      @port = endpoint.port.to_s || "35357"
+      @scheme = endpoint.scheme || 'https'
+      @host = endpoint.host || 'region-a.geo-1.identity.hpcloudsvc.com'
+      @port = endpoint.port.to_s || '35357'
       if (endpoint.path)
         @auth_path = endpoint.path.slice(1, endpoint.path.length)  # remove the leading slash
       else
-        @auth_path = "v2.0/tokens"
+        @auth_path = 'v2.0/tokens'
       end
       service_url = "#{@scheme}://#{@host}:#{@port}"
       # Set the User-Agent. If the caller sets a user_agent, use it.
@@ -215,7 +215,7 @@ module Fog
       service_catalog = get_service_catalog(body['access']['serviceCatalog'])
       endpoint_url = get_endpoint_url(service_catalog, @hp_service_type, @hp_avl_zone)
       begin
-        cdn_endpoint_url = get_endpoint_url(service_catalog, "CDN", @hp_avl_zone)
+        cdn_endpoint_url = get_endpoint_url(service_catalog, 'CDN', @hp_avl_zone)
       rescue
       end
 
@@ -252,10 +252,10 @@ module Fog
     private
 
     def self.get_service_catalog(body)
-      raise "Unable to parse service catalog." unless body
+      raise 'Unable to parse service catalog.' unless body
       service_catalog = {}
       body.each do |s|
-        name = s["name"]
+        name = s['name']
         next if name.nil?
         name = name.to_sym
         next if s['endpoints'].nil?
@@ -315,7 +315,7 @@ module Fog
       end
 
       def self.user_id
-        "dev_" + Fog::Mock.random_numbers(14)
+        'dev_' + Fog::Mock.random_numbers(14)
       end
 
       def self.instance_id

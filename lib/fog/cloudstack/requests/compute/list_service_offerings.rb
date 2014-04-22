@@ -29,10 +29,10 @@ module Fog
           end
 
           {
-            "listserviceofferingsresponse" =>
+            'listserviceofferingsresponse' =>
             {
-              "count" => flavors.size,
-              "serviceoffering" => flavors
+              'count' => flavors.size,
+              'serviceoffering' => flavors
             }
           }
         end

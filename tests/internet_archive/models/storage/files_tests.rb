@@ -1,4 +1,4 @@
-Shindo.tests("Storage[:internetarchive] | files", ["internetarchive"]) do
+Shindo.tests('Storage[:internetarchive] | files', ['internetarchive']) do
 
   file_attributes = {
       :key => 'fog_file_tests',

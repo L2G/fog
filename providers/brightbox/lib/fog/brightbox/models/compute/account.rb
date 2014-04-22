@@ -44,7 +44,7 @@ module Fog
         attribute :verified_at, :type => :time
 
         # Links - to be replaced
-        attribute :owner_id, :aliases => "owner", :squash => "id"
+        attribute :owner_id, :aliases => 'owner', :squash => 'id'
         attribute :clients
         attribute :images
         attribute :servers

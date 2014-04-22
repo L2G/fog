@@ -8,18 +8,18 @@ module Fog
           server = self.data[:servers][server_name]
           get_zone(zone_name)
           zone = self.data[:zones][zone_name]
-          if server.nil? or server["zone"] != zone["selfLink"]
+          if server.nil? or server['zone'] != zone['selfLink']
             return build_response(:body => {
-              "error" => {
-                "errors" => [
+              'error' => {
+                'errors' => [
                  {
-                  "domain" => "global",
-                  "reason" => "notFound",
-                  "message" => "The resource 'projects/#{@project}/zones/#{zone_name}/instances/#{server_name}' was not found"
+                  'domain' => 'global',
+                  'reason' => 'notFound',
+                  'message' => "The resource 'projects/#{@project}/zones/#{zone_name}/instances/#{server_name}' was not found"
                  }
                 ],
-                "code" => 404,
-                "message" => "The resource 'projects/#{@project}/zones/#{zone_name}/instances/#{server_name}' was not found"
+                'code' => 404,
+                'message' => "The resource 'projects/#{@project}/zones/#{zone_name}/instances/#{server_name}' was not found"
               }
             })
           end
@@ -59,7 +59,7 @@ module Fog
 
         def get_server(server_name, zone_name)
           if zone_name.is_a? Excon::Response
-            zone = zone_name.body["name"]
+            zone = zone_name.body['name']
           else
             zone = zone_name
           end

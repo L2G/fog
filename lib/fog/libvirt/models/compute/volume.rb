@@ -76,7 +76,7 @@ module Fog
         private
 
         def image_suffix
-          return "img" if format_type == "raw"
+          return 'img' if format_type == 'raw'
           format_type
         end
 
@@ -86,7 +86,7 @@ module Fog
 
         # Try to guess the default/first pool of no pool_name was specified
         def default_pool_name
-          name = "default"
+          name = 'default'
           return name unless (service.pools.all(:name => name)).empty?
 
           # we default to the first pool we find.
@@ -99,10 +99,10 @@ module Fog
         def defaults
           {
             :persistent  => true,
-            :format_type => "raw",
+            :format_type => 'raw',
             :name        => randomized_name,
-            :capacity    => "10G",
-            :allocation  => "1G",
+            :capacity    => '10G',
+            :allocation  => '1G',
           }
         end
 

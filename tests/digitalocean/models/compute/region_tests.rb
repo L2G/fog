@@ -1,4 +1,4 @@
-Shindo.tests("Fog::Compute[:digitalocean] | region model", ['digitalocean', 'compute']) do
+Shindo.tests('Fog::Compute[:digitalocean] | region model', ['digitalocean', 'compute']) do
 
   service = Fog::Compute[:digitalocean]
   region  = service.regions.first
@@ -13,12 +13,12 @@ Shindo.tests("Fog::Compute[:digitalocean] | region model", ['digitalocean', 'com
         :id,
         :name,
       ]
-      tests("The region model should respond to") do
+      tests('The region model should respond to') do
         attributes.each do |attribute|
           test("#{attribute}") { region.respond_to? attribute }
         end
       end
-      tests("The attributes hash should have key") do
+      tests('The attributes hash should have key') do
         attributes.each do |attribute|
           test("#{attribute}") { model_attribute_hash.has_key? attribute }
         end

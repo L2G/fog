@@ -22,7 +22,7 @@ Shindo.tests('Fog::Compute::RackspaceV2 | metadata', ['rackspace']) do
       tests('image') do
         @image = @server.create_image("fog_image_#{test_time}", :metadata => {:my_key => 'my_value'})
         @image.wait_for { ready? }
-        tests("#all").succeeds do
+        tests('#all').succeeds do
           pending if Fog.mocking? && !mocks_implemented
           metadata = @image.metadata.all
           my_metadata = metadata.select {|datum| datum.key == 'my_key'}

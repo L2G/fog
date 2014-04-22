@@ -27,11 +27,11 @@ Shindo.tests('AWS::AutoScaling | tag requests', ['aws', 'auto_scaling']) do
   asg = Fog::AWS[:auto_scaling].create_auto_scaling_group(asg_name, "#{Fog::AWS[:auto_scaling].region}a", lc_name, 0, 0, 'Tags' => [asg_tag])
 
   tests('raises') do
-    tests("#create_or_update_tags(empty)").raises(Fog::AWS::AutoScaling::ValidationError) do
+    tests('#create_or_update_tags(empty)').raises(Fog::AWS::AutoScaling::ValidationError) do
       Fog::AWS[:auto_scaling].create_or_update_tags([])
     end
 
-    tests("#delete_tags(empty)").raises(Fog::AWS::AutoScaling::ValidationError) do
+    tests('#delete_tags(empty)').raises(Fog::AWS::AutoScaling::ValidationError) do
       Fog::AWS[:auto_scaling].delete_tags([])
     end
   end
@@ -46,7 +46,7 @@ Shindo.tests('AWS::AutoScaling | tag requests', ['aws', 'auto_scaling']) do
       body
     end
 
-    tests("#describe_tags").formats(AWS::AutoScaling::Formats::DESCRIBE_TAGS) do
+    tests('#describe_tags').formats(AWS::AutoScaling::Formats::DESCRIBE_TAGS) do
       pending if Fog.mocking?
       body = Fog::AWS[:auto_scaling].describe_tags.body
       tags = body['DescribeTagsResult']['Tags']

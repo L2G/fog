@@ -28,11 +28,11 @@ module Fog
           response = Excon::Response.new
           response.status = 204
           response.headers = {
-            "Content-Length" => "0",
-            "Date" => "Fri, 01 Feb 2013 21:34:33 GMT",
-            "X-Trans-Id" => "tx860f26bd76284a849384c0a467767b57"
+            'Content-Length' => '0',
+            'Date' => 'Fri, 01 Feb 2013 21:34:33 GMT',
+            'X-Trans-Id' => 'tx860f26bd76284a849384c0a467767b57'
           }
-          response.body = ""
+          response.body = ''
           response
         end
       end

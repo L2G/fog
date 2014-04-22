@@ -122,15 +122,15 @@ Shindo.tests('Fog::Compute[:clodo] | server requests', ['clodo']) do
       data
     end
 
-    tests("- reboot_server(0)").raises(Excon::Errors::BadRequest) do
+    tests('- reboot_server(0)').raises(Excon::Errors::BadRequest) do
       clodo.reboot_server(0, :hard)
     end
 
-    tests("- stop_server(0)").raises(Excon::Errors::BadRequest) do
+    tests('- stop_server(0)').raises(Excon::Errors::BadRequest) do
       clodo.stop_server(0)
     end
 
-    tests("- start_server(0)").raises(Excon::Errors::BadRequest) do
+    tests('- start_server(0)').raises(Excon::Errors::BadRequest) do
       clodo.start_server(0)
     end
 
@@ -145,7 +145,7 @@ Shindo.tests('Fog::Compute[:clodo] | server requests', ['clodo']) do
     # end
 
     tests("- delete_ip_address(#{@server_id}, 6.6.6.6)").raises(Excon::Errors::BadRequest) do
-      clodo.delete_ip_address(@server_id, "6.6.6.6")
+      clodo.delete_ip_address(@server_id, '6.6.6.6')
     end
 
   end

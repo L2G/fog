@@ -17,7 +17,7 @@ Shindo.tests('Fog::Service', ['core']) do
 
   tests('Properly passes headers') do
     user_agent = 'Generic Fog Client'
-    params = { :generic_user => "bob", :generic_api_key => '1234', :connection_options => {:headers => { 'User-Agent' => user_agent }}}
+    params = { :generic_user => 'bob', :generic_api_key => '1234', :connection_options => {:headers => { 'User-Agent' => user_agent }}}
     service = TestService.new(params)
 
     returns('User-Agent' => user_agent) { service.options[:connection_options][:headers] }

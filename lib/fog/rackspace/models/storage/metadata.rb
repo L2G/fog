@@ -4,10 +4,10 @@ module Fog
 
       class Metadata
 
-        OBJECT_META_PREFIX = "X-Object-Meta-"
-        OBJECT_REMOVE_META_PREFIX = "X-Remove-Object-Meta-"
-        CONTAINER_META_PREFIX = "X-Container-Meta-"
-        CONTAINER_REMOVE_META_PREFIX = "X-Remove-Container-Meta-"
+        OBJECT_META_PREFIX = 'X-Object-Meta-'
+        OBJECT_REMOVE_META_PREFIX = 'X-Remove-Object-Meta-'
+        CONTAINER_META_PREFIX = 'X-Container-Meta-'
+        CONTAINER_REMOVE_META_PREFIX = 'X-Remove-Container-Meta-'
 
         # Cloud Files will ignore headers without a value
         DUMMY_VALUE = 1

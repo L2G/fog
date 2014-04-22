@@ -36,7 +36,7 @@ module Fog
         # @raise [Fog::Compute::RackspaceV2::ServiceError]
         def get(key)
           requires :parent
-          data = service.get_metadata_item(collection_name, parent.id, key).body["meta"]
+          data = service.get_metadata_item(collection_name, parent.id, key).body['meta']
           datum = data.first
           new(:key => datum[0], :value => datum[1])
         rescue Fog::Compute::RackspaceV2::NotFound

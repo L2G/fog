@@ -9,20 +9,20 @@ module Fog
         ARCHIVE = 'archive-retrieval'
         INVENTORY = 'inventory-retrieval'
 
-        identity  :id,              :aliases => "JobId"
-        attribute :action,          :aliases => "Action"
-        attribute :archive_id,      :aliases => "ArchiveId"
-        attribute :archive_size,    :aliases => "ArchiveSizeInBytes", :type => :integer
-        attribute :completed,       :aliases => "Completed", :type => :boolean
-        attribute :completed_at,    :aliases => "CompletionDate", :type => :time
-        attribute :created_at,      :aliases => "CreationDate", :type => :time
-        attribute :inventory_size,  :aliases => "InventorySizeInBytes", :type => :integer
-        attribute :description,     :aliases => "JobDescription"
-        attribute :tree_hash,       :aliases => "SHA256TreeHash"
-        attribute :sns_topic,       :aliases => "SNSTopic"
-        attribute :status_code,     :aliases => "StatusCode"
-        attribute :status_message,  :aliases => "StatusMessage"
-        attribute :vault_arn,       :aliases => "VaultARN"
+        identity  :id,              :aliases => 'JobId'
+        attribute :action,          :aliases => 'Action'
+        attribute :archive_id,      :aliases => 'ArchiveId'
+        attribute :archive_size,    :aliases => 'ArchiveSizeInBytes', :type => :integer
+        attribute :completed,       :aliases => 'Completed', :type => :boolean
+        attribute :completed_at,    :aliases => 'CompletionDate', :type => :time
+        attribute :created_at,      :aliases => 'CreationDate', :type => :time
+        attribute :inventory_size,  :aliases => 'InventorySizeInBytes', :type => :integer
+        attribute :description,     :aliases => 'JobDescription'
+        attribute :tree_hash,       :aliases => 'SHA256TreeHash'
+        attribute :sns_topic,       :aliases => 'SNSTopic'
+        attribute :status_code,     :aliases => 'StatusCode'
+        attribute :status_message,  :aliases => 'StatusMessage'
+        attribute :vault_arn,       :aliases => 'VaultARN'
         attribute :format
         attribute :type
 

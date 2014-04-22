@@ -1,4 +1,4 @@
-Shindo.tests('Fog::Storage[:rackspace] | object requests', ["rackspace"]) do
+Shindo.tests('Fog::Storage[:rackspace] | object requests', ['rackspace']) do
 
   @directory = Fog::Storage[:rackspace].directories.create(:key => 'fogobjecttests')
 
@@ -37,7 +37,7 @@ Shindo.tests('Fog::Storage[:rackspace] | object requests', ["rackspace"]) do
     # an object key with no special characters
     tests("#get_object_http_url('fogobjecttests', 'fog_object','expiration timestamp')").succeeds do
       expires_at = 1344149532 # 2012-08-05 16:52:12 +1000
-      storage    = Fog::Storage::Rackspace.new(:rackspace_temp_url_key => "super_secret")
+      storage    = Fog::Storage::Rackspace.new(:rackspace_temp_url_key => 'super_secret')
       storage.extend RackspaceStorageHelpers
       storage.override_path('/fake_version/fake_tenant')
       object_url = storage.get_object_http_url('fogobjecttests', 'fog_object', expires_at)
@@ -47,7 +47,7 @@ Shindo.tests('Fog::Storage[:rackspace] | object requests', ["rackspace"]) do
     # an object key with no special characters
     tests("#get_object_https_url('fogobjecttests', 'fog_object','expiration timestamp')").succeeds do
       expires_at = 1344149532 # 2012-08-05 16:52:12 +1000
-      storage    = Fog::Storage::Rackspace.new(:rackspace_temp_url_key => "super_secret")
+      storage    = Fog::Storage::Rackspace.new(:rackspace_temp_url_key => 'super_secret')
       storage.extend RackspaceStorageHelpers
       storage.override_path('/fake_version/fake_tenant')
       object_url = storage.get_object_https_url('fogobjecttests', 'fog_object', expires_at)
@@ -57,7 +57,7 @@ Shindo.tests('Fog::Storage[:rackspace] | object requests', ["rackspace"]) do
     # an object key nested under a /
     tests("#get_object_https_url('fogobjecttests', 'fog/object','expiration timestamp')").succeeds do
       expires_at = 1344149532 # 2012-08-05 16:52:12 +1000
-      storage    = Fog::Storage::Rackspace.new(:rackspace_temp_url_key => "super_secret")
+      storage    = Fog::Storage::Rackspace.new(:rackspace_temp_url_key => 'super_secret')
       storage.extend RackspaceStorageHelpers
       storage.override_path('/fake_version/fake_tenant')
       object_url = storage.get_object_https_url('fogobjecttests', 'fog/object', expires_at)
@@ -67,14 +67,14 @@ Shindo.tests('Fog::Storage[:rackspace] | object requests', ["rackspace"]) do
     # an object key containing a -
     tests("#get_object_https_url('fogobjecttests', 'fog-object','expiration timestamp')").succeeds do
       expires_at = 1344149532 # 2012-08-05 16:52:12 +1000
-      storage    = Fog::Storage::Rackspace.new(:rackspace_temp_url_key => "super_secret")
+      storage    = Fog::Storage::Rackspace.new(:rackspace_temp_url_key => 'super_secret')
       storage.extend RackspaceStorageHelpers
       storage.override_path('/fake_version/fake_tenant')
       object_url = storage.get_object_https_url('fogobjecttests', 'fog-object', expires_at)
       object_url =~ /https:\/\/.*clouddrive.com\/[^\/]+\/[^\/]+\/fogobjecttests\/fog-object\?temp_url_sig=a24dd5fc955a57adce7d1b5bc4ec2c7660ab8396&temp_url_expires=1344149532/
     end
 
-    tests("put_object with block") do
+    tests('put_object with block') do
       tests("#put_object('fogobjecttests', 'fog_object', &block)").succeeds do
         begin
           file = lorem_file
@@ -103,11 +103,11 @@ Shindo.tests('Fog::Storage[:rackspace] | object requests', ["rackspace"]) do
       Fog::Storage[:rackspace].put_object('fogobjecttests2', 'fog_object', lorem_file)
 
       expected = {
-        "Number Not Found"  => 0,
-        "Response Status"   => "200 OK",
-        "Errors"            => [],
-        "Number Deleted"    => 2,
-        "Response Body"     => ""
+        'Number Not Found'  => 0,
+        'Response Status'   => '200 OK',
+        'Errors'            => [],
+        'Number Deleted'    => 2,
+        'Response Body'     => ''
       }
 
       returns(expected, 'deletes multiple objects') do
@@ -149,11 +149,11 @@ Shindo.tests('Fog::Storage[:rackspace] | object requests', ["rackspace"]) do
 
     tests('#delete_multiple_objects') do
       expected = {
-        "Number Not Found"  => 2,
-        "Response Status"   => "200 OK",
-        "Errors"            => [],
-        "Number Deleted"    => 0,
-        "Response Body"     => ""
+        'Number Not Found'  => 2,
+        'Response Status'   => '200 OK',
+        'Errors'            => [],
+        'Number Deleted'    => 0,
+        'Response Body'     => ''
       }
 
       returns(expected, 'reports missing objects') do
@@ -168,11 +168,11 @@ Shindo.tests('Fog::Storage[:rackspace] | object requests', ["rackspace"]) do
         Fog::Storage[:rackspace].put_object('fogobjecttests', 'fog_object', lorem_file)
 
         expected = {
-          "Number Not Found"  => 0,
-          "Response Status"   => "400 Bad Request",
-          "Errors"            => [['fogobjecttests', '409 Conflict']],
-          "Number Deleted"    => 1,
-          "Response Body"     => ""
+          'Number Not Found'  => 0,
+          'Response Status'   => '400 Bad Request',
+          'Errors'            => [['fogobjecttests', '409 Conflict']],
+          'Number Deleted'    => 1,
+          'Response Body'     => ''
         }
 
         body = Fog::Storage[:rackspace].delete_multiple_objects(nil, ['fogobjecttests', 'fogobjecttests/fog_object']).body

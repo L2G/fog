@@ -11,7 +11,7 @@ module Fog
 
         def all
           org_uri = self.organization_uri || service.default_organization_uri
-          data = service.get_organization(org_uri).links.select { |link| link[:type] == "application/vnd.vmware.vcloud.catalog+xml" }
+          data = service.get_organization(org_uri).links.select { |link| link[:type] == 'application/vnd.vmware.vcloud.catalog+xml' }
           load(data)
         end
 

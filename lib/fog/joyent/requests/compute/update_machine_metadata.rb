@@ -4,7 +4,7 @@ module Fog
       class Real
         def update_machine_metadata(machine_id, metadata)
           request(
-            :method => "POST",
+            :method => 'POST',
             :path => "/my/machines/#{machine_id}/metadata",
             :body => metadata
           )

@@ -5,7 +5,7 @@ module Fog
 
         def vm_power_off(options = {})
           options = { 'force' => false }.merge(options)
-          raise ArgumentError, "instance_uuid is a required parameter" unless options.has_key? 'instance_uuid'
+          raise ArgumentError, 'instance_uuid is a required parameter' unless options.has_key? 'instance_uuid'
 
           search_filter = { :uuid => options['instance_uuid'], 'vmSearch' => true, 'instanceUuid' => true }
           vm_mob_ref = @connection.searchIndex.FindAllByUuid(search_filter).first
@@ -17,7 +17,7 @@ module Fog
           else
             vm_mob_ref.ShutdownGuest
             {
-              'task_state'     => "running",
+              'task_state'     => 'running',
               'power_off_type' => 'shutdown_guest',
             }
           end
@@ -28,11 +28,11 @@ module Fog
       class Mock
 
         def vm_power_off(options = {})
-          raise ArgumentError, "instance_uuid is a required parameter" unless options.has_key? 'instance_uuid'
+          raise ArgumentError, 'instance_uuid is a required parameter' unless options.has_key? 'instance_uuid'
           vm = get_virtual_machine(options['instance_uuid'])
-          vm["power_state"] = "poweredOff"
+          vm['power_state'] = 'poweredOff'
           {
-            'task_state'     => "running",
+            'task_state'     => 'running',
             'power_off_type' => options['force'] ? 'cut_power' : 'shutdown_guest',
           }
         end

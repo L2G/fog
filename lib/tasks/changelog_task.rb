@@ -1,12 +1,12 @@
-require "rake"
-require "rake/tasklib"
+require 'rake'
+require 'rake/tasklib'
 
 module Fog
   module Rake
     class ChangelogTask < ::Rake::TaskLib
 
       def initialize
-        desc "Update the changelog since the last release"
+        desc 'Update the changelog since the last release'
         task(:changelog) do
 
           @changelog = []
@@ -149,7 +149,7 @@ Watchers      | #{watchers}
       end
 
       def add_period_if_necessary
-        @current_line << "." unless @current_line[-1] == '.'
+        @current_line << '.' unless @current_line[-1] == '.'
       end
 
       def release_merge_line?

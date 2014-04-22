@@ -54,11 +54,11 @@ Shindo.tests('Fog::Compute[:google] | server requests', ['google']) do
   tests('success') do
 
     server_name = 'new-server-test'
-    image_name = "centos-6-v20130813"
-    machine_type = "n1-standard-1"
-    zone_name = "us-central1-a"
+    image_name = 'centos-6-v20130813'
+    machine_type = 'n1-standard-1'
+    zone_name = 'us-central1-a'
 
-    tests("#insert_server").formats(@insert_server_format) do
+    tests('#insert_server').formats(@insert_server_format) do
       disk = create_test_disk(Fog::Compute[:google], zone_name)
       @google.insert_server(
         server_name,
@@ -67,7 +67,7 @@ Shindo.tests('Fog::Compute[:google] | server requests', ['google']) do
       ).body
     end
 
-    tests("#list_servers").formats(@list_servers_format) do
+    tests('#list_servers').formats(@list_servers_format) do
       @google.list_servers(zone_name).body
     end
 

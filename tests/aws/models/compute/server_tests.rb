@@ -1,4 +1,4 @@
-Shindo.tests("Fog::Compute[:aws] | monitor", ['aws']) do
+Shindo.tests('Fog::Compute[:aws] | monitor', ['aws']) do
 
   @instance = Fog::Compute[:aws].servers.new
 

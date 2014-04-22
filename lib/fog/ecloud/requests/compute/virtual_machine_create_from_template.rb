@@ -31,7 +31,7 @@ module Fog
           xml.CreateVirtualMachine(:name => options[:name]) do
             xml.ProcessorCount options[:cpus]
             xml.Memory do
-              xml.Unit "MB"
+              xml.Unit 'MB'
               xml.Value options[:memory]
             end
             xml.Layout do
@@ -50,7 +50,7 @@ module Fog
                   xml.NetworkAdapterSettings do
                     options[:network_uri].each do |uri|
                       xml.NetworkAdapter do
-                        xml.Network(:href => uri[:href], :name => uri[:name], :type => "application/vnd.tmrk.cloud.network")
+                        xml.Network(:href => uri[:href], :name => uri[:name], :type => 'application/vnd.tmrk.cloud.network')
                         xml.IpAddress uri[:ip]
                       end
                     end
@@ -76,7 +76,7 @@ module Fog
                     options[:network_uri] = options[:network_uri].is_a?(String) ? [options[:network_uri]] : options[:network_uri]
                     options[:network_uri].each do |uri|
                       xml.NetworkAdapter do
-                        xml.Network(:href => uri[:href], :name => uri[:name], :type => "application/vnd.tmrk.cloud.network")
+                        xml.Network(:href => uri[:href], :name => uri[:name], :type => 'application/vnd.tmrk.cloud.network')
                         xml.IpAddress uri[:ip]
                       end
                     end
@@ -138,39 +138,39 @@ module Fog
             links << Fog::Ecloud.keep(network, :name, :href, :type)
             network_id = id_from_uri(network[:href])
             ip = self.data[:networks][network_id][:IpAddresses][:IpAddress].detect { |ip| ip[:id] = network[:ip] }
-            ip[:DetectedOn] = {:href => "/cloudapi/ecloud/networkhosts/#{server_id}", :name => options[:name], :type => "application/vnd.tmrk.cloud.networkHost"}
-            ip[:Host]       = {:href => "/cloudapi/ecloud/networkhosts/#{server_id}", :name => options[:name], :type => "application/vnd.tmrk.cloud.networkHost"}
+            ip[:DetectedOn] = {:href => "/cloudapi/ecloud/networkhosts/#{server_id}", :name => options[:name], :type => 'application/vnd.tmrk.cloud.networkHost'}
+            ip[:Host]       = {:href => "/cloudapi/ecloud/networkhosts/#{server_id}", :name => options[:name], :type => 'application/vnd.tmrk.cloud.networkHost'}
           end
 
           server = {
             :href                  => "/cloudapi/ecloud/virtualmachines/#{server_id}",
             :name                  => options[:name],
-            :type                  => "application/vnd.tmrk.cloud.virtualMachine",
+            :type                  => 'application/vnd.tmrk.cloud.virtualMachine',
             :Description           => options[:description],
-            :Status                => "Deployed",
+            :Status                => 'Deployed',
             :HardwareConfiguration => {
               :href => "/cloudapi/ecloud/virtualmachines/#{server_id}/hardwareconfiguration",
-              :type => "application/vnd.tmrk.cloud.virtualMachineHardware",
+              :type => 'application/vnd.tmrk.cloud.virtualMachineHardware',
               :Links => {
                 :Link => {
                   :href => "/cloudapi/ecloud/virtualmachines/#{server_id}",
                   :name => options[:name],
-                  :type => "application/vnd.tmrk.cloud.virtualMachine",
-                  :rel  => "up",
+                  :type => 'application/vnd.tmrk.cloud.virtualMachine',
+                  :rel  => 'up',
                 }
               },
               :ProcessorCount => options[:cpus],
               :Memory => {
-                :Unit  => "MB",
+                :Unit  => 'MB',
                 :Value => options[:memory],
               },
               :Disks => {
                 :Disk => [{
-                  :Index => "0",
-                  :Name  => "Hard Disk 1",
+                  :Index => '0',
+                  :Name  => 'Hard Disk 1',
                   :Size  => {
-                    :Unit  => "GB",
-                    :Value => "25",
+                    :Unit  => 'GB',
+                    :Value => '25',
                   },
                 }],
               },
@@ -192,7 +192,7 @@ module Fog
             :id => row_id,
             :name => options[:row],
             :href => "/cloudapi/ecloud/layoutrows/#{row_id}",
-            :type => "application/vnd.tmrk.cloud.layoutRow",
+            :type => 'application/vnd.tmrk.cloud.layoutRow',
             :Links => {
               :Link => [
                 Fog::Ecloud.keep(environment, :name, :href, :type)
@@ -210,7 +210,7 @@ module Fog
             :id => group_id,
             :name => options[:group],
             :href => "/cloudapi/ecloud/layoutgroups/#{group_id}",
-            :type => "application/vnd.tmrk.cloud.layoutGroup",
+            :type => 'application/vnd.tmrk.cloud.layoutGroup',
             :Links => {
               :Link => [
                 Fog::Ecloud.keep(row, :name, :href, :type),
@@ -227,7 +227,7 @@ module Fog
           row[:Groups][:Group].push(group)
           layout[:Rows][:Row].push(row)
 
-          server.merge!(:OperatingSystem => options[:operating_system].merge(:type => "application/vnd.tmrk.cloud.operatingSystem")) if options[:operating_system]
+          server.merge!(:OperatingSystem => options[:operating_system].merge(:type => 'application/vnd.tmrk.cloud.operatingSystem')) if options[:operating_system]
 
           server_response = response(:body =>  server)
 

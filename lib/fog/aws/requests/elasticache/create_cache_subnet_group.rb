@@ -22,7 +22,7 @@ module Fog
             'CacheSubnetGroupDescription' => description,
             :parser => Fog::Parsers::AWS::Elasticache::CreateCacheSubnetGroup.new
           }
-          params.merge!(Fog::AWS.indexed_param("SubnetIds.member", Array(subnet_ids)))
+          params.merge!(Fog::AWS.indexed_param('SubnetIds.member', Array(subnet_ids)))
           request(params)
         end
 
@@ -52,7 +52,7 @@ module Fog
           }
           self.data[:subnet_groups][name] = data
           response.body = {
-            "ResponseMetadata" => { "RequestId" => Fog::AWS::Mock.request_id },
+            'ResponseMetadata' => { 'RequestId' => Fog::AWS::Mock.request_id },
             'CreateCacheSubnetGroupResult' => { 'CacheSubnetGroup' => data }
           }
           response

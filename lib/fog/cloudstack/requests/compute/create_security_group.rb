@@ -16,11 +16,11 @@ module Fog
           security_group_id = Fog::Cloudstack.uuid
 
           security_group = {
-            "id" => security_group_id,
+            'id' => security_group_id,
           }.merge(options)
 
           self.data[:security_groups][security_group_id] = security_group
-          {"createsecuritygroupresponse" => { "securitygroup" => security_group}}
+          {'createsecuritygroupresponse' => { 'securitygroup' => security_group}}
         end
       end
     end

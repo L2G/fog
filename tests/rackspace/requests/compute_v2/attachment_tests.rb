@@ -26,11 +26,11 @@ Shindo.tests('Fog::Compute::RackspaceV2 | attachment_tests', ['rackspace']) do
 
 
   tests('success') do
-    wait_for_request("Waiting for server to become ready") do
+    wait_for_request('Waiting for server to become ready') do
       compute_service.get_server(server_id).body['server']['status'] == 'ACTIVE'
     end
 
-    wait_for_request("Waiting for Volume to be ready") do
+    wait_for_request('Waiting for Volume to be ready') do
       block_storage_service.get_volume(volume_id).body['volume']['status'] == 'available'
     end
 
@@ -42,7 +42,7 @@ Shindo.tests('Fog::Compute::RackspaceV2 | attachment_tests', ['rackspace']) do
       compute_service.list_attachments(server_id).body
     end
 
-    wait_for_request("Waiting for Volume to be ready") do
+    wait_for_request('Waiting for Volume to be ready') do
       block_storage_service.get_volume(volume_id).body['volume']['status'] == 'in-use'
     end
 

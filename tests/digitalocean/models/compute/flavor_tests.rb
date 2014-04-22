@@ -1,4 +1,4 @@
-Shindo.tests("Fog::Compute[:digitalocean] | flavor model", ['digitalocean', 'compute']) do
+Shindo.tests('Fog::Compute[:digitalocean] | flavor model', ['digitalocean', 'compute']) do
 
   service = Fog::Compute[:digitalocean]
   flavor  = service.flavors.first
@@ -13,12 +13,12 @@ Shindo.tests("Fog::Compute[:digitalocean] | flavor model", ['digitalocean', 'com
         :id,
         :name,
       ]
-      tests("The flavor model should respond to") do
+      tests('The flavor model should respond to') do
         attributes.each do |attribute|
           test("#{attribute}") { flavor.respond_to? attribute }
         end
       end
-      tests("The attributes hash should have key") do
+      tests('The attributes hash should have key') do
         attributes.each do |attribute|
           test("#{attribute}") { model_attribute_hash.has_key? attribute }
         end

@@ -32,9 +32,9 @@ module Fog
       class Mock
 
         RESPONSE_BODY = {
-          "addresses" => {
-            "public" => [{"version" => 6, "addr" => "2001:4800:7811:0513:0fe1:75e8:ff04:760b"}, {"version" => 4, "addr" => "166.78.18.176"}],
-            "private" => [{"version" => 4, "addr" => "10.181.129.68"}]
+          'addresses' => {
+            'public' => [{'version' => 6, 'addr' => '2001:4800:7811:0513:0fe1:75e8:ff04:760b'}, {'version' => 4, 'addr' => '166.78.18.176'}],
+            'private' => [{'version' => 4, 'addr' => '10.181.129.68'}]
           }
         }
 
@@ -42,7 +42,7 @@ module Fog
           raise Fog::Compute::RackspaceV2::NotFound.new if server_id == 0
           response        = Excon::Response.new
           response.status = 200
-          response.body   = { network_id => RESPONSE_BODY["addresses"][network_id] }
+          response.body   = { network_id => RESPONSE_BODY['addresses'][network_id] }
           response
         end
 

@@ -152,7 +152,7 @@ module Fog
         end
 
         def request_id_header
-         "X-Response-Id"
+         'X-Response-Id'
         end
 
         private

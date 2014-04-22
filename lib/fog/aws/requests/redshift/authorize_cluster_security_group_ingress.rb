@@ -31,7 +31,7 @@ module Fog
           ec2_security_group_name     = options[:ec2_security_group_name]
           ec2_security_group_owner_id = options[:ec2_security_group_owner_id]
 
-          path = "/"
+          path = '/'
           params = {
             :headers    => {},
             :path       => path,

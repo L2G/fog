@@ -41,7 +41,7 @@ module Fog
           options['instanceOwnerId'] ||= nil
           options['DestinationCidrBlock'] ||= destination_cidr_block
 
-          route_table = self.data[:route_tables].find { |routetable| routetable["routeTableId"].eql? route_table_id }
+          route_table = self.data[:route_tables].find { |routetable| routetable['routeTableId'].eql? route_table_id }
           if !route_table.nil? && destination_cidr_block
             if !options['gatewayId'].nil? || !options['instanceId'].nil? || !options['networkInterfaceId'].nil?
               if !options['gatewayId'].nil? && self.internet_gateways.all('internet-gateway-id' => options['gatewayId']).first.nil?
@@ -74,7 +74,7 @@ module Fog
           elsif route_table.nil?
             raise Fog::Compute::AWS::NotFound.new("The routeTable ID '#{route_table_id}' does not exist")
           elsif destination_cidr_block.empty?
-            raise Fog::Compute::AWS::InvalidParameterValue.new("Value () for parameter destinationCidrBlock is invalid. This is not a valid CIDR block.")
+            raise Fog::Compute::AWS::InvalidParameterValue.new('Value () for parameter destinationCidrBlock is invalid. This is not a valid CIDR block.')
           end
         end
 

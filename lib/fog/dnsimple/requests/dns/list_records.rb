@@ -16,7 +16,7 @@ module Fog
         def list_records(domain)
           request(
             :expects  => 200,
-            :method   => "GET",
+            :method   => 'GET',
             :path     => "/domains/#{domain}/records"
           )
         end

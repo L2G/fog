@@ -1,6 +1,6 @@
 Shindo.tests('Fog::Compute[:xenserver]', ['xenserver']) do
 
-  tests("Login") do
+  tests('Login') do
     raises(Fog::XenServer::InvalidLogin, 'raises error when invalid password') do
       conn = Fog::Compute.new({
         :provider => 'XenServer',

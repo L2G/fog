@@ -25,13 +25,13 @@ end
 # Use username defined in ~/.fog file, if absent prompt for username.
 # For more details on ~/.fog refer to http://fog.io/about/getting_started.html
 def rackspace_username
-  Fog.credentials[:rackspace_username] || get_user_input("Enter Rackspace Username")
+  Fog.credentials[:rackspace_username] || get_user_input('Enter Rackspace Username')
 end
 
 # Use api key defined in ~/.fog file, if absent prompt for api key
 # For more details on ~/.fog refer to http://fog.io/about/getting_started.html
 def rackspace_api_key
-  Fog.credentials[:rackspace_api_key] || get_user_input("Enter Rackspace API key")
+  Fog.credentials[:rackspace_api_key] || get_user_input('Enter Rackspace API key')
 end
 
 # create Next Generation Cloud Server service
@@ -48,7 +48,7 @@ images = service.images
 
 # select all of the snapshot type images. base images are not user deletable
 snapshot_images = images.select do |image|
-  image.metadata["image_type"] == "snapshot"
+  image.metadata['image_type'] == 'snapshot'
 end
 
 # prompt user for image to delete

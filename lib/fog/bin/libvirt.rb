@@ -14,7 +14,7 @@ module Libvirt # deviates from other bin stuff to accomodate gem
       @@connections ||= Hash.new do |hash, key|
         hash[key] = case key
         when :compute
-          Fog::Logger.warning("Libvirt[:compute] is not recommended, use Compute[:libvirt] for portability")
+          Fog::Logger.warning('Libvirt[:compute] is not recommended, use Compute[:libvirt] for portability')
           Fog::Compute.new(:provider => 'Libvirt')
         else
           raise ArgumentError, "Unrecognized service: #{key.inspect}"
@@ -25,11 +25,11 @@ module Libvirt # deviates from other bin stuff to accomodate gem
 
     def available?
       begin
-        availability = true unless Gem::Specification::find_by_name("ruby-libvirt").nil?
+        availability = true unless Gem::Specification::find_by_name('ruby-libvirt').nil?
       rescue Gem::LoadError
         availability = false
       rescue
-        availability_gem = Gem.available?("ruby-libvirt")
+        availability_gem = Gem.available?('ruby-libvirt')
       end
 
       if availability

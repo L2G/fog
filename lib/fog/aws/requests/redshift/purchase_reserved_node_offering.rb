@@ -18,7 +18,7 @@ module Fog
           reserved_node_offering_id = options[:reserved_node_offering_id]
           node_count                = options[:node_count]
 
-          path = "/"
+          path = '/'
           params = {
             :headers    => {},
             :path       => path,

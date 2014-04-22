@@ -11,8 +11,8 @@ module Fog
         # @see https://api.gb1.brightbox.com/1.0/#cloud_ip_unmap_cloud_ip
         #
         def unmap_cloud_ip(identifier)
-          return nil if identifier.nil? || identifier == ""
-          wrapped_request("post", "/1.0/cloud_ips/#{identifier}/unmap", [202])
+          return nil if identifier.nil? || identifier == ''
+          wrapped_request('post', "/1.0/cloud_ips/#{identifier}/unmap", [202])
         end
 
       end

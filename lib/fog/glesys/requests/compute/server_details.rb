@@ -4,7 +4,7 @@ module Fog
       class Real
 
         def server_details(serverid, options = {})
-          request("/server/details", { :serverid => serverid }.merge!(options) )
+          request('/server/details', { :serverid => serverid }.merge!(options) )
         end
       end
 

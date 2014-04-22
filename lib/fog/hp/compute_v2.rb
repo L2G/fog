@@ -86,7 +86,7 @@ module Fog
 
         # extract windows password from log
         def extract_password_from_log(log_text)
-          encrypted_text = ""
+          encrypted_text = ''
           section        = []
           return if log_text.nil?
           log_text.each_line do |line|
@@ -100,7 +100,7 @@ module Fog
             end
 
             case section
-              when ["BASE64"]
+              when ['BASE64']
                 encrypted_text << line
             end
           end
@@ -143,58 +143,58 @@ module Fog
               :addresses => {},
               :volume_attachments => {},
               :limits => {
-                  "absolute" => {
-                    "maxImageMeta"            => 50,
-                    "maxPersonality"          => 5,
-                    "maxPersonalitySize"      => 10240,
-                    "maxSecurityGroupRules"   => 20,
-                    "maxSecurityGroups"       => 10,
-                    "maxTotalKeypairs"        => 100,
-                    "maxServerMeta"           => 50,
-                    "maxTotalInstances"       => 20,
-                    "maxTotalRAMSize"         => 102400,
-                    "maxTotalCores"           => -1,
-                    "maxTotalFloatingIps"     => 10,
-                    "totalRAMUsed"            => 12288,
-                    "totalInstancesUsed"      => 3,
-                    "totalFloatingIpsUsed"    => 0,
-                    "totalSecurityGroupsUsed" => 0,
-                    "totalCoresUsed"          => 8,
+                  'absolute' => {
+                    'maxImageMeta'            => 50,
+                    'maxPersonality'          => 5,
+                    'maxPersonalitySize'      => 10240,
+                    'maxSecurityGroupRules'   => 20,
+                    'maxSecurityGroups'       => 10,
+                    'maxTotalKeypairs'        => 100,
+                    'maxServerMeta'           => 50,
+                    'maxTotalInstances'       => 20,
+                    'maxTotalRAMSize'         => 102400,
+                    'maxTotalCores'           => -1,
+                    'maxTotalFloatingIps'     => 10,
+                    'totalRAMUsed'            => 12288,
+                    'totalInstancesUsed'      => 3,
+                    'totalFloatingIpsUsed'    => 0,
+                    'totalSecurityGroupsUsed' => 0,
+                    'totalCoresUsed'          => 8,
                   },
-                  "rate" => [
+                  'rate' => [
                     {
-                      "limit" => [
+                      'limit' => [
                         {
-                          "next-available" => "2012-10-05T03 =>47 =>15Z",
-                          "remaining" => 199,
-                          "unit" => "MINUTE",
-                          "value" => 200,
-                          "verb" => "GET"
+                          'next-available' => '2012-10-05T03 =>47 =>15Z',
+                          'remaining' => 199,
+                          'unit' => 'MINUTE',
+                          'value' => 200,
+                          'verb' => 'GET'
                         },
                         {
-                          "next-available" => "2012-10-05T03 =>47 =>15Z",
-                          "remaining" => 9,
-                          "unit" => "MINUTE",
-                          "value" => 10,
-                          "verb" => "PUT"
+                          'next-available' => '2012-10-05T03 =>47 =>15Z',
+                          'remaining' => 9,
+                          'unit' => 'MINUTE',
+                          'value' => 10,
+                          'verb' => 'PUT'
                         },
                         {
-                          "next-available" => "2012-10-05T03 =>47 =>15Z",
-                          "remaining" => 9,
-                          "unit" => "MINUTE",
-                          "value" => 10,
-                          "verb" => "POST"
+                          'next-available' => '2012-10-05T03 =>47 =>15Z',
+                          'remaining' => 9,
+                          'unit' => 'MINUTE',
+                          'value' => 10,
+                          'verb' => 'POST'
                         },
                         {
-                          "next-available" => "2012-10-05T03 =>47 =>15Z",
-                          "remaining" => 99,
-                          "unit" => "MINUTE",
-                          "value" => 100,
-                          "verb" => "DELETE"
+                          'next-available' => '2012-10-05T03 =>47 =>15Z',
+                          'remaining' => 99,
+                          'unit' => 'MINUTE',
+                          'value' => 100,
+                          'verb' => 'DELETE'
                         }
                       ],
-                      "regex" => ".*",
-                      "uri" => "*"
+                      'regex' => '.*',
+                      'uri' => '*'
                     }
                   ]
               }
@@ -210,12 +210,12 @@ module Fog
         def initialize(options = {})
           # deprecate hp_account_id
           if options[:hp_account_id]
-            Fog::Logger.deprecation(":hp_account_id is deprecated, please use :hp_access_key instead.")
+            Fog::Logger.deprecation(':hp_account_id is deprecated, please use :hp_access_key instead.')
             @hp_access_key = options.delete(:hp_account_id)
           end
           @hp_access_key = options[:hp_access_key]
           unless @hp_access_key
-            raise ArgumentError.new("Missing required arguments: hp_access_key. :hp_account_id is deprecated, please use :hp_access_key instead.")
+            raise ArgumentError.new('Missing required arguments: hp_access_key. :hp_account_id is deprecated, please use :hp_access_key instead.')
           end
         end
 
@@ -236,19 +236,19 @@ module Fog
         def initialize(options = {})
           # deprecate hp_account_id
           if options[:hp_account_id]
-            Fog::Logger.deprecation(":hp_account_id is deprecated, please use :hp_access_key instead.")
+            Fog::Logger.deprecation(':hp_account_id is deprecated, please use :hp_access_key instead.')
             options[:hp_access_key] = options.delete(:hp_account_id)
           end
           @hp_access_key = options[:hp_access_key]
           unless @hp_access_key
-            raise ArgumentError.new("Missing required arguments: hp_access_key. :hp_account_id is deprecated, please use :hp_access_key instead.")
+            raise ArgumentError.new('Missing required arguments: hp_access_key. :hp_account_id is deprecated, please use :hp_access_key instead.')
           end
           @hp_secret_key = options[:hp_secret_key]
           @connection_options = options[:connection_options] || {}
           ### Set an option to use the style of authentication desired; :v1 or :v2 (default)
           auth_version = options[:hp_auth_version] || :v2
           ### Pass the service name for compute via the options hash
-          options[:hp_service_type] ||= "Compute"
+          options[:hp_service_type] ||= 'Compute'
           @hp_tenant_id = options[:hp_tenant_id]
 
           ### Make the authentication call

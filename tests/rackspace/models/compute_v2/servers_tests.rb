@@ -10,7 +10,7 @@ Shindo.tests('Fog::Compute::RackspaceV2 | servers', ['rackspace']) do
     @instance.wait_for { ready? }
   end
 
-  tests("#bootstrap").succeeds do
+  tests('#bootstrap').succeeds do
     pending if Fog.mocking?
     @server = service.servers.bootstrap(options)
   end

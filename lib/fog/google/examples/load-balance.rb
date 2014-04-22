@@ -77,24 +77,24 @@ def test
   begin
     rule.destroy
   rescue
-    puts "Failed to clean up forwarding rule."
+    puts 'Failed to clean up forwarding rule.'
   end
 
   begin
     pool.destroy
   rescue
-    puts "Failed to clean up target pool."
+    puts 'Failed to clean up target pool.'
   end
 
   begin
     health.destroy
   rescue
-    puts "Failed to clean up health check."
+    puts 'Failed to clean up health check.'
   end
 
   begin
     servers.each(&:destroy)
   rescue
-    puts "Failed to clean up instances."
+    puts 'Failed to clean up instances.'
   end
 end

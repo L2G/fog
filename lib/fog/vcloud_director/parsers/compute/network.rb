@@ -84,7 +84,7 @@ module Fog
           def end_element(name)
             case name
             when 'IsInherited'
-              @response[:is_inherited] = (value == "true")
+              @response[:is_inherited] = (value == 'true')
             when 'Gateway', 'Netmask', 'Dns1', 'Dns2'
               @response[name.downcase.to_sym] = value
             when 'DnsSuffix'

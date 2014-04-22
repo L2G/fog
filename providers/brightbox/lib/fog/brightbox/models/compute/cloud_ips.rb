@@ -15,7 +15,7 @@ module Fog
         end
 
         def get(identifier)
-          return nil if identifier.nil? || identifier == ""
+          return nil if identifier.nil? || identifier == ''
           data = service.get_cloud_ip(identifier)
           new(data)
         rescue Excon::Errors::NotFound

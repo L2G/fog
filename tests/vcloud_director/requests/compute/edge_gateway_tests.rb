@@ -5,26 +5,26 @@ Shindo.tests('Compute::VcloudDirector | edge gateway requests', ['vclouddirector
   @new_edge_gateway_configuration = {
     :FirewallService =>
       {
-        :IsEnabled => "true",
-        :DefaultAction => "allow",
-        :LogDefaultAction => "false",
+        :IsEnabled => 'true',
+        :DefaultAction => 'allow',
+        :LogDefaultAction => 'false',
         :FirewallRule => [
           {
-            :IsEnabled => "false",
-            :MatchOnTranslate => "false",
+            :IsEnabled => 'false',
+            :MatchOnTranslate => 'false',
             :Id => FIREWALL_RULE_ID,
-            :Policy => "drop",
-            :Description => "generated from edge_gateway_tests",
+            :Policy => 'drop',
+            :Description => 'generated from edge_gateway_tests',
             :Protocols => {
-              :Tcp => "true"
+              :Tcp => 'true'
             },
-            :Port => "3412",
-            :DestinationPortRange => "3412",
-            :DestinationIp => "internal",
-            :SourcePort => "3412",
-            :SourceIp => "internal",
-            :SourcePortRange => "3412",
-            :EnableLogging => "false"
+            :Port => '3412',
+            :DestinationPortRange => '3412',
+            :DestinationIp => 'internal',
+            :SourcePort => '3412',
+            :SourceIp => 'internal',
+            :SourcePortRange => '3412',
+            :EnableLogging => 'false'
           }
         ]
       }
@@ -57,7 +57,7 @@ Shindo.tests('Compute::VcloudDirector | edge gateway requests', ['vclouddirector
   end
 
   @edge_gateways[:EdgeGatewayRecord].each do |result|
-    tests("each EdgeGatewayRecord").
+    tests('each EdgeGatewayRecord').
       data_matches_schema(VcloudDirector::Compute::Schema::QUERY_RESULT_EDGE_GATEWAY_RECORD_TYPE) do
         result
       end

@@ -21,7 +21,7 @@ end
 
 def report(label, n = 10, &block)
   puts label
-  puts "%.4f" % n.times.map{ time_in_fork(&block) }.avg
+  puts '%.4f' % n.times.map{ time_in_fork(&block) }.avg
   puts
 end
 
@@ -31,7 +31,7 @@ Gem::Specification._all
 
 N = 10
 
-report("require fog:", N)             { require 'fog' }
-report("require fog/aws:", N)         { require 'fog/aws' }
-report("require fog/aws/compute:", N) { require 'fog/aws/compute' }
-report("require fog/aws/core:", N)    { require 'fog/aws/core'}
+report('require fog:', N)             { require 'fog' }
+report('require fog/aws:', N)         { require 'fog/aws' }
+report('require fog/aws/compute:', N) { require 'fog/aws/compute' }
+report('require fog/aws/core:', N)    { require 'fog/aws/core'}

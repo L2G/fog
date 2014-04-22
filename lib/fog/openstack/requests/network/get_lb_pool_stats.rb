@@ -17,10 +17,10 @@ module Fog
           response = Excon::Response.new
           if data = self.data[:lb_pools][pool_id]
             stats = {}
-            stats["active_connections"] = 0
-            stats["bytes_in"] = 0
-            stats["bytes_out"] = 0
-            stats["total_connections"] = 0
+            stats['active_connections'] = 0
+            stats['bytes_in'] = 0
+            stats['bytes_out'] = 0
+            stats['total_connections'] = 0
             response.status = 200
             response.body = { 'stats' => stats }
             response

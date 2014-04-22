@@ -41,7 +41,7 @@ module Fog
         #
 
         def authorize_group_and_owner(group, owner = nil)
-          Fog::Logger.deprecation("authorize_group_and_owner is deprecated, use authorize_port_range with :group option instead")
+          Fog::Logger.deprecation('authorize_group_and_owner is deprecated, use authorize_port_range with :group option instead')
 
           requires_one :name, :group_id
 
@@ -155,7 +155,7 @@ module Fog
         #
 
         def revoke_group_and_owner(group, owner = nil)
-          Fog::Logger.deprecation("revoke_group_and_owner is deprecated, use revoke_port_range with :group option instead")
+          Fog::Logger.deprecation('revoke_group_and_owner is deprecated, use revoke_port_range with :group option instead')
 
           requires_one :name, :group_id
 
@@ -267,7 +267,7 @@ module Fog
 
           info = { 'UserId' => account }
 
-          if group.start_with?("sg-")
+          if group.start_with?('sg-')
             # we're dealing with a security group id
             info['GroupId'] = group
           else

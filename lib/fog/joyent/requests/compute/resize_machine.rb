@@ -4,9 +4,9 @@ module Fog
      class Real
       def resize_machine(id, package)
         request(
-          :method => "POST",
+          :method => 'POST',
           :path => "/my/machines/#{id}",
-          :query => {"action" => "resize", "package" => package},
+          :query => {'action' => 'resize', 'package' => package},
           :expects => [202]
         )
       end

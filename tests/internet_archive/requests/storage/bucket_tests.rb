@@ -1,4 +1,4 @@
-Shindo.tests('Fog::Storage[:internetarchive] | bucket requests', ["internetarchive"]) do
+Shindo.tests('Fog::Storage[:internetarchive] | bucket requests', ['internetarchive']) do
   @ia_bucket_name = 'fogbuckettests-' + Time.now.to_i.to_s(32)
 
   tests('success') do
@@ -47,7 +47,7 @@ Shindo.tests('Fog::Storage[:internetarchive] | bucket requests', ["internetarchi
       @aws_owner = Fog::Storage[:internetarchive].get_bucket_acl(Fog::Storage[:internetarchive].directories.first.key).body['Owner']
     end
 
-    tests("#get_service").formats(@service_format) do
+    tests('#get_service').formats(@service_format) do
       Fog::Storage[:internetarchive].get_service.body
     end
 
@@ -70,7 +70,7 @@ Shindo.tests('Fog::Storage[:internetarchive] | bucket requests', ["internetarchi
         @bucket = Fog::Storage[:internetarchive].get_bucket(@ia_bucket_name)
       end
 
-      tests(".body['Contents'].map{|n| n['Key']}").returns(["a/a1/file1", "a/file2", "b/file3", "file4"]) do
+      tests(".body['Contents'].map{|n| n['Key']}").returns(['a/a1/file1', 'a/file2', 'b/file3', 'file4']) do
         @bucket.body['Contents'].map{|n| n['Key']}
       end
 
@@ -138,7 +138,7 @@ Shindo.tests('Fog::Storage[:internetarchive] | bucket requests', ["internetarchi
       'AccessControlList' => [
         {
           'Grantee' => @aws_owner,
-          'Permission' => "FULL_CONTROL"
+          'Permission' => 'FULL_CONTROL'
         }
       ]
     }
@@ -152,7 +152,7 @@ Shindo.tests('Fog::Storage[:internetarchive] | bucket requests', ["internetarchi
         'AccessControlList' => [
           {
             'Grantee' => { 'ID' => 'f62f0218873cfa5d56ae9429ae75a592fec4fd22a5f24a20b1038a7db9a8f150', 'DisplayName' => 'mtd' },
-            'Permission' => "FULL_CONTROL"
+            'Permission' => 'FULL_CONTROL'
           }
         ]
     }) do
@@ -162,7 +162,7 @@ Shindo.tests('Fog::Storage[:internetarchive] | bucket requests', ["internetarchi
         'AccessControlList' => [
           {
             'Grantee' => { 'EmailAddress' => 'mtd@amazon.com' },
-            'Permission' => "FULL_CONTROL"
+            'Permission' => 'FULL_CONTROL'
           }
         ]
       })
@@ -174,7 +174,7 @@ Shindo.tests('Fog::Storage[:internetarchive] | bucket requests', ["internetarchi
       'AccessControlList' => [
         {
           'Grantee' => { 'URI' => 'http://acs.amazonaws.com/groups/global/AllUsers' },
-          'Permission' => "FULL_CONTROL"
+          'Permission' => 'FULL_CONTROL'
         }
       ]
     }

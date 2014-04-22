@@ -1,18 +1,18 @@
-Shindo.tests("Storage[:aws] | directory", ["aws"]) do
+Shindo.tests('Storage[:aws] | directory', ['aws']) do
 
   directory_attributes = {
     :key => uniq_id('fogdirectorytests')
   }
 
   model_tests(Fog::Storage[:aws].directories, directory_attributes, Fog.mocking?) do
-    tests("#public_url").returns(nil) do
+    tests('#public_url').returns(nil) do
       @instance.public_url
     end
 
     @instance.acl = 'public-read'
     @instance.save
 
-    tests("#public_url").returns(true) do
+    tests('#public_url').returns(true) do
       if @instance.public_url =~ %r[\Ahttps://fogdirectorytests-[\da-f]+\.s3\.amazonaws\.com/\z]
         true
       else
@@ -27,11 +27,11 @@ Shindo.tests("Storage[:aws] | directory", ["aws"]) do
   }
 
   model_tests(Fog::Storage[:aws].directories, directory_attributes, Fog.mocking?) do
-    tests("#location").returns('eu-west-1') do
+    tests('#location').returns('eu-west-1') do
       @instance.location
     end
 
-    tests("#location").returns('eu-west-1') do
+    tests('#location').returns('eu-west-1') do
       Fog::Storage[:aws].directories.get(@instance.identity).location
     end
   end
@@ -42,8 +42,8 @@ Shindo.tests("Storage[:aws] | directory", ["aws"]) do
 
   model_tests(Fog::Storage[:aws].directories, directory_attributes, Fog.mocking?) do
 
-    tests("#versioning=") do
-      tests("#versioning=(true)").succeeds do
+    tests('#versioning=') do
+      tests('#versioning=(true)').succeeds do
         @instance.versioning = true
       end
 
@@ -52,7 +52,7 @@ Shindo.tests("Storage[:aws] | directory", ["aws"]) do
         @instance.service.get_bucket_versioning(@instance.key).body['VersioningConfiguration']['Status']
       end
 
-      tests("#versioning=(false)").succeeds do
+      tests('#versioning=(false)').succeeds do
         (@instance.versioning = false).equal? false
       end
 
@@ -66,17 +66,17 @@ Shindo.tests("Storage[:aws] | directory", ["aws"]) do
 
   model_tests(Fog::Storage[:aws].directories, directory_attributes, Fog.mocking?) do
 
-    tests("#versioning?") do
-      tests("#versioning? false if not enabled").returns(false) do
+    tests('#versioning?') do
+      tests('#versioning? false if not enabled').returns(false) do
         @instance.versioning?
       end
 
-      tests("#versioning? true if enabled").returns(true) do
+      tests('#versioning? true if enabled').returns(true) do
         @instance.service.put_bucket_versioning(@instance.key, 'Enabled')
         @instance.versioning?
       end
 
-      tests("#versioning? false if suspended").returns(false) do
+      tests('#versioning? false if suspended').returns(false) do
         @instance.service.put_bucket_versioning(@instance.key, 'Suspended')
         @instance.versioning?
       end

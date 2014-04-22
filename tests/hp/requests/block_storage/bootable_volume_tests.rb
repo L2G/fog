@@ -1,4 +1,4 @@
-Shindo.tests("HP::BlockStorage | bootable volume requests", ['hp', 'block_storage', 'volumes']) do
+Shindo.tests('HP::BlockStorage | bootable volume requests', ['hp', 'block_storage', 'volumes']) do
 
   @volume_format = {
     'status'             => String,
@@ -30,16 +30,16 @@ Shindo.tests("HP::BlockStorage | bootable volume requests", ['hp', 'block_storag
   }
 
   @volume_attach_format = {
-    "volumeId" => Integer,
-    "id"       => Integer
+    'volumeId' => Integer,
+    'id'       => Integer
   }
 
   tests('success') do
 
     @volume_id = nil
-    @volume_name = "fogbvolumetests"
-    @volume_desc = @volume_name + " desc"
-    @base_image_id = ENV["BASE_IMAGE_ID"] || 1242
+    @volume_name = 'fogbvolumetests'
+    @volume_desc = @volume_name + ' desc'
+    @base_image_id = ENV['BASE_IMAGE_ID'] || 1242
 
     tests("#create_volume(#{@volume_name}, #{@volume_desc}, 10, {'imageRef' => '#{@base_image_id}'})").formats(@volume_format) do
       data = HP[:block_storage].create_volume(@volume_name, @volume_desc, 10, {'imageRef' => "#{@base_image_id}"}).body['volume']
@@ -52,7 +52,7 @@ Shindo.tests("HP::BlockStorage | bootable volume requests", ['hp', 'block_storag
       HP[:block_storage].get_bootable_volume_details(@volume_id).body['volume']
     end
 
-    tests("#list_bootable_volumes").formats({'volumes' => [@boot_volume_format]}) do
+    tests('#list_bootable_volumes').formats({'volumes' => [@boot_volume_format]}) do
       HP[:block_storage].list_bootable_volumes.body
     end
 
@@ -65,11 +65,11 @@ Shindo.tests("HP::BlockStorage | bootable volume requests", ['hp', 'block_storag
 
   tests('failure') do
 
-    tests("#get_bootable_volume_details(0)").raises(Fog::HP::BlockStorage::NotFound) do
+    tests('#get_bootable_volume_details(0)').raises(Fog::HP::BlockStorage::NotFound) do
       HP[:block_storage].get_bootable_volume_details(0)
     end
 
-    tests("#delete_volume(0)").raises(Fog::HP::BlockStorage::NotFound) do
+    tests('#delete_volume(0)').raises(Fog::HP::BlockStorage::NotFound) do
       HP[:block_storage].delete_volume(0)
     end
 

@@ -2,7 +2,7 @@ Shindo.tests('Fog::Rackspace::Monitoring | alarm_example_tests', ['rackspace','r
   pending if Fog.mocking?
 
   account = Fog::Rackspace::Monitoring.new
-  example_id = "remote.http_body_match_1"
+  example_id = 'remote.http_body_match_1'
   tests('success') do
     tests('#list alarm examples').formats(LIST_HEADERS_FORMAT) do
       account.list_alarm_examples().data[:headers]
@@ -11,7 +11,7 @@ Shindo.tests('Fog::Rackspace::Monitoring | alarm_example_tests', ['rackspace','r
       account.get_alarm_example(example_id).data[:headers]
     end
     tests('#evaluate alarm example').formats(LIST_HEADERS_FORMAT) do
-      options = { :string => "Foo"}
+      options = { :string => 'Foo'}
       account.evaluate_alarm_example(example_id,options).data[:headers]
     end
   end

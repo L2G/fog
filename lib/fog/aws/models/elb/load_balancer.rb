@@ -134,7 +134,7 @@ module Fog
 
         def policy_descriptions
           requires :id
-          @policy_descriptions ||= service.describe_load_balancer_policies(id).body["DescribeLoadBalancerPoliciesResult"]["PolicyDescriptions"]
+          @policy_descriptions ||= service.describe_load_balancer_policies(id).body['DescribeLoadBalancerPoliciesResult']['PolicyDescriptions']
         end
 
         def set_listener_policy(port, policy_name)
@@ -169,7 +169,7 @@ module Fog
             service.create_load_balancer(availability_zones, id, listeners.map{|l| l.to_params}) if availability_zones
             service.create_load_balancer(nil, id, listeners.map{|l| l.to_params}, {:subnet_ids => subnet_ids, :security_groups => security_groups, :scheme => scheme}) if subnet_ids && !availability_zones
           else
-            throw Fog::Errors::Error.new("No availability zones or subnet ids specified")
+            throw Fog::Errors::Error.new('No availability zones or subnet ids specified')
           end
 
           # reload instead of merge attributes b/c some attrs (like HealthCheck)

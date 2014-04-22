@@ -5,7 +5,7 @@ module Fog
         def create_instrumentation(values = {})
           request(
               :path => "#{@joyent_username}/analytics/instrumentations",
-              :method => "POST",
+              :method => 'POST',
               :body => values,
               :expects => [200,201]
           )

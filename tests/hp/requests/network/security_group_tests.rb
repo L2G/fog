@@ -23,7 +23,7 @@ Shindo.tests('HP::Network | networking security group requests', ['hp', 'network
       HP[:network].get_security_group(@sec_group_id).body['security_group']
     end
 
-    tests("#list_security_groups").formats('security_groups' => [@security_group_format]) do
+    tests('#list_security_groups').formats('security_groups' => [@security_group_format]) do
       HP[:network].list_security_groups.body
     end
 
@@ -35,11 +35,11 @@ Shindo.tests('HP::Network | networking security group requests', ['hp', 'network
 
   tests('failure') do
 
-    tests("#get_security_group(0)").raises(Fog::HP::Network::NotFound) do
+    tests('#get_security_group(0)').raises(Fog::HP::Network::NotFound) do
       HP[:network].get_security_group(0)
     end
 
-    tests("#delete_security_group(0)").raises(Fog::HP::Network::NotFound) do
+    tests('#delete_security_group(0)').raises(Fog::HP::Network::NotFound) do
       HP[:network].delete_security_group(0)
     end
 

@@ -1,4 +1,4 @@
-Shindo.tests("HP::BlockStorage | volume requests", ['hp', 'block_storage', 'volumes']) do
+Shindo.tests('HP::BlockStorage | volume requests', ['hp', 'block_storage', 'volumes']) do
 
   @volume_format = {
     'status'             => String,
@@ -15,16 +15,16 @@ Shindo.tests("HP::BlockStorage | volume requests", ['hp', 'block_storage', 'volu
   }
 
   @volume_attach_format = {
-    "volumeId" => Integer,
-    "id"       => Integer
+    'volumeId' => Integer,
+    'id'       => Integer
   }
 
   tests('success') do
 
     @volume_id = nil
-    @volume_name = "fogvolumetests"
-    @volume_desc = @volume_name + " desc"
-    @base_image_id = ENV["BASE_IMAGE_ID"] || 1242
+    @volume_name = 'fogvolumetests'
+    @volume_desc = @volume_name + ' desc'
+    @base_image_id = ENV['BASE_IMAGE_ID'] || 1242
 
     @server = Fog::Compute[:hp].servers.create(:name => 'fogvoltests', :flavor_id => 100, :image_id => @base_image_id)
     @server.wait_for { ready? }
@@ -46,7 +46,7 @@ Shindo.tests("HP::BlockStorage | volume requests", ['hp', 'block_storage', 'volu
 
     HP[:block_storage].volumes.get(@volume_id).wait_for { ready? }
     tests("#attach_volume(#{@server.id}, #{@volume_id}, '/dev/sdg')").formats(@volume_attach_format) do
-      Fog::Compute[:hp].attach_volume(@server.id, @volume_id, "/dev/sdg").body['volumeAttachment']
+      Fog::Compute[:hp].attach_volume(@server.id, @volume_id, '/dev/sdg').body['volumeAttachment']
     end
 
     HP[:block_storage].volumes.get(@volume_id).wait_for { in_use? } unless Fog.mocking?
@@ -68,14 +68,14 @@ Shindo.tests("HP::BlockStorage | volume requests", ['hp', 'block_storage', 'volu
     end
 
     tests("#attach_volume(0, 0, '/dev/sdg')").raises(Fog::Compute::HP::NotFound) do
-      Fog::Compute[:hp].attach_volume(0, 0, "/dev/sdg")
+      Fog::Compute[:hp].attach_volume(0, 0, '/dev/sdg')
     end
     tests("#attach_volume(#{@server.id}, 0, '/dev/sdg')").raises(Fog::HP::BlockStorage::NotFound) do
       pending if Fog.mocking?
-      Fog::Compute[:hp].attach_volume(@server.id, 0, "/dev/sdg")
+      Fog::Compute[:hp].attach_volume(@server.id, 0, '/dev/sdg')
     end
 
-    tests("#detach_volume(0, 0)").raises(Fog::Compute::HP::NotFound) do
+    tests('#detach_volume(0, 0)').raises(Fog::Compute::HP::NotFound) do
       Fog::Compute[:hp].detach_volume(0, 0)
     end
     tests("#detach_volume(#{@server.id}, 0)").raises(Fog::HP::BlockStorage::NotFound) do
@@ -83,7 +83,7 @@ Shindo.tests("HP::BlockStorage | volume requests", ['hp', 'block_storage', 'volu
       Fog::Compute[:hp].detach_volume(@server.id, 0)
     end
 
-    tests("#delete_volume(0)").raises(Fog::HP::BlockStorage::NotFound) do
+    tests('#delete_volume(0)').raises(Fog::HP::BlockStorage::NotFound) do
       HP[:block_storage].delete_volume(0)
     end
 

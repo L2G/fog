@@ -8,7 +8,7 @@ module Fog
           request({
                     :expects  => 204,
                     :method   => 'DELETE',
-                    :path     => "namespace/" + namespace,
+                    :path     => 'namespace/' + namespace,
                     :query    => options
                   }.merge(options))
         end

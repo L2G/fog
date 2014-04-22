@@ -1,5 +1,5 @@
 def test
-  connection = Fog::Compute.new({ :provider => "Google" })
+  connection = Fog::Compute.new({ :provider => 'Google' })
 
   name = "fog-smoke-test-#{Time.now.to_i}"
 
@@ -15,16 +15,16 @@ def test
   server = connection.servers.create(defaults = {
     :name => name,
     :disks => [disk],
-    :machine_type => "n1-standard-1",
-    :zone_name => "us-central1-a",
-    :private_key_path => File.expand_path("~/.ssh/id_rsa"),
-    :public_key_path => File.expand_path("~/.ssh/id_rsa.pub"),
+    :machine_type => 'n1-standard-1',
+    :zone_name => 'us-central1-a',
+    :private_key_path => File.expand_path('~/.ssh/id_rsa'),
+    :public_key_path => File.expand_path('~/.ssh/id_rsa.pub'),
   })
 
   server.wait_for { ready? }
 
-  server.metadata["test"] = "foo"
+  server.metadata['test'] = 'foo'
 
-  raise "Metadata was not set." unless server.metadata["test"] == "foo"
-  raise "Could not delete server." unless server.destroy
+  raise 'Metadata was not set.' unless server.metadata['test'] == 'foo'
+  raise 'Could not delete server.' unless server.destroy
 end

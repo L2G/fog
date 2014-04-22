@@ -104,20 +104,20 @@ module Fog
                        response = identity.create_user(@openstack_username,
                          'password',
                          "#{@openstack_username}@example.com")
-                       response.body["user"]["id"]
+                       response.body['user']['id']
                     end
 
           mock_data = {
-            'addresses'    => {"Private" => [{"addr" => Fog::Mock.random_ip }]},
-            'flavor'       => {"id" => flavor_ref, "links" => [{"href" => "http://nova1:8774/admin/flavors/1", "rel" => "bookmark"}]},
+            'addresses'    => {'Private' => [{'addr' => Fog::Mock.random_ip }]},
+            'flavor'       => {'id' => flavor_ref, 'links' => [{'href' => 'http://nova1:8774/admin/flavors/1', 'rel' => 'bookmark'}]},
             'id'           => server_id,
-            'image'        => {"id" => image_ref, "links" => [{"href" => "http://nova1:8774/admin/images/#{image_ref}", "rel" => "bookmark"}]},
-            'links'        => [{"href" => "http://nova1:8774/v1.1/admin/servers/5", "rel" => "self"}, {"href" => "http://nova1:8774/admin/servers/5", "rel" => "bookmark"}],
-            'hostId'       => "123456789ABCDEF01234567890ABCDEF",
+            'image'        => {'id' => image_ref, 'links' => [{'href' => "http://nova1:8774/admin/images/#{image_ref}", 'rel' => 'bookmark'}]},
+            'links'        => [{'href' => 'http://nova1:8774/v1.1/admin/servers/5', 'rel' => 'self'}, {'href' => 'http://nova1:8774/admin/servers/5', 'rel' => 'bookmark'}],
+            'hostId'       => '123456789ABCDEF01234567890ABCDEF',
             'metadata'     => options['metadata'] || {},
             'name'         => name || "server_#{rand(999)}",
-            'accessIPv4'   => options['accessIPv4'] || "",
-            'accessIPv6'   => options['accessIPv6'] || "",
+            'accessIPv4'   => options['accessIPv4'] || '',
+            'accessIPv6'   => options['accessIPv6'] || '',
             'progress'     => 0,
             'status'       => 'BUILD',
             'created'      => '2012-09-27T00:04:18Z',
@@ -128,8 +128,8 @@ module Fog
 
           if nics = options['nics']
             nics.each do |nic|
-              mock_data["addresses"].merge!(
-                "Public" => [{ 'addr' => Fog::Mock.random_ip }]
+              mock_data['addresses'].merge!(
+                'Public' => [{ 'addr' => Fog::Mock.random_ip }]
               )
             end
           end

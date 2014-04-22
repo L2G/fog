@@ -11,8 +11,8 @@ module Fog
         # @see https://api.gb1.brightbox.com/1.0/#image_delete_image
         #
         def delete_image(identifier)
-          return nil if identifier.nil? || identifier == ""
-          wrapped_request("delete", "/1.0/images/#{identifier}", [202])
+          return nil if identifier.nil? || identifier == ''
+          wrapped_request('delete', "/1.0/images/#{identifier}", [202])
         end
 
         # Old format of the delete request.

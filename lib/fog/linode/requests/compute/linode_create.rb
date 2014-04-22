@@ -34,9 +34,9 @@ module Fog
           response = Excon::Response.new
           response.status = 200
           response.body = {
-            "ERRORARRAY" => [],
-            "ACTION"     => "linode.create",
-            "DATA"       => { "LinodeID" => rand(1000..9999) }
+            'ERRORARRAY' => [],
+            'ACTION'     => 'linode.create',
+            'DATA'       => { 'LinodeID' => rand(1000..9999) }
           }
           response
         end

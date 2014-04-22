@@ -34,7 +34,7 @@ module Fog
             query['versionId'] = version_id
           end
 
-          data = ""
+          data = ''
           headers = {}
 
           if acl.is_a?(Hash)

@@ -43,7 +43,7 @@ Shindo.tests('AWS::SES | topic lifecycle tests', ['aws', 'sns']) do
       }]
     })
 
-    tests("#list_subscriptions").formats(list_subscriptions_format) do
+    tests('#list_subscriptions').formats(list_subscriptions_format) do
       pending if Fog.mocking?
       Fog::AWS[:sns].list_subscriptions.body
     end

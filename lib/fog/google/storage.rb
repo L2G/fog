@@ -37,11 +37,11 @@ module Fog
 
 
         def http_url(params, expires)
-          "http://" << host_path_query(params, expires)
+          'http://' << host_path_query(params, expires)
         end
 
         def https_url(params, expires)
-          "https://" << host_path_query(params, expires)
+          'https://' << host_path_query(params, expires)
         end
 
         def url(params, expires)
@@ -104,59 +104,59 @@ module Fog
           case type
           when 'private'
             {
-              "AccessControlList" => [
+              'AccessControlList' => [
                 {
-                  "Permission" => "FULL_CONTROL",
-                  "Scope" => {"ID" => "2744ccd10c7533bd736ad890f9dd5cab2adb27b07d500b9493f29cdc420cb2e0", "type" => "UserById"}
+                  'Permission' => 'FULL_CONTROL',
+                  'Scope' => {'ID' => '2744ccd10c7533bd736ad890f9dd5cab2adb27b07d500b9493f29cdc420cb2e0', 'type' => 'UserById'}
                 }
               ],
-              "Owner" => {"ID" => "2744ccd10c7533bd736ad890f9dd5cab2adb27b07d500b9493f29cdc420cb2e0"}
+              'Owner' => {'ID' => '2744ccd10c7533bd736ad890f9dd5cab2adb27b07d500b9493f29cdc420cb2e0'}
             }
           when 'public-read'
             {
-              "AccessControlList" => [
+              'AccessControlList' => [
                 {
-                  "Permission" => "FULL_CONTROL",
-                  "Scope" => {"ID" => "2744ccd10c7533bd736ad890f9dd5cab2adb27b07d500b9493f29cdc420cb2e0", "type" => "UserById"}
+                  'Permission' => 'FULL_CONTROL',
+                  'Scope' => {'ID' => '2744ccd10c7533bd736ad890f9dd5cab2adb27b07d500b9493f29cdc420cb2e0', 'type' => 'UserById'}
                 },
                 {
-                  "Permission" => "READ",
-                  "Scope" => {"type" => "AllUsers"}
+                  'Permission' => 'READ',
+                  'Scope' => {'type' => 'AllUsers'}
                 }
               ],
-              "Owner" => {"ID" => "2744ccd10c7533bd736ad890f9dd5cab2adb27b07d500b9493f29cdc420cb2e0"}
+              'Owner' => {'ID' => '2744ccd10c7533bd736ad890f9dd5cab2adb27b07d500b9493f29cdc420cb2e0'}
             }
           when 'public-read-write'
             {
-              "AccessControlList" => [
+              'AccessControlList' => [
                 {
-                  "Permission" => "FULL_CONTROL",
-                  "Scope" => {"ID" => "2744ccd10c7533bd736ad890f9dd5cab2adb27b07d500b9493f29cdc420cb2e0", "type" => "UserById"}
+                  'Permission' => 'FULL_CONTROL',
+                  'Scope' => {'ID' => '2744ccd10c7533bd736ad890f9dd5cab2adb27b07d500b9493f29cdc420cb2e0', 'type' => 'UserById'}
                 },
                 {
-                  "Permission" => "READ",
-                  "Scope" => {"type" => "AllUsers"}
+                  'Permission' => 'READ',
+                  'Scope' => {'type' => 'AllUsers'}
                 },
                 {
-                  "Permission" => "WRITE",
-                  "Scope" => {"type" => "AllUsers"}
+                  'Permission' => 'WRITE',
+                  'Scope' => {'type' => 'AllUsers'}
                 }
               ],
-              "Owner" => {"ID" => "2744ccd10c7533bd736ad890f9dd5cab2adb27b07d500b9493f29cdc420cb2e0"}
+              'Owner' => {'ID' => '2744ccd10c7533bd736ad890f9dd5cab2adb27b07d500b9493f29cdc420cb2e0'}
             }
           when 'authenticated-read'
             {
-              "AccessControlList" => [
+              'AccessControlList' => [
                 {
-                  "Permission" => "FULL_CONTROL",
-                  "Scope" => {"ID" => "2744ccd10c7533bd736ad890f9dd5cab2adb27b07d500b9493f29cdc420cb2e0", "type" => "UserById"}
+                  'Permission' => 'FULL_CONTROL',
+                  'Scope' => {'ID' => '2744ccd10c7533bd736ad890f9dd5cab2adb27b07d500b9493f29cdc420cb2e0', 'type' => 'UserById'}
                 },
                 {
-                  "Permission" => "READ",
-                  "Scope" => {"type" => "AllAuthenticatedUsers"}
+                  'Permission' => 'READ',
+                  'Scope' => {'type' => 'AllAuthenticatedUsers'}
                 }
               ],
-              "Owner" => {"ID" => "2744ccd10c7533bd736ad890f9dd5cab2adb27b07d500b9493f29cdc420cb2e0"}
+              'Owner' => {'ID' => '2744ccd10c7533bd736ad890f9dd5cab2adb27b07d500b9493f29cdc420cb2e0'}
             }
           end
         end
@@ -190,7 +190,7 @@ module Fog
         end
 
         def signature(params)
-          "foo"
+          'foo'
         end
 
       end
@@ -256,7 +256,7 @@ DATA
           end
           string_to_sign << "#{canonical_google_headers}"
 
-          canonical_resource  = "/"
+          canonical_resource  = '/'
           if subdomain = params.delete(:subdomain)
             canonical_resource << "#{CGI.escape(subdomain).downcase}/"
           end

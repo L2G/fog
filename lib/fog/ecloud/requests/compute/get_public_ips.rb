@@ -19,7 +19,7 @@ module Fog
           public_ip_response = {:PublicIp => (public_ips.size > 1 ? public_ips : public_ips.first)} # GAH
           body = {
             :href  => uri,
-            :type  => "application/vnd.tmrk.cloud.publicIp; type=collection",
+            :type  => 'application/vnd.tmrk.cloud.publicIp; type=collection',
             :Links => {
               :Link => environment,
             }

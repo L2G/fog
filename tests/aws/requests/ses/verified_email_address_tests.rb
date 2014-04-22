@@ -7,7 +7,7 @@ Shindo.tests('AWS::SES | verified email address requests', ['aws', 'ses']) do
       Fog::AWS[:ses].verify_email_address('test@example.com').body
     end
 
-    tests("#list_verified_email_addresses").formats(AWS::SES::Formats::BASIC.merge('VerifiedEmailAddresses' => [String])) do
+    tests('#list_verified_email_addresses').formats(AWS::SES::Formats::BASIC.merge('VerifiedEmailAddresses' => [String])) do
       pending if Fog.mocking?
       Fog::AWS[:ses].list_verified_email_addresses.body
     end

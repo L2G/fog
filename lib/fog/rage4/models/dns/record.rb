@@ -10,11 +10,11 @@ module Fog
         identity :id
 
         attribute :name
-        attribute :value,       :aliases => "content"
+        attribute :value,       :aliases => 'content'
         attribute :ttl
-        attribute :zone_id,     :aliases => "domain_id"
-        attribute :type,        :aliases => "record_type"
-        attribute :priority,    :aliases => "priority"
+        attribute :zone_id,     :aliases => 'domain_id'
+        attribute :type,        :aliases => 'record_type'
+        attribute :priority,    :aliases => 'priority'
         attribute :domain_id
         attribute :geo_region_id
         attribute :failover_enabled

@@ -21,7 +21,7 @@ module Fog
         def get(identity)
           role = nil
           begin
-            role = service.roles.new( service.get_role( identity ).data[:body]["Role"] )
+            role = service.roles.new( service.get_role( identity ).data[:body]['Role'] )
           rescue Excon::Errors::NotFound # ignore not found error
           end
           role

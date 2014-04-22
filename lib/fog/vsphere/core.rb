@@ -14,9 +14,9 @@ module Fog
     service(:compute, 'Compute')
 
     # This helper was originally added as Fog.class_as_string and moved to core but only used here
-    def self.class_from_string classname, defaultpath = ""
+    def self.class_from_string classname, defaultpath = ''
       if classname and classname.is_a? String then
-        chain = classname.split("::")
+        chain = classname.split('::')
         klass = Kernel
         chain.each do |klass_string|
           klass = klass.const_get klass_string
@@ -24,7 +24,7 @@ module Fog
         if klass.is_a? Class then
           klass
         elsif defaultpath != nil then
-          class_from_string((defaultpath.split("::") + chain).join("::"), nil)
+          class_from_string((defaultpath.split('::') + chain).join('::'), nil)
         else
           nil
         end
@@ -34,7 +34,7 @@ module Fog
         nil
       end
     rescue NameError
-      defaultpath != nil ? class_from_string((defaultpath.split("::") + chain).join("::"), nil) : nil
+      defaultpath != nil ? class_from_string((defaultpath.split('::') + chain).join('::'), nil) : nil
     end
   end
 end

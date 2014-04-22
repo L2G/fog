@@ -16,7 +16,7 @@ class Joyent < Fog::Bin
       @@connections ||= Hash.new do |hash, key|
         hash[key] = case key
         when :compute
-          Fog::Logger.warning("Joyent[:compute] is not recommended, use Compute[:joyent] for portability")
+          Fog::Logger.warning('Joyent[:compute] is not recommended, use Compute[:joyent] for portability')
           Fog::Compute.new(:provider => 'Joyent')
         when :analytics
           Fog::Joyent::Analytics.new

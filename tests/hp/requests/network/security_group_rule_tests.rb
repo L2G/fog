@@ -32,7 +32,7 @@ Shindo.tests('HP::Network | networking security group rule requests', ['hp', 'ne
       HP[:network].get_security_group_rule(@sec_group_rule_id).body['security_group_rule']
     end
 
-    tests("#list_security_group_rules").formats('security_group_rules' => [@security_group_rule_format]) do
+    tests('#list_security_group_rules').formats('security_group_rules' => [@security_group_rule_format]) do
       HP[:network].list_security_group_rules.body
     end
 

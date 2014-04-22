@@ -1,4 +1,4 @@
-Shindo.tests("Fog::Compute::HPV2 | flavor requests", ['hp', 'v2', 'compute']) do
+Shindo.tests('Fog::Compute::HPV2 | flavor requests', ['hp', 'v2', 'compute']) do
 
   service = Fog::Compute.new(:provider => 'HP', :version => :v2)
 
@@ -25,7 +25,7 @@ Shindo.tests("Fog::Compute::HPV2 | flavor requests", ['hp', 'v2', 'compute']) do
     end
 
     tests('#get_flavor_details("1")').formats(@flavor_format) do
-      service.get_flavor_details("1").body['flavor']
+      service.get_flavor_details('1').body['flavor']
     end
 
     tests('#list_flavors_detail').formats({'flavors' => [@flavor_format]}) do

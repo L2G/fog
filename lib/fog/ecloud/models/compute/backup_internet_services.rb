@@ -27,7 +27,7 @@ module Fog
         end
 
         def create(options)
-          options[:uri] = href + "/action/createBackupInternetService"
+          options[:uri] = href + '/action/createBackupInternetService'
           options[:enabled] ||= true
           data = service.backup_internet_service_create(options)
           new(data)

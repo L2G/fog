@@ -47,7 +47,7 @@ Shindo.tests('Fog::Compute[:cloudsigma] | server requests', ['cloudsigma']) do
     tests("#start_server(#@server_uuid)").succeeds do
       response = Fog::Compute[:cloudsigma].start_server(@server_uuid)
 
-      response.body['result'] == "success"
+      response.body['result'] == 'success'
     end
 
 
@@ -58,7 +58,7 @@ Shindo.tests('Fog::Compute[:cloudsigma] | server requests', ['cloudsigma']) do
     tests("#stop_server(#@server_uuid)").succeeds do
       response = Fog::Compute[:cloudsigma].stop_server(@server_uuid)
 
-      response.body['result'] == "success"
+      response.body['result'] == 'success'
     end
 
 

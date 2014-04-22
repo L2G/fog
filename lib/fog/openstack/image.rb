@@ -203,7 +203,7 @@ module Fog
           @path   = uri.path
           @path.sub!(/\/$/, '')
           unless @path.match(SUPPORTED_VERSIONS)
-            @path = "/" + Fog::OpenStack.get_supported_version(SUPPORTED_VERSIONS,
+            @path = '/' + Fog::OpenStack.get_supported_version(SUPPORTED_VERSIONS,
                                                                uri,
                                                                @auth_token,
                                                                @connection_options)

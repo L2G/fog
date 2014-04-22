@@ -83,48 +83,48 @@ module Fog
 
           data =
               {
-                 "DBInstanceIdentifier" => db_name,
-                 "DBName" => options["DBName"],
-                 "InstanceCreateTime" => nil,
-                 "AutoMinorVersionUpgrade" => true,
-                 "Endpoint" => {},
-                 "ReadReplicaDBInstanceIdentifiers" => [],
-                 "PreferredMaintenanceWindow" => "mon:04:30-mon:05:00",
-                 "Engine" => options["Engine"],
-                 "EngineVersion" => options["EngineVersion"] || "5.5.12",
-                 "PendingModifiedValues" => {"MasterUserPassword" => "****"}, # This clears when is available
-                 "MultiAZ" => !!options['MultiAZ'],
-                 "MasterUsername" => options["MasterUsername"],
-                 "DBInstanceClass" => options["DBInstanceClass"],
-                 "DBInstanceStatus" => "creating",
-                 "BackupRetentionPeriod" => options["BackupRetentionPeriod"] || 1,
-                 "AllocatedStorage" => options["AllocatedStorage"],
-                 "Iops" => options["Iops"],
-                 "DBParameterGroups" => # I think groups should be in the self.data method
-                          [{"DBParameterGroupName" => "default.mysql5.5",
-                            "ParameterApplyStatus" => "in-sync"}],
-                 "DBSecurityGroups" =>
-                          [{"Status" => "active",
-                            "DBSecurityGroupName" => "default"}],
-                 "LicenseModel" => "general-public-license",
-                 "PreferredBackupWindow" => "08:00-08:30",
+                 'DBInstanceIdentifier' => db_name,
+                 'DBName' => options['DBName'],
+                 'InstanceCreateTime' => nil,
+                 'AutoMinorVersionUpgrade' => true,
+                 'Endpoint' => {},
+                 'ReadReplicaDBInstanceIdentifiers' => [],
+                 'PreferredMaintenanceWindow' => 'mon:04:30-mon:05:00',
+                 'Engine' => options['Engine'],
+                 'EngineVersion' => options['EngineVersion'] || '5.5.12',
+                 'PendingModifiedValues' => {'MasterUserPassword' => '****'}, # This clears when is available
+                 'MultiAZ' => !!options['MultiAZ'],
+                 'MasterUsername' => options['MasterUsername'],
+                 'DBInstanceClass' => options['DBInstanceClass'],
+                 'DBInstanceStatus' => 'creating',
+                 'BackupRetentionPeriod' => options['BackupRetentionPeriod'] || 1,
+                 'AllocatedStorage' => options['AllocatedStorage'],
+                 'Iops' => options['Iops'],
+                 'DBParameterGroups' => # I think groups should be in the self.data method
+                          [{'DBParameterGroupName' => 'default.mysql5.5',
+                            'ParameterApplyStatus' => 'in-sync'}],
+                 'DBSecurityGroups' =>
+                          [{'Status' => 'active',
+                            'DBSecurityGroupName' => 'default'}],
+                 'LicenseModel' => 'general-public-license',
+                 'PreferredBackupWindow' => '08:00-08:30',
 #                 "ReadReplicaSourceDBInstanceIdentifier" => nil,
 #                 "LatestRestorableTime" => nil,
-                 "AvailabilityZone" => options["AvailabilityZone"],
-                 "DBSubnetGroupName" => options["DBSubnetGroupName"],
-                 "PubliclyAccessible" => options["PubliclyAccessible"],
-                 "VpcSecurityGroups" => options["VpcSecurityGroups"],
+                 'AvailabilityZone' => options['AvailabilityZone'],
+                 'DBSubnetGroupName' => options['DBSubnetGroupName'],
+                 'PubliclyAccessible' => options['PubliclyAccessible'],
+                 'VpcSecurityGroups' => options['VpcSecurityGroups'],
              }
 
 
           self.data[:servers][db_name] = data
           response.body = {
-            "ResponseMetadata" => { "RequestId" => Fog::AWS::Mock.request_id },
-            "CreateDBInstanceResult" => {"DBInstance" => data}
+            'ResponseMetadata' => { 'RequestId' => Fog::AWS::Mock.request_id },
+            'CreateDBInstanceResult' => {'DBInstance' => data}
           }
           response.status = 200
           # This values aren't showed at creating time but at available time
-          self.data[:servers][db_name]["InstanceCreateTime"] = Time.now
+          self.data[:servers][db_name]['InstanceCreateTime'] = Time.now
           self.data[:tags] ||= {}
           self.data[:tags][db_name] = {}
           response

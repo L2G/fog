@@ -18,7 +18,7 @@ module Fog
         def get_domain(domain)
           request(
             :expects  => 200,
-            :method   => "GET",
+            :method   => 'GET',
             :path     => "/V1.2/domains/#{domain}"
           )
         end

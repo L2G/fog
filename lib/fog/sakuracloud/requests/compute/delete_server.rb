@@ -6,7 +6,7 @@ module Fog
       class Real
 
         def delete_server( id, force = false, disks = [] )
-          body = { "Force" => force, 'WithDisk' => disks }
+          body = { 'Force' => force, 'WithDisk' => disks }
 
           request(
             :headers => {

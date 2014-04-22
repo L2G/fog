@@ -1,4 +1,4 @@
-Shindo.tests("Fog::Joyent[:analytics] | transformations", %w{joyent}) do
+Shindo.tests('Fog::Joyent[:analytics] | transformations', %w{joyent}) do
   @analytics = Fog::Joyent[:analytics]
   @transformations = @analytics.transformations
 
@@ -7,7 +7,7 @@ Shindo.tests("Fog::Joyent[:analytics] | transformations", %w{joyent}) do
   end
 
   tests('#new').succeeds do
-    @transformations.new(['geolocate', { 'label' => 'geolocate IP addresses', "fields" => ["raddr"] }])
+    @transformations.new(['geolocate', { 'label' => 'geolocate IP addresses', 'fields' => ['raddr'] }])
   end
 
 end

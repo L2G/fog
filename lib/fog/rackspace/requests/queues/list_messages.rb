@@ -44,7 +44,7 @@ module Fog
         def list_messages(client_id, queue_name, options = {})
           queue = mock_queue!(queue_name)
 
-          marker = (options[:marker] || "0").to_i
+          marker = (options[:marker] || '0').to_i
           limit = options[:limit] || 10
           echo = options[:echo] || false
           include_claimed = options[:include_claimed] || false
@@ -60,10 +60,10 @@ module Fog
           else
             response.status = 200
             response.body = {
-              "messages" => messages.map { |m| m.to_h },
-              "links" => [{
-                "href" => "#{PATH_BASE}/#{queue_name}/messages?marker=#{next_marker}",
-                "rel" => "next"
+              'messages' => messages.map { |m| m.to_h },
+              'links' => [{
+                'href' => "#{PATH_BASE}/#{queue_name}/messages?marker=#{next_marker}",
+                'rel' => 'next'
               }]
             }
           end

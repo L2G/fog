@@ -13,7 +13,7 @@ module Fog
         attribute :href
 
         def all
-          load([service.get_vdc(service.default_vdc_href).resource_entities].flatten.select { |re| re[:type] == "application/vnd.vmware.vcloud.vApp+xml" })
+          load([service.get_vdc(service.default_vdc_href).resource_entities].flatten.select { |re| re[:type] == 'application/vnd.vmware.vcloud.vApp+xml' })
         end
 
         def get(uri)

@@ -21,7 +21,7 @@ module Fog
         def add_security_group(server_id, sg_name)
           response = Excon::Response.new
           if server = self.data[:servers][server_id]
-            data = {"name" => "#{sg_name}"}
+            data = {'name' => "#{sg_name}"}
             if server['security_groups']
               server['security_groups'] << data
             else

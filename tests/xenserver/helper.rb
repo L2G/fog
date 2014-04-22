@@ -8,7 +8,7 @@ end
 
 def valid_ref?(ref)
   (ref =~ /OpaqueRef:/) and \
-    (ref != "OpaqueRef:NULL" )
+    (ref != 'OpaqueRef:NULL' )
 end
 
 def create_ephemeral_vm

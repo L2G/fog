@@ -16,7 +16,7 @@ module Fog
         def get_record(domain, record_id)
           request(
             :expects  => 200,
-            :method   => "GET",
+            :method   => 'GET',
             :path     => "/domains/#{domain}/records/#{record_id}"
           )
         end
@@ -30,18 +30,18 @@ module Fog
 
           if self.data[:records].has_key?(domain)
             response.status = 200
-            response.body = self.data[:records][domain].detect { |record| record["record"]["id"] == record_id }
+            response.body = self.data[:records][domain].detect { |record| record['record']['id'] == record_id }
 
             if response.body.nil?
               response.status = 404
               response.body = {
-                "error" => "Couldn't find Record with id = #{record_id}"
+                'error' => "Couldn't find Record with id = #{record_id}"
               }
             end
           else
             response.status = 404
             response.body = {
-              "error" => "Couldn't find Domain with name = #{domain}"
+              'error' => "Couldn't find Domain with name = #{domain}"
             }
           end
           response

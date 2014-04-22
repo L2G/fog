@@ -7,7 +7,7 @@ module Fog
         class DescribeConfigurationOptions < Fog::Parsers::AWS::ElasticBeanstalk::BaseParser
 
           def initialize
-            super("DescribeConfigurationOptionsResult")
+            super('DescribeConfigurationOptionsResult')
             tag 'SolutionStackName', :string
             tag 'Options', :object, :list
             tag 'ChangeSeverity', :string

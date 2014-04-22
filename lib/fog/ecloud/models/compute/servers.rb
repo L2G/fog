@@ -35,11 +35,11 @@ module Fog
         def create( template_uri, options )
           options[:cpus]        ||= 1
           options[:memory]      ||= 512
-          options[:description] ||= ""
+          options[:description] ||= ''
           options[:tags]        ||= []
 
           if template_uri =~ /\/templates\/\d+/
-            options[:uri] = href + "/action/createVirtualMachine"
+            options[:uri] = href + '/action/createVirtualMachine'
             options[:customization] ||= :linux
             options[:powered_on] ||= false
             if options[:ips]
@@ -54,7 +54,7 @@ module Fog
             end
             data = service.virtual_machine_create_from_template( template_uri, options ).body
           else
-            options[:uri] = href + "/action/importVirtualMachine"
+            options[:uri] = href + '/action/importVirtualMachine'
             data = service.virtual_machine_import( template_uri, options ).body
           end
           object = self.service.servers.new(data)

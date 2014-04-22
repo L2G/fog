@@ -52,11 +52,11 @@ module Fog
           results = []
           c.objects.each do |key, mock_file|
             results << {
-              "hash" => mock_file.hash,
-              "last_modified" => mock_file.last_modified.strftime('%Y-%m-%dT%H:%M:%S.%L'),
-              "bytes" => mock_file.bytes_used,
-              "name" => key,
-              "content_type" => mock_file.content_type
+              'hash' => mock_file.hash,
+              'last_modified' => mock_file.last_modified.strftime('%Y-%m-%dT%H:%M:%S.%L'),
+              'bytes' => mock_file.bytes_used,
+              'name' => key,
+              'content_type' => mock_file.content_type
             }
           end
 

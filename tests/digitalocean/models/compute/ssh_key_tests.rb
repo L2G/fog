@@ -1,4 +1,4 @@
-Shindo.tests("Fog::Compute[:digitalocean] | ssh_key model", ['digitalocean', 'compute']) do
+Shindo.tests('Fog::Compute[:digitalocean] | ssh_key model', ['digitalocean', 'compute']) do
 
   service = Fog::Compute[:digitalocean]
 
@@ -27,7 +27,7 @@ Shindo.tests("Fog::Compute[:digitalocean] | ssh_key model", ['digitalocean', 'co
         :ssh_pub_key
       ]
 
-      tests("The key model should respond to") do
+      tests('The key model should respond to') do
         attributes.each do |attribute|
           test("#{attribute}") { @key.respond_to? attribute }
         end

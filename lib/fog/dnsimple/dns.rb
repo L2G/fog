@@ -69,7 +69,7 @@ module Fog
             options[:port]    = uri.port
             options[:scheme]  = uri.scheme
           end
-          @host       = options[:host]        || "api.dnsimple.com"
+          @host       = options[:host]        || 'api.dnsimple.com'
           @persistent = options[:persistent]  || false
           @port       = options[:port]        || 443
           @scheme     = options[:scheme]      || 'https'
@@ -85,19 +85,19 @@ module Fog
 
           if(@dnsimple_password)
             key = "#{@dnsimple_email}:#{@dnsimple_password}"
-            params[:headers].merge!("Authorization" => "Basic " + Base64.encode64(key).gsub("\n",''))
+            params[:headers].merge!('Authorization' => 'Basic ' + Base64.encode64(key).gsub("\n",''))
           elsif(@dnsimple_token)
             if(@dnsimple_domain)
-              params[:headers].merge!("X-DNSimple-Domain-Token" => @dnsimple_token)
+              params[:headers].merge!('X-DNSimple-Domain-Token' => @dnsimple_token)
             else
-              params[:headers].merge!("X-DNSimple-Token" => "#{@dnsimple_email}:#{@dnsimple_token}")
+              params[:headers].merge!('X-DNSimple-Token' => "#{@dnsimple_email}:#{@dnsimple_token}")
             end
           else
-            raise ArgumentError.new("Insufficient credentials to properly authenticate!")
+            raise ArgumentError.new('Insufficient credentials to properly authenticate!')
           end
           params[:headers].merge!(
-            "Accept" => "application/json",
-            "Content-Type" => "application/json"
+            'Accept' => 'application/json',
+            'Content-Type' => 'application/json'
           )
 
           version = params.delete(:version) || 'v1'

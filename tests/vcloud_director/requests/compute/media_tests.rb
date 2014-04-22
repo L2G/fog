@@ -62,14 +62,14 @@ Shindo.tests('Compute::VcloudDirector | media requests', ['vclouddirector']) do
       tests("#get_media(#{@media_id})").data_matches_schema(VcloudDirector::Compute::Schema::MEDIA_TYPE) do
         @media = @service.get_media(@media_id).body
       end
-      tests("media[:name]").returns(@media_name) { @media[:name] }
-      tests("media[:imageType]").returns('iso') { @media[:imageType] }
-      tests("media[:size]").returns(@size) { @media[:size].to_i }
+      tests('media[:name]').returns(@media_name) { @media[:name] }
+      tests('media[:imageType]').returns('iso') { @media[:imageType] }
+      tests('media[:size]').returns(@size) { @media[:size].to_i }
 
       tests("#get_media_owner(#{@media_id})").data_matches_schema(VcloudDirector::Compute::Schema::OWNER_TYPE) do
         @owner = @service.get_media_owner(@media_id).body
       end
-      tests("owner[:User][:name]").returns(@service.user_name) { @owner[:User][:name] }
+      tests('owner[:User][:name]').returns(@service.user_name) { @owner[:User][:name] }
 
       tests('media metadata') do
         pending if Fog.mocking?
@@ -80,15 +80,15 @@ Shindo.tests('Compute::VcloudDirector | media requests', ['vclouddirector']) do
         @service.process_task(@task)
 
         tests("#put_media_metadata_item_metadata(#{@media_id})") do
-          tests("#put_media_metadata_item_metadata(Boolean)").returns(true) do
+          tests('#put_media_metadata_item_metadata(Boolean)').returns(true) do
             task = @service.put_media_metadata_item_metadata(@media_id, 'fog-test-boolean', true).body
             @service.process_task(task)
           end
-          tests("#put_media_metadata_item_metadata(DateTime)").returns(true) do
+          tests('#put_media_metadata_item_metadata(DateTime)').returns(true) do
             task = @service.put_media_metadata_item_metadata(@media_id, 'fog-test-datetime', DateTime.now).body
             @service.process_task(task)
           end
-          tests("#put_media_metadata_item_metadata(Number)").returns(true) do
+          tests('#put_media_metadata_item_metadata(Number)').returns(true) do
             task = @service.put_media_metadata_item_metadata(@media_id, 'fog-test-number', 111).body
             @service.process_task(task)
           end

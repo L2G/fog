@@ -22,7 +22,7 @@ Shindo.tests('Fog::Rackspace::LoadBalancers | error_page', ['rackspace', 'loadba
         end
 
         @lb.wait_for { ready? }
-        tests("#remove_error_page()").succeeds do
+        tests('#remove_error_page()').succeeds do
           @service.remove_error_page(@lb.id)
         end
       end

@@ -54,7 +54,7 @@ module Fog
           @bare_metal_cloud_password = options[:bare_metal_cloud_password]
           @bare_metal_cloud_username = options[:bare_metal_cloud_username]
           @connection_options = options[:connection_options] || {}
-          @host       = options[:host]        || "noc.newservers.com"
+          @host       = options[:host]        || 'noc.newservers.com'
           @persistent = options[:persistent]  || false
           @port       = options[:port]        || 443
           @scheme     = options[:scheme]      || 'https'

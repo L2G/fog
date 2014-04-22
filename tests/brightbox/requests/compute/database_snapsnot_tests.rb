@@ -10,10 +10,10 @@ Shindo.tests('Fog::Compute[:brightbox] | database snapshot requests', ['brightbo
     database_server.wait_for { ready? }
     service.snapshot_database_server(database_server.id)
 
-    tests("#list_database_snapshots") do
+    tests('#list_database_snapshots') do
       result = service.list_database_snapshots
       data_matches_schema(Brightbox::Compute::Formats::Collection::DATABASE_SNAPSHOTS, {:allow_extra_keys => true}) { result }
-      @database_snapshot_id = result.last["id"]
+      @database_snapshot_id = result.last['id']
     end
 
     # Can't delete the server until snapshot is finished
@@ -26,7 +26,7 @@ Shindo.tests('Fog::Compute[:brightbox] | database snapshot requests', ['brightbo
     end
 
     update_options = {
-      :name => "New name"
+      :name => 'New name'
     }
     tests("#update_database_snapshot('#{@database_snapshot_id}', update_options)") do
       result = service.update_database_snapshot(@database_snapshot_id, update_options)
@@ -40,8 +40,8 @@ Shindo.tests('Fog::Compute[:brightbox] | database snapshot requests', ['brightbo
   end
 
   tests('failure') do
-    tests("get_database_snapshot").raises(Excon::Errors::NotFound) do
-      service.get_database_snapshot("dbs-00000")
+    tests('get_database_snapshot').raises(Excon::Errors::NotFound) do
+      service.get_database_snapshot('dbs-00000')
     end
   end
 end

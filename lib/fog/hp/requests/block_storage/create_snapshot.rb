@@ -41,7 +41,7 @@ module Fog
             :body     => Fog::JSON.encode(data),
             :expects  => 200,
             :method   => 'POST',
-            :path     => "os-snapshots"
+            :path     => 'os-snapshots'
           )
         end
 

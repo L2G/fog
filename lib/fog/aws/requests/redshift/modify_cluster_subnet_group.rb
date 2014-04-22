@@ -23,7 +23,7 @@ module Fog
           cluster_subnet_group_name = options[:cluster_subnet_group_name]
           description               = options[:description]
 
-          path = "/"
+          path = '/'
           params = {
             :idempotent => true,
             :headers    => {},

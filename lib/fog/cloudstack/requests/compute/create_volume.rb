@@ -33,25 +33,25 @@ module Fog
           end
 
           volume = {
-             "id"                      => volume_id,
-             "name"                    => volume_name,
-             "zoneid"                  => zone_id,
-             "zonename"                => "ey-wdc-00",
-             "type"                    => "DATADISK",
-             "size"                    => 5368709120,
-             "created"                 => "2012-05-22T14:52:55-0500",
-             "state"                   => "Allocated",
-             "account"                 => "accountname",
-             "domainid"                => "6023b6fe-5bef-4358-bc76-9f4e75afa52f",
-             "domain"                  => "ROOT",
-             "storagetype"             => "shared",
-             "hypervisor"              => "None",
-             "diskofferingid"          => disk_offering_id,
-             "diskofferingname"        => "Small",
-             "diskofferingdisplaytext" => "Small Disk, 5 GB",
-             "storage"                 => "none",
-             "destroyed"               => false,
-             "isextractable"           => false
+             'id'                      => volume_id,
+             'name'                    => volume_name,
+             'zoneid'                  => zone_id,
+             'zonename'                => 'ey-wdc-00',
+             'type'                    => 'DATADISK',
+             'size'                    => 5368709120,
+             'created'                 => '2012-05-22T14:52:55-0500',
+             'state'                   => 'Allocated',
+             'account'                 => 'accountname',
+             'domainid'                => '6023b6fe-5bef-4358-bc76-9f4e75afa52f',
+             'domain'                  => 'ROOT',
+             'storagetype'             => 'shared',
+             'hypervisor'              => 'None',
+             'diskofferingid'          => disk_offering_id,
+             'diskofferingname'        => 'Small',
+             'diskofferingdisplaytext' => 'Small Disk, 5 GB',
+             'storage'                 => 'none',
+             'destroyed'               => false,
+             'isextractable'           => false
           }
 
           self.data[:volumes][volume_id] = volume

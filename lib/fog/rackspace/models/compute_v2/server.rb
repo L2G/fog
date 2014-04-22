@@ -202,7 +202,7 @@ module Fog
         # @note The key_pair/key_name is used to specify the keypair used for server creation. It is not populated by cloud servers.
         def key_pair=(new_keypair)
           if new_keypair.is_a?(String)
-             Fog::Logger.deprecation("#key_pair= should be used to set KeyPair objects. Please use #key_name method instead")
+             Fog::Logger.deprecation('#key_pair= should be used to set KeyPair objects. Please use #key_name method instead')
             self.key_name = new_keypair
           else
             self.key_name = new_keypair && new_keypair.name
@@ -241,7 +241,7 @@ module Fog
           modified_options = Marshal.load(Marshal.dump(options))
 
           if attributes[:keypair]
-            Fog::Logger.deprecation(":keypair has been depreciated. Please use :key_name instead.")
+            Fog::Logger.deprecation(':keypair has been depreciated. Please use :key_name instead.')
             modified_options[:key_name] = attributes[:keypair]
           end
 
@@ -344,7 +344,7 @@ module Fog
           requires :identity
           response = service.create_image(identity, name, options)
           begin
-            image_id = response.headers["Location"].match(/\/([^\/]+$)/)[1]
+            image_id = response.headers['Location'].match(/\/([^\/]+$)/)[1]
             Fog::Compute::RackspaceV2::Image.new(:collection => service.images, :service => service, :id => image_id)
           rescue
             nil
@@ -385,7 +385,7 @@ module Fog
         # Server's private IPv4 address
         # @return [String] private IPv4 address
         def private_ip_address
-          addresses['private'].select{|a| a["version"] == 4}[0]["addr"] rescue ''
+          addresses['private'].select{|a| a['version'] == 4}[0]['addr'] rescue ''
         end
 
         # Server's public IPv4 address

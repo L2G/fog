@@ -47,7 +47,7 @@ module Fog
             :body => Fog::JSON.encode(data),
             :expects => [200],
             :method => 'POST',
-            :path => "volumes"
+            :path => 'volumes'
           )
         end
       end
@@ -60,31 +60,31 @@ module Fog
             raise Fog::Rackspace::BlockStorage::BadRequest.new("'size' parameter must be between 100 and 1024")
           else
             volume_id         = Fog::Rackspace::MockData.uuid
-            name              = options[:display_name] || "test volume"
-            description       = options[:display_description] || "description goes here"
-            volume_type       = options[:volume_type] || "SATA"
+            name              = options[:display_name] || 'test volume'
+            description       = options[:display_description] || 'description goes here'
+            volume_type       = options[:volume_type] || 'SATA'
 
             volume = {
-              "id"                  => volume_id,
-              "display_name"        => name,
-              "display_description" => description,
-              "size"                => size,
-              "status"              => "available",
-              "volume_type"         => volume_type,
-              "snapshot_id"         => nil,
-              "attachments"         => [],
-              "created_at"          => Fog::Rackspace::MockData.zulu_time,
-              "availability_zone"   => "nova",
-              "metadata"            => {},
+              'id'                  => volume_id,
+              'display_name'        => name,
+              'display_description' => description,
+              'size'                => size,
+              'status'              => 'available',
+              'volume_type'         => volume_type,
+              'snapshot_id'         => nil,
+              'attachments'         => [],
+              'created_at'          => Fog::Rackspace::MockData.zulu_time,
+              'availability_zone'   => 'nova',
+              'metadata'            => {},
             }
             if snapshot_id = options[:snapshot_id]
               snapshot = self.data[:snapshots][snapshot_id]
-              volume.merge!("size" => snapshot["size"])
+              volume.merge!('size' => snapshot['size'])
             end
 
             self.data[:volumes][volume_id] = volume
 
-            response(:body => {"volume" => volume})
+            response(:body => {'volume' => volume})
           end
         end
       end

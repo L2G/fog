@@ -32,8 +32,8 @@ def get_flavor_ref_resize
 end
 
 def set_password_enabled
-  pw_enabled = ENV['OPENSTACK_SET_PASSWORD_ENABLED'] || "true"
-  return pw_enabled == "true"
+  pw_enabled = ENV['OPENSTACK_SET_PASSWORD_ENABLED'] || 'true'
+  return pw_enabled == 'true'
 end
 
 def get_security_group_ref

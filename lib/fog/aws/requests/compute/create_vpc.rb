@@ -59,12 +59,12 @@ module Fog
 
               # You are not able to push a main route in the normal AWS, so we are re-implementing some of the
               # associate_route_table here in order to accomplish this.
-              route_table = self.data[:route_tables].find { |routetable| routetable["routeTableId"].eql? default_route.id }
+              route_table = self.data[:route_tables].find { |routetable| routetable['routeTableId'].eql? default_route.id }
 
               # This pushes a main route to the associationSet
               # add_route_association(routeTableId, subnetId, main=false) is declared in assocate_route_table.rb
               assoc = add_route_association(default_route.id, nil, true)
-              route_table["associationSet"].push(assoc)
+              route_table['associationSet'].push(assoc)
 
               # Create a default network ACL
               default_nacl = self.network_acls.new(:vpc_id => vpc_id)

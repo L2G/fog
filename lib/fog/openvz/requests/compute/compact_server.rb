@@ -4,7 +4,7 @@ module Fog
       class Real
 
         def compact_server(id,options = {})
-          vzctl("compact",{:ctid => id}.merge(options))
+          vzctl('compact',{:ctid => id}.merge(options))
         end
 
       end

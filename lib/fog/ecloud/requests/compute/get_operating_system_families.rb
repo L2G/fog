@@ -17,7 +17,7 @@ module Fog
           operating_system_family_response = {:OperatingSystemFamily => (operating_system_families.size > 1 ? operating_system_families : operating_system_families.first)} # GAH
           body = {
             :href  => uri,
-            :type  => "application/vnd.tmrk.cloud.operatingSystemFamily; type=collection",
+            :type  => 'application/vnd.tmrk.cloud.operatingSystemFamily; type=collection',
             :Links => {
               :Link => compute_pool,
             }

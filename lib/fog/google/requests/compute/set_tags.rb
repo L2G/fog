@@ -19,7 +19,7 @@ module Fog
             'instance' => instance,
             'zone' => zone
           }
-          body_object = { "fingerprint" => fingerprint, "items" => tags }
+          body_object = { 'fingerprint' => fingerprint, 'items' => tags }
           result = self.build_result(
             api_method,
             parameters,

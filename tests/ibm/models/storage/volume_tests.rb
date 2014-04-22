@@ -4,11 +4,11 @@ Shindo.tests('Fog::Storage[:ibm] | volume', ['ibm']) do
 
     @volume       = nil
     @volume_id    = nil
-    @name         = "fog test volume"
-    @format       = "RAW"
-    @location_id  = "41"
-    @size         = "256"
-    @offering_id  = "20001208"
+    @name         = 'fog test volume'
+    @format       = 'RAW'
+    @location_id  = '41'
+    @size         = '256'
+    @offering_id  = '20001208'
 
     tests('Fog::Storage::IBM::Volume.new') do
       @volume = Fog::Storage[:ibm].volumes.new(
@@ -28,11 +28,11 @@ Shindo.tests('Fog::Storage[:ibm] | volume', ['ibm']) do
       @volume_id = @volume.id
     end
 
-    tests("Fog::Storage::IBM::Volume#instance") do
+    tests('Fog::Storage::IBM::Volume#instance') do
       returns(nil) { @volume.instance }
     end
 
-    tests("Fog::Storage::IBM::Volume#location_id") do
+    tests('Fog::Storage::IBM::Volume#location_id') do
       returns(String) { @volume.location_id.class }
     end
 
@@ -48,7 +48,7 @@ Shindo.tests('Fog::Storage[:ibm] | volume', ['ibm']) do
     end
 
     tests('Fog::Storage::IBM::Volume#state') do
-      returns("Detached") { @volume.state }
+      returns('Detached') { @volume.state }
     end
 
     tests('Fog::Storage::IBM::Volume#destroy') do

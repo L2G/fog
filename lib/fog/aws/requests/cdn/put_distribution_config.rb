@@ -71,7 +71,7 @@ module Fog
               data << "<#{key}>#{value}</#{key}>"
             end
           end
-          data << "</DistributionConfig>"
+          data << '</DistributionConfig>'
           request({
             :body       => data,
             :expects    => 200,

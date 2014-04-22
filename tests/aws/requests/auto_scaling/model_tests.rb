@@ -12,13 +12,13 @@ Shindo.tests('AWS::AutoScaling | model_tests', ['aws', 'auto_scaling']) do
       tests('create configuration') do
         lc = Fog::AWS[:auto_scaling].configurations.create(:id => lc_id, :image_id => 'ami-8c1fece5', :instance_type => 't1.micro')
         #tests("dns names is set").returns(true) { lc.dns_name.is_a?(String) }
-        tests("created_at is set").returns(true) { Time === lc.created_at }
+        tests('created_at is set').returns(true) { Time === lc.created_at }
         #tests("policies is empty").returns([]) { lc.policies }
       end
 
       tests('all configurations') do
         lc_ids = Fog::AWS[:auto_scaling].configurations.all.map{|e| e.id}
-        tests("contains lc").returns(true) { lc_ids.include? lc_id }
+        tests('contains lc').returns(true) { lc_ids.include? lc_id }
       end
 
       tests('get configuration') do
@@ -44,13 +44,13 @@ Shindo.tests('AWS::AutoScaling | model_tests', ['aws', 'auto_scaling']) do
       tests('create') do
         asg = Fog::AWS[:auto_scaling].groups.create(:id => asg_id, :availability_zones => ['us-east-1d'], :launch_configuration_name => lc_id)
         #tests("dns names is set").returns(true) { asg.dns_name.is_a?(String) }
-        tests("created_at is set").returns(true) { Time === asg.created_at }
+        tests('created_at is set').returns(true) { Time === asg.created_at }
         #tests("policies is empty").returns([]) { asg.policies }
       end
 
       tests('all') do
         asg_ids = Fog::AWS[:auto_scaling].groups.all.map{|e| e.id}
-        tests("contains asg").returns(true) { asg_ids.include? asg_id }
+        tests('contains asg').returns(true) { asg_ids.include? asg_id }
       end
 
       tests('get') do

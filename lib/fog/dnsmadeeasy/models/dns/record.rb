@@ -14,15 +14,15 @@ module Fog
         attribute :name
         attribute :type
         attribute :ttl
-        attribute :gtd_location,  :aliases => "gtdLocation"
+        attribute :gtd_location,  :aliases => 'gtdLocation'
         attribute :password
         attribute :description
         attribute :keywords
         attribute :title
-        attribute :redirect_type, :aliases => "redirectType"
-        attribute :hard_link, :aliases => "hardLink"
+        attribute :redirect_type, :aliases => 'redirectType'
+        attribute :hard_link, :aliases => 'hardLink'
 
-        attribute :value,          :aliases => "data"
+        attribute :value,          :aliases => 'data'
 
         def initialize(attributes = {})
           super

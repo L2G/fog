@@ -7,7 +7,7 @@ module Fog
 
         def stop_server( id, force = false )
           if force
-            body = { "Force" => true }
+            body = { 'Force' => true }
           else
             body = {}
           end

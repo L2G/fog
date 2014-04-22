@@ -4,7 +4,7 @@ Shindo.tests('AWS::IAM | group policy requests', ['aws']) do
 
   tests('success') do
 
-    @policy = {"Statement" => [{"Effect" => "Allow", "Action" => "*", "Resource" => "*"}]}
+    @policy = {'Statement' => [{'Effect' => 'Allow', 'Action' => '*', 'Resource' => '*'}]}
 
     tests("#put_group_policy('fog_group_policy_tests', 'fog_policy', #{@policy.inspect})").formats(AWS::IAM::Formats::BASIC) do
       Fog::AWS[:iam].put_group_policy('fog_group_policy_tests', 'fog_policy', @policy).body

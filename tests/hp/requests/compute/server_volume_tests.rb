@@ -1,4 +1,4 @@
-Shindo.tests("Fog::Compute[:hp] | volume requests", ['hp', 'compute', 'volumes']) do
+Shindo.tests('Fog::Compute[:hp] | volume requests', ['hp', 'compute', 'volumes']) do
 
   @list_volume_attachments_format = {
     'volumeAttachments' => [{
@@ -11,12 +11,12 @@ Shindo.tests("Fog::Compute[:hp] | volume requests", ['hp', 'compute', 'volumes']
 
   @volume_attachment_format = {
     'volumeAttachment' => {
-      "volumeId" => Integer,
-      "id"       => Integer
+      'volumeId' => Integer,
+      'id'       => Integer
     }
   }
 
-  @base_image_id = ENV["BASE_IMAGE_ID"] || 1242
+  @base_image_id = ENV['BASE_IMAGE_ID'] || 1242
 
   @server = Fog::Compute[:hp].servers.create(:name => 'fogservoltests', :flavor_id => 100, :image_id => @base_image_id)
   @server.wait_for { ready? }
@@ -46,7 +46,7 @@ Shindo.tests("Fog::Compute[:hp] | volume requests", ['hp', 'compute', 'volumes']
 
   tests('failure') do
 
-    tests("#list_server_volumes(0)").raises(Fog::Compute::HP::NotFound) do
+    tests('#list_server_volumes(0)').raises(Fog::Compute::HP::NotFound) do
       Fog::Compute[:hp].list_server_volumes(0)
     end
 

@@ -14,7 +14,7 @@ module Fog
             :body     => Fog::JSON.encode(data),
             :expects  => [200, 202],
             :method   => 'POST',
-            :path     => "servers/%s/os-volume_attachments" % [server_id]
+            :path     => 'servers/%s/os-volume_attachments' % [server_id]
           )
         end
 

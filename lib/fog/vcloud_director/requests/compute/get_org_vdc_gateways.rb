@@ -39,19 +39,19 @@ module Fog
           body =
             {:xmlns => xmlns,
              :xmlns_xsi => xmlns_xsi,
-             :total => "1",
-             :pageSize => "25",
-             :page => "1",
-             :name => "edgeGateways",
-             :type => "application/vnd.vmware.vcloud.query.records+xml",
+             :total => '1',
+             :pageSize => '25',
+             :page => '1',
+             :name => 'edgeGateways',
+             :type => 'application/vnd.vmware.vcloud.query.records+xml',
              :href => make_href("admin/vdc/#{vdc_id}edgeGateways?page=1&pageSize=25&format=records"),
              :xsi_schemaLocation => xsi_schema_location,
              :Link =>
-              [{:rel => "alternate",
-                :type => "application/vnd.vmware.vcloud.query.references+xml",
+              [{:rel => 'alternate',
+                :type => 'application/vnd.vmware.vcloud.query.references+xml',
                 :href => make_href("admin/vdc/#{vdc_id}edgeGateways?page=1&pageSize=25&format=references")},
-               {:rel => "alternate",
-                :type => "application/vnd.vmware.vcloud.query.idrecords+xml",
+               {:rel => 'alternate',
+                :type => 'application/vnd.vmware.vcloud.query.idrecords+xml',
                 :href => make_href("admin/vdc/#{vdc_id}edgeGateways?page=1&pageSize=25&format=records")}],
              :EdgeGatewayRecord => []}
 
@@ -61,14 +61,14 @@ module Fog
 
           body[:EdgeGatewayRecord] += vdc_edge_gateways.map do |id, edge_gateway|
             {:vdc => make_href("vdc/#{vdc_id}"),
-             :numberOfOrgNetworks => "1",
-             :numberOfExtNetworks => "1",
+             :numberOfOrgNetworks => '1',
+             :numberOfExtNetworks => '1',
              :name => edge_gateway[:name],
-             :isBusy => "false",
-             :haStatus => "DISABLED",
-             :gatewayStatus => "READY",
+             :isBusy => 'false',
+             :haStatus => 'DISABLED',
+             :gatewayStatus => 'READY',
              :href => make_href("admin/edgeGateway/#{id}"),
-             :isSyslogServerSettingInSync => "true"}
+             :isSyslogServerSettingInSync => 'true'}
           end
 
           Excon::Response.new(

@@ -25,7 +25,7 @@ module Fog
 
           all_projects.each do |project|
             begin
-              images = service.list_images(project).body["items"] || []
+              images = service.list_images(project).body['items'] || []
 
               # Keep track of the project in which we found the image(s)
               images.each { |img| img[:project] = project }

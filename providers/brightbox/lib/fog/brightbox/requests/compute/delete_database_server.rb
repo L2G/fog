@@ -9,8 +9,8 @@ module Fog
         # @see https://api.gb1.brightbox.com/1.0/#database_server_delete_database_server
         #
         def delete_database_server(identifier)
-          return nil if identifier.nil? || identifier == ""
-          wrapped_request("delete", "/1.0/database_servers/#{identifier}", [202])
+          return nil if identifier.nil? || identifier == ''
+          wrapped_request('delete', "/1.0/database_servers/#{identifier}", [202])
         end
 
         # Old format of the delete request.

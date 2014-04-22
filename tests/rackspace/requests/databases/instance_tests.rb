@@ -9,7 +9,7 @@ Shindo.tests('Fog::Rackspace::Database | instance_tests', ['rackspace']) do
     instance_id = nil
     instance_name = 'fog' + Time.now.to_i.to_s
 
-    tests("#list_instances").formats(LIST_INSTANCES_FORMAT) do
+    tests('#list_instances').formats(LIST_INSTANCES_FORMAT) do
       service.list_instances.body
     end
 
@@ -19,7 +19,7 @@ Shindo.tests('Fog::Rackspace::Database | instance_tests', ['rackspace']) do
       data
     end
 
-    until service.get_instance(instance_id).body["instance"]["status"] == 'ACTIVE'
+    until service.get_instance(instance_id).body['instance']['status'] == 'ACTIVE'
       sleep 10
     end
 
@@ -39,7 +39,7 @@ Shindo.tests('Fog::Rackspace::Database | instance_tests', ['rackspace']) do
       service.restart_instance(instance_id)
     end
 
-    until service.get_instance(instance_id).body["instance"]["status"] == 'ACTIVE'
+    until service.get_instance(instance_id).body['instance']['status'] == 'ACTIVE'
       sleep 10
     end
 
@@ -47,7 +47,7 @@ Shindo.tests('Fog::Rackspace::Database | instance_tests', ['rackspace']) do
       service.resize_instance(instance_id, 2)
     end
 
-    until service.get_instance(instance_id).body["instance"]["status"] == 'ACTIVE'
+    until service.get_instance(instance_id).body['instance']['status'] == 'ACTIVE'
       sleep 10
     end
 
@@ -55,7 +55,7 @@ Shindo.tests('Fog::Rackspace::Database | instance_tests', ['rackspace']) do
       service.resize_instance_volume(instance_id, 2)
     end
 
-    until service.get_instance(instance_id).body["instance"]["status"] == 'ACTIVE'
+    until service.get_instance(instance_id).body['instance']['status'] == 'ACTIVE'
       sleep 10
     end
 

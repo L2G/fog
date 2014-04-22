@@ -47,30 +47,30 @@ module Fog
           @data ||= Hash.new do |hash, key|
             hash[key] = {
                 :versions => {
-                  "v1.1" => { "id" => "v1.1",
-                              "links" => [{"href" => "http://api-docs.hpcloud.com", "rel" => "self"}],
-                              "status" => "CURRENT",
-                              "updated" => "2012-12-18T18:30:02.25Z"
+                  'v1.1' => { 'id' => 'v1.1',
+                              'links' => [{'href' => 'http://api-docs.hpcloud.com', 'rel' => 'self'}],
+                              'status' => 'CURRENT',
+                              'updated' => '2012-12-18T18:30:02.25Z'
                   }
                 },
                 :limits => {
-                  "absolute" => {
-                    "values" => {
-                      "maxLoadBalancerNameLength" => 128,
-                      "maxLoadBalancers"          => 20,
-                      "maxNodesPerLoadBalancer"   => 5,
-                      "maxVIPsPerLoadBalancer"    => 1
+                  'absolute' => {
+                    'values' => {
+                      'maxLoadBalancerNameLength' => 128,
+                      'maxLoadBalancers'          => 20,
+                      'maxNodesPerLoadBalancer'   => 5,
+                      'maxVIPsPerLoadBalancer'    => 1
                     }
                   }
                 },
                 :lbs => {},
                 :protocols => {
-                  "HTTP" => { "name" => "HTTP", "port" => 80 },
-                  "TCP"  => { "name" => "TCP", "port"  => 443 }
+                  'HTTP' => { 'name' => 'HTTP', 'port' => 80 },
+                  'TCP'  => { 'name' => 'TCP', 'port'  => 443 }
                 },
                 :algorithms => {
-                  "ROUND_ROBIN"       => { "name" => "ROUND_ROBIN" },
-                  "LEAST_CONNECTIONS" => { "name" => "LEAST_CONNECTIONS"}
+                  'ROUND_ROBIN'       => { 'name' => 'ROUND_ROBIN' },
+                  'LEAST_CONNECTIONS' => { 'name' => 'LEAST_CONNECTIONS'}
                 }
             }
           end
@@ -106,7 +106,7 @@ module Fog
           ### Set an option to use the style of authentication desired; :v1 or :v2 (default)
           auth_version        = options[:hp_auth_version] || :v2
           ### Pass the service name for object storage to the authentication call
-          options[:hp_service_type] ||= "Load Balancer"
+          options[:hp_service_type] ||= 'Load Balancer'
           @hp_tenant_id       = options[:hp_tenant_id]
           @hp_avl_zone        = options[:hp_avl_zone]
 

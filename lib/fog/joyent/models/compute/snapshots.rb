@@ -15,7 +15,7 @@ module Fog
 
         def all(machine_id)
           data = service.list_machine_snapshots(machine_id).body.map do |m|
-            m["machine_id"] = machine_id
+            m['machine_id'] = machine_id
             m
           end
           load(data)
@@ -24,7 +24,7 @@ module Fog
         def get(machine_id, snapshot_name)
           data = service.get_machine_snapshot(machine_id, snapshot_name).body
           if data
-            data["machine_id"] = machine_id
+            data['machine_id'] = machine_id
             new(data)
           else
             nil

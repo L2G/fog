@@ -1,4 +1,4 @@
-Shindo.tests("Fog::Compute[:aws] | address", ['aws']) do
+Shindo.tests('Fog::Compute[:aws] | address', ['aws']) do
 
   model_tests(Fog::Compute[:aws].addresses, {}, true) do
 
@@ -20,5 +20,5 @@ Shindo.tests("Fog::Compute[:aws] | address", ['aws']) do
 
   end
 
-  model_tests(Fog::Compute[:aws].addresses, { :domain => "vpc" }, true)
+  model_tests(Fog::Compute[:aws].addresses, { :domain => 'vpc' }, true)
 end

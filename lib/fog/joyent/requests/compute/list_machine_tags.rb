@@ -6,7 +6,7 @@ module Fog
         def list_machine_tags(machine_id)
           request(
             :path => "/my/machines/#{machine_id}/tags",
-            :method => "GET",
+            :method => 'GET',
             :expects => 200,
             :idempotent => true
           )

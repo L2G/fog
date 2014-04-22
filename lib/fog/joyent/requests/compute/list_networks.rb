@@ -14,8 +14,8 @@ module Fog
       class Real
         def list_networks(options = {})
           request(
-            :path => "/my/networks",
-            :method => "GET",
+            :path => '/my/networks',
+            :method => 'GET',
             :query => options,
             :expects => 200,
             :idempotent => true

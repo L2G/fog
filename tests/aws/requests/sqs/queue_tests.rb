@@ -16,7 +16,7 @@ Shindo.tests('AWS::SQS | queue requests', ['aws']) do
       'QueueUrls' => [String]
     })
 
-    tests("#list_queues").formats(list_queues_format) do
+    tests('#list_queues').formats(list_queues_format) do
       Fog::AWS[:sqs].list_queues.body
     end
 

@@ -4,7 +4,7 @@ module Fog
       class Real
 
         def stop_server(id, options = {})
-          vzctl("stop",{:ctid => id}.merge(options))
+          vzctl('stop',{:ctid => id}.merge(options))
         end
 
       end

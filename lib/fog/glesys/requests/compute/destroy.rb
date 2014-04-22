@@ -9,7 +9,7 @@ module Fog
             options[:keepip] = 0
           end
 
-          request("/server/destroy", options)
+          request('/server/destroy', options)
         end
       end
 

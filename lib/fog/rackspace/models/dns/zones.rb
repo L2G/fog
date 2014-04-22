@@ -6,7 +6,7 @@ module Fog
     class Rackspace
       class Zones < Fog::Collection
 
-        attribute :total_entries, :aliases => "totalEntries"
+        attribute :total_entries, :aliases => 'totalEntries'
 
         model Fog::DNS::Rackspace::Zone
 
@@ -30,7 +30,7 @@ module Fog
           params = { :limit => 100} # prime loop (100 Records is default page size for Rackspace Cloud)
           while params
             body = service.list_domains(params).body
-            subset = dup.load(body["domains"])
+            subset = dup.load(body['domains'])
             self.merge_attributes(body)
 
             params = next_params(body)

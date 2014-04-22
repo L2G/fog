@@ -5,7 +5,7 @@ module Fog
 
         def list_templates(options = {})
           request(
-            :path     => "/Storm/Template/list",
+            :path     => '/Storm/Template/list',
             :body     => Fog::JSON.encode(:params => options)
           )
         end

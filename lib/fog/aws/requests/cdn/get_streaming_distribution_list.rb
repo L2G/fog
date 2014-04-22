@@ -44,7 +44,7 @@ module Fog
             :idempotent => true,
             :method   => 'GET',
             :parser   => Fog::Parsers::CDN::AWS::GetStreamingDistributionList.new,
-            :path       => "/streaming-distribution",
+            :path       => '/streaming-distribution',
             :query      => options
           })
         end

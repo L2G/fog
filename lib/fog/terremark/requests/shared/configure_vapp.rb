@@ -5,8 +5,8 @@ module Fog
         include Common
         def configure_vapp(vapp_id, vapp_name, options = {})
 
-        items = ""
-        vapp_uri = [@host, @path, "vApp", vapp_id.to_s].join("/")
+        items = ''
+        vapp_uri = [@host, @path, 'vApp', vapp_id.to_s].join('/')
 
         if options['vcpus']
           vcpu_item = <<-DATA

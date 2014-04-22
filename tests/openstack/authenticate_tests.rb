@@ -9,63 +9,63 @@ Shindo.tests('OpenStack | authenticate', ['openstack']) do
     tenant_token = Fog::Mock.random_numbers(8).to_s
 
     body = {
-      "access" => {
-        "token" => {
-          "expires" => expires.iso8601,
-          "id"      => token,
-          "tenant"  => {
-            "enabled"     => true,
-            "description" => nil,
-            "name"        => "admin",
-            "id"          => tenant_token,
+      'access' => {
+        'token' => {
+          'expires' => expires.iso8601,
+          'id'      => token,
+          'tenant'  => {
+            'enabled'     => true,
+            'description' => nil,
+            'name'        => 'admin',
+            'id'          => tenant_token,
           }
         },
-        "serviceCatalog" => [{
-          "endpoints" => [{
-            "adminURL" =>
+        'serviceCatalog' => [{
+          'endpoints' => [{
+            'adminURL' =>
               "http://example:8774/v2/#{tenant_token}",
-              "region" => "RegionOne",
-            "internalURL" =>
+              'region' => 'RegionOne',
+            'internalURL' =>
               "http://example:8774/v2/#{tenant_token}",
-            "id" => Fog::Mock.random_numbers(8).to_s,
-            "publicURL" =>
+            'id' => Fog::Mock.random_numbers(8).to_s,
+            'publicURL' =>
              "http://example:8774/v2/#{tenant_token}"
           }],
-          "endpoints_links" => [],
-          "type" => "compute",
-          "name" => "nova"
+          'endpoints_links' => [],
+          'type' => 'compute',
+          'name' => 'nova'
         },
-        { "endpoints" => [{
-            "adminURL"    => "http://example:9292",
-            "region"      => "RegionOne",
-            "internalURL" => "http://example:9292",
-            "id"          => Fog::Mock.random_numbers(8).to_s,
-            "publicURL"   => "http://example:9292"
+        { 'endpoints' => [{
+            'adminURL'    => 'http://example:9292',
+            'region'      => 'RegionOne',
+            'internalURL' => 'http://example:9292',
+            'id'          => Fog::Mock.random_numbers(8).to_s,
+            'publicURL'   => 'http://example:9292'
           }],
-          "endpoints_links" => [],
-          "type"            => "image",
-          "name"            => "glance"
+          'endpoints_links' => [],
+          'type'            => 'image',
+          'name'            => 'glance'
         }],
-        "user" => {
-          "username" => "admin",
-          "roles_links" => [],
-          "id" => Fog::Mock.random_numbers(8).to_s,
-          "roles" => [
-            { "name" => "admin" },
-            { "name" => "KeystoneAdmin" },
-            { "name" => "KeystoneServiceAdmin" }
+        'user' => {
+          'username' => 'admin',
+          'roles_links' => [],
+          'id' => Fog::Mock.random_numbers(8).to_s,
+          'roles' => [
+            { 'name' => 'admin' },
+            { 'name' => 'KeystoneAdmin' },
+            { 'name' => 'KeystoneServiceAdmin' }
           ],
-          "name" => "admin"
+          'name' => 'admin'
         },
-        "metadata" => {
-          "is_admin" => 0,
-          "roles" => [
+        'metadata' => {
+          'is_admin' => 0,
+          'roles' => [
             Fog::Mock.random_numbers(8).to_s,
             Fog::Mock.random_numbers(8).to_s,
             Fog::Mock.random_numbers(8).to_s,]}}}
 
-    tests("v2") do
-      Excon.stub({ :method => 'POST', :path => "/v2.0/tokens" },
+    tests('v2') do
+      Excon.stub({ :method => 'POST', :path => '/v2.0/tokens' },
                  { :status => 200, :body => Fog::JSON.encode(body) })
 
       expected = {
@@ -89,8 +89,8 @@ Shindo.tests('OpenStack | authenticate', ['openstack']) do
       end
     end
 
-    tests("v2 missing service") do
-      Excon.stub({ :method => 'POST', :path => "/v2.0/tokens" },
+    tests('v2 missing service') do
+      Excon.stub({ :method => 'POST', :path => '/v2.0/tokens' },
                  { :status => 200, :body => Fog::JSON.encode(body) })
 
       raises(Fog::Errors::NotFound,
@@ -102,26 +102,26 @@ Shindo.tests('OpenStack | authenticate', ['openstack']) do
       end
     end
 
-    tests("v2 auth with two compute services") do
+    tests('v2 auth with two compute services') do
       body_clone = body.clone
-      body_clone["access"]["serviceCatalog"] <<
+      body_clone['access']['serviceCatalog'] <<
         {
-        "endpoints" => [{
-          "adminURL" =>
+        'endpoints' => [{
+          'adminURL' =>
             "http://example2:8774/v2/#{tenant_token}",
-            "region" => "RegionOne",
-          "internalURL" =>
+            'region' => 'RegionOne',
+          'internalURL' =>
             "http://example2:8774/v2/#{tenant_token}",
-          "id" => Fog::Mock.random_numbers(8).to_s,
-          "publicURL" =>
+          'id' => Fog::Mock.random_numbers(8).to_s,
+          'publicURL' =>
            "http://example2:8774/v2/#{tenant_token}"
         }],
-        "endpoints_links" => [],
-        "type" => "compute",
-        "name" => "nova2"
+        'endpoints_links' => [],
+        'type' => 'compute',
+        'name' => 'nova2'
         }
 
-      Excon.stub({ :method => 'POST', :path => "/v2.0/tokens" },
+      Excon.stub({ :method => 'POST', :path => '/v2.0/tokens' },
                  { :status => 200, :body => Fog::JSON.encode(body_clone) })
 
       returns("http://example2:8774/v2/#{tenant_token}") do
@@ -134,19 +134,19 @@ Shindo.tests('OpenStack | authenticate', ['openstack']) do
 
     end
 
-    tests("legacy v1 auth") do
+    tests('legacy v1 auth') do
       headers = {
-        "X-Storage-Url"   => "https://swift.myhost.com/v1/AUTH_tenant",
-        "X-Auth-Token"    => "AUTH_yui193bdc00c1c46c5858788yuio0e1e2p",
-        "X-Trans-Id"      => "iu99nm9999f9b999c9b999dad9cd999e99",
-        "Content-Length"  => "0",
-        "Date"            => "Wed, 07 Aug 2013 11:11:11 GMT"
+        'X-Storage-Url'   => 'https://swift.myhost.com/v1/AUTH_tenant',
+        'X-Auth-Token'    => 'AUTH_yui193bdc00c1c46c5858788yuio0e1e2p',
+        'X-Trans-Id'      => 'iu99nm9999f9b999c9b999dad9cd999e99',
+        'Content-Length'  => '0',
+        'Date'            => 'Wed, 07 Aug 2013 11:11:11 GMT'
       }
 
-      Excon.stub({:method => 'GET', :path => "/auth/v1.0"},
-                 {:status => 200, :body => "", :headers => headers})
+      Excon.stub({:method => 'GET', :path => '/auth/v1.0'},
+                 {:status => 200, :body => '', :headers => headers})
 
-      returns("https://swift.myhost.com/v1/AUTH_tenant") do
+      returns('https://swift.myhost.com/v1/AUTH_tenant') do
         Fog::OpenStack.authenticate_v1(
           :openstack_auth_uri     => URI('https://swift.myhost.com/auth/v1.0'),
           :openstack_username     => 'tenant:dev',

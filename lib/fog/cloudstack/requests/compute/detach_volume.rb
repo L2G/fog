@@ -35,24 +35,24 @@ module Fog
           user_id = self.data[:users].first
 
           job = {
-            "accountid"     => account_id,
-            "userid"        => user_id,
-            "cmd"           => "com.cloud.api.commands.DetachVolumeCmd",
-            "created"       => Time.now.iso8601,
-            "jobid"         => job_id,
-            "jobstatus"     => 1,
-            "jobprocstatus" => 0,
-            "jobresultcode" => 0,
-            "jobresulttype" => "object",
-            "jobresult"     =>
-              {"volume"     => volume}
+            'accountid'     => account_id,
+            'userid'        => user_id,
+            'cmd'           => 'com.cloud.api.commands.DetachVolumeCmd',
+            'created'       => Time.now.iso8601,
+            'jobid'         => job_id,
+            'jobstatus'     => 1,
+            'jobprocstatus' => 0,
+            'jobresultcode' => 0,
+            'jobresulttype' => 'object',
+            'jobresult'     =>
+              {'volume'     => volume}
           }
 
           self.data[:jobs][job_id] = job
 
           {
-            "detachvolumeresponse" => {
-              "jobid" => job_id
+            'detachvolumeresponse' => {
+              'jobid' => job_id
             }
           }
         end

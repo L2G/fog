@@ -47,7 +47,7 @@ module Fog
         end
 
         def get(identifier)
-          return nil if identifier.nil? || identifier == ""
+          return nil if identifier.nil? || identifier == ''
           data = service.get_server(identifier)
           new(data)
         rescue Excon::Errors::NotFound

@@ -12,7 +12,7 @@ module Fog
             end
           else
             if zone_name.is_a? Excon::Response
-              return zone_name.body["name"]
+              return zone_name.body['name']
             end
           end
           return zone_name
@@ -26,24 +26,24 @@ module Fog
           zone_name = find_zone(zone_name)
           get_server(server_name, zone_name)
           server = self.data[:servers][server_name]
-          server["status"] = "STOPPED"
-          server["mock-deletionTimestamp"] = Time.now.iso8601
+          server['status'] = 'STOPPED'
+          server['mock-deletionTimestamp'] = Time.now.iso8601
 
           operation = self.random_operation
           self.data[:operations][operation] = {
-            "kind" => "compute#operation",
-            "id" => Fog::Mock.random_numbers(19).to_s,
-            "name" => operation,
-            "zone" => "https://www.googleapis.com/compute/#{api_version}/projects/#{@project}/zones/#{zone_name}",
-            "operationType" => "delete",
-            "targetLink" => "https://www.googleapis.com/compute/#{api_version}/projects/#{@project}/zones/#{zone_name}/instances/#{server_name}",
-            "targetId" => self.data[:servers][server_name]["id"],
-            "status" => Fog::Compute::Google::Operation::PENDING_STATE,
-            "user" => "123456789012-qwertyuiopasdfghjkl1234567890qwe@developer.gserviceaccount.com",
-            "progress" => 0,
-            "insertTime" => Time.now.iso8601,
-            "startTime" => Time.now.iso8601,
-            "selfLink" => "https://www.googleapis.com/compute/#{api_version}/projects/#{@project}/zones/#{zone_name}/operations/#{operation}"
+            'kind' => 'compute#operation',
+            'id' => Fog::Mock.random_numbers(19).to_s,
+            'name' => operation,
+            'zone' => "https://www.googleapis.com/compute/#{api_version}/projects/#{@project}/zones/#{zone_name}",
+            'operationType' => 'delete',
+            'targetLink' => "https://www.googleapis.com/compute/#{api_version}/projects/#{@project}/zones/#{zone_name}/instances/#{server_name}",
+            'targetId' => self.data[:servers][server_name]['id'],
+            'status' => Fog::Compute::Google::Operation::PENDING_STATE,
+            'user' => '123456789012-qwertyuiopasdfghjkl1234567890qwe@developer.gserviceaccount.com',
+            'progress' => 0,
+            'insertTime' => Time.now.iso8601,
+            'startTime' => Time.now.iso8601,
+            'selfLink' => "https://www.googleapis.com/compute/#{api_version}/projects/#{@project}/zones/#{zone_name}/operations/#{operation}"
           }
 
           build_response(:body => self.data[:operations][operation])

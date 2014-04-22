@@ -19,12 +19,12 @@ module Fog
         end
 
         def move_up(options)
-          options[:uri] = href + "/action/moveup"
+          options[:uri] = href + '/action/moveup'
           service.rows_moveup(options).body
         end
 
         def move_down(options)
-          options[:uri] = href + "/action/movedown"
+          options[:uri] = href + '/action/movedown'
           service.rows_movedown(options).body
         end
 

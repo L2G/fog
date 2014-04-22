@@ -29,11 +29,11 @@ module Fog
 
           server = self.data[:servers][server_id]
 
-          raise Excon::Errors::BadRequest.new "Server not found" unless server
+          raise Excon::Errors::BadRequest.new 'Server not found' unless server
 
           pa = server['addresses']['public']
 
-          raise Excon::Errors::BadRequest.new "Address not found" unless pa && pa.reject! {|addr|
+          raise Excon::Errors::BadRequest.new 'Address not found' unless pa && pa.reject! {|addr|
             addr['ip'] == ip
           }
 

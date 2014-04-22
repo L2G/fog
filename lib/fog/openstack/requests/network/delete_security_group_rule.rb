@@ -10,7 +10,7 @@ module Fog
         def delete_security_group_rule(security_group_rule_id)
           request(
             :expects  => 204,
-            :method   => "DELETE",
+            :method   => 'DELETE',
             :path     => "security-group-rules/#{security_group_rule_id}"
           )
         end

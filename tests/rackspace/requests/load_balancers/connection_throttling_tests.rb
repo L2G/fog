@@ -22,7 +22,7 @@ Shindo.tests('Fog::Rackspace::LoadBalancers | connection_throttling', ['rackspac
         end
 
         @lb.wait_for { ready? }
-        tests("#remove_connection_throttling()").succeeds do
+        tests('#remove_connection_throttling()').succeeds do
           @service.remove_connection_throttling(@lb.id)
         end
       end

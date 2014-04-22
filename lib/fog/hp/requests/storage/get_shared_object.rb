@@ -41,7 +41,7 @@ module Fog
             'Last-Modified'            => Date.today.rfc822,
             'Etag'                     => Fog::HP::Mock.etag,
             'Accept-Ranges'            => 'bytes',
-            'Content-Type'             => "text/plain",
+            'Content-Type'             => 'text/plain',
             'Content-Length'           => 11,
             'X-Trans-Id'               => "tx#{Fog::Mock.random_hex(32)}"
           }

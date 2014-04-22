@@ -7,30 +7,30 @@ module Fog
 
           def reset
             @response = {
-              "links" => []
+              'links' => []
             }
           end
 
           def start_element(name,attributes = [])
             super
             case name
-            when "Network"
+            when 'Network'
               @response = extract_attributes(attributes)
-              if @response.has_key?("name")
-                @response["subnet"] = @response["name"]
+              if @response.has_key?('name')
+                @response['subnet'] = @response['name']
               end
-              if @response.has_key?("href")
-                @response["id"] = @response["href"].split("/").last
+              if @response.has_key?('href')
+                @response['id'] = @response['href'].split('/').last
               end
-            when "Link"
+            when 'Link'
               link = extract_attributes(attributes)
-              @response["links"] << link
+              @response['links'] << link
             end
           end
 
           def end_element(name)
             case name
-            when "Gateway", "Netmask", "FenceMode"
+            when 'Gateway', 'Netmask', 'FenceMode'
               @response[name.downcase] = value
             end
           end

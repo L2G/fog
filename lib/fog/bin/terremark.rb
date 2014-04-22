@@ -10,7 +10,7 @@ class Terremark < Fog::Bin
       when :vcloud
         Fog::Terremark::Vcloud
       else
-        raise "Unsupported Terremark Service"
+        raise 'Unsupported Terremark Service'
       end
     end
 

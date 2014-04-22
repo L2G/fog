@@ -30,7 +30,7 @@ module Fog
         def list_records(domain, options = {})
           request(
             :expects  => 200,
-            :method   => "GET",
+            :method   => 'GET',
             :path     => "/V1.2/domains/#{domain}/records",
             :query    => options
           )

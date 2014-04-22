@@ -44,7 +44,7 @@ module Fog
             options[:port]    = uri.port
             options[:scheme]  = uri.scheme
           end
-          @host       = options[:host]        || "secure.rage4.com"
+          @host       = options[:host]        || 'secure.rage4.com'
           @persistent = options[:persistent]  || false
           @port       = options[:port]        || 443
           @scheme     = options[:scheme]      || 'https'
@@ -58,7 +58,7 @@ module Fog
         def request(params)
           params[:headers] ||= {}
           key = "#{@rage4_email}:#{@rage4_password}"
-          params[:headers].merge!({ "Authorization" => "Basic " + Base64.encode64(key).gsub("\n",'')})
+          params[:headers].merge!({ 'Authorization' => 'Basic ' + Base64.encode64(key).gsub("\n",'')})
 
           response = @connection.request(params)
 

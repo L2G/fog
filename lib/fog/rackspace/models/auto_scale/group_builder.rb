@@ -23,8 +23,8 @@ module Fog
 
           def build_server_launch_config(attributes)
             return nil unless attributes[:launch_config_type] == :launch_server
-            args = {"server" => build_server_template(attributes) }
-            args["loadBalancers"] = build_load_balancers(attributes) if attributes[:load_balancers]
+            args = {'server' => build_server_template(attributes) }
+            args['loadBalancers'] = build_load_balancers(attributes) if attributes[:load_balancers]
 
             Fog::Rackspace::AutoScale::LaunchConfig.new :type => :launch_server, :args => args
           end
@@ -41,10 +41,10 @@ module Fog
           end
 
           def load_balancer_to_hash(lb)
-            raise ArgumentError.new("Expected LoadBalancer") unless lb.respond_to?(:id) && lb.respond_to?(:port)
+            raise ArgumentError.new('Expected LoadBalancer') unless lb.respond_to?(:id) && lb.respond_to?(:port)
             {
-              "port" =>  lb.port,
-              "loadBalancerId" => lb.id
+              'port' =>  lb.port,
+              'loadBalancerId' => lb.id
             }
           end
 
@@ -53,15 +53,15 @@ module Fog
             flavor_id = get_id(:flavor, attributes)
 
             server_template =   {
-              "name" => attributes[:server_name],
-              "imageRef" => image_id,
-              "flavorRef" => flavor_id,
-              "OS-DCF =>diskConfig" => attributes[:disk_config] || "MANUAL",
-              "metadata" => attributes[:server_metadata] || {}
+              'name' => attributes[:server_name],
+              'imageRef' => image_id,
+              'flavorRef' => flavor_id,
+              'OS-DCF =>diskConfig' => attributes[:disk_config] || 'MANUAL',
+              'metadata' => attributes[:server_metadata] || {}
             }
 
-            server_template["personality"] = attributes[:personality] if attributes[:personality]
-            server_template["networks"] = networks_to_hash(attributes[:networks]) if attributes[:networks]
+            server_template['personality'] = attributes[:personality] if attributes[:personality]
+            server_template['networks'] = networks_to_hash(attributes[:networks]) if attributes[:networks]
             server_template
           end
 
@@ -76,7 +76,7 @@ module Fog
           end
 
           def networks_to_hash(networks)
-            networks.collect {|n| {"uuid" => n}}
+            networks.collect {|n| {'uuid' => n}}
           end
         end
       end

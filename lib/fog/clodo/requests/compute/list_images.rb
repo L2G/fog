@@ -30,11 +30,11 @@ module Fog
           response.body = {
             'images' => [
                          { 'name' => 'Debian 6 64 bits',
-                           'id' => "541",
+                           'id' => '541',
                            'vps_type' => 'ScaleServer',
                            'status' => 'ACTIVE' },
                          { 'name' => 'CentOS 5.5 32 bits',
-                           'id' => "31",
+                           'id' => '31',
                            'vps_type' => 'VirtualServer',
                            'status' => 'ACTIVE' }
                         ]

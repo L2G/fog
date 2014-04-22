@@ -4,7 +4,7 @@ module Fog
   module Compute
     class Ninefold < Fog::Service
 
-      API_URL = "http://api.ninefold.com/compute/v1.0/"
+      API_URL = 'http://api.ninefold.com/compute/v1.0/'
 
       requires :ninefold_compute_key, :ninefold_compute_secret
       recognizes :ninefold_api_url  # allow us to specify non-prod environments
@@ -77,7 +77,7 @@ module Fog
         end
 
         def request(options)
-          raise "Not implemented"
+          raise 'Not implemented'
         end
       end
 
@@ -93,7 +93,7 @@ module Fog
         end
 
         def request(command, params, options)
-          params['response'] = "json"
+          params['response'] = 'json'
           # convert params to strings for sort
           req_params = params.merge('apiKey' => @ninefold_compute_key, 'command' => command)
           req = URI.escape(req_params.sort_by{|k,v| k.to_s }.collect{|e| "#{e[0]}=#{e[1]}"}.join('&'))

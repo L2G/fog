@@ -15,7 +15,7 @@ module Fog
         def build_request_body_identical(options)
           xml = Builder::XmlMarkup.new
           xml.CopyIdenticalVirtualMachine(:name => options[:name]) do
-            xml.Source(:href => options[:source], :type => "application/vnd.tmrk.cloud.virtualMachine")
+            xml.Source(:href => options[:source], :type => 'application/vnd.tmrk.cloud.virtualMachine')
             xml.Layout do
               xml.NewRow options[:row]
               xml.NewGroup options[:group]

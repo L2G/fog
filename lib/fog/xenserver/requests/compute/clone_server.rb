@@ -8,8 +8,8 @@ module Fog
           if template_ref.kind_of? Fog::Compute::XenServer::Server
             template_ref = template_ref.reference
           end
-          raise ArgumentError.new("Invalid template_ref") if template_ref.nil?
-          raise ArgumentError.new("Invalid template_ref") if server_name.nil?
+          raise ArgumentError.new('Invalid template_ref') if template_ref.nil?
+          raise ArgumentError.new('Invalid template_ref') if server_name.nil?
 
           ref = @connection.request(
             {:parser => Fog::Parsers::XenServer::Base.new, :method => 'VM.clone'},

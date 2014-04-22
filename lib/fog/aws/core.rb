@@ -90,7 +90,7 @@ module Fog
 
     def self.escape(string)
       string.gsub(/([^a-zA-Z0-9_.\-~]+)/) {
-        "%" + $1.unpack("H2" * $1.bytesize).join("%").upcase
+        '%' + $1.unpack('H2' * $1.bytesize).join('%').upcase
       }
     end
 
@@ -99,7 +99,7 @@ module Fog
         'AWSAccessKeyId'    => options[:aws_access_key_id],
         'SignatureMethod'   => 'HmacSHA256',
         'SignatureVersion'  => '2',
-        'Timestamp'         => Time.now.utc.strftime("%Y-%m-%dT%H:%M:%SZ"),
+        'Timestamp'         => Time.now.utc.strftime('%Y-%m-%dT%H:%M:%SZ'),
         'Version'           => options[:version]
       })
 
@@ -131,7 +131,7 @@ module Fog
       end
 
       def self.box_usage
-        sprintf("%0.10f", rand / 100).to_f
+        sprintf('%0.10f', rand / 100).to_f
       end
 
       def self.console_output
@@ -153,19 +153,19 @@ module Fog
           path << Fog::Mock.random_letters(rand(9) + 8)
         end
         {
-          "imageOwnerId"   => Fog::Mock.random_letters(rand(5) + 4),
-          "blockDeviceMapping" => [],
-          "productCodes"   => [],
-          "kernelId"       => kernel_id,
-          "ramdiskId"      => ramdisk_id,
-          "imageState"     => "available",
-          "imageId"        => image_id,
-          "architecture"   => "i386",
-          "isPublic"       => true,
-          "imageLocation"  => path.join('/'),
-          "imageType"      => "machine",
-          "rootDeviceType" => ["ebs","instance-store"][rand(2)],
-          "rootDeviceName" => "/dev/sda1"
+          'imageOwnerId'   => Fog::Mock.random_letters(rand(5) + 4),
+          'blockDeviceMapping' => [],
+          'productCodes'   => [],
+          'kernelId'       => kernel_id,
+          'ramdiskId'      => ramdisk_id,
+          'imageState'     => 'available',
+          'imageId'        => image_id,
+          'architecture'   => 'i386',
+          'isPublic'       => true,
+          'imageLocation'  => path.join('/'),
+          'imageType'      => 'machine',
+          'rootDeviceType' => ['ebs','instance-store'][rand(2)],
+          'rootDeviceName' => '/dev/sda1'
         }
       end
 
@@ -190,7 +190,7 @@ module Fog
       end
 
       def self.private_ip_address
-        ip_address.gsub(/^\d{1,3}\./,"10.")
+        ip_address.gsub(/^\d{1,3}\./,'10.')
       end
 
       def self.kernel_id

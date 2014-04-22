@@ -3,11 +3,11 @@ module Fog
     class Service
 
       def service_name
-        raise Fog::Errors::NotImplemented.new("Please implement the #service_name method")
+        raise Fog::Errors::NotImplemented.new('Please implement the #service_name method')
       end
 
       def region
-        raise Fog::Errors::NotImplemented.new("Please implement the #region method")
+        raise Fog::Errors::NotImplemented.new('Please implement the #region method')
       end
 
       def endpoint_uri(service_endpoint = nil, endpoint_name = nil)
@@ -118,7 +118,7 @@ module Fog
       end
 
       def authenticate_v1(options)
-        raise Fog::Errors::NotImplemented.new("Authentication of legacy endpoints is not implemented for this service.")
+        raise Fog::Errors::NotImplemented.new('Authentication of legacy endpoints is not implemented for this service.')
       end
 
       def endpoint_uri_v2

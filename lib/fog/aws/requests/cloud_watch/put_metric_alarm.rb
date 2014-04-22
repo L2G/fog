@@ -58,13 +58,13 @@ module Fog
         # See: Fog::AWS::CloudWatch::Real.put_metric_alarm()
         #
         def put_metric_alarm(options)
-          supported_actions = [ "InsufficientDataActions", "OKActions", "AlarmActions" ]
+          supported_actions = [ 'InsufficientDataActions', 'OKActions', 'AlarmActions' ]
           found_actions = options.keys.select {|key| supported_actions.include? key }
           if found_actions.empty?
             raise Fog::Compute::AWS::Error.new("The request must contain at least one of #{supported_actions.join(", ")}'")
           end
 
-          requirements = [ "AlarmName", "ComparisonOperator", "EvaluationPeriods", "Namespace", "Period", "Statistic", "Threshold" ]
+          requirements = [ 'AlarmName', 'ComparisonOperator', 'EvaluationPeriods', 'Namespace', 'Period', 'Statistic', 'Threshold' ]
           requirements.each do |req|
             unless options.has_key?(req)
               raise Fog::Compute::AWS::Error.new("The request must contain a the parameter '%s'" % req)
@@ -75,7 +75,7 @@ module Fog
             'AlarmARN' => "arn:aws:cloudwatch:eu-west-1:000000000000:metricAlarm:00000000-0000-0000-0000-000000000000:alarmName/#{options['AlarmName']}",
             'ActionsEnabled' => false,
             'AlarmActions' => [],
-            'AlarmConfigurationUpdatedTimestamp' => Time.now.utc.strftime("%Y-%m-%dT%H:%M:%SZ"),
+            'AlarmConfigurationUpdatedTimestamp' => Time.now.utc.strftime('%Y-%m-%dT%H:%M:%SZ'),
             'Dimensions' => [],
             'OKActions' => [],
           }.merge!(options)

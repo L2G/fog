@@ -6,8 +6,8 @@ Shindo.tests('Fog::Rackspace::Database | user_tests', ['rackspace']) do
   instance_name = 'fog' + Time.now.to_i.to_s
   instance_id = service.create_instance(instance_name, 1, 1).body['instance']['id']
 
-  wait_for_request("Waiting for database to be created") do
-    service.get_instance(instance_id).body["instance"]["status"] == 'ACTIVE'
+  wait_for_request('Waiting for database to be created') do
+    service.get_instance(instance_id).body['instance']['status'] == 'ACTIVE'
   end
 
   tests('success') do

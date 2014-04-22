@@ -1,4 +1,4 @@
-Shindo.tests("HP::LB | load balancers requests", ['hp', 'lb', 'load_balancer']) do
+Shindo.tests('HP::LB | load balancers requests', ['hp', 'lb', 'load_balancer']) do
   @lb_format = {
     'id'        => String,
     'name'      => String,
@@ -40,7 +40,7 @@ Shindo.tests("HP::LB | load balancers requests", ['hp', 'lb', 'load_balancer']) 
   end
 
   tests('failure') do
-    tests("#get_load_balancer(0)").raises(Fog::HP::LB::NotFound) do
+    tests('#get_load_balancer(0)').raises(Fog::HP::LB::NotFound) do
       HP[:lb].get_load_balancer('0')
     end
 
@@ -48,7 +48,7 @@ Shindo.tests("HP::LB | load balancers requests", ['hp', 'lb', 'load_balancer']) 
       HP[:lb].update_load_balancer('0', {'name' => 'updated-fog-lb'})
     end
 
-    tests("#delete_load_balancer(0)").raises(Fog::HP::LB::NotFound) do
+    tests('#delete_load_balancer(0)').raises(Fog::HP::LB::NotFound) do
       HP[:lb].delete_load_balancer('0')
     end
   end

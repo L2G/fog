@@ -4,21 +4,21 @@ module Fog
       class Real
 
         def add_vm_interface(vmid, options = {})
-          raise ArgumentError, "instance id is a required parameter" unless vmid
+          raise ArgumentError, 'instance id is a required parameter' unless vmid
 
           interface = get_interface_from_options(vmid, options.merge(:server_id => vmid))
           vm_reconfig_hardware('instance_uuid' => vmid, 'hardware_spec' => {'deviceChange' => [create_interface(interface)]})
         end
 
         def destroy_vm_interface(vmid, options = {})
-          raise ArgumentError, "instance id is a required parameter" unless vmid
+          raise ArgumentError, 'instance id is a required parameter' unless vmid
 
           interface = get_interface_from_options(vmid, options.merge(:server_id => vmid))
           vm_reconfig_hardware('instance_uuid' => vmid, 'hardware_spec' => {'deviceChange' => [create_interface(interface, interface.key, :remove)]})
         end
 
         def update_vm_interface(vmid, options = {})
-          raise ArgumentError, "instance id is a required parameter" unless vmid
+          raise ArgumentError, 'instance id is a required parameter' unless vmid
 
           interface = get_interface_from_options(vmid, options.merge(:server_id => vmid))
           vm_reconfig_hardware('instance_uuid' => vmid, 'hardware_spec' => {'deviceChange' => [create_interface(interface, interface.key, :edit)]})
@@ -37,7 +37,7 @@ module Fog
             Fog::Compute::Vsphere::Interface.new options
 
           else
-            raise ArgumentError, "interface is a required parameter or pass options with type and network"
+            raise ArgumentError, 'interface is a required parameter or pass options with type and network'
           end
         end
 
@@ -45,14 +45,14 @@ module Fog
 
       class Mock
         def add_vm_interface(vmid, options = {})
-          raise ArgumentError, "instance id is a required parameter" unless vmid
-          raise ArgumentError, "interface is a required parameter" unless options and options[:interface]
+          raise ArgumentError, 'instance id is a required parameter' unless vmid
+          raise ArgumentError, 'interface is a required parameter' unless options and options[:interface]
           true
         end
 
         def destroy_vm_interface(vmid, options = {})
-          raise ArgumentError, "instance id is a required parameter" unless vmid
-          raise ArgumentError, "interface is a required parameter" unless options and options[:interface]
+          raise ArgumentError, 'instance id is a required parameter' unless vmid
+          raise ArgumentError, 'interface is a required parameter' unless options and options[:interface]
           true
         end
       end

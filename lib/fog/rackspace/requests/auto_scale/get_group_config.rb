@@ -21,7 +21,7 @@ module Fog
             raise Fog::Rackspace::AutoScale::NotFound
           end
 
-          response(:body => {"groupConfiguration" => group['groupConfiguration']})
+          response(:body => {'groupConfiguration' => group['groupConfiguration']})
         end
       end
 

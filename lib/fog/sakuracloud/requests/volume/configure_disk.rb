@@ -7,7 +7,7 @@ module Fog
 
         def configure_disk( disk_id, sshkey_id )
           body = {
-            "SSHKey" => {"ID" => sshkey_id.to_s }
+            'SSHKey' => {'ID' => sshkey_id.to_s }
           }
 
           request(

@@ -79,13 +79,13 @@ module Fog
           policy_set = self.data[:scaling_policies]
 
           for opt_key, opt_value in options
-            if opt_key == "PolicyNames" && opt_value != nil && opt_value != ""
+            if opt_key == 'PolicyNames' && opt_value != nil && opt_value != ''
               policy_set = policy_set.reject do |asp_name, asp_data|
-                ![*options["PolicyNames"]].include?(asp_name)
+                ![*options['PolicyNames']].include?(asp_name)
               end
-            elsif opt_key == "AutoScalingGroupName" && opt_value != nil && opt_value != ""
+            elsif opt_key == 'AutoScalingGroupName' && opt_value != nil && opt_value != ''
               policy_set = policy_set.reject do |asp_name, asp_data|
-                options["AutoScalingGroupName"] != asp_data["AutoScalingGroupName"]
+                options['AutoScalingGroupName'] != asp_data['AutoScalingGroupName']
               end
             end
           end

@@ -48,7 +48,7 @@ module Fog
             :parser  => Fog::Parsers::DNS::AWS::CreateHostedZone.new,
             :expects => 201,
             :method  => 'POST',
-            :path    => "hostedzone"
+            :path    => 'hostedzone'
           })
 
         end
@@ -61,7 +61,7 @@ module Fog
 
         def create_hosted_zone(name, options = {})
           # Append a trailing period to the name if absent.
-          name = name + "." unless name.end_with?(".")
+          name = name + '.' unless name.end_with?('.')
 
           response = Excon::Response.new
           if list_hosted_zones.body['HostedZones'].find_all {|z| z['Name'] == name}.size < self.data[:limits][:duplicate_domains]

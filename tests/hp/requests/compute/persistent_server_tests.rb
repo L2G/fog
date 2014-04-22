@@ -1,4 +1,4 @@
-Shindo.tests("Fog::Compute[:hp] | persistent server requests", ['hp', 'compute']) do
+Shindo.tests('Fog::Compute[:hp] | persistent server requests', ['hp', 'compute']) do
 
   @server_format = {
     'addresses'   => Fog::Nullable::Hash,
@@ -28,7 +28,7 @@ Shindo.tests("Fog::Compute[:hp] | persistent server requests", ['hp', 'compute']
   tests('success') do
 
     @server_id = nil
-    @server_name = "fogpersservertests"
+    @server_name = 'fogpersservertests'
     @block_device_mapping = [{ 'volume_size' => '',
                                'volume_id' => "#{@volume.id}",
                                'delete_on_termination' => '0',

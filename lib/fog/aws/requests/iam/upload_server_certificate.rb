@@ -59,9 +59,9 @@ module Fog
             key = OpenSSL::PKey::RSA.new(private_key)
           rescue OpenSSL::X509::CertificateError, OpenSSL::PKey::RSAError => e
             message = if e.is_a?(OpenSSL::X509::CertificateError)
-                        "Invalid Public Key Certificate."
+                        'Invalid Public Key Certificate.'
                       else
-                        "Invalid Private Key."
+                        'Invalid Private Key.'
                       end
             raise Fog::AWS::IAM::MalformedCertificate.new(message)
           end
@@ -74,7 +74,7 @@ module Fog
             raise Fog::AWS::IAM::EntityAlreadyExists.new("The Server Certificate with name #{name} already exists.")
           else
             response.status = 200
-            path = options['Path'] || "/"
+            path = options['Path'] || '/'
             data = {
               'Arn' => Fog::AWS::Mock.arn('iam', self.data[:owner_id], "server-certificate/#{name}"),
               'Path' => path,

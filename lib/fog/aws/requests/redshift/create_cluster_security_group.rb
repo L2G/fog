@@ -20,7 +20,7 @@ module Fog
           cluster_security_group_name  = options[:cluster_security_group_name]
           description                  = options[:description]
 
-          path = "/"
+          path = '/'
           params = {
             :headers    => {},
             :path       => path,

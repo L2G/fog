@@ -32,7 +32,7 @@ module Fog
           response = Excon::Response.new
           nic_id = self.data[:network_interfaces].select { |k,v| v['attachment']['attachmentId'] == attachment_id} .first.first
           if nic_id
-            self.data[:network_interfaces][nic_id]["attachment"] = {}
+            self.data[:network_interfaces][nic_id]['attachment'] = {}
             response.status = 200
             response.body = {
               'requestId' => Fog::AWS::Mock.request_id,

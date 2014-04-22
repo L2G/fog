@@ -29,15 +29,15 @@ module Fog
           disk_size = options['disk_size'] || 1
 
           disk_offering = {
-            "id"           => disk_offering_id,
-            "domainid"     => domain_id,
-            "domain"       => domain_name,
-            "name"         => options['name'],
-            "displaytext"  => options['display_text'],
-            "disksize"     => disk_size,
-            "created"      => Time.now.iso8601,
-            "iscustomized" => customized,
-            "storagetype"  => storage_type
+            'id'           => disk_offering_id,
+            'domainid'     => domain_id,
+            'domain'       => domain_name,
+            'name'         => options['name'],
+            'displaytext'  => options['display_text'],
+            'disksize'     => disk_size,
+            'created'      => Time.now.iso8601,
+            'iscustomized' => customized,
+            'storagetype'  => storage_type
           }
 
           self.data[:disk_offerings][disk_offering_id] = disk_offering

@@ -4,7 +4,7 @@ module Fog
       class Real
 
         def resume_server(id, options = {})
-          vzctl("resume",{:ctid => id}.merge(options))
+          vzctl('resume',{:ctid => id}.merge(options))
         end
 
       end

@@ -56,9 +56,9 @@ module Fog
           response = Excon::Response.new
           response.status = 200
           response.body = {
-            "Bucket" => bucket_name,
-            "Key" => object_name,
-            "UploadId" => upload_id,
+            'Bucket' => bucket_name,
+            'Key' => object_name,
+            'UploadId' => upload_id,
           }
           response
         end

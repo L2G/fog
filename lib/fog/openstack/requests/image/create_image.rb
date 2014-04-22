@@ -20,7 +20,7 @@ module Fog
 
           body = String.new
           if attributes[:location]
-            body = File.open(attributes[:location], "rb")
+            body = File.open(attributes[:location], 'rb')
             # Make sure the image file size is always present
             data['x-image-meta-size'] = File.size(body)
           end
@@ -36,7 +36,7 @@ module Fog
             :body     => body,
             :expects  => 201,
             :method   => 'POST',
-            :path     => "images"
+            :path     => 'images'
           )
         ensure
           body.close if body.respond_to?(:close)

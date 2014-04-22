@@ -30,7 +30,7 @@ Shindo.tests('Fog::AWS[:dynamodb] | table requests', ['aws']) do
       Fog::AWS[:dynamodb].describe_table(@table_name).body
     end
 
-    tests("#list_tables").formats({'LastEvaluatedTableName' => Fog::Nullable::String, 'TableNames' => [String]}) do
+    tests('#list_tables').formats({'LastEvaluatedTableName' => Fog::Nullable::String, 'TableNames' => [String]}) do
       pending if Fog.mocking?
       Fog::AWS[:dynamodb].list_tables.body
     end

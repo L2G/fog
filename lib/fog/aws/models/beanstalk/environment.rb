@@ -99,11 +99,11 @@ module Fog
           elsif new_version.is_a?(Fog::AWS::ElasticBeanstalk::Version)
             new_version_label = new_version.label
           else
-            raise "Unknown type for new_version, must be either String or Fog::AWS::ElasticBeanstalk::Version"
+            raise 'Unknown type for new_version, must be either String or Fog::AWS::ElasticBeanstalk::Version'
           end
 
           if new_version.nil?
-            raise "Version label not specified."
+            raise 'Version label not specified.'
           end
 
           data = service.update_environment({

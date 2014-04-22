@@ -146,9 +146,9 @@ module Fog
             id = Fog::HP::Mock.uuid.to_s
             data = {
               'addresses' => addresses,
-              'flavor'    => {"id" => "#{flavor_id}", "links" => [{"href" => "http://nova1:8774/admin/flavors/#{flavor_id}", "rel" => "bookmark"}]},
+              'flavor'    => {'id' => "#{flavor_id}", 'links' => [{'href' => "http://nova1:8774/admin/flavors/#{flavor_id}", 'rel' => 'bookmark'}]},
               'id'        => id,
-              'links'     => [{"href" => "http://nova1:8774/v1.1/admin/servers/5", "rel" => "self"}, {"href" => "http://nova1:8774/admin/servers/5", "rel" => "bookmark"}],
+              'links'     => [{'href' => 'http://nova1:8774/v1.1/admin/servers/5', 'rel' => 'self'}, {'href' => 'http://nova1:8774/admin/servers/5', 'rel' => 'bookmark'}],
               'hostId'    => '123456789ABCDEF01234567890ABCDEF',
               'metadata'  => options['metadata'] || {},
               'name'      => name || "server_#{rand(999)}",

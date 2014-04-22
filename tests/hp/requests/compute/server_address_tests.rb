@@ -1,6 +1,6 @@
-Shindo.tests("Fog::Compute[:hp] | address requests", ['hp']) do
+Shindo.tests('Fog::Compute[:hp] | address requests', ['hp']) do
 
-  @base_image_id = ENV["BASE_IMAGE_ID"] || 1242
+  @base_image_id = ENV['BASE_IMAGE_ID'] || 1242
 
   tests('success') do
     @server = Fog::Compute[:hp].servers.create(:name => 'fogaddresstests', :flavor_id => 100, :image_id => @base_image_id)
@@ -9,7 +9,7 @@ Shindo.tests("Fog::Compute[:hp] | address requests", ['hp']) do
     @address.server = @server
 
     # the network name is currently named 'private'
-    tests("#list_server_addresses(#{@server.id})").formats({'addresses' => {"private" => [{'version' => Integer, 'addr' => String}]}}) do
+    tests("#list_server_addresses(#{@server.id})").formats({'addresses' => {'private' => [{'version' => Integer, 'addr' => String}]}}) do
       Fog::Compute[:hp].list_server_addresses(@server.id).body
     end
 
@@ -28,7 +28,7 @@ Shindo.tests("Fog::Compute[:hp] | address requests", ['hp']) do
 
   tests('failure') do
 
-    tests("#list_server_addresses(0)").raises(Fog::Compute::HP::NotFound) do
+    tests('#list_server_addresses(0)').raises(Fog::Compute::HP::NotFound) do
       Fog::Compute[:hp].list_server_addresses(0)
     end
 

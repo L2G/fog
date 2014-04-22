@@ -3,7 +3,7 @@ module Fog
     class CloudSigma
       class Real
         def create_server(data)
-          create_request("servers/", data)
+          create_request('servers/', data)
         end
       end
 

@@ -27,22 +27,22 @@ Shindo.tests('AWS::AutoScaling | notification configuration requests', ['aws', '
   asg = Fog::AWS[:auto_scaling].create_auto_scaling_group(asg_name, "#{Fog::AWS[:auto_scaling].region}a", lc_name, 0, 0)
 
   tests('raises') do
-    tests("#put_notification_configuration(non-existent-group)").raises(Fog::AWS::AutoScaling::ValidationError) do
+    tests('#put_notification_configuration(non-existent-group)').raises(Fog::AWS::AutoScaling::ValidationError) do
       Fog::AWS[:auto_scaling].put_notification_configuration('fog-test-nonexistent-group', 'autoscaling:TEST_NOTIFICATION', topic_arn)
     end
 
-    tests("#put_notification_configuration(null-types)").raises(Fog::AWS::AutoScaling::ValidationError) do
+    tests('#put_notification_configuration(null-types)').raises(Fog::AWS::AutoScaling::ValidationError) do
       Fog::AWS[:auto_scaling].put_notification_configuration(asg_name, [], topic_arn)
     end
   end
 
   tests('success') do
-    tests("#put_notification_configuration(string)").formats(AWS::AutoScaling::Formats::BASIC) do
+    tests('#put_notification_configuration(string)').formats(AWS::AutoScaling::Formats::BASIC) do
       pending if Fog.mocking?
       Fog::AWS[:auto_scaling].put_notification_configuration(asg_name, 'autoscaling:TEST_NOTIFICATION', topic_arn).body
     end
 
-    tests("#describe_notification_configurations").formats(AWS::AutoScaling::Formats::DESCRIBE_NOTIFICATION_CONFIGURATIONS) do
+    tests('#describe_notification_configurations').formats(AWS::AutoScaling::Formats::DESCRIBE_NOTIFICATION_CONFIGURATIONS) do
       pending if Fog.mocking?
       body = Fog::AWS[:auto_scaling].describe_notification_configurations('AutoScalingGroupNames' => asg_name).body
       notification_configurations = body['DescribeNotificationConfigurationsResult']['NotificationConfigurations']
@@ -56,12 +56,12 @@ Shindo.tests('AWS::AutoScaling | notification configuration requests', ['aws', '
       body
     end
 
-    tests("#put_notification_configuration(array)").formats(AWS::AutoScaling::Formats::BASIC) do
+    tests('#put_notification_configuration(array)').formats(AWS::AutoScaling::Formats::BASIC) do
       pending if Fog.mocking?
       Fog::AWS[:auto_scaling].put_notification_configuration(asg_name, ['autoscaling:EC2_INSTANCE_LAUNCH', 'autoscaling:EC2_INSTANCE_TERMINATE'], topic_arn).body
     end
 
-    tests("#describe_notification_configurations").formats(AWS::AutoScaling::Formats::DESCRIBE_NOTIFICATION_CONFIGURATIONS) do
+    tests('#describe_notification_configurations').formats(AWS::AutoScaling::Formats::DESCRIBE_NOTIFICATION_CONFIGURATIONS) do
       pending if Fog.mocking?
       body = Fog::AWS[:auto_scaling].describe_notification_configurations('AutoScalingGroupName' => asg_name).body
       notification_configurations = body['DescribeNotificationConfigurationsResult']['NotificationConfigurations']
@@ -78,7 +78,7 @@ Shindo.tests('AWS::AutoScaling | notification configuration requests', ['aws', '
       body
     end
 
-    tests("#describe_notification_configurations(all)").formats(AWS::AutoScaling::Formats::DESCRIBE_NOTIFICATION_CONFIGURATIONS) do
+    tests('#describe_notification_configurations(all)').formats(AWS::AutoScaling::Formats::DESCRIBE_NOTIFICATION_CONFIGURATIONS) do
       pending if Fog.mocking?
       body = Fog::AWS[:auto_scaling].describe_notification_configurations().body
       notification_configurations = body['DescribeNotificationConfigurationsResult']['NotificationConfigurations']
@@ -96,12 +96,12 @@ Shindo.tests('AWS::AutoScaling | notification configuration requests', ['aws', '
       body
     end
 
-    tests("#delete_notification_configuration").formats(AWS::AutoScaling::Formats::BASIC) do
+    tests('#delete_notification_configuration').formats(AWS::AutoScaling::Formats::BASIC) do
       pending if Fog.mocking?
       Fog::AWS[:auto_scaling].delete_notification_configuration(asg_name, topic_arn).body
     end
 
-    tests("#describe_notification_configurations").formats(AWS::AutoScaling::Formats::DESCRIBE_NOTIFICATION_CONFIGURATIONS) do
+    tests('#describe_notification_configurations').formats(AWS::AutoScaling::Formats::DESCRIBE_NOTIFICATION_CONFIGURATIONS) do
       pending if Fog.mocking?
       body = Fog::AWS[:auto_scaling].describe_notification_configurations('AutoScalingGroupNames' => asg_name).body
       returns(true) do

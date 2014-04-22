@@ -40,13 +40,13 @@ Shindo.tests('Compute::VcloudDirector | disk requests', ['vclouddirector']) do
     tests("#get_disk(#{@disk_id})").data_matches_schema(VcloudDirector::Compute::Schema::DISK_TYPE) do
       @disk = @service.get_disk(@disk_id).body
     end
-    tests("disk[:name]").returns(@disk_name) { @disk[:name] }
-    tests("disk[:size]").returns(@size) { @disk[:size].to_i }
+    tests('disk[:name]').returns(@disk_name) { @disk[:name] }
+    tests('disk[:size]').returns(@size) { @disk[:size].to_i }
 
     tests("#get_disk_owner(#{@disk_id})").data_matches_schema(VcloudDirector::Compute::Schema::OWNER_TYPE) do
       @owner = @service.get_disk_owner(@disk_id).body
     end
-    tests("owner[:User][:name]").returns(@service.user_name) { @owner[:User][:name] }
+    tests('owner[:User][:name]').returns(@service.user_name) { @owner[:User][:name] }
 
     #tests("#put_disk(#{@disk_id})").data_matches_schema(VcloudDirector::Compute::Schema::TASK_TYPE) do
     #  @disk_name += '-renamed'
@@ -68,15 +68,15 @@ Shindo.tests('Compute::VcloudDirector | disk requests', ['vclouddirector']) do
       @service.process_task(@task)
 
       tests("#put_disk_metadata_item_metadata(#{@disk_id})") do
-        tests("#put_disk_metadata_item_metadata(Boolean)").returns(true) do
+        tests('#put_disk_metadata_item_metadata(Boolean)').returns(true) do
           task = @service.put_disk_metadata_item_metadata(@disk_id, 'fog-test-boolean', true).body
           @service.process_task(task)
         end
-        tests("#put_disk_metadata_item_metadata(DateTime)").returns(true) do
+        tests('#put_disk_metadata_item_metadata(DateTime)').returns(true) do
           task = @service.put_disk_metadata_item_metadata(@disk_id, 'fog-test-datetime', DateTime.now).body
           @service.process_task(task)
         end
-        tests("#put_disk_metadata_item_metadata(Number)").returns(true) do
+        tests('#put_disk_metadata_item_metadata(Number)').returns(true) do
           task = @service.put_disk_metadata_item_metadata(@disk_id, 'fog-test-number', 111).body
           @service.process_task(task)
         end

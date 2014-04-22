@@ -24,9 +24,9 @@ module Fog
           response = Excon::Response.new
           response.status = 200
           if self.data[:ssh_keys].reject! { |k| k['id'] == id }
-            response.body = { "status" => "OK" }
+            response.body = { 'status' => 'OK' }
           else
-            response.body = { "status" => "ERROR" }
+            response.body = { 'status' => 'ERROR' }
           end
           response
         end

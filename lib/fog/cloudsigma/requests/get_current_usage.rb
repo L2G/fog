@@ -3,7 +3,7 @@ module Fog
     class CloudSigma
       class Real
         def get_current_usage
-          get_request("currentusage/")
+          get_request('currentusage/')
         end
       end
 

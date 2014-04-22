@@ -24,13 +24,13 @@ end
 # Use username defined in ~/.fog file, if absent prompt for username.
 # For more details on ~/.fog refer to http://fog.io/about/getting_started.html
 def rackspace_username
-  Fog.credentials[:rackspace_username] || get_user_input("Enter Rackspace Username")
+  Fog.credentials[:rackspace_username] || get_user_input('Enter Rackspace Username')
 end
 
 # Use api key defined in ~/.fog file, if absent prompt for api key
 # For more details on ~/.fog refer to http://fog.io/about/getting_started.html
 def rackspace_api_key
-  Fog.credentials[:rackspace_api_key] || get_user_input("Enter Rackspace API key")
+  Fog.credentials[:rackspace_api_key] || get_user_input('Enter Rackspace API key')
 end
 
 
@@ -64,21 +64,21 @@ compute_service = Fog::Compute.new({
 
 
 # prompt for scaling group name
-scaling_group_name = get_user_input "Enter name of scaling group"
+scaling_group_name = get_user_input 'Enter name of scaling group'
 
 # prompt for cool down period
-cooldown = get_user_input_as_int "Enter cool down period in seconds"
+cooldown = get_user_input_as_int 'Enter cool down period in seconds'
 
 # prompt for miniumum number of entities
-min_entities = get_user_input_as_int "Enter minimum number of servers"
+min_entities = get_user_input_as_int 'Enter minimum number of servers'
 
 # prompt for max number of entities
-max_entities = get_user_input_as_int "Enter maximum number of servers"
+max_entities = get_user_input_as_int 'Enter maximum number of servers'
 
 # retrieve list of images from computer service
-print "Loading available server images...."
+print 'Loading available server images....'
 images = compute_service.images.all
-puts "[DONE]"
+puts '[DONE]'
 
 # prompt for server image
 image = select_image(images)
@@ -87,21 +87,21 @@ image = select_image(images)
 flavor = compute_service.flavors.first
 
 attributes = {
-  :server_name => "autoscale_server",
+  :server_name => 'autoscale_server',
   :image => image,
   :flavor => flavor,
   :networks => [INTERNET, SERVICE_NET],
   :personality => [
     {
-      "path" => "/root/.csivh",
-      "contents" => "VGhpcyBpcyBhIHRlc3QgZmlsZS4="
+      'path' => '/root/.csivh',
+      'contents' => 'VGhpcyBpcyBhIHRlc3QgZmlsZS4='
     }
   ],
   :max_entities => max_entities,
   :min_entities => min_entities,
   :cooldown => cooldown,
   :name => scaling_group_name,
-  :metadata => { "created_by" => "autoscale sample script" },
+  :metadata => { 'created_by' => 'autoscale sample script' },
   :launch_config_type => :launch_server
 }
 

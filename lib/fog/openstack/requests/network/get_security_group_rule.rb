@@ -24,7 +24,7 @@ module Fog
         def get_security_group_rule(security_group_rule_id)
           request(
             :expects  => 200,
-            :method   => "GET",
+            :method   => 'GET',
             :path     => "security-group-rules/#{security_group_rule_id}"
           )
         end
@@ -35,7 +35,7 @@ module Fog
           response = Excon::Response.new
           if sec_group_rule = self.data[:security_group_rules][security_group_rule_id]
             response.status = 200
-            response.body   = {"security_group_rule" => sec_group_rule}
+            response.body   = {'security_group_rule' => sec_group_rule}
             response
           else
             raise Fog::Network::OpenStack::NotFound

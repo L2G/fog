@@ -1,6 +1,6 @@
 require 'simplecov'
 
-if ENV['COVERAGE'] == 'true' && RUBY_VERSION != "1.9.2"
+if ENV['COVERAGE'] == 'true' && RUBY_VERSION != '1.9.2'
   require 'coveralls'
   SimpleCov.command_name "shindo:#{Process.pid}"
   SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter[
@@ -42,7 +42,7 @@ end
 all_providers = Fog.registered_providers.map {|provider| provider.downcase}
 
 # Manually remove these providers since they are local applications, not lacking credentials
-all_providers = all_providers - ["libvirt", "vmfusion", "openvz"]
+all_providers = all_providers - ['libvirt', 'vmfusion', 'openvz']
 
 available_providers = Fog.available_providers.map {|provider| provider.downcase}
 
@@ -63,6 +63,6 @@ end
 begin
   require('libvirt')
 rescue LoadError
-  Formatador.display_line("[yellow]Skipping tests for [bold]libvirt[/] [yellow]due to missing `ruby-libvirt` gem.[/]")
+  Formatador.display_line('[yellow]Skipping tests for [bold]libvirt[/] [yellow]due to missing `ruby-libvirt` gem.[/]')
   Thread.current[:tags] << '-libvirt'
 end

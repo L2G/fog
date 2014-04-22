@@ -23,19 +23,19 @@ Shindo.tests('Fog::Compute[:ninefold] | nat requests', ['ninefold']) do
       @ip = Ninefold::Compute::TestSupport.wait_for_job(ip_job)['jobresult']['ipaddress']
       @ipid = @ip['id']
     rescue => e
-      puts "*** CREATING VM OR IP FAILED - PLEASE TEST AND CORRECT THIS FIRST"
+      puts '*** CREATING VM OR IP FAILED - PLEASE TEST AND CORRECT THIS FIRST'
       raise e
     end
   end
 
   tests('success') do
 
-    tests("#enable_static_nat()").formats(Ninefold::Compute::Formats::Nat::ENABLE_NAT_RESPONSE) do
+    tests('#enable_static_nat()').formats(Ninefold::Compute::Formats::Nat::ENABLE_NAT_RESPONSE) do
       pending if Fog.mocking?
       Fog::Compute[:ninefold].enable_static_nat(:ipaddressid => @ipid, :virtualmachineid => @vmid)
     end
 
-    tests("#create_ip_forwarding_rule()").formats(Ninefold::Compute::Formats::Nat::FORWARDING_RULE) do
+    tests('#create_ip_forwarding_rule()').formats(Ninefold::Compute::Formats::Nat::FORWARDING_RULE) do
       pending if Fog.mocking?
       job = Fog::Compute[:ninefold].create_ip_forwarding_rule(:ipaddressid => @ipid,
                                                          :protocol => 'TCP',
@@ -45,19 +45,19 @@ Shindo.tests('Fog::Compute[:ninefold] | nat requests', ['ninefold']) do
       result
     end
 
-    tests("#list_ip_forwarding_rules()").formats(Ninefold::Compute::Formats::Nat::FORWARDING_RULES) do
+    tests('#list_ip_forwarding_rules()').formats(Ninefold::Compute::Formats::Nat::FORWARDING_RULES) do
       pending if Fog.mocking?
       Fog::Compute[:ninefold].list_ip_forwarding_rules
     end
 
-    tests("#delete_ip_forwarding_rule()").formats(Ninefold::Compute::Formats::Nat::DELETE_RULE_RESPONSE) do
+    tests('#delete_ip_forwarding_rule()').formats(Ninefold::Compute::Formats::Nat::DELETE_RULE_RESPONSE) do
       pending if Fog.mocking?
       job = Fog::Compute[:ninefold].delete_ip_forwarding_rule(:id => @fwd_rule_id)
       Ninefold::Compute::TestSupport.wait_for_job(job)['jobresult']
     end
 
 
-    tests("#disable_static_nat()").formats(Ninefold::Compute::Formats::Nat::DISABLE_NAT_RESPONSE) do
+    tests('#disable_static_nat()').formats(Ninefold::Compute::Formats::Nat::DISABLE_NAT_RESPONSE) do
       pending if Fog.mocking?
       job = Fog::Compute[:ninefold].disable_static_nat(:ipaddressid => @ipid)
       Ninefold::Compute::TestSupport.wait_for_job(job)['jobresult']
@@ -67,7 +67,7 @@ Shindo.tests('Fog::Compute[:ninefold] | nat requests', ['ninefold']) do
 
   tests('failure') do
 
-    tests("#associate_ip_address()").raises(Excon::Errors::HTTPStatusError) do
+    tests('#associate_ip_address()').raises(Excon::Errors::HTTPStatusError) do
       pending if Fog.mocking?
       Fog::Compute[:ninefold].associate_ip_address
     end
@@ -84,7 +84,7 @@ Shindo.tests('Fog::Compute[:ninefold] | nat requests', ['ninefold']) do
       ip_job = Fog::Compute[:ninefold].disassociate_ip_address(:id => @ipid)
       Ninefold::Compute::TestSupport.wait_for_job(ip_job)
     rescue => e
-      puts "*** DESTROYING VM OR IP FAILED - PLEASE TEST AND CORRECT THIS FIRST"
+      puts '*** DESTROYING VM OR IP FAILED - PLEASE TEST AND CORRECT THIS FIRST'
       raise e
     end
   end

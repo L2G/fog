@@ -5,46 +5,46 @@ Shindo.tests('OpenStack | versions', ['openstack']) do
     Excon.stubs.clear
 
     body = {
-        "versions" => [
-            { "status" => "CURRENT", "id" => "v2.0", "links" => [ {
-                                                                      "href" => "http://example:9292/v2/",
-                                                                      "rel" => "self" }
+        'versions' => [
+            { 'status' => 'CURRENT', 'id' => 'v2.0', 'links' => [ {
+                                                                      'href' => 'http://example:9292/v2/',
+                                                                      'rel' => 'self' }
                                                                 ]
             },
-            { "status" => "CURRENT", "id" => "v1.1", "links" => [ {
-                                                                      "href" => "http://exampple:9292/v1/",
-                                                                      "rel" => "self"
+            { 'status' => 'CURRENT', 'id' => 'v1.1', 'links' => [ {
+                                                                      'href' => 'http://exampple:9292/v1/',
+                                                                      'rel' => 'self'
                                                                   }
                                                                 ]
             },
-            { "status" => "SUPPORTED", "id" => "v1.0", "links" => [ {
-                                                                      "href" => "http://example:9292/v1/",
-                                                                      "rel" => "self"
+            { 'status' => 'SUPPORTED', 'id' => 'v1.0', 'links' => [ {
+                                                                      'href' => 'http://example:9292/v1/',
+                                                                      'rel' => 'self'
                                                                   }
                                                                 ]
             }
         ]
     }
 
-    tests("supported") do
+    tests('supported') do
       Excon.stub({ :method => 'GET' },
                  { :status => 300, :body => Fog::JSON.encode(body) })
 
-      returns("v1.1") do
+      returns('v1.1') do
         Fog::OpenStack.get_supported_version(/v1(\.(0|1))*/,
                                              URI('http://example/'),
-                                             "authtoken")
+                                             'authtoken')
       end
     end
 
-    tests("unsupported") do
+    tests('unsupported') do
       Excon.stub({ :method => 'GET' },
                  { :status => 300, :body => Fog::JSON.encode(body) })
 
       raises(Fog::OpenStack::Errors::ServiceUnavailable) do
         Fog::OpenStack.get_supported_version(/v3(\.(0|1))*/,
                                              URI('http://example/'),
-                                             "authtoken")
+                                             'authtoken')
       end
     end
 

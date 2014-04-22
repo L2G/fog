@@ -30,7 +30,7 @@ module Fog
 
         def update_metadata(collection_name, parent_id, metadata = {})
 
-          if collection_name == "images" then
+          if collection_name == 'images' then
             if get_image_details(parent_id)
               newmetadata = self.data[:images][parent_id]['metadata'].merge!(metadata)
             else
@@ -38,7 +38,7 @@ module Fog
             end
           end
 
-          if collection_name == "servers" then
+          if collection_name == 'servers' then
             if get_server_details(parent_id)
               newmetadata = self.data[:servers][parent_id]['metadata'].merge!(metadata)
             else
@@ -47,7 +47,7 @@ module Fog
           end
 
           response = Excon::Response.new
-          response.body = { "metadata" => newmetadata }
+          response.body = { 'metadata' => newmetadata }
           response.status = 200
           response
 

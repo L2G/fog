@@ -7,7 +7,7 @@ module Fog
         class UpdateEnvironment < Fog::Parsers::AWS::ElasticBeanstalk::BaseParser
 
           def initialize
-            super("UpdateEnvironmentResult")
+            super('UpdateEnvironmentResult')
             tag 'ApplicationName', :string
             tag 'CNAME', :string
             tag 'DateCreated', :datetime

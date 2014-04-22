@@ -12,9 +12,9 @@ module Fog
           organization    = self.data[:organizations][organization_id]
 
           body = {
-            :xmlns_i => "http://www.w3.org/2001/XMLSchema-instance",
-            :href    => "/cloudapi/ecloud/organizations/",
-            :type    => "application/vnd.tmrk.cloud.organization; type=collection"
+            :xmlns_i => 'http://www.w3.org/2001/XMLSchema-instance',
+            :href    => '/cloudapi/ecloud/organizations/',
+            :type    => 'application/vnd.tmrk.cloud.organization; type=collection'
           }.merge(organization)
 
           response(:body => body)

@@ -9,7 +9,7 @@ module Fog
             options[:serverid] = serverid
           end
 
-          request("/server/list", options)
+          request('/server/list', options)
         end
       end
 

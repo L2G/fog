@@ -10,23 +10,23 @@ module Fog
         attribute :status
 
         def clusters filters = { }
-          service.clusters({ :datacenter => path.join("/") }.merge(filters))
+          service.clusters({ :datacenter => path.join('/') }.merge(filters))
         end
 
         def networks filters = { }
-          service.networks({ :datacenter => path.join("/") }.merge(filters))
+          service.networks({ :datacenter => path.join('/') }.merge(filters))
         end
 
         def datastores filters = { }
-          service.datastores({ :datacenter => path.join("/") }.merge(filters))
+          service.datastores({ :datacenter => path.join('/') }.merge(filters))
         end
 
         def vm_folders filters = { }
-          service.folders({ :datacenter => path.join("/"), :type => :vm }.merge(filters))
+          service.folders({ :datacenter => path.join('/'), :type => :vm }.merge(filters))
         end
 
         def virtual_machines filters = {}
-          service.servers({ :datacenter => path.join("/") }.merge(filters))
+          service.servers({ :datacenter => path.join('/') }.merge(filters))
         end
 
         def servertypes filters = {}
@@ -34,7 +34,7 @@ module Fog
         end
 
         def customfields filters = {}
-          service.customfields({ :datacenter => path.join("/")}.merge(filters))
+          service.customfields({ :datacenter => path.join('/')}.merge(filters))
         end
 
         def to_s

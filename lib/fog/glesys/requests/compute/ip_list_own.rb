@@ -4,7 +4,7 @@ module Fog
       class Real
 
         def ip_list_own(options = {})
-          request("/ip/listown", options)
+          request('/ip/listown', options)
         end
       end
 

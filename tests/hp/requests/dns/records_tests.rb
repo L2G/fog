@@ -1,4 +1,4 @@
-Shindo.tests("HP::DNS | record requests", ['hp', 'dns', 'record']) do
+Shindo.tests('HP::DNS | record requests', ['hp', 'dns', 'record']) do
   @record_format = {
     'id'          => String,
     'name'        => String,

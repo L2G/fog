@@ -50,7 +50,7 @@ module Fog
         # @see http://docs.rackspace.com/queues/api/v1.0/cq-devguide/content/POST_postMessage__version__queues__queue_name__messages_message-operations-dle001.html
         def save
           requires :queue, :client_id, :body, :ttl
-          raise "Message has already been created and may not be updated." unless identity.nil?
+          raise 'Message has already been created and may not be updated.' unless identity.nil?
           data = service.create_message(client_id, queue.name, body, ttl).body
           self.href = data['resources'][0]
           true

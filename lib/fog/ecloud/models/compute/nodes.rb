@@ -27,9 +27,9 @@ module Fog
 
         def create(options)
           options[:uri] = "#{service.base_path}/nodeServices/internetServices/#{internet_service_id}/action/createNodeService"
-          options[:protocol] ||= "TCP"
+          options[:protocol] ||= 'TCP'
           options[:enabled] ||= true
-          options[:description] ||= ""
+          options[:description] ||= ''
           data = service.node_service_create(options).body
           object = new(data)
         end

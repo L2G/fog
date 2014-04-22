@@ -10,11 +10,11 @@ Shindo.tests('Fog::Rackspace::Identity | tenants', ['rackspace']) do
     :enabled => true
   }
 
-  tests("#all").succeeds do
+  tests('#all').succeeds do
     service.tenants.all
   end
 
-  tests("#get").succeeds do
+  tests('#get').succeeds do
     tenant = service.tenants.all.first
     service.tenants.get(tenant.identity)
   end

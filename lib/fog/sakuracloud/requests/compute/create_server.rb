@@ -7,12 +7,12 @@ module Fog
 
         def create_server( name, serverplan )
           body = {
-            "Server" => {
-              "Name" => name,
-              "ServerPlan" => {
-                "ID" => serverplan.to_i
+            'Server' => {
+              'Name' => name,
+              'ServerPlan' => {
+                'ID' => serverplan.to_i
               },
-              "ConnectedSwitches" => [{"Scope" => "shared", "BandWidthMbps" => 100}]
+              'ConnectedSwitches' => [{'Scope' => 'shared', 'BandWidthMbps' => 100}]
             }
           }
 

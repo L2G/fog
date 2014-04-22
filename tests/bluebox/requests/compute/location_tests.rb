@@ -14,7 +14,7 @@ Shindo.tests('Fog::Compute[:bluebox] | location requests', ['bluebox']) do
       Fog::Compute[:bluebox].get_location(@location_id).body
     end
 
-    tests("get_locations").formats([@location_format]) do
+    tests('get_locations').formats([@location_format]) do
       pending if Fog.mocking?
       Fog::Compute[:bluebox].get_locations.body
     end

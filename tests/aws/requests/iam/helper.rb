@@ -27,7 +27,7 @@ Jfk4gX/qwuRFNy0vjQeTzdvhB1igG/w=
 }
     # The public key for SERVER_CERT. Generated using the command:
     # openssl x509 -inform pem -in server-public.crt -pubkey -noout > server.pubkey
-    SERVER_CERT_PUBLIC_KEY = "MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQC0CR76sovjdmpWRmEaf8XaG+nGe7czhpdLKkau2b16VtSjkPctxPL5U4vaMxQUboLPr+9oL+9fSYN31VzDD4hyaeGoeI5fhnGeqk71kq5uHONBOQUMbZbBQ8PVd9Sdk+y9JJ6E5fC+GhLL5I+y2DK7syBzyymq1Wi6rPp1XXF7AQIDAQAB"
+    SERVER_CERT_PUBLIC_KEY = 'MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQC0CR76sovjdmpWRmEaf8XaG+nGe7czhpdLKkau2b16VtSjkPctxPL5U4vaMxQUboLPr+9oL+9fSYN31VzDD4hyaeGoeI5fhnGeqk71kq5uHONBOQUMbZbBQ8PVd9Sdk+y9JJ6E5fC+GhLL5I+y2DK7syBzyymq1Wi6rPp1XXF7AQIDAQAB'
 
     SERVER_CERT_PRIVATE_KEY = %{-----BEGIN RSA PRIVATE KEY-----
 MIICXAIBAAKBgQC0CR76sovjdmpWRmEaf8XaG+nGe7czhpdLKkau2b16VtSjkPct

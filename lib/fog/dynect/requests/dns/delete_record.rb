@@ -37,14 +37,14 @@ module Fog
           response.status = 200
 
           response.body = {
-            "status" => "success",
-            "data" => {},
-            "job_id" => Fog::Dynect::Mock.job_id,
-            "msgs" => [{
-              "INFO" => "delete: Record will be deleted on zone publish",
-              "SOURCE" => "BLL",
-              "ERR_CD" => nil,
-              "LVL" => "INFO"
+            'status' => 'success',
+            'data' => {},
+            'job_id' => Fog::Dynect::Mock.job_id,
+            'msgs' => [{
+              'INFO' => 'delete: Record will be deleted on zone publish',
+              'SOURCE' => 'BLL',
+              'ERR_CD' => nil,
+              'LVL' => 'INFO'
             }]
           }
 

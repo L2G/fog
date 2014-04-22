@@ -19,7 +19,7 @@ Shindo.tests('Fog::Compute[:xenserver] | set_attribute request', ['xenserver']) 
       server.pv_bootloader == 'stuff'
     end
     test('set the other_config attr { "foo" => "bar", :stuff => "crap" }') do
-      response = connection.set_attribute('VM', server.reference, 'other_config', { "foo" => "bar", :stuff => 'crap' })
+      response = connection.set_attribute('VM', server.reference, 'other_config', { 'foo' => 'bar', :stuff => 'crap' })
       server.reload
       (server.other_config['foo'] == 'bar') and \
         (server.other_config['stuff'] == 'crap')
@@ -37,10 +37,10 @@ Shindo.tests('Fog::Compute[:xenserver] | set_attribute request', ['xenserver']) 
                                           '1073741824'
                                          )
       server.reload
-      (server.memory_dynamic_max == "1073741824") and \
-        (server.memory_dynamic_min == "1073741824") and \
-        (server.memory_static_max == "1073741824") and \
-        (server.memory_static_min == "1073741824")
+      (server.memory_dynamic_max == '1073741824') and \
+        (server.memory_dynamic_min == '1073741824') and \
+        (server.memory_static_max == '1073741824') and \
+        (server.memory_static_min == '1073741824')
 
       server.start
     end

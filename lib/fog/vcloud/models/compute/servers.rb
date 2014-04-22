@@ -13,7 +13,7 @@ module Fog
         attribute :href, :aliases => :Href
 
         def all
-          check_href!("Vapp")
+          check_href!('Vapp')
           vapp.load_unless_loaded!
           load(vapp.children || [])
         end

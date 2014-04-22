@@ -5,8 +5,8 @@ module Fog
 
         def password_complexity_rules_edit(data)
           validate_data([:rule_type], data)
-          if data[:rule_type] == "Custom"
-            raise ArgumentError.new("Required data missing: custom_rules") unless data[:custom_rules]
+          if data[:rule_type] == 'Custom'
+            raise ArgumentError.new('Required data missing: custom_rules') unless data[:custom_rules]
           end
           validate_data([:minimum_characters, :minimum_uppercase_characters, :minimum_lowercase_characters, :minimum_numeric_characters, :minimum_special_characters, :maximum_consecutive_characters_from_prior_passwords, :minimum_lifetime_restriction, :minimum_generations_before_reuse], data[:custom_rules])
           body = build_password_complexity_rules_edit(data)
@@ -27,7 +27,7 @@ module Fog
           xml = Builder::XmlMarkup.new
           xml.PasswordComplexityRules do
             xml.RuleType data[:rule_type]
-            if data[:rule_type] == "Custom"
+            if data[:rule_type] == 'Custom'
               xml.CustomRules do
                 xml.MinimumCharacters do
                   xml.Enabled data[:custom_rules][:minimum_characters][:enabled]

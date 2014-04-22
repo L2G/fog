@@ -29,16 +29,16 @@ module Fog
 
         def nameservers
           [
-           "ns1.dnsimple.com",
-           "ns2.dnsimple.com",
-           "ns3.dnsimple.com",
-           "ns4.dnsimple.com",
+           'ns1.dnsimple.com',
+           'ns2.dnsimple.com',
+           'ns3.dnsimple.com',
+           'ns4.dnsimple.com',
           ]
         end
 
         def save
           requires :domain
-          data = service.create_domain(domain).body["domain"]
+          data = service.create_domain(domain).body['domain']
           merge_attributes(data)
           true
         end

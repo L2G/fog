@@ -26,7 +26,7 @@ Shindo.tests('AWS::SimpleDB | domain requests', ['aws']) do
       Fog::AWS[:simpledb].domain_metadata(@domain_name).body
     end
 
-    tests("#list_domains").formats(AWS::SimpleDB::Formats::BASIC.merge('Domains' => [String])) do
+    tests('#list_domains').formats(AWS::SimpleDB::Formats::BASIC.merge('Domains' => [String])) do
       Fog::AWS[:simpledb].list_domains.body
     end
 

@@ -15,7 +15,7 @@ module Fog
         end
 
         def get(identifier)
-          return nil if identifier.nil? || identifier == ""
+          return nil if identifier.nil? || identifier == ''
           data = service.get_firewall_policy(identifier)
           new(data)
         rescue Excon::Errors::NotFound

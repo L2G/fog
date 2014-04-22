@@ -85,11 +85,11 @@ module Fog
           records ||= []
 
           # sort for pagination
-          records.sort! { |a,b| a[:name].gsub(zone[:name],"") <=> b[:name].gsub(zone[:name],"") }
+          records.sort! { |a,b| a[:name].gsub(zone[:name],'') <=> b[:name].gsub(zone[:name],'') }
 
           if options[:name]
-            name = options[:name].gsub(zone[:name],"")
-            records = records.select{|r| r[:name].gsub(zone[:name],"") >= name }
+            name = options[:name].gsub(zone[:name],'')
+            records = records.select{|r| r[:name].gsub(zone[:name],'') >= name }
             require 'pp'
           end
 

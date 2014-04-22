@@ -6,7 +6,7 @@ Shindo.tests('AWS::Storage | delete_multiple_objects', ['aws']) do
     options = {:quiet => true, 'versionId' => version_id}
     Fog::Storage[:aws].delete_multiple_objects(@directory.identity, ['fog_object'], options)
 
-    test(":quiet is unchanged") { options[:quiet] }
+    test(':quiet is unchanged') { options[:quiet] }
     test("'versionId' is unchanged") { options['versionId'] == version_id }
   end
 end

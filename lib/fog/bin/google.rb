@@ -16,10 +16,10 @@ module Google # deviates from other bin stuff to accomodate gem
       @@connections ||= Hash.new do |hash, key|
         hash[key] = case key
         when :storage
-          Fog::Logger.warning("Google[:storage] is not recommended, use Storage[:google] for portability")
+          Fog::Logger.warning('Google[:storage] is not recommended, use Storage[:google] for portability')
           Fog::Storage.new(:provider => 'Google')
         when :compute
-          Fog::Logger.warning("Google[:compute] is not recommended, use Compute[:google] for portability")
+          Fog::Logger.warning('Google[:compute] is not recommended, use Compute[:google] for portability')
           Fog::Compute.new(:provider => 'Google')
         else
           raise ArgumentError, "Unrecognized service: #{key.inspect}"

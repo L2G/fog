@@ -11,7 +11,7 @@ module Fog
             :parser     => Fog::Parsers::Compute::Voxel::VoxcloudDelete.new
           }
 
-          request("voxel.voxcloud.delete", options)
+          request('voxel.voxcloud.delete', options)
         end
       end
 

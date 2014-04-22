@@ -23,8 +23,8 @@ module Fog
         #
         def list_packages
           request(
-            :path => "/my/packages",
-            :method => "GET",
+            :path => '/my/packages',
+            :method => 'GET',
             :expects => 200,
             :idempotent => true
           )

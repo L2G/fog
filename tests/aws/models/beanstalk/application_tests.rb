@@ -1,4 +1,4 @@
-Shindo.tests("Fog::AWS[:beanstalk] | application", ['aws', 'beanstalk']) do
+Shindo.tests('Fog::AWS[:beanstalk] | application', ['aws', 'beanstalk']) do
 
   pending if Fog.mocking?
 
@@ -9,12 +9,12 @@ Shindo.tests("Fog::AWS[:beanstalk] | application", ['aws', 'beanstalk']) do
 
   model_tests(Fog::AWS[:beanstalk].applications, @application_opts, false) do
 
-    test("#attributes") do
+    test('#attributes') do
       @instance.name == @application_opts[:name] &&
           @instance.description == @application_opts[:description]
     end
 
-    test("#events") do
+    test('#events') do
       # There should be some events now.
       @instance.events.length > 0
     end
@@ -25,7 +25,7 @@ Shindo.tests("Fog::AWS[:beanstalk] | application", ['aws', 'beanstalk']) do
         :label => version_name
     )
 
-    test("#versions") do
+    test('#versions') do
       # We should have one version.
       @instance.versions.length == 1
     end
@@ -54,13 +54,13 @@ Shindo.tests("Fog::AWS[:beanstalk] | application", ['aws', 'beanstalk']) do
     environment.destroy
 
     # Create an environment
-    test("#environments") do
+    test('#environments') do
       # We should have one environment now.
       @instance.environments.length == 1
     end
 
     # Must wait for termination before destroying application
-    tests("waiting for test environment to terminate").succeeds do
+    tests('waiting for test environment to terminate').succeeds do
       environment.wait_for { terminated? }
     end
 

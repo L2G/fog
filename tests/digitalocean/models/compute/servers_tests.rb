@@ -15,7 +15,7 @@ Shindo.tests('Fog::Compute[:digitalocean] | servers collection', ['digitalocean'
     @instance.wait_for { ready? }
   end
 
-  tests("#bootstrap with public/private_key_path").succeeds do
+  tests('#bootstrap with public/private_key_path').succeeds do
     pending if Fog.mocking?
     @server = service.servers.bootstrap({
       :public_key_path => public_key_path,
@@ -24,7 +24,7 @@ Shindo.tests('Fog::Compute[:digitalocean] | servers collection', ['digitalocean'
     @server.destroy
   end
 
-  tests("#bootstrap with public/private_key").succeeds do
+  tests('#bootstrap with public/private_key').succeeds do
     pending if Fog.mocking?
     @server = service.servers.bootstrap({
       :public_key => File.read(public_key_path),
@@ -33,7 +33,7 @@ Shindo.tests('Fog::Compute[:digitalocean] | servers collection', ['digitalocean'
     @server.destroy
   end
 
-  tests("#bootstrap with no public/private keys") do
+  tests('#bootstrap with no public/private keys') do
     raises(ArgumentError, 'raises ArgumentError') { service.servers.bootstrap(options) }
   end
 end

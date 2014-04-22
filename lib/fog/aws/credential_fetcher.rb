@@ -1,10 +1,10 @@
-require "fog/json"
+require 'fog/json'
 
 module Fog
   module AWS
     module CredentialFetcher
-      INSTANCE_METADATA_HOST = "http://169.254.169.254"
-      INSTANCE_METADATA_PATH = "/latest/meta-data/iam/security-credentials/"
+      INSTANCE_METADATA_HOST = 'http://169.254.169.254'
+      INSTANCE_METADATA_PATH = '/latest/meta-data/iam/security-credentials/'
       module ServiceMethods
         def fetch_credentials(options)
           if options[:use_iam_profile]

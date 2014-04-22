@@ -43,7 +43,7 @@ DATA
           component = "#{Fog::InternetArchive.escape(key.to_s)}=#{Fog::InternetArchive.escape(query[key].to_s)}"
           canonical_query_string << component
         end
-        canonical_query_string.join("&")
+        canonical_query_string.join('&')
       end
 
       def canonical_headers(headers)

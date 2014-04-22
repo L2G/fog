@@ -18,9 +18,9 @@ module Fog
         # @see https://api.gb1.brightbox.com/1.0/#load_balancer_update_load_balancer
         #
         def update_load_balancer(identifier, options)
-          return nil if identifier.nil? || identifier == ""
+          return nil if identifier.nil? || identifier == ''
           return nil if options.empty? || options.nil?
-          wrapped_request("put", "/1.0/load_balancers/#{identifier}", [202], options)
+          wrapped_request('put', "/1.0/load_balancers/#{identifier}", [202], options)
         end
 
       end

@@ -67,11 +67,11 @@ module Fog
           response = Excon::Response.new
           response.status = 200
           response.body = {
-            "Number Not Found" => 1,
-            "Response Status" => "200 OK",
-            "Response Body" => "",
-            "Errors" => [[path, "404 Not Found"]],
-            "Number Deleted" => 0
+            'Number Not Found' => 1,
+            'Response Status' => '200 OK',
+            'Response Body' => '',
+            'Errors' => [[path, '404 Not Found']],
+            'Number Deleted' => 0
           }
           response
         end

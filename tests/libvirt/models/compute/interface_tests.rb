@@ -10,12 +10,12 @@ Shindo.tests('Fog::Compute[:libvirt] | interface model', ['libvirt']) do
     tests('have attributes') do
       model_attribute_hash = interface.attributes
       attributes = [ :name, :mac, :active]
-      tests("The interface model should respond to") do
+      tests('The interface model should respond to') do
         attributes.each do |attribute|
           test("#{attribute}") { interface.respond_to? attribute }
         end
       end
-      tests("The attributes hash should have key") do
+      tests('The attributes hash should have key') do
         attributes.each do |attribute|
           test("#{attribute}") { model_attribute_hash.has_key? attribute }
         end

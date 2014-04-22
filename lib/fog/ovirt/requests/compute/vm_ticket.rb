@@ -12,7 +12,7 @@ module Fog
       class Mock
 
         def vm_ticket(id, options = {})
-          "Secret"
+          'Secret'
         end
 
       end

@@ -9,7 +9,7 @@ Shindo.tests('Compute::VcloudDirector | vdc_storage_profile requests', ['vcloudd
     @vdc_storage_profile_id = storage_profile[:href].split('/').last
 
     tests(storage_profile[:name]) do
-      tests("#get_vdc_storage_class").data_matches_schema(VcloudDirector::Compute::Schema::VDC_STORAGE_PROFILE_TYPE) do
+      tests('#get_vdc_storage_class').data_matches_schema(VcloudDirector::Compute::Schema::VDC_STORAGE_PROFILE_TYPE) do
         @service.get_vdc_storage_class(@vdc_storage_profile_id).body
       end
 

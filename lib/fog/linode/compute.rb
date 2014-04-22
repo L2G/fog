@@ -80,7 +80,7 @@ module Fog
 
         def initialize(options = {})
           @linode_api_key = options[:linode_api_key]
-          @host   = options[:host]    || "api.linode.com"
+          @host   = options[:host]    || 'api.linode.com'
           @port   = options[:port]    || 443
           @scheme = options[:scheme]  || 'https'
           @connection = Fog::XML::Connection.new("#{@scheme}://#{@host}:#{@port}", options[:persistent])

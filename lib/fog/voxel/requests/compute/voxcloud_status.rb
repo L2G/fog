@@ -15,7 +15,7 @@ module Fog
             options[:device_id] = device_id
           end
 
-          request("voxel.voxcloud.status", options)
+          request('voxel.voxcloud.status', options)
         end
 
       end

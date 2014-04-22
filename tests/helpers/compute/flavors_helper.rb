@@ -2,7 +2,7 @@ def flavors_tests(connection, params = {}, mocks_implemented = true)
 
   tests('success') do
 
-    tests("#all").succeeds do
+    tests('#all').succeeds do
       pending if Fog.mocking? && !mocks_implemented
       connection.flavors.all
     end

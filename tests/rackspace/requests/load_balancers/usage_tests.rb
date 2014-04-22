@@ -5,7 +5,7 @@ Shindo.tests('Fog::Rackspace::LoadBalancers | usage', ['rackspace']) do
   given_a_load_balancer_service do
     tests('success') do
 
-      tests("#get_usage()").formats(USAGE_FORMAT) do
+      tests('#get_usage()').formats(USAGE_FORMAT) do
         pending
         # @service.get_usage.body
       end

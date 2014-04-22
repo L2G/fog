@@ -31,11 +31,11 @@ Shindo.tests('AWS::IAM | user requests', ['aws']) do
       'RequestId'   => String
     }
 
-    tests("#list_users").formats(@users_format) do
+    tests('#list_users').formats(@users_format) do
       Fog::AWS[:iam].list_users.body
     end
 
-    tests("#get_user").formats(@user_format) do
+    tests('#get_user').formats(@user_format) do
       Fog::AWS[:iam].get_user('fog_user').body
     end
 

@@ -25,7 +25,7 @@ module Fog
           parameter_group_name = options[:parameter_group_name]
           reset_all_parameters = options[:reset_all_parameters]
 
-          path = "/"
+          path = '/'
           params = {
             :idempotent => true,
             :headers    => {},

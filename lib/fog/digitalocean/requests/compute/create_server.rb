@@ -20,7 +20,7 @@ module Fog
           }
 
           if options[:ssh_key_ids]
-            options[:ssh_key_ids]    = options[:ssh_key_ids].join(",") if options[:ssh_key_ids].is_a? Array
+            options[:ssh_key_ids]    = options[:ssh_key_ids].join(',') if options[:ssh_key_ids].is_a? Array
             query_hash[:ssh_key_ids] = options[:ssh_key_ids]
           end
 
@@ -47,20 +47,20 @@ module Fog
           response.status = 200
 
           mock_data = {
-            "id" => Fog::Mock.random_numbers(1).to_i,
-            "event_id" => Fog::Mock.random_numbers(2).to_i,
-            "name" => name,
-            "size_id" => size_id,
-            "image_id" => image_id,
-            "region_id" => region_id,
-            "ip_address" => "127.0.0.1",
-            "status" => 'active',
-            "created_at" => Time.now.strftime("%FT%TZ")
+            'id' => Fog::Mock.random_numbers(1).to_i,
+            'event_id' => Fog::Mock.random_numbers(2).to_i,
+            'name' => name,
+            'size_id' => size_id,
+            'image_id' => image_id,
+            'region_id' => region_id,
+            'ip_address' => '127.0.0.1',
+            'status' => 'active',
+            'created_at' => Time.now.strftime('%FT%TZ')
           }
 
           response.body = {
-            "status" => "OK",
-            "droplet"  => mock_data
+            'status' => 'OK',
+            'droplet'  => mock_data
           }
 
           self.data[:servers] << mock_data

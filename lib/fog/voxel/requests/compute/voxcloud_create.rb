@@ -13,7 +13,7 @@ module Fog
             options.delete(:password)
           end
 
-          request("voxel.voxcloud.create", options)
+          request('voxel.voxcloud.create', options)
         end
       end
 

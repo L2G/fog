@@ -10,7 +10,7 @@ module Fog
           request(
             :body => generate_rnat_associations_create_device_request(data),
             :expects => 201,
-            :method => "POST",
+            :method => 'POST',
             :headers => {},
             :uri => data[:uri],
             :parse => true

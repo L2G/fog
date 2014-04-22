@@ -79,7 +79,7 @@ module Fog
             when 'NetworkConnection'
               network_connection = extract_attributes(attributes)
               @response[:network] = network_connection[:network]
-              @response[:needs_customization] = ( network_connection[:needsCustomization] == "true" )
+              @response[:needs_customization] = ( network_connection[:needsCustomization] == 'true' )
             end
           end
 
@@ -94,7 +94,7 @@ module Fog
             when 'IpAddress'
               @response[:ip_address] = value
             when 'IsConnected'
-              @response[:is_connected] = (value == "true")
+              @response[:is_connected] = (value == 'true')
             when 'MACAddress'
               @response[:mac_address] = value
             when 'IpAddressAllocationMode'

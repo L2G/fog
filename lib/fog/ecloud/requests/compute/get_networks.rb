@@ -16,7 +16,7 @@ module Fog
 
           body = {
             :href  => uri,
-            :type  => "application/vnd.tmrk.cloud.network; type=collection",
+            :type  => 'application/vnd.tmrk.cloud.network; type=collection',
             :Links => {
               :Link => Fog::Ecloud.keep(environment, :name, :href, :type)
             },

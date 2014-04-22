@@ -254,7 +254,7 @@ module Fog
         def multipart_save(options)
           # Initiate the upload
           res = service.initiate_multipart_upload(directory.key, key, options)
-          upload_id = res.body["UploadId"]
+          upload_id = res.body['UploadId']
 
           # Store ETags of upload parts
           part_tags = []
@@ -267,7 +267,7 @@ module Fog
           while (chunk = body.read(multipart_chunk_size)) do
             md5 = Base64.encode64(Digest::MD5.digest(chunk)).strip
             part_upload = service.upload_part(directory.key, key, upload_id, part_tags.size + 1, chunk, 'Content-MD5' => md5 )
-            part_tags << part_upload.headers["ETag"]
+            part_tags << part_upload.headers['ETag']
           end
 
         rescue

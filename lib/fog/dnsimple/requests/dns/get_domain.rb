@@ -17,7 +17,7 @@ module Fog
         def get_domain(domain)
           request(
             :expects  => 200,
-            :method   => "GET",
+            :method   => 'GET',
             :path     => "/domains/#{domain}"
           )
         end
@@ -28,7 +28,7 @@ module Fog
 
         def get_domain(id)
           domain = self.data[:domains].detect do |domain|
-            domain["domain"]["id"] == id || domain["domain"]["name"] == id
+            domain['domain']['id'] == id || domain['domain']['name'] == id
           end
 
           response = Excon::Response.new

@@ -29,7 +29,7 @@ module Fog
         # @see http://docs.rackspace.com/servers/api/v2/cs-devguide/content/List_Servers-d1e2078.html
         # @see Fog::Compute::RackspaceV2::Server#virtual_interfaces
         def all
-          raise "Please access this collection via Server#virtual_interfaces" unless self.server
+          raise 'Please access this collection via Server#virtual_interfaces' unless self.server
 
           data = service.list_virtual_interfaces(server.id).body['virtual_interfaces']
           objects = load(data)

@@ -113,8 +113,8 @@ module Fog
             :xmlns_xsi => xmlns_xsi,
             :xsi_schemaLocation => xsi_schema_location,
             :href => make_href("tasksList/#{id}"),
-            :type => "application/vnd.vmware.vcloud.tasksList+xml",
-            :name => "Tasks Lists",
+            :type => 'application/vnd.vmware.vcloud.tasksList+xml',
+            :name => 'Tasks Lists',
             :Task => data[:tasks].keys.map {|task_id| task_body(task_id)}
           }
 

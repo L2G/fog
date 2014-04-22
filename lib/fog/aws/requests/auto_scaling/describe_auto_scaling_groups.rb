@@ -113,9 +113,9 @@ module Fog
           results = { 'AutoScalingGroups' => [] }
           asg_set = self.data[:auto_scaling_groups]
 
-          if !options["AutoScalingGroupNames"].nil?
+          if !options['AutoScalingGroupNames'].nil?
             asg_set = asg_set.reject do |asg_name, asg_data|
-              ![*options["AutoScalingGroupNames"]].include?(asg_name)
+              ![*options['AutoScalingGroupNames']].include?(asg_name)
             end
           end
 

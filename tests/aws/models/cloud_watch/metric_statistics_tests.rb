@@ -1,4 +1,4 @@
-Shindo.tests("AWS::CloudWatch | metric_statistics", ['aws', 'cloudwatch']) do
+Shindo.tests('AWS::CloudWatch | metric_statistics', ['aws', 'cloudwatch']) do
 
   tests('success') do
     pending if Fog.mocking?
@@ -11,11 +11,11 @@ Shindo.tests("AWS::CloudWatch | metric_statistics", ['aws', 'cloudwatch']) do
     period = 60
     statisticTypes = ['Minimum','Maximum','Sum','SampleCount','Average']
 
-    tests("#all").succeeds do
+    tests('#all').succeeds do
       @statistics = Fog::AWS[:cloud_watch].metric_statistics.all({'Statistics' => statisticTypes, 'StartTime' => startTime, 'EndTime' => endTime, 'Period' => period, 'MetricName' => metricName, 'Namespace' => namespace, 'Dimensions' => [{'Name' => 'InstanceId', 'Value' => instanceId}]})
     end
 
-    tests("#all_not_empty").returns(true) do
+    tests('#all_not_empty').returns(true) do
       @statistics.length > 0
     end
 

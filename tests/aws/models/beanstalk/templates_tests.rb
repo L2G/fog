@@ -1,4 +1,4 @@
-Shindo.tests("Fog::AWS[:beanstalk] | templates", ['aws', 'beanstalk']) do
+Shindo.tests('Fog::AWS[:beanstalk] | templates', ['aws', 'beanstalk']) do
 
   pending if Fog.mocking?
 
@@ -32,7 +32,7 @@ Shindo.tests("Fog::AWS[:beanstalk] | templates", ['aws', 'beanstalk']) do
       @instance = collection.create(params)
     end
 
-    tests("#all").succeeds do
+    tests('#all').succeeds do
       pending if Fog.mocking?
       collection.all
     end

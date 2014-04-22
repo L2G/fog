@@ -11,7 +11,7 @@ module Fog
 
         def all(attributes = {})
           response = service.list_virtual_machines(attributes)
-          data = response["listvirtualmachinesresponse"]["virtualmachine"] || []
+          data = response['listvirtualmachinesresponse']['virtualmachine'] || []
           load(data)
         end
 
@@ -22,9 +22,9 @@ module Fog
         end
 
         def get(server_id)
-          servers = service.list_virtual_machines('id' => server_id)["listvirtualmachinesresponse"]["virtualmachine"]
+          servers = service.list_virtual_machines('id' => server_id)['listvirtualmachinesresponse']['virtualmachine']
           if servers.nil? || servers.empty?
-            servers = service.list_virtual_machines('id' => server_id, 'projectid' => '-1')["listvirtualmachinesresponse"]["virtualmachine"]
+            servers = service.list_virtual_machines('id' => server_id, 'projectid' => '-1')['listvirtualmachinesresponse']['virtualmachine']
           end
           unless servers.nil? || servers.empty?
             new(servers.first)

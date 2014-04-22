@@ -114,7 +114,7 @@ module Fog
           addr = []
           addresses.each { |key, value|
             ipaddr = value.first
-            addr << ipaddr["addr"] unless ipaddr.nil?
+            addr << ipaddr['addr'] unless ipaddr.nil?
           }
           addr
         end
@@ -140,7 +140,7 @@ module Fog
               value = value.dup
               value.delete_at(0)
               value.each { |ipaddr|
-                addr << ipaddr["addr"]
+                addr << ipaddr['addr']
               }
             end
           }
@@ -229,7 +229,7 @@ module Fog
           requires :id
           response = service.create_image(id, name, metadata)
           begin
-            image_id = response.headers["Location"].match(/\/([^\/]+$)/)[1]
+            image_id = response.headers['Location'].match(/\/([^\/]+$)/)[1]
             Fog::Compute::HPV2::Image.new(:collection => service.images, :service => service, :id => image_id)
           rescue
             nil

@@ -17,13 +17,13 @@ provider, config = :cloudstack, compute_providers[:cloudstack]
 
 Shindo.tests("Fog::Compute[:#{provider}] | security_group_rules | ingress", [provider.to_s]) do
 
-  security_group_rule_tests(Fog::Compute[:cloudstack], config, "ingress", config[:mocked])
+  security_group_rule_tests(Fog::Compute[:cloudstack], config, 'ingress', config[:mocked])
 
 end
 
 
 Shindo.tests("Fog::Compute[:#{provider}] | security_group_rules | egress", [provider.to_s]) do
 
-  security_group_rule_tests(Fog::Compute[:cloudstack], config, "egress", config[:mocked])
+  security_group_rule_tests(Fog::Compute[:cloudstack], config, 'egress', config[:mocked])
 
 end

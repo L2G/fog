@@ -2,14 +2,14 @@ Shindo.tests('Fog::Rackspace::Monitoring | list_tests', ['rackspace','rackspace_
 
   account = Fog::Rackspace::Monitoring.new
   if Fog.mocking?
-    entity_id = "peoigne93"
-    check_id = "2090wgn93"
+    entity_id = 'peoigne93'
+    check_id = '2090wgn93'
   else
-    entity_id = account.create_entity(:label => "Foo").data[:headers]["X-Object-ID"]
-    check_id = account.create_check(entity_id,CHECK_CREATE_OPTIONS).data[:headers]["X-Object-ID"]
+    entity_id = account.create_entity(:label => 'Foo').data[:headers]['X-Object-ID']
+    check_id = account.create_check(entity_id,CHECK_CREATE_OPTIONS).data[:headers]['X-Object-ID']
   end
 
-  metric_name = "idle_percent_average"
+  metric_name = 'idle_percent_average'
   now = Time.now.to_i
   SLEEP_TIME = 2
   sleep(SLEEP_TIME) unless Fog.mocking?

@@ -32,11 +32,11 @@ Shindo.tests('Fog::Rackspace::LoadBalancers | load_balancer_tests', ['rackspace'
         @service.get_load_balancer(@lb_id).body
       end
 
-      tests("#list_load_balancers()").formats(LOAD_BALANCERS_FORMAT) do
+      tests('#list_load_balancers()').formats(LOAD_BALANCERS_FORMAT) do
         @service.list_load_balancers.body
       end
 
-      until @service.get_load_balancer(@lb_id).body["loadBalancer"]["status"] == STATUS_ACTIVE
+      until @service.get_load_balancer(@lb_id).body['loadBalancer']['status'] == STATUS_ACTIVE
         sleep 10
       end
 
@@ -48,7 +48,7 @@ Shindo.tests('Fog::Rackspace::LoadBalancers | load_balancer_tests', ['rackspace'
         @service.update_load_balancer(@lb_id, { :port => 80 }).body
       end
 
-      until @service.get_load_balancer(@lb_id).body["loadBalancer"]["status"] == STATUS_ACTIVE
+      until @service.get_load_balancer(@lb_id).body['loadBalancer']['status'] == STATUS_ACTIVE
         sleep 10
       end
 

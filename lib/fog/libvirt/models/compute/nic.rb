@@ -15,7 +15,7 @@ module Fog
 
         attr_accessor :server
 
-        TYPES = ["network", "bridge", "user"]
+        TYPES = ['network', 'bridge', 'user']
 
         def new?
           mac.nil?
@@ -42,8 +42,8 @@ module Fog
         private
         def defaults
           {
-            :type  => "bridge",
-            :model => "virtio"
+            :type  => 'bridge',
+            :model => 'virtio'
           }
         end
 

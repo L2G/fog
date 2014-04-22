@@ -16,7 +16,7 @@ module Fog
 
         def get(uri)
           data = service.get_row(uri).body
-          if data == ""
+          if data == ''
             nil
           else
             new(data)

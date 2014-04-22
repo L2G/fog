@@ -5,7 +5,7 @@ module Fog
 
         def list_servers(options = {})
           request(
-            :path     => "/Storm/Server/list",
+            :path     => '/Storm/Server/list',
             :body     => Fog::JSON.encode(:params => options)
           )
         end

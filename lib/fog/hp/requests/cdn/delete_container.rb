@@ -25,7 +25,7 @@ module Fog
           if self.data[:cdn_containers][name]
             self.data[:cdn_containers].delete(name)
             response.status = 204
-            response.body = ""
+            response.body = ''
             response
           else
             raise Fog::CDN::HP::NotFound

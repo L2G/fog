@@ -10,7 +10,7 @@ module Fog
 
         attribute :name
         attribute :description
-        attribute :state, :aliases => "status"
+        attribute :state, :aliases => 'status'
 
         attribute :database_engine
         attribute :database_version
@@ -32,7 +32,7 @@ module Fog
         end
 
         def ready?
-          state == "available"
+          state == 'available'
         end
 
         def destroy

@@ -4,7 +4,7 @@ module Fog
       class Real
 
         def batch_put_item(request_items)
-          Fog::Logger.deprecation("batch_put_item is deprecated, use batch_write_item instead")
+          Fog::Logger.deprecation('batch_put_item is deprecated, use batch_write_item instead')
           batch_write_item(request_items)
         end
 

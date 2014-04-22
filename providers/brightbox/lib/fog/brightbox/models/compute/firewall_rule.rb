@@ -20,7 +20,7 @@ module Fog
         attribute :icmp_type_name
         attribute :created_at, :type => :time
 
-        attribute :firewall_policy_id, :aliases => "firewall_policy", :squash => "id"
+        attribute :firewall_policy_id, :aliases => 'firewall_policy', :squash => 'id'
 
         # Sticking with existing Fog behaviour, save does not update but creates a new resource
         def save
@@ -35,7 +35,7 @@ module Fog
             :destination => destination,
             :destination_port => destination_port,
             :icmp_type_name => icmp_type_name
-          }.delete_if { |k, v| v.nil? || v == "" }
+          }.delete_if { |k, v| v.nil? || v == '' }
           data = service.create_firewall_rule(options)
           merge_attributes(data)
           true

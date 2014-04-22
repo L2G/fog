@@ -106,7 +106,7 @@ module Fog
           end
 
           # Delete empty commands
-          commands.delete("")
+          commands.delete('')
 
           # Now build the full command
           full_command = "#{commands.join(' ')}"
@@ -149,8 +149,8 @@ module Fog
           # - popen3 doesn't capture exitcode (on ruby 1.8) but is a standard call
           # - so we resort to checking the stderr instead
           require 'open3'
-          result = ""
-          error = ""
+          result = ''
+          error = ''
           puts prefixed_command
           Open3.popen3("#{prefixed_command}") { |i,o,e,t|
             result = result + o.read
@@ -158,7 +158,7 @@ module Fog
           }
 
           if (error.length != 0)
-            if(error.include?("not found"))
+            if(error.include?('not found'))
               return []
             else
               raise Fog::Errors::Error.new error

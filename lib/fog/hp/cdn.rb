@@ -44,12 +44,12 @@ module Fog
         def initialize(options = {})
           # deprecate hp_account_id
           if options[:hp_account_id]
-            Fog::Logger.deprecation(":hp_account_id is deprecated, please use :hp_access_key instead.")
+            Fog::Logger.deprecation(':hp_account_id is deprecated, please use :hp_access_key instead.')
             @hp_access_key = options.delete(:hp_account_id)
           end
           @hp_access_key = options[:hp_access_key]
           unless @hp_access_key
-            raise ArgumentError.new("Missing required arguments: hp_access_key. :hp_account_id is deprecated, please use :hp_access_key instead.")
+            raise ArgumentError.new('Missing required arguments: hp_access_key. :hp_account_id is deprecated, please use :hp_access_key instead.')
           end
         end
 
@@ -70,12 +70,12 @@ module Fog
         def initialize(options = {})
           # deprecate hp_account_id
           if options[:hp_account_id]
-            Fog::Logger.deprecation(":hp_account_id is deprecated, please use :hp_access_key instead.")
+            Fog::Logger.deprecation(':hp_account_id is deprecated, please use :hp_access_key instead.')
             options[:hp_access_key] = options.delete(:hp_account_id)
           end
           @hp_access_key = options[:hp_access_key]
           unless @hp_access_key
-            raise ArgumentError.new("Missing required arguments: hp_access_key. :hp_account_id is deprecated, please use :hp_access_key instead.")
+            raise ArgumentError.new('Missing required arguments: hp_access_key. :hp_account_id is deprecated, please use :hp_access_key instead.')
           end
           @hp_secret_key = options[:hp_secret_key]
           @connection_options = options[:connection_options] || {}
@@ -85,7 +85,7 @@ module Fog
           auth_version = auth_version.to_s.downcase.to_sym
 
           ### Pass the service name for object storage to the authentication call
-          options[:hp_service_type] ||= "CDN"
+          options[:hp_service_type] ||= 'CDN'
           @hp_tenant_id = options[:hp_tenant_id]
 
           ### Make the authentication call
@@ -100,7 +100,7 @@ module Fog
             # Call the legacy v1.0/v1.1 authentication
             credentials = Fog::HP.authenticate_v1(options, @connection_options)
             # In case of legacy authentication systems, the user can pass the CDN Mgmt Uri
-            @hp_cdn_uri = options[:hp_cdn_uri] || "https://region-a.geo-1.cdnmgmt.hpcloudsvc.com/v1.0"
+            @hp_cdn_uri = options[:hp_cdn_uri] || 'https://region-a.geo-1.cdnmgmt.hpcloudsvc.com/v1.0'
             # In case of legacy authentication systems, the :cdn_endpoint_url will carry the cdn storage url
             cdn_mgmt_url = "#{@hp_cdn_uri}#{URI.parse(credentials[:cdn_endpoint_url]).path}"
           end
@@ -112,7 +112,7 @@ module Fog
           if cdn_mgmt_url
             uri = URI.parse(cdn_mgmt_url)
             @host   = uri.host
-            @path   = uri.path.chomp("/")
+            @path   = uri.path.chomp('/')
             @port   = uri.port
             @scheme = uri.scheme
             @connection = Fog::XML::Connection.new("#{@scheme}://#{@host}:#{@port}", @persistent, @connection_options)

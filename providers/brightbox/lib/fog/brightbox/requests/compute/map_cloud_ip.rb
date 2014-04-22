@@ -14,8 +14,8 @@ module Fog
         # @see https://api.gb1.brightbox.com/1.0/#cloud_ip_map_cloud_ip
         #
         def map_cloud_ip(identifier, options)
-          return nil if identifier.nil? || identifier == ""
-          wrapped_request("post", "/1.0/cloud_ips/#{identifier}/map", [202], options)
+          return nil if identifier.nil? || identifier == ''
+          wrapped_request('post', "/1.0/cloud_ips/#{identifier}/map", [202], options)
         end
 
       end

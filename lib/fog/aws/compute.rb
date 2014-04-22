@@ -239,28 +239,28 @@ module Fog
                 :route_tables => [],
                 :account_attributes => [
                   {
-                    "values"        => ["5"],
-                    "attributeName" => "vpc-max-security-groups-per-interface"
+                    'values'        => ['5'],
+                    'attributeName' => 'vpc-max-security-groups-per-interface'
                   },
                   {
-                    "values"        => ["20"],
-                    "attributeName" => "max-instances"
+                    'values'        => ['20'],
+                    'attributeName' => 'max-instances'
                   },
                   {
-                    "values"        => ["EC2", "VPC"],
-                    "attributeName" => "supported-platforms"
+                    'values'        => ['EC2', 'VPC'],
+                    'attributeName' => 'supported-platforms'
                   },
                   {
-                    "values"        => ["none"],
-                    "attributeName" => "default-vpc"
+                    'values'        => ['none'],
+                    'attributeName' => 'default-vpc'
                   },
                   {
-                    "values"        => ["5"],
-                    "attributeName" => "max-elastic-ips"
+                    'values'        => ['5'],
+                    'attributeName' => 'max-elastic-ips'
                   },
                   {
-                    "values"        => ["5"],
-                    "attributeName" => "vpc-max-elastic-ips"
+                    'values'        => ['5'],
+                    'attributeName' => 'vpc-max-elastic-ips'
                   }
                 ]
               }
@@ -311,8 +311,8 @@ module Fog
         end
 
         def ec2_compatibility_mode(enabled = true)
-          values = enabled ? ["EC2", "VPC"] : ["VPC"]
-          self.data[:account_attributes].detect { |h| h["attributeName"] == "supported-platforms" }["values"] = values
+          values = enabled ? ['EC2', 'VPC'] : ['VPC']
+          self.data[:account_attributes].detect { |h| h['attributeName'] == 'supported-platforms' }['values'] = values
         end
 
         def apply_tag_filters(resources, filters, resource_id_key)

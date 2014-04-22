@@ -13,8 +13,8 @@ Shindo.tests('HP::BlockStorage | snapshot requests', ['hp', 'block_storage', 'sn
   tests('success') do
 
     @snapshot_id = nil
-    @snapshot_name = "fogsnapshottests"
-    @snapshot_desc = @snapshot_name + " desc"
+    @snapshot_name = 'fogsnapshottests'
+    @snapshot_desc = @snapshot_name + ' desc'
 
     @volume = HP[:block_storage].volumes.create(:name => 'fogvolforsnap', :size => 1)
     @volume.wait_for { ready? }
@@ -45,7 +45,7 @@ Shindo.tests('HP::BlockStorage | snapshot requests', ['hp', 'block_storage', 'sn
       HP[:block_storage].get_snapshot_details(0)
     end
 
-    tests("#delete_snapshot(0)").raises(Fog::HP::BlockStorage::NotFound) do
+    tests('#delete_snapshot(0)').raises(Fog::HP::BlockStorage::NotFound) do
       HP[:block_storage].delete_snapshot(0)
     end
 

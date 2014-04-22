@@ -16,7 +16,7 @@ module Fog
         include Shared
 
         def generate_configure_vapp_request(vapp_uri, vapp_data)
-          rasd_xmlns = { "xmlns" => "http://schemas.dmtf.org/wbem/wscim/1/cim-schema/2/CIM_ResourceAllocationSettingData" }
+          rasd_xmlns = { 'xmlns' => 'http://schemas.dmtf.org/wbem/wscim/1/cim-schema/2/CIM_ResourceAllocationSettingData' }
 
           xml = Nokogiri::XML(request( :uri => vapp_uri).body)
           xml.root['name'] = vapp_data[:name]

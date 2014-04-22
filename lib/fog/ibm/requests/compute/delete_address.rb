@@ -29,7 +29,7 @@ module Fog
           if address_exists? address_id
             self.data[:addresses].delete address_id
             response.status = 200
-            response.body = { "success" => true }
+            response.body = { 'success' => true }
           else
             response.status = 404
           end

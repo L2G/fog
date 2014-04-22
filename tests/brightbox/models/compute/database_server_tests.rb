@@ -1,28 +1,28 @@
-Shindo.tests("Fog::Compute[:brightbox] | DatabaseServer model", ["brightbox"]) do
+Shindo.tests('Fog::Compute[:brightbox] | DatabaseServer model', ['brightbox']) do
   pending if Fog.mocking?
 
   @service = Fog::Compute[:brightbox]
 
-  tests("success") do
-    tests("#create") do
-      test("a new database server is returned") do
+  tests('success') do
+    tests('#create') do
+      test('a new database server is returned') do
         @database_server = @service.database_servers.create
         !@database_server.nil?
       end
 
-      test("state is not nil") do
+      test('state is not nil') do
         !@database_server.state.nil?
       end
 
-      test("database_version is not nil") do
+      test('database_version is not nil') do
         !@database_server.database_version.nil?
       end
 
-      test("admin_username is not nil") do
+      test('admin_username is not nil') do
         !@database_server.admin_username.nil?
       end
 
-      test("admin_password is not nil") do
+      test('admin_password is not nil') do
         !@database_server.admin_password.nil?
       end
     end
@@ -30,8 +30,8 @@ Shindo.tests("Fog::Compute[:brightbox] | DatabaseServer model", ["brightbox"]) d
     @sample_identifier = @database_server.id
     pending if @sample_identifier.nil?
 
-    tests("#all") do
-      test("returns results") do
+    tests('#all') do
+      test('returns results') do
         @database_servers = @service.database_servers.all
         @database_servers.any? do |dbs|
           dbs.identity == @database_server.identity
@@ -44,18 +44,18 @@ Shindo.tests("Fog::Compute[:brightbox] | DatabaseServer model", ["brightbox"]) d
 
       @database_server.wait_for { ready? }
 
-      test("admin_username is not nil") do
+      test('admin_username is not nil') do
         !@database_server.admin_username.nil?
       end
 
-      test("admin_password is nil") do
+      test('admin_password is nil') do
         @database_server.admin_password.nil?
       end
     end
 
     @database_server.wait_for { ready? }
 
-    tests("#snapshot") do
+    tests('#snapshot') do
       # Very messy but there is no feedback about if snapshotting or what the ID will be
       existing_snapshots = @service.database_snapshots.all.map { |snapshot| snapshot.identity }
       test do
@@ -71,7 +71,7 @@ Shindo.tests("Fog::Compute[:brightbox] | DatabaseServer model", ["brightbox"]) d
     end
 
     # Can no longer destroy when snapshotting
-    tests("#destroy") do
+    tests('#destroy') do
       @database_server.destroy
     end
   end

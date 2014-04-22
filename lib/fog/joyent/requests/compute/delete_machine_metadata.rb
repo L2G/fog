@@ -7,7 +7,7 @@ module Fog
         # https://us-west-1.api.joyentcloud.com/docs#DeleteAllMachineMetadata
         def delete_machine_metadata(machine_id, key)
           request(
-            :method => "DELETE",
+            :method => 'DELETE',
             :path => "/my/machines/#{machine_id}/metadata/#{key}",
             :expects => [200, 204]
           )

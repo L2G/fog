@@ -9,7 +9,7 @@ module Fog
     service(:compute, 'Compute')
 
     def self.authenticate(options)
-      clodo_auth_url = options[:clodo_auth_url] || "api.clodo.ru"
+      clodo_auth_url = options[:clodo_auth_url] || 'api.clodo.ru'
       url = clodo_auth_url.match(/^https?:/) ? \
                 clodo_auth_url : 'https://' + clodo_auth_url
       uri = URI.parse(url)

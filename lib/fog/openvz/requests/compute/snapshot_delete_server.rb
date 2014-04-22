@@ -4,7 +4,7 @@ module Fog
       class Real
 
         def snapshot_delete_server(id,options = {})
-          vzctl("snapshot-delete",{:ctid => id}.merge(options))
+          vzctl('snapshot-delete',{:ctid => id}.merge(options))
         end
 
       end

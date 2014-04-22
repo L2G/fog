@@ -124,7 +124,7 @@ module Fog
           end
 
           def request_id_header
-            "x-response-id"
+            'x-response-id'
           end
 
           def region

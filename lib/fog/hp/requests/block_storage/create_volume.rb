@@ -47,7 +47,7 @@ module Fog
             :body     => Fog::JSON.encode(data),
             :expects  => 200,
             :method   => 'POST',
-            :path     => "os-volumes"
+            :path     => 'os-volumes'
           )
         end
 
@@ -57,7 +57,7 @@ module Fog
 
         def create_volume(name, description, size, options = {})
           if options['snapshotId'] && options['imageRef']
-            raise Fog::Errors::BadRequest.new("Snapshot and image cannot be specified together.")
+            raise Fog::Errors::BadRequest.new('Snapshot and image cannot be specified together.')
           else
             response = Excon::Response.new
             response.status = 200
@@ -67,7 +67,7 @@ module Fog
               'displayDescription' => description,
               'size'               => size,
               'status'             => 'available',
-              'snapshotId'         => options['snapshot_id'] || "",
+              'snapshotId'         => options['snapshot_id'] || '',
               #'imageRef'           => options['imageRef'] || "", # TODO: not implemented to preserve backward compatibility
               'volumeType'         => nil,
               'availabilityZone'   => 'nova',

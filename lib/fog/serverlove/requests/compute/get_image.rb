@@ -4,7 +4,7 @@ module Fog
       class Real
 
         def get_image(image_id)
-          request(:method => "get", :path => "/drives/#{image_id}/info", :expects => 200)
+          request(:method => 'get', :path => "/drives/#{image_id}/info", :expects => 200)
         end
 
       end

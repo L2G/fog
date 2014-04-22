@@ -16,15 +16,15 @@ Shindo.tests do
   end
 
   tests('credential') do
-    returns(:default, "is :default") { Fog.credential }
+    returns(:default, 'is :default') { Fog.credential }
 
-    returns(:foo, "can be set directly") do
-      Fog.credential = "foo"
+    returns(:foo, 'can be set directly') do
+      Fog.credential = 'foo'
       Fog.credential
     end
 
-    returns(:bar, "can be set with environment variable") do
-      ENV["FOG_CREDENTIAL"] = "bar"
+    returns(:bar, 'can be set with environment variable') do
+      ENV['FOG_CREDENTIAL'] = 'bar'
       Fog.credential
     end
   end
@@ -56,7 +56,7 @@ Shindo.tests do
       ENV['HOME'] = '.'
 
       if RUBY_PLATFORM == 'java'
-        Fog::Logger.warning("Stubbing out non-absolute path credentials test due to JRuby bug: https://github.com/jruby/jruby/issues/1163")
+        Fog::Logger.warning('Stubbing out non-absolute path credentials test due to JRuby bug: https://github.com/jruby/jruby/issues/1163')
         nil
       else
         Fog.credentials_path
@@ -71,23 +71,23 @@ Shindo.tests do
   end
 
   tests('symbolize_credential?') do
-    returns(true, "username") { Fog.symbolize_credential?(:username) }
-    returns(false, "headers") { Fog.symbolize_credential?(:headers) }
+    returns(true, 'username') { Fog.symbolize_credential?(:username) }
+    returns(false, 'headers') { Fog.symbolize_credential?(:headers) }
   end
 
   tests('symbolize_credentials') do
     h = {
-      "a" => 3,
+      'a' => 3,
       :something => 2,
-      "connection_options" => {"val" => 5},
-      :headers => { 'User-Agent' => "my user agent" }
+      'connection_options' => {'val' => 5},
+      :headers => { 'User-Agent' => 'my user agent' }
       }
 
       returns({
         :a => 3,
         :something => 2,
         :connection_options => {:val => 5},
-        :headers => { 'User-Agent' => "my user agent" }
+        :headers => { 'User-Agent' => 'my user agent' }
         }) { Fog.symbolize_credentials h }
   end
 end

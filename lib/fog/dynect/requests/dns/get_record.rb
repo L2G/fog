@@ -40,38 +40,38 @@ module Fog
           if record_id = options['record_id']
             raise Fog::DNS::Dynect::NotFound unless record = zone[:records][type].find { |record| record[:record_id] == record_id.to_i }
             response.body = {
-              "status" => "success",
-              "data" => {
-                "zone" => record[:zone][:zone],
-                "ttl" => record[:ttl],
-                "fqdn" => record[:fqdn],
-                "record_type" => type,
-                "rdata" => record[:rdata],
-                "record_id" => record[:record_id]
+              'status' => 'success',
+              'data' => {
+                'zone' => record[:zone][:zone],
+                'ttl' => record[:ttl],
+                'fqdn' => record[:fqdn],
+                'record_type' => type,
+                'rdata' => record[:rdata],
+                'record_id' => record[:record_id]
               },
-              "job_id" => Fog::Dynect::Mock.job_id,
-              "msgs" => [{
-                "INFO" => "get: Found the record",
-                "SOURCE" => "API-B",
-                "ERR_CD" => nil,
-                "LVL" => "INFO"
+              'job_id' => Fog::Dynect::Mock.job_id,
+              'msgs' => [{
+                'INFO' => 'get: Found the record',
+                'SOURCE' => 'API-B',
+                'ERR_CD' => nil,
+                'LVL' => 'INFO'
               }]
             }
           else
-            records = if type == "ANY"
+            records = if type == 'ANY'
                         zone[:records].values.flatten.select { |record| record[:fqdn] == fqdn }
                       else
                         zone[:records][type].select { |record| record[:fqdn] == fqdn }
                       end
             response.body = {
-              "status" => "success",
-              "data" => records.collect { |record| "/REST/#{record[:type]}Record/#{record[:zone][:zone]}/#{record[:fqdn]}/#{record[:record_id]}" },
-              "job_id" => Fog::Dynect::Mock.job_id,
-              "msgs" => [{
-                "INFO" => "detail: Found #{records.size} record",
-                "SOURCE" => "BLL",
-                "ERR_CD" => nil,
-                "LVL" => "INFO"
+              'status' => 'success',
+              'data' => records.collect { |record| "/REST/#{record[:type]}Record/#{record[:zone][:zone]}/#{record[:fqdn]}/#{record[:record_id]}" },
+              'job_id' => Fog::Dynect::Mock.job_id,
+              'msgs' => [{
+                'INFO' => "detail: Found #{records.size} record",
+                'SOURCE' => 'BLL',
+                'ERR_CD' => nil,
+                'LVL' => 'INFO'
               }]
             }
           end

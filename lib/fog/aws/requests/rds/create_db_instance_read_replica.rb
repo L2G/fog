@@ -58,7 +58,7 @@ module Fog
             'MultiAZ' => false,
             'PendingModifiedValues' => {},
             'PreferredBackupWindow' => '08:00-08:30',
-            'PreferredMaintenanceWindow' => "mon:04:30-mon:05:00",
+            'PreferredMaintenanceWindow' => 'mon:04:30-mon:05:00',
             'ReadReplicaDBInstanceIdentifiers' => [],
             'ReadReplicaSourceDBInstanceIdentifier' => source_identifier
           }
@@ -67,12 +67,12 @@ module Fog
 
           response = Excon::Response.new
           response.body = {
-            "ResponseMetadata" => { "RequestId" => Fog::AWS::Mock.request_id },
-            "CreateDBInstanceReadReplicaResult" => {"DBInstance" => data}
+            'ResponseMetadata' => { 'RequestId' => Fog::AWS::Mock.request_id },
+            'CreateDBInstanceReadReplicaResult' => {'DBInstance' => data}
           }
           response.status = 200
           # This values aren't showed at creating time but at available time
-          self.data[:servers][instance_identifier]["InstanceCreateTime"] = Time.now
+          self.data[:servers][instance_identifier]['InstanceCreateTime'] = Time.now
 
           response
         end

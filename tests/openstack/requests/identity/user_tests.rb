@@ -14,7 +14,7 @@ Shindo.tests('Fog::Identity[:openstack] | user requests', ['openstack']) do
     @user_name_update = Fog::Mock.random_hex(64)
 
     tests("#create_user('#{@user_name}', 'mypassword', 'morph@example.com', 't3n4nt1d', true)").formats(@user_format, false) do
-      @user = Fog::Identity[:openstack].create_user(@user_name, "mypassword", "morph@example.com", OpenStack::Identity.get_tenant_id).body['user']
+      @user = Fog::Identity[:openstack].create_user(@user_name, 'mypassword', 'morph@example.com', OpenStack::Identity.get_tenant_id).body['user']
     end
 
     tests('#list_users').formats({'users' => [@user_format]}) do

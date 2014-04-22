@@ -22,30 +22,30 @@ module Fog
           response = Excon::Response.new
           response.status = 200
           response.body = {
-            "info"  => [
+            'info'  => [
               {
-                "read_bytes"      => Fog::Mock.random_numbers(10).to_i,
-                "reads"           => Fog::Mock.random_numbers(6).to_i,
-                "rtime"           => Fog::Mock.random_numbers(6).to_i,
-                "write_bytes"     => Fog::Mock.random_numbers(10).to_i,
-                "writes"          => Fog::Mock.random_numbers(8).to_i,
-                "wtime"           => Fog::Mock.random_numbers(9).to_i,
-                "time"            => Fog::Mock.random_numbers(7).to_i,
-                "name"            => "/dev/xvda1"
+                'read_bytes'      => Fog::Mock.random_numbers(10).to_i,
+                'reads'           => Fog::Mock.random_numbers(6).to_i,
+                'rtime'           => Fog::Mock.random_numbers(6).to_i,
+                'write_bytes'     => Fog::Mock.random_numbers(10).to_i,
+                'writes'          => Fog::Mock.random_numbers(8).to_i,
+                'wtime'           => Fog::Mock.random_numbers(9).to_i,
+                'time'            => Fog::Mock.random_numbers(7).to_i,
+                'name'            => '/dev/xvda1'
               }
             ]
           }
           response.headers = {
-            "Date"                  => Time.now.utc.to_s,
-            "Content-Type"          => "application/json; charset=UTF-8",
-            "X-RateLimit-Limit"     => "50000",
-            "X-RateLimit-Remaining" => "49627",
-            "X-RateLimit-Window"    => "24 hours",
-            "X-RateLimit-Type"      => "global",
-            "X-Response-Id"         => "j23jlk234jl2j34j",
-            "X-LB"                  => "dfw1-maas-prod-api0",
-            "Vary"                  => "Accept-Encoding",
-            "Transfer-Encoding"     => "chunked"
+            'Date'                  => Time.now.utc.to_s,
+            'Content-Type'          => 'application/json; charset=UTF-8',
+            'X-RateLimit-Limit'     => '50000',
+            'X-RateLimit-Remaining' => '49627',
+            'X-RateLimit-Window'    => '24 hours',
+            'X-RateLimit-Type'      => 'global',
+            'X-Response-Id'         => 'j23jlk234jl2j34j',
+            'X-LB'                  => 'dfw1-maas-prod-api0',
+            'Vary'                  => 'Accept-Encoding',
+            'Transfer-Encoding'     => 'chunked'
           }
           response.remote_ip = Fog::Mock.random_ip({:version => :v4})
           response

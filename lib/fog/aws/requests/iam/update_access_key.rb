@@ -43,8 +43,8 @@ module Fog
           else
             access_keys_data = data[:access_keys]
           end
-          key = access_keys_data.detect{|k| k["AccessKeyId"] == access_key_id}
-          key["Status"] = status
+          key = access_keys_data.detect{|k| k['AccessKeyId'] == access_key_id}
+          key['Status'] = status
           Excon::Response.new.tap do |response|
             response.status = 200
             response.body = { 'AccessKey' => key,

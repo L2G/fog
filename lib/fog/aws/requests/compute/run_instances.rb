@@ -122,10 +122,10 @@ module Fog
           end
           if network_interfaces = options.delete('NetworkInterfaces')
             network_interfaces.each_with_index do |mapping, index|
-              iface = format("NetworkInterface.%d", index)
+              iface = format('NetworkInterface.%d', index)
               for key, value in mapping
                 case key
-                when "SecurityGroupId"
+                when 'SecurityGroupId'
                   options.merge!(Fog::AWS.indexed_param("#{iface}.SecurityGroupId", [*value]))
                 else
                   options.merge!({ "#{iface}.#{key}" => value })
@@ -167,44 +167,44 @@ module Fog
             availability_zone = options['Placement.AvailabilityZone'] || Fog::AWS::Mock.availability_zone(@region)
 
             block_device_mapping = (options['BlockDeviceMapping'] || []).inject([]) do |mapping, device|
-              device_name           = device.fetch("DeviceName", "/dev/sda1")
-              volume_size           = device.fetch("Ebs.VolumeSize", 15)            # @todo should pull this from the image
-              delete_on_termination = device.fetch("Ebs.DeleteOnTermination", true) # @todo should pull this from the image
+              device_name           = device.fetch('DeviceName', '/dev/sda1')
+              volume_size           = device.fetch('Ebs.VolumeSize', 15)            # @todo should pull this from the image
+              delete_on_termination = device.fetch('Ebs.DeleteOnTermination', true) # @todo should pull this from the image
 
-              volume_id = create_volume(availability_zone, volume_size).data[:body]["volumeId"]
+              volume_id = create_volume(availability_zone, volume_size).data[:body]['volumeId']
 
-              self.data[:volumes][volume_id].merge!("DeleteOnTermination" => delete_on_termination)
+              self.data[:volumes][volume_id].merge!('DeleteOnTermination' => delete_on_termination)
 
               mapping << {
-                "deviceName"          => device_name,
-                "volumeId"            => volume_id,
-                "status"              => "attached",
-                "attachTime"          => Time.now,
-                "deleteOnTermination" => delete_on_termination,
+                'deviceName'          => device_name,
+                'volumeId'            => volume_id,
+                'status'              => 'attached',
+                'attachTime'          => Time.now,
+                'deleteOnTermination' => delete_on_termination,
               }
             end
 
             network_interfaces = (options['NetworkInterfaces'] || []).inject([]) do |mapping, device|
-              device_index          = device.fetch("DeviceIndex", 0)
-              subnet_id             = device.fetch("SubnetId", options[:subnet_id] ||  Fog::AWS::Mock.subnet_id)
-              private_ip_address    = device.fetch("PrivateIpAddress", options[:private_ip_address] || Fog::AWS::Mock.private_ip_address)
-              delete_on_termination = device.fetch("DeleteOnTermination", true)
-              description           = device.fetch("Description", "mock_network_interface")
-              security_group_id     = device.fetch("SecurityGroupId", self.data[:security_groups]['default']['groupId'])
+              device_index          = device.fetch('DeviceIndex', 0)
+              subnet_id             = device.fetch('SubnetId', options[:subnet_id] ||  Fog::AWS::Mock.subnet_id)
+              private_ip_address    = device.fetch('PrivateIpAddress', options[:private_ip_address] || Fog::AWS::Mock.private_ip_address)
+              delete_on_termination = device.fetch('DeleteOnTermination', true)
+              description           = device.fetch('Description', 'mock_network_interface')
+              security_group_id     = device.fetch('SecurityGroupId', self.data[:security_groups]['default']['groupId'])
               interface_options     = {
-                  "PrivateIpAddress"   => private_ip_address,
-                  "GroupSet"           => device.fetch("GroupSet", [security_group_id]),
-                  "Description"        => description
+                  'PrivateIpAddress'   => private_ip_address,
+                  'GroupSet'           => device.fetch('GroupSet', [security_group_id]),
+                  'Description'        => description
               }
 
-              interface_id = device.fetch("NetworkInterfaceId", create_network_interface(subnet_id, interface_options))
+              interface_id = device.fetch('NetworkInterfaceId', create_network_interface(subnet_id, interface_options))
 
               mapping << {
-                "networkInterfaceId"  => interface_id,
-                "subnetId"            => subnet_id,
-                "status"              => "attached",
-                "attachTime"          => Time.now,
-                "deleteOnTermination" => delete_on_termination,
+                'networkInterfaceId'  => interface_id,
+                'subnetId'            => subnet_id,
+                'status'              => 'attached',
+                'attachTime'          => Time.now,
+                'deleteOnTermination' => delete_on_termination,
               }
             end
 

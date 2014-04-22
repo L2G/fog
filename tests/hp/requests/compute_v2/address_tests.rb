@@ -1,4 +1,4 @@
-Shindo.tests("Fog::Compute::HPV2 | address requests", ['hp', 'v2', 'compute', 'address']) do
+Shindo.tests('Fog::Compute::HPV2 | address requests', ['hp', 'v2', 'compute', 'address']) do
 
   service = Fog::Compute.new(:provider => 'HP', :version => :v2)
 
@@ -9,7 +9,7 @@ Shindo.tests("Fog::Compute::HPV2 | address requests", ['hp', 'v2', 'compute', 'a
     'id'          => String
   }
 
-  @base_image_id = ENV["BASE_IMAGE_ID"] || "7f60b54c-cd15-433f-8bed-00acbcd25a17"
+  @base_image_id = ENV['BASE_IMAGE_ID'] || '7f60b54c-cd15-433f-8bed-00acbcd25a17'
 
   tests('success') do
 
@@ -21,11 +21,11 @@ Shindo.tests("Fog::Compute::HPV2 | address requests", ['hp', 'v2', 'compute', 'a
     #data = service.create_server(@server_name, 100, @base_image_id).body['server']
     #@server_id = data['id']
 
-    tests("#list_addresses").formats({'floating_ips' => [@floating_ips_format]}) do
+    tests('#list_addresses').formats({'floating_ips' => [@floating_ips_format]}) do
       service.list_addresses.body
     end
 
-    tests("#allocate_address").formats(@floating_ips_format) do
+    tests('#allocate_address').formats(@floating_ips_format) do
       data = service.allocate_address.body['floating_ip']
       @address_id = data['id']
       @ip_address = data['ip']

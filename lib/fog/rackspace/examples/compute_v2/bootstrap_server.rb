@@ -15,13 +15,13 @@ end
 # Use username defined in ~/.fog file, if absent prompt for username.
 # For more details on ~/.fog refer to http://fog.io/about/getting_started.html
 def rackspace_username
-  Fog.credentials[:rackspace_username] || get_user_input("Enter Rackspace Username")
+  Fog.credentials[:rackspace_username] || get_user_input('Enter Rackspace Username')
 end
 
 # Use api key defined in ~/.fog file, if absent prompt for api key
 # For more details on ~/.fog refer to http://fog.io/about/getting_started.html
 def rackspace_api_key
-  Fog.credentials[:rackspace_api_key] || get_user_input("Enter Rackspace API key")
+  Fog.credentials[:rackspace_api_key] || get_user_input('Enter Rackspace API key')
 end
 
 # Generates a ssh key using the SSHKey library. The private key is avaialble via
@@ -74,16 +74,16 @@ begin
 
     puts "The server has been successfully created.\n"
     puts "Write the following ssh keys to you ~/.ssh directory in order to log in\n\n"
-    puts "+++++++++++PRIVATE_KEY (~/.ssh/fog_key)++++++++++++"
+    puts '+++++++++++PRIVATE_KEY (~/.ssh/fog_key)++++++++++++'
     puts ssh_key.private_key
-    puts "++++++++++PUBLIC_KEY (~/.ssh/fog_key.pub)++++++++++"
+    puts '++++++++++PUBLIC_KEY (~/.ssh/fog_key.pub)++++++++++'
     puts ssh_key.ssh_public_key
     puts "+++++++++++++++++++++++++++++++++++++++++++++++++++i\n\n"
 
     puts "You can then log into the server using the following command\n"
     puts "ssh #{server.username}@#{server.public_ip_address}\n\n"
   else
-    puts "An error occured, please try again"
+    puts 'An error occured, please try again'
   end
 
 rescue Fog::Errors::TimeoutError

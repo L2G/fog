@@ -14,7 +14,7 @@ module Vmfusion # deviates from other bin stuff to accomodate gem
       @@connections ||= Hash.new do |hash, key|
         hash[key] = case key
         when :compute
-          Fog::Logger.warning("Vmfusion[:compute] is not recommended, use Compute[:vmfusion] for portability")
+          Fog::Logger.warning('Vmfusion[:compute] is not recommended, use Compute[:vmfusion] for portability')
           Fog::Compute.new(:provider => 'Vmfusion')
         else
           raise ArgumentError, "Unrecognized service: #{key.inspect}"
@@ -25,11 +25,11 @@ module Vmfusion # deviates from other bin stuff to accomodate gem
 
     def available?
       begin
-        availability = true unless Gem::Specification::find_by_name("fission").nil?
+        availability = true unless Gem::Specification::find_by_name('fission').nil?
       rescue Gem::LoadError
         availability = false
       rescue
-        availability_gem = Gem.available?("fission")
+        availability_gem = Gem.available?('fission')
       end
 
       if availability

@@ -6,12 +6,12 @@ Shindo.tests('Fog::Rackspace::Identity | credentials', ['rackspace']) do
   user = service.users.all.first
 
   tests('success') do
-    tests("#all").succeeds do
+    tests('#all').succeeds do
       credentials = user.credentials.all
       credentials.all? { |c| c.username && c.apiKey }
     end
 
-    tests("#get").succeeds do
+    tests('#get').succeeds do
       list_credential = user.credentials.all.first
 
       credential = user.credentials.get(list_credential.identity)
@@ -19,7 +19,7 @@ Shindo.tests('Fog::Rackspace::Identity | credentials', ['rackspace']) do
     end
   end
 
-  tests("failure").returns(nil) do
+  tests('failure').returns(nil) do
     user.credentials.get('i am a credential that does not exist')
   end
 end

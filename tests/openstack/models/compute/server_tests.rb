@@ -1,4 +1,4 @@
-Shindo.tests("Fog::Compute[:openstack] | server", ['openstack']) do
+Shindo.tests('Fog::Compute[:openstack] | server', ['openstack']) do
 
   tests('success') do
 
@@ -20,7 +20,7 @@ Shindo.tests("Fog::Compute[:openstack] | server", ['openstack']) do
       server.associate_address(ip1.fixed_ip_address)
       server.reload
 
-      returns( ["192.168.11.3"] ) { server.floating_ip_addresses }
+      returns( ['192.168.11.3'] ) { server.floating_ip_addresses }
     end
 
     tests('#security_groups').succeeds do
@@ -95,7 +95,7 @@ Shindo.tests("Fog::Compute[:openstack] | server", ['openstack']) do
         image  = fog.images.first.id
 
         server = fog.servers.new(:name       => 'test server',
-                                 :metadata => {"foo" => "bar"},
+                                 :metadata => {'foo' => 'bar'},
                                  :flavor_ref => flavor,
                                  :image_ref  => image)
 
@@ -138,11 +138,11 @@ Shindo.tests("Fog::Compute[:openstack] | server", ['openstack']) do
 
         flavor_resize = fog.flavors[1].id
         server.resize(flavor_resize)
-        server.wait_for { server.state == "VERIFY_RESIZE" } unless Fog.mocking?
+        server.wait_for { server.state == 'VERIFY_RESIZE' } unless Fog.mocking?
         server.revert_resize
-        server.wait_for { server.state == "ACTIVE" } unless Fog.mocking?
+        server.wait_for { server.state == 'ACTIVE' } unless Fog.mocking?
         server.resize(flavor_resize)
-        server.wait_for { server.state == "VERIFY_RESIZE" } unless Fog.mocking?
+        server.wait_for { server.state == 'VERIFY_RESIZE' } unless Fog.mocking?
         server.confirm_resize
 
       ensure
@@ -176,7 +176,7 @@ Shindo.tests("Fog::Compute[:openstack] | server", ['openstack']) do
                                  :image_ref  => image)
 
         server.save
-        server.wait_for { server.state == "ACTIVE" } unless Fog.mocking?
+        server.wait_for { server.state == 'ACTIVE' } unless Fog.mocking?
 
         server.attach_volume(volume.id, '/dev/vdc')
         volume.wait_for { volume.status == 'in-use' } unless Fog.mocking?

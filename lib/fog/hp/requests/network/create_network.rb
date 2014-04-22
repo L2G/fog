@@ -49,7 +49,7 @@ module Fog
           response.status = 201
           data = {
             'id'              => Fog::HP::Mock.uuid.to_s,
-            'name'            => options[:name] || "",
+            'name'            => options[:name] || '',
             'tenant_id'       => options[:tenant_id] || Fog::Mock.random_numbers(14).to_s,
             'status'          => 'ACTIVE',
             'subnets'         => [],

@@ -19,23 +19,23 @@ module Fog
           response = Excon::Response.new
           response.status = 200
           response.body = {
-            "status" => "OK",
-            "images" => [
+            'status' => 'OK',
+            'images' => [
               # Sample image
               {
-                "id" => 1601,
-                "name" => "CentOS 5.8 x64",
-                "distribution" => "CentOS"
+                'id' => 1601,
+                'name' => 'CentOS 5.8 x64',
+                'distribution' => 'CentOS'
               },
               {
-                "id" => 1602,
-                "name" => "CentOS 5.8 x32",
-                "distribution" => "CentOS"
+                'id' => 1602,
+                'name' => 'CentOS 5.8 x32',
+                'distribution' => 'CentOS'
               },
               {
-                "id" => 2676,
-                "name" => "Ubuntu 12.04 x64",
-                "distribution" => "Ubuntu"
+                'id' => 2676,
+                'name' => 'Ubuntu 12.04 x64',
+                'distribution' => 'Ubuntu'
               },
 
             ]

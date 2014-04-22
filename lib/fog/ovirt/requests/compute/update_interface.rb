@@ -4,8 +4,8 @@ module Fog
       class Real
 
         def update_interface(id, options)
-          raise ArgumentError, "instance id is a required parameter" unless id
-          raise ArgumentError, "interface id is a required parameter for update-interface" unless options.has_key? :id
+          raise ArgumentError, 'instance id is a required parameter' unless id
+          raise ArgumentError, 'interface id is a required parameter for update-interface' unless options.has_key? :id
 
           client.update_interface(id, options)
         end
@@ -14,8 +14,8 @@ module Fog
 
       class Mock
         def update_interface(id, options)
-          raise ArgumentError, "instance id is a required parameter" unless id
-          raise ArgumentError, "interface id is a required parameter for update-interface" unless options.has_key? :id
+          raise ArgumentError, 'instance id is a required parameter' unless id
+          raise ArgumentError, 'interface id is a required parameter for update-interface' unless options.has_key? :id
           true
         end
 

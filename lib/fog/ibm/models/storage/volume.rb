@@ -25,23 +25,23 @@ module Fog
 
         identity :id
 
-        attribute :instance_id,   :aliases => "instanceId"
-        attribute :io_price,      :aliases => "ioPrice"
+        attribute :instance_id,   :aliases => 'instanceId'
+        attribute :io_price,      :aliases => 'ioPrice'
         attribute :name
         attribute :state
         attribute :size
-        attribute :offering_id,   :aliases => "offeringId"
+        attribute :offering_id,   :aliases => 'offeringId'
         attribute :owner
-        attribute :created_at,    :aliases => "createdTime"
-        attribute :location_id,   :aliases => "location"
-        attribute :product_codes, :aliases => "productCodes"
+        attribute :created_at,    :aliases => 'createdTime'
+        attribute :location_id,   :aliases => 'location'
+        attribute :product_codes, :aliases => 'productCodes'
         attribute :format
         attribute :storage_area,     :aliases => 'storageArea'
         attribute :platform_version, :aliases => 'platformVersion'
         attribute :clone_status,     :aliases => 'cloneStatus'
 
         def attached?
-          state == "Attached"
+          state == 'Attached'
         end
 
         def attach(instance_id)
@@ -65,7 +65,7 @@ module Fog
         end
 
         def instance
-          return nil if instance_id.nil? || instance_id == "0" || instance_id == ""
+          return nil if instance_id.nil? || instance_id == '0' || instance_id == ''
           Fog::Compute[:ibm].servers.get(instance_id)
         end
 
@@ -77,7 +77,7 @@ module Fog
         # Are we ready to be attached to an instance?
         def ready?
           # TODO: Not sure if this is the only state we should be matching.
-          state == "Detached"
+          state == 'Detached'
         end
 
         def save

@@ -4,7 +4,7 @@ module Fog
       class Real
 
         def ip_remove(params)
-          request("/ip/remove", params)
+          request('/ip/remove', params)
         end
       end
 

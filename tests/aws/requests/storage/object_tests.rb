@@ -60,7 +60,7 @@ Shindo.tests('AWS::Storage | object requests', ['aws']) do
       'AccessControlList' => [
         {
           'Grantee' => @aws_owner,
-          'Permission' => "FULL_CONTROL"
+          'Permission' => 'FULL_CONTROL'
         }
       ]}
     tests("#put_object_acl('#{@directory.identity}', 'fog_object', hash with id)").returns(acl) do
@@ -73,7 +73,7 @@ Shindo.tests('AWS::Storage | object requests', ['aws']) do
         'AccessControlList' => [
           {
             'Grantee' => { 'ID' => 'f62f0218873cfa5d56ae9429ae75a592fec4fd22a5f24a20b1038a7db9a8f150', 'DisplayName' => 'mtd' },
-            'Permission' => "FULL_CONTROL"
+            'Permission' => 'FULL_CONTROL'
           }
         ]}) do
       pending if Fog.mocking?
@@ -82,7 +82,7 @@ Shindo.tests('AWS::Storage | object requests', ['aws']) do
         'AccessControlList' => [
           {
             'Grantee' => { 'EmailAddress' => 'mtd@amazon.com' },
-            'Permission' => "FULL_CONTROL"
+            'Permission' => 'FULL_CONTROL'
           }
         ]})
       Fog::Storage[:aws].get_object_acl(@directory.identity, 'fog_object').body
@@ -93,7 +93,7 @@ Shindo.tests('AWS::Storage | object requests', ['aws']) do
       'AccessControlList' => [
         {
           'Grantee' => { 'URI' => 'http://acs.amazonaws.com/groups/global/AllUsers' },
-          'Permission' => "FULL_CONTROL"
+          'Permission' => 'FULL_CONTROL'
         }
       ]}
     tests("#put_object_acl('#{@directory.identity}', 'fog_object', hash with uri)").returns(acl) do

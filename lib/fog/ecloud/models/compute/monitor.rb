@@ -20,14 +20,14 @@ module Fog
         def edit(options = {})
           href = "#{service.base_path}/internetServices/#{internet_service_id}/monitor?type="
           case type
-          when "application/vnd.tmrk.cloud.pingMonitor"
-            options[:uri] = href + "ping"
+          when 'application/vnd.tmrk.cloud.pingMonitor'
+            options[:uri] = href + 'ping'
             data = service.monitors_edit_ping(options).body
-          when "application/vnd.tmrk.cloud.httpMonitor"
-            options[:uri] = href + "http"
+          when 'application/vnd.tmrk.cloud.httpMonitor'
+            options[:uri] = href + 'http'
             data = service.monitors_edit_http(options).body
-          when "application/vnd.tmrk.cloud.ecvMonitor"
-            options[:uri] = href + "ecv"
+          when 'application/vnd.tmrk.cloud.ecvMonitor'
+            options[:uri] = href + 'ecv'
             data = service.monitors_edit_ecv(options).body
           end
           object = collection.from_data(data)

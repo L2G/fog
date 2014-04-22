@@ -39,7 +39,7 @@ module Fog
             :id              => detached_disk_id,
             :href            => "/cloudapi/ecloud/detacheddisks/#{detached_disk_id}",
             :name            => options[:name],
-            :type            => "application/vnd.tmrk.cloud.detachedDisk",
+            :type            => 'application/vnd.tmrk.cloud.detachedDisk',
             :Links => {
               :Link => [
                 Fog::Ecloud.keep(compute_pool, :href, :name, :type),
@@ -47,12 +47,12 @@ module Fog
             },
             :Description => options[:description],
             :LastKnownVirtualMachineConfiguration => Fog::Ecloud.keep(server, :name, :ProcessorCount, :Memory, :OperatingSystem),
-            :Type => "Data",
+            :Type => 'Data',
             :Size => {
-              :Unit  => "GB",
+              :Unit  => 'GB',
               :Value => options[:disk][:Size][:Value],
             },
-            :Status => "Available",
+            :Status => 'Available',
           }
 
           server[:HardwareConfiguration][:Disks][:Disk].delete_if { |disk| disk[:Index] == options[:disk][:Index] }

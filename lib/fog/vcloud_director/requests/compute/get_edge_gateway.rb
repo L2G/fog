@@ -62,33 +62,33 @@ module Fog
           body = {
             :xmlns => xmlns,
             :xmlns_xsi => xmlns_xsi,
-            :status => "1",
+            :status => '1',
             :name => edge_gateway[:name],
             :id => "urn:vcloud:gateway:#{id}",
-            :type => "application/vnd.vmware.admin.edgeGateway+xml",
+            :type => 'application/vnd.vmware.admin.edgeGateway+xml',
             :href => make_href("admin/edgeGateway/#{id}"),
             :xsi_schemaLocation => xsi_schema_location,
-            :Link => [{:rel => "up",
-                      :type => "application/vnd.vmware.vcloud.vdc+xml",
+            :Link => [{:rel => 'up',
+                      :type => 'application/vnd.vmware.vcloud.vdc+xml',
                       :href => make_href("vdc/#{vdc_id}")},
-                     {:rel => "edgeGateway:redeploy",
+                     {:rel => 'edgeGateway:redeploy',
                       :href => make_href("admin/edgeGateway/#{id}/action/redeploy")},
-                     {:rel => "edgeGateway:configureServices",
-                      :type => "application/vnd.vmware.admin.edgeGatewayServiceConfiguration+xml",
+                     {:rel => 'edgeGateway:configureServices',
+                      :type => 'application/vnd.vmware.admin.edgeGatewayServiceConfiguration+xml',
                       :href => make_href("admin/edgeGateway/#{id}/action/configureServices")},
-                     {:rel => "edgeGateway:reapplyServices",
+                     {:rel => 'edgeGateway:reapplyServices',
                       :href => make_href("admin/edgeGateway/#{id}/action/reapplyServices")},
-                     {:rel => "edgeGateway:syncSyslogSettings",
+                     {:rel => 'edgeGateway:syncSyslogSettings',
                       :href => make_href("admin/edgeGateway/#{id}/action/syncSyslogServerSettings")}],
-            :Description => "vCloud CI (nft00052i2)",
+            :Description => 'vCloud CI (nft00052i2)',
             :Configuration => edge_gateway[:Configuration].dup
           }
 
           body[:Configuration][:GatewayInterfaces][:GatewayInterface] += edge_gateway[:networks].map do |network|
             extras = {
               :Network => {
-                :type => "application/vnd.vmware.admin.network+xml",
-                :name => "anything",
+                :type => 'application/vnd.vmware.admin.network+xml',
+                :name => 'anything',
                 :href => make_href("admin/network/#{network}")
               },
               :Name => data[:networks][network][:name],

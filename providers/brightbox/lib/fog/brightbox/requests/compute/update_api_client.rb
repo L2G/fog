@@ -15,9 +15,9 @@ module Fog
         # @see https://api.gb1.brightbox.com/1.0/#api_client_update_api_client
         #
         def update_api_client(identifier, options)
-          return nil if identifier.nil? || identifier == ""
+          return nil if identifier.nil? || identifier == ''
           return nil if options.empty? || options.nil?
-          wrapped_request("put", "/1.0/api_clients/#{identifier}", [200], options)
+          wrapped_request('put', "/1.0/api_clients/#{identifier}", [200], options)
         end
 
       end

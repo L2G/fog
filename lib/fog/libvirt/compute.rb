@@ -65,7 +65,7 @@ module Fog
 
         #read mocks xml
         def read_xml(file_name)
-          file_path = File.join(File.dirname(__FILE__),"requests","compute","mock_files",file_name)
+          file_path = File.join(File.dirname(__FILE__),'requests','compute','mock_files',file_name)
           File.read(file_path)
         end
       end
@@ -115,7 +115,7 @@ module Fog
 
         def enhance_uri(uri)
           require 'cgi'
-          append = ""
+          append = ''
 
           # on macosx, chances are we are using libvirt through homebrew
           # the client will default to a socket location based on it's own location (/opt)
@@ -125,10 +125,10 @@ module Fog
           if RUBY_PLATFORM =~ /darwin/
             querystring = ::URI.parse(uri).query
             if querystring.nil?
-              append = "?socket=/var/run/libvirt/libvirt-sock"
+              append = '?socket=/var/run/libvirt/libvirt-sock'
             else
-              if !::CGI.parse(querystring).has_key?("socket")
-                append = "&socket=/var/run/libvirt/libvirt-sock"
+              if !::CGI.parse(querystring).has_key?('socket')
+                append = '&socket=/var/run/libvirt/libvirt-sock'
               end
             end
           end

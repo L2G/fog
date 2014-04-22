@@ -1,4 +1,4 @@
-require "nokogiri"
+require 'nokogiri'
 
 module Fog
   module Parsers
@@ -64,7 +64,7 @@ module Fog
       last = @stack.pop
       if last.empty? && @value.empty?
         @stack.last[name.to_sym] = ''
-      elsif last == {:i_nil => "true"}
+      elsif last == {:i_nil => 'true'}
         @stack.last[name.to_sym] = nil
       elsif !@value.empty?
         @stack.last[name.to_sym] = @value

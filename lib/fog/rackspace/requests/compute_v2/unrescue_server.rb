@@ -31,7 +31,7 @@ module Fog
       class Mock
         def unrescue_server(server_id)
           server = self.data[:servers][server_id]
-          server["status"] = "ACTIVE"
+          server['status'] = 'ACTIVE'
           response(:status => 202)
         end
       end

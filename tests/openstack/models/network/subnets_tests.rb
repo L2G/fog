@@ -1,4 +1,4 @@
-Shindo.tests("Fog::Network[:openstack] | subnets", ['openstack']) do
+Shindo.tests('Fog::Network[:openstack] | subnets', ['openstack']) do
   @subnet = Fog::Network[:openstack].subnets.create(:name => 'subnet_name',
                                                     :network_id => 'net_id',
                                                     :cidr => '10.2.2.0/24',

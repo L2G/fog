@@ -153,14 +153,14 @@ module Fog
         # Set last modified
         # @param [String, Fog::Time] obj
         def last_modified=(obj)
-          if obj.nil? || obj == "" || obj.is_a?(Time)
+          if obj.nil? || obj == '' || obj.is_a?(Time)
             attributes[:last_modified] = obj
             return obj
           end
 
           # This is a work around for swift bug that has existed for 4+ years. The is that fixing the swift bug would cause more problems than its worth.
           # For more information refer to https://github.com/fog/fog/pull/1811
-          d = Date._strptime(obj,"%Y-%m-%dT%H:%M:%S")
+          d = Date._strptime(obj,'%Y-%m-%dT%H:%M:%S')
           if d
             attributes[:last_modified] = Time.utc(d[:year], d[:mon], d[:mday], d[:hour], d[:min], d[:sec], d[:leftover], d[:zone])
           else

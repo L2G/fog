@@ -41,7 +41,7 @@ module Fog
 
           response.status = 200
 
-          response.body = { "CacheParameterGroups" => parameter_set }
+          response.body = { 'CacheParameterGroups' => parameter_set }
           response
         end
       end

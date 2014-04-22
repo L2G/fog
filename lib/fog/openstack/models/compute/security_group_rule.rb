@@ -15,9 +15,9 @@ module Fog
 
         def save
           requires :ip_protocol, :from_port, :to_port, :parent_group_id
-          cidr = ip_range && ip_range["cidr"]
+          cidr = ip_range && ip_range['cidr']
           if rule = service.create_security_group_rule(parent_group_id, ip_protocol, from_port, to_port, cidr, group).data[:body]
-            merge_attributes(rule["security_group_rule"])
+            merge_attributes(rule['security_group_rule'])
           end
         end
 

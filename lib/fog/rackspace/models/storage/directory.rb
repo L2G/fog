@@ -169,7 +169,7 @@ module Fog
           if cdn_enabled?
             @urls = service.cdn.publish_container(self, public?)
           else
-            raise Fog::Storage::Rackspace::Error.new("Directory can not be set as :public without a CDN provided") if public?
+            raise Fog::Storage::Rackspace::Error.new('Directory can not be set as :public without a CDN provided') if public?
           end
           true
         end

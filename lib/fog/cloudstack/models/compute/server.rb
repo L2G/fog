@@ -51,8 +51,8 @@ module Fog
 
         def destroy
           requires :id
-          data = service.destroy_virtual_machine("id" => id)
-          service.jobs.new(data["destroyvirtualmachineresponse"])
+          data = service.destroy_virtual_machine('id' => id)
+          service.jobs.new(data['destroyvirtualmachineresponse'])
         end
 
         def flavor
@@ -66,7 +66,7 @@ module Fog
         def reboot
           requires :id
           data = service.reboot_virtual_machine('id' => self.id) # FIXME: does this ever fail?
-          service.jobs.new(data["rebootvirtualmachineresponse"])
+          service.jobs.new(data['rebootvirtualmachineresponse'])
         end
 
         def security_groups=(security_groups)
@@ -74,7 +74,7 @@ module Fog
         end
 
         def security_group_ids
-          @security_group_ids || (self.security_group_list || []).map{|sg| sg["id"]}
+          @security_group_ids || (self.security_group_list || []).map{|sg| sg['id']}
         end
 
         def security_groups
@@ -111,14 +111,14 @@ module Fog
 
         def start
           requires :id
-          data = service.start_virtual_machine("id" => self.id)
-          service.jobs.new(data["startvirtualmachineresponse"])
+          data = service.start_virtual_machine('id' => self.id)
+          service.jobs.new(data['startvirtualmachineresponse'])
         end
 
         def stop(force = false)
           requires :id
-          data = service.stop_virtual_machine("id" => self.id, "force" => force)
-          service.jobs.new(data["stopvirtualmachineresponse"])
+          data = service.stop_virtual_machine('id' => self.id, 'force' => force)
+          service.jobs.new(data['stopvirtualmachineresponse'])
         end
       end # Server
     end # Cloudstack

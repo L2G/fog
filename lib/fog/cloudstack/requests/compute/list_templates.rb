@@ -22,10 +22,10 @@ module Fog
           templates = self.data[:images].values
 
           {
-            "listtemplatesresponse" =>
+            'listtemplatesresponse' =>
               {
-                "count" => templates.size,
-                "template" => templates
+                'count' => templates.size,
+                'template' => templates
               }
           }
         end

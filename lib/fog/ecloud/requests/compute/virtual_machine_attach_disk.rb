@@ -7,7 +7,7 @@ module Fog
           xml = Builder::XmlMarkup.new
           xml.AttachDisks(:name => options[:name]) do
             xml.DetachedDisks do
-              xml.DetachedDisk(:href => options[:href], :name => options[:name], :type => "application/vnd.tmrk.cloud.detachedDisk")
+              xml.DetachedDisk(:href => options[:href], :name => options[:name], :type => 'application/vnd.tmrk.cloud.detachedDisk')
             end
           end
         end
@@ -45,9 +45,9 @@ module Fog
           task = {
             :id            => task_id,
             :href          => "/cloudapi/ecloud/tasks/#{task_id}",
-            :type          => "application/vnd.tmrk.cloud.task",
-            :Operation     => "Attach Disk",
-            :Status        => "Complete",
+            :type          => 'application/vnd.tmrk.cloud.task',
+            :Operation     => 'Attach Disk',
+            :Status        => 'Complete',
             :ImpactedItem  => Fog::Ecloud.keep(server, :href, :type),
             :StartTime     => Time.now.iso8601,
             :CompletedTime => Time.now.iso8601,

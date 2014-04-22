@@ -32,7 +32,7 @@ module Fog
       class Mock
         def rescue_server(server_id)
           server = self.data[:servers][server_id]
-          server["status"] = "RESCUE"
+          server['status'] = 'RESCUE'
           admin_pass = Fog::Mock.random_letters(12)
           server_response = { 'adminPass' => admin_pass }
           response(:status => 200, :body => server_response)

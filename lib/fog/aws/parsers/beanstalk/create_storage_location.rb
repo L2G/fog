@@ -7,7 +7,7 @@ module Fog
         class CreateStorageLocation < Fog::Parsers::AWS::ElasticBeanstalk::BaseParser
 
           def initialize
-            super("CreateStorageLocationResult")
+            super('CreateStorageLocationResult')
             tag 'S3Bucket', :string
           end
 

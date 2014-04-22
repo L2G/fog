@@ -18,17 +18,17 @@ module Fog
           response.status = 200
           self.data[:volume_types] ||= [
             {
-              "id" => "1",
-              "name" => "type 1",
-              "extra_specs" => {
-                "volume_backend_name" => "type 1 backend name"
+              'id' => '1',
+              'name' => 'type 1',
+              'extra_specs' => {
+                'volume_backend_name' => 'type 1 backend name'
               }
             },
             {
-              "id" => "2",
-              "name" => "type 2",
-              "extra_specs" => {
-                "volume_backend_name" => "type 2 backend name"
+              'id' => '2',
+              'name' => 'type 2',
+              'extra_specs' => {
+                'volume_backend_name' => 'type 2 backend name'
               }
             }
           ]

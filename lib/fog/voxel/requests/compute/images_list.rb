@@ -16,9 +16,9 @@ module Fog
             options[:image_id] = image_id
           end
 
-          data = request("voxel.images.list", options)
+          data = request('voxel.images.list', options)
 
-          if data.body['stat'] == "ok"
+          if data.body['stat'] == 'ok'
             data
           else
             raise Fog::Compute::Voxel::NotFound

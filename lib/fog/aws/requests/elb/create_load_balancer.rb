@@ -75,9 +75,9 @@ module Fog
           dns_name = Fog::AWS::ELB::Mock.dns_name(lb_name, @region)
 
           availability_zones = [*availability_zones].compact
-          region = availability_zones.empty? ? "us-east-1" : availability_zones.first.gsub(/[a-z]$/, '')
-          supported_platforms = Fog::Compute::AWS::Mock.data[region][@aws_access_key_id][:account_attributes].detect { |h| h["attributeName"] == "supported-platforms" }["values"]
-          security_group = if supported_platforms.include?("EC2")
+          region = availability_zones.empty? ? 'us-east-1' : availability_zones.first.gsub(/[a-z]$/, '')
+          supported_platforms = Fog::Compute::AWS::Mock.data[region][@aws_access_key_id][:account_attributes].detect { |h| h['attributeName'] == 'supported-platforms' }['values']
+          security_group = if supported_platforms.include?('EC2')
                              Fog::Compute::AWS::Mock.data[region][@aws_access_key_id][:security_groups]['amazon-elb-sg']
                            else
                              if default_sg = Fog::Compute::AWS::Mock.data[region][@aws_access_key_id][:security_groups].values.detect { |sg| sg['groupName'] =~ /default_elb/ }

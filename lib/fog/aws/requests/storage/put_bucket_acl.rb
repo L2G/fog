@@ -26,7 +26,7 @@ module Fog
         # @see http://docs.amazonwebservices.com/AmazonS3/latest/API/RESTBucketPUTacl.html
 
         def put_bucket_acl(bucket_name, acl)
-          data = ""
+          data = ''
           headers = {}
 
           if acl.is_a?(Hash)

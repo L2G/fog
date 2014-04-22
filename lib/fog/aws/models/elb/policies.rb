@@ -19,15 +19,15 @@ module Fog
         private
         def munged_data
           data.inject([]){|m,e|
-            policy_attribute_descriptions = e["PolicyAttributeDescriptions"]
+            policy_attribute_descriptions = e['PolicyAttributeDescriptions']
 
             policy = {
-              :id => e["PolicyName"],
-              :type_name => e["PolicyTypeName"],
+              :id => e['PolicyName'],
+              :type_name => e['PolicyTypeName'],
               :policy_attributes => policy_attributes(policy_attribute_descriptions)
             }
 
-            case e["PolicyTypeName"]
+            case e['PolicyTypeName']
             when 'AppCookieStickinessPolicyType'
               cookie_name = policy_attribute_descriptions.detect{|h| h['AttributeName'] == 'CookieName'}['AttributeValue']
               policy['CookieName'] = cookie_name if cookie_name
@@ -43,7 +43,7 @@ module Fog
 
         def policy_attributes(policy_attribute_descriptions)
           policy_attribute_descriptions.inject({}){|m,e|
-            m[e["AttributeName"]] = e["AttributeValue"]
+            m[e['AttributeName']] = e['AttributeValue']
             m
           }
         end

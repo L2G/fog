@@ -25,7 +25,7 @@ Shindo.tests('Fog::Compute[:ibm] | key requests', ['ibm']) do
       returns(true) { Fog::Compute[:ibm].create_key(@key_name, @public_key).body['success'] }
     end
 
-    tests("#list_keys").formats(@keys_format) do
+    tests('#list_keys').formats(@keys_format) do
       Fog::Compute[:ibm].list_keys.body
     end
 

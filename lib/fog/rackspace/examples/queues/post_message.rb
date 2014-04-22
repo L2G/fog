@@ -25,13 +25,13 @@ end
 # Use username defined in ~/.fog file, if absent prompt for username.
 # For more details on ~/.fog refer to http://fog.io/about/getting_started.html
 def rackspace_username
-  Fog.credentials[:rackspace_username] || get_user_input("Enter Rackspace Username")
+  Fog.credentials[:rackspace_username] || get_user_input('Enter Rackspace Username')
 end
 
 # Use api key defined in ~/.fog file, if absent prompt for api key
 # For more details on ~/.fog refer to http://fog.io/about/getting_started.html
 def rackspace_api_key
-  Fog.credentials[:rackspace_api_key] || get_user_input("Enter Rackspace API key")
+  Fog.credentials[:rackspace_api_key] || get_user_input('Enter Rackspace API key')
 end
 
 # create Queue Service
@@ -48,7 +48,7 @@ queues = service.queues
 queue = select_queue(queues)
 
 # prompt for queue message
-message = get_user_input "Enter Queue Message"
+message = get_user_input 'Enter Queue Message'
 
 # time to live TTL = 1 hour
 ttl = 3600
@@ -56,4 +56,4 @@ ttl = 3600
 # post message to queue
 queue.messages.create :body => message, :ttl => ttl
 
-puts "The message has been successfully posted"
+puts 'The message has been successfully posted'

@@ -1,4 +1,4 @@
-Shindo.tests("Fog::HP::BlockStorageV2 | volume backup requests", ['hp', 'v2', 'block_storage', 'volume_backup']) do
+Shindo.tests('Fog::HP::BlockStorageV2 | volume backup requests', ['hp', 'v2', 'block_storage', 'volume_backup']) do
 
   @backup_details_format = {
     'id'                  => String,

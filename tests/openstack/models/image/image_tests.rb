@@ -1,4 +1,4 @@
-Shindo.tests("Fog::Image[:openstack] | image", ['openstack']) do
+Shindo.tests('Fog::Image[:openstack] | image', ['openstack']) do
 
   tests('success') do
     tests('#create').succeeds do

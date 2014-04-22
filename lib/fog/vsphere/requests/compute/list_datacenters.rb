@@ -46,7 +46,7 @@ module Fog
 
       class Mock
         def list_datacenters filters = {}
-          [ {:name => "Solutions", :status => "grey"}, {:name => "Solutions2", :status => "green" }]
+          [ {:name => 'Solutions', :status => 'grey'}, {:name => 'Solutions2', :status => 'green' }]
         end
       end
     end

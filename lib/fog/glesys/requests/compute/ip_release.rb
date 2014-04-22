@@ -4,7 +4,7 @@ module Fog
       class Real
 
         def ip_release(params)
-          request("/ip/release", params)
+          request('/ip/release', params)
         end
       end
 

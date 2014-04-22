@@ -19,7 +19,7 @@ module Fog
           if server.nil?
             raise Fog::Rackspace::AutoScale::NotFound
           else
-            response(:body => {"group" => group})
+            response(:body => {'group' => group})
           end
         end
       end

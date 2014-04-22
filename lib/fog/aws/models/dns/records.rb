@@ -80,7 +80,7 @@ module Fog
         def get(record_name, record_type = nil, record_identifier = nil)
           requires :zone
           # Append a trailing period to the record_name if absent.
-          record_name = record_name + "." unless record_name.end_with?(".")
+          record_name = record_name + '.' unless record_name.end_with?('.')
           record_type = record_type.upcase unless record_type.nil?
 
           options = {

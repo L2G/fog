@@ -83,7 +83,7 @@ module Fog
         def reboot
           requires :identity
           self.jobid = extract_job_id(service.reboot_virtual_machine(:id => identity))
-          puts "jobid: " + jobid.to_s
+          puts 'jobid: ' + jobid.to_s
           true
         end
 
@@ -133,14 +133,14 @@ module Fog
         end
 
         def save
-          raise "Operation not supported" if self.identity
+          raise 'Operation not supported' if self.identity
           requires :flavor_id, :image_id, :zoneid
 
           unless networkids
             # No network specified, use first in this zone.
             networks = service.list_networks(:zoneid => zoneid)
             if networks.empty?
-              raise "No networks. Please create one, or specify a network ID"
+              raise 'No networks. Please create one, or specify a network ID'
             else
               # use the network with the lowest ID - the safe default
               self.networkids = networks.sort {|x,y| x['id'] <=> y['id']}[0]['id']
@@ -163,7 +163,7 @@ module Fog
             :securitygroupids => securitygroupids,
             :size => size,
             :userdata => userdata
-          }.delete_if {|k,v| v.nil? || v == "" }
+          }.delete_if {|k,v| v.nil? || v == '' }
           data = service.deploy_virtual_machine(options)
           merge_attributes(data)
           true

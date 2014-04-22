@@ -51,7 +51,7 @@ module Fog
                 'state'                    => 'pending',
                 'vpcId'                    => vpcId,
                 'cidrBlock'                => cidrBlock,
-                'availableIpAddressCount'  => "255",
+                'availableIpAddressCount'  => '255',
                 'availabilityZone'         => av_zone,
                 'tagSet'                   => {}
               }

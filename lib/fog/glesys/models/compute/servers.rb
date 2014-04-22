@@ -15,7 +15,7 @@ module Fog
         end
 
         def get(identifier)
-          return nil if identifier.nil? || identifier == ""
+          return nil if identifier.nil? || identifier == ''
 
           begin
             details = service.server_details(identifier).body['response']

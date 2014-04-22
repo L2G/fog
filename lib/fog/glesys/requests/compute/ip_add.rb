@@ -4,7 +4,7 @@ module Fog
       class Real
 
         def ip_add(params)
-          request("/ip/add", params)
+          request('/ip/add', params)
         end
       end
 

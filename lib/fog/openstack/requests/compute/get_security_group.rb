@@ -20,13 +20,13 @@ module Fog
           if security_group
             response.status = 200
             response.headers = {
-              "X-Compute-Request-Id" => "req-63a90344-7c4d-42e2-936c-fd748bced1b3",
-              "Content-Type" => "application/json",
-              "Content-Length" => "167",
-              "Date" => Date.new
+              'X-Compute-Request-Id' => 'req-63a90344-7c4d-42e2-936c-fd748bced1b3',
+              'Content-Type' => 'application/json',
+              'Content-Length' => '167',
+              'Date' => Date.new
             }
             response.body = {
-              "security_group" => security_group
+              'security_group' => security_group
             }
           else
             raise Fog::Compute::OpenStack::NotFound, "Security group #{security_group_id} does not exist"

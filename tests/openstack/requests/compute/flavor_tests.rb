@@ -17,7 +17,7 @@ Shindo.tests('Fog::Compute[:openstack] | flavor requests', ['openstack']) do
   tests('success') do
 
     tests('#get_flavor_details(1)').data_matches_schema(@flavor_format) do
-      Fog::Compute[:openstack].get_flavor_details("1").body['flavor']
+      Fog::Compute[:openstack].get_flavor_details('1').body['flavor']
     end
 
     tests('#list_flavors').data_matches_schema({'flavors' => [OpenStack::Compute::Formats::SUMMARY]}) do
@@ -29,7 +29,7 @@ Shindo.tests('Fog::Compute[:openstack] | flavor requests', ['openstack']) do
     end
 
     tests('#create_flavor(attributes)').data_matches_schema({'flavor' => @flavor_format}) do
-      attributes = {:flavor_id => '100', :name => 'shindo test flavor', :disk => 10, :ram => 10, :vcpus => 10, :swap => "0", :rxtx_factor => 2.4, :ephemeral => 0, :is_public => false}
+      attributes = {:flavor_id => '100', :name => 'shindo test flavor', :disk => 10, :ram => 10, :vcpus => 10, :swap => '0', :rxtx_factor => 2.4, :ephemeral => 0, :is_public => false}
       Fog::Compute[:openstack].create_flavor(attributes).body
     end
 
@@ -54,7 +54,7 @@ Shindo.tests('Fog::Compute[:openstack] | flavor requests', ['openstack']) do
   tests('failure') do
 
     tests('#get_flavor_details(0)').raises(Fog::Compute::OpenStack::NotFound) do
-      Fog::Compute[:openstack].get_flavor_details("0")
+      Fog::Compute[:openstack].get_flavor_details('0')
     end
 
     tests('add_flavor_access(1234, 1)').raises(Fog::Compute::OpenStack::NotFound) do

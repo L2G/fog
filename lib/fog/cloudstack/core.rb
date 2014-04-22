@@ -13,7 +13,7 @@ module Fog
 
     def self.escape(string)
       string = CGI::escape(string)
-      string = string.gsub("+","%20")
+      string = string.gsub('+','%20')
       string
     end
 
@@ -26,15 +26,15 @@ module Fog
     end
 
     def self.uuid
-      [8,4,4,4,12].map{|i| Fog::Mock.random_hex(i)}.join("-")
+      [8,4,4,4,12].map{|i| Fog::Mock.random_hex(i)}.join('-')
     end
 
     def self.ip_address
-      4.times.map{ Fog::Mock.random_numbers(3) }.join(".")
+      4.times.map{ Fog::Mock.random_numbers(3) }.join('.')
     end
 
     def self.mac_address
-      6.times.map{ Fog::Mock.random_numbers(2) }.join(":")
+      6.times.map{ Fog::Mock.random_numbers(2) }.join(':')
     end
   end
 end

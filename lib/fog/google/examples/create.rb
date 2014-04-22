@@ -1,5 +1,5 @@
 def test
-  connection = Fog::Compute.new({ :provider => "Google" })
+  connection = Fog::Compute.new({ :provider => 'Google' })
 
   name = "fog-smoke-test-#{Time.now.to_i}"
 
@@ -15,12 +15,12 @@ def test
   server = connection.servers.create(defaults = {
     :name => "fog-smoke-test-#{Time.now.to_i}",
     :disks => [disk],
-    :machine_type => "n1-standard-1",
-    :zone_name => "us-central1-a",
-    :private_key_path => File.expand_path("~/.ssh/id_rsa"),
-    :public_key_path => File.expand_path("~/.ssh/id_rsa.pub"),
+    :machine_type => 'n1-standard-1',
+    :zone_name => 'us-central1-a',
+    :private_key_path => File.expand_path('~/.ssh/id_rsa'),
+    :public_key_path => File.expand_path('~/.ssh/id_rsa.pub'),
     :user => ENV['USER'],
-    :tags => ["fog"]
+    :tags => ['fog']
   })
 
   # My own wait_for because it hides errors
@@ -44,6 +44,6 @@ def test
     duration = Time.now - start
   end
 
-  raise "Could not bootstrap sshable server." unless server.ssh("whoami")
-  raise "Could not delete server." unless server.destroy
+  raise 'Could not bootstrap sshable server.' unless server.ssh('whoami')
+  raise 'Could not delete server.' unless server.destroy
 end

@@ -14,7 +14,7 @@ Shindo.tests('Fog::Compute[:aws] | placement group requests', ['aws']) do
       Fog::Compute[:aws].create_placement_group('fog_placement_group', 'cluster').body
     end
 
-    tests("#describe_placement_groups").formats(@placement_group_format) do
+    tests('#describe_placement_groups').formats(@placement_group_format) do
       pending if Fog.mocking?
       Fog::Compute[:aws].describe_placement_groups.body
     end

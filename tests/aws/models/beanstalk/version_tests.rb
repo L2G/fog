@@ -1,4 +1,4 @@
-Shindo.tests("Fog::AWS[:beanstalk] | version", ['aws', 'beanstalk']) do
+Shindo.tests('Fog::AWS[:beanstalk] | version', ['aws', 'beanstalk']) do
 
   pending if Fog.mocking?
 
@@ -19,19 +19,19 @@ Shindo.tests("Fog::AWS[:beanstalk] | version", ['aws', 'beanstalk']) do
 
   model_tests(@beanstalk.versions, @version_opts, false) do
 
-    test("attributes") do
+    test('attributes') do
       @instance.label == @version_name &&
           @instance.description == @version_description &&
           @instance.application_name == @application_name
     end
 
-    test("#events") do
+    test('#events') do
       # There should be some events now.
       @instance.events.length > 0
     end
 
-    test("#update description") do
-      new_description = "A completely new description."
+    test('#update description') do
+      new_description = 'A completely new description.'
       @instance.description = new_description
       @instance.update
 
@@ -45,7 +45,7 @@ Shindo.tests("Fog::AWS[:beanstalk] | version", ['aws', 'beanstalk']) do
       passed
     end
 
-    test("#update description empty") do
+    test('#update description empty') do
       @instance.description = '' # Set to empty to nil out
       @instance.update
 

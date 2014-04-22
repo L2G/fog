@@ -70,7 +70,7 @@ module Fog
         # @return [String] url
         def url(expires, options = {})
           requires :directory,:key
-          service.create_temp_url(directory.key, key, expires, "GET", options)
+          service.create_temp_url(directory.key, key, expires, 'GET', options)
         end
 
         def cdn_public_url

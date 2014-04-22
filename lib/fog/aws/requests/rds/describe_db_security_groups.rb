@@ -45,26 +45,26 @@ module Fog
           # TODO: refactor to not delete items that we're iterating over. Causes
           # model tests to fail (currently pending)
           sec_group_set.each do |sec_group|
-            sec_group["IPRanges"].each do |iprange|
-              if iprange["Status"] == "authorizing" || iprange["Status"] == "revoking"
+            sec_group['IPRanges'].each do |iprange|
+              if iprange['Status'] == 'authorizing' || iprange['Status'] == 'revoking'
                 iprange[:tmp] ||= Time.now + Fog::Mock.delay * 2
                 if iprange[:tmp] <= Time.now
-                  iprange["Status"] = "authorized" if iprange["Status"] == "authorizing"
+                  iprange['Status'] = 'authorized' if iprange['Status'] == 'authorizing'
                   iprange.delete(:tmp)
-                  sec_group["IPRanges"].delete(iprange) if iprange["Status"] == "revoking"
+                  sec_group['IPRanges'].delete(iprange) if iprange['Status'] == 'revoking'
                 end
               end
             end
 
             # TODO: refactor to not delete items that we're iterating over. Causes
             # model tests to fail (currently pending)
-            sec_group["EC2SecurityGroups"].each do |ec2_secg|
-              if ec2_secg["Status"] == "authorizing" || ec2_secg["Status"] == "revoking"
+            sec_group['EC2SecurityGroups'].each do |ec2_secg|
+              if ec2_secg['Status'] == 'authorizing' || ec2_secg['Status'] == 'revoking'
                 ec2_secg[:tmp] ||= Time.now + Fog::Mock.delay * 2
                 if ec2_secg[:tmp] <= Time.now
-                  ec2_secg["Status"] = "authorized" if ec2_secg["Status"] == "authorizing"
+                  ec2_secg['Status'] = 'authorized' if ec2_secg['Status'] == 'authorizing'
                   ec2_secg.delete(:tmp)
-                  sec_group["EC2SecurityGroups"].delete(ec2_secg) if ec2_secg["Status"] == "revoking"
+                  sec_group['EC2SecurityGroups'].delete(ec2_secg) if ec2_secg['Status'] == 'revoking'
                 end
               end
             end
@@ -72,8 +72,8 @@ module Fog
 
           response.status = 200
           response.body = {
-            "ResponseMetadata" => { "RequestId" => Fog::AWS::Mock.request_id },
-            "DescribeDBSecurityGroupsResult" => { "DBSecurityGroups" => sec_group_set }
+            'ResponseMetadata' => { 'RequestId' => Fog::AWS::Mock.request_id },
+            'DescribeDBSecurityGroupsResult' => { 'DBSecurityGroups' => sec_group_set }
           }
           response
         end

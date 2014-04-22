@@ -54,16 +54,16 @@ module Fog
           options = {:type => :default}.merge(options)
           case options[:type]
           when :default
-            data = service.monitors_create_default(href + "/action/createDefaultMonitor").body
+            data = service.monitors_create_default(href + '/action/createDefaultMonitor').body
           when :ping
             options[:enabled] ||= true
-            options[:uri] = href + "/action/createPingMonitor"
+            options[:uri] = href + '/action/createPingMonitor'
             data = service.monitors_create_ping(options).body
           when :http
-            options[:uri] = href + "/action/createHttpMonitor"
+            options[:uri] = href + '/action/createHttpMonitor'
             data = service.monitors_create_http(options).body
           when :ecv
-            options[:uri] = href + "/action/createEcvMonitor"
+            options[:uri] = href + '/action/createEcvMonitor'
             data = service.monitors_create_ecv(options).body
           when :loopback
             data = service.monitors_create_loopback(href).body
@@ -72,7 +72,7 @@ module Fog
         end
 
         def disable_monitor
-          data = service.monitors_disable(href + "/action/disableMonitor").body
+          data = service.monitors_disable(href + '/action/disableMonitor').body
           task = Fog::Compute::Ecloud::Tasks.new(:service => service, :href => data[:href])
         end
 

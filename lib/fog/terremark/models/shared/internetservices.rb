@@ -22,13 +22,13 @@ module Fog
         model Fog::Terremark::Shared::InternetService
 
         def all
-          data = service.get_internet_services(vdc_id).body["InternetServices"]
+          data = service.get_internet_services(vdc_id).body['InternetServices']
           load(data)
         end
 
         def get(service_id)
           data = service.get_internet_services(vdc_id)
-          internet_service = services.body["InternetServices"].select {|item| item["Id"] == service_id}
+          internet_service = services.body['InternetServices'].select {|item| item['Id'] == service_id}
           new(internetservice)
         end
 

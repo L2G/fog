@@ -48,7 +48,7 @@ module Fog
           c = mock_container! container
 
           if block_given?
-            data = ""
+            data = ''
             loop do
               chunk = yield
               break if chunk.empty?

@@ -4,10 +4,10 @@ require 'fog/terremark/models/shared/internetservices'
 
 # { '0' => 'Being created', '1' => 'Being Deployed, '2' => 'Powered Off', '4' => 'Powered On'}
 module VAppStatus
-  BEING_CREATED = "0"
-  BEING_DEPLOYED = "1"
-  POWERED_OFF = "2"
-  POWERED_ON = "4"
+  BEING_CREATED = '0'
+  BEING_DEPLOYED = '1'
+  POWERED_OFF = '2'
+  POWERED_ON = '4'
 end
 
 
@@ -50,7 +50,7 @@ module Fog
         def PublicIpAddress
           @PublicIpAddress ||=
             if internet_services.size > 0
-              internet_services[0].PublicIpAddress["Name"]
+              internet_services[0].PublicIpAddress['Name']
             end
           @PublicIpAddress
         end
@@ -140,9 +140,9 @@ module Fog
               if not public_ip_info
                 #Create the first internet service and allocate public IP
                 inet_services = service.internetservices.create({
-                      "Name" => self.name,
-                      "Protocol" => proto,
-                      "Port" => port,
+                      'Name' => self.name,
+                      'Protocol' => proto,
+                      'Port' => port,
                 })
                 internet_service_id = inet_services.Id
                 public_ip_info = inet_services.PublicIpAddress
@@ -150,20 +150,20 @@ module Fog
               else
                 #create additional services to existing Public IP
                 inet_services = service.internetservices.create({
-                      "public_ip_address_id" => public_ip_info["Id"],
-                      "Name" => self.name,
-                      "Protocol" => proto,
-                      "Port" => port,
+                      'public_ip_address_id' => public_ip_info['Id'],
+                      'Name' => self.name,
+                      'Protocol' => proto,
+                      'Port' => port,
                 }
                     )
                 internet_service_id = inet_services.Id
               end
 
               #Create the associate node service to the server
-              service.nodeservices.create({"Name" => self.name,
-                                           "IpAddress" => self.IpAddress,
-                                           "Port" => port,
-                                           "InternetServiceId" => internet_service_id
+              service.nodeservices.create({'Name' => self.name,
+                                           'IpAddress' => self.IpAddress,
+                                           'Port' => port,
+                                           'InternetServiceId' => internet_service_id
               })
             end
           end

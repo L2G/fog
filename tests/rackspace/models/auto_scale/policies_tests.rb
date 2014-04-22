@@ -11,7 +11,7 @@ Shindo.tests('Fog::Rackspace::AutoScale | policies', ['rackspace', 'rackspace_au
     })
 
     options = {
-      :name => "policy 2",
+      :name => 'policy 2',
       :change => 5,
       :cooldown => 100,
       :type => 'webhook'

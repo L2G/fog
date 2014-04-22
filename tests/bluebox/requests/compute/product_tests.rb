@@ -15,7 +15,7 @@ Shindo.tests('Fog::Compute[:bluebox] | product requests', ['bluebox']) do
       Fog::Compute[:bluebox].get_product(@flavor_id).body
     end
 
-    tests("get_products").formats([@product_format]) do
+    tests('get_products').formats([@product_format]) do
       pending if Fog.mocking?
       Fog::Compute[:bluebox].get_products.body
     end

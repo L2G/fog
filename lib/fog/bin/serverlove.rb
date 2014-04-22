@@ -14,7 +14,7 @@ class Serverlove < Fog::Bin
       @@connections ||= Hash.new do |hash, key|
         hash[key] = case key
         when :compute
-          Fog::Logger.warning("Serverlove[:compute] is not recommended, use Compute[:serverlove] for portability")
+          Fog::Logger.warning('Serverlove[:compute] is not recommended, use Compute[:serverlove] for portability')
           Fog::Compute.new(:provider => 'Serverlove')
         else
           raise ArgumentError, "Unrecognized service: #{key.inspect}"

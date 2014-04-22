@@ -18,7 +18,7 @@ Shindo.tests('RiakCS::Provisioning | provisioning requests', ['riakcs']) do
 
       # Create a user.
       #
-      email, name = "successful_user_creation_test_#{current_timestamp}@example.com", "Fog User"
+      email, name = "successful_user_creation_test_#{current_timestamp}@example.com", 'Fog User'
       key_id      = Fog::RiakCS[:provisioning].create_user(email, name).body['key_id']
       key_id.class
 
@@ -28,7 +28,7 @@ Shindo.tests('RiakCS::Provisioning | provisioning requests', ['riakcs']) do
 
       # Create a user.
       #
-      email, name = "successful_anonymous_user_creation_test_#{current_timestamp}@example.com", "Fog User"
+      email, name = "successful_anonymous_user_creation_test_#{current_timestamp}@example.com", 'Fog User'
       key_id      = Fog::RiakCS[:provisioning].create_user(email, name, :anonymous => true).body['key_id']
       key_id.class
 
@@ -36,13 +36,13 @@ Shindo.tests('RiakCS::Provisioning | provisioning requests', ['riakcs']) do
 
     tests('fails if duplicate').raises(Fog::RiakCS::Provisioning::UserAlreadyExists) do
       2.times do
-        email, name = "failed_duplicate_user_creation_test_#{current_timestamp}@example.com", "Fog User"
+        email, name = "failed_duplicate_user_creation_test_#{current_timestamp}@example.com", 'Fog User'
         key_id      = Fog::RiakCS[:provisioning].create_user(email, name).body['key_id']
       end
     end
 
     tests('fails if invalid email').raises(Fog::RiakCS::Provisioning::ServiceUnavailable) do
-      email, name = "failed_duplicate_user_creation_test_#{current_timestamp}", "Fog User"
+      email, name = "failed_duplicate_user_creation_test_#{current_timestamp}", 'Fog User'
       key_id      = Fog::RiakCS[:provisioning].create_user(email, name).body['key_id']
     end
 
@@ -54,7 +54,7 @@ Shindo.tests('RiakCS::Provisioning | provisioning requests', ['riakcs']) do
 
       # Create a user.
       #
-      email, name = "successful_user_disable_test_#{current_timestamp}@example.com", "Fog User"
+      email, name = "successful_user_disable_test_#{current_timestamp}@example.com", 'Fog User'
       key_id      = Fog::RiakCS[:provisioning].create_user(email, name).body['key_id']
 
       Fog::RiakCS[:provisioning].disable_user(key_id).status
@@ -69,7 +69,7 @@ Shindo.tests('RiakCS::Provisioning | provisioning requests', ['riakcs']) do
 
       # Create a user.
       #
-      email, name = "successful_user_disable_enable_test_#{current_timestamp}@example.com", "Fog User"
+      email, name = "successful_user_disable_enable_test_#{current_timestamp}@example.com", 'Fog User'
       key_id      = Fog::RiakCS[:provisioning].create_user(email, name).body['key_id']
 
       Fog::RiakCS[:provisioning].disable_user(key_id).status
@@ -85,7 +85,7 @@ Shindo.tests('RiakCS::Provisioning | provisioning requests', ['riakcs']) do
 
       # Create a user.
       #
-      email, name        = "successful_user_regrant_test_#{current_timestamp}@example.com", "Fog User"
+      email, name        = "successful_user_regrant_test_#{current_timestamp}@example.com", 'Fog User'
       user               = Fog::RiakCS[:provisioning].create_user(email, name).body
       key_id, key_secret = user['key_id'], user['key_secret']
 
@@ -106,7 +106,7 @@ Shindo.tests('RiakCS::Provisioning | provisioning requests', ['riakcs']) do
 
       # Create a user.
       #
-      email, name = "user_retrieval_test_#{current_timestamp}@example.com", "Fog User"
+      email, name = "user_retrieval_test_#{current_timestamp}@example.com", 'Fog User'
       key_id      = Fog::RiakCS[:provisioning].create_user(email, name).body['key_id']
 
       # Get user details.
@@ -123,7 +123,7 @@ Shindo.tests('RiakCS::Provisioning | provisioning requests', ['riakcs']) do
 
       # Create a user.
       #
-      email, name = "user_listing_test_#{current_timestamp}@example.com", "Fog User"
+      email, name = "user_listing_test_#{current_timestamp}@example.com", 'Fog User'
       key_id      = Fog::RiakCS[:provisioning].create_user(email, name).body['key_id']
 
       # Ensure the list users response contains the user that we just
@@ -137,7 +137,7 @@ Shindo.tests('RiakCS::Provisioning | provisioning requests', ['riakcs']) do
 
       # Create a user.
       #
-      email, name = "user_listing_without_disabled_users_test_#{current_timestamp}@example.com", "Fog User"
+      email, name = "user_listing_without_disabled_users_test_#{current_timestamp}@example.com", 'Fog User'
       key_id      = Fog::RiakCS[:provisioning].create_user(email, name).body['key_id']
 
       # Disable that user.
@@ -155,7 +155,7 @@ Shindo.tests('RiakCS::Provisioning | provisioning requests', ['riakcs']) do
 
       # Create a user.
       #
-      email, name = "user_listing_with_disabled_users_test_#{current_timestamp}@example.com", "Fog User"
+      email, name = "user_listing_with_disabled_users_test_#{current_timestamp}@example.com", 'Fog User'
       key_id      = Fog::RiakCS[:provisioning].create_user(email, name).body['key_id']
 
       # Disable that user.

@@ -12,15 +12,15 @@ module Fog
 
         def generate_clone_vapp_request(uri, options)
           xml = Builder::XmlMarkup.new
-          xml.CloneVAppParams(xmlns.merge!(:name => options[:name], :deploy => "true", :powerOn => options[:poweron])) {
-            xml.VApp( :href => uri, :type => "application/vnd.vmware.vcloud.vApp+xml",
-                      :xmlns => "http://www.vmware.com/vcloud/v0.8")
+          xml.CloneVAppParams(xmlns.merge!(:name => options[:name], :deploy => 'true', :powerOn => options[:poweron])) {
+            xml.VApp( :href => uri, :type => 'application/vnd.vmware.vcloud.vApp+xml',
+                      :xmlns => 'http://www.vmware.com/vcloud/v0.8')
           }
         end
 
         def clone_vapp(vdc_uri, vapp_uri, options = {})
           unless options.has_key?(:poweron)
-            options[:poweron] = "false"
+            options[:poweron] = 'false'
           end
 
           validate_clone_vapp_options(options)

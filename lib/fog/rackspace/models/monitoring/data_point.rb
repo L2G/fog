@@ -5,7 +5,7 @@ module Fog
   module Rackspace
     class Monitoring
       class DataPoint < Fog::Rackspace::Monitoring::Base
-        attribute :num_points, :aliases => "numPoints"
+        attribute :num_points, :aliases => 'numPoints'
         attribute :average
         attribute :variance
         attribute :min

@@ -59,7 +59,7 @@ module Fog
           identity = Fog::Cloudstack.uuid
           name = options['name'] || Fog::Cloudstack.uuid
           display_name = options['displayname'] || name
-          account_name = options['account'] || self.data[:accounts].first[1]["name"]
+          account_name = options['account'] || self.data[:accounts].first[1]['name']
 
           domain = options['domainid'] ? self.data[:domains][options['domainid']] : self.data[:domains].first[1]
           domain_id = domain[:id]
@@ -73,51 +73,51 @@ module Fog
 
           security_group_ids = options['securitygroupids'] || [] # TODO: for now
 
-          network_ids = Array(options['networkids']) || [self.data[:networks].first[1]["id"]]
+          network_ids = Array(options['networkids']) || [self.data[:networks].first[1]['id']]
           networks = network_ids.map{|nid| self.data[:networks][nid]}
           nic = networks.map do |network|
             {
-              "id" => Fog::Cloudstack.uuid,
-              "networkid" => network["id"],
-              "netmask" => Fog::Cloudstack.ip_address,
-              "gateway" => network["gateway"],
-              "ipaddress" => Fog::Cloudstack.ip_address,
-              "traffictype" => "Guest", # TODO: ?
-              "type" => network["type"],
-              "isdefault" => true, # TODO: ?
-              "macaddress" => Fog::Cloudstack.mac_address
+              'id' => Fog::Cloudstack.uuid,
+              'networkid' => network['id'],
+              'netmask' => Fog::Cloudstack.ip_address,
+              'gateway' => network['gateway'],
+              'ipaddress' => Fog::Cloudstack.ip_address,
+              'traffictype' => 'Guest', # TODO: ?
+              'type' => network['type'],
+              'isdefault' => true, # TODO: ?
+              'macaddress' => Fog::Cloudstack.mac_address
             }
           end
 
           virtual_machine = {
-            "id" => identity,
-            "name" => name,
-            "displayname" => display_name,
-            "account" => account_name,
-            "domainid" => domain_id,
-            "domain" => domain_name,
-            "created" => Time.now.to_s,
-            "state" => "Running",
-            "haenable" => false,
-            "zoneid" => zone_id,
-            "zonename" => zone_name,
-            "templateid" => template_id,
-            "templatename" => template_name,
-            "templatedisplaytext" => template_display_text,
-            "passwordenabled" => false,
-            "serviceofferingid" => service_offering_id,
-            "serviceofferingname" => service_offering_name,
-            "cpunumber" => service_offering_cpu_number,
-            "cpuspeed" => service_offering_cpu_speed,
-            "memory" => service_offering_memory,
-            "cpuused" => "0%",
-            "networkkbsread" => 0,
-            "networkkbswrite" => 0,
-            "guestosid" => guest_os_id,
-            "rootdeviceid" => 0,
-            "rootdevicetype" => "NetworkFilesystem",
-            "securitygroup" => security_group_ids, # TODO: mayhaps?
-            "nic" => nic
+            'id' => identity,
+            'name' => name,
+            'displayname' => display_name,
+            'account' => account_name,
+            'domainid' => domain_id,
+            'domain' => domain_name,
+            'created' => Time.now.to_s,
+            'state' => 'Running',
+            'haenable' => false,
+            'zoneid' => zone_id,
+            'zonename' => zone_name,
+            'templateid' => template_id,
+            'templatename' => template_name,
+            'templatedisplaytext' => template_display_text,
+            'passwordenabled' => false,
+            'serviceofferingid' => service_offering_id,
+            'serviceofferingname' => service_offering_name,
+            'cpunumber' => service_offering_cpu_number,
+            'cpuspeed' => service_offering_cpu_speed,
+            'memory' => service_offering_memory,
+            'cpuused' => '0%',
+            'networkkbsread' => 0,
+            'networkkbswrite' => 0,
+            'guestosid' => guest_os_id,
+            'rootdeviceid' => 0,
+            'rootdevicetype' => 'NetworkFilesystem',
+            'securitygroup' => security_group_ids, # TODO: mayhaps?
+            'nic' => nic
           }
 
           self.data[:servers][identity] = virtual_machine

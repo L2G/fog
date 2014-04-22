@@ -75,7 +75,7 @@ module Fog
         #
         def url(expires, options = {})
           requires :directory, :key
-          self.service.create_temp_url(directory.key, key, expires, "GET", options)
+          self.service.create_temp_url(directory.key, key, expires, 'GET', options)
         end
 
         def public_url
@@ -153,7 +153,7 @@ module Fog
         end
 
         def metadata_prefix
-          "X-Object-Meta-"
+          'X-Object-Meta-'
         end
 
         def update_attributes_from(data)

@@ -32,7 +32,7 @@ module Fog
           end
 
           def generate_xml
-            output = ""
+            output = ''
             output << header
             attrs[:metadata].each_pair do |k,v|
               output << metadata_entry(k,v)
@@ -56,7 +56,7 @@ module Fog
           end
 
           def metadata_entry
-            raise "This is an abstract class. Use the appropriate subclass"
+            raise 'This is an abstract class. Use the appropriate subclass'
           end
 
           # 5.1

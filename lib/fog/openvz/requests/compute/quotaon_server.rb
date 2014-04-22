@@ -4,7 +4,7 @@ module Fog
       class Real
 
         def quotaon_server(id, options = {})
-          vzctl("quotaon",{:ctid => id}.merge(options))
+          vzctl('quotaon',{:ctid => id}.merge(options))
         end
 
       end

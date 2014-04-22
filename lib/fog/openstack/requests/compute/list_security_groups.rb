@@ -4,7 +4,7 @@ module Fog
       class Real
 
         def list_security_groups(server_id = nil)
-          path = "os-security-groups.json"
+          path = 'os-security-groups.json'
           if server_id
             path = "servers/#{server_id}/#{path}"
           end
@@ -37,9 +37,9 @@ module Fog
           Excon::Response.new(
             :body     => { 'security_groups' => groups },
             :headers  => {
-              "X-Compute-Request-Id" => "req-#{Fog::Mock.random_base64(36)}",
-              "Content-Type" => "application/json",
-              "Date" => Date.new
+              'X-Compute-Request-Id' => "req-#{Fog::Mock.random_base64(36)}",
+              'Content-Type' => 'application/json',
+              'Date' => Date.new
             },
             :status   => 200
           )

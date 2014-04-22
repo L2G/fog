@@ -31,7 +31,7 @@ module Fog
 
         def update_meta(collection_name, parent_id, key, value)
 
-          if collection_name == "images" then
+          if collection_name == 'images' then
             if get_image_details(parent_id)
               self.data[:images][parent_id]['metadata'][key] = value
             else
@@ -39,7 +39,7 @@ module Fog
             end
           end
 
-          if collection_name == "servers" then
+          if collection_name == 'servers' then
             if get_server_details(parent_id)
               self.data[:servers][parent_id]['metadata'][key] = value
             else
@@ -48,7 +48,7 @@ module Fog
           end
 
           response = Excon::Response.new
-          response.body = { "meta" => { key => value } }
+          response.body = { 'meta' => { key => value } }
           response.status = 200
           response
 

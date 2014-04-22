@@ -1,27 +1,27 @@
 Shindo.tests('Fog::Storage[:ibm] | volume requests', ['ibm']) do
 
   @volume_format = {
-    "id"            => String,
-    "instanceId"    => Fog::Nullable::String,
-    "name"          => String,
-    "format"        => String,
-    "state"         => Integer,
-    "size"          => String,
-    "offeringId"    => String,
-    "owner"         => String,
-    "createdTime"   => Integer,
-    "location"      => String,
-    "productCodes"  => Array,
+    'id'            => String,
+    'instanceId'    => Fog::Nullable::String,
+    'name'          => String,
+    'format'        => String,
+    'state'         => Integer,
+    'size'          => String,
+    'offeringId'    => String,
+    'owner'         => String,
+    'createdTime'   => Integer,
+    'location'      => String,
+    'productCodes'  => Array,
   }
 
   @full_volume_format = @volume_format.merge({
-    "ioPrice"       => {
-      "rate"          => Float,
-      "unitOfMeasure" => String,
-      "countryCode"   => String,
-      "effectiveDate" => Integer,
-      "currencyCode"  => String,
-      "pricePerQuantity"  => Integer,
+    'ioPrice'       => {
+      'rate'          => Float,
+      'unitOfMeasure' => String,
+      'countryCode'   => String,
+      'effectiveDate' => Integer,
+      'currencyCode'  => String,
+      'pricePerQuantity'  => Integer,
     }
   })
 
@@ -32,15 +32,15 @@ Shindo.tests('Fog::Storage[:ibm] | volume requests', ['ibm']) do
   tests('success') do
 
     @volume_id    = nil
-    @name         = "fog-test-volume" + Time.now.to_i.to_s(32)
-    @format       = "RAW"
-    @location_id  = "41"
-    @size         = "256"
-    @offering_id  = "20001208"
+    @name         = 'fog-test-volume' + Time.now.to_i.to_s(32)
+    @format       = 'RAW'
+    @location_id  = '41'
+    @size         = '256'
+    @offering_id  = '20001208'
 
     @instance_id  = nil
-    @image_id       = "20010001"
-    @instance_type  = "BRZ32.1/2048/60*175"
+    @image_id       = '20010001'
+    @instance_type  = 'BRZ32.1/2048/60*175'
 
     # Instance-using tests are pending, so don't create the key now
     # @key_name       = "fog-test-key-" + Time.now.to_i.to_s(32)
@@ -52,7 +52,7 @@ Shindo.tests('Fog::Storage[:ibm] | volume requests', ['ibm']) do
       data
     end
 
-    tests("#list_volumes").formats(@volumes_format) do
+    tests('#list_volumes').formats(@volumes_format) do
       Fog::Storage[:ibm].list_volumes.body
     end
 

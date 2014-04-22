@@ -24,10 +24,10 @@ module Fog
           if options['zone']
             raise Fog::DNS::Dynect::NotFound unless zone = self.data[:zones][options['zone']]
             data = {
-              "zone_type" => zone[:zone_type],
-              "serial_style" => zone[:serial_style],
-              "serial" => zone[:serial],
-              "zone" => zone[:zone]
+              'zone_type' => zone[:zone_type],
+              'serial_style' => zone[:serial_style],
+              'serial' => zone[:serial],
+              'zone' => zone[:zone]
             }
             info = "get: Your zone, #{zone[:zone]}"
           else
@@ -39,14 +39,14 @@ module Fog
           response.status = 200
 
           response.body = {
-            "status" => "success",
-            "data" => data,
-            "job_id" => Fog::Dynect::Mock.job_id,
-            "msgs" => [{
-              "INFO" => info,
-              "SOURCE" => "BLL",
-              "ERR_CD" => nil,
-              "LVL" => "INFO"
+            'status' => 'success',
+            'data' => data,
+            'job_id' => Fog::Dynect::Mock.job_id,
+            'msgs' => [{
+              'INFO' => info,
+              'SOURCE' => 'BLL',
+              'ERR_CD' => nil,
+              'LVL' => 'INFO'
             }]
           }
 

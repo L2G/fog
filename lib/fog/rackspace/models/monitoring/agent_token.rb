@@ -21,7 +21,7 @@ module Fog
 
         def save
           if identity
-            raise NotImplementedError.new "Updating Agent Tokens is not currently implemented"
+            raise NotImplementedError.new 'Updating Agent Tokens is not currently implemented'
           else
             data = service.create_agent_token(params)
             self.id = data.headers['X-Object-ID']

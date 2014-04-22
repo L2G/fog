@@ -28,7 +28,7 @@ module Fog
               results[:vapp_id] = results.delete(:container).split('/').last
               results[:cpu] = results.delete(:numberOfCpus)
               results[:memory] = results.delete(:memoryMB)
-              results[:type] = "application/vnd.vmware.vcloud.vm+xml"
+              results[:type] = 'application/vnd.vmware.vcloud.vm+xml'
               @response[:vm_records] << results
             end
           end

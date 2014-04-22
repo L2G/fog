@@ -1,4 +1,4 @@
-require "fog/brightbox/oauth2"
+require 'fog/brightbox/oauth2'
 
 module Fog
   module Brightbox
@@ -10,7 +10,7 @@ module Fog
       module Shared
         include Fog::Brightbox::OAuth2
 
-        API_URL = "https://api.gb1.brightbox.com/"
+        API_URL = 'https://api.gb1.brightbox.com/'
 
         # Creates a new instance of the Brightbox Compute service
         #
@@ -217,7 +217,7 @@ module Fog
         # @return [Excon::Response]
         def authenticated_request(options)
           headers = options[:headers] || {}
-          headers.merge!("Authorization" => "OAuth #{@credentials.access_token}", "Content-Type" => "application/json")
+          headers.merge!('Authorization' => "OAuth #{@credentials.access_token}", 'Content-Type' => 'application/json')
           options[:headers] = headers
           # TODO: This is just a wrapper around a call to Excon::Connection#request
           #   so can be extracted from Compute by passing in the connection,

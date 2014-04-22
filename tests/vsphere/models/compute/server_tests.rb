@@ -27,12 +27,12 @@ Shindo.tests('Fog::Compute[:vsphere] | server model', ['vsphere']) do
         :hypervisor,
         :name,
         :public_ip_address]
-      tests("The server model should respond to") do
+      tests('The server model should respond to') do
         attributes.each do |attribute|
           test("#{attribute}") { server.respond_to? attribute }
         end
       end
-      tests("The attributes hash should have key") do
+      tests('The attributes hash should have key') do
         attributes.each do |attribute|
           test("#{attribute}") { model_attribute_hash.has_key? attribute }
         end

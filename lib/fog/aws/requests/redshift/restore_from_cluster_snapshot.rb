@@ -50,7 +50,7 @@ module Fog
           owner_account                = options[:owner_account]
 
 
-          path = "/"
+          path = '/'
           params = {
             :headers    => {},
             :path       => path,

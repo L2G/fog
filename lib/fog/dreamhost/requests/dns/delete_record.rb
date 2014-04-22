@@ -14,8 +14,8 @@ module Fog
 
         def delete_record(name, type, value)
           request( :expects  => 200,
-                   :method   => "GET",
-                   :path     => "/",
+                   :method   => 'GET',
+                   :path     => '/',
                    :query    => {
                      :cmd      => 'dns-remove_record',
                      :type     => type,

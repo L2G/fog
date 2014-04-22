@@ -18,7 +18,7 @@ module Fog
             :expects  => 200,
             :method   => 'GET',
             :parser   => Fog::Parsers::DNS::Zerigo::CountZones.new,
-            :path     => "/api/1.1/zones/count.xml"
+            :path     => '/api/1.1/zones/count.xml'
           )
         end
 

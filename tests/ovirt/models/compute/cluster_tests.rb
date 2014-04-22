@@ -14,12 +14,12 @@ Shindo.tests('Fog::Compute[:ovirt] | cluster model', ['ovirt']) do
       model_attribute_hash = cluster.attributes
       attributes = [ :id,
         :name]
-      tests("The cluster model should respond to") do
+      tests('The cluster model should respond to') do
         attributes.each do |attribute|
           test("#{attribute}") { cluster.respond_to? attribute }
         end
       end
-      tests("The attributes hash should have key") do
+      tests('The attributes hash should have key') do
         attributes.each do |attribute|
           test("#{attribute}") { model_attribute_hash.has_key? attribute }
         end

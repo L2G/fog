@@ -24,19 +24,19 @@ module Fog
 
           response = Excon::Response.new
           response.status = 204
-          response.body = ""
+          response.body = ''
           response.headers = {
-            "Date"                  => Time.now.utc.to_s,
-            "Location"              => "https://monitoring.api.rackspacecloud.com/v1.0/" + account_id + "/entities/" + entity_id + "/checks/" + check_id,
-            "X-Object-ID"           => check_id,
-            "X-RateLimit-Limit"     => "50000",
-            "X-RateLimit-Remaining" => "49627",
-            "X-RateLimit-Window"    => "24 hours",
-            "X-RateLimit-Type"      => "global",
-            "X-Response-Id"         => "owbgowb989wno73ubgvw89",
-            "X-LB"                  => "ord1-maas-prod-api1",
-            "Content-Length"        => "0",
-            "Content-Type"          => "text/plain",
+            'Date'                  => Time.now.utc.to_s,
+            'Location'              => 'https://monitoring.api.rackspacecloud.com/v1.0/' + account_id + '/entities/' + entity_id + '/checks/' + check_id,
+            'X-Object-ID'           => check_id,
+            'X-RateLimit-Limit'     => '50000',
+            'X-RateLimit-Remaining' => '49627',
+            'X-RateLimit-Window'    => '24 hours',
+            'X-RateLimit-Type'      => 'global',
+            'X-Response-Id'         => 'owbgowb989wno73ubgvw89',
+            'X-LB'                  => 'ord1-maas-prod-api1',
+            'Content-Length'        => '0',
+            'Content-Type'          => 'text/plain',
           }
           response.remote_ip = Fog::Rackspace::MockData.ipv4_address
           response

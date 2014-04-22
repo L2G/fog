@@ -106,7 +106,7 @@ module Fog
         end
 
         def request(opts)
-          raise "Not Implemented"
+          raise 'Not Implemented'
         end
       end # Mock
 
@@ -124,7 +124,7 @@ module Fog
           @joyent_username = options[:joyent_username]
 
           unless @joyent_username
-            raise ArgumentError, "options[:joyent_username] required"
+            raise ArgumentError, 'options[:joyent_username] required'
           end
 
           if options[:joyent_keyname]
@@ -141,7 +141,7 @@ module Fog
                 @joyent_keyfile = options[:joyent_keyfile]
                 @key_manager.add(@joyent_keyfile)
               else
-                raise ArgumentError, "options[:joyent_keyfile] provided does not exist."
+                raise ArgumentError, 'options[:joyent_keyfile] provided does not exist.'
               end
             elsif options[:joyent_keydata]
               if options[:joyent_keydata].to_s.empty?
@@ -155,7 +155,7 @@ module Fog
             @joyent_password = options[:joyent_password]
             @header_method = method(:header_for_basic_auth)
           else
-            raise ArgumentError, "Must provide either a joyent_password or joyent_keyname and joyent_keyfile pair"
+            raise ArgumentError, 'Must provide either a joyent_password or joyent_keyname and joyent_keyfile pair'
           end
 
           @connection = Fog::XML::Connection.new(
@@ -167,9 +167,9 @@ module Fog
 
         def request(opts = {})
           opts[:headers] = {
-            "X-Api-Version" => @joyent_version,
-            "Content-Type" => "application/json",
-            "Accept" => "application/json"
+            'X-Api-Version' => @joyent_version,
+            'Content-Type' => 'application/json',
+            'Accept' => 'application/json'
           }.merge(opts[:headers] || {}).merge(@header_method.call)
 
           if opts[:body]
@@ -178,13 +178,13 @@ module Fog
 
 
           response = @connection.request(opts)
-          if response.headers["Content-Type"] == "application/json"
+          if response.headers['Content-Type'] == 'application/json'
             response.body = json_decode(response.body)
           end
 
           response
         rescue Excon::Errors::HTTPStatusError => e
-          if e.response.headers["Content-Type"] == "application/json"
+          if e.response.headers['Content-Type'] == 'application/json'
             e.response.body = json_decode(e.response.body)
           end
           raise_if_error!(e.request, e.response)
@@ -199,7 +199,7 @@ module Fog
 
         def header_for_basic_auth
           {
-            "Authorization" => "Basic #{Base64.encode64("#{@joyent_username}:#{@joyent_password}").delete("\r\n")}"
+            'Authorization' => "Basic #{Base64.encode64("#{@joyent_username}:#{@joyent_password}").delete("\r\n")}"
           }
         end
 
@@ -228,8 +228,8 @@ module Fog
           signature = Base64.encode64(sig).delete("\r\n")
 
           {
-            "Date" => date,
-            "Authorization" => "Signature keyId=\"#{key_id}\",algorithm=\"#{key_type}-sha1\" #{signature}"
+            'Date' => date,
+            'Authorization' => "Signature keyId=\"#{key_id}\",algorithm=\"#{key_type}-sha1\" #{signature}"
           }
         rescue Net::SSH::Authentication::KeyManagerError => e
           raise Joyent::Errors::Unauthorized.new('SSH Signing Error: :#{e.message}', e)
@@ -237,8 +237,8 @@ module Fog
 
         def decode_time_attrs(obj)
           if obj.kind_of?(Hash)
-            obj["created"] = Time.parse(obj["created"]) unless obj["created"].nil? or obj["created"] == ''
-            obj["updated"] = Time.parse(obj["updated"]) unless obj["updated"].nil? or obj["updated"] == ''
+            obj['created'] = Time.parse(obj['created']) unless obj['created'].nil? or obj['created'] == ''
+            obj['updated'] = Time.parse(obj['updated']) unless obj['updated'].nil? or obj['updated'] == ''
           elsif obj.kind_of?(Array)
             obj.map do |o|
               decode_time_attrs(o)

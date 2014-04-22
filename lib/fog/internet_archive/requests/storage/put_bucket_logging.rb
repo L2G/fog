@@ -39,7 +39,7 @@ DATA
 DATA
 
             acl['AccessControlList'].each do |grant|
-              data << "      <Grant>"
+              data << '      <Grant>'
               type = case grant['Grantee'].keys.sort
               when ['DisplayName', 'ID']
                 'CanonicalUser'
@@ -52,9 +52,9 @@ DATA
               for key, value in grant['Grantee']
                 data << "          <#{key}>#{value}</#{key}>"
               end
-              data << "        </Grantee>"
+              data << '        </Grantee>'
               data << "        <Permission>#{grant['Permission']}</Permission>"
-              data << "      </Grant>"
+              data << '      </Grant>'
             end
 
             data <<

@@ -13,12 +13,12 @@ Shindo.tests('Fog::Compute[:libvirt] | nic model', ['libvirt']) do
         :type,
         :network,
         :bridge]
-      tests("The nic model should respond to") do
+      tests('The nic model should respond to') do
         attributes.each do |attribute|
           test("#{attribute}") { nic.respond_to? attribute }
         end
       end
-      tests("The attributes hash should have key") do
+      tests('The attributes hash should have key') do
         attributes.delete(:bridge)
         attributes.each do |attribute|
           test("#{attribute}") { model_attribute_hash.has_key? attribute }

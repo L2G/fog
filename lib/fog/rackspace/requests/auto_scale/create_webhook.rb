@@ -23,7 +23,7 @@ module Fog
             raise Fog::Rackspace::AutoScale::NotFound
           end
 
-          policy = group['scalingPolicies'].detect { |p| p["id"] == policy_id }
+          policy = group['scalingPolicies'].detect { |p| p['id'] == policy_id }
           if policy.nil?
             raise Fog::Rackspace::AutoScale::NotFound
           end
@@ -34,14 +34,14 @@ module Fog
           webhook['id'] = webhook_id
           webhook['name'] = options['name'] || 'new webhook'
           webhook['metadata'] = options['name'] || {}
-          webhook["links"] = [
+          webhook['links'] = [
             {
-              "href" => "https://ord.autoscale.api.rackspacecloud.com/v1.0/829409/groups/#{group_id}/policies/#{policy_id}/webhooks/#{webhook_id}/",
-              "rel" => "self"
+              'href' => "https://ord.autoscale.api.rackspacecloud.com/v1.0/829409/groups/#{group_id}/policies/#{policy_id}/webhooks/#{webhook_id}/",
+              'rel' => 'self'
             },
             {
-              "href" => "https://ord.autoscale.api.rackspacecloud.com/v1.0/829409/execute/1/sadfadsfasdfvcjsdfsjvreaigae5",
-              "rel" => "capability"
+              'href' => 'https://ord.autoscale.api.rackspacecloud.com/v1.0/829409/execute/1/sadfadsfasdfvcjsdfsjvreaigae5',
+              'rel' => 'capability'
             }
           ]
 

@@ -36,7 +36,7 @@ Shindo.tests('Fog::Compute[:aws] | snapshot requests', ['aws']) do
     Fog.wait_for { Fog::Compute[:aws].snapshots.get(@snapshot_id) }
     Fog::Compute[:aws].snapshots.get(@snapshot_id).wait_for { ready? }
 
-    tests("#describe_snapshots").formats(@snapshots_format) do
+    tests('#describe_snapshots').formats(@snapshots_format) do
       Fog::Compute[:aws].describe_snapshots.body
     end
 
@@ -45,7 +45,7 @@ Shindo.tests('Fog::Compute[:aws] | snapshot requests', ['aws']) do
     end
 
     tests("#copy_snapshot (#{@snapshot_id}, 'us-east-1')").formats(@snapshot_copy_result) do
-      data = Fog::Compute.new(:provider => :aws, :region => "us-west-1").copy_snapshot(@snapshot_id, "us-east-1").body
+      data = Fog::Compute.new(:provider => :aws, :region => 'us-west-1').copy_snapshot(@snapshot_id, 'us-east-1').body
       @west_snapshot_id = data['snapshotId']
       data
     end
@@ -56,10 +56,10 @@ Shindo.tests('Fog::Compute[:aws] | snapshot requests', ['aws']) do
 
     #NOTE: waiting for the copy to complete can sometimes take up to 5 minutes (but sometimes it's nearly instant)
     #for faster tests: comment out the rest of this block
-    Fog.wait_for { Fog::Compute.new(:provider => :aws, :region => "us-west-1").snapshots.get(@west_snapshot_id) }
+    Fog.wait_for { Fog::Compute.new(:provider => :aws, :region => 'us-west-1').snapshots.get(@west_snapshot_id) }
 
     tests("#delete_snapshots(#{@west_snapshot_id})").formats(AWS::Compute::Formats::BASIC) do
-      Fog::Compute.new(:provider => :aws, :region => "us-west-1").delete_snapshot(@west_snapshot_id).body
+      Fog::Compute.new(:provider => :aws, :region => 'us-west-1').delete_snapshot(@west_snapshot_id).body
     end
 
   end

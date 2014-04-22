@@ -14,7 +14,7 @@ module Fog
         def delete_cluster_security_group(options = {})
           cluster_security_group_name = options[:cluster_security_group_name]
 
-          path = "/"
+          path = '/'
           params = {
             :headers    => {},
             :path       => path,

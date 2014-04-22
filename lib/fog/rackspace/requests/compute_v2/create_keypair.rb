@@ -22,8 +22,8 @@ module Fog
           key_data = { 'name' => key_name }
 
           if attributes.is_a?(String)
-            Fog::Logger.deprecation "Passing the public key as the 2nd arg is deprecated, please pass a hash of attributes."
-            key_data.merge!("public_key" => attributes)
+            Fog::Logger.deprecation 'Passing the public key as the 2nd arg is deprecated, please pass a hash of attributes.'
+            key_data.merge!('public_key' => attributes)
           end
 
           key_data.merge!(attributes) if attributes.is_a?(Hash)
@@ -47,7 +47,7 @@ module Fog
             raise Fog::Compute::RackspaceV2::ServiceError if not self.data[:keypairs].select { |k| key_name.include? k['keypair']['name'] }.first.nil?
 
             if attributes.is_a?(String)
-              Fog::Logger.deprecation "Passing the public key as the 2nd arg is deprecated, please pass a hash of attributes."
+              Fog::Logger.deprecation 'Passing the public key as the 2nd arg is deprecated, please pass a hash of attributes.'
             end
 
             k = self.data[:keypair]

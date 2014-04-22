@@ -4,7 +4,7 @@ module Fog
       class Real
 
         def template_list
-          request("/server/templates")
+          request('/server/templates')
         end
       end
 

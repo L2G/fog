@@ -1,4 +1,4 @@
-Shindo.tests("Storage[:aws] | version", ["aws"]) do
+Shindo.tests('Storage[:aws] | version', ['aws']) do
 
   file_attributes = {
       :key => 'fog_file_tests',
@@ -18,13 +18,13 @@ Shindo.tests("Storage[:aws] | version", ["aws"]) do
     @version_instance = @instance.versions.first
     @directory.service.put_object(@directory.key, @instance.key, 'second version content')
 
-    tests("#file") do
-      tests("#file should return the object associated with the version").returns(@version_instance.version) do
+    tests('#file') do
+      tests('#file should return the object associated with the version').returns(@version_instance.version) do
         @version_instance.file.version
       end
     end
 
-    tests("#delete_marker") do
+    tests('#delete_marker') do
       tests("#delete_marker should be false if the version isn't a DeleteMarker'").returns(false) do
         @version_instance.delete_marker
       end
@@ -36,8 +36,8 @@ Shindo.tests("Storage[:aws] | version", ["aws"]) do
       end
     end
 
-    tests("#destroy") do
-      tests("#destroy removes the specific version").returns(false) do
+    tests('#destroy') do
+      tests('#destroy removes the specific version').returns(false) do
         @version_instance.destroy
 
         @instance.versions.all.collect(&:version).include?(@version_instance.version)

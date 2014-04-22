@@ -28,7 +28,7 @@ module Fog
 
         def edit(options)
           options[:uri] = href
-          options[:description] ||= ""
+          options[:description] ||= ''
           options = {:name => name}.merge(options)
           data = service.node_service_edit(options).body
           task = Fog::Compute::Ecloud::Tasks.new(:service => service, :href => data[:href])[0]

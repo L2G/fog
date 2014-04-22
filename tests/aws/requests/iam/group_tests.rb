@@ -27,7 +27,7 @@ Shindo.tests('AWS::IAM | group requests', ['aws']) do
       'RequestId'   => String
     }
 
-    tests("#list_groups").formats(@groups_format) do
+    tests('#list_groups').formats(@groups_format) do
       Fog::AWS[:iam].list_groups.body
     end
 

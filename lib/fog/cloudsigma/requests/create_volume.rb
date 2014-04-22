@@ -3,7 +3,7 @@ module Fog
     class CloudSigma
       class Real
         def create_volume(data)
-          create_request("drives/", data)
+          create_request('drives/', data)
         end
       end
 

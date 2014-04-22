@@ -2,7 +2,7 @@ module Fog
   module Rackspace
     module MockData
 
-      NOT_FOUND_ID = "NOT-FOUND"
+      NOT_FOUND_ID = 'NOT-FOUND'
 
       def data
         @@data ||= Hash.new do |hash, key|
@@ -16,72 +16,72 @@ module Fog
             user_id    =  Fog::Mock.random_numbers(6).to_s
 
             flavor = {
-              "OS-FLV-EXT-DATA:ephemeral" => 4,
-              "disk"  => 20,
-              "id"    => flavor_id,
-              "links" => [
+              'OS-FLV-EXT-DATA:ephemeral' => 4,
+              'disk'  => 20,
+              'id'    => flavor_id,
+              'links' => [
                 {
-                  "href" => "https://dfw.servers.api.rackspacecloud.com/v2/010101/flavors/#{flavor_id}",
-                  "rel"  => "self"
+                  'href' => "https://dfw.servers.api.rackspacecloud.com/v2/010101/flavors/#{flavor_id}",
+                  'rel'  => 'self'
                 },
                 {
-                  "href" => "https://dfw.servers.api.rackspacecloud.com/010101/flavors/#{flavor_id}",
-                  "rel"  => "bookmark"
+                  'href' => "https://dfw.servers.api.rackspacecloud.com/010101/flavors/#{flavor_id}",
+                  'rel'  => 'bookmark'
                 }
               ],
-                "name"        => "512MB Standard Instance",
-                "ram"         => 512,
-                "rxtx_factor" => 2.0,
-                "swap"        => 512,
-                "vcpus"       => 1,
+                'name'        => '512MB Standard Instance',
+                'ram'         => 512,
+                'rxtx_factor' => 2.0,
+                'swap'        => 512,
+                'vcpus'       => 1,
             }
 
             image = {
-              "OS-DCF:diskConfig" => "AUTO",
-              "created" => "2012-02-28T19:38:57Z",
-              "id" => image_id,
-              "name" => "Ubuntu",
-              "links" => [
+              'OS-DCF:diskConfig' => 'AUTO',
+              'created' => '2012-02-28T19:38:57Z',
+              'id' => image_id,
+              'name' => 'Ubuntu',
+              'links' => [
                 {
-                  "href" => "https://dfw.servers.api.rackspacecloud.com/v2/010101/images/#{image_id}",
-                  "rel"  => "self"
+                  'href' => "https://dfw.servers.api.rackspacecloud.com/v2/010101/images/#{image_id}",
+                  'rel'  => 'self'
                 },
                 {
-                  "href" => "https://dfw.servers.api.rackspacecloud.com/010101/images/#{image_id}",
-                  "rel"  => "bookmark"
+                  'href' => "https://dfw.servers.api.rackspacecloud.com/010101/images/#{image_id}",
+                  'rel'  => 'bookmark'
                 },
                 {
-                  "href" => "https://dfw.servers.api.rackspacecloud.com/010101/images/#{image_id}",
-                  "rel"  => "alternate",
-                  "type" => "application/vnd.openstack.image"
+                  'href' => "https://dfw.servers.api.rackspacecloud.com/010101/images/#{image_id}",
+                  'rel'  => 'alternate',
+                  'type' => 'application/vnd.openstack.image'
                 }
               ],
-                "metadata" => {
-                "arch" => "x86-64",
-                "auto_disk_config" => "True",
-                "com.rackspace__1__build_core" => "1",
-                "com.rackspace__1__build_managed" => "0",
-                "com.rackspace__1__build_rackconnect" => "0",
-                "com.rackspace__1__options" => "0",
-                "com.rackspace__1__visible_core" => "1",
-                "com.rackspace__1__visible_managed" => "0",
-                "com.rackspace__1__visible_rackconnect" => "0",
-                "image_type" => "base",
-                "org.openstack__1__architecture" => "x64",
-                "org.openstack__1__os_distro" => "org.ubuntu",
-                "org.openstack__1__os_version" => "11.10",
-                "os_distro" => "ubuntu",
-                "os_type" => "linux",
-                "os_version" => "11.10",
-                "rax_managed" => "false",
-                "rax_options" => "0"
+                'metadata' => {
+                'arch' => 'x86-64',
+                'auto_disk_config' => 'True',
+                'com.rackspace__1__build_core' => '1',
+                'com.rackspace__1__build_managed' => '0',
+                'com.rackspace__1__build_rackconnect' => '0',
+                'com.rackspace__1__options' => '0',
+                'com.rackspace__1__visible_core' => '1',
+                'com.rackspace__1__visible_managed' => '0',
+                'com.rackspace__1__visible_rackconnect' => '0',
+                'image_type' => 'base',
+                'org.openstack__1__architecture' => 'x64',
+                'org.openstack__1__os_distro' => 'org.ubuntu',
+                'org.openstack__1__os_version' => '11.10',
+                'os_distro' => 'ubuntu',
+                'os_type' => 'linux',
+                'os_version' => '11.10',
+                'rax_managed' => 'false',
+                'rax_options' => '0'
               },
-              "minDisk"  => 10,
-              "minRam"   => 256,
-              "name"     => image_name,
-              "progress" => 100,
-              "status"   => "ACTIVE",
-              "updated"  => "2012-02-28T19:39:05Z"
+              'minDisk'  => 10,
+              'minRam'   => 256,
+              'name'     => image_name,
+              'progress' => 100,
+              'status'   => 'ACTIVE',
+              'updated'  => '2012-02-28T19:39:05Z'
             }
 
             network = {
@@ -91,11 +91,11 @@ module Fog
             }
 
             key_pair = {
-                'public_key'  => "ssh-rsa ".concat(Fog::Mock.random_letters(372)).concat(" Generated by Nova\n"),
+                'public_key'  => 'ssh-rsa '.concat(Fog::Mock.random_letters(372)).concat(" Generated by Nova\n"),
                 'private_key' => "-----BEGIN RSA PRIVATE KEY-----\n".concat(Fog::Mock.random_letters(1635)).concat("\n-----END RSA PRIVATE KEY-----\n"),
                 'user_id'     => user_id,
                 'name'        => Fog::Mock.random_letters(32),
-                'fingerprint' => "00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00"
+                'fingerprint' => '00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00'
             }
 
             #Block Storage
@@ -103,76 +103,76 @@ module Fog
             volume_type2_id = Fog::Mock.random_numbers(3).to_s
 
             volume_type1 = {
-              "id" => volume_type1_id,
-              "name" => "SATA",
-              "extra_specs" => {},
+              'id' => volume_type1_id,
+              'name' => 'SATA',
+              'extra_specs' => {},
             }
 
             volume_type2 = {
-              "id" => volume_type2_id,
-              "name" => "SSD",
-              "extra_specs" => {},
+              'id' => volume_type2_id,
+              'name' => 'SSD',
+              'extra_specs' => {},
             }
 
             #AutoScale
             launch_config = {
-              "args" => {
-                  "loadBalancers" => [
+              'args' => {
+                  'loadBalancers' => [
                     {
-                      "port" => 8080,
-                      "loadBalancerId" => 9099
+                      'port' => 8080,
+                      'loadBalancerId' => 9099
                     }
                   ],
-                  "server" => {
-                    "name" => "autoscale_server",
-                    "imageRef" => "0d589460-f177-4b0f-81c1-8ab8903ac7d8",
-                    "flavorRef" => "2",
-                    "OS-DCF =>diskConfig" => "AUTO",
-                    "metadata" => {
-                      "build_config" => "core",
-                      "meta_key_1" => "meta_value_1",
-                      "meta_key_2" => "meta_value_2"
+                  'server' => {
+                    'name' => 'autoscale_server',
+                    'imageRef' => '0d589460-f177-4b0f-81c1-8ab8903ac7d8',
+                    'flavorRef' => '2',
+                    'OS-DCF =>diskConfig' => 'AUTO',
+                    'metadata' => {
+                      'build_config' => 'core',
+                      'meta_key_1' => 'meta_value_1',
+                      'meta_key_2' => 'meta_value_2'
                     },
-                    "networks" => [
+                    'networks' => [
                       {
-                        "uuid" => "11111111-1111-1111-1111-111111111111"
+                        'uuid' => '11111111-1111-1111-1111-111111111111'
                       },
                       {
-                        "uuid" => "00000000-0000-0000-0000-000000000000"
+                        'uuid' => '00000000-0000-0000-0000-000000000000'
                       }
                     ],
-                    "personality" => [
+                    'personality' => [
                       {
-                        "path" => "/root/.csivh",
-                        "contents" => "VGhpcyBpcyBhIHRlc3QgZmlsZS4="
+                        'path' => '/root/.csivh',
+                        'contents' => 'VGhpcyBpcyBhIHRlc3QgZmlsZS4='
                       }
                     ]
                   }
                 },
-                "type" => "launch_server"
+                'type' => 'launch_server'
             }
 
             group_config = {
-              "max_entities" => 10,
-              "cooldown" => 360,
-              "name" => "testscalinggroup198547",
-              "min_entities" => 0,
-              "metadata" => {
-                "gc_meta_key_2" => "gc_meta_value_2",
-                "gc_meta_key_1" => "gc_meta_value_1"
+              'max_entities' => 10,
+              'cooldown' => 360,
+              'name' => 'testscalinggroup198547',
+              'min_entities' => 0,
+              'metadata' => {
+                'gc_meta_key_2' => 'gc_meta_value_2',
+                'gc_meta_key_1' => 'gc_meta_value_1'
               }
             }
 
             policy = {
-              "cooldown" => 0,
-              "type" => "webhook",
-              "name" => "scale up by 1",
-              "change" => 1
+              'cooldown' => 0,
+              'type' => 'webhook',
+              'name' => 'scale up by 1',
+              'change' => 1
             }
 
             webhook = {
-              "name" => "webhook name",
-              "metadata" => {'foo' => 'bar'}
+              'name' => 'webhook name',
+              'metadata' => {'foo' => 'bar'}
             }
 
             mock_data = {
@@ -206,15 +206,15 @@ module Fog
       end
 
       def self.uuid
-        [8,4,4,4,12].map{|i| Fog::Mock.random_hex(i)}.join("-")
+        [8,4,4,4,12].map{|i| Fog::Mock.random_hex(i)}.join('-')
       end
 
       def self.ipv4_address
-        4.times.map{ Fog::Mock.random_numbers(3) }.join(".")
+        4.times.map{ Fog::Mock.random_numbers(3) }.join('.')
       end
 
       def self.ipv6_address
-        8.times.map { Fog::Mock.random_hex(4) }.join(":")
+        8.times.map { Fog::Mock.random_hex(4) }.join(':')
       end
 
       def self.keep(hash, *keys)
@@ -230,7 +230,7 @@ module Fog
       end
 
       def self.zulu_time
-        Time.now.strftime("%Y-%m-%dT%H:%M:%SZ")
+        Time.now.strftime('%Y-%m-%dT%H:%M:%SZ')
       end
 
       def self.stringify(message)

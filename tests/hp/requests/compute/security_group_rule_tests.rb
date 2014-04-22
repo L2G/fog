@@ -1,4 +1,4 @@
-Shindo.tests("Fog::Compute[:hp] | security group requests", ['hp']) do
+Shindo.tests('Fog::Compute[:hp] | security group requests', ['hp']) do
 
   @security_group_rule_format = {
     'from_port'       => Integer,
@@ -45,7 +45,7 @@ Shindo.tests("Fog::Compute[:hp] | security group requests", ['hp']) do
       Fog::Compute[:hp].create_security_group_rule(0, 'tcp', '80', '80', '0.0.0.0/0')
     end
 
-    tests("#delete_security_group_rule(0)").raises(Fog::Compute::HP::NotFound) do
+    tests('#delete_security_group_rule(0)').raises(Fog::Compute::HP::NotFound) do
       Fog::Compute[:hp].delete_security_group_rule(0)
     end
 

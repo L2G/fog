@@ -5,7 +5,7 @@ Shindo.tests('Fog::Compute[:glesys] | ip requests', ['glesys']) do
 
   tests('success') do
 
-    tests("#ip_list_own()").formats(Glesys::Compute::Formats::Ips::IPLIST) do
+    tests('#ip_list_own()').formats(Glesys::Compute::Formats::Ips::IPLIST) do
       pending if Fog.mocking?
       Fog::Compute[:glesys].ip_list_own.body['response']
     end
@@ -14,8 +14,8 @@ Shindo.tests('Fog::Compute[:glesys] | ip requests', ['glesys']) do
     ).formats(Glesys::Compute::Formats::Ips::IPLIST_ALL) do
       pending if Fog.mocking?
       ips = Fog::Compute[:glesys].ip_list_free(
-        :datacenter => "Falkenberg",
-        :platform   => "Xen",
+        :datacenter => 'Falkenberg',
+        :platform   => 'Xen',
         :ipversion  => 4
       )
       @free_ip = ips.body['response']['iplist']['ipaddresses'].first
@@ -26,8 +26,8 @@ Shindo.tests('Fog::Compute[:glesys] | ip requests', ['glesys']) do
     ).formats(Glesys::Compute::Formats::Ips::IPLIST_CATCH_RELEASE) do
       pending if Fog.mocking?
       Fog::Compute[:glesys].ip_take(
-        :datacenter => "Falkenberg",
-        :platform   => "Xen",
+        :datacenter => 'Falkenberg',
+        :platform   => 'Xen',
         :ipversion  => 4,
         :ipaddress  => @free_ip
       ).body['response']
@@ -50,13 +50,13 @@ Shindo.tests('Fog::Compute[:glesys] | ip requests', ['glesys']) do
 
   tests('failure') do
 
-    tests("#ip_take_argument_error()").raises(Excon::Errors::HTTPStatusError) do
+    tests('#ip_take_argument_error()').raises(Excon::Errors::HTTPStatusError) do
       pending if Fog.mocking?
       ip = Fog::Compute[:glesys].ips.new(
-        :datacenter => "Falkenberg",
-        :platform   => "Xen",
+        :datacenter => 'Falkenberg',
+        :platform   => 'Xen',
         :version    => 4,
-        :ip         => "127.0.0.1"
+        :ip         => '127.0.0.1'
       )
       ip.take
     end

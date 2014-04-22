@@ -21,7 +21,7 @@ module Fog
           xml.HardwareConfiguration do
             xml.ProcessorCount data[:cpus]
             xml.Memory do
-              xml.Unit "MB"
+              xml.Unit 'MB'
               xml.Value data[:memory]
             end
             xml.Disks do
@@ -29,7 +29,7 @@ module Fog
                 xml.Disk do
                   xml.Index disk[:Index]
                   xml.Size do
-                    xml.Unit "GB"
+                    xml.Unit 'GB'
                     xml.Value disk[:Size][:Value]
                   end
                 end
@@ -40,7 +40,7 @@ module Fog
                 xml.Nic do
                   xml.UnitNumber nic[:UnitNumber]
                   xml.MacAddress nic[:MacAddress]
-                  xml.Network(:href => nic[:Network][:href], :name => nic[:Network][:name], :type => "application/vnd.tmrk.cloud.network") do
+                  xml.Network(:href => nic[:Network][:href], :name => nic[:Network][:name], :type => 'application/vnd.tmrk.cloud.network') do
                   end
                 end
               end
@@ -59,9 +59,9 @@ module Fog
           task = {
             :id            => task_id,
             :href          => "/cloudapi/ecloud/tasks/#{task_id}",
-            :type          => "application/vnd.tmrk.cloud.task",
-            :Operation     => "Configure Server",
-            :Status        => "Complete",
+            :type          => 'application/vnd.tmrk.cloud.task',
+            :Operation     => 'Configure Server',
+            :Status        => 'Complete',
             :ImpactedItem  => Fog::Ecloud.keep(server, :name, :href, :type),
             :StartTime     => Time.now.iso8601,
             :CompletedTime => Time.now.iso8601,

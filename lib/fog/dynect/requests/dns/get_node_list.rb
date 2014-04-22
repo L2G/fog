@@ -37,14 +37,14 @@ module Fog
           end
 
           response.body = {
-            "status" => "success",
-            "data" => data,
-            "job_id" => Fog::Dynect::Mock.job_id,
-            "msgs" => [{
-              "INFO" => "get_tree: Here is your zone tree",
-              "SOURCE" => "BLL",
-              "ERR_CD" => nil,
-              "LVL" => "INFO"
+            'status' => 'success',
+            'data' => data,
+            'job_id' => Fog::Dynect::Mock.job_id,
+            'msgs' => [{
+              'INFO' => 'get_tree: Here is your zone tree',
+              'SOURCE' => 'BLL',
+              'ERR_CD' => nil,
+              'LVL' => 'INFO'
             }]
           }
 

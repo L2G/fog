@@ -52,7 +52,7 @@ module Fog
         end
 
         def find_attribute(attribute,value)
-          attribute = attribute.to_s.gsub("find_by_", "")
+          attribute = attribute.to_s.gsub('find_by_', '')
           load(service.list_public_images_detailed(attribute , value).body['images'])
         end
       end

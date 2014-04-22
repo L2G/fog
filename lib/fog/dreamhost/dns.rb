@@ -53,7 +53,7 @@ module Fog
             options[:port]    = uri.port
             options[:scheme]  = uri.scheme
           end
-          @host       = options[:host]        || "api.dreamhost.com"
+          @host       = options[:host]        || 'api.dreamhost.com'
           @persistent = options[:persistent]  || false
           @port       = options[:port]        || 443
           @scheme     = options[:scheme]      || 'https'

@@ -19,9 +19,9 @@ module Fog
         #     VPC: requires allocation_id only
         def release_address(ip_or_allocation)
           field = if ip_or_allocation.to_s =~ /^(\d|\.)+$/
-                    "PublicIp"
+                    'PublicIp'
                   else
-                    "AllocationId"
+                    'AllocationId'
                   end
           request(
             'Action'    => 'ReleaseAddress',
@@ -42,7 +42,7 @@ module Fog
 
           if address
             if address['allocationId'] && public_ip_or_allocation_id == address['publicIp']
-              raise Fog::Compute::AWS::Error, "InvalidParameterValue => You must specify an allocation id when releasing a VPC elastic IP address"
+              raise Fog::Compute::AWS::Error, 'InvalidParameterValue => You must specify an allocation id when releasing a VPC elastic IP address'
             end
 
             self.data[:addresses].delete(address['publicIp'])

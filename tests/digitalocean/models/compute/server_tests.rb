@@ -1,4 +1,4 @@
-Shindo.tests("Fog::Compute[:digitalocean] | server model", ['digitalocean', 'compute']) do
+Shindo.tests('Fog::Compute[:digitalocean] | server model', ['digitalocean', 'compute']) do
 
   server  = fog_test_server
 
@@ -32,7 +32,7 @@ Shindo.tests("Fog::Compute[:digitalocean] | server model", ['digitalocean', 'com
         :created_at,
         :ssh_keys=
       ]
-      tests("The server model should respond to") do
+      tests('The server model should respond to') do
         attributes.each do |attribute|
           test("#{attribute}") { server.respond_to? attribute }
         end

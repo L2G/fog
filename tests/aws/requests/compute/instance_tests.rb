@@ -175,7 +175,7 @@ Shindo.tests('Fog::Compute[:aws] | instance requests', ['aws']) do
     key_name = 'fog-test-key'
     key = Fog::Compute[:aws].key_pairs.create(:name => key_name)
 
-    tests("#run_instances").formats(@run_instances_format) do
+    tests('#run_instances').formats(@run_instances_format) do
       data = Fog::Compute[:aws].run_instances(@ami, 1, 1, 'InstanceType' => 't1.micro', 'KeyName' => key_name).body
       @instance_id = data['instancesSet'].first['instanceId']
       data
@@ -189,7 +189,7 @@ Shindo.tests('Fog::Compute[:aws] | instance requests', ['aws']) do
     end
     server.wait_for { ready? }
 
-    tests("#describe_instances").formats(@describe_instances_format) do
+    tests('#describe_instances').formats(@describe_instances_format) do
       Fog::Compute[:aws].describe_instances('instance-state-name' => 'running').body
     end
 
@@ -198,7 +198,7 @@ Shindo.tests('Fog::Compute[:aws] | instance requests', ['aws']) do
 
     tests("#describe_instances('instance-id' => '#{@instance_id}'").formats(@describe_instances_format) do
       body = Fog::Compute[:aws].describe_instances('instance-id' => "#{@instance_id}").body
-      tests("returns 1 instance").returns(1) { body['reservationSet'].size }
+      tests('returns 1 instance').returns(1) { body['reservationSet'].size }
       body
     end
 
@@ -208,7 +208,7 @@ Shindo.tests('Fog::Compute[:aws] | instance requests', ['aws']) do
       @network_interface_id = data['networkInterface']['networkInterfaceId']
       Fog::Compute[:aws].attach_network_interface(@network_interface_id, @instance_id, 1)
       body = Fog::Compute[:aws].describe_instances('instance-id' => "#{@instance_id}").body
-      tests("returns 1 attachment").returns(1) { body['reservationSet'].first['instancesSet'].first['networkInterfaces'].size }
+      tests('returns 1 attachment').returns(1) { body['reservationSet'].first['instancesSet'].first['networkInterfaces'].size }
     end
 
     another_server.destroy
@@ -220,7 +220,7 @@ Shindo.tests('Fog::Compute[:aws] | instance requests', ['aws']) do
     tests("#get_password_data('#{@instance_id}')").formats(@get_password_data_format) do
       result = Fog::Compute[:aws].get_password_data(@instance_id).body
 
-      tests("key can decrypt passwordData").returns(true) do
+      tests('key can decrypt passwordData').returns(true) do
 
         pending if Fog.mocking?
 
@@ -246,7 +246,7 @@ Shindo.tests('Fog::Compute[:aws] | instance requests', ['aws']) do
       Fog::Compute[:aws].terminate_instances(@instance_id).body
     end
 
-    tests("#describe_reserved_instances_offerings").formats(@describe_reserved_instances_offerings_format) do
+    tests('#describe_reserved_instances_offerings').formats(@describe_reserved_instances_offerings_format) do
       @reserved_instances = Fog::Compute[:aws].describe_reserved_instances_offerings.body
       @reserved_instances
     end
@@ -256,12 +256,12 @@ Shindo.tests('Fog::Compute[:aws] | instance requests', ['aws']) do
     end
 
     if Fog.mocking?
-      @reserved_instance_offering_id = @reserved_instances["reservedInstancesOfferingsSet"].first["reservedInstancesOfferingId"]
+      @reserved_instance_offering_id = @reserved_instances['reservedInstancesOfferingsSet'].first['reservedInstancesOfferingId']
       tests("#purchase_reserved_instances_offering('#{@reserved_instance_offering_id}')").formats(@purchase_reserved_instances_offering_format) do
         Fog::Compute[:aws].purchase_reserved_instances_offering(@reserved_instance_offering_id, 1).body
       end
 
-      tests("#describe_reserved_instances").formats(@describe_reserved_instances_format) do
+      tests('#describe_reserved_instances').formats(@describe_reserved_instances_format) do
         Fog::Compute[:aws].describe_reserved_instances.body
       end
     end

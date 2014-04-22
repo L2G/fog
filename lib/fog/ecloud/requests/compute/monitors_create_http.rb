@@ -10,7 +10,7 @@ module Fog
           request(
             :body => generate_http_monitor_request(data),
             :expects => 201,
-            :method => "POST",
+            :method => 'POST',
             :headers => {},
             :uri => data[:uri],
             :parse => true

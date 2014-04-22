@@ -22,7 +22,7 @@ module Fog
         # http://docs.rackspace.com/files/api/v1/cf-devguide/content/Create_TempURL-d1a444.html
         def get_object_https_url(container, object, expires, options = {})
           if @rackspace_temp_url_key.nil?
-            raise ArgumentError, "Storage must my instantiated with the :rackspace_temp_url_key option"
+            raise ArgumentError, 'Storage must my instantiated with the :rackspace_temp_url_key option'
           end
 
           method         = 'GET'
@@ -41,7 +41,7 @@ module Fog
         private
 
         def sig_to_hex(str)
-          str.unpack("C*").map { |c|
+          str.unpack('C*').map { |c|
             c.to_s(16)
           }.map { |h|
             h.size == 1 ? "0#{h}" : h

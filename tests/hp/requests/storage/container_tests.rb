@@ -1,4 +1,4 @@
-Shindo.tests("Fog::Storage[:hp] | container requests", ['hp']) do
+Shindo.tests('Fog::Storage[:hp] | container requests', ['hp']) do
 
   @container_format = [String]
 
@@ -22,7 +22,7 @@ Shindo.tests("Fog::Storage[:hp] | container requests", ['hp']) do
       Fog::Storage[:hp].get_container('fogcontainertests').body
     end
 
-    tests("#get_containers").formats(@containers_format) do
+    tests('#get_containers').formats(@containers_format) do
       Fog::Storage[:hp].get_containers.body
     end
 
@@ -30,7 +30,7 @@ Shindo.tests("Fog::Storage[:hp] | container requests", ['hp']) do
       Fog::Storage[:hp].head_container('fogcontainertests')
     end
 
-    tests("#head_containers").succeeds do
+    tests('#head_containers').succeeds do
       Fog::Storage[:hp].head_containers
     end
 

@@ -57,7 +57,7 @@ module Fog
         end
 
         def volume_attached?(volume_id)
-          self.data[:volumes][volume_id]['instanceId'] != "0"
+          self.data[:volumes][volume_id]['instanceId'] != '0'
         end
 
         # Sets volume status to Detached if it's not already set, and or attached

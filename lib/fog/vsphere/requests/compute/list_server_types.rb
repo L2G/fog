@@ -37,16 +37,16 @@ module Fog
       end
       class Mock
         def list_server_types(datacenter_name)
-          [{:id => "rhel6Guest",
-            :name => "rhel6Guest",
-            :family => "linuxGuest",
-            :fullname => "Red Hat Enterprise Linux 6 (32-Bit)",
-            :datacenter => "Solutions"},
-           {:id => "rhel5_64Guest",
-            :name => "rhel5_64Guest",
-            :family => "linuxGuest",
-            :fullname => "Red Hat Enterprise Linux 5 (64-Bit)",
-            :datacenter => "Solutions"}]
+          [{:id => 'rhel6Guest',
+            :name => 'rhel6Guest',
+            :family => 'linuxGuest',
+            :fullname => 'Red Hat Enterprise Linux 6 (32-Bit)',
+            :datacenter => 'Solutions'},
+           {:id => 'rhel5_64Guest',
+            :name => 'rhel5_64Guest',
+            :family => 'linuxGuest',
+            :fullname => 'Red Hat Enterprise Linux 5 (64-Bit)',
+            :datacenter => 'Solutions'}]
         end
       end
 

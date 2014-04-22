@@ -1,4 +1,4 @@
-Shindo.tests("Fog::Network[:openstack] | networks", ['openstack']) do
+Shindo.tests('Fog::Network[:openstack] | networks', ['openstack']) do
   @network = Fog::Network[:openstack].networks.create(:name => 'net_name',
                                                       :shared => false,
                                                       :admin_state_up => true,

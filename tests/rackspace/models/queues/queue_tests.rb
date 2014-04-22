@@ -11,12 +11,12 @@ Shindo.tests('Fog::Rackspace::Queues | queue', ['rackspace']) do
     end
 
     tests('#enqueue("msg", 60)') do
-      @instance.enqueue("msg", 60)
+      @instance.enqueue('msg', 60)
     end
 
     tests('#dequeue(60, 60)').returns(true) do
       @instance.dequeue(60, 60) do |message|
-        returns("msg") { message.body }
+        returns('msg') { message.body }
       end
     end
 

@@ -33,7 +33,7 @@ module Fog
       end
 
       def parse(data, boundary)
-        contents = data.match(end_boundary_regex(boundary)).pre_match rescue ""
+        contents = data.match(end_boundary_regex(boundary)).pre_match rescue ''
         contents.split(inner_boundary_regex(boundary)).reject(&:empty?).map do |part|
           parse_multipart_section(part)
         end.compact
@@ -60,8 +60,8 @@ module Fog
             headers.parse(line)
           end
 
-          if headers["content-type"] =~ /multipart\/mixed/
-            boundary = extract_boundary(headers.to_hash["content-type"].first)
+          if headers['content-type'] =~ /multipart\/mixed/
+            boundary = extract_boundary(headers.to_hash['content-type'].first)
             parse(body, boundary)
           else
             {:headers => headers.to_hash, :body => body}

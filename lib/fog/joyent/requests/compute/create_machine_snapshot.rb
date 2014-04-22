@@ -5,9 +5,9 @@ module Fog
 
         def create_machine_snapshot(machine_id, snapshot_name)
           request(
-            :method => "POST",
+            :method => 'POST',
             :path => "/my/machines/#{machine_id}/snapshots",
-            :body => {"name" => snapshot_name },
+            :body => {'name' => snapshot_name },
             :expects => [201]
           )
         end

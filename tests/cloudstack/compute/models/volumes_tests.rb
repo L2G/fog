@@ -12,6 +12,6 @@ end
 
 config = compute_providers[:cloudstack]
 
-Shindo.tests("Fog::Compute[:cloudstack] | volumes", ["cloudstack"]) do
+Shindo.tests('Fog::Compute[:cloudstack] | volumes', ['cloudstack']) do
   volumes_tests(Fog::Compute[:cloudstack], config[:volume_attributes], config[:mocked])
 end

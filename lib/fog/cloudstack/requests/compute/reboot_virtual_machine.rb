@@ -20,8 +20,8 @@ module Fog
         def reboot_virtual_machine(options = {})
           job_id = Fog::Cloudstack.uuid
           {
-            "rebootvirtualmachineresponse" => {
-              "jobid" => job_id
+            'rebootvirtualmachineresponse' => {
+              'jobid' => job_id
             }
           }
         end

@@ -25,21 +25,21 @@ module Fog
           def end_element(name)
             case name
             when 'Enabled'
-              @response[:enabled] = (value == "true")
+              @response[:enabled] = (value == 'true')
             when 'ChangeSid'
-              @response[:change_sid] = (value == "true")
+              @response[:change_sid] = (value == 'true')
             when 'JoinDomainEnabled'
-              @response[:join_domain_enabled] = (value == "true")
+              @response[:join_domain_enabled] = (value == 'true')
             when 'UseOrgSettings'
-              @response[:use_org_settings] = (value == "true")
+              @response[:use_org_settings] = (value == 'true')
             when 'AdminPassword'
               @response[:admin_password] = value
             when 'AdminPasswordEnabled'
-              @response[:admin_password_enabled] = (value == "true")
+              @response[:admin_password_enabled] = (value == 'true')
             when 'AdminPasswordAuto'
-              @response[:admin_password_auto] = (value == "true")
+              @response[:admin_password_auto] = (value == 'true')
             when 'ResetPasswordRequired'
-              @response[:reset_password_required] = (value == "true")
+              @response[:reset_password_required] = (value == 'true')
             when 'VirtualMachineId'
               @response[:virtual_machine_id] = value
             when 'ComputerName'

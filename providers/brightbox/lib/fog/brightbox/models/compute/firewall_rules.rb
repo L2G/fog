@@ -10,7 +10,7 @@ module Fog
         model Fog::Compute::Brightbox::FirewallRule
 
         def get(identifier)
-          return nil if identifier.nil? || identifier == ""
+          return nil if identifier.nil? || identifier == ''
           data = service.get_firewall_rule(identifier)
           new(data)
         rescue Excon::Errors::NotFound

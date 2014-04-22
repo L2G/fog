@@ -7,7 +7,7 @@ module Fog
         class DescribeConfigurationSettings < Fog::Parsers::AWS::ElasticBeanstalk::BaseParser
 
           def initialize
-            super("DescribeConfigurationSettingsResult")
+            super('DescribeConfigurationSettingsResult')
             tag 'ConfigurationSettings', :object, :list
             tag 'ApplicationName', :string
             tag 'DateCreated', :datetime

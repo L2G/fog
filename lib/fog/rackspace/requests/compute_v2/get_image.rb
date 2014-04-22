@@ -39,7 +39,7 @@ module Fog
           if image.nil?
             raise Fog::Compute::RackspaceV2::NotFound
           else
-            response(:body => {"image" => image})
+            response(:body => {'image' => image})
           end
         end
       end

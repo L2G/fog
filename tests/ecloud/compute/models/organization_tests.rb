@@ -13,9 +13,9 @@ Shindo.tests("Fog::Compute[:#{provider}] | organizations", [provider.to_s]) do
     returns(true) { !fetched_organization.nil? }
   end
 
-  tests("#admin").succeeds do
+  tests('#admin').succeeds do
     organization = connection.organizations.all.first
 
-    returns(true, "return AdminOrganization") { organization.admin.is_a?(Fog::Compute::Ecloud::AdminOrganization) }
+    returns(true, 'return AdminOrganization') { organization.admin.is_a?(Fog::Compute::Ecloud::AdminOrganization) }
   end
 end

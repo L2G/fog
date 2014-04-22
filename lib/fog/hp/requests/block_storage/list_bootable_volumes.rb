@@ -28,7 +28,7 @@ module Fog
           response = request(
             :expects  => 200,
             :method   => 'GET',
-            :path     => "hp-bootable-volumes"
+            :path     => 'hp-bootable-volumes'
           )
           response
         end

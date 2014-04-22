@@ -25,10 +25,10 @@ module Fog
           end
 
           {
-            "listsecuritygroupsresponse" =>
+            'listsecuritygroupsresponse' =>
             {
-              "count"         => security_groups.size,
-              "securitygroup" => security_groups
+              'count'         => security_groups.size,
+              'securitygroup' => security_groups
             }
           }
         end

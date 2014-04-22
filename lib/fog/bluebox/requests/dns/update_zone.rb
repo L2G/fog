@@ -7,7 +7,7 @@ module Fog
         def update_zone(zone_id, options)
           body = %Q{<?xml version="1.0" encoding="UTF-8"?><domain>}
           options.each {|k,v| body += "<#{k}>#{v}</#{k}>"}
-          body += "</domain>"
+          body += '</domain>'
           request(
             :body     => body,
             :expects  => 202,

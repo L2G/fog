@@ -4,7 +4,7 @@ module Fog
       class Real
 
         def ip_list_free(options = {})
-          request("/ip/listfree", options)
+          request('/ip/listfree', options)
         end
       end
 

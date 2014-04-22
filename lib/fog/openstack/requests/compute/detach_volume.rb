@@ -7,7 +7,7 @@ module Fog
           request(
             :expects  => 202,
             :method   => 'DELETE',
-            :path     => "servers/%s/os-volume_attachments/%s" % [server_id, attachment_id]
+            :path     => 'servers/%s/os-volume_attachments/%s' % [server_id, attachment_id]
           )
         end
 

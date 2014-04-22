@@ -105,11 +105,11 @@ module Fog
           # Make sure it's halted
           stop('hard')
           vbds.each do |vbd|
-            if vbd.type == "Disk"
+            if vbd.type == 'Disk'
               vbd.unplug \
-                if vbd.allowed_operations.include?("unplug")
+                if vbd.allowed_operations.include?('unplug')
               vbd.vdi.destroy \
-                if vbd.vdi.allowed_operations.include?("destroy")
+                if vbd.vdi.allowed_operations.include?('destroy')
             end
           end
           service.destroy_server( reference )
@@ -166,12 +166,12 @@ module Fog
 
         def running?
           reload
-          power_state == "Running"
+          power_state == 'Running'
         end
 
         def halted?
           reload
-          power_state == "Halted"
+          power_state == 'Halted'
         end
 
         # operations

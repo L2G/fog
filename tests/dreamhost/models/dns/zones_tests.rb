@@ -1,4 +1,4 @@
-Shindo.tests("Fog::DNS[:dreamhost] | Zones Collection", ['dreamhost', 'dns']) do
+Shindo.tests('Fog::DNS[:dreamhost] | Zones Collection', ['dreamhost', 'dns']) do
 
   service = Fog::DNS[:dreamhost]
 
@@ -11,7 +11,7 @@ Shindo.tests("Fog::DNS[:dreamhost] | Zones Collection", ['dreamhost', 'dns']) do
 
     tests('should list Fog::DNS::Dreamhost::Zone') do
       zones.each do |r|
-        test("as zone") { r.is_a?(Fog::DNS::Dreamhost::Zone) }
+        test('as zone') { r.is_a?(Fog::DNS::Dreamhost::Zone) }
       end
     end
   end

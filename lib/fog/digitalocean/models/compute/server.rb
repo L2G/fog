@@ -25,7 +25,7 @@ module Fog
 
         # Deprecated: Use public_ip_address instead.
         def ip_address
-          Fog::Logger.warning("ip_address has been deprecated. Use public_ip_address instead")
+          Fog::Logger.warning('ip_address has been deprecated. Use public_ip_address instead')
           public_ip_address
         end
 

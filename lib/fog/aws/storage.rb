@@ -178,7 +178,7 @@ module Fog
         # NOTE: differs from Fog::AWS.escape by NOT escaping `/`
         def escape(string)
           string.gsub(/([^a-zA-Z0-9_.\-~\/]+)/) {
-            "%" + $1.unpack("H2" * $1.bytesize).join("%").upcase
+            '%' + $1.unpack('H2' * $1.bytesize).join('%').upcase
           }
         end
 
@@ -270,59 +270,59 @@ module Fog
           case type
           when 'private'
             {
-              "AccessControlList" => [
+              'AccessControlList' => [
                 {
-                  "Permission" => "FULL_CONTROL",
-                  "Grantee" => {"DisplayName" => "me", "ID" => "2744ccd10c7533bd736ad890f9dd5cab2adb27b07d500b9493f29cdc420cb2e0"}
+                  'Permission' => 'FULL_CONTROL',
+                  'Grantee' => {'DisplayName' => 'me', 'ID' => '2744ccd10c7533bd736ad890f9dd5cab2adb27b07d500b9493f29cdc420cb2e0'}
                 }
               ],
-              "Owner" => {"DisplayName" => "me", "ID" => "2744ccd10c7533bd736ad890f9dd5cab2adb27b07d500b9493f29cdc420cb2e0"}
+              'Owner' => {'DisplayName' => 'me', 'ID' => '2744ccd10c7533bd736ad890f9dd5cab2adb27b07d500b9493f29cdc420cb2e0'}
             }
           when 'public-read'
             {
-              "AccessControlList" => [
+              'AccessControlList' => [
                 {
-                  "Permission" => "FULL_CONTROL",
-                  "Grantee" => {"DisplayName" => "me", "ID" => "2744ccd10c7533bd736ad890f9dd5cab2adb27b07d500b9493f29cdc420cb2e0"}
+                  'Permission' => 'FULL_CONTROL',
+                  'Grantee' => {'DisplayName' => 'me', 'ID' => '2744ccd10c7533bd736ad890f9dd5cab2adb27b07d500b9493f29cdc420cb2e0'}
                 },
                 {
-                  "Permission" => "READ",
-                  "Grantee" => {"URI" => "http://acs.amazonaws.com/groups/global/AllUsers"}
+                  'Permission' => 'READ',
+                  'Grantee' => {'URI' => 'http://acs.amazonaws.com/groups/global/AllUsers'}
                 }
               ],
-              "Owner" => {"DisplayName" => "me", "ID" => "2744ccd10c7533bd736ad890f9dd5cab2adb27b07d500b9493f29cdc420cb2e0"}
+              'Owner' => {'DisplayName' => 'me', 'ID' => '2744ccd10c7533bd736ad890f9dd5cab2adb27b07d500b9493f29cdc420cb2e0'}
             }
           when 'public-read-write'
             {
-              "AccessControlList" => [
+              'AccessControlList' => [
                 {
-                  "Permission" => "FULL_CONTROL",
-                  "Grantee" => {"DisplayName" => "me", "ID" => "2744ccd10c7533bd736ad890f9dd5cab2adb27b07d500b9493f29cdc420cb2e0"}
+                  'Permission' => 'FULL_CONTROL',
+                  'Grantee' => {'DisplayName' => 'me', 'ID' => '2744ccd10c7533bd736ad890f9dd5cab2adb27b07d500b9493f29cdc420cb2e0'}
                 },
                 {
-                  "Permission" => "READ",
-                  "Grantee" => {"URI" => "http://acs.amazonaws.com/groups/global/AllUsers"}
+                  'Permission' => 'READ',
+                  'Grantee' => {'URI' => 'http://acs.amazonaws.com/groups/global/AllUsers'}
                 },
                 {
-                  "Permission" => "WRITE",
-                  "Grantee" => {"URI" => "http://acs.amazonaws.com/groups/global/AllUsers"}
+                  'Permission' => 'WRITE',
+                  'Grantee' => {'URI' => 'http://acs.amazonaws.com/groups/global/AllUsers'}
                 }
               ],
-              "Owner" => {"DisplayName" => "me", "ID" => "2744ccd10c7533bd736ad890f9dd5cab2adb27b07d500b9493f29cdc420cb2e0"}
+              'Owner' => {'DisplayName' => 'me', 'ID' => '2744ccd10c7533bd736ad890f9dd5cab2adb27b07d500b9493f29cdc420cb2e0'}
             }
           when 'authenticated-read'
             {
-              "AccessControlList" => [
+              'AccessControlList' => [
                 {
-                  "Permission" => "FULL_CONTROL",
-                  "Grantee" => {"DisplayName" => "me", "ID" => "2744ccd10c7533bd736ad890f9dd5cab2adb27b07d500b9493f29cdc420cb2e0"}
+                  'Permission' => 'FULL_CONTROL',
+                  'Grantee' => {'DisplayName' => 'me', 'ID' => '2744ccd10c7533bd736ad890f9dd5cab2adb27b07d500b9493f29cdc420cb2e0'}
                 },
                 {
-                  "Permission" => "READ",
-                  "Grantee" => {"URI" => "http://acs.amazonaws.com/groups/global/AuthenticatedUsers"}
+                  'Permission' => 'READ',
+                  'Grantee' => {'URI' => 'http://acs.amazonaws.com/groups/global/AuthenticatedUsers'}
                 }
               ],
-              "Owner" => {"DisplayName" => "me", "ID" => "2744ccd10c7533bd736ad890f9dd5cab2adb27b07d500b9493f29cdc420cb2e0"}
+              'Owner' => {'DisplayName' => 'me', 'ID' => '2744ccd10c7533bd736ad890f9dd5cab2adb27b07d500b9493f29cdc420cb2e0'}
             }
           end
         end
@@ -376,7 +376,7 @@ module Fog
         end
 
         def signature(params, expires)
-          "foo"
+          'foo'
         end
 
         def setup_credentials(options)

@@ -1,4 +1,4 @@
-Shindo.tests("Storage[:aws] | files", ["aws"]) do
+Shindo.tests('Storage[:aws] | files', ['aws']) do
 
   file_attributes = {
       :key => 'fog_file_tests',
@@ -20,31 +20,31 @@ Shindo.tests("Storage[:aws] | files", ["aws"]) do
     v3 = @directory.service.delete_object(@directory.key, @instance.key).headers['x-amz-version-id']
     v4 = @directory.service.put_object(@directory.key, @instance.key, 'version 3 content').headers['x-amz-version-id']
 
-    tests("#get") do
-      tests("#get without version fetches the latest version").returns(v4) do
+    tests('#get') do
+      tests('#get without version fetches the latest version').returns(v4) do
         @directory.files.get(@instance.key).version
       end
 
-      tests("#get with version fetches that exact version").returns(v2) do
+      tests('#get with version fetches that exact version').returns(v2) do
         @directory.files.get(@instance.key, 'versionId' => v2).version
       end
 
-      tests("#get with a deleted version returns nil").returns(nil) do
+      tests('#get with a deleted version returns nil').returns(nil) do
         pending # getting 405 Method Not Allowed
         @directory.files.get(@instance.key, 'versionId' => v3)
       end
     end
 
-    tests("#head") do
-      tests("#head without version fetches the latest version").returns(v4) do
+    tests('#head') do
+      tests('#head without version fetches the latest version').returns(v4) do
         @directory.files.head(@instance.key).version
       end
 
-      tests("#head with version fetches that exact version").returns(v2) do
+      tests('#head with version fetches that exact version').returns(v2) do
         @directory.files.head(@instance.key, 'versionId' => v2).version
       end
 
-      tests("#head with a deleted version returns nil").returns(nil) do
+      tests('#head with a deleted version returns nil').returns(nil) do
         pending # getting 405 Method Not Allowed
         @directory.files.head(@instance.key, 'versionId' => v3)
       end

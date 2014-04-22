@@ -30,7 +30,7 @@ module Fog
           marker               = options[:marker]
           max_records          = options[:max_records]
 
-          path = "/"
+          path = '/'
           params = {
             :idempotent => true,
             :headers    => {},

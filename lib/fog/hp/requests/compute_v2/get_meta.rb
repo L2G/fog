@@ -28,7 +28,7 @@ module Fog
       class Mock
 
         def get_meta(collection_name, parent_id, key)
-          if collection_name == "images" then
+          if collection_name == 'images' then
             if get_image_details(parent_id)
               raise Fog::Compute::HPV2::NotFound unless midata = self.data[:images][parent_id]['metadata'].fetch(key, nil)
             else
@@ -36,7 +36,7 @@ module Fog
             end
           end
 
-          if collection_name == "servers" then
+          if collection_name == 'servers' then
             if get_server_details(parent_id)
               raise Fog::Compute::HPV2::NotFound unless midata = self.data[:servers][parent_id]['metadata'].fetch(key, nil)
             else

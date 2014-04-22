@@ -31,14 +31,14 @@ module Fog
       class Mock
 
         def associate_route_table(routeTableId, subnetId)
-          routetable = self.data[:route_tables].find { |routetable| routetable["routeTableId"].eql? routeTableId }
-          subnet = self.data[:subnets].find { |subnet| subnet["subnetId"].eql? subnetId }
+          routetable = self.data[:route_tables].find { |routetable| routetable['routeTableId'].eql? routeTableId }
+          subnet = self.data[:subnets].find { |subnet| subnet['subnetId'].eql? subnetId }
 
           if !routetable.nil? && !subnet.nil?
             response = Excon::Response.new
             response.status = 200
             association = add_route_association(routeTableId, subnetId)
-            routetable["associationSet"].push(association)
+            routetable['associationSet'].push(association)
             response.body = {
                 'requestId'     => Fog::AWS::Mock.request_id,
                 'associationId' => association['routeTableAssociationId']
@@ -56,10 +56,10 @@ module Fog
 
         def add_route_association(routeTableId, subnetId, main = nil)
           response = {
-              "routeTableAssociationId" => "rtbassoc-#{Fog::Mock.random_hex(8)}",
-              "routeTableId" => routeTableId,
-              "subnetId" => nil,
-              "main" => false
+              'routeTableAssociationId' => "rtbassoc-#{Fog::Mock.random_hex(8)}",
+              'routeTableId' => routeTableId,
+              'subnetId' => nil,
+              'main' => false
             }
           if main
             response['main'] = true

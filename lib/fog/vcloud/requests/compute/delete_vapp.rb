@@ -3,7 +3,7 @@ module Fog
     class Compute
 
       class Real
-        basic_request :delete_vapp, 202, "DELETE"
+        basic_request :delete_vapp, 202, 'DELETE'
       end
     end
   end

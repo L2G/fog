@@ -5,7 +5,7 @@ module Fog
         def list_instrumentations
           request(
               :path => "#{@joyent_username}/analytics/instrumentations",
-              :method => "GET",
+              :method => 'GET',
               :expects => 200,
               :idempotent => true
           )

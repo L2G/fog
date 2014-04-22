@@ -56,7 +56,7 @@ module Fog
         def ovirt_attrs obj
           opts = {:raw => obj}
           obj.instance_variables.each do |v|
-            key = v.to_s.gsub("@","").to_sym
+            key = v.to_s.gsub('@','').to_sym
             value = obj.instance_variable_get(v)
             #ignore nil values
             next if value.nil?
@@ -91,7 +91,7 @@ module Fog
 
         #read mocks xml
         def read_xml(file_name)
-          file_path = File.join(File.dirname(__FILE__),"requests","compute","mock_files",file_name)
+          file_path = File.join(File.dirname(__FILE__),'requests','compute','mock_files',file_name)
           File.read(file_path)
         end
       end

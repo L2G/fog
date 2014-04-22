@@ -17,7 +17,7 @@ module Fog
         def describe_resize(options = {})
           cluster_identifier = options[:cluster_identifier]
 
-          path = "/"
+          path = '/'
           params = {
             :idempotent => true,
             :headers    => {},

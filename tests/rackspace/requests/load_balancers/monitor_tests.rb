@@ -27,7 +27,7 @@ Shindo.tests('Fog::Rackspace::LoadBalancers | monitor', ['rackspace']) do
         end
 
         @lb.wait_for { ready? }
-        tests("#remove_monitor()").succeeds do
+        tests('#remove_monitor()').succeeds do
           @service.remove_monitor(@lb.id)
         end
       end

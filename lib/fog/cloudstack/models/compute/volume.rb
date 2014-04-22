@@ -82,7 +82,7 @@ module Fog
           requires :id
           instance_id = instance_or_id.is_a?(Server) ? instance_or_id.id : instance_or_id
           unless instance_id
-            raise ArgumentError, "Missing required argument: instance_or_id"
+            raise ArgumentError, 'Missing required argument: instance_or_id'
           end
 
           options = {
@@ -93,7 +93,7 @@ module Fog
 
           data = service.attach_volume(options)
 
-          service.jobs.new(data["attachvolumeresponse"])
+          service.jobs.new(data['attachvolumeresponse'])
         end
 
         def detach
@@ -101,7 +101,7 @@ module Fog
 
           data = service.detach_volume('id' => id)
 
-          service.jobs.new(data["detachvolumeresponse"])
+          service.jobs.new(data['detachvolumeresponse'])
         end
 
         def destroy

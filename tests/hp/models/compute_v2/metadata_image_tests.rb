@@ -1,4 +1,4 @@
-Shindo.tests("Fog::Compute::HPV2 | metadata for images", ['hp', 'v2', 'compute']) do
+Shindo.tests('Fog::Compute::HPV2 | metadata for images', ['hp', 'v2', 'compute']) do
 
   service = Fog::Compute.new(:provider => 'HP', :version => :v2)
 
@@ -35,7 +35,7 @@ Shindo.tests("Fog::Compute::HPV2 | metadata for images", ['hp', 'v2', 'compute']
       end
     end
 
-    tests("#save").succeeds do
+    tests('#save').succeeds do
       m = @image.metadata.new(:key => 'Meta5', :value => 'MetaValue5')
       @data = m.save
       test('metadata has saved correctly') do

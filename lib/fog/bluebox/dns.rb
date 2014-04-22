@@ -55,7 +55,7 @@ module Fog
           @bluebox_customer_id = options[:bluebox_customer_id]
           @bluebox_api_key = options[:bluebox_api_key]
           @connection_options     = options[:connection_options] || {}
-          @host       = options[:bluebox_host]    || "boxpanel.bluebox.net"
+          @host       = options[:bluebox_host]    || 'boxpanel.bluebox.net'
           @persistent = options[:persistent]      || false
           @port       = options[:bluebox_port]    || 443
           @scheme     = options[:bluebox_scheme]  || 'https'

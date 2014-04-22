@@ -1,4 +1,4 @@
-Shindo.tests("Fog::Joyent[:analytics] | transformation", %w{joyent}) do
+Shindo.tests('Fog::Joyent[:analytics] | transformation', %w{joyent}) do
   @analytics = Fog::Joyent[:analytics]
   @transformation = @analytics.transformations.first
 

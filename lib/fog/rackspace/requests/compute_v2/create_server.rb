@@ -67,7 +67,7 @@ module Fog
           ]
 
           if options[:keypair]
-            Fog::Logger.deprecation(":keypair has been depreciated. Please use :key_name instead.")
+            Fog::Logger.deprecation(':keypair has been depreciated. Please use :key_name instead.')
             options[:key_name] = options[:keypair]
           end
 
@@ -77,7 +77,7 @@ module Fog
             :body    => Fog::JSON.encode(data),
             :expects => [202],
             :method  => 'POST',
-            :path    => "servers"
+            :path    => 'servers'
           )
         end
       end
@@ -95,93 +95,93 @@ module Fog
           image  = self.data[:images][image_id]
 
           server = {
-            "OS-DCF:diskConfig"      => "AUTO",
-            "OS-EXT-STS:power_state" => 1,
-            "OS-EXT-STS:task_state"  => nil,
-            "OS-EXT-STS:vm_state"    => "active",
-            "accessIPv4" => public_ip4,
-            "accessIPv6" => public_ip6,
-            "addresses" => {
-              "private" => [
+            'OS-DCF:diskConfig'      => 'AUTO',
+            'OS-EXT-STS:power_state' => 1,
+            'OS-EXT-STS:task_state'  => nil,
+            'OS-EXT-STS:vm_state'    => 'active',
+            'accessIPv4' => public_ip4,
+            'accessIPv6' => public_ip6,
+            'addresses' => {
+              'private' => [
                 {
-                  "addr" => private_ip4,
-                  "version" => 4
+                  'addr' => private_ip4,
+                  'version' => 4
                 }
               ],
-                "public" => [
+                'public' => [
                   {
-                    "addr" => public_ip4,
-                    "version" => 4
+                    'addr' => public_ip4,
+                    'version' => 4
                   },
                   {
-                    "addr" => public_ip6,
-                    "version" => 6
+                    'addr' => public_ip6,
+                    'version' => 6
                   }
               ]
             },
-            "created" => "2012-07-28T15:32:25Z",
-            "flavor" => Fog::Rackspace::MockData.keep(flavor, "id", "links"),
-            "hostId" => Fog::Mock.random_hex(56),
-            "id" => server_id,
-            "image"  => Fog::Rackspace::MockData.keep(image, "id", "links"),
-            "links" => [
+            'created' => '2012-07-28T15:32:25Z',
+            'flavor' => Fog::Rackspace::MockData.keep(flavor, 'id', 'links'),
+            'hostId' => Fog::Mock.random_hex(56),
+            'id' => server_id,
+            'image'  => Fog::Rackspace::MockData.keep(image, 'id', 'links'),
+            'links' => [
               {
-                "href" => "https://dfw.servers.api.rackspacecloud.com/v2/010101/servers/#{server_id}",
-                "rel" => "self",
+                'href' => "https://dfw.servers.api.rackspacecloud.com/v2/010101/servers/#{server_id}",
+                'rel' => 'self',
               },
               {
-                "href" => "https://dfw.servers.api.rackspacecloud.com/010101/servers/#{server_id}",
-                "rel" => "bookmark",
+                'href' => "https://dfw.servers.api.rackspacecloud.com/010101/servers/#{server_id}",
+                'rel' => 'bookmark',
               }
             ],
-            "metadata" => {},
-            "name" => name,
-            "progress" => 100,
-            "rax-bandwidth:bandwidth" => [
+            'metadata' => {},
+            'name' => name,
+            'progress' => 100,
+            'rax-bandwidth:bandwidth' => [
               {
-                "audit_period_end"   => "2012-08-16T14:12:00Z",
-                "audit_period_start" => "2012-08-16T06:00:00Z",
-                "bandwidth_inbound"  => 39147845,
-                "bandwidth_outbound" => 13390651,
-                "interface"          => "public",
+                'audit_period_end'   => '2012-08-16T14:12:00Z',
+                'audit_period_start' => '2012-08-16T06:00:00Z',
+                'bandwidth_inbound'  => 39147845,
+                'bandwidth_outbound' => 13390651,
+                'interface'          => 'public',
               },
               {
-                "audit_period_end"   => "2012-08-16T14:12:00Z",
-                "audit_period_start" => "2012-08-16T06:00:00Z",
-                "bandwidth_inbound"  => 24229191,
-                "bandwidth_outbound" => 84,
-                "interface"          => "private",
+                'audit_period_end'   => '2012-08-16T14:12:00Z',
+                'audit_period_start' => '2012-08-16T06:00:00Z',
+                'bandwidth_inbound'  => 24229191,
+                'bandwidth_outbound' => 84,
+                'interface'          => 'private',
               }
             ],
-            "status"             => "ACTIVE",
-            "tenant_id"          => "010101",
-            "updated"            => "2012-07-28T15:37:09Z",
-            "user_id"            => "170454",
+            'status'             => 'ACTIVE',
+            'tenant_id'          => '010101',
+            'updated'            => '2012-07-28T15:37:09Z',
+            'user_id'            => '170454',
             :volume_ids          => [],
           }
 
           #  add in additional networks
           if options[:networks]
             options[:networks].each do |network|
-              net_label = self.data[:networks][network[:uuid]]["label"]
-              server["addresses"] = { net_label => []}
+              net_label = self.data[:networks][network[:uuid]]['label']
+              server['addresses'] = { net_label => []}
             end
           end
           self.data[:servers][server_id] = server
 
           response = {
-            "server" => {
-              "OS-DCF:diskConfig" => "AUTO",
-              "adminPass" => admin_pass,
-              "id" => server_id,
-              "links" => [
+            'server' => {
+              'OS-DCF:diskConfig' => 'AUTO',
+              'adminPass' => admin_pass,
+              'id' => server_id,
+              'links' => [
                 {
-                  "href" => "https://dfw.servers.api.rackspacecloud.com/v2/010101/servers/#{server_id}",
-                  "rel"  => "self"
+                  'href' => "https://dfw.servers.api.rackspacecloud.com/v2/010101/servers/#{server_id}",
+                  'rel'  => 'self'
                   },
                   {
-                  "href" => "https://dfw.servers.api.rackspacecloud.com/010101/servers/#{server_id}",
-                  "rel"  => "bookmark"
+                  'href' => "https://dfw.servers.api.rackspacecloud.com/010101/servers/#{server_id}",
+                  'rel'  => 'bookmark'
                 }
               ]
             }

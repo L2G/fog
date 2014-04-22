@@ -15,9 +15,9 @@ Shindo.tests("Fog::Compute[:#{provider}] | environments", [provider.to_s]) do
     returns(true) { !fetched_environment.nil? }
   end
 
-  tests("#organization").succeeds do
+  tests('#organization').succeeds do
     environment = @organization.environments.all.first
-    returns(false, "returns an organization") { environment.organization.nil? }
-    returns(true, "returns correct organization") { environment.organization.href == @organization.href }
+    returns(false, 'returns an organization') { environment.organization.nil? }
+    returns(true, 'returns correct organization') { environment.organization.href == @organization.href }
   end
 end

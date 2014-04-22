@@ -48,7 +48,7 @@ module Fog
           end
 
           def generate_xml
-            output = ""
+            output = ''
             output << header
             output << body(@attrs)
             output << tail
@@ -88,7 +88,7 @@ module Fog
               <AdminPasswordEnabled>#{opts[:admin_password_enabled]}</AdminPasswordEnabled>
               <AdminPasswordAuto>#{opts[:admin_password_auto]}</AdminPasswordAuto>
               <ResetPasswordRequired>#{opts[:reset_password_required]}</ResetPasswordRequired>
-              <CustomizationScript>#{CGI::escapeHTML(opts[:customization_script]).gsub(/\r/, "&#13;")}</CustomizationScript>
+              <CustomizationScript>#{CGI::escapeHTML(opts[:customization_script]).gsub(/\r/, '&#13;')}</CustomizationScript>
               <ComputerName>#{opts[:computer_name]}</ComputerName>
             END
           end

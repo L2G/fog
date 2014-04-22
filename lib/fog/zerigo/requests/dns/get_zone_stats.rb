@@ -43,7 +43,7 @@ module Fog
             response.body = {
               'id' => zone,
               'domain' => zone['domain'],
-              'period-begin' => zone['created-at'].strftime("%F"),
+              'period-begin' => zone['created-at'].strftime('%F'),
               'period-end' => Date.today.to_s,
               'queries' => 0
             }

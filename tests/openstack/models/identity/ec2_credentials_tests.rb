@@ -1,4 +1,4 @@
-Shindo.tests("Fog::Identity[:openstack] | ec2_credentials", ['openstack']) do
+Shindo.tests('Fog::Identity[:openstack] | ec2_credentials', ['openstack']) do
   before do
     openstack = Fog::Identity[:openstack]
     tenant_id = openstack.list_tenants.body['tenants'].first['id']

@@ -10,7 +10,7 @@ module Fog
 
         attribute :name
         attribute :description
-        attribute :state, :aliases => "status"
+        attribute :state, :aliases => 'status'
 
         attribute :admin_username
         attribute :admin_password
@@ -27,8 +27,8 @@ module Fog
 
         attribute :allow_access
 
-        attribute :flavor_id, "alias" => "database_server_type", :squash => "id"
-        attribute :zone_id, "alias" => "zone", :squash => "id"
+        attribute :flavor_id, 'alias' => 'database_server_type', :squash => 'id'
+        attribute :zone_id, 'alias' => 'zone', :squash => 'id'
 
         attribute :cloud_ips
 
@@ -61,7 +61,7 @@ module Fog
         end
 
         def ready?
-          state == "active"
+          state == 'active'
         end
 
         def snapshot

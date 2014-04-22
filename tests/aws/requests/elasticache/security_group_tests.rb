@@ -12,7 +12,7 @@ Shindo.tests('AWS::Elasticache | security group requests', ['aws', 'elasticache'
       group = body['CacheSecurityGroup']
       returns(name)        { group['CacheSecurityGroupName'] }
       returns(description) { group['Description'] }
-      returns([], "no authorized security group") { group['EC2SecurityGroups'] }
+      returns([], 'no authorized security group') { group['EC2SecurityGroups'] }
       body
     end
 
@@ -32,7 +32,7 @@ Shindo.tests('AWS::Elasticache | security group requests', ['aws', 'elasticache'
     '#describe_cache_security_groups with name'
     ).formats(AWS::Elasticache::Formats::DESCRIBE_SECURITY_GROUPS) do
       body = AWS[:elasticache].describe_cache_security_groups(name).body
-      returns(1, "size of 1") { body['CacheSecurityGroups'].size }
+      returns(1, 'size of 1') { body['CacheSecurityGroups'].size }
       returns(name, "has #{name}") do
         body['CacheSecurityGroups'].first['CacheSecurityGroupName']
       end

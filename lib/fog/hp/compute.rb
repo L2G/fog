@@ -86,7 +86,7 @@ module Fog
 
         # extract windows password from log
         def extract_password_from_log(log_text)
-          encrypted_text = ""
+          encrypted_text = ''
           section        = []
           return if log_text.nil?
           log_text.each_line do |line|
@@ -100,7 +100,7 @@ module Fog
             end
 
             case section
-              when ["BASE64"]
+              when ['BASE64']
                 encrypted_text << line
             end
           end
@@ -153,12 +153,12 @@ module Fog
         def initialize(options = {})
           # deprecate hp_account_id
           if options[:hp_account_id]
-            Fog::Logger.deprecation(":hp_account_id is deprecated, please use :hp_access_key instead.")
+            Fog::Logger.deprecation(':hp_account_id is deprecated, please use :hp_access_key instead.')
             @hp_access_key = options.delete(:hp_account_id)
           end
           @hp_access_key = options[:hp_access_key]
           unless @hp_access_key
-            raise ArgumentError.new("Missing required arguments: hp_access_key. :hp_account_id is deprecated, please use :hp_access_key instead.")
+            raise ArgumentError.new('Missing required arguments: hp_access_key. :hp_account_id is deprecated, please use :hp_access_key instead.')
           end
         end
 
@@ -179,12 +179,12 @@ module Fog
         def initialize(options = {})
           # deprecate hp_account_id
           if options[:hp_account_id]
-            Fog::Logger.deprecation(":hp_account_id is deprecated, please use :hp_access_key instead.")
+            Fog::Logger.deprecation(':hp_account_id is deprecated, please use :hp_access_key instead.')
             options[:hp_access_key] = options.delete(:hp_account_id)
           end
           @hp_access_key = options[:hp_access_key]
           unless @hp_access_key
-            raise ArgumentError.new("Missing required arguments: hp_access_key. :hp_account_id is deprecated, please use :hp_access_key instead.")
+            raise ArgumentError.new('Missing required arguments: hp_access_key. :hp_account_id is deprecated, please use :hp_access_key instead.')
           end
           @hp_secret_key = options[:hp_secret_key]
           @connection_options = options[:connection_options] || {}
@@ -194,7 +194,7 @@ module Fog
           auth_version = auth_version.to_s.downcase.to_sym
 
           ### Pass the service name for compute via the options hash
-          options[:hp_service_type] ||= "Compute"
+          options[:hp_service_type] ||= 'Compute'
           @hp_tenant_id = options[:hp_tenant_id]
 
           ### Make the authentication call

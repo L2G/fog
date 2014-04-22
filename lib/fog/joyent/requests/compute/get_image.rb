@@ -17,7 +17,7 @@ module Fog
       class Real
         def get_image(id)
           request(
-              :method => "GET",
+              :method => 'GET',
               :path => "/#{@joyent_username}/images/#{id}",
               :expects => 200,
               :idempotent => true

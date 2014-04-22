@@ -1,4 +1,4 @@
-Shindo.tests("Fog::DNS[:dreamhost] | record", ['dreamhost', 'dns']) do
+Shindo.tests('Fog::DNS[:dreamhost] | record', ['dreamhost', 'dns']) do
 
   service = Fog::DNS[:dreamhost]
   record  = service.records.first
@@ -31,7 +31,7 @@ Shindo.tests("Fog::DNS[:dreamhost] | record", ['dreamhost', 'dns']) do
       name = "test.#{test_domain}"
       r = service.records.create :name  => name,
                                  :type  => 'A',
-                                 :value => "8.8.8.8"
+                                 :value => '8.8.8.8'
       sleep 10
       tests('#save') do
         test('returns Fog::DNS::Dreamhost::Record') do
@@ -43,7 +43,7 @@ Shindo.tests("Fog::DNS[:dreamhost] | record", ['dreamhost', 'dns']) do
         test("name is #{name}") do
           r.name == name
         end
-        test("listed") do
+        test('listed') do
           !(service.records.find { |r| r.name == name }).nil?
         end
       end
@@ -57,9 +57,9 @@ Shindo.tests("Fog::DNS[:dreamhost] | record", ['dreamhost', 'dns']) do
         name = "zone-create.#{test_domain}"
         r = service.zones.first.records.create :name  => name,
                                                :type  => 'A',
-                                               :value => "8.8.8.8"
+                                               :value => '8.8.8.8'
         sleep 10
-        test("listed") do
+        test('listed') do
           !(service.records.find { |r| r.name == name }).nil?
         end
       end

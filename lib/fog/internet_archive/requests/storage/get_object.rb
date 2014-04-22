@@ -122,7 +122,7 @@ module Fog
             end
           else
             response.status = 404
-            response.body = "...<Code>NoSuchBucket</Code>..."
+            response.body = '...<Code>NoSuchBucket</Code>...'
             raise(Excon::Errors.status_error({:expects => 200}, response))
           end
           response

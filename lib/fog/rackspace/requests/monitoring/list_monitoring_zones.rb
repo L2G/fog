@@ -6,7 +6,7 @@ module Fog
           request(
             :expects  => [200],
             :method   => 'GET',
-            :path     => "monitoring_zones"
+            :path     => 'monitoring_zones'
           )
         end
       end

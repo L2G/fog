@@ -1,4 +1,4 @@
-Shindo.tests("Fog::Compute[:aws] | addresses", ['aws']) do
+Shindo.tests('Fog::Compute[:aws] | addresses', ['aws']) do
 
   collection_tests(Fog::Compute[:aws].addresses, {}, true)
 

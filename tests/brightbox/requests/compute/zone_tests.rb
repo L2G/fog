@@ -2,10 +2,10 @@ Shindo.tests('Fog::Compute[:brightbox] | zone requests', ['brightbox']) do
 
   tests('success') do
 
-    tests("#list_zones") do
+    tests('#list_zones') do
       pending if Fog.mocking?
       result = Fog::Compute[:brightbox].list_zones
-      @zone_id = result.first["id"]
+      @zone_id = result.first['id']
       data_matches_schema(Brightbox::Compute::Formats::Collection::ZONES, {:allow_extra_keys => true}) { result }
     end
 
@@ -24,7 +24,7 @@ Shindo.tests('Fog::Compute[:brightbox] | zone requests', ['brightbox']) do
       Fog::Compute[:brightbox].get_zone('zon-00000')
     end
 
-    tests("#get_zone").raises(ArgumentError) do
+    tests('#get_zone').raises(ArgumentError) do
       pending if Fog.mocking?
       Fog::Compute[:brightbox].get_zone
     end

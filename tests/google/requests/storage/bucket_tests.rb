@@ -1,4 +1,4 @@
-Shindo.tests('Fog::Storage[:google] | bucket requests', ["google"]) do
+Shindo.tests('Fog::Storage[:google] | bucket requests', ['google']) do
 
   tests('success') do
 
@@ -34,7 +34,7 @@ Shindo.tests('Fog::Storage[:google] | bucket requests', ["google"]) do
       Fog::Storage[:google].put_bucket('fogbuckettests')
     end
 
-    tests("#get_service").formats(@service_format) do
+    tests('#get_service').formats(@service_format) do
       Fog::Storage[:google].get_service.body
     end
 

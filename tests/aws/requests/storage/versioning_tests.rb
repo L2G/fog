@@ -20,9 +20,9 @@ def delete_bucket
   Fog::Storage[:aws].delete_bucket(@aws_bucket_name)
 end
 
-Shindo.tests('Fog::Storage[:aws] | versioning', ["aws"]) do
+Shindo.tests('Fog::Storage[:aws] | versioning', ['aws']) do
   tests('success') do
-    tests("#put_bucket_versioning") do
+    tests('#put_bucket_versioning') do
       @aws_bucket_name = 'fogbuckettests-' + Fog::Mock.random_hex(16)
       Fog::Storage[:aws].put_bucket(@aws_bucket_name)
 
@@ -71,15 +71,15 @@ Shindo.tests('Fog::Storage[:aws] | versioning', ["aws"]) do
       v3 = Fog::Storage[:aws].directories.get(@aws_bucket_name).files.create(:body => 'abc',  :key => v1.key)
       v4 = Fog::Storage[:aws].directories.get(@aws_bucket_name).files.create(:body => 'abcd', :key => v1.key)
 
-      tests("versions").returns([v4.version, v3.version, v2.version, v1.version]) do
+      tests('versions').returns([v4.version, v3.version, v2.version, v1.version]) do
         @versions.body['Versions'].collect {|v| v['Version']['VersionId']}
       end
 
-      tests("version sizes").returns([4, 3, 2, 1]) do
+      tests('version sizes').returns([4, 3, 2, 1]) do
         @versions.body['Versions'].collect {|v| v['Version']['Size']}
       end
 
-      tests("latest version").returns(v4.version) do
+      tests('latest version').returns(v4.version) do
         latest = @versions.body['Versions'].find {|v| v['Version']['IsLatest']}
         latest['Version']['VersionId']
       end
@@ -113,18 +113,18 @@ Shindo.tests('Fog::Storage[:aws] | versioning', ["aws"]) do
 
       file = Fog::Storage[:aws].directories.get(@aws_bucket_name).files.create(:body => 'a',  :key => 'file')
 
-      tests("deleting an object just stores a delete marker").returns(true) do
+      tests('deleting an object just stores a delete marker').returns(true) do
         file.destroy
         versions = Fog::Storage[:aws].get_bucket_object_versions(@aws_bucket_name)
         versions.body['Versions'].first.has_key?('DeleteMarker')
       end
 
-      tests("there are two versions: the original and the delete marker").returns(2) do
+      tests('there are two versions: the original and the delete marker').returns(2) do
         versions = Fog::Storage[:aws].get_bucket_object_versions(@aws_bucket_name)
         versions.body['Versions'].size
       end
 
-      tests("deleting the delete marker makes the object available again").returns(file.version) do
+      tests('deleting the delete marker makes the object available again').returns(file.version) do
         versions = Fog::Storage[:aws].get_bucket_object_versions(@aws_bucket_name)
         delete_marker = versions.body['Versions'].find { |v| v.has_key?('DeleteMarker') }
         Fog::Storage[:aws].delete_object(@aws_bucket_name, file.key, 'versionId' => delete_marker['DeleteMarker']['VersionId'])
@@ -148,7 +148,7 @@ Shindo.tests('Fog::Storage[:aws] | versioning', ["aws"]) do
                                                      :key => file_names.last)
       end
 
-      tests("deleting an object just stores a delete marker").returns(true) do
+      tests('deleting an object just stores a delete marker').returns(true) do
         Fog::Storage[:aws].delete_multiple_objects(@aws_bucket_name,
                                                    file_names)
         versions = Fog::Storage[:aws].get_bucket_object_versions(
@@ -170,14 +170,14 @@ Shindo.tests('Fog::Storage[:aws] | versioning', ["aws"]) do
         all_true
       end
 
-      tests("there are two versions: the original and the delete marker").
+      tests('there are two versions: the original and the delete marker').
           returns(file_count * 2) do
         versions = Fog::Storage[:aws].get_bucket_object_versions(
                       @aws_bucket_name)
         versions.body['Versions'].size
       end
 
-      tests("deleting the delete marker makes the object available again").
+      tests('deleting the delete marker makes the object available again').
           returns(true) do
         versions = Fog::Storage[:aws].get_bucket_object_versions(
                       @aws_bucket_name)
@@ -208,13 +208,13 @@ Shindo.tests('Fog::Storage[:aws] | versioning', ["aws"]) do
 
       file = Fog::Storage[:aws].directories.get(@aws_bucket_name).files.create(:body => 'a',  :key => 'file')
 
-      tests("includes a non-DeleteMarker object").returns(1) do
+      tests('includes a non-DeleteMarker object').returns(1) do
         Fog::Storage[:aws].get_bucket(@aws_bucket_name).body['Contents'].size
       end
 
       file.destroy
 
-      tests("does not include a DeleteMarker object").returns(0) do
+      tests('does not include a DeleteMarker object').returns(0) do
         Fog::Storage[:aws].get_bucket(@aws_bucket_name).body['Contents'].size
       end
     end

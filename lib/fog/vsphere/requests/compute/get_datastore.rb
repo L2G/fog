@@ -15,7 +15,7 @@ module Fog
 
           @connection.serviceContent.viewManager.CreateContainerView({
             :container  => dc.datastoreFolder,
-            :type       =>  ["Datastore"],
+            :type       =>  ['Datastore'],
             :recursive  => true
           }).view.select{|ds| ds.name == name}.first
         end

@@ -34,27 +34,27 @@ module Fog
         private
 
         def populate_uris(options = {})
-          options[:vdc_id] || raise("vdc_id option is required")
+          options[:vdc_id] || raise('vdc_id option is required')
           options[:vdc_uri] =  vdc_end_point(options[:vdc_id])
-          options[:network_id] || raise("network_id option is required")
+          options[:network_id] || raise('network_id option is required')
           options[:network_uri] = network_end_point(options[:network_id])
-          options[:template_uri] = vapp_template_end_point(options[:template_id]) || raise("template_id option is required")
+          options[:template_uri] = vapp_template_end_point(options[:template_id]) || raise('template_id option is required')
           options
         end
 
         def generate_instantiate_vapp_template_request(options = {})
           xml = Builder::XmlMarkup.new
-          xml.InstantiateVAppTemplateParams(xmlns.merge!(:name => options[:vapp_name], :"xml:lang" => "en")) {
+          xml.InstantiateVAppTemplateParams(xmlns.merge!(:name => options[:vapp_name], :"xml:lang" => 'en')) {
             xml.Description(options[:description])
             xml.InstantiationParams {
               # This options are fully ignored
               if options[:network_uri]
                 xml.NetworkConfigSection {
-                  xml.tag!("ovf:Info"){ "Configuration parameters for logical networks" }
-                  xml.NetworkConfig("networkName" => options[:network_name]) {
+                  xml.tag!('ovf:Info'){ 'Configuration parameters for logical networks' }
+                  xml.NetworkConfig('networkName' => options[:network_name]) {
                     xml.Configuration {
                       xml.ParentNetwork(:href => options[:network_uri])
-                      xml.FenceMode("bridged")
+                      xml.FenceMode('bridged')
                     }
                   }
                 }
@@ -62,29 +62,29 @@ module Fog
             }
             # The template
             xml.Source(:href => options[:template_uri])
-            xml.AllEULAsAccepted("true")
+            xml.AllEULAsAccepted('true')
           }
         end
 
         def xmlns
           {
-            'xmlns'     => "http://www.vmware.com/vcloud/v1.5",
-            "xmlns:ovf" => "http://schemas.dmtf.org/ovf/envelope/1",
-            "xmlns:xsi" => "http://www.w3.org/2001/XMLSchema-instance",
-            "xmlns:xsd" => "http://www.w3.org/2001/XMLSchema"
+            'xmlns'     => 'http://www.vmware.com/vcloud/v1.5',
+            'xmlns:ovf' => 'http://schemas.dmtf.org/ovf/envelope/1',
+            'xmlns:xsi' => 'http://www.w3.org/2001/XMLSchema-instance',
+            'xmlns:xsd' => 'http://www.w3.org/2001/XMLSchema'
           }
         end
 
         def vdc_end_point(vdc_id = nil)
-          end_point + ( vdc_id ? "vdc/#{vdc_id}" : "vdc" )
+          end_point + ( vdc_id ? "vdc/#{vdc_id}" : 'vdc' )
         end
 
         def network_end_point(network_id = nil)
-          end_point + ( network_id ? "network/#{network_id}" : "network" )
+          end_point + ( network_id ? "network/#{network_id}" : 'network' )
         end
 
         def vapp_template_end_point(vapp_template_id = nil)
-          end_point + ( vapp_template_id ? "vAppTemplate/#{vapp_template_id}" : "vAppTemplate" )
+          end_point + ( vapp_template_id ? "vAppTemplate/#{vapp_template_id}" : 'vAppTemplate' )
         end
 
         def endpoint

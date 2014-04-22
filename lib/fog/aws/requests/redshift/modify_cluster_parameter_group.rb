@@ -16,7 +16,7 @@ module Fog
         def modify_cluster_parameter_group(options = {})
           parameter_group_name = options[:parameter_group_name]
 
-          path = "/"
+          path = '/'
           params = {
             :headers    => {},
             :path       => path,

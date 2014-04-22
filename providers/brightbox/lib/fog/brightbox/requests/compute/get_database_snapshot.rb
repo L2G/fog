@@ -9,8 +9,8 @@ module Fog
         # @see https://api.gb1.brightbox.com/1.0/#database_snapshot_get_database_snapshot
         #
         def get_database_snapshot(identifier)
-          return nil if identifier.nil? || identifier == ""
-          wrapped_request("get", "/1.0/database_snapshots/#{identifier}", [200])
+          return nil if identifier.nil? || identifier == ''
+          wrapped_request('get', "/1.0/database_snapshots/#{identifier}", [200])
         end
 
       end

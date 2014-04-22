@@ -51,7 +51,7 @@ module Fog
                   'AccessKeyId' => Fog::AWS::Mock.key_id(20),
                 }
           if user
-            key["UserName"] = user
+            key['UserName'] = user
           end
 
           access_keys_data << key

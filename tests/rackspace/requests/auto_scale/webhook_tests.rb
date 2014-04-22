@@ -14,7 +14,7 @@ Shindo.tests('Fog::Rackspace::AutoScale | webhook_tests', ['rackspace', 'rackspa
       end
 
       tests('#list_webhooks').formats(LIST_WEBHOOKS_FORMAT, false) do
-        response = service.list_webhooks(@group_id, @policy_id).body["webhooks"]
+        response = service.list_webhooks(@group_id, @policy_id).body['webhooks']
       end
 
       tests('#get_webhook').formats(WEBHOOK_FORMAT) do

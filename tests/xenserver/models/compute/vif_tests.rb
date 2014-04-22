@@ -24,12 +24,12 @@ Shindo.tests('Fog::Compute[:xenserver] | VIF model', ['xenserver']) do
         :status_detail,
         :__vm
       ]
-      tests("The VIF model should respond to") do
+      tests('The VIF model should respond to') do
         attributes.each do |attribute|
           test("#{attribute}") { vif.respond_to? attribute }
         end
       end
-      tests("The attributes hash should have key") do
+      tests('The attributes hash should have key') do
         attributes.each do |attribute|
           test("#{attribute}") { model_attribute_hash.has_key? attribute }
         end
@@ -40,12 +40,12 @@ Shindo.tests('Fog::Compute[:xenserver] | VIF model', ['xenserver']) do
 
   end
 
-  tests("A real VIF should") do
-    tests("return a valid network") do
-      test("should be a Fog::Compute::XenServer::Network") { vif.network.kind_of? Fog::Compute::XenServer::Network }
+  tests('A real VIF should') do
+    tests('return a valid network') do
+      test('should be a Fog::Compute::XenServer::Network') { vif.network.kind_of? Fog::Compute::XenServer::Network }
     end
-    tests("return valid VIF") do
-      test("should be a Fog::Compute::XenServer::Server") { vif.server.kind_of? Fog::Compute::XenServer::Server }
+    tests('return valid VIF') do
+      test('should be a Fog::Compute::XenServer::Server') { vif.server.kind_of? Fog::Compute::XenServer::Server }
     end
 
   end

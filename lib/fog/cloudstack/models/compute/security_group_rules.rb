@@ -23,8 +23,8 @@ module Fog
         def all(options = {})
           merge_attributes(options)
           security_group = self.security_group
-          rules = security_group.ingress_rules.map{|r| r.merge("direction" => "ingress", "security_group_id" => security_group_id)}
-          rules += security_group.egress_rules.map{|r| r.merge("direction" => "egress", "security_group_id" => security_group_id)}
+          rules = security_group.ingress_rules.map{|r| r.merge('direction' => 'ingress', 'security_group_id' => security_group_id)}
+          rules += security_group.egress_rules.map{|r| r.merge('direction' => 'egress', 'security_group_id' => security_group_id)}
           load(rules)
         end
 

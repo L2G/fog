@@ -40,17 +40,17 @@ module Fog
         def create_record(domain, name, type, data, options = {})
 
           body = {
-            "name" => name,
-            "type" => type,
-            "data" => data,
-            "ttl"  => 1800
+            'name' => name,
+            'type' => type,
+            'data' => data,
+            'ttl'  => 1800
           }
 
           body.merge!(options)
 
           request(
             :expects  => 201,
-            :method   => "POST",
+            :method   => 'POST',
             :path     => "/V1.2/domains/#{domain}/records",
             :body     => Fog::JSON.encode(body)
           )

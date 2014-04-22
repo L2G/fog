@@ -143,16 +143,16 @@ module Fog
 
         def public=(new_public)
           if new_public
-            self.grant("pr")
+            self.grant('pr')
           else
-            self.revoke("pr")
+            self.revoke('pr')
           end
           @public = new_public
         end
 
         def public?
           @read_acl = [] if @read_acl.nil?
-          if @read_acl.include?(".r:*")
+          if @read_acl.include?('.r:*')
             true
           else
             false

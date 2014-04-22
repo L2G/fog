@@ -22,10 +22,10 @@ module Fog
           response = Excon::Response.new
           response.status = 200
           response.body = {
-            "ERRORARRAY" => [],
-            "ACTION"     => "linode.disk.delete",
-            "DATA"       => { "JobID" => rand(1000..9999),
-                              "DiskID" => disk_id }
+            'ERRORARRAY' => [],
+            'ACTION'     => 'linode.disk.delete',
+            'DATA'       => { 'JobID' => rand(1000..9999),
+                              'DiskID' => disk_id }
           }
           response
         end

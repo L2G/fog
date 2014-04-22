@@ -15,7 +15,7 @@ Shindo.tests('Fog::Compute[:ibm] | location requests', ['ibm']) do
 
   tests('success') do
 
-    tests("#list_locations").formats(@locations_format) do
+    tests('#list_locations').formats(@locations_format) do
       Fog::Compute[:ibm].list_locations.body
     end
 

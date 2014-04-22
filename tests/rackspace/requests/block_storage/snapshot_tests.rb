@@ -45,7 +45,7 @@ Shindo.tests('Fog::Rackspace::BlockStorage | snapshot_tests', ['rackspace']) do
       end
     end
 
-    tests("#list_snapshots").formats(list_snapshot_format) do
+    tests('#list_snapshots').formats(list_snapshot_format) do
       service.list_snapshots.body
     end
 

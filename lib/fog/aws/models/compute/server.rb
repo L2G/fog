@@ -58,7 +58,7 @@ module Fog
 
 
         def initialize(attributes = {})
-          self.groups     ||= ["default"] unless (attributes[:subnet_id] || attributes[:security_group_ids] || attributes[:network_interfaces])
+          self.groups     ||= ['default'] unless (attributes[:subnet_id] || attributes[:security_group_ids] || attributes[:network_interfaces])
           self.flavor_id  ||= 't1.micro'
 
           # Old 'connection' is renamed as service and should be used instead
@@ -184,7 +184,7 @@ module Fog
                   options["NetworkInterface.0.SecurityGroupId.#{options['SecurityGroupId'].index(id)}"] = id
                 }
               else
-                options["NetworkInterface.0.SecurityGroupId.0"] = options['SecurityGroupId']
+                options['NetworkInterface.0.SecurityGroupId.0'] = options['SecurityGroupId']
               end
               options.delete('SecurityGroupId')
             end
@@ -257,7 +257,7 @@ module Fog
             when false
               response = service.unmonitor_instances(identity)
             else
-              raise ArgumentError.new("only Boolean allowed here")
+              raise ArgumentError.new('only Boolean allowed here')
             end
           end
           self.monitoring = new_monitor

@@ -15,7 +15,7 @@ module Fog
             options[:device_id] = device_id
           end
 
-          request("voxel.devices.list", options)
+          request('voxel.devices.list', options)
         end
       end
 

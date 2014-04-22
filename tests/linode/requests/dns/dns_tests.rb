@@ -24,7 +24,7 @@ Shindo.tests('Fog::DNS[:linode] | DNS requests', ['linode', 'dns']) do
 
       type = 'master'
       domain = generate_unique_domain
-      options = { :SOA_email => "netops@#{domain}", :description => "Sample-Domain Inc", :status => 0}
+      options = { :SOA_email => "netops@#{domain}", :description => 'Sample-Domain Inc', :status => 0}
       response = Fog::DNS[:linode].domain_create( domain, type, options)
       if response.status == 200
         @master_zone_id = response.body['DATA']['DomainID']

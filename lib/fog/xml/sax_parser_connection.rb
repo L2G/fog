@@ -26,7 +26,7 @@ module Fog
 
         # Prepare the SAX parser
         data_stream = Nokogiri::XML::SAX::PushParser.new(parser)
-        response_string = ""
+        response_string = ''
         params[:response_block] = lambda do |chunk, remaining, total|
           response_string << chunk if ENV['DEBUG_RESPONSE']
           data_stream << chunk

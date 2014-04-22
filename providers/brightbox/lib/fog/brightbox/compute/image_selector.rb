@@ -29,13 +29,13 @@ module Fog
         #
         def latest_ubuntu
           @images.select do |img|
-            img["official"] == true &&
-              img["arch"] == "i686" &&
-              img["name"] =~ /ubuntu/i
+            img['official'] == true &&
+              img['arch'] == 'i686' &&
+              img['name'] =~ /ubuntu/i
           end.sort do |a, b|
             # Reverse sort so "raring" > "precise" and "13.10" > "13.04"
-            b["name"].downcase <=> a["name"].downcase
-          end.first["id"]
+            b['name'].downcase <=> a['name'].downcase
+          end.first['id']
         rescue
           nil
         end

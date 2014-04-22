@@ -23,19 +23,19 @@ module Fog
           response = Excon::Response.new
           response.status = [200, 203][rand(1)]
           response.body = {
-            "tenants" => [
+            'tenants' => [
               {
-                "id" => Fog::Mock.random_numbers(6),
-                "name" => "Enabled tenant",
-                "enabled" => true
+                'id' => Fog::Mock.random_numbers(6),
+                'name' => 'Enabled tenant',
+                'enabled' => true
               },
               {
-                "id" => Fog::Mock.random_numbers(6),
-                "name" => "Disabled tenant",
-                "enabled" => false
+                'id' => Fog::Mock.random_numbers(6),
+                'name' => 'Disabled tenant',
+                'enabled' => false
               },
             ],
-            "tenants_links" => []
+            'tenants_links' => []
           }
           response
         end

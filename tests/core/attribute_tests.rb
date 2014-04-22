@@ -1,5 +1,5 @@
 class FogAttributeTestModel < Fog::Model
-  attribute :key, :aliases => 'keys', :squash => "id"
+  attribute :key, :aliases => 'keys', :squash => 'id'
   attribute :time, :type => :time
   attribute :bool, :type => :boolean
 end
@@ -11,22 +11,22 @@ Shindo.tests('Fog::Attributes', 'core') do
   tests('squash') do
 
     tests('"keys" => {:id => "value"}').returns('value') do
-      @model.merge_attributes("keys" => {:id => "value"})
+      @model.merge_attributes('keys' => {:id => 'value'})
       @model.key
     end
 
     tests('"keys" => {"id" => "value"}').returns('value') do
-      @model.merge_attributes("keys" => {'id' => "value"})
+      @model.merge_attributes('keys' => {'id' => 'value'})
       @model.key
     end
 
     tests('"keys" => {"id" => false}').returns(false) do
-      @model.merge_attributes("keys" => {'id' => false })
+      @model.merge_attributes('keys' => {'id' => false })
       @model.key
     end
 
     tests('"keys" => {:id => false}').returns(false) do
-      @model.merge_attributes("keys" => {:id => false })
+      @model.merge_attributes('keys' => {:id => false })
       @model.key
     end
   end
@@ -74,7 +74,7 @@ Shindo.tests('Fog::Attributes', 'core') do
     end
 
     tests(':bool => "foo"').returns(nil) do
-      @model.merge_attributes(:bool => "foo")
+      @model.merge_attributes(:bool => 'foo')
       @model.bool
     end
 

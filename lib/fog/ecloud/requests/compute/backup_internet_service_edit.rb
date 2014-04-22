@@ -7,13 +7,13 @@ module Fog
         def backup_internet_service_edit(data)
           validate_data([:name, :protocol, :enabled, :persistence], data)
           unless data[:persistence][:type]
-            raise ArgumentError.new("Required data missing: :persistence[:type]")
+            raise ArgumentError.new('Required data missing: :persistence[:type]')
           end
 
           request(
             :body => generate_backup_internet_service_request(data),
             :expects => 202,
-            :method => "PUT",
+            :method => 'PUT',
             :headers => {},
             :uri => data[:uri],
             :parse => true

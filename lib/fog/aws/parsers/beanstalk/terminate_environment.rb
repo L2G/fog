@@ -7,7 +7,7 @@ module Fog
         class TerminateEnvironment < Fog::Parsers::AWS::ElasticBeanstalk::BaseParser
 
           def initialize
-            super("TerminateEnvironmentResult")
+            super('TerminateEnvironmentResult')
             tag 'ApplicationName', :string
             tag 'CNAME', :string
             tag 'DateCreated', :datetime

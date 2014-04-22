@@ -24,21 +24,21 @@ module Fog
           response = Excon::Response.new
           response.status = 200
           response.body = {
-            "id"      => token,
-            "token"   => token,
-            "label"   => "mock_token"
+            'id'      => token,
+            'token'   => token,
+            'label'   => 'mock_token'
           }
           response.headers = {
-            "Date"                  => Time.now.utc.to_s,
-            "Content-Type"          => "application/json; charset=UTF-8",
-            "X-RateLimit-Limit"     => "50000",
-            "X-RateLimit-Remaining" => "47903",
-            "X-RateLimit-Window"    => "24 hours",
-            "X-RateLimit-Type"      => "global",
-            "X-Response-Id"         => "kvnsdonvosnv92989vbvbob",
-            "X-LB"                  => "ord1-maas-prod-api0",
-            "Vary"                  => "Accept-Encoding",
-            "Transfer-Encoding"     => "chunked"
+            'Date'                  => Time.now.utc.to_s,
+            'Content-Type'          => 'application/json; charset=UTF-8',
+            'X-RateLimit-Limit'     => '50000',
+            'X-RateLimit-Remaining' => '47903',
+            'X-RateLimit-Window'    => '24 hours',
+            'X-RateLimit-Type'      => 'global',
+            'X-Response-Id'         => 'kvnsdonvosnv92989vbvbob',
+            'X-LB'                  => 'ord1-maas-prod-api0',
+            'Vary'                  => 'Accept-Encoding',
+            'Transfer-Encoding'     => 'chunked'
           }
           response.remote_ip = Fog::Rackspace::MockData.ipv4_address
           response

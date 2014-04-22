@@ -57,38 +57,38 @@ Shindo.tests('Fog::Compute[:aws] | image requests', ['aws']) do
 
       @server = Fog::Compute[:aws].servers.create
       @server.wait_for{state == 'running'}
-      tests("#create_image").formats(@create_image_format) do
+      tests('#create_image').formats(@create_image_format) do
         result = Fog::Compute[:aws].create_image(@server.id, 'Fog-Test-Image', 'Fog Test Image', false).body
         @created_image = Fog::Compute[:aws].images.get(result['imageId'])
         result
       end
-      tests("#create_image - no reboot").formats(@create_image_format) do
+      tests('#create_image - no reboot').formats(@create_image_format) do
         result = Fog::Compute[:aws].create_image(@server.id, 'Fog-Test-Image', 'Fog Test Image', true).body
         @created_image = Fog::Compute[:aws].images.get(result['imageId'])
         result
       end
-      tests("#create_image - automatic ebs image registration").returns(true) do
+      tests('#create_image - automatic ebs image registration').returns(true) do
       create_image_response = Fog::Compute[:aws].create_image(@server.id, 'Fog-Test-Image', 'Fog Test Image')
       Fog::Compute[:aws].images.get(create_image_response.body['imageId']) != nil
       end
       @server.destroy
 
       tests("#copy_image (#{@image_id}, 'eu-west-1')").formats(@image_copy_result) do
-        data = Fog::Compute.new(:provider => :aws, :region => "us-west-1", :version => "2013-02-01").copy_image(@image_id, "eu-east-1").body
+        data = Fog::Compute.new(:provider => :aws, :region => 'us-west-1', :version => '2013-02-01').copy_image(@image_id, 'eu-east-1').body
         @eu_image_id = data['imageId']
         data
       end
 
-      tests("#register_image").formats(@register_image_format) do
+      tests('#register_image').formats(@register_image_format) do
         @image = Fog::Compute[:aws].register_image('image', 'image', '/dev/sda1').body
       end
 
-      tests("#register_image - with ebs block device mapping").formats(@register_image_format) do
-        @ebs_image = Fog::Compute[:aws].register_image('image', 'image', '/dev/sda1', [ { 'DeviceName' => '/dev/sdh', "SnapshotId" => "snap-123456789", "VolumeSize" => "10G", "DeleteOnTermination" => true}]).body
+      tests('#register_image - with ebs block device mapping').formats(@register_image_format) do
+        @ebs_image = Fog::Compute[:aws].register_image('image', 'image', '/dev/sda1', [ { 'DeviceName' => '/dev/sdh', 'SnapshotId' => 'snap-123456789', 'VolumeSize' => '10G', 'DeleteOnTermination' => true}]).body
       end
 
-      tests("#register_image - with ephemeral block device mapping").formats(@register_image_format) do
-        @ephemeral_image = Fog::Compute[:aws].register_image('image', 'image', '/dev/sda1', [ { 'VirtualName' => 'ephemeral0', "DeviceName" => "/dev/sdb"} ]).body
+      tests('#register_image - with ephemeral block device mapping').formats(@register_image_format) do
+        @ephemeral_image = Fog::Compute[:aws].register_image('image', 'image', '/dev/sda1', [ { 'VirtualName' => 'ephemeral0', 'DeviceName' => '/dev/sdb'} ]).body
       end
 
       @image_id = @image['imageId']

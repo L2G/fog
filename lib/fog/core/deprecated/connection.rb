@@ -1,4 +1,4 @@
-require "fog/xml"
+require 'fog/xml'
 
 module Fog
 

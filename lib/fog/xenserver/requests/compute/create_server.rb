@@ -16,9 +16,9 @@ module Fog
           config.delete :name
           config[:affinity] = config[:__affinity] if config[:__affinity]
           config.delete :__affinity
-          raise ArgumentError.new("Invalid :name_label attribute") \
+          raise ArgumentError.new('Invalid :name_label attribute') \
             if !config[:name_label]
-          raise ArgumentError.new("Invalid :affinity attribute") \
+          raise ArgumentError.new('Invalid :affinity attribute') \
             if not config[:affinity]
           config[:affinity] = config[:affinity].reference \
             if config[:affinity].kind_of? Fog::Compute::XenServer::Host
@@ -77,7 +77,7 @@ module Fog
 
         def create_server( name_label, template = nil, networks = [], extra_args = {})
           if !networks.kind_of? Array
-            raise "Invalid networks argument"
+            raise 'Invalid networks argument'
           end
 
           if template.kind_of? String
@@ -91,7 +91,7 @@ module Fog
           end
 
           if template.nil?
-            raise "Invalid template"
+            raise 'Invalid template'
           end
 
           raise "Template #{template_string} does not exist" if template.allowed_operations.nil?

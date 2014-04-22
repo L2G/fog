@@ -148,15 +148,15 @@ module Fog
         end
 
         def ready?
-          power_state == "poweredOn"
+          power_state == 'poweredOn'
         end
 
         def tools_installed?
-          tools_state != "toolsNotInstalled"
+          tools_state != 'toolsNotInstalled'
         end
 
         def tools_running?
-          tools_state == "toolsOk"
+          tools_state == 'toolsOk'
         end
 
         # defines VNC attributes on the hypervisor
@@ -192,7 +192,7 @@ module Fog
         end
 
         def add_interface attrs
-          Fog::Logger.deprecation("<server>.add_interface is deprecated. Call <server>.interfaces.create instead.")
+          Fog::Logger.deprecation('<server>.add_interface is deprecated. Call <server>.interfaces.create instead.')
 
           interfaces.create(attrs)
         end
@@ -203,7 +203,7 @@ module Fog
         end
 
         def destroy_interface attrs
-          Fog::Logger.deprecation("<server>.destroy_vm_interface is deprecated. Call <server>.interfaces.get(:key => <nic_key>).destroy instead.")
+          Fog::Logger.deprecation('<server>.destroy_vm_interface is deprecated. Call <server>.interfaces.get(:key => <nic_key>).destroy instead.')
 
           interfaces.get(attrs[:key] || attrs['key']).destroy
         end
@@ -228,7 +228,7 @@ module Fog
         def save
           requires :name, :cluster, :datacenter
           if persisted?
-            raise "update is not supported yet"
+            raise 'update is not supported yet'
            # service.update_vm(attributes)
           else
             self.id = service.create_vm(attributes)

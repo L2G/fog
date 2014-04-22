@@ -1,4 +1,4 @@
-Shindo.tests("Fog::Compute[:google] | servers", ['google']) do
+Shindo.tests('Fog::Compute[:google] | servers', ['google']) do
 
   @zone = 'us-central1-a'
   @disk = create_test_disk(Fog::Compute[:google], @zone)

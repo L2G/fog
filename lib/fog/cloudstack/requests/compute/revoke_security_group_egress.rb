@@ -22,19 +22,19 @@ module Fog
 
           job_id = Fog::Cloudstack.uuid
           job = {
-            "cmd"           => "com.cloud.api.commands.revokeSecurityGroupEgress",
-            "created"       => Time.now.iso8601,
-            "jobid"         => job_id,
-            "jobstatus"     => 1,
-            "jobprocstatus" => 0,
-            "jobresultcode" => 0,
-            "jobresulttype" => "object",
-            "jobresult"     => { "securitygroup" => security_group }
+            'cmd'           => 'com.cloud.api.commands.revokeSecurityGroupEgress',
+            'created'       => Time.now.iso8601,
+            'jobid'         => job_id,
+            'jobstatus'     => 1,
+            'jobprocstatus' => 0,
+            'jobresultcode' => 0,
+            'jobresulttype' => 'object',
+            'jobresult'     => { 'securitygroup' => security_group }
           }
 
           self.data[:jobs][job_id] = job
 
-          {"revokesecuritygroupegress" => { "jobid" => job_id }}
+          {'revokesecuritygroupegress' => { 'jobid' => job_id }}
         end
       end # Mock
     end

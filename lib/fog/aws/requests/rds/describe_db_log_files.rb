@@ -42,10 +42,10 @@ module Fog
 
           if rds_id
             if server = self.data[:servers][rds_id]
-              log_file_set << {"LastWritten" => Time.parse('2013-07-05 17:00:00 -0700'), "LogFileName" => "error/mysql-error.log", "Size" => 0}
-              log_file_set << {"LastWritten" => Time.parse('2013-07-05 17:10:00 -0700'), "LogFileName" => "error/mysql-error-running.log", "Size" => 0}
-              log_file_set << {"LastWritten" => Time.parse('2013-07-05 17:20:00 -0700'), "LogFileName" => "error/mysql-error-running.log.0", "Size" => 8220}
-              log_file_set << {"LastWritten" => Time.parse('2013-07-05 17:30:00 -0700'), "LogFileName" => "error/mysql-error-running.log.1", "Size" => 0}
+              log_file_set << {'LastWritten' => Time.parse('2013-07-05 17:00:00 -0700'), 'LogFileName' => 'error/mysql-error.log', 'Size' => 0}
+              log_file_set << {'LastWritten' => Time.parse('2013-07-05 17:10:00 -0700'), 'LogFileName' => 'error/mysql-error-running.log', 'Size' => 0}
+              log_file_set << {'LastWritten' => Time.parse('2013-07-05 17:20:00 -0700'), 'LogFileName' => 'error/mysql-error-running.log.0', 'Size' => 8220}
+              log_file_set << {'LastWritten' => Time.parse('2013-07-05 17:30:00 -0700'), 'LogFileName' => 'error/mysql-error-running.log.1', 'Size' => 0}
             else
               raise Fog::AWS::RDS::NotFound.new("DBInstance #{rds_id} not found")
             end
@@ -55,8 +55,8 @@ module Fog
 
           response.status = 200
           response.body = {
-              "ResponseMetadata" => { "RequestId" => Fog::AWS::Mock.request_id },
-              "DescribeDBLogFilesResult" => { "DBLogFiles" => log_file_set }
+              'ResponseMetadata' => { 'RequestId' => Fog::AWS::Mock.request_id },
+              'DescribeDBLogFilesResult' => { 'DBLogFiles' => log_file_set }
           }
           response
         end

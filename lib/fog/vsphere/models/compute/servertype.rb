@@ -27,8 +27,8 @@ module Fog
 
         def defaults
           {
-            :id => "otherGuest64",
-            :family => "otherGuestFamily",
+            :id => 'otherGuest64',
+            :family => 'otherGuestFamily',
             :interfacetypes => nil,
           }
         end

@@ -30,7 +30,7 @@ module Fog
           if self.data[:security_groups].delete(name)
             response.status = 200
             response.body = {
-              "ResponseMetadata" => { "RequestId" => Fog::AWS::Mock.request_id },
+              'ResponseMetadata' => { 'RequestId' => Fog::AWS::Mock.request_id },
             }
             response
           else

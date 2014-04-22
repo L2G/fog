@@ -109,11 +109,11 @@ module Fog
         end
 
         def stopped?
-          state == "shutoff"
+          state == 'shutoff'
         end
 
         def ready?
-          state == "running"
+          state == 'running'
         end
 
         #alias methods
@@ -147,7 +147,7 @@ module Fog
         def ssh_proxy
           # if this is a direct connection, we don't need a proxy to be set.
           return nil unless connection.uri.ssh_enabled?
-          user_string = service.uri.user ? "-l #{service.uri.user}" : ""
+          user_string = service.uri.user ? "-l #{service.uri.user}" : ''
           Net::SSH::Proxy::Command.new("ssh #{user_string} #{service.uri.host} nc %h %p")
         end
 
@@ -261,13 +261,13 @@ module Fog
 
           else
             # It's not ssh enabled, so we assume it is
-            if service.uri.transport == "tls"
-              raise Fog::Errors::Error.new("TlS remote transport is not currently supported, only ssh")
+            if service.uri.transport == 'tls'
+              raise Fog::Errors::Error.new('TlS remote transport is not currently supported, only ssh')
             end
 
             # Execute the ip_command locally
             # Initialize empty ip_address string
-            ip_address = ""
+            ip_address = ''
 
             IO.popen("#{ip_command}") do |p|
               p.each_line do |l|
@@ -286,7 +286,7 @@ module Fog
 
           # The Ip-address command has been run either local or remote now
 
-          if ip_address == ""
+          if ip_address == ''
             #The grep didn't find an ip address result"
             ip_address = nil
           else
@@ -350,7 +350,7 @@ module Fog
         end
 
         def default_iso_dir
-          "/var/lib/libvirt/images"
+          '/var/lib/libvirt/images'
         end
 
         def default_volume_name
@@ -363,13 +363,13 @@ module Fog
             :cpus                   => 1,
             :memory_size            => 256 * 1024,
             :name                   => randomized_name,
-            :os_type                => "hvm",
-            :arch                   => "x86_64",
-            :domain_type            => "kvm",
+            :os_type                => 'hvm',
+            :arch                   => 'x86_64',
+            :domain_type            => 'kvm',
             :iso_dir                => default_iso_dir,
-            :network_interface_type => "network",
-            :network_nat_network    => "default",
-            :network_bridge_name    => "br0",
+            :network_interface_type => 'network',
+            :network_nat_network    => 'default',
+            :network_bridge_name    => 'br0',
             :boot_order             => default_boot_order,
             :display                => default_display
           }
@@ -382,7 +382,7 @@ module Fog
         def verify_boot_order order = []
           if order
             order.each do |b|
-              raise "invalid boot order, possible values are: hd, network and/or cdrom" unless default_boot_order.include?(b)
+              raise 'invalid boot order, possible values are: hd, network and/or cdrom' unless default_boot_order.include?(b)
             end
           end
         end

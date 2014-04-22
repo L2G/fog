@@ -45,7 +45,7 @@ Shindo.tests('Fog::Compute[:cloudstack] | template requests', ['cloudstack']) do
 
     tests('#list_templates').formats(@templates_format) do
       pending if Fog.mocking?
-      Fog::Compute[:cloudstack].list_templates('templateFilter' => "executable")
+      Fog::Compute[:cloudstack].list_templates('templateFilter' => 'executable')
     end
 
   end

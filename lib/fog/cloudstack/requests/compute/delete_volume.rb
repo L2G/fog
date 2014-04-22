@@ -21,15 +21,15 @@ module Fog
           if self.data[:volumes][volume_id]
             self.data[:volumes].delete(volume_id)
             {
-              "deletevolumeresponse" => {
-                "success" => "true"
+              'deletevolumeresponse' => {
+                'success' => 'true'
               }
             }
           else # FIXME: mayhaps
             self.data[:volumes].delete(volume_id)
             {
-              "deletevolumeresponse" => {
-                "success" => "false"
+              'deletevolumeresponse' => {
+                'success' => 'false'
               }
             }
           end

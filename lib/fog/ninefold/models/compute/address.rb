@@ -68,7 +68,7 @@ module Fog
         end
 
         def save
-          raise "Operation not supported" if self.identity
+          raise 'Operation not supported' if self.identity
           requires :zoneid
 
           options = {
@@ -76,7 +76,7 @@ module Fog
             :networkid => networkid,
             :account => account,
             :domainid => domainid
-          }.delete_if {|k,v| v.nil? || v == "" }
+          }.delete_if {|k,v| v.nil? || v == '' }
           data = service.associate_ip_address(options)
           merge_attributes(data)
           true

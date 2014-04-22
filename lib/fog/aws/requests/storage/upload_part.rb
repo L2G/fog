@@ -50,7 +50,7 @@ module Fog
           response = Excon::Response.new
           response.status = 200
           # just use the part number as the ETag, for simplicity
-          response.headers["ETag"] = part_number.to_s
+          response.headers['ETag'] = part_number.to_s
           response
         end
       end # Mock

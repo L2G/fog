@@ -1,4 +1,4 @@
-Shindo.tests("Fog::Compute::HPV2 | volume_attachment model", ['hp', 'v2', 'compute']) do
+Shindo.tests('Fog::Compute::HPV2 | volume_attachment model', ['hp', 'v2', 'compute']) do
 
   service = Fog::Compute.new(:provider => 'HP', :version => :v2)
 

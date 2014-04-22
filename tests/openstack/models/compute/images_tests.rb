@@ -1,4 +1,4 @@
-Shindo.tests("Fog::Compute[:openstack] | images collection", ['openstack']) do
+Shindo.tests('Fog::Compute[:openstack] | images collection', ['openstack']) do
 
   tests('success') do
 

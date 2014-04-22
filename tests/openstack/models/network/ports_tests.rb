@@ -1,4 +1,4 @@
-Shindo.tests("Fog::Network[:openstack] | ports", ['openstack']) do
+Shindo.tests('Fog::Network[:openstack] | ports', ['openstack']) do
   @port = Fog::Network[:openstack].ports.create(:name => 'port_name',
                                                 :network_id => 'net_id',
                                                 :fixed_ips => [],

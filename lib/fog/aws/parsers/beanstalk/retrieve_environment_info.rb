@@ -7,7 +7,7 @@ module Fog
         class RetrieveEnvironmentInfo < Fog::Parsers::AWS::ElasticBeanstalk::BaseParser
 
           def initialize
-            super("RetrieveEnvironmentInfoResult")
+            super('RetrieveEnvironmentInfoResult')
             tag 'EnvironmentInfo', :object, :list
             tag 'Ec2InstanceId', :string
             tag 'InfoType', :string

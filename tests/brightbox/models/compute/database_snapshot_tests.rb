@@ -1,11 +1,11 @@
-Shindo.tests("Fog::Compute[:brightbox] | DatabaseSnapshot model", ["brightbox"]) do
+Shindo.tests('Fog::Compute[:brightbox] | DatabaseSnapshot model', ['brightbox']) do
   pending if Fog.mocking?
 
   @service = Fog::Compute[:brightbox]
 
-  tests("success") do
-    tests("#all") do
-      test("returns results") do
+  tests('success') do
+    tests('#all') do
+      test('returns results') do
         @database_snapshots = @service.database_snapshots.all
         !@database_snapshots.empty?
       end

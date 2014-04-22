@@ -75,7 +75,7 @@ module Fog
           @zerigo_email  = options[:zerigo_email]
           @zerigo_token  = options[:zerigo_token]
           @connection_options = options[:connection_options] || {}
-          @host       = options[:host]        || "ns.zerigo.com"
+          @host       = options[:host]        || 'ns.zerigo.com'
           @persistent = options[:persistent]  || false
           @port       = options[:port]        || 80
           @scheme     = options[:scheme]      || 'http'

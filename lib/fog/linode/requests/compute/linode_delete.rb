@@ -29,9 +29,9 @@ module Fog
           response = Excon::Response.new
           response.status = 200
           response.body = {
-            "ERRORARRAY" => [],
-            "ACTION"     => "linode.delete",
-            "DATA"       => { "LinodeID" => linode_id }
+            'ERRORARRAY' => [],
+            'ACTION'     => 'linode.delete',
+            'DATA'       => { 'LinodeID' => linode_id }
           }
           response
         end

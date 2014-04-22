@@ -14,7 +14,7 @@ class Atmos < Fog::Bin
       @@connections ||= Hash.new do |hash, key|
         hash[key] = case key
         when :storage
-          Fog::Logger.warning("Atmos[:storage] is not recommended, use Storage[:atmos] for portability")
+          Fog::Logger.warning('Atmos[:storage] is not recommended, use Storage[:atmos] for portability')
           Fog::Storage.new(:provider => 'Atmos')
         else
           raise ArgumentError, "Unrecognized service: #{service}"

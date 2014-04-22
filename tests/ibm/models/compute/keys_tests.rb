@@ -18,7 +18,7 @@ Shindo.tests('Fog::Compute[:ibm] | keys', ['ibm']) do
       returns(@key_name) { Fog::Compute[:ibm].keys.default = @key_name }
     end
 
-    tests("Fog::Compute[:ibm].keys.default") do
+    tests('Fog::Compute[:ibm].keys.default') do
       @key = Fog::Compute[:ibm].keys.get(@key_name)
       returns(@key.name) { Fog::Compute[:ibm].keys.default.name }
     end

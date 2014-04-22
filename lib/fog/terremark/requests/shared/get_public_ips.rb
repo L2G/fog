@@ -36,26 +36,26 @@ module Fog
           response = Excon::Response.new
 
           if vdc = self.data[:organizations].map { |org| org[:vdcs] }.flatten.detect { |vdc| vdc[:id] == vdc_id }
-            body = { "PublicIpAddresses" => [] }
+            body = { 'PublicIpAddresses' => [] }
             vdc[:public_ips].each do |ip|
-              ip = { "name" => ip[:name],
-                     "href" => case self
+              ip = { 'name' => ip[:name],
+                     'href' => case self
                                 when Fog::Terremark::Ecloud::Mock
                                   "#{@base_url}/extensions/publicIp/#{ip[:id]}"
                                 when Fog::Terremark::Vcloud::Mock
                                   "#{@base_url}/PublicIps/#{ip[:id]}"
                                 end,
-                     "id"   => ip[:id].to_s }
-              body["PublicIpAddresses"] << ip
+                     'id'   => ip[:id].to_s }
+              body['PublicIpAddresses'] << ip
             end
             response.status = 200
             response.body = body
             response.headers = Fog::Terremark::Shared::Mock.headers(response.body,
                               case self
                               when Fog::Terremark::Ecloud::Mock
-                                "application/vnd.tmrk.ecloud.publicIpsList+xml"
+                                'application/vnd.tmrk.ecloud.publicIpsList+xml'
                               when Fog::Terremark::Vcloud::Mock
-                                "application/xml; charset=utf-8"
+                                'application/xml; charset=utf-8'
                               end
             )
           else

@@ -1,5 +1,5 @@
-require "rake"
-require "rake/tasklib"
+require 'rake'
+require 'rake/tasklib'
 require 'octokit'
 require 'netrc'
 
@@ -8,7 +8,7 @@ module Fog
     class GithubReleaseTask < ::Rake::TaskLib
 
       def initialize
-        desc "Update the changelog since the last release"
+        desc 'Update the changelog since the last release'
         task(:github_release) do
 
           File.open('CHANGELOG.md', 'r') do |file|
@@ -29,13 +29,13 @@ module Fog
       private
 
       def create_release
-        github.create_release "fog/fog", "v#{@release_tag}", {:name => "v#{@release_tag}", :body => @release}
+        github.create_release 'fog/fog', "v#{@release_tag}", {:name => "v#{@release_tag}", :body => @release}
         puts "creating release #{@release_tag}"
       end
 
       def releases
         return @releases if @releases
-        response = github.releases("fog/fog")
+        response = github.releases('fog/fog')
         @releases = response.collect {|r| r.tag_name }
       end
 
@@ -57,7 +57,7 @@ module Fog
           @github  = Octokit::Client.new :netrc => true
           unless @github.login
             @github = nil
-            raise "Please create a ~/.netrc file to authenticate with github. For more information please see https://github.com/octokit/octokit.rb/blob/master/README.md#using-a-netrc-file"
+            raise 'Please create a ~/.netrc file to authenticate with github. For more information please see https://github.com/octokit/octokit.rb/blob/master/README.md#using-a-netrc-file'
           end
         end
         @github

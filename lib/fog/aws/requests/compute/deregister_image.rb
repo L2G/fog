@@ -35,7 +35,7 @@ module Fog
             response.status = 200
             response.body = {
               'requestId' => Fog::AWS::Mock.request_id,
-              'return' => "true"
+              'return' => 'true'
             }
             response
           else

@@ -86,13 +86,13 @@ Shindo.tests('Fog::Compute::RackspaceV2 | server', ['rackspace']) do
     tests('#update').succeeds do
       new_name = "fog_server_update#{Time.now.to_i}"
       @instance.name = new_name
-      @instance.access_ipv4_address = "10.10.0.1"
-      @instance.access_ipv6_address = "::1"
+      @instance.access_ipv4_address = '10.10.0.1'
+      @instance.access_ipv6_address = '::1'
       @instance.save
       sleep 60 unless Fog.mocking?
       @instance.reload
-      returns("10.10.0.1") { @instance.access_ipv4_address }
-      returns("::1") { @instance.access_ipv6_address }
+      returns('10.10.0.1') { @instance.access_ipv4_address }
+      returns('::1') { @instance.access_ipv6_address }
       returns(new_name) { @instance.name }
     end
 
@@ -199,7 +199,7 @@ Shindo.tests('Fog::Compute::RackspaceV2 | server', ['rackspace']) do
 
   tests('#setup') do
     ATTRIBUTES = {
-      :name => "foo",
+      :name => 'foo',
       :image_id => 42,
       :flavor_id => 42
     }
@@ -216,8 +216,8 @@ Shindo.tests('Fog::Compute::RackspaceV2 | server', ['rackspace']) do
       @address = 123
 
       server.ipv4_address = @address
-      server.identity = "bar"
-      server.public_key = "baz"
+      server.identity = 'bar'
+      server.public_key = 'baz'
 
       server.setup
 
@@ -228,7 +228,7 @@ Shindo.tests('Fog::Compute::RackspaceV2 | server', ['rackspace']) do
       Fog::SSH::Mock.data[@address].first[:commands]
     }
 
-    test("leaves user unlocked only when requested") do
+    test('leaves user unlocked only when requested') do
       create_server.call(ATTRIBUTES.merge(:no_passwd_lock => true))
       commands.call.none? { |c| c =~ /passwd\s+-l\s+root/ }
     end
@@ -242,12 +242,12 @@ Shindo.tests('Fog::Compute::RackspaceV2 | server', ['rackspace']) do
       !!pwd
     end
 
-    test("locks user by default") do
+    test('locks user by default') do
       create_server.call(ATTRIBUTES)
       commands.call.one? { |c| c =~ /passwd\s+-l\s+root/ }
     end
 
-    test("nils password when password is locked") do
+    test('nils password when password is locked') do
       pwd = create_server.call(ATTRIBUTES).password
       pwd.nil?
     end

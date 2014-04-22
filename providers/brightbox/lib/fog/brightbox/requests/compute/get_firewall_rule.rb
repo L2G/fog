@@ -11,8 +11,8 @@ module Fog
         # @see https://api.gb1.brightbox.com/1.0/#firewall_rule_get_firewall_rule
         #
         def get_firewall_rule(identifier)
-          return nil if identifier.nil? || identifier == ""
-          wrapped_request("get", "/1.0/firewall_rules/#{identifier}", [200])
+          return nil if identifier.nil? || identifier == ''
+          wrapped_request('get', "/1.0/firewall_rules/#{identifier}", [200])
         end
 
       end

@@ -63,21 +63,21 @@ class AWS < Fog::Bin
         when :beanstalk
           Fog::AWS::ElasticBeanstalk.new
         when :cdn
-          Fog::Logger.warning("AWS[:cdn] is not recommended, use CDN[:aws] for portability")
+          Fog::Logger.warning('AWS[:cdn] is not recommended, use CDN[:aws] for portability')
           Fog::CDN.new(:provider => 'AWS')
         when :cloud_formation
           Fog::AWS::CloudFormation.new
         when :cloud_watch
           Fog::AWS::CloudWatch.new
         when :compute
-          Fog::Logger.warning("AWS[:compute] is not recommended, use Compute[:aws] for portability")
+          Fog::Logger.warning('AWS[:compute] is not recommended, use Compute[:aws] for portability')
           Fog::Compute.new(:provider => 'AWS')
         when :data_pipeline
           Fog::AWS::DataPipeline
         when :ddb, :dynamodb
           Fog::AWS::DynamoDB.new
         when :dns
-          Fog::Logger.warning("AWS[:dns] is not recommended, use DNS[:aws] for portability")
+          Fog::Logger.warning('AWS[:dns] is not recommended, use DNS[:aws] for portability')
           Fog::DNS.new(:provider => 'AWS')
         when :elasticache
           Fog::AWS::Elasticache.new
@@ -102,7 +102,7 @@ class AWS < Fog::Bin
         when :sqs
           Fog::AWS::SQS.new
         when :storage
-          Fog::Logger.warning("AWS[:storage] is not recommended, use Storage[:aws] for portability")
+          Fog::Logger.warning('AWS[:storage] is not recommended, use Storage[:aws] for portability')
           Fog::Storage.new(:provider => 'AWS')
         when :sns
           Fog::AWS::SNS.new

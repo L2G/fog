@@ -22,8 +22,8 @@ module Fog
           if self.data[:security_groups][security_group_id]
             self.data[:security_groups].delete(security_group_id)
             {
-              "deletesecuritygroupresponse" => {
-                "success" => "true"
+              'deletesecuritygroupresponse' => {
+                'success' => 'true'
               }
             }
           else

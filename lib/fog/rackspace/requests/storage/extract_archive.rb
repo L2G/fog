@@ -19,8 +19,8 @@ module Fog
         def extract_archive(container, data, archive_format)
           data = Fog::Storage.parse_data(data)
           headers = data[:headers]
-          headers["Content-Type"] = ""
-          params = { :body => data[:body], :query => {"extract-archive" => archive_format} }
+          headers['Content-Type'] = ''
+          params = { :body => data[:body], :query => {'extract-archive' => archive_format} }
 
           params.merge!(
             :expects    => 200,

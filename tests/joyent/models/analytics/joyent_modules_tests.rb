@@ -1,4 +1,4 @@
-Shindo.tests("Fog::Joyent[:analytics] | joyent_modules", %w{joyent}) do
+Shindo.tests('Fog::Joyent[:analytics] | joyent_modules', %w{joyent}) do
   @analytics = Fog::Joyent[:analytics]
   @joyent_modules = @analytics.joyent_modules
 

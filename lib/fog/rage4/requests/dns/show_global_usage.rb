@@ -14,7 +14,7 @@ module Fog
           request(
                   :expects  => 200,
                   :method   => 'GET',
-                  :path     => "/rapi/showcurrentglobalusage/" )
+                  :path     => '/rapi/showcurrentglobalusage/' )
 
         end
 

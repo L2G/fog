@@ -1,6 +1,6 @@
 provider, config = :ecloud, compute_providers[:ecloud]
 
-Shindo.tests("Fog::Compute[:#{provider}] | servers", [provider.to_s, "operations"]) do
+Shindo.tests("Fog::Compute[:#{provider}] | servers", [provider.to_s, 'operations']) do
   connection   = Fog::Compute[provider]
   connection.base_path = '/cloudapi/spec'
   config[:server_attributes][:organization_uri] ? organization = connection.organizations.get("#{connection.base_path}#{config[:server_attributes][:organization_uri]}") : organization = connection.organizations.first
@@ -8,7 +8,7 @@ Shindo.tests("Fog::Compute[:#{provider}] | servers", [provider.to_s, "operations
   public_ip    = environment.public_ips.first
   compute_pool = environment.compute_pools.first
   image_href   = Fog.credentials[:ecloud_image_href] || compute_pool.templates.first.href
-  ssh_key      = organization.admin.ssh_keys.detect { |key| key.name == "root" } || organization.admin.ssh_keys.first
+  ssh_key      = organization.admin.ssh_keys.detect { |key| key.name == 'root' } || organization.admin.ssh_keys.first
 
   @network = environment.networks.first
   options  = config[:server_attributes].merge(:network_uri => @network.href, :ssh_key_uri => ssh_key.href)
@@ -26,11 +26,11 @@ Shindo.tests("Fog::Compute[:#{provider}] | servers", [provider.to_s, "operations
 
   tests('#environment_has_a_row_and_group_with_the_right_names').succeeds do
     row = environment.rows.detect { |r| r.name == options[:row] }
-    returns(false, "row is not nil") { row.nil? }
+    returns(false, 'row is not nil') { row.nil? }
     group = row.groups.detect { |g| g.name == options[:group] }
-    returns(false, "group is not nil") { group.nil? }
+    returns(false, 'group is not nil') { group.nil? }
     server = group.servers.detect { |s| s.name == options[:name] }
-    returns(false, "group has server") { server.nil? }
+    returns(false, 'group has server') { server.nil? }
   end
 
   tests('#get_server_flavor').succeeds do
@@ -67,17 +67,17 @@ Shindo.tests("Fog::Compute[:#{provider}] | servers", [provider.to_s, "operations
   service_protocol = Fog.credentials[:ecloud_internet_service_protocol]
 
   tests('#create_internet_service').succeeds do
-    @service = public_ip.internet_services.create(:name => service_name, :port => service_port, :protocol => service_protocol, :description => "", :enabled => true)
-    returns(true, "is an internet service") { @service.is_a?(Fog::Compute::Ecloud::InternetService) }
+    @service = public_ip.internet_services.create(:name => service_name, :port => service_port, :protocol => service_protocol, :description => '', :enabled => true)
+    returns(true, 'is an internet service') { @service.is_a?(Fog::Compute::Ecloud::InternetService) }
   end
 
   @service = public_ip.internet_services.first
 
   @ip_address = @server.ips.first
   @ip         = @server.ips.first.network.ips.detect { |i| i.name == @ip_address.address.name }
-  @node       = @service.nodes.create(:name => @server.name, :port => service_port, :ip_address => @ip.href, :description => "", :enabled => true)
+  @node       = @service.nodes.create(:name => @server.name, :port => service_port, :ip_address => @ip.href, :description => '', :enabled => true)
   tests('#create_node_service').succeeds do
-    returns(true, "is a node server") { @node.is_a?(Fog::Compute::Ecloud::Node) }
+    returns(true, 'is a node server') { @node.is_a?(Fog::Compute::Ecloud::Node) }
   end
 
   tests('#destroy_node_service').succeeds do
@@ -100,7 +100,7 @@ Shindo.tests("Fog::Compute[:#{provider}] | servers", [provider.to_s, "operations
   @new_server_count = environment.servers.reload.count
 
   tests('#server_count_reduced').succeeds do
-    returns(true, "server count is reduced") { @new_server_count < @server_count }
+    returns(true, 'server count is reduced') { @new_server_count < @server_count }
   end
 
   @row = environment.rows.detect { |r| r.name == options[:row] }
@@ -108,18 +108,18 @@ Shindo.tests("Fog::Compute[:#{provider}] | servers", [provider.to_s, "operations
   if @group.servers.empty?
     tests('#delete_group').succeeds do
       @group.destroy
-      returns(true, "group no longer exists") { @group.reload.nil? }
+      returns(true, 'group no longer exists') { @group.reload.nil? }
     end
   end
   if @row.groups.reload.empty?
-    tests("#delete_row").succeeds do
+    tests('#delete_row').succeeds do
       @row.destroy
-      returns(true, "row no longer exists") { @row.reload.nil? }
+      returns(true, 'row no longer exists') { @row.reload.nil? }
     end
   end
 end
 
-Shindo.tests("Fog::Compute[:#{provider}] | server", [provider.to_s, "attributes"]) do
+Shindo.tests("Fog::Compute[:#{provider}] | server", [provider.to_s, 'attributes']) do
   connection   = Fog::Compute[provider]
   connection.base_path = '/cloudapi/spec'
   organization = connection.organizations.first
@@ -127,7 +127,7 @@ Shindo.tests("Fog::Compute[:#{provider}] | server", [provider.to_s, "attributes"
   public_ip    = environment.public_ips.first
   compute_pool = environment.compute_pools.first
   image_href   = Fog.credentials[:ecloud_image_href] || compute_pool.templates.first.href
-  ssh_key      = organization.admin.ssh_keys.detect { |key| key.name == "root" }
+  ssh_key      = organization.admin.ssh_keys.detect { |key| key.name == 'root' }
 
   @network = environment.networks.first
   options = config[:server_attributes].merge(:network_uri => @network.href, :ssh_key_uri => ssh_key.href)
@@ -138,7 +138,7 @@ Shindo.tests("Fog::Compute[:#{provider}] | server", [provider.to_s, "attributes"
   @server = compute_pool.servers.first || compute_pool.servers.create(image_href, options).tap{|s| s.wait_for { ready? }}
 
   tests('#ip_addresses').succeeds do
-    returns(true, "is an array") { @server.ips.is_a?(Array) }
-    returns(true, "contains an VirtualMachineAssignedIp") { @server.ips.all?{|ip| ip.is_a?(Fog::Compute::Ecloud::VirtualMachineAssignedIp) } }
+    returns(true, 'is an array') { @server.ips.is_a?(Array) }
+    returns(true, 'contains an VirtualMachineAssignedIp') { @server.ips.all?{|ip| ip.is_a?(Fog::Compute::Ecloud::VirtualMachineAssignedIp) } }
   end
 end

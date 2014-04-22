@@ -54,8 +54,8 @@ module Fog
             raise Fog::Compute::RackspaceV2::NotFound
           else
             server_response = Fog::Rackspace::MockData.keep(server, 'id', 'name', 'hostId', 'created', 'updated', 'status', 'progress', 'user_id', 'tenant_id', 'links', 'metadata', 'accessIPv4', 'accessIPv6', 'OS-DCF:diskConfig', 'rax-bandwidth:bandwidth', 'addresses', 'flavor', 'image')
-            server_response['image']['links'].map! { |l| l.delete("type"); l }
-            response(:body => {"server" => server_response})
+            server_response['image']['links'].map! { |l| l.delete('type'); l }
+            response(:body => {'server' => server_response})
           end
         end
       end

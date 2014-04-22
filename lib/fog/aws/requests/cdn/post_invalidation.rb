@@ -24,12 +24,12 @@ module Fog
 
         def post_invalidation(distribution_id, paths, caller_reference = Time.now.to_i.to_s)
           body = '<?xml version="1.0" encoding="UTF-8"?>'
-          body << "<InvalidationBatch>"
+          body << '<InvalidationBatch>'
           for path in [*paths]
-            body << "<Path>" << path << "</Path>"
+            body << '<Path>' << path << '</Path>'
           end
-          body << "<CallerReference>" << caller_reference << "</CallerReference>"
-          body << "</InvalidationBatch>"
+          body << '<CallerReference>' << caller_reference << '</CallerReference>'
+          body << '</InvalidationBatch>'
           request({
             :body       => body,
             :expects    => 201,

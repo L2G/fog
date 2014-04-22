@@ -20,14 +20,14 @@ module Fog
         #     * 'record'<~Hash> The representation of the record.
         def create_record(domain, name, type, content, options = {})
           body = {
-            "record" => {
-              "name" => name,
-              "record_type" => type,
-              "content" => content
+            'record' => {
+              'name' => name,
+              'record_type' => type,
+              'content' => content
             }
           }
 
-          body["record"].merge!(options)
+          body['record'].merge!(options)
 
           request(
             :body     => Fog::JSON.encode(body),
@@ -43,17 +43,17 @@ module Fog
 
         def create_record(domain, name, type, content, options = {})
           body = {
-            "record" => {
-              "id" => Fog::Mock.random_numbers(1).to_i,
-              "domain_id" => domain,
-              "name" => name,
-              "content" => content,
-              "ttl" => 3600,
-              "prio" => nil,
-              "record_type" => type,
-              "system_record" => nil,
-              "created_at" => Time.now.iso8601,
-              "updated_at" => Time.now.iso8601,
+            'record' => {
+              'id' => Fog::Mock.random_numbers(1).to_i,
+              'domain_id' => domain,
+              'name' => name,
+              'content' => content,
+              'ttl' => 3600,
+              'prio' => nil,
+              'record_type' => type,
+              'system_record' => nil,
+              'created_at' => Time.now.iso8601,
+              'updated_at' => Time.now.iso8601,
             }.merge(options)
           }
           self.data[:records][domain] ||= []

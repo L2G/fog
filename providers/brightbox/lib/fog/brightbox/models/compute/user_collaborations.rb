@@ -1,5 +1,5 @@
-require "fog/core/collection"
-require "fog/brightbox/models/compute/user_collaboration"
+require 'fog/core/collection'
+require 'fog/brightbox/models/compute/user_collaboration'
 
 module Fog
   module Compute
@@ -13,7 +13,7 @@ module Fog
         end
 
         def get(identifier)
-          return nil if identifier.nil? || identifier == ""
+          return nil if identifier.nil? || identifier == ''
           data = service.get_user_collaboration(identifier)
           new(data)
         rescue Excon::Errors::NotFound

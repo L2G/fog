@@ -1,7 +1,7 @@
 Shindo.tests('AWS::RDS | parameter group requests', ['aws', 'rds']) do
   tests('success') do
 
-    tests("#create_db_parameter_groups").formats(AWS::RDS::Formats::CREATE_DB_PARAMETER_GROUP) do
+    tests('#create_db_parameter_groups').formats(AWS::RDS::Formats::CREATE_DB_PARAMETER_GROUP) do
       body = Fog::AWS[:rds].create_db_parameter_group('fog-group', 'MySQL5.1', 'Some description').body
 
       returns( 'mysql5.1') { body['CreateDBParameterGroupResult']['DBParameterGroup']['DBParameterGroupFamily']}
@@ -13,7 +13,7 @@ Shindo.tests('AWS::RDS | parameter group requests', ['aws', 'rds']) do
 
     Fog::AWS[:rds].create_db_parameter_group('other-fog-group', 'MySQL5.1', 'Some description')
 
-    tests("#describe_db_parameter_groups").formats(AWS::RDS::Formats::DESCRIBE_DB_PARAMETER_GROUP) do
+    tests('#describe_db_parameter_groups').formats(AWS::RDS::Formats::DESCRIBE_DB_PARAMETER_GROUP) do
 
       body = Fog::AWS[:rds].describe_db_parameter_groups().body
 
@@ -35,7 +35,7 @@ Shindo.tests('AWS::RDS | parameter group requests', ['aws', 'rds']) do
       body
     end
 
-    tests("delete_db_parameter_group").formats(AWS::RDS::Formats::BASIC) do
+    tests('delete_db_parameter_group').formats(AWS::RDS::Formats::BASIC) do
       body = Fog::AWS[:rds].delete_db_parameter_group('fog-group').body
 
       raises(Fog::AWS::RDS::NotFound) {Fog::AWS[:rds].describe_db_parameter_groups('fog-group')}
@@ -46,11 +46,11 @@ Shindo.tests('AWS::RDS | parameter group requests', ['aws', 'rds']) do
     Fog::AWS[:rds].delete_db_parameter_group('other-fog-group')
   end
 
-  tests("failures") do
+  tests('failures') do
     raises(Fog::AWS::RDS::NotFound) {Fog::AWS[:rds].describe_db_parameter_groups('doesntexist')}
     raises(Fog::AWS::RDS::NotFound) {Fog::AWS[:rds].delete_db_parameter_group('doesntexist')}
 
-    tests "creating second group with same id" do
+    tests 'creating second group with same id' do
       Fog::AWS[:rds].create_db_parameter_group('fog-group', 'MySQL5.1', 'Some description')
       raises(Fog::AWS::RDS::IdentifierTaken) {Fog::AWS[:rds].create_db_parameter_group('fog-group', 'MySQL5.1', 'Some description')}
     end

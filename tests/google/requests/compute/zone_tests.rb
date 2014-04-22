@@ -27,12 +27,12 @@ Shindo.tests('Fog::Compute[:google] | zone requests', ['google']) do
 
   tests('success') do
 
-    tests("#get_zone").formats(@get_zone_format) do
-      zone_name = @google.list_zones.body["items"][0]["name"]
+    tests('#get_zone').formats(@get_zone_format) do
+      zone_name = @google.list_zones.body['items'][0]['name']
       @google.get_zone(zone_name).body
     end
 
-    tests("#list_zones").formats(@list_zones_format) do
+    tests('#list_zones').formats(@list_zones_format) do
       @google.list_zones.body
     end
 

@@ -7,7 +7,7 @@ module Fog
           request(
             :expects  => [200, 203],
             :method   => 'GET',
-            :path     => "os-floating-ip-pools"
+            :path     => 'os-floating-ip-pools'
           )
 
         end

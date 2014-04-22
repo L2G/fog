@@ -11,12 +11,12 @@ module Fog
 
         identity :id
 
-        attribute :zone_id,     :aliases => "domain_id"
+        attribute :zone_id,     :aliases => 'domain_id'
         attribute :name
-        attribute :value,       :aliases => "content"
+        attribute :value,       :aliases => 'content'
         attribute :ttl
-        attribute :priority,    :aliases => "prio"
-        attribute :type,        :aliases => "record_type"
+        attribute :priority,    :aliases => 'prio'
+        attribute :type,        :aliases => 'record_type'
         attribute :created_at
         attribute :updated_at
 
@@ -49,7 +49,7 @@ module Fog
             data = service.update_record(zone.id, id, options)
           end
 
-          merge_attributes(data.body["record"])
+          merge_attributes(data.body['record'])
           true
         end
 

@@ -25,7 +25,7 @@ module Fog
           requires :name, :zone
 
           options = {}
-          my_description = "Created with fog"
+          my_description = 'Created with fog'
           if !source_image.nil?
             my_description = "Created from image: #{source_image}"
           end
@@ -95,7 +95,7 @@ module Fog
           self
         end
 
-        def create_snapshot(snapshot_name, snapshot_description = "")
+        def create_snapshot(snapshot_name, snapshot_description = '')
           requires :name, :zone
 
           if snapshot_name.nil? or snapshot_name.empty?
@@ -113,7 +113,7 @@ module Fog
           service.snapshots.get(snapshot_name)
         end
 
-        RUNNING_STATE = "READY"
+        RUNNING_STATE = 'READY'
 
       end
     end

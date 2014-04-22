@@ -30,7 +30,7 @@ module Fog
           parameter_group_family = options[:parameter_group_family]
           description            = options[:description]
 
-          path = "/"
+          path = '/'
           params = {
             :idempotent => true,
             :headers    => {},

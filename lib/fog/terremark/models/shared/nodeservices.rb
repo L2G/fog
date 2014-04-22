@@ -22,7 +22,7 @@ module Fog
         model Fog::Terremark::Shared::NodeService
 
         def all(internet_service_id)
-          data = service.get_node_services(internet_service_id).body["NodeServices"]
+          data = service.get_node_services(internet_service_id).body['NodeServices']
           load(data)
         end
 

@@ -7,7 +7,7 @@ module Fog
         class UpdateApplicationVersion < Fog::Parsers::AWS::ElasticBeanstalk::BaseParser
 
           def initialize
-            super("UpdateApplicationVersionResult")
+            super('UpdateApplicationVersionResult')
             tag 'ApplicationVersion', :object
             tag 'ApplicationName', :string
             tag 'DateCreated', :datetime

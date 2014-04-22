@@ -17,7 +17,7 @@ Shindo.tests('Fog::Compute[:xenserver] | create_server request', ['xenserver']) 
 
     ref = compute.create_server test_ephemeral_vm_name, test_template_name
     test('return a valid reference') do
-      if (ref != "OpaqueRef:NULL") and (ref.split("1") != "NULL")
+      if (ref != 'OpaqueRef:NULL') and (ref.split('1') != 'NULL')
         true
       else
         false
@@ -28,7 +28,7 @@ Shindo.tests('Fog::Compute[:xenserver] | create_server request', ['xenserver']) 
   tests('get_vm_by_name should') do
     test('return a valid OpaqueRef') do
       (compute.get_vm_by_name(test_template_name) =~ /OpaqueRef:/) and \
-        (compute.get_vm_by_name(test_template_name) != "OpaqueRef:NULL" )
+        (compute.get_vm_by_name(test_template_name) != 'OpaqueRef:NULL' )
     end
     returns(nil, 'return nil if VM does not exist') { compute.get_vm_by_name('sdfsdf') }
   end

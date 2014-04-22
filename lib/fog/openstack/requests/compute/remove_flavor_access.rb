@@ -5,8 +5,8 @@ module Fog
         def remove_flavor_access(flavor_ref, tenant_id)
           request(
             :body => Fog::JSON.encode({
-              "removeTenantAccess" => {
-                "tenant" => tenant_id.to_s
+              'removeTenantAccess' => {
+                'tenant' => tenant_id.to_s
               }
             }),
             :expects  => [200, 203],
@@ -21,7 +21,7 @@ module Fog
           response = Excon::Response.new
           response.status = 200
           response.body = {
-            "flavor_access" => []
+            'flavor_access' => []
           }
           response
         end

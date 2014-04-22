@@ -28,8 +28,8 @@ module Fog
           if volume.nil? || server.nil?
             raise Fog::Compute::RackspaceV2::NotFound
           else
-            self.data[:volume_attachments].delete_if { |v| v["serverId"] == server_id && v["volumeId"] == volume_id }
-            volume["attachments"].delete_if { |v| v["serverId"] == server_id && v["volumeId"] == volume_id }
+            self.data[:volume_attachments].delete_if { |v| v['serverId'] == server_id && v['volumeId'] == volume_id }
+            volume['attachments'].delete_if { |v| v['serverId'] == server_id && v['volumeId'] == volume_id }
 
             response(:status => 204)
           end

@@ -11,7 +11,7 @@ Shindo.tests('Dynect::dns | DNS requests', ['dynect', 'dns']) do
     'status' => String
   }
 
-  tests "success" do
+  tests 'success' do
 
     @dns = Fog::DNS[:dynect]
     @domain = generate_unique_domain
@@ -24,7 +24,7 @@ Shindo.tests('Dynect::dns | DNS requests', ['dynect', 'dns']) do
       }
     })
 
-    tests("post_session").formats(post_session_format) do
+    tests('post_session').formats(post_session_format) do
       @dns.post_session.body
     end
 
@@ -45,16 +45,16 @@ Shindo.tests('Dynect::dns | DNS requests', ['dynect', 'dns']) do
       'data' => [String]
     })
 
-    tests("get_zone").formats(get_zones_format) do
+    tests('get_zone').formats(get_zones_format) do
       @dns.get_zone.body
     end
 
     get_zone_format = shared_format.merge({
       'data' => {
-        "serial"        => Integer,
-        "serial_style"  => String,
-        "zone"          => String,
-        "zone_type"     => String
+        'serial'        => Integer,
+        'serial_style'  => String,
+        'zone'          => String,
+        'zone_type'     => String
       }
     })
 
@@ -198,38 +198,38 @@ Shindo.tests('Dynect::dns | DNS requests', ['dynect', 'dns']) do
       @dns.delete_zone(@domain).body
     end
 
-    tests("job handling") do
+    tests('job handling') do
       pending unless Fog.mocking?
 
       old_mock_value = Excon.defaults[:mock]
       Excon.stubs.clear
 
-      tests("returns final response from a complete job").returns({"status" => "success"}) do
+      tests('returns final response from a complete job').returns({'status' => 'success'}) do
         begin
           Excon.defaults[:mock] = true
 
-          Excon.stub({:method => :post, :path => "/REST/Session"}, {:body => "{\"status\": \"success\", \"data\": {\"token\": \"foobar\", \"version\": \"2.3.1\"}, \"job_id\": 150583906, \"msgs\": [{\"INFO\": \"login: Login successful\", \"SOURCE\": \"BLL\", \"ERR_CD\": null, \"LVL\": \"INFO\"}]}", :headers => {"Content-Type" => "application/json"}, :status => 200})
+          Excon.stub({:method => :post, :path => '/REST/Session'}, {:body => "{\"status\": \"success\", \"data\": {\"token\": \"foobar\", \"version\": \"2.3.1\"}, \"job_id\": 150583906, \"msgs\": [{\"INFO\": \"login: Login successful\", \"SOURCE\": \"BLL\", \"ERR_CD\": null, \"LVL\": \"INFO\"}]}", :headers => {'Content-Type' => 'application/json'}, :status => 200})
 
-          Excon.stub({:method => :get, :path => "/REST/Zone/example.com"}, {:status => 307, :body => '/REST/Job/150576635', :headers => {'Content-Type' => 'text/html', 'Location' => '/REST/Job/150576635'}})
-          Excon.stub({:method => :get, :path => "/REST/Job/150576635"}, {:status => 307, :body => '{"status":"success"}', :headers => {'Content-Type' => 'application/json'}})
+          Excon.stub({:method => :get, :path => '/REST/Zone/example.com'}, {:status => 307, :body => '/REST/Job/150576635', :headers => {'Content-Type' => 'text/html', 'Location' => '/REST/Job/150576635'}})
+          Excon.stub({:method => :get, :path => '/REST/Job/150576635'}, {:status => 307, :body => '{"status":"success"}', :headers => {'Content-Type' => 'application/json'}})
 
-          Fog::DNS::Dynect::Real.new.request(:method => :get, :path => "Zone/example.com").body
+          Fog::DNS::Dynect::Real.new.request(:method => :get, :path => 'Zone/example.com').body
         ensure
           Excon.stubs.clear
           Excon.defaults[:mock] = old_mock_value
         end
       end
 
-      tests("passes expects through when polling a job").returns({"status" => "success"}) do
+      tests('passes expects through when polling a job').returns({'status' => 'success'}) do
         begin
           Excon.defaults[:mock] = true
 
-          Excon.stub({:method => :post, :path => "/REST/Session"}, {:body => "{\"status\": \"success\", \"data\": {\"token\": \"foobar\", \"version\": \"2.3.1\"}, \"job_id\": 150583906, \"msgs\": [{\"INFO\": \"login: Login successful\", \"SOURCE\": \"BLL\", \"ERR_CD\": null, \"LVL\": \"INFO\"}]}", :headers => {"Content-Type" => "application/json"}, :status => 200})
+          Excon.stub({:method => :post, :path => '/REST/Session'}, {:body => "{\"status\": \"success\", \"data\": {\"token\": \"foobar\", \"version\": \"2.3.1\"}, \"job_id\": 150583906, \"msgs\": [{\"INFO\": \"login: Login successful\", \"SOURCE\": \"BLL\", \"ERR_CD\": null, \"LVL\": \"INFO\"}]}", :headers => {'Content-Type' => 'application/json'}, :status => 200})
 
-          Excon.stub({:method => :get, :path => "/REST/Zone/example.com"}, {:status => 307, :body => '/REST/Job/150576635', :headers => {'Content-Type' => 'text/html', 'Location' => '/REST/Job/150576635'}})
-          Excon.stub({:method => :get, :path => "/REST/Job/150576635"}, {:status => 404, :body => '{"status":"success"}', :headers => {'Content-Type' => 'application/json'}})
+          Excon.stub({:method => :get, :path => '/REST/Zone/example.com'}, {:status => 307, :body => '/REST/Job/150576635', :headers => {'Content-Type' => 'text/html', 'Location' => '/REST/Job/150576635'}})
+          Excon.stub({:method => :get, :path => '/REST/Job/150576635'}, {:status => 404, :body => '{"status":"success"}', :headers => {'Content-Type' => 'application/json'}})
 
-          Fog::DNS::Dynect::Real.new.request(:method => :get, :expects => 404, :path => "Zone/example.com").body
+          Fog::DNS::Dynect::Real.new.request(:method => :get, :expects => 404, :path => 'Zone/example.com').body
         ensure
           Excon.stubs.clear
           Excon.defaults[:mock] = old_mock_value
@@ -239,7 +239,7 @@ Shindo.tests('Dynect::dns | DNS requests', ['dynect', 'dns']) do
   end
 
   tests('failure') do
-    tests("#auth_token with expired credentials").raises(Excon::Errors::BadRequest) do
+    tests('#auth_token with expired credentials').raises(Excon::Errors::BadRequest) do
       pending if Fog.mocking?
       @dns = Fog::DNS[:dynect]
       @dns.instance_variable_get(:@connection).stub(:request) { raise Excon::Errors::BadRequest.new('Expected(200) <=> Actual(400 Bad Request) request => {:headers=>{"Content-Type"=>"application/json", "API-Version"=>"2.3.1", "Auth-Token"=>"auth-token", "Host"=>"api2.dynect.net:443", "Content-Length"=>0}, :host=>"api2.dynect.net", :mock=>nil, :path=>"/REST/CNAMERecord/domain.com/www.domain.com", :port=>"443", :query=>nil, :scheme=>"https", :expects=>200, :method=>:get} response => #<Excon::Response:0x00000008478b98 @body="{"status": "failure", "data": {}, "job_id": 21326025, "msgs": [{"INFO": "login: Bad or expired credentials", "SOURCE": "BLL", "ERR_CD": "INVALID_DATA", "LVL": "ERROR"}, {"INFO": "login: There was a problem with your credentials", "SOURCE": "BLL", "ERR_CD": null, "LVL": "INFO"}]}", @headers={"Server"=>"nginx/0.7.67", "Date"=>"Thu, 08 Sep 2011 20:04:21 GMT", "Content-Type"=>"application/json", "Transfer-Encoding"=>"chunked", "Connection"=>"keep-alive"}, @status=400>') }
@@ -247,7 +247,7 @@ Shindo.tests('Dynect::dns | DNS requests', ['dynect', 'dns']) do
       @dns.auth_token
     end
 
-    tests("#auth_token with inactivity logout").raises(Excon::Errors::BadRequest) do
+    tests('#auth_token with inactivity logout').raises(Excon::Errors::BadRequest) do
       pending if Fog.mocking?
       @dns = Fog::DNS[:dynect]
       @dns.instance_variable_get(:@connection).stub(:request) { raise Excon::Errors::BadRequest.new('Expected(200) <=> Actual(400 Bad Request) request => {:headers=>{"Content-Type"=>"application/json", "API-Version"=>"2.3.1", "Auth-Token"=>"auth-token", "Host"=>"api2.dynect.net:443", "Content-Length"=>0}, :host=>"api2.dynect.net", :mock=>nil, :path=>"/REST/CNAMERecord/domain.com/www.domain.com", :port=>"443", :query=>nil, :scheme=>"https", :expects=>200, :method=>:get} response => #<Excon::Response:0x00000008478b98 @body="{"status": "failure", "data": {}, "job_id": 21326025, "msgs": [{"INFO": "login: inactivity logout", "SOURCE": "BLL", "ERR_CD": "INVALID_DATA", "LVL": "ERROR"}, {"INFO": "login: There was a problem with your credentials", "SOURCE": "BLL", "ERR_CD": null, "LVL": "INFO"}]}", @headers={"Server"=>"nginx/0.7.67", "Date"=>"Thu, 08 Sep 2011 20:04:21 GMT", "Content-Type"=>"application/json", "Transfer-Encoding"=>"chunked", "Connection"=>"keep-alive"}, @status=400>') }

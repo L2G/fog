@@ -33,16 +33,16 @@ Shindo.tests('Fog mocking', 'core') do
   end
 
   tests('Fog::Mock.delay') do
-    tests('Fog::Mock.delay').returns(1, "defaults to 1") do
+    tests('Fog::Mock.delay').returns(1, 'defaults to 1') do
       Fog::Mock.delay
     end
 
-    tests('Fog::Mock.delay = 2').returns(2, "changes Fog::Mock.delay to 2") do
+    tests('Fog::Mock.delay = 2').returns(2, 'changes Fog::Mock.delay to 2') do
       Fog::Mock.delay = 2
       Fog::Mock.delay
     end
 
-    tests('Fog::Mock.delay = 0').returns(0, "changes Fog::Mock.delay to 0") do
+    tests('Fog::Mock.delay = 0').returns(0, 'changes Fog::Mock.delay to 0') do
       Fog::Mock.delay = 0
       Fog::Mock.delay
     end
@@ -53,13 +53,13 @@ Shindo.tests('Fog mocking', 'core') do
   end
 
   tests('Fog::Mock.random_ip') do
-    tests('Fog::Mock.random_ip').returns(true, "default to ipv4") do
+    tests('Fog::Mock.random_ip').returns(true, 'default to ipv4') do
       IPAddr.new(Fog::Mock.random_ip).ipv4?
     end
-    tests('Fog::Mock.random_ip').returns(true, "explicit ipv4") do
+    tests('Fog::Mock.random_ip').returns(true, 'explicit ipv4') do
       IPAddr.new(Fog::Mock.random_ip({:version => :v4})).ipv4?
     end
-    tests('Fog::Mock.random_ip({:version => :v6})').returns(true, "changes to ipv6") do
+    tests('Fog::Mock.random_ip({:version => :v6})').returns(true, 'changes to ipv6') do
       IPAddr.new(Fog::Mock.random_ip({:version => :v6})).ipv6?
     end
     tests('Fog::Mock.random_ip({:version => :v5})').raises(ArgumentError) do

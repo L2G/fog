@@ -4,7 +4,7 @@ def model_tests(collection, params = {}, mocks_implemented = true)
 
     @instance = collection.new(params)
 
-    tests("#save").succeeds do
+    tests('#save').succeeds do
       pending if Fog.mocking? && !mocks_implemented
       @instance.save
     end
@@ -13,7 +13,7 @@ def model_tests(collection, params = {}, mocks_implemented = true)
       yield
     end
 
-    tests("#destroy").succeeds do
+    tests('#destroy').succeeds do
       pending if Fog.mocking? && !mocks_implemented
       @instance.destroy
     end

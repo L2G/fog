@@ -13,7 +13,7 @@ module Fog
           request(
             :method => 'POST',
             :body => Fog::JSON.encode(data),
-            :path => "os-networksv2",
+            :path => 'os-networksv2',
             :expects => 200
           )
         end

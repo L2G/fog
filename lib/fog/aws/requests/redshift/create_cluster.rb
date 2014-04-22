@@ -101,7 +101,7 @@ module Fog
           publicly_accessible                 = options[:publicly_accessible]
           encrypted                           = options[:encrypted]
 
-          path = "/"
+          path = '/'
           params = {
             :idempotent => true,
             :headers    => {},

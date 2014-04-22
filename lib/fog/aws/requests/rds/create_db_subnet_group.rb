@@ -19,7 +19,7 @@ module Fog
             'DBSubnetGroupName' => name,
             'DBSubnetGroupDescription' => description,
             :parser   => Fog::Parsers::AWS::RDS::CreateDBSubnetGroup.new }
-          params.merge!(Fog::AWS.indexed_param("SubnetIds.member", Array(subnet_ids)))
+          params.merge!(Fog::AWS.indexed_param('SubnetIds.member', Array(subnet_ids)))
           request(params)
         end
 
@@ -53,7 +53,7 @@ module Fog
           }
           self.data[:subnet_groups][name] = data
           response.body = {
-            "ResponseMetadata" => { "RequestId" => Fog::AWS::Mock.request_id },
+            'ResponseMetadata' => { 'RequestId' => Fog::AWS::Mock.request_id },
             'CreateDBSubnetGroupResult' => { 'DBSubnetGroup' => data }
           }
           response

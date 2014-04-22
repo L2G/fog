@@ -46,29 +46,29 @@ module Fog
             raise Fog::Compute::RackspaceV2::NotFound
           else
             self.data[:volume_attachments] << {
-              "device"   => device,
-              "serverId" => server_id,
-              "volumeId" => volume_id,
-              "id"       => volume_id,
+              'device'   => device,
+              'serverId' => server_id,
+              'volumeId' => volume_id,
+              'id'       => volume_id,
             }
 
-            volume["attachments"] << {
-              "volumeId" => volume_id,
-              "serverId" => server_id,
-              "device"   => device,
-              "id"       => volume_id,
+            volume['attachments'] << {
+              'volumeId' => volume_id,
+              'serverId' => server_id,
+              'device'   => device,
+              'id'       => volume_id,
             }
 
             body = {
-              "volumeAttachment" => {
-                "serverId" => server_id,
-                "volumeId" => volume_id,
-                "device"   => device,
-                "id"       => volume_id,
+              'volumeAttachment' => {
+                'serverId' => server_id,
+                'volumeId' => volume_id,
+                'device'   => device,
+                'id'       => volume_id,
               }
             }
 
-            volume["status"] = "in-use"
+            volume['status'] = 'in-use'
 
             response(:body => body)
           end

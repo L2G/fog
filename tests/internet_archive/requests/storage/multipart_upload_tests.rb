@@ -1,4 +1,4 @@
-Shindo.tests('Fog::Storage[:internetarchive] | multipart upload requests', ["internetarchive"]) do
+Shindo.tests('Fog::Storage[:internetarchive] | multipart upload requests', ['internetarchive']) do
 
   @directory = Fog::Storage[:internetarchive].directories.create(:key => "fogmultipartuploadtests-#{rand(65536)}")
 
@@ -118,12 +118,12 @@ Shindo.tests('Fog::Storage[:internetarchive] | multipart upload requests', ["int
 
   tests('failure') do
 
-    tests("initiate_multipart_upload")
-    tests("list_multipart_uploads")
-    tests("upload_part")
-    tests("list_parts")
-    tests("complete_multipart_upload")
-    tests("abort_multipart_upload")
+    tests('initiate_multipart_upload')
+    tests('list_multipart_uploads')
+    tests('upload_part')
+    tests('list_parts')
+    tests('complete_multipart_upload')
+    tests('abort_multipart_upload')
 
   end
 

@@ -1,4 +1,4 @@
-Shindo.tests("Fog::Compute[:hp] | server requests", ['hp']) do
+Shindo.tests('Fog::Compute[:hp] | server requests', ['hp']) do
 
   @server_format = {
     'addresses'   => Fog::Nullable::Hash,
@@ -34,12 +34,12 @@ Shindo.tests("Fog::Compute[:hp] | server requests", ['hp']) do
     'output' => String
   }
 
-  @base_image_id = ENV["BASE_IMAGE_ID"] || 1242
+  @base_image_id = ENV['BASE_IMAGE_ID'] || 1242
 
   tests('success') do
 
     @server_id = nil
-    @server_name = "fogservertests"
+    @server_name = 'fogservertests'
 
     tests("#create_server(#{@server_name}, 100, #{@base_image_id})").formats(@server_format.merge('adminPass' => String)) do
       data = Fog::Compute[:hp].create_server(@server_name, 100, @base_image_id).body['server']

@@ -20,13 +20,13 @@ module Fog
           response = Excon::Response.new
           response.status = 200
           mock_data = {
-            "id" => Fog::Mock.random_numbers(1).to_i,
-            "name" => name,
-            "ssh_pub_key" => pub_key
+            'id' => Fog::Mock.random_numbers(1).to_i,
+            'name' => name,
+            'ssh_pub_key' => pub_key
           }
           response.body = {
-            "status" => "OK",
-            "ssh_key"  => mock_data
+            'status' => 'OK',
+            'ssh_key'  => mock_data
           }
           self.data[:ssh_keys] << mock_data
           response

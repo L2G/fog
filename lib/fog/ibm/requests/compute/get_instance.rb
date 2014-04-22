@@ -62,12 +62,12 @@ module Fog
 
         # Sets instance status to Active if it's not already set.
         def activate_instance(instance_id)
-          self.data[:instances][instance_id]["status"] = 5 unless instance_active? instance_id
+          self.data[:instances][instance_id]['status'] = 5 unless instance_active? instance_id
         end
 
         # Checks if an instance is Active
         def instance_active?(instance_id)
-          self.data[:instances][instance_id]["status"] == 5
+          self.data[:instances][instance_id]['status'] == 5
         end
 
       end

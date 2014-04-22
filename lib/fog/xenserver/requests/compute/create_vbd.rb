@@ -14,7 +14,7 @@ module Fog
             :VDI => vdi_ref,
             :empty => false,
             :other_config => {'owner' => ''},
-            :userdevice => "0",
+            :userdevice => '0',
             :bootable => true,
             :mode => 'RW',
             :qos_algorithm_type => '',

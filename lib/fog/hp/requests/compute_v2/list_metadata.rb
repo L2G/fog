@@ -28,7 +28,7 @@ module Fog
 
         def list_metadata(collection_name, parent_id)
           mdata = {}
-          if collection_name == "images" then
+          if collection_name == 'images' then
             if get_image_details(parent_id)
               mdata = self.data[:images][parent_id]['metadata']
             else
@@ -36,7 +36,7 @@ module Fog
             end
           end
 
-          if collection_name == "servers" then
+          if collection_name == 'servers' then
             if get_server_details(parent_id)
               mdata = self.data[:servers][parent_id]['metadata']
             else

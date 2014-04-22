@@ -32,7 +32,7 @@ module Fog
         def disassociate_route_table(association_id)
           assoc_array = nil
           routetable = self.data[:route_tables].find { |routetable|
-            assoc_array = routetable["associationSet"].find { |association|
+            assoc_array = routetable['associationSet'].find { |association|
               association['routeTableAssociationId'].eql? association_id
             }
           }

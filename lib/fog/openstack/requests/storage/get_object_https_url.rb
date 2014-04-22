@@ -15,7 +15,7 @@ module Fog
         # * response<~Excon::Response>:
         #   * body<~String> - url for object
         def get_object_https_url(container, object, expires, options = {})
-          create_temp_url(container, object, expires, "GET", options.merge(:scheme => "https"))
+          create_temp_url(container, object, expires, 'GET', options.merge(:scheme => 'https'))
         end
 
         # creates a temporary url
@@ -35,8 +35,8 @@ module Fog
         # ==== See Also
         # http://docs.rackspace.com/files/api/v1/cf-devguide/content/Create_TempURL-d1a444.html
         def create_temp_url(container, object, expires, method, options = {})
-          raise ArgumentError, "Insufficient parameters specified." unless (container && object && expires && method)
-          raise ArgumentError, "Storage must be instantiated with the :openstack_temp_url_key option" if @openstack_temp_url_key.nil?
+          raise ArgumentError, 'Insufficient parameters specified.' unless (container && object && expires && method)
+          raise ArgumentError, 'Storage must be instantiated with the :openstack_temp_url_key option' if @openstack_temp_url_key.nil?
 
           scheme = options[:scheme] || @scheme
 
@@ -71,7 +71,7 @@ module Fog
         private
 
         def sig_to_hex(str)
-          str.unpack("C*").map { |c|
+          str.unpack('C*').map { |c|
             c.to_s(16)
           }.map { |h|
             h.size == 1 ? "0#{h}" : h

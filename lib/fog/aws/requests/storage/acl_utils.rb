@@ -46,7 +46,7 @@ module Fog
           end
           data << "  </AccessControlList>\n" if grants.any?
 
-          data << "</AccessControlPolicy>"
+          data << '</AccessControlPolicy>'
 
           data
         end

@@ -51,7 +51,7 @@ task :default => :test
 task :travis  => ['test', 'test:travis', 'coveralls_push_workaround']
 
 Rake::TestTask.new do |t|
-  t.pattern = File.join("**", "spec", "**", "*_spec.rb")
+  t.pattern = File.join('**', 'spec', '**', '*_spec.rb')
 end
 
 namespace :test do
@@ -112,7 +112,7 @@ task :nuke do
   end
 end
 
-desc "Open an irb session preloaded with this library"
+desc 'Open an irb session preloaded with this library'
 task :console do
   sh "irb -rubygems -r ./lib/#{name}.rb"
 end
@@ -123,12 +123,12 @@ end
 #
 #############################################################################
 
-task :release => ["release:prepare", "release:publish"]
+task :release => ['release:prepare', 'release:publish']
 
 namespace :release do
   task :preflight do
     unless `git branch` =~ /^\* master$/
-      puts "You must be on the master branch to release!"
+      puts 'You must be on the master branch to release!'
       exit!
     end
     if `git tag` =~ /^\* v#{version}$/
@@ -155,7 +155,7 @@ task :git_mark_release do
 end
 
 task :git_push_release do
-  sh "git push origin master"
+  sh 'git push origin master'
   sh "git push origin v#{version}"
 end
 
@@ -165,7 +165,7 @@ end
 
 desc "Build fog-#{version}.gem"
 task :build => :gemspec do
-  sh "mkdir -p pkg"
+  sh 'mkdir -p pkg'
   sh "gem build #{gemspec_file}"
   sh "mv #{gem_file} pkg"
 end
@@ -187,30 +187,30 @@ task :gemspec => :validate do
   puts "Updated #{gemspec_file}"
 end
 
-desc "Run before pushing out the code"
+desc 'Run before pushing out the code'
 task :validate do
-  libfiles = Dir['lib/*'] - ["lib/#{name}.rb", "lib/#{name}", "lib/tasks"]
+  libfiles = Dir['lib/*'] - ["lib/#{name}.rb", "lib/#{name}", 'lib/tasks']
   unless libfiles.empty?
     puts "Directory `lib` should only contain a `#{name}.rb` file and `#{name}` dir."
     exit!
   end
   unless Dir['VERSION*'].empty?
-    puts "A `VERSION` file at root level violates Gem best practices."
+    puts 'A `VERSION` file at root level violates Gem best practices.'
     exit!
   end
 end
 
 # Include Yard tasks for rake yard
-YARDOC_LOCATION = "doc"
+YARDOC_LOCATION = 'doc'
 YARD::Rake::YardocTask.new do |t|
-  t.files   = ['lib/**/*.rb', "README"]
-  t.options = ["--output-dir", YARDOC_LOCATION, "--title", "#{name} #{version}"]
+  t.files   = ['lib/**/*.rb', 'README']
+  t.options = ['--output-dir', YARDOC_LOCATION, '--title', "#{name} #{version}"]
 end
 
-require "tasks/changelog_task"
+require 'tasks/changelog_task'
 Fog::Rake::ChangelogTask.new
 
-require "tasks/github_release_task"
+require 'tasks/github_release_task'
 Fog::Rake::GithubReleaseTask.new
 
 task :coveralls_push_workaround do
@@ -218,6 +218,6 @@ task :coveralls_push_workaround do
   if (ENV['COVERAGE'] != 'false') && use_coveralls
     require 'coveralls/rake/task'
     Coveralls::RakeTask.new
-    Rake::Task["coveralls:push"].invoke
+    Rake::Task['coveralls:push'].invoke
   end
 end

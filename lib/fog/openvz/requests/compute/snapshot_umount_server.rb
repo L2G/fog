@@ -4,7 +4,7 @@ module Fog
       class Real
 
         def snapshot_umount_server(id,options = {})
-          vzctl("snapshot-umount",{:ctid => id}.merge(options))
+          vzctl('snapshot-umount',{:ctid => id}.merge(options))
         end
 
       end

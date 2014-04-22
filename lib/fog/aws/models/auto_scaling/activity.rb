@@ -20,7 +20,7 @@ module Fog
         end
 
         def save
-          raise "Operation not supported"
+          raise 'Operation not supported'
         end
 
       end

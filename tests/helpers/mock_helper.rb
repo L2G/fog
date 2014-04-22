@@ -2,7 +2,7 @@
 #
 # FOG_MOCK=true fog
 
-if ENV["FOG_MOCK"] == "true"
+if ENV['FOG_MOCK'] == 'true'
   Fog.mock!
 end
 
@@ -53,8 +53,8 @@ if Fog.mock?
     :os_account_meta_temp_url_key     => 'os_account_meta_temp_url_key',
     :ibm_username                     => 'ibm_username',
     :ibm_password                     => 'ibm_password',
-    :joyent_username                  => "joyentuser",
-    :joyent_password                  => "joyentpass",
+    :joyent_username                  => 'joyentuser',
+    :joyent_password                  => 'joyentpass',
     :linode_api_key                   => 'linode_api_key',
     :local_root                       => '~/.fog',
     :bare_metal_cloud_password        => 'bare_metal_cloud_password',

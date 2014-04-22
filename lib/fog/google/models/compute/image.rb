@@ -41,7 +41,7 @@ module Fog
           nil
         end
 
-        READY_STATE = "READY"
+        READY_STATE = 'READY'
 
         def ready?
           self.status == READY_STATE

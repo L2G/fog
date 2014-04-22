@@ -46,7 +46,7 @@ module Fog
 
         def create_user(email, name, options = {})
           if invalid_email?(email)
-            raise Fog::RiakCS::Provisioning::ServiceUnavailable, "The email address you provided is not a valid."
+            raise Fog::RiakCS::Provisioning::ServiceUnavailable, 'The email address you provided is not a valid.'
           end
 
           if user_exists?(email)
@@ -61,13 +61,13 @@ module Fog
             response.status = 200
             response.headers['Content-Type'] = 'application/json'
             response.body = {
-              "email"        => data[:email],
-              "display_name" => data[:name],
-              "name"         => "user123",
-              "key_id"       => key_id,
-              "key_secret"   => key_secret,
-              "id"           => "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX",
-              "status"       => "enabled"
+              'email'        => data[:email],
+              'display_name' => data[:name],
+              'name'         => 'user123',
+              'key_id'       => key_id,
+              'key_secret'   => key_secret,
+              'id'           => 'XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX',
+              'status'       => 'enabled'
             }
           end
         end

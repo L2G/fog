@@ -10,7 +10,7 @@ module Fog
           request(
             :body => generate_rnat_associations_edit_network_request(data),
             :expects => 202,
-            :method => "PUT",
+            :method => 'PUT',
             :headers => {},
             :uri => data[:uri],
             :parse => true

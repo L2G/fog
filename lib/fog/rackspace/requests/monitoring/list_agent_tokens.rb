@@ -21,32 +21,32 @@ module Fog
           response = Excon::Response.new
           response.status = 200
           response.body = {
-            "values" => [
+            'values' => [
               {
-                "id"      => token,
-                "token"   => token,
-                "label"   => "mock_token"
+                'id'      => token,
+                'token'   => token,
+                'label'   => 'mock_token'
               }
             ],
-            "metadata" => {
-               "count"       => 1,
-               "limit"       => 100,
-               "marker"      => nil,
-               "next_marker" => nil,
-               "next_href"   => nil
+            'metadata' => {
+               'count'       => 1,
+               'limit'       => 100,
+               'marker'      => nil,
+               'next_marker' => nil,
+               'next_href'   => nil
             }
           }
           response.headers = {
-            "Date"                  => Time.now.utc.to_s,
-            "Content-Type"          => "application/json; charset=UTF-8",
-            "X-RateLimit-Limit"     => "50000",
-            "X-RateLimit-Remaining" => "49627",
-            "X-RateLimit-Window"    => "24 hours",
-            "X-RateLimit-Type"      => "global",
-            "X-Response-Id"         => " j23jlk234jl2j34j",
-            "X-LB"                  => "dfw1-maas-prod-api0",
-            "Vary"                  => "Accept-Encoding",
-            "Transfer-Encoding"     => "chunked"
+            'Date'                  => Time.now.utc.to_s,
+            'Content-Type'          => 'application/json; charset=UTF-8',
+            'X-RateLimit-Limit'     => '50000',
+            'X-RateLimit-Remaining' => '49627',
+            'X-RateLimit-Window'    => '24 hours',
+            'X-RateLimit-Type'      => 'global',
+            'X-Response-Id'         => ' j23jlk234jl2j34j',
+            'X-LB'                  => 'dfw1-maas-prod-api0',
+            'Vary'                  => 'Accept-Encoding',
+            'Transfer-Encoding'     => 'chunked'
           }
           response.remote_ip = Fog::Rackspace::MockData.ipv4_address
           response

@@ -3,7 +3,7 @@ module Fog
     class CloudSigma
       class Real
         def calculate_subscription_price(data)
-          create_request("subscriptioncalculator/", data)
+          create_request('subscriptioncalculator/', data)
         end
       end
 

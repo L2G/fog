@@ -1,4 +1,4 @@
-Shindo.tests("HP::BlockStorageV2 | snapshot model", ['hp', 'v2', 'block_storage', 'snapshots']) do
+Shindo.tests('HP::BlockStorageV2 | snapshot model', ['hp', 'v2', 'block_storage', 'snapshots']) do
 
   @volume = HP[:block_storage_v2].volumes.create(:name => 'testsnap2vol', :size => 1)
   @volume.wait_for { ready? } unless Fog.mocking?

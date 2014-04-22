@@ -22,7 +22,7 @@ def fog_test_server_attributes
 end
 
 def fog_server_name
-  "fog-server-test"
+  'fog-server-test'
 end
 
 # Create a long lived server for the tests

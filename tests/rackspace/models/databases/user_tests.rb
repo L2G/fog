@@ -13,7 +13,7 @@ Shindo.tests('Fog::Rackspace::Databases | user', ['rackspace']) do
 
   options = {
     :name => "user_#{Time.now.to_i}",
-    :password => "fog_user"
+    :password => 'fog_user'
   }
   model_tests(instance.users, options, false)
 

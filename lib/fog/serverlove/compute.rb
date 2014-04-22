@@ -4,7 +4,7 @@ module Fog
   module Compute
     class Serverlove < Fog::Service
 
-      API_HOST = "api.z1-man.serverlove.com"
+      API_HOST = 'api.z1-man.serverlove.com'
 
       requires :serverlove_uuid, :serverlove_api_key
 
@@ -47,7 +47,7 @@ module Fog
         end
 
         def request(options)
-          raise "Not implemented"
+          raise 'Not implemented'
         end
 
       end
@@ -65,7 +65,7 @@ module Fog
         def request(params)
           params = params.merge!(
             :headers => {
-              "Accept" => "application/json"
+              'Accept' => 'application/json'
             }
           )
           unless params[:options].nil?

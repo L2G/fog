@@ -7,7 +7,7 @@ module Fog
       class Errors
         module MessageParserMixin
           def message
-            if response.body["code"] && response.body["message"]
+            if response.body['code'] && response.body['message']
               "[ERROR #{response.body['code']}] : #{response.body['message']}"
             else
               ''

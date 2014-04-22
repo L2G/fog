@@ -53,7 +53,7 @@ module Fog
           @rackspace_region = options[:rackspace_region] || :ord
 
           unless v2_authentication?
-            raise Fog::Errors::NotImplemented.new("V2 authentication required for Queues")
+            raise Fog::Errors::NotImplemented.new('V2 authentication required for Queues')
           end
         end
 
@@ -90,7 +90,7 @@ module Fog
       class Mock < Fog::Rackspace::Service
         include Common
 
-        PATH_BASE = "/v1/queues"
+        PATH_BASE = '/v1/queues'
 
         # An in-memory Queue implementation.
         class MockQueue
@@ -238,10 +238,10 @@ module Fog
           # @return [Hash]
           def to_h
             {
-              "body" => @data,
-              "age" => age,
-              "ttl" => @ttl,
-              "href" => href
+              'body' => @data,
+              'age' => age,
+              'ttl' => @ttl,
+              'href' => href
             }
           end
         end
@@ -304,10 +304,10 @@ module Fog
             ms = messages.map { |m| m.to_h }
 
             {
-              "age" => age,
-              "href" => "#{PATH_BASE}/#{@queue.name}/claims/#{@id}",
-              "ttl" => @ttl,
-              "messages" => ms
+              'age' => age,
+              'href' => "#{PATH_BASE}/#{@queue.name}/claims/#{@id}",
+              'ttl' => @ttl,
+              'messages' => ms
             }
           end
         end

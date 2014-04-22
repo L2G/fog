@@ -41,7 +41,7 @@ Shindo.tests('Fog::Compute::RackspaceV2 | image_tests', ['rackspace']) do
 
       tests("#create_image(#{@server.id}, 'fog-test-image')").succeeds do
         response = service.create_image(@server.id, "fog-test-image_#{test_time}")
-        @image_id = response.headers["Location"].match(/\/([^\/]+$)/)[1]
+        @image_id = response.headers['Location'].match(/\/([^\/]+$)/)[1]
       end
 
       tests('#list_images').formats(list_image_format) do

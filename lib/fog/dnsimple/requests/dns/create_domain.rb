@@ -14,8 +14,8 @@ module Fog
         #     * 'domain'<~Hash> The representation of the domain.
         def create_domain(name)
           body = {
-            "domain" => {
-              "name" => name
+            'domain' => {
+              'name' => name
             }
           }
 
@@ -23,7 +23,7 @@ module Fog
             :body     => Fog::JSON.encode(body),
             :expects  => 201,
             :method   => 'POST',
-            :path     => "/domains"
+            :path     => '/domains'
           )
         end
 
@@ -33,23 +33,23 @@ module Fog
 
         def create_domain(name)
           body = {
-            "domain" =>  {
-              "id"                 => Fog::Mock.random_numbers(1).to_i,
-              "user_id"            => 1,
-              "registrant_id"      => nil,
-              "name"               => name,
-              "unicode_name"       => name,
-              "token"              => "4fIFYWYiJayvL2tkf_mkBkqC4L+4RtYqDA",
-              "state"              => "registered",
-              "language"           => nil,
-              "lockable"           => true,
-              "auto_renew"         => nil,
-              "whois_protected"    => false,
-              "record_count"       => 0,
-              "service_count"      => 0,
-              "expires_on"         => Date.today + 365,
-              "created_at"         => Time.now.iso8601,
-              "updated_at"         => Time.now.iso8601,
+            'domain' =>  {
+              'id'                 => Fog::Mock.random_numbers(1).to_i,
+              'user_id'            => 1,
+              'registrant_id'      => nil,
+              'name'               => name,
+              'unicode_name'       => name,
+              'token'              => '4fIFYWYiJayvL2tkf_mkBkqC4L+4RtYqDA',
+              'state'              => 'registered',
+              'language'           => nil,
+              'lockable'           => true,
+              'auto_renew'         => nil,
+              'whois_protected'    => false,
+              'record_count'       => 0,
+              'service_count'      => 0,
+              'expires_on'         => Date.today + 365,
+              'created_at'         => Time.now.iso8601,
+              'updated_at'         => Time.now.iso8601,
             }
           }
           self.data[:domains] << body

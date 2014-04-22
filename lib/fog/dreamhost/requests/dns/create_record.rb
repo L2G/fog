@@ -4,7 +4,7 @@ module Fog
 
       class Mock
 
-        def create_record(record, type, value, comment = "")
+        def create_record(record, type, value, comment = '')
           Fog::Mock.not_implemented
         end
 
@@ -12,10 +12,10 @@ module Fog
 
       class Real
 
-        def create_record(record, type, value, comment = "")
+        def create_record(record, type, value, comment = '')
           request( :expects  => 200,
                    :method   => 'GET',
-                   :path     => "/",
+                   :path     => '/',
                    :query    => {
                      :record    => record,
                      :type      => type,

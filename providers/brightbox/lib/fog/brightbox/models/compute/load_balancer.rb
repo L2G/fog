@@ -52,7 +52,7 @@ module Fog
             :name => name,
             :certificate_pem => certificate_pem,
             :certificate_private_key => certificate_private_key
-          }.delete_if { |k, v| v.nil? || v == "" }
+          }.delete_if { |k, v| v.nil? || v == '' }
           data = service.create_load_balancer(options)
           merge_attributes(data)
           true
@@ -82,10 +82,10 @@ module Fog
         # @private
         def certificate=(cert_metadata)
           if cert_metadata
-            attributes[:certificate_valid_from] = time_or_original(cert_metadata["valid_from"])
-            attributes[:certificate_expires_at] = time_or_original(cert_metadata["expires_at"])
-            attributes[:certificate_issuer] = cert_metadata["issuer"]
-            attributes[:certificate_subject] = cert_metadata["subject"]
+            attributes[:certificate_valid_from] = time_or_original(cert_metadata['valid_from'])
+            attributes[:certificate_expires_at] = time_or_original(cert_metadata['expires_at'])
+            attributes[:certificate_issuer] = cert_metadata['issuer']
+            attributes[:certificate_subject] = cert_metadata['subject']
           else
             attributes[:certificate_valid_from] = nil
             attributes[:certificate_expires_at] = nil

@@ -25,20 +25,20 @@ def select_directory(directories)
     puts "\t #{i}. #{dir.key} [#{dir.count} objects]"
   end
 
-  select_str = get_user_input "Enter Directory Number"
+  select_str = get_user_input 'Enter Directory Number'
   directories[select_str.to_i]
 end
 
 # Use username defined in ~/.fog file, if absent prompt for username.
 # For more details on ~/.fog refer to http://fog.io/about/getting_started.html
 def rackspace_username
-  Fog.credentials[:rackspace_username] || get_user_input("Enter Rackspace Username")
+  Fog.credentials[:rackspace_username] || get_user_input('Enter Rackspace Username')
 end
 
 # Use api key defined in ~/.fog file, if absent prompt for api key
 # For more details on ~/.fog refer to http://fog.io/about/getting_started.html
 def rackspace_api_key
-  Fog.credentials[:rackspace_api_key] || get_user_input("Enter Rackspace API key")
+  Fog.credentials[:rackspace_api_key] || get_user_input('Enter Rackspace API key')
 end
 
 # create Cloud Files service
@@ -57,7 +57,7 @@ directories = service.directories
 directory = select_directory(directories)
 
 # prompt for file name
-file_name = get_user_input "Enter full path of file to upload"
+file_name = get_user_input 'Enter full path of file to upload'
 segment_name = File.basename(file_name)
 
 File.open(file_name) do |f|
@@ -75,7 +75,7 @@ File.open(file_name) do |f|
      print "\n\tUploading segment #{segment_suffix} "
      service.put_object(directory.key, "#{segment_name}/#{segment_suffix}", nil) do
        if offset <= SEGMENT_LIMIT - BUFFER_SIZE
-         print "."
+         print '.'
          buf = f.read(BUFFER_SIZE).to_s
          offset += buf.size
          buf

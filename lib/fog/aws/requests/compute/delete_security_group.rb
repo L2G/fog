@@ -20,7 +20,7 @@ module Fog
         # {Amazon API Reference}[http://docs.amazonwebservices.com/AWSEC2/latest/APIReference/ApiReference-query-DeleteSecurityGroup.html]
         def delete_security_group(name, id = nil)
           if name && id
-            raise Fog::Compute::AWS::Error.new("May not specify both group_name and group_id")
+            raise Fog::Compute::AWS::Error.new('May not specify both group_name and group_id')
           end
           if name
             type_id    = 'GroupName'
@@ -46,7 +46,7 @@ module Fog
           end
 
           if name && id
-            raise Fog::Compute::AWS::Error.new("May not specify both group_name and group_id")
+            raise Fog::Compute::AWS::Error.new('May not specify both group_name and group_id')
           end
           if id
             name = self.data[:security_groups].reject { |k,v| v['groupId'] != id } .keys.first
@@ -72,7 +72,7 @@ module Fog
             end
 
             active_instances = self.data[:instances].values.select do |instance|
-              if instance['groupSet'].include?(name) && instance['instanceState'] != "terminated"
+              if instance['groupSet'].include?(name) && instance['instanceState'] != 'terminated'
                 instance
               end
             end

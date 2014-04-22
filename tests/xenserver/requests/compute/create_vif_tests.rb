@@ -12,7 +12,7 @@ Shindo.tests('Fog::Compute[:xenserver] | create_vif request', ['xenserver']) do
     ref = compute.create_vif vm_ref, compute.networks.first.reference
     s = servers.get vm_ref
     test('return a valid reference') do
-      if (ref != "OpaqueRef:NULL") and (ref.split("1") != "NULL")
+      if (ref != 'OpaqueRef:NULL') and (ref.split('1') != 'NULL')
         true
       else
         false
@@ -52,7 +52,7 @@ Shindo.tests('Fog::Compute[:xenserver] | create_vif request', ['xenserver']) do
     ref = compute.create_vif_custom conf
     s = servers.get vm_ref
     test('return a valid reference') do
-      if (ref != "OpaqueRef:NULL") and (ref.split("1") != "NULL")
+      if (ref != 'OpaqueRef:NULL') and (ref.split('1') != 'NULL')
         true
       else
         false

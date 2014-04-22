@@ -10,7 +10,7 @@ module Fog
           request(
             :body => generate_rows_create_request(data),
             :expects => 201,
-            :method => "POST",
+            :method => 'POST',
             :headers => {},
             :uri => data[:uri],
             :parse => true

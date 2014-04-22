@@ -13,7 +13,7 @@ module Fog
         attribute :direction,         :type => :string
 
         def destroy
-          data = service.send("revoke_security_group_#{self.direction}", "id" => self.id)
+          data = service.send("revoke_security_group_#{self.direction}", 'id' => self.id)
           job = service.jobs.new(data["revokesecuritygroup#{self.direction}"])
           job.wait_for { ready? }
           job.successful?
@@ -48,12 +48,12 @@ module Fog
 
         def params
           options = {
-            "securitygroupid" => self.security_group_id,
-            "protocol"        => self.protocol,
-            "cidrlist"        => self.cidr
+            'securitygroupid' => self.security_group_id,
+            'protocol'        => self.protocol,
+            'cidrlist'        => self.cidr
           }
-          options.merge!("startport" => self.start_port) unless self.start_port.nil?
-          options.merge("endport" => self.end_port) unless self.end_port.nil?
+          options.merge!('startport' => self.start_port) unless self.start_port.nil?
+          options.merge('endport' => self.end_port) unless self.end_port.nil?
         end
 
       end # SecurityGroupRule

@@ -41,7 +41,7 @@ module Fog
           }
           self.data[:security_groups][name] = data
           response.body = {
-            "ResponseMetadata" => { "RequestId" => Fog::AWS::Mock.request_id },
+            'ResponseMetadata' => { 'RequestId' => Fog::AWS::Mock.request_id },
             'CreateDBSecurityGroupResult' => { 'DBSecurityGroup' => data }
           }
           response

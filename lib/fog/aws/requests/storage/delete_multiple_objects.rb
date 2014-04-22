@@ -33,19 +33,19 @@ module Fog
 
         def delete_multiple_objects(bucket_name, object_names, options = {})
           headers = options.dup
-          data = "<Delete>"
-          data << "<Quiet>true</Quiet>" if headers.delete(:quiet)
+          data = '<Delete>'
+          data << '<Quiet>true</Quiet>' if headers.delete(:quiet)
           version_ids = headers.delete('versionId')
           object_names.each do |object_name|
-            data << "<Object>"
+            data << '<Object>'
             data << "<Key>#{CGI.escapeHTML(object_name)}</Key>"
             object_version = version_ids.nil? ? nil : version_ids[object_name]
             if object_version
               data << "<VersionId>#{CGI.escapeHTML(object_version)}</VersionId>"
             end
-            data << "</Object>"
+            data << '</Object>'
           end
-          data << "</Delete>"
+          data << '</Delete>'
 
           headers['Content-Length'] = data.length
           headers['Content-MD5'] = Base64.encode64(Digest::MD5.digest(data)).

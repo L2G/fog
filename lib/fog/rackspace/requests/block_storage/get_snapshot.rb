@@ -37,7 +37,7 @@ module Fog
           if snapshot.nil?
             raise Fog::Rackspace::BlockStorage::NotFound
           else
-            response(:body => {"snapshot" => snapshot})
+            response(:body => {'snapshot' => snapshot})
           end
         end
       end

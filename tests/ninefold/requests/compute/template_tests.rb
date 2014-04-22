@@ -2,7 +2,7 @@ Shindo.tests('Fog::Compute[:ninefold] | template requests', ['ninefold']) do
 
   tests('success') do
 
-    tests("#list_templates()").formats(Ninefold::Compute::Formats::Templates::TEMPLATES) do
+    tests('#list_templates()').formats(Ninefold::Compute::Formats::Templates::TEMPLATES) do
       pending if Fog.mocking?
       Fog::Compute[:ninefold].list_templates(:templatefilter => 'executable')
     end

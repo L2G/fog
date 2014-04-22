@@ -13,7 +13,7 @@ module Fog
             :verbosity    => 'normal'
           }
 
-          request("voxel.devices.power", options)
+          request('voxel.devices.power', options)
         end
       end
 

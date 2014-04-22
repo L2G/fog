@@ -90,8 +90,8 @@ module Fog
         def defaults
           {
             :thin => true,
-            :name => "Hard disk",
-            :mode => "persistent"
+            :name => 'Hard disk',
+            :mode => 'persistent'
           }
         end
       end

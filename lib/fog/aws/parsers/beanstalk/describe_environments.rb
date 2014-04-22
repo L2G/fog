@@ -7,7 +7,7 @@ module Fog
         class DescribeEnvironments < Fog::Parsers::AWS::ElasticBeanstalk::BaseParser
 
           def initialize
-            super("DescribeEnvironmentsResult")
+            super('DescribeEnvironmentsResult')
             tag 'Environments', :object, :list
             tag 'ApplicationName', :string
             tag 'CNAME', :string

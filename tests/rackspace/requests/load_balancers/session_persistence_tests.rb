@@ -11,14 +11,14 @@ Shindo.tests('Fog::Rackspace::LoadBalancers | session_persistence', ['rackspace'
         end
 
         @lb.wait_for { ready? }
-        tests("#get_session_persistence{@lb.id})").formats(SESSION_PERSISTENCE_FORMAT) do
+        tests('#get_session_persistence{@lb.id})').formats(SESSION_PERSISTENCE_FORMAT) do
           data = @service.get_session_persistence(@lb.id).body
           returns('HTTP_COOKIE') { data['sessionPersistence']['persistenceType'] }
           data
         end
 
         @lb.wait_for { ready? }
-        tests("#remove_session_persistence()").succeeds do
+        tests('#remove_session_persistence()').succeeds do
           @service.remove_session_persistence(@lb.id)
         end
       end

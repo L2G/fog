@@ -28,7 +28,7 @@ module Fog
           server_response = {:VirtualMachine => (servers.size > 1 ? servers : servers.first)} # GAH
           body = {
             :href  => uri,
-            :type  => "application/vnd.tmrk.cloud.virtualMachine; type=collection",
+            :type  => 'application/vnd.tmrk.cloud.virtualMachine; type=collection',
             :Links => {
               :Link => links
             }

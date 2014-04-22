@@ -43,7 +43,7 @@ module Fog
 
         def create_route(route_table_id, destination_cidr_block, internet_gateway_id = nil, instance_id = nil, network_interface_id = nil)
           instance_owner_id = nil
-          route_table = self.data[:route_tables].find { |routetable| routetable["routeTableId"].eql? route_table_id }
+          route_table = self.data[:route_tables].find { |routetable| routetable['routeTableId'].eql? route_table_id }
           if !route_table.nil? && destination_cidr_block
             if !internet_gateway_id.nil? || !instance_id.nil? || !network_interface_id.nil?
               if !internet_gateway_id.nil? && self.internet_gateways.all('internet-gateway-id' => internet_gateway_id).first.nil?
@@ -57,13 +57,13 @@ module Fog
               else
                 response = Excon::Response.new
                 route_table['routeSet'].push({
-                  "destinationCidrBlock" => destination_cidr_block,
-                  "gatewayId" => internet_gateway_id,
-                  "instanceId" => instance_id,
-                  "instanceOwnerId" => instance_owner_id,
-                  "networkInterfaceId" => network_interface_id,
-                  "state" => "pending",
-                  "origin" => "CreateRoute"
+                  'destinationCidrBlock' => destination_cidr_block,
+                  'gatewayId' => internet_gateway_id,
+                  'instanceId' => instance_id,
+                  'instanceOwnerId' => instance_owner_id,
+                  'networkInterfaceId' => network_interface_id,
+                  'state' => 'pending',
+                  'origin' => 'CreateRoute'
                 })
                 response.status = 200
                 response.body = {
@@ -80,7 +80,7 @@ module Fog
           elsif route_table.nil?
             raise Fog::Compute::AWS::NotFound.new("The routeTable ID '#{route_table_id}' does not exist")
           elsif destination_cidr_block.empty?
-            raise Fog::Compute::AWS::InvalidParameterValue.new("Value () for parameter destinationCidrBlock is invalid. This is not a valid CIDR block.")
+            raise Fog::Compute::AWS::InvalidParameterValue.new('Value () for parameter destinationCidrBlock is invalid. This is not a valid CIDR block.')
           end
         end
       end

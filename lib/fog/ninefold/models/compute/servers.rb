@@ -15,7 +15,7 @@ module Fog
         end
 
         def get(identifier)
-          return nil if identifier.nil? || identifier == ""
+          return nil if identifier.nil? || identifier == ''
           data = service.list_virtual_machines(:id => identifier)
           if data.empty?
             nil

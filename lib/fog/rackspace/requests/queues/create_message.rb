@@ -47,8 +47,8 @@ module Fog
           response = Excon::Response.new
           response.status = 201
           response.body = {
-            "partial" => false,
-            "resources" => ["#{PATH_BASE}/#{queue_name}/messages/#{message.id}"]
+            'partial' => false,
+            'resources' => ["#{PATH_BASE}/#{queue_name}/messages/#{message.id}"]
           }
           response
         end

@@ -7,7 +7,7 @@ module Fog
         class DescribeClusters < ClusterParser
           def reset
             super
-            @response = {"ClusterSet" => []}
+            @response = {'ClusterSet' => []}
           end
 
           def start_element(name, attrs = [])
@@ -18,7 +18,7 @@ module Fog
             super
             case name
             when 'Cluster'
-              @response["ClusterSet"] << {name => @cluster}
+              @response['ClusterSet'] << {name => @cluster}
               @cluster = fresh_cluster
             end
           end

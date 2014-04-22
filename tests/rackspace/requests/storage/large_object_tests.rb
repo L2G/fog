@@ -300,18 +300,18 @@ Shindo.tests('Fog::Storage[:rackspace] | large object requests', ['rackspace']) 
         response = Fog::Storage[:rackspace].delete_static_large_object('fognoncontainer', 'fog_large_object')
 
         returns(200) { response.status }
-        returns(1) { response.body["Number Not Found"] }
-        returns("200 OK") { response.body["Response Status"]}
-        returns("") { response.body["Response Body"]}
+        returns(1) { response.body['Number Not Found'] }
+        returns('200 OK') { response.body['Response Status']}
+        returns('') { response.body['Response Body']}
       end
 
       tests('#delete_static_large_object with missing manifest') do
         response = Fog::Storage[:rackspace].delete_static_large_object(@directory.identity, 'fog_non_object')
 
         returns(200) { response.status }
-        returns(1) { response.body["Number Not Found"] }
-        returns("200 OK") { response.body["Response Status"]}
-        returns("") { response.body["Response Body"]}
+        returns(1) { response.body['Number Not Found'] }
+        returns('200 OK') { response.body['Response Status']}
+        returns('') { response.body['Response Body']}
       end
 
       tests('#delete_static_large_object with missing segment') do

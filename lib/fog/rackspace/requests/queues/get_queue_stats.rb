@@ -28,17 +28,17 @@ module Fog
           queue = mock_queue!(queue_name)
 
           payload = {
-            "claimed" => queue.claimed,
-            "total" => queue.total,
-            "free" => queue.free
+            'claimed' => queue.claimed,
+            'total' => queue.total,
+            'free' => queue.free
           }
 
-          report_message(payload, "oldest", queue.oldest)
-          report_message(payload, "newest", queue.newest)
+          report_message(payload, 'oldest', queue.oldest)
+          report_message(payload, 'newest', queue.newest)
 
           response = Excon::Response.new
           response.status = 200
-          response.body = { "messages" => payload }
+          response.body = { 'messages' => payload }
           response
         end
 
@@ -49,9 +49,9 @@ module Fog
 
           ctime = Time.at(element.created).utc
           payload[description] = {
-            "age" => element.age,
-            "href" => element.href,
-            "created" => ctime.strftime("%Y-%m-%dT%I:%M:%SZ")
+            'age' => element.age,
+            'href' => element.href,
+            'created' => ctime.strftime('%Y-%m-%dT%I:%M:%SZ')
           }
         end
       end

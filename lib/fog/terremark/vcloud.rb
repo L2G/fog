@@ -100,8 +100,8 @@ module Fog
      def default_ssh_key
          if default_ssh_key
              @default_ssh_key ||= begin
-                keys = get_keys_list(default_organization_id).body["Keys"]
-                keys.find { |item| item["IsDefault"] == "true" }
+                keys = get_keys_list(default_organization_id).body['Keys']
+                keys.find { |item| item['IsDefault'] == 'true' }
             end
          end
      end
@@ -111,7 +111,7 @@ module Fog
 
        def initialize(option = {})
          super
-         @base_url = Fog::Terremark::Vcloud::Defaults::SCHEME + "://" +
+         @base_url = Fog::Terremark::Vcloud::Defaults::SCHEME + '://' +
                      Fog::Terremark::Vcloud::Defaults::HOST +
                      Fog::Terremark::Vcloud::Defaults::PATH
 

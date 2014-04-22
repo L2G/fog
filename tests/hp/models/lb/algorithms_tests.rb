@@ -7,7 +7,7 @@ Shindo.tests('HP::LB | algorithms collection', ['hp', 'lb', 'algorithms']) do
     end
 
     tests('#get("ROUND_ROBIN")').succeeds do
-      HP[:lb].algorithms.get("ROUND_ROBIN")
+      HP[:lb].algorithms.get('ROUND_ROBIN')
     end
 
   end

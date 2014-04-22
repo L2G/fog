@@ -127,9 +127,9 @@ module Fog
         end
 
         def array_to_query_string(arr)
-          return "" unless arr
+          return '' unless arr
           query_array = arr.collect do | k, v |
-            val_str = v.is_a?(Array) ? v.join(",") : v.to_s
+            val_str = v.is_a?(Array) ? v.join(',') : v.to_s
             "#{k}=#{val_str}"
           end
 
@@ -145,7 +145,7 @@ module Fog
         private
 
         def deprecation_warnings(options)
-          Fog::Logger.deprecation("The :rackspace_dns_endpoint option is deprecated. Please use :rackspace_dns_url for custom endpoints") if options[:rackspace_dns_endpoint]
+          Fog::Logger.deprecation('The :rackspace_dns_endpoint option is deprecated. Please use :rackspace_dns_url for custom endpoints') if options[:rackspace_dns_endpoint]
         end
 
         def setup_endpoint(credentials)

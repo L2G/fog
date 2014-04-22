@@ -5,8 +5,8 @@ module Fog
         def add_flavor_access(flavor_ref, tenant_id)
           request(
             :body => Fog::JSON.encode({
-              "addTenantAccess" => {
-                "tenant" => tenant_id
+              'addTenantAccess' => {
+                'tenant' => tenant_id
               }
             }),
             :expects  => [200, 203],
@@ -21,7 +21,7 @@ module Fog
           response = Excon::Response.new
           response.status = 200
           response.body = {
-            "flavor_access" => [{ "tenant_id" => tenant_id.to_s, "flavor_id" => flavor_ref.to_s }]
+            'flavor_access' => [{ 'tenant_id' => tenant_id.to_s, 'flavor_id' => flavor_ref.to_s }]
           }
           response
         end

@@ -6,14 +6,14 @@ Shindo.tests('Fog::Compute[:brightbox] | cloud ip requests', ['brightbox']) do
       @server = Brightbox::Compute::TestSupport.get_test_server
     end
 
-    tests("#create_cloud_ip") do
+    tests('#create_cloud_ip') do
       pending if Fog.mocking?
       result = Fog::Compute[:brightbox].create_cloud_ip
-      @cloud_ip_id = result["id"]
+      @cloud_ip_id = result['id']
       data_matches_schema(Brightbox::Compute::Formats::Full::CLOUD_IP, {:allow_extra_keys => true}) { result }
     end
 
-    tests("#list_cloud_ips") do
+    tests('#list_cloud_ips') do
       pending if Fog.mocking?
       result = Fog::Compute[:brightbox].list_cloud_ips
       data_matches_schema(Brightbox::Compute::Formats::Collection::CLOUD_IPS, {:allow_extra_keys => true}) { result }
@@ -26,7 +26,7 @@ Shindo.tests('Fog::Compute[:brightbox] | cloud ip requests', ['brightbox']) do
     end
 
     unless Fog.mocking?
-      map_options = {:destination => @server.interfaces.first["id"]}
+      map_options = {:destination => @server.interfaces.first['id']}
     end
 
     tests("#map_cloud_ip('#{@cloud_ip_id}', #{map_options.inspect})") do
@@ -53,7 +53,7 @@ Shindo.tests('Fog::Compute[:brightbox] | cloud ip requests', ['brightbox']) do
       pending if Fog.mocking?
       result = Fog::Compute[:brightbox].update_cloud_ip(@cloud_ip_id, update_options)
       data_matches_schema(Brightbox::Compute::Formats::Full::CLOUD_IP, {:allow_extra_keys => true}) { result }
-      result = Fog::Compute[:brightbox].update_cloud_ip(@cloud_ip_id, {:reverse_dns => ""})
+      result = Fog::Compute[:brightbox].update_cloud_ip(@cloud_ip_id, {:reverse_dns => ''})
     end
 
     tests("#destroy_cloud_ip('#{@cloud_ip_id}')") do
@@ -75,7 +75,7 @@ Shindo.tests('Fog::Compute[:brightbox] | cloud ip requests', ['brightbox']) do
       Fog::Compute[:brightbox].get_cloud_ip('cip-00000')
     end
 
-    tests("#get_cloud_ip").raises(ArgumentError) do
+    tests('#get_cloud_ip').raises(ArgumentError) do
       pending if Fog.mocking?
       Fog::Compute[:brightbox].get_cloud_ip
     end

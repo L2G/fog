@@ -7,7 +7,7 @@ module Fog
         class CheckDNSAvailability < Fog::Parsers::AWS::ElasticBeanstalk::BaseParser
 
           def initialize
-            super("CheckDNSAvailabilityResult")
+            super('CheckDNSAvailabilityResult')
             tag 'FullyQualifiedCNAME', :string
             tag 'Available', :boolean
           end

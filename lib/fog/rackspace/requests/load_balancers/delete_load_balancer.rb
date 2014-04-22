@@ -16,7 +16,7 @@ module Fog
         def delete_load_balancer(load_balancer_id)
           response = Excon::Response.new
           response.status = 202
-          response.body = ""
+          response.body = ''
         end
       end
 

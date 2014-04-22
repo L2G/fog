@@ -42,7 +42,7 @@ module Fog
         def deleteable?(instance_id)
           return false unless instance_exists? instance_id
           instance = self.data[:instances][instance_id]
-          return false if [0, 1, 7, 14, 15].include?(instance["status"].to_i)
+          return false if [0, 1, 7, 14, 15].include?(instance['status'].to_i)
           true
         end
 

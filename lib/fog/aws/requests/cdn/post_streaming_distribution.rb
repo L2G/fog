@@ -58,7 +58,7 @@ module Fog
               data << "<#{key}>#{value}</#{key}>"
             end
           end
-          data << "</StreamingDistributionConfig>"
+          data << '</StreamingDistributionConfig>'
           request({
             :body       => data,
             :expects    => 201,
@@ -66,7 +66,7 @@ module Fog
             :idempotent => true,
             :method     => 'POST',
             :parser     => Fog::Parsers::CDN::AWS::StreamingDistribution.new,
-            :path       => "/streaming-distribution"
+            :path       => '/streaming-distribution'
           })
         end
 

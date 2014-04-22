@@ -27,7 +27,7 @@ module Fog
             if traits.length == 1
               @tags[name] = traits.last
             else
-              raise "Too many traits specified, only specify :list or a type"
+              raise 'Too many traits specified, only specify :list or a type'
             end
 
           end
@@ -75,7 +75,7 @@ module Fog
               when :datetime
                 get_parent[name] = Time.parse value
               when :boolean
-                get_parent[name] = value == "true" # True only if value is true
+                get_parent[name] = value == 'true' # True only if value is true
               when :integer
                 get_parent[name] = value.to_i
               else

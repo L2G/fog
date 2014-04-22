@@ -34,7 +34,7 @@ module Fog
         include Utils
 
         def get_usage(access_key_id, options = {})
-          response = @connection.get_object('riak-cs', ["usage", request_uri(access_key_id, options)].join("/"))
+          response = @connection.get_object('riak-cs', ['usage', request_uri(access_key_id, options)].join('/'))
 
           if !response.body.empty?
             response.body = Fog::JSON.decode(response.body)

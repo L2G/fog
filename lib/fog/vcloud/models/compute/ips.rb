@@ -13,7 +13,7 @@ module Fog
 
         def all
           self.href = service.default_vdc_href unless self.href
-          check_href!( :messages => "Ips href of a Network you want to enumerate" )
+          check_href!( :messages => 'Ips href of a Network you want to enumerate' )
           if data = service.get_network_ips(href).body[:IpAddress]
             load(data)
           end

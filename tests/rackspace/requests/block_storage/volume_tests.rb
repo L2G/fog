@@ -34,7 +34,7 @@ Shindo.tests('Fog::Rackspace::BlockStorage | volume_tests', ['rackspace']) do
       data
     end
 
-    tests("#list_volumes").formats(list_volume_format) do
+    tests('#list_volumes').formats(list_volume_format) do
       service.list_volumes.body
     end
 
@@ -48,11 +48,11 @@ Shindo.tests('Fog::Rackspace::BlockStorage | volume_tests', ['rackspace']) do
   end
 
   tests('failure') do
-    tests("#create_volume(-1)").raises(Fog::Rackspace::BlockStorage::BadRequest) do
+    tests('#create_volume(-1)').raises(Fog::Rackspace::BlockStorage::BadRequest) do
       service.create_volume(-1)
     end
 
-    tests("#get_volume(-1)").raises(Fog::Rackspace::BlockStorage::NotFound) do
+    tests('#get_volume(-1)').raises(Fog::Rackspace::BlockStorage::NotFound) do
       service.get_volume(-1)
     end
   end

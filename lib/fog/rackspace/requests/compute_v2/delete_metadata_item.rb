@@ -27,7 +27,7 @@ module Fog
           raise Fog::Compute::RackspaceV2::NotFound if obj_id == 0
 
           response = Excon::Response.new
-          response.body = ""
+          response.body = ''
           response.status = 204
           response
         end

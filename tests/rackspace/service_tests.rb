@@ -15,7 +15,7 @@ Shindo.tests('Fog::Rackspace::Service', ['rackspace']) do
 
     tests('processes body').returns({'a' => 2, 'b' => 3}) do
       response = Excon::Response.new
-      response.headers['Content-Type'] = "application/json"
+      response.headers['Content-Type'] = 'application/json'
       response.body = "{\"a\":2,\"b\":3}"
       @service.send(:process_response, response)
       response.body
@@ -23,7 +23,7 @@ Shindo.tests('Fog::Rackspace::Service', ['rackspace']) do
 
     tests('process body with hash').returns({:a => 2, :b => 3}) do
       response = Excon::Response.new
-      response.headers['Content-Type'] = "application/json"
+      response.headers['Content-Type'] = 'application/json'
       response.body = {:a => 2, :b => 3}
       @service.send(:process_response, response)
       response.body
@@ -31,8 +31,8 @@ Shindo.tests('Fog::Rackspace::Service', ['rackspace']) do
 
     tests('handles malformed json').returns({}) do
       response = Excon::Response.new
-      response.headers['Content-Type'] = "application/json"
-      response.body = "I am totally not json"
+      response.headers['Content-Type'] = 'application/json'
+      response.body = 'I am totally not json'
       @service.send(:process_response, response)
       response.body
     end
@@ -42,7 +42,7 @@ Shindo.tests('Fog::Rackspace::Service', ['rackspace']) do
   tests('headers') do
     # adding an implementation for auth_token to service instance. Normally this would come from a subclass.
     def @service.auth_token
-      "my_auth_token"
+      'my_auth_token'
     end
 
     HEADER_HASH = {
@@ -66,12 +66,12 @@ Shindo.tests('Fog::Rackspace::Service', ['rackspace']) do
 
   tests('request_params') do
     REQUEST_HASH = {
-      :path => "/endpoint/my_service",
-      :headers => {"Content-Type" => "application/json", "Accept" => "application/json", "X-Auth-Token" => "my_auth_token"},
+      :path => '/endpoint/my_service',
+      :headers => {'Content-Type' => 'application/json', 'Accept' => 'application/json', 'X-Auth-Token' => 'my_auth_token'},
     }.freeze
 
-    uri = URI.parse("http://fog.io/endpoint")
-    @service.instance_variable_set("@uri", uri)
+    uri = URI.parse('http://fog.io/endpoint')
+    @service.instance_variable_set('@uri', uri)
     params = {:path => 'my_service'}
 
     tests('returns request hash').returns(REQUEST_HASH) do

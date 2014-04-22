@@ -227,8 +227,8 @@ module Fog
           :instance_store_volumes  => 2
         },
         {
-          :id                      => "hi1.4xlarge",
-          :name                    => "High I/O Quadruple Extra Large Instance",
+          :id                      => 'hi1.4xlarge',
+          :name                    => 'High I/O Quadruple Extra Large Instance',
           :bits                    => 64,
           :cores                   =>   35,
           :disk                    => 2048,

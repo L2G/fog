@@ -18,7 +18,7 @@ module Fog
         attribute :location_id
         attribute :ips
         attribute :memory
-        attribute :state,       :aliases => "status"
+        attribute :state,       :aliases => 'status'
         attribute :storage
         attribute :template
         attribute :ipv6_only
@@ -79,7 +79,7 @@ module Fog
           options = {}
 
           unless persisted?  # new record
-            raise(ArgumentError, "password or public_key is required for this operation") if !password && !public_key
+            raise(ArgumentError, 'password or public_key is required for this operation') if !password && !public_key
             options['ssh_public_key'] = public_key if public_key
             options['password'] = password if @password
           end

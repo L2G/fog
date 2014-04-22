@@ -71,11 +71,11 @@ Shindo.tests('Fog::Rackspace::LoadBalancers | node_tests', ['rackspace']) do
 
       tests('success') do
         @lb.wait_for { ready? }
-        tests("#delete_nodes(multiple node)").succeeds do
+        tests('#delete_nodes(multiple node)').succeeds do
           @service.delete_nodes(@lb.id, *@nodes_created)
         end
         @lb.wait_for { ready? }
-        tests("#delete_node()").succeeds do
+        tests('#delete_node()').succeeds do
           node_id = @service.create_node(@lb.id, '1.1.1.3', 80, 'ENABLED').body['nodes'][0]['id']
           @lb.wait_for { ready? }
           @service.delete_node(@lb.id, node_id)

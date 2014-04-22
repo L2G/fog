@@ -6,7 +6,7 @@ module Fog
 
       requires :glesys_username, :glesys_api_key
 
-      API_URL = "https://api.glesys.com"
+      API_URL = 'https://api.glesys.com'
 
       model_path 'fog/glesys/models/compute'
       collection  :servers
@@ -90,7 +90,7 @@ module Fog
             parser = options.delete(:parser)
             data = @connection.request(
               :expects => 200,
-              :method  => "POST",
+              :method  => 'POST',
               :body    => urlencode(options),
               :parser  => parser,
               :path    => method_name,
@@ -126,7 +126,7 @@ module Fog
         end
 
         def urlencode(hash)
-          hash.to_a.collect! { |k, v| "#{k}=#{v}" }.join("&")
+          hash.to_a.collect! { |k, v| "#{k}=#{v}" }.join('&')
         end
 
       end

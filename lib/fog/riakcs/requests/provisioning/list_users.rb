@@ -26,13 +26,13 @@ module Fog
             response.status = 200
             response.body   = filtered_data.map do |key, value|
               {
-                "email"        => value[:email],
-                "display_name" => value[:name],
-                "name"         => "user123",
-                "key_id"       => key,
-                "key_secret"   => value[:key_secret],
-                "id"           => "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX",
-                "status"       => value[:status]
+                'email'        => value[:email],
+                'display_name' => value[:name],
+                'name'         => 'user123',
+                'key_id'       => key,
+                'key_secret'   => value[:key_secret],
+                'id'           => 'XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX',
+                'status'       => value[:status]
               }
             end.compact
           end

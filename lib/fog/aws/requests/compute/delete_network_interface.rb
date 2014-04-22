@@ -31,7 +31,7 @@ module Fog
           if self.data[:network_interfaces][network_interface_id]
 
             if self.data[:network_interfaces][network_interface_id]['attachment']['attachmentId']
-              raise Fog::Compute::AWS::Error.new("Interface is in use")
+              raise Fog::Compute::AWS::Error.new('Interface is in use')
             end
 
             self.data[:network_interfaces].delete(network_interface_id)

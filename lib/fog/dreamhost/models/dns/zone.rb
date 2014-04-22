@@ -39,9 +39,9 @@ module Fog
         #
         def nameservers
           [
-           "ns1.dreamhost.com",
-           "ns2.dreamhost.com",
-           "ns3.dreamhost.com",
+           'ns1.dreamhost.com',
+           'ns2.dreamhost.com',
+           'ns3.dreamhost.com',
           ]
         end
 

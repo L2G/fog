@@ -10,7 +10,7 @@ Shindo.tests('Fog::Compute[:ibm] | key', ['ibm']) do
       returns(@key_name) { @key.name }
     end
 
-    tests("Fog::Compute::IBM::Key#instances") do
+    tests('Fog::Compute::IBM::Key#instances') do
       returns([]) { @key.instances }
     end
 

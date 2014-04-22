@@ -27,7 +27,7 @@ module Fog
           options = {
             'description' => description,
             'host' => host,
-            'requestPath' => request_path || "/",
+            'requestPath' => request_path || '/',
             'port' => port || 80,
             'checkIntervalSec' => check_interval_sec || 5,
             'timeoutSec' => timeout_sec || 5,
@@ -48,8 +48,8 @@ module Fog
             # wait until "DONE" to ensure the operation doesn't fail, raises
             # exception on error
             Fog.wait_for do
-              operation = service.get_global_operation(operation.body["name"])
-              operation.body["status"] == "DONE"
+              operation = service.get_global_operation(operation.body['name'])
+              operation.body['status'] == 'DONE'
             end
           end
           operation
@@ -78,7 +78,7 @@ module Fog
           self
         end
 
-        RUNNING_STATE = "READY"
+        RUNNING_STATE = 'READY'
       end
     end
   end

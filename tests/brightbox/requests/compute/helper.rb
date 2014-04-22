@@ -14,7 +14,7 @@ class Brightbox
       def self.image_id
         return @image_id unless @image_id.nil?
         image = select_testing_image_from_api
-        @image_id = image["id"]
+        @image_id = image['id']
       rescue
         @image_id = nil
       end
@@ -24,7 +24,7 @@ class Brightbox
         test_server_options = {:image_id => image_id}
         server = Fog::Compute[:brightbox].servers.create(test_server_options)
         server.wait_for {
-          raise "Test server failed to build" if state == "failed"
+          raise 'Test server failed to build' if state == 'failed'
           ready?
         }
         server
@@ -33,8 +33,8 @@ class Brightbox
       private
       def self.select_testing_image_from_api
         images = Fog::Compute[:brightbox].list_images
-        raise "No available images!" if images.empty?
-        images.select { |img| img["official"] && img["virtual_size"] != 0 }.sort_by { |img| img["disk_size"] }.first || images.first
+        raise 'No available images!' if images.empty?
+        images.select { |img| img['official'] && img['virtual_size'] != 0 }.sort_by { |img| img['disk_size'] }.first || images.first
       end
     end
   end

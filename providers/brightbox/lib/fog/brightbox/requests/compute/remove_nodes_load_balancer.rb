@@ -14,8 +14,8 @@ module Fog
         # @see https://api.gb1.brightbox.com/1.0/#load_balancer_remove_nodes_load_balancer
         #
         def remove_nodes_load_balancer(identifier, options)
-          return nil if identifier.nil? || identifier == ""
-          wrapped_request("post", "/1.0/load_balancers/#{identifier}/remove_nodes", [202], options)
+          return nil if identifier.nil? || identifier == ''
+          wrapped_request('post', "/1.0/load_balancers/#{identifier}/remove_nodes", [202], options)
         end
 
       end

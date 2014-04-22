@@ -97,7 +97,7 @@ module Fog
           end
 
           def generate_xml
-            output = ""
+            output = ''
             output << header
             @items.each do |item|
               output << case item[:resource_type]

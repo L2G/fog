@@ -6,13 +6,13 @@ Shindo.tests('Fog::Rackspace::Monitoring | check', ['rackspace','rackspace_monit
   tests('#entity=') do
     tests('should create new entity if object is a string') do
       check = Fog::Rackspace::Monitoring::Check.new
-      id = "123123"
-      check.entity = "123123"
+      id = '123123'
+      check.entity = '123123'
       returns(Fog::Rackspace::Monitoring::Entity) { check.entity.class }
       returns(id) { check.entity.id }
     end
     tests('should set entity if object is an entity') do
-      id = "555"
+      id = '555'
       entity = Fog::Rackspace::Monitoring::Entity.new(:id => id)
       check = Fog::Rackspace::Monitoring::Check.new
       check.entity = entity

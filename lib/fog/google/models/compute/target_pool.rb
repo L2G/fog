@@ -13,12 +13,12 @@ module Fog
         attribute :id, :aliases => 'id'
         attribute :creation_timestamp, :aliases => 'creationTimestamp'
         attribute :description, :aliases => 'description'
-        attribute :region, :aliases => "region"
-        attribute :health_checks, :aliases => "healthChecks"
-        attribute :instances, :aliases => "instances"
-        attribute :session_affinity, :aliases => "sessionAffinity"
-        attribute :failover_ratio, :aliases => "failoverRatio"
-        attribute :backup_pool, :aliases => "backupPool"
+        attribute :region, :aliases => 'region'
+        attribute :health_checks, :aliases => 'healthChecks'
+        attribute :instances, :aliases => 'instances'
+        attribute :session_affinity, :aliases => 'sessionAffinity'
+        attribute :failover_ratio, :aliases => 'failoverRatio'
+        attribute :backup_pool, :aliases => 'backupPool'
 
 
         def save
@@ -47,8 +47,8 @@ module Fog
             # wait until "DONE" to ensure the operation doesn't fail, raises
             # exception on error
             Fog.wait_for do
-              operation = service.get_region_operation(region, operation.body["name"])
-              operation.body["status"] == "DONE"
+              operation = service.get_region_operation(region, operation.body['name'])
+              operation.body['status'] == 'DONE'
             end
           end
           operation
@@ -105,7 +105,7 @@ module Fog
           self
         end
 
-        RUNNING_STATE = "READY"
+        RUNNING_STATE = 'READY'
       end
     end
   end

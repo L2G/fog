@@ -6,7 +6,7 @@ module Fog
           request(
             :expects => [200],
             :method  => 'POST',
-            :path    => "tenants",
+            :path    => 'tenants',
             :body    => Fog::JSON.encode({ 'tenant' => attributes })
           )
         end # def create_tenant
@@ -18,7 +18,7 @@ module Fog
           response.status = [200, 204][rand(1)]
           response.body = {
             'tenant' => {
-              'id' => "df9a815161eba9b76cc748fd5c5af73e",
+              'id' => 'df9a815161eba9b76cc748fd5c5af73e',
               'description' => attributes[:description] || 'normal tenant',
               'enabled' => true,
               'name' => attributes[:name] || 'default'

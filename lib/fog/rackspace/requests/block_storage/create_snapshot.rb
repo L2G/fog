@@ -41,7 +41,7 @@ module Fog
             :body => Fog::JSON.encode(data),
             :expects => [200],
             :method => 'POST',
-            :path => "snapshots"
+            :path => 'snapshots'
           )
         end
       end
@@ -53,23 +53,23 @@ module Fog
             raise Fog::Rackspace::BlockStorage::NotFound
           else
             snapshot_id         = Fog::Rackspace::MockData.uuid
-            display_name        = options[:display_name] || "test snapshot"
-            display_description = options[:display_description] || "test snapshot description"
+            display_name        = options[:display_name] || 'test snapshot'
+            display_description = options[:display_description] || 'test snapshot description'
 
             snapshot = {
-              "id"                  => snapshot_id,
-              "display_name"        => display_name,
-              "display_description" => display_description,
-              "volume_id"           => volume_id,
-              "status"              => "available",
-              "size"                => volume["size"],
-              "created_at"          => Fog::Rackspace::MockData.zulu_time,
-              "availability_zone"   => "nova",
+              'id'                  => snapshot_id,
+              'display_name'        => display_name,
+              'display_description' => display_description,
+              'volume_id'           => volume_id,
+              'status'              => 'available',
+              'size'                => volume['size'],
+              'created_at'          => Fog::Rackspace::MockData.zulu_time,
+              'availability_zone'   => 'nova',
             }
 
             self.data[:snapshots][snapshot_id] = snapshot
 
-            response(:body => {"snapshot" => snapshot})
+            response(:body => {'snapshot' => snapshot})
           end
         end
       end

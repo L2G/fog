@@ -1,4 +1,4 @@
-Shindo.tests("Storage[:internetarchive] | file", ["internetarchive"]) do
+Shindo.tests('Storage[:internetarchive] | file', ['internetarchive']) do
 
   # Fog.mock!
 
@@ -21,13 +21,13 @@ Shindo.tests("Storage[:internetarchive] | file", ["internetarchive"]) do
 
   model_tests(@directory.files, file_attributes, Fog.mocking?) do
 
-    tests("#set_metadata_array_headers") do
+    tests('#set_metadata_array_headers') do
 
       @instance.collections = ['test_collection', 'opensource']
       @options = {}
       @instance.set_metadata_array_headers(:collections, @options)
 
-      tests("#set_metadata_array_headers should set options").returns(true) do
+      tests('#set_metadata_array_headers should set options').returns(true) do
         @options['x-archive-meta01-collection'] == 'opensource' &&
         @options['x-archive-meta02-collection'] == 'test_collection'
       end
@@ -37,15 +37,15 @@ Shindo.tests("Storage[:internetarchive] | file", ["internetarchive"]) do
 
   model_tests(@directory.files, file_attributes, Fog.mocking?) do
 
-    tests("multipart upload") do
+    tests('multipart upload') do
       pending if Fog.mocking?
 
       # A 6MB file
-      @large_file = Tempfile.new("fog-test-ia-s3-multipart")
-      6.times { @large_file.write("x" * (1024**2)) }
+      @large_file = Tempfile.new('fog-test-ia-s3-multipart')
+      6.times { @large_file.write('x' * (1024**2)) }
       @large_file.rewind
 
-      tests("#save(:multipart_chunk_size => 5242880)").succeeds do
+      tests('#save(:multipart_chunk_size => 5242880)').succeeds do
         @directory.files.create(:key => 'multipart-upload', :body => @large_file, :multipart_chunk_size => 5242880)
       end
 

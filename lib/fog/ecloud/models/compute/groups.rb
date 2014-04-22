@@ -11,12 +11,12 @@ module Fog
 
         def all
           data = service.get_groups(href).body
-          data = if data == ""
-                   ""
+          data = if data == ''
+                   ''
                  else
                    data[:Groups] ? data[:Groups][:Group] : data
                  end
-          if data == "" || !data.is_a?(Array) && data[:type] == "application/vnd.tmrk.cloud.layoutRow"
+          if data == '' || !data.is_a?(Array) && data[:type] == 'application/vnd.tmrk.cloud.layoutRow'
             nil
           else
             load(data)
@@ -25,7 +25,7 @@ module Fog
 
         def get(uri)
           data = service.get_group(uri).body
-          if data == ""
+          if data == ''
             nil
           else
             new(data)

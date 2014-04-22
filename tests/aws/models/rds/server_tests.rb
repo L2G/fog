@@ -1,10 +1,10 @@
-Shindo.tests("AWS::RDS | server", ['aws', 'rds']) do
+Shindo.tests('AWS::RDS | server', ['aws', 'rds']) do
   # Disabled due to https://github.com/fog/fog/1546
   pending
 
   model_tests(Fog::AWS[:rds].servers, rds_default_server_params) do
     # We'll need this later; create it early to avoid waiting
-    @instance_with_final_snapshot = Fog::AWS[:rds].servers.create(rds_default_server_params.merge(:id => uniq_id("fog-snapshot-test"), :backup_retention_period => 1))
+    @instance_with_final_snapshot = Fog::AWS[:rds].servers.create(rds_default_server_params.merge(:id => uniq_id('fog-snapshot-test'), :backup_retention_period => 1))
 
     @instance.wait_for(20 * 60) { ready? }
 
@@ -27,7 +27,7 @@ Shindo.tests("AWS::RDS | server", ['aws', 'rds']) do
       snapshot.destroy
     end
 
-    tests("#modify").succeeds do
+    tests('#modify').succeeds do
       pending if Fog.mocking?
 
       orig_parameter_group = @instance.db_parameter_groups.first['DBParameterGroupName']
@@ -48,7 +48,7 @@ Shindo.tests("AWS::RDS | server", ['aws', 'rds']) do
         @instance.db_parameter_groups.first['DBParameterGroupName']
       end
 
-      returns(true, "new security group") do
+      returns(true, 'new security group') do
         @instance.db_security_groups.any?{|hash| hash['DBSecurityGroupName'] == security_group.id}
       end
 
@@ -75,7 +75,7 @@ Shindo.tests("AWS::RDS | server", ['aws', 'rds']) do
       security_group.destroy
     end
 
-    tests("#reboot").succeeds do
+    tests('#reboot').succeeds do
       @instance.reboot
     end
     @instance.wait_for { state == 'rebooting' }
@@ -92,12 +92,12 @@ Shindo.tests("AWS::RDS | server", ['aws', 'rds']) do
       replica.destroy
     end
 
-    test("Destroying with a final snapshot") do
+    test('Destroying with a final snapshot') do
       final_snapshot_id = 'fog-test-snapshot'
 
       @instance_with_final_snapshot.wait_for { ready? }
       @instance_with_final_snapshot.destroy(final_snapshot_id)
-      returns(true, "Final snapshot created") do
+      returns(true, 'Final snapshot created') do
         @final_snapshot = Fog::AWS[:rds].snapshots.get(final_snapshot_id)
         !@final_snapshot.nil?
       end

@@ -20,27 +20,27 @@ Shindo.tests('Fog::Rackspace::Storage | metadata', ['rackspace']) do
     tests('#to_key') do
       tests('valid key').returns(:image_size) do
         metadata = Fog::Storage::Rackspace::Metadata.new @directory
-        metadata.send(:to_key, "X-Container-Meta-Image-Size")
+        metadata.send(:to_key, 'X-Container-Meta-Image-Size')
       end
       tests('invalid key').returns(nil) do
         metadata = Fog::Storage::Rackspace::Metadata.new @directory
-        metadata.send(:to_key, "bad-key")
+        metadata.send(:to_key, 'bad-key')
       end
     end
 
     tests('#to_header_key') do
       metadata = Fog::Storage::Rackspace::Metadata.new @directory
 
-      tests('key to add').returns("X-Container-Meta-Thumbnail-Image") do
+      tests('key to add').returns('X-Container-Meta-Thumbnail-Image') do
         metadata.send(:to_header_key, :thumbnail_image, true)
       end
 
-      tests('key to remove').returns("X-Remove-Container-Meta-Thumbnail-Image") do
+      tests('key to remove').returns('X-Remove-Container-Meta-Thumbnail-Image') do
         metadata.send(:to_header_key, :thumbnail_image, nil)
       end
     end
 
-    tests('#to_headers').returns({"X-Container-Meta-Preview" => true, "X-Remove-Container-Meta-Delete-Me" => 1}) do
+    tests('#to_headers').returns({'X-Container-Meta-Preview' => true, 'X-Remove-Container-Meta-Delete-Me' => 1}) do
       metadata = Fog::Storage::Rackspace::Metadata.new @directory
       metadata[:preview] = true
       metadata[:delete_me] = nil
@@ -48,18 +48,18 @@ Shindo.tests('Fog::Rackspace::Storage | metadata', ['rackspace']) do
       metadata.to_headers
     end
 
-  tests("#from_headers").returns({:my_boolean => "true", :my_integer => "42", :my_string => "I am a string"}) do
+  tests('#from_headers').returns({:my_boolean => 'true', :my_integer => '42', :my_string => 'I am a string'}) do
     headers = {
-      "X-Container-Meta-My-Integer" => "42",
-      "X-Container-Meta-My-Boolean" => "true",
-      "X-Container-Meta-My-String" => "I am a string"
+      'X-Container-Meta-My-Integer' => '42',
+      'X-Container-Meta-My-Boolean' => 'true',
+      'X-Container-Meta-My-String' => 'I am a string'
     }
 
       metadata = Fog::Storage::Rackspace::Metadata.from_headers @directory, headers
       metadata.data
     end
 
-     tests("#delete").returns({"X-Remove-Container-Meta-Delete-Me" => 1}) do
+     tests('#delete').returns({'X-Remove-Container-Meta-Delete-Me' => 1}) do
        metadata = Fog::Storage::Rackspace::Metadata.new @directory
         metadata.delete(:delete_me)
 
@@ -73,27 +73,27 @@ Shindo.tests('Fog::Rackspace::Storage | metadata', ['rackspace']) do
      tests('#to_key') do
        tests('valid key').returns(:image_size) do
          metadata = Fog::Storage::Rackspace::Metadata.new @file
-         metadata.send(:to_key, "X-Object-Meta-Image-Size")
+         metadata.send(:to_key, 'X-Object-Meta-Image-Size')
        end
        tests('invalid key').returns(nil) do
          metadata = Fog::Storage::Rackspace::Metadata.new @file
-         metadata.send(:to_key, "bad-key")
+         metadata.send(:to_key, 'bad-key')
        end
      end
 
      tests('#to_header_key') do
        metadata = Fog::Storage::Rackspace::Metadata.new @file
 
-       tests('key to add').returns("X-Object-Meta-Thumbnail-Image") do
+       tests('key to add').returns('X-Object-Meta-Thumbnail-Image') do
          metadata.send(:to_header_key, :thumbnail_image, true)
        end
 
-       tests('key to remove').returns("X-Remove-Object-Meta-Thumbnail-Image") do
+       tests('key to remove').returns('X-Remove-Object-Meta-Thumbnail-Image') do
          metadata.send(:to_header_key, :thumbnail_image, nil)
        end
      end
 
-     tests('#to_headers').returns({"X-Object-Meta-Preview" => true, "X-Remove-Object-Meta-Delete-Me" => 1}) do
+     tests('#to_headers').returns({'X-Object-Meta-Preview' => true, 'X-Remove-Object-Meta-Delete-Me' => 1}) do
        metadata = Fog::Storage::Rackspace::Metadata.new @file
        metadata[:preview] = true
        metadata[:delete_me] = nil
@@ -101,18 +101,18 @@ Shindo.tests('Fog::Rackspace::Storage | metadata', ['rackspace']) do
        metadata.to_headers
      end
 
-     tests("#from_headers").returns({:my_boolean => "true", :my_integer => "42", :my_string => "I am a string"}) do
+     tests('#from_headers').returns({:my_boolean => 'true', :my_integer => '42', :my_string => 'I am a string'}) do
        headers = {
-         "X-Object-Meta-My-Integer" => "42",
-         "X-Object-Meta-My-Boolean" => "true",
-         "X-Object-Meta-My-String" => "I am a string"
+         'X-Object-Meta-My-Integer' => '42',
+         'X-Object-Meta-My-Boolean' => 'true',
+         'X-Object-Meta-My-String' => 'I am a string'
        }
 
        metadata = Fog::Storage::Rackspace::Metadata.from_headers @file, headers
        metadata.data
      end
 
-      tests("#delete").returns({"X-Remove-Object-Meta-Delete-Me" => 1}) do
+      tests('#delete').returns({'X-Remove-Object-Meta-Delete-Me' => 1}) do
         metadata = Fog::Storage::Rackspace::Metadata.new @file
          metadata.delete(:delete_me)
 
@@ -120,7 +120,7 @@ Shindo.tests('Fog::Rackspace::Storage | metadata', ['rackspace']) do
       end
     end
 
-   tests("#respond_to?") do
+   tests('#respond_to?') do
      tests('Should respond to all of the methods in Hash class').returns(true) do
        metadata = Fog::Storage::Rackspace::Metadata.new @file
        Hash.instance_methods.all? {|method| metadata.respond_to?(method)}
@@ -131,7 +131,7 @@ Shindo.tests('Fog::Rackspace::Storage | metadata', ['rackspace']) do
      end
    end
 
-   tests("#method_missing").returns(true) do
+   tests('#method_missing').returns(true) do
      metadata = Fog::Storage::Rackspace::Metadata.new @file
       metadata[:test] = true
       metadata[:test]
@@ -146,7 +146,7 @@ Shindo.tests('Fog::Rackspace::Storage | metadata', ['rackspace']) do
      assert_directory Fog::Storage::Rackspace::Files, false
      assert_directory Fog::Storage::Rackspace::File, false
      assert_directory Fog::Storage::Rackspace::File.new, false
-     assert_directory "I am a string!", false
+     assert_directory 'I am a string!', false
    end
 
    tests('#file?') do
@@ -158,7 +158,7 @@ Shindo.tests('Fog::Rackspace::Storage | metadata', ['rackspace']) do
      assert_file Fog::Storage::Rackspace::Files, true
      assert_file Fog::Storage::Rackspace::File, true
      assert_file Fog::Storage::Rackspace::File.new, true
-     assert_file "I am a string!", false
+     assert_file 'I am a string!', false
    end
 
    tests('#parent_class') do

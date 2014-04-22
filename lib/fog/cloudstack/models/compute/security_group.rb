@@ -6,12 +6,12 @@ module Fog
         attribute :name,                                     :type => :string
         attribute :description,                              :type => :string
         attribute :account,                                  :type => :string
-        attribute :domain_id,     :aliases => "domainid",    :type => :string
-        attribute :domain_name,   :aliases => "domain",      :type => :string
-        attribute :project_id,    :aliases => "projectid",   :type => :string
-        attribute :project_name,  :aliases => "project",     :type => :string
-        attribute :ingress_rules, :aliases => "ingressrule", :type => :array
-        attribute :egress_rules,  :aliases => "egressrule",  :type => :array
+        attribute :domain_id,     :aliases => 'domainid',    :type => :string
+        attribute :domain_name,   :aliases => 'domain',      :type => :string
+        attribute :project_id,    :aliases => 'projectid',   :type => :string
+        attribute :project_name,  :aliases => 'project',     :type => :string
+        attribute :ingress_rules, :aliases => 'ingressrule', :type => :array
+        attribute :egress_rules,  :aliases => 'egressrule',  :type => :array
 
         def destroy
           requires :id
@@ -42,7 +42,7 @@ module Fog
         end
 
         def rules
-          service.security_group_rules.all("security_group_id" => self.id)
+          service.security_group_rules.all('security_group_id' => self.id)
         end
       end # SecurityGroup
     end # Cloudstack

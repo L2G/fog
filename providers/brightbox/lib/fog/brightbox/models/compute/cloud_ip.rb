@@ -18,12 +18,12 @@ module Fog
         attribute :public_ip
 
         # Links - to be replaced
-        attribute :account_id, :aliases => "account", :squash => "id"
-        attribute :interface_id, :aliases => "interface", :squash => "id"
-        attribute :server_id, :aliases => "server", :squash => "id"
-        attribute :load_balancer, :alias => "load_balancer", :squash => "id"
-        attribute :server_group, :alias => "server_group", :squash => "id"
-        attribute :database_server, :alias => "database_server", :squash => "id"
+        attribute :account_id, :aliases => 'account', :squash => 'id'
+        attribute :interface_id, :aliases => 'interface', :squash => 'id'
+        attribute :server_id, :aliases => 'server', :squash => 'id'
+        attribute :load_balancer, :alias => 'load_balancer', :squash => 'id'
+        attribute :server_group, :alias => 'server_group', :squash => 'id'
+        attribute :database_server, :alias => 'database_server', :squash => 'id'
         attribute :port_translators
         attribute :name
 
@@ -44,7 +44,7 @@ module Fog
         end
 
         def mapped?
-          status == "mapped"
+          status == 'mapped'
         end
 
         def unmap

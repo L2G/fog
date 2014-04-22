@@ -20,11 +20,11 @@ module Fog
         # @raise [RuntimeError] raises excpetion if collection type for parent is unknown
         def collection_name
           if parent.class == Fog::Compute::RackspaceV2::Image
-            return "images"
+            return 'images'
           elsif parent.class == Fog::Compute::RackspaceV2::Server
-            return "servers"
+            return 'servers'
           else
-            raise "Metadata is not supported for this model type."
+            raise 'Metadata is not supported for this model type.'
           end
         end
 

@@ -9,7 +9,7 @@ module Fog
             if options[:credentials].is_a?(Boolean)
               query[:credentials] = options[:credentials]
             else
-              raise ArgumentError, "options[:credentials] must be a Boolean or nil"
+              raise ArgumentError, 'options[:credentials] must be a Boolean or nil'
             end
           end
 

@@ -17,59 +17,59 @@ module Fog
           response = Excon::Response.new
           response.status = 200
           response.body = {
-            "values" => [
+            'values' => [
               {
-                "name" => "idle_percent_average",
-                "unit" => "percent"
+                'name' => 'idle_percent_average',
+                'unit' => 'percent'
               },
-              { "name" => "irq_percent_average",
-                "unit" => "percent"
+              { 'name' => 'irq_percent_average',
+                'unit' => 'percent'
               },
-              { "name" => "max_cpu_usage",
-                "unit" => "percent"
+              { 'name' => 'max_cpu_usage',
+                'unit' => 'percent'
               },
-              { "name" => "min_cpu_usage",
-                "unit" => "percent"
+              { 'name' => 'min_cpu_usage',
+                'unit' => 'percent'
               },
-              { "name" => "stolen_percent_average",
-                "unit" => "percent"
+              { 'name' => 'stolen_percent_average',
+                'unit' => 'percent'
               },
-              { "name" => "sys_percent_average",
-                "unit" => "percent"
+              { 'name' => 'sys_percent_average',
+                'unit' => 'percent'
               },
               {
-                "name" => "usage_average",
-                "unit" => "percent"
+                'name' => 'usage_average',
+                'unit' => 'percent'
               },
-              { "name" => "user_percent_average",
-                "unit" => "percent"
+              { 'name' => 'user_percent_average',
+                'unit' => 'percent'
               },
-              { "name" => "wait_percent_average",
-                "unit" => "percent"
+              { 'name' => 'wait_percent_average',
+                'unit' => 'percent'
               }
             ],
 
-            "metadata" => {
-              "count"       => 9,
-              "limit"       => nil,
-              "marker"      => nil,
-              "next_marker" => nil,
-              "next_href"   => nil
+            'metadata' => {
+              'count'       => 9,
+              'limit'       => nil,
+              'marker'      => nil,
+              'next_marker' => nil,
+              'next_href'   => nil
             }
 
           }
 
           response.headers = {
-            "Date"                  => Time.now.utc.to_s,
-            "Content-Type"          => "application/json; charset=UTF-8",
-            "X-RateLimit-Limit"     => "50000",
-            "X-RateLimit-Remaining" => "49627",
-            "X-RateLimit-Window"    => "24 hours",
-            "X-RateLimit-Type"      => "global",
-            "X-Response-Id"         => "zsdvasdtrq345",
-            "X-LB"                  => "dfw1-maas-prod-api0",
-            "Vary"                  => "Accept-Encoding",
-            "Transfer-Encoding"     => "chunked"
+            'Date'                  => Time.now.utc.to_s,
+            'Content-Type'          => 'application/json; charset=UTF-8',
+            'X-RateLimit-Limit'     => '50000',
+            'X-RateLimit-Remaining' => '49627',
+            'X-RateLimit-Window'    => '24 hours',
+            'X-RateLimit-Type'      => 'global',
+            'X-Response-Id'         => 'zsdvasdtrq345',
+            'X-LB'                  => 'dfw1-maas-prod-api0',
+            'Vary'                  => 'Accept-Encoding',
+            'Transfer-Encoding'     => 'chunked'
           }
 
           response.remote_ip = Fog::Rackspace::MockData.ipv4_address

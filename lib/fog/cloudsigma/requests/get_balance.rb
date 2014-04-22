@@ -3,7 +3,7 @@ module Fog
     class CloudSigma
       class Real
         def get_balance
-          get_request("balance/")
+          get_request('balance/')
         end
       end
 

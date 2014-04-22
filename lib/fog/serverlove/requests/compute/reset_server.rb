@@ -4,7 +4,7 @@ module Fog
       class Real
 
         def reset_server(server_id)
-          request(:method => "post", :path => "/servers/#{server_id}/reset", :expects => 204)
+          request(:method => 'post', :path => "/servers/#{server_id}/reset", :expects => 204)
         end
 
       end

@@ -20,8 +20,8 @@ module Fog
 
         def create(options = {})
           user = options[:user] || 'root'
-          Fog::Logger.warning("Create Server")
-          data = service.create_server(Fog::UUID.uuid, options[:serverplan]).body["Server"]
+          Fog::Logger.warning('Create Server')
+          data = service.create_server(Fog::UUID.uuid, options[:serverplan]).body['Server']
           server = service.servers.new
           server.merge_attributes(data)
 
@@ -35,18 +35,18 @@ module Fog
 
         private
         def create_and_attach_volume(server, options)
-            Fog::Logger.warning("Create Volume")
+            Fog::Logger.warning('Create Volume')
             sakuracloud_api_token        = options[:sakuracloud_api_token] || Fog.credentials[:sakuracloud_api_token]
             sakuracloud_api_token_secret = options[:sakuracloud_api_token_secret] || Fog.credentials[:sakuracloud_api_token_secret]
             volume = Fog::Volume::SakuraCloud.new(:sakuracloud_api_token => sakuracloud_api_token, :sakuracloud_api_token_secret => sakuracloud_api_token_secret)
             disk = volume.disks.create :name => Fog::UUID.uuid,
                                 :plan  => options[:volume][:diskplan].to_i,
                                 :source_archive => options[:volume][:sourcearchive].to_s
-            Fog::Logger.warning("Waiting disk until available")
+            Fog::Logger.warning('Waiting disk until available')
             disk.wait_for { availability == 'available' }
             volume.attach_disk(disk.id, server.id)
             disk_attached?(server, disk.id)
-            Fog::Logger.warning("Modifing disk")
+            Fog::Logger.warning('Modifing disk')
             volume.configure_disk(disk.id, options[:sshkey])
             disk
         end

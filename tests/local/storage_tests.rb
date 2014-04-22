@@ -3,7 +3,7 @@ Shindo.tests('Local | storage') do
   pending if Fog.mocking?
 
   before do
-    @options = { :local_root => "~/.fog" }
+    @options = { :local_root => '~/.fog' }
   end
 
   tests('#endpoint') do

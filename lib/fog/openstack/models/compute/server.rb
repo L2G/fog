@@ -81,7 +81,7 @@ module Fog
         def metadata=(new_metadata = {})
           return unless new_metadata
           metas = []
-          new_metadata.each_pair {|k,v| metas << {"key" => k, "value" => v} }
+          new_metadata.each_pair {|k,v| metas << {'key' => k, 'value' => v} }
           @metadata = metadata.load(metas)
         end
 
@@ -104,7 +104,7 @@ module Fog
           # currently openstack API does not tell us what is a floating ip vs a fixed ip for the vm listing,
           # we fall back to get all addresses and filter sadly.
           # Only includes manually-assigned addresses, not auto-assigned
-          @all_addresses ||= service.list_all_addresses.body["floating_ips"].select{|data| data['instance_id'] == id}
+          @all_addresses ||= service.list_all_addresses.body['floating_ips'].select{|data| data['instance_id'] == id}
         end
 
         def reload
@@ -119,10 +119,10 @@ module Fog
         end
 
         def floating_ip_addresses
-          all_floating = addresses.values.flatten.select{ |data| data["OS-EXT-IPS:type"] == "floating" }.map{|addr| addr["addr"] }
+          all_floating = addresses.values.flatten.select{ |data| data['OS-EXT-IPS:type'] == 'floating' }.map{|addr| addr['addr'] }
 
           # Return them all, leading with manually assigned addresses
-          manual = all_addresses.map{|addr| addr["ip"]}
+          manual = all_addresses.map{|addr| addr['ip']}
 
           all_floating.sort{ |a,b|
             a_manual = manual.include? a
@@ -279,7 +279,7 @@ module Fog
         def volumes
           requires :id
           service.volumes.find_all do |vol|
-            vol.attachments.find { |attachment| attachment["serverId"] == id }
+            vol.attachments.find { |attachment| attachment['serverId'] == id }
           end
         end
 

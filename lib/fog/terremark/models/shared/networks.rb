@@ -20,7 +20,7 @@ module Fog
 
         def all
           data = service.get_vdc(vdc_id).body['AvailableNetworks'].map do |network|
-            service.get_network(network["href"].split("/").last).body
+            service.get_network(network['href'].split('/').last).body
           end
           load(data)
         end

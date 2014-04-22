@@ -19,7 +19,7 @@ module Fog
         def create_secondary(secondary_name, ip_addresses)
 
           body = {
-            "ip" => [*ip_addresses]
+            'ip' => [*ip_addresses]
           }
 
           request(

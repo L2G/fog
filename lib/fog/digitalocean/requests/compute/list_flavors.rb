@@ -19,14 +19,14 @@ module Fog
           response = Excon::Response.new
           response.status = 200
           response.body = {
-            "status" => "OK",
-            "sizes"  => [
-              {"id" => 33,"name" => "512MB"},
-              {"id" => 34,"name" => "1GB"},
-              {"id" => 35,"name" => "2GB"},
-              {"id" => 36,"name" => "4GB"},
-              {"id" => 37,"name" => "8GB"},
-              {"id" => 38,"name" => "16GB"}
+            'status' => 'OK',
+            'sizes'  => [
+              {'id' => 33,'name' => '512MB'},
+              {'id' => 34,'name' => '1GB'},
+              {'id' => 35,'name' => '2GB'},
+              {'id' => 36,'name' => '4GB'},
+              {'id' => 37,'name' => '8GB'},
+              {'id' => 38,'name' => '16GB'}
             ]
           }
           response

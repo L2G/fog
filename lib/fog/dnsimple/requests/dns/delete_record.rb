@@ -11,7 +11,7 @@ module Fog
         def delete_record(domain, record_id)
           request(
             :expects  => 200,
-            :method   => "DELETE",
+            :method   => 'DELETE',
             :path     => "/domains/#{domain}/records/#{record_id}"
           )
         end
@@ -21,7 +21,7 @@ module Fog
       class Mock
 
         def delete_record(domain, record_id)
-          self.data[:records][domain].reject! { |record| record["record"]["id"] == record_id }
+          self.data[:records][domain].reject! { |record| record['record']['id'] == record_id }
 
           response = Excon::Response.new
           response.status = 200

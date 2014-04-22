@@ -1,4 +1,4 @@
-Shindo.tests("Fog::Compute[:hp] | image requests", ['hp']) do
+Shindo.tests('Fog::Compute[:hp] | image requests', ['hp']) do
 
   @image_format = {
     'id'        => String,
@@ -18,11 +18,11 @@ Shindo.tests("Fog::Compute[:hp] | image requests", ['hp']) do
     'name'      => String
   }
 
-  @base_image_id = ENV["BASE_IMAGE_ID"] || 1242
+  @base_image_id = ENV['BASE_IMAGE_ID'] || 1242
 
   tests('success') do
-    @server_name = "fogservertest"
-    @image_name  = "fogimagetest"
+    @server_name = 'fogservertest'
+    @image_name  = 'fogimagetest'
     @server = Fog::Compute[:hp].servers.create(:name => @server_name, :flavor_id => 100, :image_id => @base_image_id)
     @server.wait_for { ready? }
     @image_id = nil
@@ -30,7 +30,7 @@ Shindo.tests("Fog::Compute[:hp] | image requests", ['hp']) do
     tests("#create_image(#{@server.id}, #{@image_name})").formats({}) do
       response = Fog::Compute[:hp].create_image(@server.id, @image_name)
       # no data is returned for the call, so get id off the header
-      @image_id = response.headers["Location"].split("/")[5]
+      @image_id = response.headers['Location'].split('/')[5]
       {}
     end
 

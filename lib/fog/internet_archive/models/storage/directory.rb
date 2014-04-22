@@ -33,7 +33,7 @@ module Fog
 
         # See http://archive.org/help/abouts3.txt
         def destroy
-          Fog::Logger.warning("fog: Internet Archive does not support deleting a Bucket (i.e. Item).  For details see: See http://archive.org/help/abouts3.txt")
+          Fog::Logger.warning('fog: Internet Archive does not support deleting a Bucket (i.e. Item).  For details see: See http://archive.org/help/abouts3.txt')
           false
         end
 

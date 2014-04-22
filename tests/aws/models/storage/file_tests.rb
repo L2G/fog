@@ -1,4 +1,4 @@
-Shindo.tests("Storage[:aws] | file", ["aws"]) do
+Shindo.tests('Storage[:aws] | file', ['aws']) do
 
   require 'tempfile'
 
@@ -9,14 +9,14 @@ Shindo.tests("Storage[:aws] | file", ["aws"]) do
   }
 
   directory_attributes = {
-    :key => uniq_id("fogfilestests")
+    :key => uniq_id('fogfilestests')
   }
 
   @directory = Fog::Storage[:aws].directories.create(directory_attributes)
 
   model_tests(@directory.files, file_attributes, Fog.mocking?) do
 
-    tests("#version") do
+    tests('#version') do
       tests("#version should be null if versioning isn't enabled").returns(nil) do
         @instance.version
       end
@@ -28,8 +28,8 @@ Shindo.tests("Storage[:aws] | file", ["aws"]) do
 
   model_tests(@directory.files, file_attributes, Fog.mocking?) do
 
-    tests("#version") do
-      tests("#version should not be null if versioning is enabled").returns(false) do
+    tests('#version') do
+      tests('#version should not be null if versioning is enabled').returns(false) do
         @instance.version == nil
       end
     end
@@ -38,7 +38,7 @@ Shindo.tests("Storage[:aws] | file", ["aws"]) do
     @directory.files.create(:key => @instance.key)
     @instance.destroy
 
-    tests("#versions") do
+    tests('#versions') do
       tests('#versions.size includes versions (including DeleteMarkers) for all keys').returns(3) do
         @instance.versions.size
       end
@@ -46,28 +46,28 @@ Shindo.tests("Storage[:aws] | file", ["aws"]) do
       tests('#versions are all for the correct key').returns(true) do
         # JRuby 1.7.5+ issue causes a SystemStackError: stack level too deep
         # https://github.com/jruby/jruby/issues/1265
-        pending if RUBY_PLATFORM == "java" and JRUBY_VERSION =~ /1\.7\.[5-8]/
+        pending if RUBY_PLATFORM == 'java' and JRUBY_VERSION =~ /1\.7\.[5-8]/
 
         @instance.versions.all? { |v| v.key == @instance.key }
       end
     end
 
-    tests("#destroy") do
-      tests("#destroy a specific version should delete the version, not create a DeleteMarker").returns(2) do
+    tests('#destroy') do
+      tests('#destroy a specific version should delete the version, not create a DeleteMarker').returns(2) do
         @instance.destroy('versionId' => @instance.version)
         @instance.versions.all.size
       end
     end
 
-    tests("multipart upload") do
+    tests('multipart upload') do
       pending if Fog.mocking?
 
       # A 6MB file
-      @large_file = Tempfile.new("fog-test-aws-s3-multipart")
-      6.times { @large_file.write("x" * (1024**2)) }
+      @large_file = Tempfile.new('fog-test-aws-s3-multipart')
+      6.times { @large_file.write('x' * (1024**2)) }
       @large_file.rewind
 
-      tests("#save(:multipart_chunk_size => 5242880)").succeeds do
+      tests('#save(:multipart_chunk_size => 5242880)').succeeds do
         @directory.files.create(:key => 'multipart-upload', :body => @large_file, :multipart_chunk_size => 5242880)
       end
 

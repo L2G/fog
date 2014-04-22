@@ -7,7 +7,7 @@ module Fog
         class UpdateConfigurationTemplate < Fog::Parsers::AWS::ElasticBeanstalk::BaseParser
 
           def initialize
-            super("UpdateConfigurationTemplateResult")
+            super('UpdateConfigurationTemplateResult')
             tag 'ApplicationName', :string
             tag 'DateCreated', :datetime
             tag 'DateUpdated', :datetime

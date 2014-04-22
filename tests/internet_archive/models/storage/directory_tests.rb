@@ -1,4 +1,4 @@
-Shindo.tests("Storage[:internet_archive] | directory", ["internetarchive"]) do
+Shindo.tests('Storage[:internet_archive] | directory', ['internetarchive']) do
 
   directory_attributes = {
     :key => "fogdirectorytests-#{rand(65536)}",
@@ -12,18 +12,18 @@ Shindo.tests("Storage[:internet_archive] | directory", ["internetarchive"]) do
     collection = Fog::Storage[:internetarchive].directories
     @instance = collection.new(params)
 
-    tests("#save").succeeds do
+    tests('#save').succeeds do
       pending if Fog.mocking? && !mocks_implemented
       @instance.save
     end
 
-    tests("#public_url").returns("http://archive.org/details/#{directory_attributes[:key]}") do
+    tests('#public_url').returns("http://archive.org/details/#{directory_attributes[:key]}") do
       @instance.public_url
     end
 
   end
 
-  tests("#set_metadata_array_headers") do
+  tests('#set_metadata_array_headers') do
     params = directory_attributes
 
     collection = Fog::Storage[:internetarchive].directories
@@ -33,7 +33,7 @@ Shindo.tests("Storage[:internet_archive] | directory", ["internetarchive"]) do
     @options = {}
     @instance.set_metadata_array_headers(:collections, @options)
 
-    tests("#set_metadata_array_headers should set options").returns(true) do
+    tests('#set_metadata_array_headers should set options').returns(true) do
       @options['x-archive-meta01-collection'] == 'opensource' &&
       @options['x-archive-meta02-collection'] == 'test_collection'
     end

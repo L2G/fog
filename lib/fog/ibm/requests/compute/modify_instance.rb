@@ -40,9 +40,9 @@ module Fog
           response = Excon::Response.new
           if instance_exists? instance_id
             if params['state'] == 'restart'
-              self.data[:instances][instance_id]["status"] = "8"
+              self.data[:instances][instance_id]['status'] = '8'
               response.status = 200
-              response.body   = { "success" => true }
+              response.body   = { 'success' => true }
             elsif params['type'] == 'attach' || params['type'] == 'detach'
               if Fog::Storage[:ibm].volume_exists?(params['volume_id'])
                 # TODO: Update the instance in the data hash, assuming IBM ever gets this feature working properly.
@@ -51,11 +51,11 @@ module Fog
                 response.status = 404
               end
             elsif params['name']
-              self.data[:instances][instance_id]["name"] = params['name']
+              self.data[:instances][instance_id]['name'] = params['name']
               response.status = 200
-              response.body = { "success" => true }
+              response.body = { 'success' => true }
             elsif params['expirationTime']
-              self.data[:instances][instance_id]["expirationTime"] = params['expirationTime']
+              self.data[:instances][instance_id]['expirationTime'] = params['expirationTime']
               response.status = 200
               response.body = { 'expirationTime' => params['expirationTime'] }
             end

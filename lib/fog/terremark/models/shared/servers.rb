@@ -24,7 +24,7 @@ module Fog
         def all
           data = []
           service.get_vdc(vdc_id).body['ResourceEntities'].select do |entity|
-              data << service.servers.get(entity["href"].split('/').last)
+              data << service.servers.get(entity['href'].split('/').last)
           end
           data
         end

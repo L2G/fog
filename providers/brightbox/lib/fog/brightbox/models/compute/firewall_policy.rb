@@ -15,7 +15,7 @@ module Fog
 
         attribute :default
 
-        attribute :server_group_id, :aliases => "server_group", :squash => "id"
+        attribute :server_group_id, :aliases => 'server_group', :squash => 'id'
         attribute :created_at, :type => :time
         attribute :rules
 
@@ -26,7 +26,7 @@ module Fog
             :server_group => server_group_id,
             :name => name,
             :description => description
-          }.delete_if { |k, v| v.nil? || v == "" }
+          }.delete_if { |k, v| v.nil? || v == '' }
           data = service.create_firewall_policy(options)
           merge_attributes(data)
           true

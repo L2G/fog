@@ -20,7 +20,7 @@ module Fog
           snapshot_cluster_identifier = options[:snapshot_cluster_identifier]
           account_with_restore_access = options[:account_with_restore_access]
 
-          path = "/"
+          path = '/'
           params = {
             :expects => 200,
             :headers    => {},

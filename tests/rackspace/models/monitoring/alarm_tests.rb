@@ -5,15 +5,15 @@ Shindo.tests('Fog::Rackspace::Monitoring | alarm', ['rackspace','rackspace_monit
   tests('#alarm=') do
     tests('should assign alarm id if object is a string') do
       alarm = Fog::Rackspace::Monitoring::Alarm.new
-      id = "123123"
-      alarm.id = "123123"
+      id = '123123'
+      alarm.id = '123123'
       returns(Fog::Rackspace::Monitoring::Alarm) { alarm.class }
       returns(id) { alarm.id }
     end
     tests('should set check if object is a check') do
-      entity_id = "555"
+      entity_id = '555'
       entity = Fog::Rackspace::Monitoring::Entity.new(:id => entity_id)
-      check_id = "54321"
+      check_id = '54321'
       check = Fog::Rackspace::Monitoring::Check.new(:id => check_id)
       check.entity = entity
       alarm = Fog::Rackspace::Monitoring::Alarm.new
@@ -29,7 +29,7 @@ Shindo.tests('Fog::Rackspace::Monitoring | alarm', ['rackspace','rackspace_monit
     @check = service.checks.create(CHECK_CREATE_OPTIONS.merge(
                                         :label => "fog_#{Time.now.to_i}",
                                         :entity => @entity) )
-    np = "npTechnicalContactsEmail"
+    np = 'npTechnicalContactsEmail'
     options = CHECK_CREATE_OPTIONS.merge(
       :disabled => false,
       :label => "fog_#{Time.now.to_i}",

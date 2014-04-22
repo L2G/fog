@@ -8,14 +8,14 @@ module Fog
         def trusted_network_groups_create(data)
           validate_data([:name], data)
           unless (data[:hosts] || data[:networks])
-            raise ArgumentError.new("Required data missing: Either hosts or networks must be present")
+            raise ArgumentError.new('Required data missing: Either hosts or networks must be present')
           end
 
 
           request(
             :body => generate_create_trusted_network_groups_request(data),
             :expects => 201,
-            :method => "POST",
+            :method => 'POST',
             :headers => {},
             :uri => data[:uri],
             :parse => true

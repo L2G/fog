@@ -16,11 +16,11 @@ module Fog
           response = Excon::Response.new
           response.status = 200
           response.body = {
-            "volume_type" => {
-              "id" => "1",
-              "name" => "type 1",
-              "extra_specs" => {
-                "volume_backend_name" => "type 1 backend name"
+            'volume_type' => {
+              'id' => '1',
+              'name' => 'type 1',
+              'extra_specs' => {
+                'volume_backend_name' => 'type 1 backend name'
               }
             }
           }

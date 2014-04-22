@@ -11,7 +11,7 @@ module Fog
         def update_record(zone_id, record_id, options)
           body = %Q{<?xml version="1.0" encoding="UTF-8"?><record>}
           options.each {|k,v| body += "<#{k}>#{v}</#{k}>"}
-          body += "</record>"
+          body += '</record>'
           request(
             :body     => body,
             :expects  => 202,

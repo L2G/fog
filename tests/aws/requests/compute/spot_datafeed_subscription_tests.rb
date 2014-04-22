@@ -22,15 +22,15 @@ Shindo.tests('Fog::Compute[:aws] | spot datafeed subscription requests', ['aws']
       Fog::Compute[:aws].create_spot_datafeed_subscription('fogspotdatafeedsubscriptiontests', 'fogspotdatafeedsubscription/')
     end
 
-    tests("#describe_spot_datafeed_subscription").formats(@spot_datafeed_subscription_format) do
+    tests('#describe_spot_datafeed_subscription').formats(@spot_datafeed_subscription_format) do
       Fog::Compute[:aws].describe_spot_datafeed_subscription.body
     end
 
-    tests("#delete_spot_datafeed_subscription").formats(AWS::Compute::Formats::BASIC) do
+    tests('#delete_spot_datafeed_subscription').formats(AWS::Compute::Formats::BASIC) do
       Fog::Compute[:aws].delete_spot_datafeed_subscription.body
     end
 
-    tests("duplicate #delete_spot_datafeed_subscription").succeeds do
+    tests('duplicate #delete_spot_datafeed_subscription').succeeds do
       Fog::Compute[:aws].delete_spot_datafeed_subscription
     end
   end
@@ -38,7 +38,7 @@ Shindo.tests('Fog::Compute[:aws] | spot datafeed subscription requests', ['aws']
   tests('failure') do
     pending if Fog.mocking?
 
-    tests("#describe_spot_datafeed_subscription").raises(Fog::Compute::AWS::NotFound) do
+    tests('#describe_spot_datafeed_subscription').raises(Fog::Compute::AWS::NotFound) do
       Fog::Compute[:aws].describe_spot_datafeed_subscription
     end
   end

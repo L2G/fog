@@ -35,7 +35,7 @@ module Fog
           if flavor.nil?
             raise Fog::Compute::RackspaceV2::NotFound
           else
-            response(:body => {"flavor" => flavor})
+            response(:body => {'flavor' => flavor})
           end
         end
       end

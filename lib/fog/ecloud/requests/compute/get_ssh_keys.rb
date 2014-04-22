@@ -17,7 +17,7 @@ module Fog
           ssh_key_response = {:SshKey => (ssh_keys.size > 1 ? ssh_keys : ssh_keys.first)} # GAH
           body = {
             :href  => "/cloudapi/ecloud/admin/organizations/#{organization_id}/sshKeys",
-            :type  => "application/vnd.tmrk.cloud.sshKey; type=collection",
+            :type  => 'application/vnd.tmrk.cloud.sshKey; type=collection',
             :Links => {
               :Link => organization,
             },

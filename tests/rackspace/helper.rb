@@ -27,7 +27,7 @@ module Shindo
       end
     end
 
-   def wait_for_request(description = "waiting", &block)
+   def wait_for_request(description = 'waiting', &block)
      return if Fog.mocking?
      tests(description) do
        Fog.wait_for(&block)

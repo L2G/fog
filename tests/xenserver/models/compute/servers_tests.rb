@@ -30,12 +30,12 @@ Shindo.tests('Fog::Compute[:xenserver] | servers collection', ['xenserver']) do
       end
     end
 
-    test("should return a list of templates") do
+    test('should return a list of templates') do
       templates.kind_of? Array
     end
 
-    tests("The servers template list should") do
-      test("should include only templates in servers.templates") do
+    tests('The servers template list should') do
+      test('should include only templates in servers.templates') do
         ok = true
         templates.each { |t| ok = false if !t.is_a_template }
         ok
@@ -56,14 +56,14 @@ Shindo.tests('Fog::Compute[:xenserver] | servers collection', ['xenserver']) do
       end
       # This may fail in other test scenarios with more than one built-in template
       # present
-      test("include only one custom template") { servers.custom_templates.size == 1 }
-      tests("not include built-in templates in custom_templates") do
+      test('include only one custom template') { servers.custom_templates.size == 1 }
+      tests('not include built-in templates in custom_templates') do
         servers.custom_templates.each do |s|
           test("#{s.name} is NOT a built-in template") {s.allowed_operations.include?('destroy') }
         end
       end
-      test("include more than one built-in templates") { servers.builtin_templates.size >= 1 }
-      tests("not include real servers") do
+      test('include more than one built-in templates') { servers.builtin_templates.size >= 1 }
+      tests('not include real servers') do
         servers.builtin_templates.each do |s|
           test("#{s.name} is not a real server") { s.is_a_template }
         end

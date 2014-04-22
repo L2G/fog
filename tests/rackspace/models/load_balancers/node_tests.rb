@@ -7,7 +7,7 @@ Shindo.tests('Fog::Rackspace::LoadBalancers | node', ['rackspace']) do
       model_tests(@lb.nodes, { :address => '1.1.1.2', :port => 80, :condition => 'ENABLED'}, false) do
         @lb.wait_for { ready? }
 
-        tests("#save() => existing node with port = 88").succeeds do
+        tests('#save() => existing node with port = 88').succeeds do
           @instance.port = 88
           @instance.save
         end

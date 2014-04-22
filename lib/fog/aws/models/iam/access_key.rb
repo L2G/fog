@@ -15,9 +15,9 @@ module Fog
           requires :username
 
           if !persisted?
-            data = service.create_access_key('UserName' => username).body["AccessKey"]
+            data = service.create_access_key('UserName' => username).body['AccessKey']
           else
-            data = service.update_access_key(id, status, "UserName" => username).body["AccessKey"]
+            data = service.update_access_key(id, status, 'UserName' => username).body['AccessKey']
           end
           merge_attributes(data)
           true

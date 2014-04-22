@@ -34,7 +34,7 @@ module Fog
             :expects  => 202,
             :method   => 'POST',
             :parser   => Fog::Parsers::DNS::Bluebox::CreateZone.new,
-            :path     => "/api/domains.xml"
+            :path     => '/api/domains.xml'
           )
         end
 

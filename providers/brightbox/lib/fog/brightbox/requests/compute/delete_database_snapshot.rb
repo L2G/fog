@@ -9,8 +9,8 @@ module Fog
         # @see https://api.gb1.brightbox.com/1.0/#database_snapshot_delete_database_snapshot
         #
         def delete_database_snapshot(identifier)
-          return nil if identifier.nil? || identifier == ""
-          wrapped_request("delete", "/1.0/database_snapshots/#{identifier}", [202])
+          return nil if identifier.nil? || identifier == ''
+          wrapped_request('delete', "/1.0/database_snapshots/#{identifier}", [202])
         end
 
         # Old format of the delete request.

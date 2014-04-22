@@ -10,7 +10,7 @@ for provider, config in storage_providers
 
       model_tests(Fog::Storage[provider].directories, directory_attributes, config[:mocked]) do
 
-        tests("#public=(true)").succeeds do
+        tests('#public=(true)').succeeds do
           pending if Fog.mocking? && !config[:mocked]
           @instance.public = (true)
         end

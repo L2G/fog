@@ -19,13 +19,13 @@ module Fog
 
         def update_metadata(collection_name, parent_id, metadata = {})
 
-          if collection_name == "images" then
+          if collection_name == 'images' then
             if not list_images_detail.body['images'].detect {|_| _['id'] == parent_id}
               raise Fog::Compute::OpenStack::NotFound
             end
           end
 
-          if collection_name == "servers" then
+          if collection_name == 'servers' then
             if not list_servers_detail.body['servers'].detect {|_| _['id'] == parent_id}
               raise Fog::Compute::OpenStack::NotFound
             end
@@ -33,7 +33,7 @@ module Fog
 
           #FIXME join w/ existing metadata here
           response = Excon::Response.new
-          response.body = { "metadata" => metadata }
+          response.body = { 'metadata' => metadata }
           response.status = 200
           response
 

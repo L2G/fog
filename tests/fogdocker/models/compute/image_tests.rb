@@ -14,12 +14,12 @@ Shindo.tests('Fog::Compute[:fogdocker] | image model', ['fogdocker']) do
                      :created,
                      :size
                    ]
-      tests("The image model should respond to") do
+      tests('The image model should respond to') do
         attributes.each do |attribute|
           test("#{attribute}") { image.respond_to? attribute }
         end
       end
-      tests("The attributes hash should have key") do
+      tests('The attributes hash should have key') do
         (attributes - [:repo_tags]).each do |attribute|
           test("#{attribute}") { model_attribute_hash.has_key? attribute }
         end

@@ -24,10 +24,10 @@ module Fog
 
           if attributes.has_key? :type then
             if attributes[:type].is_a? String then
-              attributes[:type] = Fog::Vsphere.class_from_string(attributes[:type], "RbVmomi::VIM")
+              attributes[:type] = Fog::Vsphere.class_from_string(attributes[:type], 'RbVmomi::VIM')
             end
           else
-            attributes[:type] = Fog::Vsphere.class_from_string("VirtualE1000", "RbVmomi::VIM")
+            attributes[:type] = Fog::Vsphere.class_from_string('VirtualE1000', 'RbVmomi::VIM')
           end
 
           super defaults.merge(attributes)
@@ -81,10 +81,10 @@ module Fog
         def defaults
           default_type = Fog.credentials[:default_nic_type] || RbVmomi::VIM::VirtualE1000
           {
-            :name => "Network adapter",
-            :network => "VM Network",
-            :summary => "VM Network",
-            :type => Fog::Vsphere.class_from_string(default_type, "RbVmomi::VIM"),
+            :name => 'Network adapter',
+            :network => 'VM Network',
+            :summary => 'VM Network',
+            :type => Fog::Vsphere.class_from_string(default_type, 'RbVmomi::VIM'),
           }
         end
 

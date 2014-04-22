@@ -9,7 +9,7 @@ module Fog
 
           def generate_xml
             Nokogiri::XML::Builder.new do |xml|
-              xml.EdgeGatewayServiceConfiguration('xmlns' => "http://www.vmware.com/vcloud/v1.5"){
+              xml.EdgeGatewayServiceConfiguration('xmlns' => 'http://www.vmware.com/vcloud/v1.5'){
                 build_firewall_service(xml)
                 build_nat_service(xml)
                 build_load_balancer_service(xml)
@@ -109,7 +109,7 @@ module Fog
                     xml.OriginalPort gateway_nat_rule[:OriginalPort] if gateway_nat_rule.key?(:OriginalPort)
                     xml.TranslatedIp gateway_nat_rule[:TranslatedIp]
                     xml.TranslatedPort gateway_nat_rule[:TranslatedPort] if gateway_nat_rule.key?(:TranslatedPort)
-                    xml.Protocol gateway_nat_rule[:Protocol] if rule[:RuleType] == "DNAT"
+                    xml.Protocol gateway_nat_rule[:Protocol] if rule[:RuleType] == 'DNAT'
                   }
                 }
               end

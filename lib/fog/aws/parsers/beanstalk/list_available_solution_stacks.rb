@@ -7,7 +7,7 @@ module Fog
         class ListAvailableSolutionStacks < Fog::Parsers::AWS::ElasticBeanstalk::BaseParser
 
           def initialize
-            super("ListAvailableSolutionStacksResult")
+            super('ListAvailableSolutionStacksResult')
             tag 'SolutionStackDetails', :object, :list
             tag 'PermittedFileTypes', :string, :list
             tag 'SolutionStackName', :string

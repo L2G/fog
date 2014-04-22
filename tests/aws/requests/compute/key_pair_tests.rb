@@ -21,7 +21,7 @@ Shindo.tests('Fog::Compute[:aws] | key pair requests', ['aws']) do
 
     tests("#create_key_pair('#{@key_pair_name}')").formats(@keypair_format.merge({'keyMaterial' => String})) do
       body = Fog::Compute[:aws].create_key_pair(@key_pair_name).body
-      tests("key material").returns(OpenSSL::PKey::RSA, "is a valid private RSA key") do
+      tests('key material').returns(OpenSSL::PKey::RSA, 'is a valid private RSA key') do
         OpenSSL::PKey::RSA.new(body['keyMaterial']).class
       end
       body

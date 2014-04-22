@@ -11,8 +11,8 @@ module Fog
         # @see https://api.gb1.brightbox.com/1.0/#cloud_ip_delete_cloud_ip
         #
         def delete_cloud_ip(identifier)
-          return nil if identifier.nil? || identifier == ""
-          wrapped_request("delete", "/1.0/cloud_ips/#{identifier}", [200])
+          return nil if identifier.nil? || identifier == ''
+          wrapped_request('delete', "/1.0/cloud_ips/#{identifier}", [200])
         end
 
         # Old format of the delete request.

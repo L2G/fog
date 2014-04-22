@@ -97,7 +97,7 @@ module Fog
         end
 
         def request_id_header
-          "X-Trans-Id"
+          'X-Trans-Id'
         end
 
         def region

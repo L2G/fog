@@ -24,7 +24,7 @@ module Fog
         def add_ip_address(server_id)
 
           raise Excon::Errors::BadRequest.new(
-                                              "Invalid image ID"
+                                              'Invalid image ID'
                                               ) unless server_id > 0
 
           data = {
@@ -35,7 +35,7 @@ module Fog
 
           raise Excon::Errors::BadRequest unless self.data[:servers][server_id]
 
-          raise Excon::Errors::BadRequest.new "No addresses" unless self.data[:servers][server_id]['addresses']
+          raise Excon::Errors::BadRequest.new 'No addresses' unless self.data[:servers][server_id]['addresses']
 
           self.data[:servers][server_id]['addresses']['public'] << data
 

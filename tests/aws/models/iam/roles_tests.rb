@@ -1,4 +1,4 @@
-Shindo.tests("Fog::Compute[:iam] | roles", ['aws','iam']) do
+Shindo.tests('Fog::Compute[:iam] | roles', ['aws','iam']) do
 
   pending if Fog.mocking?
 

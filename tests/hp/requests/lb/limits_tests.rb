@@ -1,4 +1,4 @@
-Shindo.tests("HP::LB | limits requests", ['hp', 'lb', 'limits']) do
+Shindo.tests('HP::LB | limits requests', ['hp', 'lb', 'limits']) do
   @limits_format = {
     'maxLoadBalancerNameLength' => Integer,
     'maxLoadBalancers'          => Integer,

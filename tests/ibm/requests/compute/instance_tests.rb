@@ -36,11 +36,11 @@ Shindo.tests('Fog::Compute[:ibm] | instance requests', ['ibm']) do
   tests('success') do
 
     @instance_id    = nil
-    @name           = "fog-test-instance-" + Time.now.to_i.to_s(32)
-    @image_id       = "20010001"
-    @instance_type  = "COP32.1/2048/60"
-    @location       = "41"
-    @key_name       = "fog-test-key-" + Time.now.to_i.to_s(32)
+    @name           = 'fog-test-instance-' + Time.now.to_i.to_s(32)
+    @image_id       = '20010001'
+    @instance_type  = 'COP32.1/2048/60'
+    @location       = '41'
+    @key_name       = 'fog-test-key-' + Time.now.to_i.to_s(32)
     @key            = Fog::Compute[:ibm].keys.create(:name => @key_name)
 
     tests("#create_instance('#{@name}', '#{@image_id}', '#{@instance_type}', '#{@location}', :key_name => '#{@key_name}')").formats(@instances_format) do
@@ -55,22 +55,22 @@ Shindo.tests('Fog::Compute[:ibm] | instance requests', ['ibm']) do
 
     Fog::Compute[:ibm].servers.get(@instance_id).wait_for(Fog::IBM.timeout) { ready? }
 
-    tests("#list_instances").formats(@instances_format) do
+    tests('#list_instances').formats(@instances_format) do
       instances = Fog::Compute[:ibm].list_instances.body
     end
 
     tests("#modify_instance('#{@instance_id}', 'state' => 'restart')") do
-      returns(true) { Fog::Compute[:ibm].modify_instance(@instance_id, 'state' => 'restart').body["success"] }
+      returns(true) { Fog::Compute[:ibm].modify_instance(@instance_id, 'state' => 'restart').body['success'] }
     end
 
     tests("#modify_instance('#{@instance_id}', 'name' => '#{@name} 2')") do
-      returns(true) { Fog::Compute[:ibm].modify_instance(@instance_id, 'name' => @name + " 2").body["success"] }
+      returns(true) { Fog::Compute[:ibm].modify_instance(@instance_id, 'name' => @name + ' 2').body['success'] }
     end
 
     @expiration_time = (Time.now.to_i + 10) * 1000
 
     tests("#modify_instance('#{@instance_id}', 'expirationTime' => '#{@expiration_time}')") do
-      returns(@expiration_time) { Fog::Compute[:ibm].modify_instance(@instance_id, 'expirationTime' => @expiration_time).body["expirationTime"] }
+      returns(@expiration_time) { Fog::Compute[:ibm].modify_instance(@instance_id, 'expirationTime' => @expiration_time).body['expirationTime'] }
     end
 
     tests("#delete_instance('#{@instance_id}')") do
@@ -93,7 +93,7 @@ Shindo.tests('Fog::Compute[:ibm] | instance requests', ['ibm']) do
 
     tests('#create_instance => 412') do
       raises(Excon::Errors::PreconditionFailed) do
-        Fog::Compute[:ibm].create_instance("FAIL: 412", @image_id, @instance_type, @location, :key_name => "invalid")
+        Fog::Compute[:ibm].create_instance('FAIL: 412', @image_id, @instance_type, @location, :key_name => 'invalid')
       end
     end
 

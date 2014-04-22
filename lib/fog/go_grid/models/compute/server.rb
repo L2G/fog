@@ -41,7 +41,7 @@ module Fog
         end
 
         def ready?
-          @state && @state["name"] == 'On'
+          @state && @state['name'] == 'On'
         end
 
         def reload

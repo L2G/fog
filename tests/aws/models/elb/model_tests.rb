@@ -21,7 +21,7 @@ Shindo.tests('AWS::ELB | models', ['aws', 'elb']) do
     end
 
     tests('listeners') do
-      tests("default attributes") do
+      tests('default attributes') do
         listener = Fog::AWS[:elb].listeners.new
         tests('instance_port is 80').returns(80) { listener.instance_port }
         tests('instance_protocol is HTTP').returns('HTTP') { listener.instance_protocol }
@@ -30,7 +30,7 @@ Shindo.tests('AWS::ELB | models', ['aws', 'elb']) do
         tests('policy_names is empty').returns([]) { listener.policy_names }
       end
 
-      tests("specifying attributes") do
+      tests('specifying attributes') do
         attributes = {:instance_port => 2000, :instance_protocol => 'SSL', :lb_port => 2001, :protocol => 'SSL', :policy_names => ['fake'] }
         listener = Fog::AWS[:elb].listeners.new(attributes)
         tests('instance_port is 2000').returns(2000) { listener.instance_port }
@@ -47,26 +47,26 @@ Shindo.tests('AWS::ELB | models', ['aws', 'elb']) do
     tests('create') do
       tests('without availability zones') do
         elb = Fog::AWS[:elb].load_balancers.create(:id => elb_id, :availability_zones => @availability_zones)
-        tests("availability zones are correct").returns(@availability_zones.sort) { elb.availability_zones.sort }
-        tests("dns names is set").returns(true) { elb.dns_name.is_a?(String) }
-        tests("created_at is set").returns(true) { Time === elb.created_at }
-        tests("policies is empty").returns([]) { elb.policies }
-        tests("default listener") do
-          tests("1 listener").returns(1) { elb.listeners.size }
-          tests("params").returns(Fog::AWS[:elb].listeners.new.to_params) { elb.listeners.first.to_params }
+        tests('availability zones are correct').returns(@availability_zones.sort) { elb.availability_zones.sort }
+        tests('dns names is set').returns(true) { elb.dns_name.is_a?(String) }
+        tests('created_at is set').returns(true) { Time === elb.created_at }
+        tests('policies is empty').returns([]) { elb.policies }
+        tests('default listener') do
+          tests('1 listener').returns(1) { elb.listeners.size }
+          tests('params').returns(Fog::AWS[:elb].listeners.new.to_params) { elb.listeners.first.to_params }
         end
       end
       tests('with vpc') do
         Fog::Compute[:aws].ec2_compatibility_mode(false)
         elb2 = Fog::AWS[:elb].load_balancers.create(:id => "#{elb_id}-2", :subnet_ids => [@subnet_id])
-        tests("elb source group should be default_elb*").returns(true) { !!(elb2.source_group["GroupName"] =~ /default_elb_*/) }
+        tests('elb source group should be default_elb*').returns(true) { !!(elb2.source_group['GroupName'] =~ /default_elb_*/) }
         tests("should have a 'default_elb_*' security group").returns(true) { Fog::Compute[:aws].security_groups.all.any? { |sg| sg.name =~ /default_elb/ } }
-        tests("subnet ids are correct").returns(@subnet_id) { elb2.subnet_ids.first }
+        tests('subnet ids are correct').returns(@subnet_id) { elb2.subnet_ids.first }
         elb2.destroy
       end
       tests('with vpc internal') do
         elb2 = Fog::AWS[:elb].load_balancers.create(:id => "#{elb_id}-2", :subnet_ids => [@subnet_id], :scheme => 'internal')
-        tests("scheme is internal").returns(@scheme) { elb2.scheme }
+        tests('scheme is internal').returns(@scheme) { elb2.scheme }
         elb2.destroy
       end
       if !Fog.mocking?
@@ -81,8 +81,8 @@ Shindo.tests('AWS::ELB | models', ['aws', 'elb']) do
         Fog::Compute[:aws].ec2_compatibility_mode(true)
         azs = @availability_zones[1..-1]
         elb2 = Fog::AWS[:elb].load_balancers.create(:id => "#{elb_id}-2", :availability_zones => azs)
-        tests("elb source group should be amazon-elb-sg").returns(true) { elb2.source_group["GroupName"] == 'amazon-elb-sg' }
-        tests("availability zones are correct").returns(azs.sort) { elb2.availability_zones.sort }
+        tests('elb source group should be amazon-elb-sg').returns(true) { elb2.source_group['GroupName'] == 'amazon-elb-sg' }
+        tests('availability zones are correct').returns(azs.sort) { elb2.availability_zones.sort }
         elb2.destroy
       end
 
@@ -115,15 +115,15 @@ Shindo.tests('AWS::ELB | models', ['aws', 'elb']) do
       tests('with invalid Server Cert ARN').raises(Fog::AWS::IAM::NotFound) do
         listeners = [{
           'Listener' => {
-          'LoadBalancerPort' => 443, 'InstancePort' => 80, 'Protocol' => 'HTTPS', 'InstanceProtocol' => 'HTTPS', "SSLCertificateId" => "fakecert"}
+          'LoadBalancerPort' => 443, 'InstancePort' => 80, 'Protocol' => 'HTTPS', 'InstanceProtocol' => 'HTTPS', 'SSLCertificateId' => 'fakecert'}
         }]
-        Fog::AWS[:elb].load_balancers.create(:id => "#{elb_id}-4", "ListenerDescriptions" => listeners, :availability_zones => @availability_zones)
+        Fog::AWS[:elb].load_balancers.create(:id => "#{elb_id}-4", 'ListenerDescriptions' => listeners, :availability_zones => @availability_zones)
       end
     end
 
     tests('all') do
       elb_ids = Fog::AWS[:elb].load_balancers.all.map{|e| e.id}
-      tests("contains elb").returns(true) { elb_ids.include? elb_id }
+      tests('contains elb').returns(true) { elb_ids.include? elb_id }
     end
 
     if Fog.mocking?
@@ -201,22 +201,22 @@ Shindo.tests('AWS::ELB | models', ['aws', 'elb']) do
 
     tests('default health check') do
       default_health_check = {
-        "HealthyThreshold" => 10,
-        "Timeout" => 5,
-        "UnhealthyThreshold" => 2,
-        "Interval" => 30,
-        "Target" => "TCP:80"
+        'HealthyThreshold' => 10,
+        'Timeout' => 5,
+        'UnhealthyThreshold' => 2,
+        'Interval' => 30,
+        'Target' => 'TCP:80'
       }
       returns(default_health_check) { elb.health_check }
     end
 
     tests('configure_health_check') do
       new_health_check = {
-        "HealthyThreshold" => 5,
-        "Timeout" => 10,
-        "UnhealthyThreshold" => 3,
-        "Interval" => 15,
-        "Target" => "HTTP:80/index.html"
+        'HealthyThreshold' => 5,
+        'Timeout' => 10,
+        'UnhealthyThreshold' => 3,
+        'Interval' => 15,
+        'Target' => 'HTTP:80/index.html'
       }
       elb.configure_health_check(new_health_check)
       returns(new_health_check) { elb.health_check }
@@ -261,7 +261,7 @@ Shindo.tests('AWS::ELB | models', ['aws', 'elb']) do
       tests('create app policy') do
         elb.policies.create(:id => app_policy_id, :cookie => 'my-app-cookie', :cookie_stickiness => :app)
         returns(app_policy_id) { elb.policies.first.id }
-        returns("my-app-cookie") { elb.policies.get(app_policy_id).cookie }
+        returns('my-app-cookie') { elb.policies.get(app_policy_id).cookie }
       end
 
       tests('get policy') do
@@ -296,8 +296,8 @@ Shindo.tests('AWS::ELB | models', ['aws', 'elb']) do
         policy = elb.policies.get(public_key_policy_id)
 
         returns(public_key_policy_id) { policy.id }
-        returns("PublicKeyPolicyType") { policy.type_name }
-        returns(AWS::IAM::SERVER_CERT_PUBLIC_KEY) { policy.policy_attributes["PublicKey"] }
+        returns('PublicKeyPolicyType') { policy.type_name }
+        returns(AWS::IAM::SERVER_CERT_PUBLIC_KEY) { policy.policy_attributes['PublicKey'] }
       end
 
       tests('a malformed policy') do
@@ -311,9 +311,9 @@ Shindo.tests('AWS::ELB | models', ['aws', 'elb']) do
       end
 
       tests('with a backend policy') do
-        policy = "EnableProxyProtocol"
+        policy = 'EnableProxyProtocol'
         port = 80
-        elb.policies.create(:id => policy, :type_name => 'ProxyProtocolPolicyType', :policy_attributes => { "ProxyProtocol" => true })
+        elb.policies.create(:id => policy, :type_name => 'ProxyProtocolPolicyType', :policy_attributes => { 'ProxyProtocol' => true })
         Fog::AWS[:elb].set_load_balancer_policies_for_backend_server(elb.id, port, [policy]).body
         elb.reload
         returns([policy]) { elb.backend_server_descriptions.get(port).policy_names }

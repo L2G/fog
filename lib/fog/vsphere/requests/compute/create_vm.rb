@@ -44,7 +44,7 @@ module Fog
           end
 
           if (disks = attributes[:volumes])
-            devices << create_controller(attributes[:scsi_controller] || attributes["scsi_controller"] || {})
+            devices << create_controller(attributes[:scsi_controller] || attributes['scsi_controller'] || {})
             devices << disks.map { |disk| create_disk(disk, disks.index(disk)) }
           end
           devices.flatten
@@ -87,7 +87,7 @@ module Fog
                       controller_default_options
                     end
           controller_class = if options[:type].is_a? String then
-                               Fog::Vsphere.class_from_string options[:type], "RbVmomi::VIM"
+                               Fog::Vsphere.class_from_string options[:type], 'RbVmomi::VIM'
                              else
                                options[:type]
                              end
@@ -102,7 +102,7 @@ module Fog
         end
 
         def controller_default_options
-          {:operation => "add", :type => RbVmomi::VIM.VirtualLsiLogicController.class, :key => 1000, :bus_id => 0, :shared => false }
+          {:operation => 'add', :type => RbVmomi::VIM.VirtualLsiLogicController.class, :key => 1000, :bus_id => 0, :shared => false }
         end
 
         def controller_get_shared_from_options options

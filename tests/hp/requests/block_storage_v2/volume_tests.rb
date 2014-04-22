@@ -1,4 +1,4 @@
-Shindo.tests("Fog::HP::BlockStorageV2 | volume requests", ['hp', 'v2', 'block_storage', 'volumes']) do
+Shindo.tests('Fog::HP::BlockStorageV2 | volume requests', ['hp', 'v2', 'block_storage', 'volumes']) do
 
   compute_service = Fog::Compute.new(:provider => 'HP', :version => :v2)
 
@@ -60,7 +60,7 @@ Shindo.tests("Fog::HP::BlockStorageV2 | volume requests", ['hp', 'v2', 'block_st
     end
 
     tests("#attach_volume(#{@server.id}, #{@volume_id}, '/dev/sdg')").formats(@volume_attach_format) do
-      compute_service.attach_volume(@server.id, @volume_id, "/dev/sdg").body['volumeAttachment']
+      compute_service.attach_volume(@server.id, @volume_id, '/dev/sdg').body['volumeAttachment']
     end
 
     tests("#detach_volume(#{@server.id}, #{@volume_id})").succeeds do
@@ -80,11 +80,11 @@ Shindo.tests("Fog::HP::BlockStorageV2 | volume requests", ['hp', 'v2', 'block_st
     end
 
     tests("#attach_volume(0, 0, '/dev/sdg')").raises(Fog::Compute::HPV2::NotFound) do
-      compute_service.attach_volume(0, 0, "/dev/sdg")
+      compute_service.attach_volume(0, 0, '/dev/sdg')
     end
     tests("#attach_volume(#{@server.id}, 0, '/dev/sdg')").raises(Fog::HP::BlockStorageV2::NotFound) do
       pending if Fog.mocking?
-      compute_service.attach_volume(@server.id, 0, "/dev/sdg")
+      compute_service.attach_volume(@server.id, 0, '/dev/sdg')
     end
 
     tests('#detach_volume(0, 0)').raises(Fog::Compute::HPV2::NotFound) do

@@ -1,11 +1,11 @@
-Shindo.tests("Fog::Compute[:iam] | policies", ['aws','iam']) do
+Shindo.tests('Fog::Compute[:iam] | policies', ['aws','iam']) do
 
   Fog.mock!
   iam = Fog::AWS[:iam]
 
   @username = 'fake_user'
   @user = iam.users.create(:id => @username)
-  @policy_document = {"Statement" => [{"Action" => ["sqs:*"], "Effect" => "Allow", "Resource" => "*"}]}
+  @policy_document = {'Statement' => [{'Action' => ['sqs:*'], 'Effect' => 'Allow', 'Resource' => '*'}]}
   @policy_name = 'fake-sqs-policy'
 
   tests('#all', 'there is no policies').succeeds do

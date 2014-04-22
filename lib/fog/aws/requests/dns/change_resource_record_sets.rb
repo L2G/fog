@@ -144,7 +144,7 @@ module Fog
             change_id = Fog::AWS::Mock.change_id
             change_batch.each do |change|
               case change[:action]
-              when "CREATE"
+              when 'CREATE'
                 if zone[:records][change[:type]].nil?
                   zone[:records][change[:type]] = {}
                 end
@@ -170,7 +170,7 @@ module Fog
                 else
                   errors << "Tried to create resource record set #{change[:name]}. type #{change[:type]}, but it already exists"
                 end
-              when "DELETE"
+              when 'DELETE'
                 if zone[:records][change[:type]].nil? || zone[:records][change[:type]].delete(change[:name]).nil?
                   errors << "Tried to delete resource record set #{change[:name]}. type #{change[:type]}, but it was not found"
                 end
@@ -213,14 +213,14 @@ module Fog
 
       def self.elb_hosted_zone_mapping
         @elb_hosted_zone_mapping ||= {
-          "ap-northeast-1" => "Z2YN17T5R711GT",
-          "ap-southeast-1" => "Z1WI8VXHPB1R38",
-          "ap-southeast-2" => "Z2999QAZ9SRTIC",
-          "eu-west-1"      => "Z3NF1Z3NOM5OY2",
-          "sa-east-1"      => "Z2ES78Y61JGQKS",
-          "us-east-1"      => "Z3DZXE0Q79N41H",
-          "us-west-1"      => "Z1M58G0W56PQJA",
-          "us-west-2"      => "Z33MTJ483KN6FU",
+          'ap-northeast-1' => 'Z2YN17T5R711GT',
+          'ap-southeast-1' => 'Z1WI8VXHPB1R38',
+          'ap-southeast-2' => 'Z2999QAZ9SRTIC',
+          'eu-west-1'      => 'Z3NF1Z3NOM5OY2',
+          'sa-east-1'      => 'Z2ES78Y61JGQKS',
+          'us-east-1'      => 'Z3DZXE0Q79N41H',
+          'us-west-1'      => 'Z1M58G0W56PQJA',
+          'us-west-2'      => 'Z33MTJ483KN6FU',
         }
       end
     end

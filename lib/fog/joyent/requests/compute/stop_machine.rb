@@ -4,9 +4,9 @@ module Fog
       class Real
         def stop_machine(uuid)
           request(
-            :method => "POST",
+            :method => 'POST',
             :path => "/my/machines/#{uuid}",
-            :query => {"action" => "stop"},
+            :query => {'action' => 'stop'},
             :expects => 202
           )
         end

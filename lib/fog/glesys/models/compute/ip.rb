@@ -10,9 +10,9 @@ module Fog
 
         identity :ip
 
-        attribute :ip, :aliases => "ipaddress"
+        attribute :ip, :aliases => 'ipaddress'
         attribute :datacenter
-        attribute :version, :aliases => "ipversion"
+        attribute :version, :aliases => 'ipversion'
         attribute :platform
         attribute :netmask
         attribute :broadcast
@@ -44,7 +44,7 @@ module Fog
           data = service.ip_add(
             :ipaddress => identity,
             :serverid  => server
-          ).body["response"]["details"]
+          ).body['response']['details']
           merge_attributes data
         end
 
@@ -52,7 +52,7 @@ module Fog
         def remove(options = {})
           requires :ip
           raise Fog::Errors::Error.new('Ip is not attached to a server.') if serverid.nil?
-          data = service.ip_remove({:ipaddress => ip}.merge!(options)).body["response"]["details"]
+          data = service.ip_remove({:ipaddress => ip}.merge!(options)).body['response']['details']
           merge_attributes data
         end
 
@@ -66,7 +66,7 @@ module Fog
           requires :ip
           data = service.ip_take(
             :ipaddress => ip
-          ).body["response"]["details"]
+          ).body['response']['details']
           merge_attributes data
         end
 

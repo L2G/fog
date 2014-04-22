@@ -37,7 +37,7 @@ module Fog
         # @return [Boolean] true if virtual interface has been saved
         def save(attributes = {})
           if persisted?
-            raise Fog::Errors::Error.new("This virtual interface has already been created and it cannot be updated")
+            raise Fog::Errors::Error.new('This virtual interface has already been created and it cannot be updated')
           else
             create
           end

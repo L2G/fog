@@ -14,8 +14,8 @@ module Fog
         # @see https://api.gb1.brightbox.com/1.0/#firewall_policy_remove_firewall_policy
         #
         def remove_firewall_policy(identifier, options)
-          return nil if identifier.nil? || identifier == ""
-          wrapped_request("post", "/1.0/firewall_policies/#{identifier}/remove", [202], options)
+          return nil if identifier.nil? || identifier == ''
+          wrapped_request('post', "/1.0/firewall_policies/#{identifier}/remove", [202], options)
         end
 
       end

@@ -1,4 +1,4 @@
-Shindo.tests('Fog::Storage[:rackspace] | container requests', ["rackspace"]) do
+Shindo.tests('Fog::Storage[:rackspace] | container requests', ['rackspace']) do
 
   @container_format = [{
     'hash' => String,
@@ -30,7 +30,7 @@ Shindo.tests('Fog::Storage[:rackspace] | container requests', ["rackspace"]) do
       Fog::Storage[:rackspace].get_container('fogcontainertests').body
     end
 
-    tests("#get_containers").formats(@containers_format) do
+    tests('#get_containers').formats(@containers_format) do
       Fog::Storage[:rackspace].get_containers.body
     end
 
@@ -38,7 +38,7 @@ Shindo.tests('Fog::Storage[:rackspace] | container requests', ["rackspace"]) do
       Fog::Storage[:rackspace].head_container('fogcontainertests')
     end
 
-    tests("#head_containers").succeeds do
+    tests('#head_containers').succeeds do
       Fog::Storage[:rackspace].head_containers
     end
 

@@ -51,8 +51,8 @@ module Fog
 
           response.status = 200
           response.body = {
-            "ResponseMetadata" => { "RequestId" => Fog::AWS::Mock.request_id },
-            "DescribeDBSubnetGroupsResult" => { "DBSubnetGroups" => subnet_group_set }
+            'ResponseMetadata' => { 'RequestId' => Fog::AWS::Mock.request_id },
+            'DescribeDBSubnetGroupsResult' => { 'DBSubnetGroups' => subnet_group_set }
           }
           response
         end

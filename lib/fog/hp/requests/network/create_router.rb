@@ -47,7 +47,7 @@ module Fog
           response.status = 201
           data = {
             'id'                    => Fog::HP::Mock.uuid.to_s,
-            'name'                  => options[:name] || "",
+            'name'                  => options[:name] || '',
             'status'                => 'ACTIVE',
             'external_gateway_info' => options[:external_gateway_info] || nil,
             'admin_state_up'        => options[:admin_state_up] || true,

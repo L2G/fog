@@ -24,14 +24,14 @@ module Fog
           response = Excon::Response.new
           response.status = 200
           response.body = {
-            "status" => "success",
-            "data" => {},
-            "job_id" => Fog::Dynect::Mock.job_id,
-            "msgs" => [{
-              "ERR_CD" => '',
-              "INFO" => '',
-              "LVL" => '',
-              "SOURCE" => ''
+            'status' => 'success',
+            'data' => {},
+            'job_id' => Fog::Dynect::Mock.job_id,
+            'msgs' => [{
+              'ERR_CD' => '',
+              'INFO' => '',
+              'LVL' => '',
+              'SOURCE' => ''
             }]
           }
           response

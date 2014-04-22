@@ -12,7 +12,7 @@ module Fog
 
           def end_element(name)
             case name
-            when "Bounces", "Complaints", "DeliveryAttempts", "Rejects", "Timestamp"
+            when 'Bounces', 'Complaints', 'DeliveryAttempts', 'Rejects', 'Timestamp'
               @send_data_point[name] = value
             when 'member'
               @response['SendDataPoints'] << @send_data_point

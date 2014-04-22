@@ -18,8 +18,8 @@ module Fog
         def list_hosts
           response = Excon::Response.new
           response.status = 200
-          response.body = { "hosts" => [
-              {"host_name" => "host.test.net", "service" => "compute", "zone" => "az1"}
+          response.body = { 'hosts' => [
+              {'host_name' => 'host.test.net', 'service' => 'compute', 'zone' => 'az1'}
             ]
           }
           response

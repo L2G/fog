@@ -6,7 +6,7 @@ Shindo.tests('Fog::Compute[:brightbox] | interface requests', ['brightbox']) do
 
     unless Fog.mocking?
       @test_server = Brightbox::Compute::TestSupport.get_test_server
-      @interface_id = @test_server.interfaces.first["id"]
+      @interface_id = @test_server.interfaces.first['id']
 
       tests("#get_interface('#{@interface_id}')") do
         pending if Fog.mocking?
@@ -25,7 +25,7 @@ Shindo.tests('Fog::Compute[:brightbox] | interface requests', ['brightbox']) do
       @test_service.get_interface('int-00000')
     end
 
-    tests("#get_interface()").raises(ArgumentError) do
+    tests('#get_interface()').raises(ArgumentError) do
       pending if Fog.mocking?
       @test_service.get_interface()
     end

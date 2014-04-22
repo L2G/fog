@@ -51,7 +51,7 @@ module Fog
           options[:ipversion] = options[:version]
           options.delete(:version)
 
-          service.ip_list_free(options).body["response"]["iplist"]["ipaddresses"]
+          service.ip_list_free(options).body['response']['iplist']['ipaddresses']
         end
 
         def take(ip, options = {})
@@ -64,7 +64,7 @@ module Fog
 
           data = service.ip_take(
             :ipaddress => ip_from_object(ip)
-          ).body["response"]["details"]
+          ).body['response']['details']
 
           ip = new data
 
@@ -89,7 +89,7 @@ module Fog
           end
 
           if server_id.nil?
-            raise Fog::Errors::Error.new("You need to specify a server id")
+            raise Fog::Errors::Error.new('You need to specify a server id')
           end
 
           server_id = server_id.serverid if server_id.is_a?(Fog::Compute::Glesys::Server)
@@ -107,7 +107,7 @@ module Fog
         end
 
         def remove(ip, options = {})
-          new service.ip_remove({:ipaddress => ip_from_object(ip)}.merge!(options)).data.body["response"]["details"]
+          new service.ip_remove({:ipaddress => ip_from_object(ip)}.merge!(options)).data.body['response']['details']
         end
 
         private

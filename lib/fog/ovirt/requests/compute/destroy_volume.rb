@@ -4,8 +4,8 @@ module Fog
       class Real
 
         def destroy_volume(id, options)
-          raise ArgumentError, "instance id is a required parameter" unless id
-          raise ArgumentError, "volume id is a required parameter for destroy-volume" unless options.has_key? :id
+          raise ArgumentError, 'instance id is a required parameter' unless id
+          raise ArgumentError, 'volume id is a required parameter for destroy-volume' unless options.has_key? :id
 
           client.destroy_volume(id, options[:id])
         end
@@ -14,8 +14,8 @@ module Fog
 
       class Mock
         def destroy_volume(id, options)
-          raise ArgumentError, "instance id is a required parameter" unless id
-          raise ArgumentError, "volume id is a required parameter for destroy-volume" unless options.has_key? :id
+          raise ArgumentError, 'instance id is a required parameter' unless id
+          raise ArgumentError, 'volume id is a required parameter for destroy-volume' unless options.has_key? :id
           true
         end
 

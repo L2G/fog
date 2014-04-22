@@ -1,4 +1,4 @@
-Shindo.tests("Fog::Storage[:hp] | directory", ['hp', 'storage']) do
+Shindo.tests('Fog::Storage[:hp] | directory', ['hp', 'storage']) do
 
   file_attributes = {
     :key => 'fog_file_tests',
@@ -18,16 +18,16 @@ Shindo.tests("Fog::Storage[:hp] | directory", ['hp', 'storage']) do
 
     tests('success') do
 
-      tests("#directory").returns(@directory.key) do
+      tests('#directory').returns(@directory.key) do
         @file.directory.key
       end
 
-      tests("#cdn_public_url").succeeds do
+      tests('#cdn_public_url').succeeds do
         pending if Fog.mocking?
         @file.cdn_public_url
       end
 
-      tests("#cdn_public_ssl_url").succeeds do
+      tests('#cdn_public_ssl_url').succeeds do
         pending if Fog.mocking?
         @file.cdn_public_ssl_url
       end

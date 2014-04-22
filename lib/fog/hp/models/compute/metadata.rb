@@ -19,7 +19,7 @@ module Fog
           if @parent.id
             metadata = service.list_metadata(collection_name, @parent.id).body['metadata']
             metas = []
-            metadata.each_pair {|k,v| metas << {"key" => k, "value" => v} }
+            metadata.each_pair {|k,v| metas << {'key' => k, 'value' => v} }
             load(metas)
           end
         end
@@ -33,9 +33,9 @@ module Fog
 
         def get(key)
           requires :parent
-          data = service.get_meta(collection_name, @parent.id, key).body["meta"]
+          data = service.get_meta(collection_name, @parent.id, key).body['meta']
           metas = []
-          data.each_pair {|k,v| metas << {"key" => k, "value" => v} }
+          data.each_pair {|k,v| metas << {'key' => k, 'value' => v} }
           new(metas[0])
         rescue Fog::Compute::HP::NotFound
           nil
@@ -65,7 +65,7 @@ module Fog
               if meta.is_a?(Fog::Compute::HP::Meta) then
                 data.store(meta.key, meta.value)
               else
-                data.store(meta["key"], meta["value"])
+                data.store(meta['key'], meta['value'])
               end
             end
           end

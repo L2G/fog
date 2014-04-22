@@ -20,9 +20,9 @@ module Fog
         # @see https://api.gb1.brightbox.com/1.0/#firewall_rule_update_firewall_rule
         #
         def update_firewall_rule(identifier, options)
-          return nil if identifier.nil? || identifier == ""
+          return nil if identifier.nil? || identifier == ''
           return nil if options.empty? || options.nil?
-          wrapped_request("put", "/1.0/firewall_rules/#{identifier}", [202], options)
+          wrapped_request('put', "/1.0/firewall_rules/#{identifier}", [202], options)
         end
 
       end

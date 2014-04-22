@@ -3,7 +3,7 @@ module Fog
     class CloudSigma
       class Real
         def create_subscription(data)
-          create_request("subscriptions/", data)
+          create_request('subscriptions/', data)
         end
       end
 

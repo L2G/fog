@@ -5,7 +5,7 @@ module Fog
 
         def create_image(options)
           return nil if options.empty? || options.nil?
-          request(:method => "post", :path => "/drives/create", :expects => 200, :options => options)
+          request(:method => 'post', :path => '/drives/create', :expects => 200, :options => options)
         end
 
       end

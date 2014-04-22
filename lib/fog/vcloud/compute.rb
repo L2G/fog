@@ -244,15 +244,15 @@ module Fog
 
         def xmlns
           if version == '1.0'
-            { "xmlns" => "http://www.vmware.com/vcloud/v1",
-              "xmlns:ovf" => "http://schemas.dmtf.org/ovf/envelope/1",
-              "xmlns:xsi" => "http://www.w3.org/2001/XMLSchema-instance",
-              "xmlns:xsd" => "http://www.w3.org/2001/XMLSchema" }
+            { 'xmlns' => 'http://www.vmware.com/vcloud/v1',
+              'xmlns:ovf' => 'http://schemas.dmtf.org/ovf/envelope/1',
+              'xmlns:xsi' => 'http://www.w3.org/2001/XMLSchema-instance',
+              'xmlns:xsd' => 'http://www.w3.org/2001/XMLSchema' }
           else
-            { 'xmlns' => "http://www.vmware.com/vcloud/v1.5",
-              "xmlns:ovf" => "http://schemas.dmtf.org/ovf/envelope/1",
-              "xmlns:xsi" => "http://www.w3.org/2001/XMLSchema-instance",
-              "xmlns:xsd" => "http://www.w3.org/2001/XMLSchema" }
+            { 'xmlns' => 'http://www.vmware.com/vcloud/v1.5',
+              'xmlns:ovf' => 'http://schemas.dmtf.org/ovf/envelope/1',
+              'xmlns:xsi' => 'http://www.w3.org/2001/XMLSchema-instance',
+              'xmlns:xsd' => 'http://www.w3.org/2001/XMLSchema' }
           end
         end
 

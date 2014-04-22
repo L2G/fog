@@ -10,7 +10,7 @@ Shindo.tests('Fog::Rackspace::BlockStorage | volume_type_tests', ['rackspace']) 
   tests('success') do
     volume_type_id = service.volume_types.first.id
 
-    tests("#list_volume_types").formats('volume_types' => [volume_type_format]) do
+    tests('#list_volume_types').formats('volume_types' => [volume_type_format]) do
       service.list_volume_types.body
     end
 

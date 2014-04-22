@@ -1,4 +1,4 @@
-Shindo.tests("Fog::Compute::HPV2 | persistent server requests", ['hp', 'v2', 'compute']) do
+Shindo.tests('Fog::Compute::HPV2 | persistent server requests', ['hp', 'v2', 'compute']) do
 
   service = Fog::Compute.new(:provider => 'HP', :version => :v2)
 

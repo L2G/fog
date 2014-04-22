@@ -149,9 +149,9 @@ module Fog
             elsif state_reason_key = filter_key.split('state-reason-')[1]
               aliased_key = state_reason_aliases[state_reason_key]
               instance_set = instance_set.reject{|instance| ![*filter_value].include?(instance['stateReason'][aliased_key])}
-            elsif filter_key == "group-name"
+            elsif filter_key == 'group-name'
               instance_set = instance_set.reject {|instance| !instance['groupSet'].include?(filter_value)}
-            elsif filter_key == "group-id"
+            elsif filter_key == 'group-id'
               group_ids = [*filter_value]
               security_group_names = self.data[:security_groups].values.select { |sg| group_ids.include?(sg['groupId']) }.map { |sg| sg['groupName'] }
               instance_set = instance_set.reject {|instance| (security_group_names & instance['groupSet']).empty?}

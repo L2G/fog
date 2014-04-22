@@ -5,20 +5,20 @@ Shindo.tests('Fog::Compute[:aws] | account tests', ['aws']) do
         client = Fog::Compute[:aws]
         client.ec2_compatibility_mode(true)
         data = Fog::Compute[:aws].describe_account_attributes.body
-        data['accountAttributeSet'].any? { |s| [*s["values"]].include?("VPC") && [*s["values"]].include?("EC2") }
+        data['accountAttributeSet'].any? { |s| [*s['values']].include?('VPC') && [*s['values']].include?('EC2') }
       end
       tests('supports VPC in vpc mode').succeeds do
         client = Fog::Compute[:aws]
         client.ec2_compatibility_mode(true)
         data = Fog::Compute[:aws].describe_account_attributes.body
-        data['accountAttributeSet'].any? { |s| [*s["values"]].include?("VPC") }
+        data['accountAttributeSet'].any? { |s| [*s['values']].include?('VPC') }
       end
 
       tests('does not support VPC and EC2 in vpc mode').succeeds do
         client = Fog::Compute[:aws]
         client.ec2_compatibility_mode(false)
         data = Fog::Compute[:aws].describe_account_attributes.body
-        !data['accountAttributeSet'].any? { |s| [*s["values"]].include?("VPC") && [*s["values"]].include?("EC2") }
+        !data['accountAttributeSet'].any? { |s| [*s['values']].include?('VPC') && [*s['values']].include?('EC2') }
       end
     end
   end

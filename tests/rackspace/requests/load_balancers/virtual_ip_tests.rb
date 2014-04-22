@@ -14,7 +14,7 @@ Shindo.tests('Fog::Rackspace::LoadBalancers | virtual_ip_tests', ['rackspace']) 
         end
 
         @lb.wait_for { ready? }
-        tests("list_virtual_ips").formats(VIRTUAL_IPS_FORMAT) do
+        tests('list_virtual_ips').formats(VIRTUAL_IPS_FORMAT) do
           @service.list_virtual_ips(@lb.id).body
         end
       end

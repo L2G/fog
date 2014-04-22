@@ -23,21 +23,21 @@ module Fog
         def domain_display xml
           attrs = {}
           [:type, :port, :password, :listen].each do |element|
-            attrs[element] = xml_element(xml, "domain/devices/graphics",element.to_s) rescue nil
+            attrs[element] = xml_element(xml, 'domain/devices/graphics',element.to_s) rescue nil
           end
-          attrs.reject{|k,v| v.nil? or v == ""}
+          attrs.reject{|k,v| v.nil? or v == ''}
         end
 
         def domain_volumes xml
-          xml_elements(xml, "domain/devices/disk/source", "file")
+          xml_elements(xml, 'domain/devices/disk/source', 'file')
         end
 
         def boot_order xml
-          xml_elements(xml, "domain/os/boot", "dev")
+          xml_elements(xml, 'domain/os/boot', 'dev')
         end
 
         def domain_interfaces xml
-          ifs = xml_elements(xml, "domain/devices/interface")
+          ifs = xml_elements(xml, 'domain/devices/interface')
           ifs.map { |i|
             nics.new({
               :type    => i['type'],
@@ -83,15 +83,15 @@ module Fog
         def mock_domain name
           xml = read_xml 'domain.xml'
           {
-              :id              => "dom.uuid",
-              :uuid            => "dom.uuid",
+              :id              => 'dom.uuid',
+              :uuid            => 'dom.uuid',
               :name            => name,
               :max_memory_size => 8,
               :cputime         => 7,
               :memory_size     => 6,
               :cpus            => 5,
               :autostart       => false,
-              :os_type         => "RHEL6",
+              :os_type         => 'RHEL6',
               :active          => false,
               :vnc_port        => 5910,
               :boot_order      => boot_order(xml),

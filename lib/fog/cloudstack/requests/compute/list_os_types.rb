@@ -20,7 +20,7 @@ module Fog
         # TODO: add id, category_id filters and paging params
         def list_os_types(options = {})
           os_types = self.data[:os_types]
-          { "listostypesresponse" => { "count" => os_types.count, "ostype" => os_types.values } }
+          { 'listostypesresponse' => { 'count' => os_types.count, 'ostype' => os_types.values } }
         end
 
       end

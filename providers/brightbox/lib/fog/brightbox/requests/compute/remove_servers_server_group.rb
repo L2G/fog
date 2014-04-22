@@ -24,8 +24,8 @@ module Fog
         #   Compute[:brightbox].remove_servers_server_group "grp-12345", options
         #
         def remove_servers_server_group(identifier, options)
-          return nil if identifier.nil? || identifier == ""
-          wrapped_request("post", "/1.0/server_groups/#{identifier}/remove_servers", [202], options)
+          return nil if identifier.nil? || identifier == ''
+          wrapped_request('post', "/1.0/server_groups/#{identifier}/remove_servers", [202], options)
         end
 
       end

@@ -7,7 +7,7 @@ module Fog
         class DescribeApplicationVersions < Fog::Parsers::AWS::ElasticBeanstalk::BaseParser
 
           def initialize
-            super("DescribeApplicationVersionsResult")
+            super('DescribeApplicationVersionsResult')
             tag 'ApplicationVersions', :object, :list
             tag 'ApplicationName', :string
             tag 'DateCreated', :datetime

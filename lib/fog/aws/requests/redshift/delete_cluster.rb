@@ -29,7 +29,7 @@ module Fog
           final_cluster_snapshot_identifier = options[:final_cluster_snapshot_identifier]
           skip_final_cluster_snapshot       = options[:skip_final_cluster_snapshot]
 
-          path = "/"
+          path = '/'
           params = {
             :headers    => {},
             :path       => path,

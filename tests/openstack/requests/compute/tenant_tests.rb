@@ -13,7 +13,7 @@ Shindo.tests('Fog::Compute[:openstack] | tenant requests', ['openstack']) do
     end
 
     tests('#set_tenant("admin")').succeeds do
-      Fog::Compute[:openstack].set_tenant("admin")
+      Fog::Compute[:openstack].set_tenant('admin')
     end
   end
 end

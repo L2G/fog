@@ -23,7 +23,7 @@ module Fog
         end
 
         def activate
-          data = service.public_ip_activate(href + "/action/activatePublicIp").body
+          data = service.public_ip_activate(href + '/action/activatePublicIp').body
           ip = Fog::Compute::Ecloud::PublicIps.new(:service => service, :href => data[:href])[0]
         end
       end

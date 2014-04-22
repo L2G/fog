@@ -45,12 +45,12 @@ module Fog
 
         def meta_data
          requires :directory, :key
-          service.get_namespace([directory.key, key].join('/') + "?metadata/system")
+          service.get_namespace([directory.key, key].join('/') + '?metadata/system')
         end
 
         def file_size
           data = meta_data
-          meta_data.headers["x-emc-meta"].match(/size=\d+/).to_s.gsub(/size=/,"")
+          meta_data.headers['x-emc-meta'].match(/size=\d+/).to_s.gsub(/size=/,'')
         end
 
         def public=(new_public)
@@ -60,8 +60,8 @@ module Fog
         # By default, expire in 5 years
         def public_url(expires = (Time.now + 5 * 365 * 24 * 60 * 60))
           file = directory.files.head(key)
-          self.objectid = if file && file.to_s.strip != "" then file.attributes['x-emc-meta'].scan(/objectid=(\w+),/).flatten[0] else nil end
-          if self.objectid && self.objectid.to_s.strip != ""
+          self.objectid = if file && file.to_s.strip != '' then file.attributes['x-emc-meta'].scan(/objectid=(\w+),/).flatten[0] else nil end
+          if self.objectid && self.objectid.to_s.strip != ''
             klass = service.ssl? ? URI::HTTPS : URI::HTTP
             uri = klass.build(:host => service.host, :port => service.port.to_i, :path => "/rest/objects/#{self.objectid}" )
 

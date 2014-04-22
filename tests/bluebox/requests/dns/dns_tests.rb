@@ -178,7 +178,7 @@ Shindo.tests('Fog::DNS[:bluebox] | DNS requests', ['bluebox', 'dns']) do
 
       response = Fog::DNS[:bluebox].get_record(@new_zones[1], @record_id)
       if response.status == 200
-        mail_domain = 'mail.' + @domain + "."
+        mail_domain = 'mail.' + @domain + '.'
         record = response.body
         if (record['type'] == 'MX') and (record['name'] == @domain) and (record['content'] == mail_domain) and (record['priority'] == '10')
           result = true
@@ -201,7 +201,7 @@ Shindo.tests('Fog::DNS[:bluebox] | DNS requests', ['bluebox', 'dns']) do
         records.each {|record|
           if record['type'] == 'MX'
 
-            mail_domain = 'mail.' + @domain + "."
+            mail_domain = 'mail.' + @domain + '.'
             if (record['type'] == 'MX') and (record['name'] == @domain) and (record['content'] == mail_domain) and (record['priority'] == '10')
               result = true
               break

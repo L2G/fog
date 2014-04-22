@@ -11,9 +11,9 @@ Shindo.tests('AWS::ElasticBeanstalk | application_tests', ['aws', 'beanstalk']) 
     @beanstalk = Fog::AWS[:beanstalk]
   end
 
-  @test_description = "A unique description."
+  @test_description = 'A unique description.'
 
-  @test_app_name = unique_name("fog-test-app-")
+  @test_app_name = unique_name('fog-test-app-')
 
   tests('success') do
     pending if Fog.mocking?
@@ -31,11 +31,11 @@ Shindo.tests('AWS::ElasticBeanstalk | application_tests', ['aws', 'beanstalk']) 
         'ResponseMetadata' => {'RequestId' => String},
     }
 
-    tests("#describe_applications format").formats(@describe_applications_format) do
+    tests('#describe_applications format').formats(@describe_applications_format) do
       result = @beanstalk.describe_applications.body
     end
 
-    test("#create_application") {
+    test('#create_application') {
       response = @beanstalk.create_application({
                                                    'ApplicationName' => @test_app_name,
                                                    'Description' => @test_description
@@ -58,7 +58,7 @@ Shindo.tests('AWS::ElasticBeanstalk | application_tests', ['aws', 'beanstalk']) 
       result
     }
 
-    test("#describe_applications all") {
+    test('#describe_applications all') {
       response = @beanstalk.describe_applications
 
       result = false
@@ -79,7 +79,7 @@ Shindo.tests('AWS::ElasticBeanstalk | application_tests', ['aws', 'beanstalk']) 
       result
     }
 
-    test("#create_application filter") {
+    test('#create_application filter') {
       # Test for a specific app
       response = @beanstalk.describe_applications([@test_app_name])
 
@@ -100,9 +100,9 @@ Shindo.tests('AWS::ElasticBeanstalk | application_tests', ['aws', 'beanstalk']) 
       result
     }
 
-    test("#update_application description") {
+    test('#update_application description') {
 
-      @test_description = "A completely new description."
+      @test_description = 'A completely new description.'
 
       response = @beanstalk.update_application({
                                                    'ApplicationName' => @test_app_name,
@@ -125,7 +125,7 @@ Shindo.tests('AWS::ElasticBeanstalk | application_tests', ['aws', 'beanstalk']) 
       result
     }
 
-    test("#delete_application") {
+    test('#delete_application') {
       response = @beanstalk.delete_application(@test_app_name)
 
       result = false

@@ -1,4 +1,4 @@
-Shindo.tests("Fog::Compute[:hp] | key pair requests", ['hp']) do
+Shindo.tests('Fog::Compute[:hp] | key pair requests', ['hp']) do
 
   tests('success') do
 
@@ -23,7 +23,7 @@ Shindo.tests("Fog::Compute[:hp] | key pair requests", ['hp']) do
 
     tests("#create_key_pair('#{@key_pair_name}')").formats({'keypair' => @keypair_format.merge({'private_key' => String, 'user_id' => String})}) do
       body = Fog::Compute[:hp].create_key_pair(@key_pair_name).body
-      tests("private_key").returns(OpenSSL::PKey::RSA, "is a valid private RSA key") do
+      tests('private_key').returns(OpenSSL::PKey::RSA, 'is a valid private RSA key') do
         OpenSSL::PKey::RSA.new(body['keypair']['private_key']).class
       end
       body

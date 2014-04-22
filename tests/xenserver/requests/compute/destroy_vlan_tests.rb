@@ -7,9 +7,9 @@ Shindo.tests('Fog::Compute[:xenserver] | destroy_vlan request', ['xenserver']) d
       @net = compute.networks.create :name => 'test-net'
 
       # try to use a bonded interface first
-      @pif = compute.pifs.find { |p| p.device == 'bond0' and p.vlan == "-1" }
+      @pif = compute.pifs.find { |p| p.device == 'bond0' and p.vlan == '-1' }
       unless @pif
-        @pif = compute.pifs.find { |p| p.device == 'eth0' and p.vlan == "-1" }
+        @pif = compute.pifs.find { |p| p.device == 'eth0' and p.vlan == '-1' }
       end
 
       @ref = compute.create_vlan @pif.reference, 1499, @net.reference

@@ -5,7 +5,7 @@ module Fog
       class Real
         def delete_machine_snapshot(machine_id, snapshot)
           request(
-            :method => "DELETE",
+            :method => 'DELETE',
             :path => "/my/machines/#{machine_id}/snapshots/#{snapshot}",
             :expects => [200, 204]
           )

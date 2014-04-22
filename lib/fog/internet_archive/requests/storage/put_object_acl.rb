@@ -29,7 +29,7 @@ module Fog
 
         def put_object_acl(bucket_name, object_name, acl, options = {})
           query = {'acl' => nil}
-          data = ""
+          data = ''
           headers = {}
 
           if acl.is_a?(Hash)

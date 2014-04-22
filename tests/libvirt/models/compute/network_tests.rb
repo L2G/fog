@@ -10,12 +10,12 @@ Shindo.tests('Fog::Compute[:libvirt] | network model', ['libvirt']) do
     tests('have attributes') do
       model_attribute_hash = network.attributes
       attributes = [ :name, :uuid, :bridge_name]
-      tests("The network model should respond to") do
+      tests('The network model should respond to') do
         attributes.each do |attribute|
           test("#{attribute}") { network.respond_to? attribute }
         end
       end
-      tests("The attributes hash should have key") do
+      tests('The attributes hash should have key') do
         attributes.each do |attribute|
           test("#{attribute}") { model_attribute_hash.has_key? attribute }
         end

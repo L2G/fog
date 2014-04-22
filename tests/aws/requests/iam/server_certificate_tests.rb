@@ -70,19 +70,19 @@ Shindo.tests('AWS::IAM | server certificate requests', ['aws']) do
   tests('#update_server_certificate') do
     public_key  = AWS::IAM::SERVER_CERT
     private_key = AWS::IAM::SERVER_CERT_PRIVATE_KEY
-    key_name    = "update-key"
+    key_name    = 'update-key'
 
     Fog::AWS::IAM.new.upload_server_certificate(public_key, private_key, key_name)
 
     tests('duplicate name').raises(Fog::AWS::IAM::EntityAlreadyExists) do
-      other_key_name = "other-key-name"
+      other_key_name = 'other-key-name'
       Fog::AWS::IAM.new.upload_server_certificate(public_key, private_key, other_key_name)
 
       Fog::AWS::IAM.new.update_server_certificate(key_name, {'NewServerCertificateName' => other_key_name})
     end
 
     tests('unknown name').raises(Fog::AWS::IAM::NotFound) do
-      Fog::AWS::IAM.new.update_server_certificate("unknown-key-name", {'NewServerCertificateName' => "other-keyname"})
+      Fog::AWS::IAM.new.update_server_certificate('unknown-key-name', {'NewServerCertificateName' => 'other-keyname'})
     end
 
     tests('format').formats(@update_format) do
@@ -90,7 +90,7 @@ Shindo.tests('AWS::IAM | server certificate requests', ['aws']) do
     end
 
     tests('updates name') do
-      other_key_name = "successful-update-key-name"
+      other_key_name = 'successful-update-key-name'
       Fog::AWS::IAM.new.update_server_certificate(key_name, {'NewServerCertificateName' => other_key_name})
       returns(true) { Fog::AWS::IAM.new.get_server_certificate(other_key_name).body['Certificate']['ServerCertificateName'] == other_key_name }
     end

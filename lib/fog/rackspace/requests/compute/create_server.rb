@@ -76,7 +76,7 @@ module Fog
             'flavorId'  => flavor_id,
             'id'        => Fog::Mock.random_numbers(6).to_i,
             'imageId'   => image_id,
-            'hostId'    => "123456789ABCDEF01234567890ABCDEF",
+            'hostId'    => '123456789ABCDEF01234567890ABCDEF',
             'metadata'  => options['metadata'] || {},
             'name'      => options['name'] || "server_#{rand(999)}",
             'progress'  => 0,

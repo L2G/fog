@@ -68,7 +68,7 @@ module Fog
             if options['VolumeType'] == 'io1'
               iops = options['Iops']
               if !iops
-                raise Fog::Compute::AWS::Error.new("InvalidParameterCombination => The parameter iops must be specified for io1 volumes.")
+                raise Fog::Compute::AWS::Error.new('InvalidParameterCombination => The parameter iops must be specified for io1 volumes.')
               end
 
               if size < 10

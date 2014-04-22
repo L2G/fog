@@ -40,7 +40,7 @@ module Fog
           body =
             {:name => network[:name],
              :href => make_href("network/#{id}"),
-             :type => "application/vnd.vmware.vcloud.orgNetwork+xml",
+             :type => 'application/vnd.vmware.vcloud.orgNetwork+xml',
              :id => id,
              :description => nil,
              :is_inherited => network[:IsInherited],

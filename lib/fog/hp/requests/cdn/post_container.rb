@@ -33,9 +33,9 @@ module Fog
               data[k] = options[k] if options[k]
             end
             response.headers = {
-              "X-Cdn-Ssl-Uri" => "https://a111.cdn.net/cdn-test.net/#{container_id}/abc",
-              "X-Cdn-Uri"     => "http://#{container_id}.cdn-test.net",
-              "X-Trans-Id"    => Fog::Mock.random_hex(34)
+              'X-Cdn-Ssl-Uri' => "https://a111.cdn.net/cdn-test.net/#{container_id}/abc",
+              'X-Cdn-Uri'     => "http://#{container_id}.cdn-test.net",
+              'X-Trans-Id'    => Fog::Mock.random_hex(34)
             }
             response.status = 202
             response.body = "202 Accepted\n\nThe request is accepted for processing.\n\n   "

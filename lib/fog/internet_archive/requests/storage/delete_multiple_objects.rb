@@ -32,14 +32,14 @@ module Fog
         # @see http://docs.amazonwebservices.com/AmazonS3/latest/API/multiobjectdeleteapi.html
 
         def delete_multiple_objects(bucket_name, object_names, options = {})
-          data = "<Delete>"
-          data << "<Quiet>true</Quiet>" if options.delete(:quiet)
+          data = '<Delete>'
+          data << '<Quiet>true</Quiet>' if options.delete(:quiet)
           object_names.each do |object_name|
-            data << "<Object>"
+            data << '<Object>'
             data << "<Key>#{CGI.escapeHTML(object_name)}</Key>"
-            data << "</Object>"
+            data << '</Object>'
           end
-          data << "</Delete>"
+          data << '</Delete>'
 
           headers = options
           headers['Content-Length'] = data.length

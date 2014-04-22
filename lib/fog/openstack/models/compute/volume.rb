@@ -53,7 +53,7 @@ module Fog
         end
 
         def ready?
-          self.status == "available"
+          self.status == 'available'
         end
 
       end

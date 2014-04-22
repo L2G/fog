@@ -7,8 +7,8 @@ module Fog
         def get_machine_tag(machine_id, tagname)
           request(
             :path => "/my/machines/#{machine_id}/tags/#{tagname}",
-            :method => "GET",
-            :headers => {"Accept" => "text/plain"},
+            :method => 'GET',
+            :headers => {'Accept' => 'text/plain'},
             :expects => 200,
             :idempotent => true
           )

@@ -77,7 +77,7 @@ module Fog
         end
 
         def ready?
-          status == "running"
+          status == 'running'
         end
 
         def open_vnc
@@ -116,7 +116,7 @@ module Fog
                   controller_channel = 0
                   controller += 1
                   if controller >= max_ctlr
-                    raise Fog::CloudSigma::Errors::Error.new("Max channel reached, cannot attach more")
+                    raise Fog::CloudSigma::Errors::Error.new('Max channel reached, cannot attach more')
                   end
                 end
                 dev_channel = "#{controller}:#{controller_channel}"

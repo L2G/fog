@@ -63,8 +63,8 @@ module Fog
           @go_grid_api_key = options[:go_grid_api_key]
           @go_grid_shared_secret = options[:go_grid_shared_secret]
           @connection_options = options[:connection_options] || {}
-          @host       = options[:host]        || "api.gogrid.com"
-          @path       = options[:path]        || "/api"
+          @host       = options[:host]        || 'api.gogrid.com'
+          @path       = options[:path]        || '/api'
           @persistent = options[:persistent]  || false
           @port       = options[:port]        || 443
           @scheme     = options[:scheme]      || 'https'

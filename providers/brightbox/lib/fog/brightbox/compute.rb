@@ -191,7 +191,7 @@ module Fog
         end
 
         def select_default_image
-          "img-mockd"
+          'img-mockd'
         end
       end
 

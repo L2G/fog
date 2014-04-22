@@ -69,12 +69,12 @@ module Fog
         def initialize(options = {})
           # deprecate hp_account_id
           if options[:hp_account_id]
-            Fog::Logger.deprecation(":hp_account_id is deprecated, please use :hp_access_key instead.")
+            Fog::Logger.deprecation(':hp_account_id is deprecated, please use :hp_access_key instead.')
             @hp_access_key = options.delete(:hp_account_id)
           end
           @hp_access_key = options[:hp_access_key]
           unless @hp_access_key
-            raise ArgumentError.new("Missing required arguments: hp_access_key. :hp_account_id is deprecated, please use :hp_access_key instead.")
+            raise ArgumentError.new('Missing required arguments: hp_access_key. :hp_account_id is deprecated, please use :hp_access_key instead.')
           end
         end
 
@@ -95,12 +95,12 @@ module Fog
         def initialize(options = {})
           # deprecate hp_account_id
           if options[:hp_account_id]
-            Fog::Logger.deprecation(":hp_account_id is deprecated, please use :hp_access_key instead.")
+            Fog::Logger.deprecation(':hp_account_id is deprecated, please use :hp_access_key instead.')
             options[:hp_access_key] = options.delete(:hp_account_id)
           end
           @hp_access_key = options[:hp_access_key]
           unless @hp_access_key
-            raise ArgumentError.new("Missing required arguments: hp_access_key. :hp_account_id is deprecated, please use :hp_access_key instead.")
+            raise ArgumentError.new('Missing required arguments: hp_access_key. :hp_account_id is deprecated, please use :hp_access_key instead.')
           end
           @hp_secret_key = options[:hp_secret_key]
           @hp_auth_uri   = options[:hp_auth_uri]
@@ -111,7 +111,7 @@ module Fog
           auth_version = auth_version.to_s.downcase.to_sym
 
           ### Pass the service name for object storage to the authentication call
-          options[:hp_service_type] ||= "Block Storage"
+          options[:hp_service_type] ||= 'Block Storage'
           @hp_tenant_id = options[:hp_tenant_id]
           @hp_avl_zone  = options[:hp_avl_zone]
 

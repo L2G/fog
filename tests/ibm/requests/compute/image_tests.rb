@@ -39,36 +39,36 @@ Shindo.tests('Fog::Compute[:ibm] | image requests', ['ibm']) do
   }
 
   @create_image_format = {
-    "name"        => String,
-    "createdTime" => Integer,
-    "productCodes" => Array,
-    "id"          => String,
-    "description" => String,
-    "visibility"  => String,
-    "state"       => Integer
+    'name'        => String,
+    'createdTime' => Integer,
+    'productCodes' => Array,
+    'id'          => String,
+    'description' => String,
+    'visibility'  => String,
+    'state'       => Integer
   }
 
   @instance_id    = nil
-  @name           = "fog-test-image-instance-" + Time.now.to_i.to_s(32)
-  @image_id       = "20010001"
-  @instance_type  = "BRZ32.1/2048/60*175"
-  @location       = "41"
+  @name           = 'fog-test-image-instance-' + Time.now.to_i.to_s(32)
+  @image_id       = '20010001'
+  @instance_type  = 'BRZ32.1/2048/60*175'
+  @location       = '41'
 
   @id             = nil
   @cloned_id      = nil
-  @image_name     = "fog test create image"
+  @image_name     = 'fog test create image'
 
-  @key_name       = "fog-test-key-" + Time.now.to_i.to_s(32)
+  @key_name       = 'fog-test-key-' + Time.now.to_i.to_s(32)
   @key            = Fog::Compute[:ibm].keys.create(:name => @key_name)
 
   tests('success') do
 
-    tests("#list_images").formats(@images_format) do
+    tests('#list_images').formats(@images_format) do
       Fog::Compute[:ibm].list_images.body
     end
 
     tests('#get_image').formats(@image_format) do
-      Fog::Compute[:ibm].get_image("20010001").body
+      Fog::Compute[:ibm].get_image('20010001').body
     end
 
     tests('#create_image').formats(@create_image_format) do
@@ -81,7 +81,7 @@ Shindo.tests('Fog::Compute[:ibm] | image requests', ['ibm']) do
       ).body
       @instance_id  = response['instances'][0]['id']
       Fog::Compute[:ibm].servers.get(@instance_id).wait_for(Fog::IBM.timeout) { ready? }
-      data          = Fog::Compute[:ibm].create_image(@instance_id, @image_name, "").body
+      data          = Fog::Compute[:ibm].create_image(@instance_id, @image_name, '').body
       @id           = data['id']
       data
     end

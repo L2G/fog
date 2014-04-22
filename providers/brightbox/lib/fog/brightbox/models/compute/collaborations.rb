@@ -1,5 +1,5 @@
-require "fog/core/collection"
-require "fog/brightbox/models/compute/collaboration"
+require 'fog/core/collection'
+require 'fog/brightbox/models/compute/collaboration'
 
 module Fog
   module Compute
@@ -13,7 +13,7 @@ module Fog
         end
 
         def get(identifier)
-          return nil if identifier.nil? || identifier == ""
+          return nil if identifier.nil? || identifier == ''
           data = service.get_collaboration(identifier)
           new(data)
         rescue Excon::Errors::NotFound
@@ -29,8 +29,8 @@ module Fog
         # @return [Fog::Compute::Brightbox::Collaboration]
         #
         def invite(email, role)
-          return nil if email.nil? || email == ""
-          return nil if role.nil? || role == ""
+          return nil if email.nil? || email == ''
+          return nil if role.nil? || role == ''
           options = { :email => email, :role => role }
           data = service.create_collaboration(options)
           new(data)

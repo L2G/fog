@@ -21,12 +21,12 @@ Shindo.tests('Fog::Compute[:xenserver] | HostCpu model', ['xenserver']) do
         :utilisation,
         :vendor
       ]
-      tests("The HostCpu model should respond to") do
+      tests('The HostCpu model should respond to') do
         attributes.each do |attribute|
           test("#{attribute}") { host_cpu.respond_to? attribute }
         end
       end
-      tests("The attributes hash should have key") do
+      tests('The attributes hash should have key') do
         attributes.each do |attribute|
           test("#{attribute}") { model_attribute_hash.has_key? attribute }
         end
@@ -37,19 +37,19 @@ Shindo.tests('Fog::Compute[:xenserver] | HostCpu model', ['xenserver']) do
       host_cpu.kind_of? Fog::Compute::XenServer::HostCpu
     end
 
-    test("return a valid host") do
+    test('return a valid host') do
       host_cpu.host.kind_of? Fog::Compute::XenServer::Host
     end
 
-    test("have a valid vendor string") do
+    test('have a valid vendor string') do
       host_cpu.vendor.kind_of? String
     end
 
-    test("have a valid other_config") do
+    test('have a valid other_config') do
       host_cpu.other_config.kind_of? Hash
     end
 
-    test("have a valid utilisation attribute") do
+    test('have a valid utilisation attribute') do
       host_cpu.utilisation.kind_of? Float
     end
 

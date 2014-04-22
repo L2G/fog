@@ -1,5 +1,5 @@
-require "fog/core/collection"
-require "fog/brightbox/models/compute/api_client"
+require 'fog/core/collection'
+require 'fog/brightbox/models/compute/api_client'
 
 module Fog
   module Compute

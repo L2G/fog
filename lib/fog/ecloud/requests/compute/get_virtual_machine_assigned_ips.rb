@@ -29,7 +29,7 @@ module Fog
 
           body = {
             :href  => "/cloudapi/ecloud/virtualMachines/#{virtual_machine_id}/assignedIps",
-            :type  => "application/vnd.tmrk.cloud.network",
+            :type  => 'application/vnd.tmrk.cloud.network',
             :Links => {
               :Link => Fog::Ecloud.keep(environment, :name, :href, :type)
             },

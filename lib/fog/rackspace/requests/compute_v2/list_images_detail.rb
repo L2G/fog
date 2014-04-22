@@ -45,7 +45,7 @@ module Fog
       class Mock
         def list_images_detail(options = {})
           images = self.data[:images].values
-          response(:body => {"images" => images})
+          response(:body => {'images' => images})
         end
       end
     end

@@ -53,7 +53,7 @@ module Fog
 
         def initialize(options = {})
           @connection_options = options[:connection_options] || {}
-          @host           = options[:host]        || "api.linode.com"
+          @host           = options[:host]        || 'api.linode.com'
           @linode_api_key = options[:linode_api_key]
           @persistent     = options[:persistent]  || false
           @port           = options[:port]        || 443

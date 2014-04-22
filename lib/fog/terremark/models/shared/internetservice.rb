@@ -17,7 +17,7 @@ module Fog
 
         def destroy(delete_public_ip = true)
           service.delete_internet_service(self.Id)
-          service.delete_public_ip(self.PublicIpAddress["Id"]) if delete_public_ip
+          service.delete_public_ip(self.PublicIpAddress['Id']) if delete_public_ip
         true
         end
 
@@ -32,7 +32,7 @@ module Fog
                 port = self.Port,
                 options = {
                         'Enabled' => 'true',
-                        "Description" => self.Name
+                        'Description' => self.Name
                 }
             )
           else
@@ -44,7 +44,7 @@ module Fog
                       port = self.Port,
                       options = {
                         'Enabled' => 'true',
-                        "Description" => self.Name
+                        'Description' => self.Name
                         }
                     )
           end

@@ -11,14 +11,14 @@ module Fog
           }
           options = default_options.merge(options)
           # Backwards compat for "path" option
-          options["template_path"] ||= options["path"]
-          options["path"] ||= options["template_path"]
+          options['template_path'] ||= options['path']
+          options['path'] ||= options['template_path']
           required_options = %w{ datacenter template_path name }
           required_options.each do |param|
             raise ArgumentError, "#{required_options.join(', ')} are required" unless options.has_key? param
           end
-          raise Fog::Compute::Vsphere::NotFound, "Datacenter #{options["datacenter"]} Doesn't Exist!" unless get_datacenter(options["datacenter"])
-          raise Fog::Compute::Vsphere::NotFound, "Template #{options["template_path"]} Doesn't Exist!" unless get_virtual_machine(options["template_path"], options["datacenter"])
+          raise Fog::Compute::Vsphere::NotFound, "Datacenter #{options["datacenter"]} Doesn't Exist!" unless get_datacenter(options['datacenter'])
+          raise Fog::Compute::Vsphere::NotFound, "Template #{options["template_path"]} Doesn't Exist!" unless get_virtual_machine(options['template_path'], options['datacenter'])
           options
         end
       end
@@ -130,7 +130,7 @@ module Fog
               :startConnected => true)
             device = RbVmomi::VIM::VirtualE1000(
               :backing => nic_backing_info,
-              :deviceInfo => RbVmomi::VIM::Description(:label => "Network adapter 1", :summary => options['network_label']),
+              :deviceInfo => RbVmomi::VIM::Description(:label => 'Network adapter 1', :summary => options['network_label']),
               :key => options['network_adapter_device_key'],
               :connectable => connectable)
             device_spec = RbVmomi::VIM::VirtualDeviceConfigSpec(
@@ -157,15 +157,15 @@ module Fog
           #    For other ip settings options see http://www.vmware.com/support/developer/vc-sdk/visdk41pubs/ApiReference/vim.vm.customization.IPSettings.html
           if ( options.has_key?('customization_spec') )
             cust_options = options['customization_spec']
-            if cust_options.has_key?("ipsettings")
-              raise ArgumentError, "ip and subnetMask is required for static ip" unless cust_options["ipsettings"].has_key?("ip") and
-                                                                                        cust_options["ipsettings"].has_key?("subnetMask")
+            if cust_options.has_key?('ipsettings')
+              raise ArgumentError, 'ip and subnetMask is required for static ip' unless cust_options['ipsettings'].has_key?('ip') and
+                                                                                        cust_options['ipsettings'].has_key?('subnetMask')
             end
-            raise ArgumentError, "domain is required" unless cust_options.has_key?("domain")
+            raise ArgumentError, 'domain is required' unless cust_options.has_key?('domain')
             cust_domain = cust_options['domain']
-            cust_ip_settings = RbVmomi::VIM::CustomizationIPSettings.new(cust_options["ipsettings"]) if cust_options.has_key?("ipsettings")
-            cust_ip_settings.ip = RbVmomi::VIM::CustomizationFixedIp("ipAddress" => cust_options["ipsettings"]["ip"]) if cust_options.has_key?("ipsettings")
-            cust_ip_settings ||= RbVmomi::VIM::CustomizationIPSettings.new("ip" => RbVmomi::VIM::CustomizationDhcpIpGenerator.new())
+            cust_ip_settings = RbVmomi::VIM::CustomizationIPSettings.new(cust_options['ipsettings']) if cust_options.has_key?('ipsettings')
+            cust_ip_settings.ip = RbVmomi::VIM::CustomizationFixedIp('ipAddress' => cust_options['ipsettings']['ip']) if cust_options.has_key?('ipsettings')
+            cust_ip_settings ||= RbVmomi::VIM::CustomizationIPSettings.new('ip' => RbVmomi::VIM::CustomizationDhcpIpGenerator.new())
             cust_ip_settings.dnsDomain = cust_domain
             cust_global_ip_settings = RbVmomi::VIM::CustomizationGlobalIPSettings.new
             cust_global_ip_settings.dnsServerList = cust_ip_settings.dnsServerList
@@ -182,7 +182,7 @@ module Fog
               :hwClockUTC => cust_hwclockutc,
               :timeZone => cust_timezone)
             # Build the Custom Adapter Mapping Supports only one eth right now
-            cust_adapter_mapping = [RbVmomi::VIM::CustomizationAdapterMapping.new("adapter" => cust_ip_settings)]
+            cust_adapter_mapping = [RbVmomi::VIM::CustomizationAdapterMapping.new('adapter' => cust_ip_settings)]
             # Build the customization Spec
             customization_spec = RbVmomi::VIM::CustomizationSpec.new(
               :identity => cust_prep,
@@ -280,18 +280,18 @@ module Fog
         def vm_clone(options = {})
           # Option handling TODO Needs better method of checking
           options = vm_clone_check_options(options)
-          notfound = lambda { raise Fog::Compute::Vsphere::NotFound, "Could not find VM template" }
+          notfound = lambda { raise Fog::Compute::Vsphere::NotFound, 'Could not find VM template' }
           template = list_virtual_machines.find(notfound) do |vm|
-            vm['name'] == options['template_path'].split("/")[-1]
+            vm['name'] == options['template_path'].split('/')[-1]
           end
 
           # generate a random id
-          id = [8,4,4,4,12].map{|i| Fog::Mock.random_hex(i)}.join("-")
+          id = [8,4,4,4,12].map{|i| Fog::Mock.random_hex(i)}.join('-')
           new_vm = template.clone.merge({
-            "name" => options['name'],
-            "id" => id,
-            "instance_uuid" => id,
-            "path" => "/Datacenters/#{options['datacenter']}/#{options['dest_folder'] ? options['dest_folder'] + "/" : ""}#{options['name']}"
+            'name' => options['name'],
+            'id' => id,
+            'instance_uuid' => id,
+            'path' => "/Datacenters/#{options['datacenter']}/#{options['dest_folder'] ? options['dest_folder'] + "/" : ""}#{options['name']}"
           })
           self.data[:servers][id] = new_vm
 

@@ -18,20 +18,20 @@ def select_volume(volumes)
     puts "\t #{i}. #{volume.display_name}"
   end
 
- selected_str = get_user_input "Enter Volume Type Number"
+ selected_str = get_user_input 'Enter Volume Type Number'
  volumes[selected_str.to_i]
 end
 
 # Use username defined in ~/.fog file, if absent prompt for username.
 # For more details on ~/.fog refer to http://fog.io/about/getting_started.html
 def rackspace_username
-  Fog.credentials[:rackspace_username] || get_user_input("Enter Rackspace Username")
+  Fog.credentials[:rackspace_username] || get_user_input('Enter Rackspace Username')
 end
 
 # Use api key defined in ~/.fog file, if absent prompt for api key
 # For more details on ~/.fog refer to http://fog.io/about/getting_started.html
 def rackspace_api_key
-  Fog.credentials[:rackspace_api_key] || get_user_input("Enter Rackspace API key")
+  Fog.credentials[:rackspace_api_key] || get_user_input('Enter Rackspace API key')
 end
 
 # create Cloud Block Storage service

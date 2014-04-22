@@ -37,9 +37,9 @@ module Fog
             'log_retention' => false
           }
           response.headers = {
-            "X-Cdn-Ssl-Uri" => "https://a111.cdn.net/cdn-test.net/#{container_id}/abc",
-            "X-Cdn-Uri"     => "http://#{container_id}.cdn-test.net",
-            "X-Trans-Id"    => Fog::Mock.random_hex(34)
+            'X-Cdn-Ssl-Uri' => "https://a111.cdn.net/cdn-test.net/#{container_id}/abc",
+            'X-Cdn-Uri'     => "http://#{container_id}.cdn-test.net",
+            'X-Trans-Id'    => Fog::Mock.random_hex(34)
           }
           response.status = 201
           response.body = "201 Created\n\n\n\n   "

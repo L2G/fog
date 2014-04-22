@@ -24,8 +24,8 @@ module Fog
           response = Excon::Response.new
           response.status = 200
           response.body = {
-            "event_id" => Fog::Mock.random_numbers(1).to_i,
-            "status" => "OK"
+            'event_id' => Fog::Mock.random_numbers(1).to_i,
+            'status' => 'OK'
           }
 
           server = self.data[:servers].reject! { |s| s['id'] == id }

@@ -1,4 +1,4 @@
-Shindo.tests("Fog::Network[:openstack] | network", ['openstack']) do
+Shindo.tests('Fog::Network[:openstack] | network', ['openstack']) do
 
   tests('success') do
 
@@ -40,7 +40,7 @@ Shindo.tests("Fog::Network[:openstack] | network", ['openstack']) do
         :provider_segmentation_id,
         :router_external
       ]
-      tests("The network model should respond to") do
+      tests('The network model should respond to') do
         attributes.each do |attribute|
           test("#{attribute}") { @instance.respond_to? attribute }
         end

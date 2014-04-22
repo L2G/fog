@@ -34,20 +34,20 @@ module Fog
           response.status = 200
           response.body = {
             'images' => [{ 'os_type' => 'debian',
-                           'os_bits' => "64",
-                           'os_hvm' => "0",
+                           'os_bits' => '64',
+                           'os_hvm' => '0',
                            '_attr' => {
-                             'id' => "541",
+                             'id' => '541',
                              'name' => 'Debian 6 64 bits',
                              'status' => 'ACTIVE',
                              'vps_type' => 'ScaleServer'
                            }},
                          { 'os_type' => 'centos',
-                           'os_bits' => "32",
-                           'os_hvm' => "0",
+                           'os_bits' => '32',
+                           'os_hvm' => '0',
                            '_attr' => {
                              'name' => 'CentOS 5.5 32 bits',
-                             'id' => "31",
+                             'id' => '31',
                              'vps_type' => 'VirtualServer',
                              'status' => 'ACTIVE',
                            }}]

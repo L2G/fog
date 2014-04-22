@@ -7,26 +7,26 @@ module Fog
         def get_zone_operation(zone_name, operation)
           operation = self.data[:operations][operation]
           if operation
-            case operation["status"]
+            case operation['status']
             when Fog::Compute::Google::Operation::PENDING_STATE
-              operation["status"] = Fog::Compute::Google::Operation::RUNNING_STATE
-              operation["progress"] = 50
+              operation['status'] = Fog::Compute::Google::Operation::RUNNING_STATE
+              operation['progress'] = 50
             else
-              operation["status"] = Fog::Compute::Google::Operation::DONE_STATE
-              operation["progress"] = 100
+              operation['status'] = Fog::Compute::Google::Operation::DONE_STATE
+              operation['progress'] = 100
             end
           else
             operation = {
-              "error" => {
-                "errors" => [
+              'error' => {
+                'errors' => [
                  {
-                  "domain" => "global",
-                  "reason" => "notFound",
-                  "message" => "The resource 'projects/#{project}/zones/#{zone_name}/operations/#{operation}' was not found"
+                  'domain' => 'global',
+                  'reason' => 'notFound',
+                  'message' => "The resource 'projects/#{project}/zones/#{zone_name}/operations/#{operation}' was not found"
                  }
                 ],
-                "code" => 404,
-                "message" => "The resource 'projects/#{project}/zones/#{zone_name}/operations/#{operation}' was not found"
+                'code' => 404,
+                'message' => "The resource 'projects/#{project}/zones/#{zone_name}/operations/#{operation}' was not found"
               }
             }
           end

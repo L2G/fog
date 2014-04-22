@@ -38,7 +38,7 @@ module Fog
 
         def ssh_enabled?
           if remote?
-            return transport.include?("ssh")
+            return transport.include?('ssh')
           else
             return false
           end
@@ -65,30 +65,30 @@ module Fog
         end
 
         def name
-          value("name")
+          value('name')
         end
 
         def command
-          value("command")
+          value('command')
         end
 
         def socket
-          value("socket")
+          value('socket')
         end
 
         def keyfile
-          value("keyfile")
+          value('keyfile')
         end
 
         def netcat
-          value("netcat")
+          value('netcat')
         end
 
         def no_verify?
-          no_verify = value("no_verify")
+          no_verify = value('no_verify')
           return false if no_verify.nil?
 
-          if no_verify.to_s == "0"
+          if no_verify.to_s == '0'
             return false
           else
             return true
@@ -100,11 +100,11 @@ module Fog
         end
 
         def no_tty?
-          no_tty = value("no_tty")
+          no_tty = value('no_tty')
 
           return false if no_tty.nil?
 
-          if no_tty == "0"
+          if no_tty == '0'
             return false
           else
             return true
@@ -117,7 +117,7 @@ module Fog
         end
 
         def pkipath
-          value("pkipath")
+          value('pkipath')
         end
 
 

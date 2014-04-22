@@ -59,7 +59,7 @@ module Fog
         end
 
         def signature(params)
-          "foo"
+          'foo'
         end
 
         def setup_credentials(options = {})
@@ -79,7 +79,7 @@ module Fog
         end
 
         def self.random_id(length)
-          Fog::Mock.random_selection("abcdefghijklmnopqrstuvwxyz0123456789", length).upcase
+          Fog::Mock.random_selection('abcdefghijklmnopqrstuvwxyz0123456789', length).upcase
         end
 
         CDN_ERRORS = {

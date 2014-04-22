@@ -1,4 +1,4 @@
-Shindo.tests("Fog::Compute[:google] | server model", ['google']) do
+Shindo.tests('Fog::Compute[:google] | server model', ['google']) do
 
   @zone = 'us-central1-a'
   @disk = create_test_disk(Fog::Compute[:google], @zone)
@@ -20,7 +20,7 @@ Shindo.tests("Fog::Compute[:google] | server model", ['google']) do
 
     test('#ssh') do
       pending if Fog.mocking?
-      @instance.ssh("uname") == "Linux"
+      @instance.ssh('uname') == 'Linux'
     end
 
     test('#destroy') do

@@ -25,8 +25,8 @@ module Fog
         attribute :iplist
         attribute :description
         attribute :usage
-        attribute :glera_enabled, :aliases => "gleraenabled"
-        attribute :supported_features, :aliases => "supportedfeatures"
+        attribute :glera_enabled, :aliases => 'gleraenabled'
+        attribute :supported_features, :aliases => 'supportedfeatures'
 
         def ready?
           state == 'running'
@@ -53,19 +53,19 @@ module Fog
         end
 
         def save
-          raise "Operation not supported" if self.identity
+          raise 'Operation not supported' if self.identity
           requires :hostname, :rootpassword
 
           options = {
-            :datacenter     => datacenter   || "Falkenberg",
-            :platform       => platform     || "Xen",
+            :datacenter     => datacenter   || 'Falkenberg',
+            :platform       => platform     || 'Xen',
             :hostname       => hostname,
-            :templatename   => templatename || "Debian-6 x64",
-            :disksize       => disksize     || "10",
-            :memorysize     => memorysize   || "512",
-            :cpucores       => cpucores     || "1",
+            :templatename   => templatename || 'Debian-6 x64',
+            :disksize       => disksize     || '10',
+            :memorysize     => memorysize   || '512',
+            :cpucores       => cpucores     || '1',
             :rootpassword   => rootpassword,
-            :transfer       => transfer     || "500",
+            :transfer       => transfer     || '500',
           }
 
           # optional options when creating a server:
@@ -125,15 +125,15 @@ module Fog
           type = options[:type] || nil
 
           ips = case type
-            when :ipv4 then iplist.select { |ip| ip["version"] == 4 }
-            when :ipv6 then iplist.select { |ip| ip["version"] == 6 }
-            else iplist.sort_by { |ip| ip["version"] }
+            when :ipv4 then iplist.select { |ip| ip['version'] == 4 }
+            when :ipv6 then iplist.select { |ip| ip['version'] == 6 }
+            else iplist.sort_by { |ip| ip['version'] }
           end
 
           if ips.empty?
             nil
           else
-            ips.first["ipaddress"]
+            ips.first['ipaddress']
           end
         end
 

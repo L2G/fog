@@ -36,7 +36,7 @@ module Fog
             if self.data[:network_acls][network_acl_id]['entrySet'].detect { |r| r['ruleNumber'] == rule_number && r['egress'] == egress }
               self.data[:network_acls][network_acl_id]['entrySet'].delete_if { |r| r['ruleNumber'] == rule_number && r['egress'] == egress }
             else
-              raise Fog::Compute::AWS::Error.new("No rule with that number and egress value")
+              raise Fog::Compute::AWS::Error.new('No rule with that number and egress value')
             end
 
             response.status = 200

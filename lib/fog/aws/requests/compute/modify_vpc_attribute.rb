@@ -39,7 +39,7 @@ module Fog
         def modify_vpc_attribute(vpc_id, options = {})
           response = Excon::Response.new
           if options.size == 0
-            raise Fog::Compute::AWS::Error.new("InvalidParameterCombination => No attributes specified.")
+            raise Fog::Compute::AWS::Error.new('InvalidParameterCombination => No attributes specified.')
           elsif options.size > 1
             raise Fog::Compute::AWS::Error.new("InvalidParameterCombination =>  InvalidParameterCombination => Fields for multiple attribute types specified: #{options.keys.join(', ')}")
           elsif self.data[:vpcs].select{|x| x['vpcId'] == vpc_id}.size

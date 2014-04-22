@@ -38,11 +38,11 @@ module Fog
 
           queue_names = queue_names[start_index..stop_index]
           queue_data = queue_names.map do |qname|
-            { "href" => "#{PATH_BASE}/#{qname}", "name" => qname }
+            { 'href' => "#{PATH_BASE}/#{qname}", 'name' => qname }
           end
 
           if detailed
-            queue_data.each { |d| d["metadata"] = data[d["name"]].metadata }
+            queue_data.each { |d| d['metadata'] = data[d['name']].metadata }
           end
 
           response = Excon::Response.new
@@ -51,8 +51,8 @@ module Fog
           else
             response.status = 200
             response.body = {
-              "queues" => queue_data,
-              "links" => [{ "href" => "#{PATH_BASE}?marker=#{queue_names.last}", "rel" => "next" }]
+              'queues' => queue_data,
+              'links' => [{ 'href' => "#{PATH_BASE}?marker=#{queue_names.last}", 'rel' => 'next' }]
             }
           end
           response

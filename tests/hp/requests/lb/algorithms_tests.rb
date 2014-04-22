@@ -1,4 +1,4 @@
-Shindo.tests("HP::LB | algorithms", ['hp', 'lb', 'algorithms']) do
+Shindo.tests('HP::LB | algorithms', ['hp', 'lb', 'algorithms']) do
   @algo_format = {
     'name' => String
   }

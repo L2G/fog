@@ -31,11 +31,11 @@ module Fog
         attribute :created_at, :type => :time
 
         # Links - to be replaced
-        attribute :ancestor_id, :aliases => "ancestor", :squash => "id"
-        attribute :owner_id, :aliases => "owner", :squash => "id"
+        attribute :ancestor_id, :aliases => 'ancestor', :squash => 'id'
+        attribute :owner_id, :aliases => 'owner', :squash => 'id'
 
         def ready?
-          status == "available"
+          status == 'available'
         end
 
         def save
@@ -47,7 +47,7 @@ module Fog
             :name => name,
             :username => username,
             :description => description
-          }.delete_if { |k, v| v.nil? || v == "" }
+          }.delete_if { |k, v| v.nil? || v == '' }
           data = service.create_image(options)
           merge_attributes(data)
           true

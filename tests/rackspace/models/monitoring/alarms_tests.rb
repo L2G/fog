@@ -7,7 +7,7 @@ Shindo.tests('Fog::Rackspace::Monitoring | alarms', ['rackspace','rackspace_moni
     @check = service.checks.create(CHECK_CREATE_OPTIONS.merge(
                                         :label => "fog_#{Time.now.to_i}",
                                         :entity => @entity) )
-    np = "npTechnicalContactsEmail"
+    np = 'npTechnicalContactsEmail'
     options = CHECK_CREATE_OPTIONS.merge(
       :label => "fog_#{Time.now.to_i}",
       :entity => @entity,

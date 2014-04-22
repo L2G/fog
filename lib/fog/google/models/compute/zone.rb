@@ -17,7 +17,7 @@ module Fog
         attribute :self_link, :aliases => 'selfLink'
 
         def up?
-          self.status == "UP"
+          self.status == 'UP'
         end
 
       end

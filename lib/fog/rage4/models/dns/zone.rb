@@ -27,14 +27,14 @@ module Fog
 
         def nameservers
           [
-           "ns1.r4ns.com",
-           "ns2.r4ns.com",
+           'ns1.r4ns.com',
+           'ns2.r4ns.com',
           ]
         end
 
         def save
           requires :domain
-          data = service.create_domain(domain).body["id"]
+          data = service.create_domain(domain).body['id']
           merge_attributes(data)
           true
         end

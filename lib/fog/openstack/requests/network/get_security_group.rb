@@ -29,7 +29,7 @@ module Fog
         def get_security_group(security_group_id)
           request(
             :expects  => 200,
-            :method   => "GET",
+            :method   => 'GET',
             :path     => "security-groups/#{security_group_id}"
           )
         end
@@ -40,7 +40,7 @@ module Fog
           response = Excon::Response.new
           if sec_group = self.data[:security_groups][security_group_id]
             response.status = 200
-            response.body   = {"security_group" => sec_group}
+            response.body   = {'security_group' => sec_group}
             response
           else
             raise Fog::Network::OpenStack::NotFound

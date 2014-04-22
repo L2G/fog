@@ -1,4 +1,4 @@
-Shindo.tests("Fog::Compute[:hp] | security group requests", ['hp']) do
+Shindo.tests('Fog::Compute[:hp] | security group requests', ['hp']) do
 
   @security_groups_format = {
     'security_groups' => [{
@@ -30,7 +30,7 @@ Shindo.tests("Fog::Compute[:hp] | security group requests", ['hp']) do
       Fog::Compute[:hp].get_security_group(@sec_group_id).body
     end
 
-    tests("#list_security_groups").formats(@security_groups_format) do
+    tests('#list_security_groups').formats(@security_groups_format) do
       Fog::Compute[:hp].list_security_groups.body
     end
 
@@ -49,11 +49,11 @@ Shindo.tests("Fog::Compute[:hp] | security group requests", ['hp']) do
       Fog::Compute[:hp].create_security_group(@security_group.name, @security_group.description)
     end
 
-    tests("#get_security_group(0)").raises(Fog::Compute::HP::NotFound) do
+    tests('#get_security_group(0)').raises(Fog::Compute::HP::NotFound) do
       Fog::Compute[:hp].get_security_group(0)
     end
 
-    tests("#delete_security_group(0)").raises(Fog::Compute::HP::NotFound) do
+    tests('#delete_security_group(0)').raises(Fog::Compute::HP::NotFound) do
       Fog::Compute[:hp].delete_security_group(0)
     end
 

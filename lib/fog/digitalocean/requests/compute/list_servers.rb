@@ -19,8 +19,8 @@ module Fog
           response = Excon::Response.new
           response.status = 200
           response.body = {
-            "status" => "OK",
-            "droplets"  => self.data[:servers]
+            'status' => 'OK',
+            'droplets'  => self.data[:servers]
           }
           response
         end

@@ -32,19 +32,19 @@ module Fog
           response.status = 200
 
           body = {
-            "ERRORARRAY" => [],
-            "ACTION" => "avail.kernels"
+            'ERRORARRAY' => [],
+            'ACTION' => 'avail.kernels'
           }
           if kernel_id
             mock_kernel = create_mock_kernel(kernel_id)
-            response.body = body.merge("DATA" => [mock_kernel])
+            response.body = body.merge('DATA' => [mock_kernel])
           else
             mock_kernels = []
             10.times do
               kernel_id = rand(1..200)
               mock_kernels << create_mock_kernel(kernel_id)
             end
-            response.body = body.merge("DATA" => mock_kernels)
+            response.body = body.merge('DATA' => mock_kernels)
           end
           response
         end
@@ -53,10 +53,10 @@ module Fog
 
         def create_mock_kernel(kernel_id)
           {
-            "ISPVOPS"  => 1,
-            "ISXEN"    => 1,
-            "KERNELID" => kernel_id,
-            "LABEL"    => "Latest 3.0 (3.0.18-linode43)"
+            'ISPVOPS'  => 1,
+            'ISXEN'    => 1,
+            'KERNELID' => kernel_id,
+            'LABEL'    => 'Latest 3.0 (3.0.18-linode43)'
           }
         end
       end

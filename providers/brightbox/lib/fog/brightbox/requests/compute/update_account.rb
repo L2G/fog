@@ -43,7 +43,7 @@ module Fog
           elsif args.size == 1
             options = args[0]
           else
-            raise ArgumentError, "wrong number of arguments (0 for 2)"
+            raise ArgumentError, 'wrong number of arguments (0 for 2)'
           end
 
           return nil if options.empty? || options.nil?
@@ -51,7 +51,7 @@ module Fog
             Fog::Logger.deprecation("update_account() without a parameter is deprecated, use update_scoped_account instead [light_black](#{caller.first})[/]")
             update_scoped_account(options)
           else
-            wrapped_request("put", "/1.0/accounts/#{identifier}", [200], options)
+            wrapped_request('put', "/1.0/accounts/#{identifier}", [200], options)
           end
         end
 

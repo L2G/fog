@@ -30,29 +30,29 @@ module Fog
             response = Excon::Response.new
             response.status = 200
             response.body = {
-              "access" => {
-                "token" => {
-                  "id" => Fog::Mock.random_hex(32),
-                  "expires" => (Time.now.utc + 86400).strftime("%Y-%m-%dT%H:%M:%S.%LZ"),
-                  "tenant" => { "id" => compute_tenant, "name" => compute_tenant }
+              'access' => {
+                'token' => {
+                  'id' => Fog::Mock.random_hex(32),
+                  'expires' => (Time.now.utc + 86400).strftime('%Y-%m-%dT%H:%M:%S.%LZ'),
+                  'tenant' => { 'id' => compute_tenant, 'name' => compute_tenant }
                 },
-                "user" => {
-                  "id" => Fog::Mock.random_numbers(6),
-                  "name" => username,
-                  "roles" => [
+                'user' => {
+                  'id' => Fog::Mock.random_numbers(6),
+                  'name' => username,
+                  'roles' => [
                     {
-                      "id" => Fog::Mock.random_numbers(1),
-                      "description" => "Fake Role for an object store",
-                      "name" => "object-store:default"
+                      'id' => Fog::Mock.random_numbers(1),
+                      'description' => 'Fake Role for an object store',
+                      'name' => 'object-store:default'
                     },
                     {
-                      "id" => Fog::Mock.random_numbers(1),
-                      "description" => "Fake Role for a compute cluster",
-                      "name" => "compute:default"
+                      'id' => Fog::Mock.random_numbers(1),
+                      'description' => 'Fake Role for a compute cluster',
+                      'name' => 'compute:default'
                     }
                   ]
                 },
-                "serviceCatalog" => build_service_catalog(compute_tenant, object_tenant),
+                'serviceCatalog' => build_service_catalog(compute_tenant, object_tenant),
               }
             }
             response
@@ -60,9 +60,9 @@ module Fog
             response = Excon::Response.new
             response.status = 401
             response.body = {
-              "unauthorized" => {
-                "code" => 401,
-                "message" => "Username or API key is invalid."
+              'unauthorized' => {
+                'code' => 401,
+                'message' => 'Username or API key is invalid.'
               }
             }
             raise Excon::Errors::Unauthorized.new('Unauthorized', nil, response)
@@ -85,55 +85,55 @@ module Fog
         # @return [Hash] A fully-populated, valid service catalog.
         def build_service_catalog(compute_tenant, object_tenant)
           [
-            service_catalog_entry("cloudFilesCDN", "rax:object-cdn", object_tenant,
+            service_catalog_entry('cloudFilesCDN', 'rax:object-cdn', object_tenant,
               :public_url => lambda do |r|
                 "https://cdn#{Fog::Mock.random_numbers(1)}.clouddrive.com/v1/#{object_tenant}"
               end),
 
-            service_catalog_entry("cloudFiles", "object-store", object_tenant,
+            service_catalog_entry('cloudFiles', 'object-store', object_tenant,
               :internal_url_snet => true,
               :public_url => lambda do |r|
                 "https://storage101.#{r}#{Fog::Mock.random_numbers(1)}.clouddrive.com/v1/#{object_tenant}"
               end),
 
-            service_catalog_entry("cloudMonitoring", "rax:monitor", compute_tenant,
+            service_catalog_entry('cloudMonitoring', 'rax:monitor', compute_tenant,
               :single_endpoint => true, :rackspace_api_name => 'monitoring'),
 
-            service_catalog_entry("cloudServersOpenStack", "compute", compute_tenant,
+            service_catalog_entry('cloudServersOpenStack', 'compute', compute_tenant,
               :version_base_url => lambda { |r| "https://#{r}.servers.api.rackspacecloud.com" },
-              :version_id => "2"),
+              :version_id => '2'),
 
-            service_catalog_entry("cloudBlockStorage", "volume", compute_tenant,
+            service_catalog_entry('cloudBlockStorage', 'volume', compute_tenant,
               :rackspace_api_name => 'blockstorage', :rackspace_api_version => '1'),
 
-            service_catalog_entry("cloudDatabases", "rax:database", compute_tenant,
+            service_catalog_entry('cloudDatabases', 'rax:database', compute_tenant,
               :rackspace_api_name => 'databases'),
 
-            service_catalog_entry("cloudLoadBalancers", "rax:load-balander", compute_tenant,
+            service_catalog_entry('cloudLoadBalancers', 'rax:load-balander', compute_tenant,
               :rackspace_api_name => 'loadbalancers'),
 
-            service_catalog_entry("cloudDNS", "rax:dns", compute_tenant,
+            service_catalog_entry('cloudDNS', 'rax:dns', compute_tenant,
               :single_endpoint => true, :rackspace_api_name => 'dns'),
 
-            service_catalog_entry("cloudOrchestration", "orchestration", compute_tenant,
+            service_catalog_entry('cloudOrchestration', 'orchestration', compute_tenant,
               :rackspace_api_name => 'orchestration', :rackspace_api_version => '1'),
 
-            service_catalog_entry("cloudQueues", "rax:queues", compute_tenant,
+            service_catalog_entry('cloudQueues', 'rax:queues', compute_tenant,
               :internal_url_snet => true,
               :rackspace_api_name => 'queues', :rackspace_api_version => '1'),
 
-            service_catalog_entry("cloudBackup", "rax:backup", compute_tenant,
+            service_catalog_entry('cloudBackup', 'rax:backup', compute_tenant,
               :rackspace_api_name => 'backup'),
 
-            service_catalog_entry("cloudImages", "image", compute_tenant,
+            service_catalog_entry('cloudImages', 'image', compute_tenant,
               :rackspace_api_name => 'images', :rackspace_api_version => '2'),
 
-            service_catalog_entry("autoscale", "rax:autoscale", compute_tenant,
+            service_catalog_entry('autoscale', 'rax:autoscale', compute_tenant,
               :rackspace_api_name => 'autoscale'),
 
-            service_catalog_entry("cloudServers", "compute", compute_tenant,
+            service_catalog_entry('cloudServers', 'compute', compute_tenant,
               :single_endpoint => true,
-              :version_base_url => lambda { |r| "https://servers.api.rackspacecloud.com" },
+              :version_base_url => lambda { |r| 'https://servers.api.rackspacecloud.com' },
               :version_id => '1.0')
           ]
         end
@@ -164,18 +164,18 @@ module Fog
         def service_catalog_entry(name, type, tenant_id, options)
           if options[:rackspace_api_name]
             api_name = options[:rackspace_api_name]
-            api_version = options[:rackspace_api_version] || "1.0"
+            api_version = options[:rackspace_api_version] || '1.0'
             options[:public_url] = lambda do |r|
-              prefix = r ? "#{r}." : ""
+              prefix = r ? "#{r}." : ''
               "https://#{prefix}#{api_name}.api.rackspacecloud.com/v#{api_version}/#{tenant_id}"
             end
           end
 
-          entry = { "name" => name, "type" => type }
+          entry = { 'name' => name, 'type' => type }
           if options[:single_endpoint]
-            entry["endpoints"] = [endpoint_entry(tenant_id, nil, options)]
+            entry['endpoints'] = [endpoint_entry(tenant_id, nil, options)]
           else
-            entry["endpoints"] = %w{ORD DFW SYD IAD HKG}.map do |region|
+            entry['endpoints'] = %w{ORD DFW SYD IAD HKG}.map do |region|
               endpoint_entry(tenant_id, region, options)
             end
           end
@@ -191,23 +191,23 @@ module Fog
         #
         # @return [Hash] A well-formed endpoint hash.
         def endpoint_entry(tenant_id, region, options)
-          endpoint = { "tenantId" => tenant_id }
-          endpoint["region"] = region if region
+          endpoint = { 'tenantId' => tenant_id }
+          endpoint['region'] = region if region
           r = region.downcase if region
-          endpoint["publicURL"] = options[:public_url].call(r) if options[:public_url]
+          endpoint['publicURL'] = options[:public_url].call(r) if options[:public_url]
 
           if options[:internal_url_snet]
-            endpoint["internalURL"] = endpoint["publicURL"].gsub(%r{^https://}, "https://snet-")
+            endpoint['internalURL'] = endpoint['publicURL'].gsub(%r{^https://}, 'https://snet-')
           end
 
-          endpoint["internalURL"] = options[:internal_url].call(r) if options[:internal_url]
+          endpoint['internalURL'] = options[:internal_url].call(r) if options[:internal_url]
           if options[:version_base_url] && options[:version_id]
             base = options[:version_base_url].call(r)
             version = options[:version_id]
-            endpoint["publicURL"] = "#{base}/v#{version}/#{tenant_id}"
-            endpoint["versionInfo"] = "#{base}/v#{version}"
-            endpoint["versionList"] = base
-            endpoint["versionId"] = version
+            endpoint['publicURL'] = "#{base}/v#{version}/#{tenant_id}"
+            endpoint['versionInfo'] = "#{base}/v#{version}"
+            endpoint['versionList'] = base
+            endpoint['versionId'] = version
           end
           endpoint
         end

@@ -17,12 +17,12 @@ Shindo.tests('Fog::Compute[:xenserver] | PBD model', ['xenserver']) do
         :__sr,
         :currently_attached
       ]
-      tests("The PBD model should respond to") do
+      tests('The PBD model should respond to') do
         attributes.each do |attribute|
           test("#{attribute}") { pbd.respond_to? attribute }
         end
       end
-      tests("The attributes hash should have key") do
+      tests('The attributes hash should have key') do
         attributes.each do |attribute|
           test("#{attribute}") { model_attribute_hash.has_key? attribute }
         end
@@ -33,15 +33,15 @@ Shindo.tests('Fog::Compute[:xenserver] | PBD model', ['xenserver']) do
 
   end
 
-  tests("A real PBD should") do
-    tests("return valid host") do
-      test("should be a Fog::Compute::XenServer::Host") { pbd.host.kind_of? Fog::Compute::XenServer::Host }
+  tests('A real PBD should') do
+    tests('return valid host') do
+      test('should be a Fog::Compute::XenServer::Host') { pbd.host.kind_of? Fog::Compute::XenServer::Host }
     end
-    tests("return valid storage repository") do
-      test("should be a Fog::Compute::XenServer::StorageRepository") { pbd.storage_repository.kind_of? Fog::Compute::XenServer::StorageRepository }
+    tests('return valid storage repository') do
+      test('should be a Fog::Compute::XenServer::StorageRepository') { pbd.storage_repository.kind_of? Fog::Compute::XenServer::StorageRepository }
     end
     # FIXME: find a better way (faster, lighter) to tests this
-    tests("be plugged or unplugged") do
+    tests('be plugged or unplugged') do
       compute = Fog::Compute[:xenserver]
       # Create a storage repository only to tests PBD.unplug
       ref = compute.create_sr compute.hosts.first.reference,

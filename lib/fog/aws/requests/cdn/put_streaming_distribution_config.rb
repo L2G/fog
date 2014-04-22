@@ -60,7 +60,7 @@ module Fog
               data << "<#{key}>#{value}</#{key}>"
             end
           end
-          data << "</StreamingDistributionConfig>"
+          data << '</StreamingDistributionConfig>'
           request({
             :body       => data,
             :expects    => 200,

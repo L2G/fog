@@ -141,7 +141,7 @@ module Fog
 
         def edit(options = {})
           data = service.virtual_machine_edit(href, options).body
-          if data[:type] == "application/vnd.tmrk.cloud.task"
+          if data[:type] == 'application/vnd.tmrk.cloud.task'
             task = Fog::Compute::Ecloud::Tasks.new(:service => service, :href => data[:href])[0]
           end
         end
@@ -161,8 +161,8 @@ module Fog
 
         def add_disk(size)
           index = disks.map { |d| d[:Index].to_i }.sort[-1] + 1
-          vm_disks = disks << {:Index => index.to_s, :Size => {:Unit => "GB", :Value => size.to_s}, :Name => "Hard Disk #{index + 1}"}
-          data = service.virtual_machine_edit_hardware_configuration(href + "/hardwareConfiguration", _configuration_data(:disks => vm_disks)).body
+          vm_disks = disks << {:Index => index.to_s, :Size => {:Unit => 'GB', :Value => size.to_s}, :Name => "Hard Disk #{index + 1}"}
+          data = service.virtual_machine_edit_hardware_configuration(href + '/hardwareConfiguration', _configuration_data(:disks => vm_disks)).body
           task = self.service.tasks.new(data)
         end
 
@@ -171,7 +171,7 @@ module Fog
           options[:disk]        = disks.detect { |disk_hash| disk_hash[:Index] == index.to_s }
           options[:name]        = self.name
           options[:description] = self.description
-          data                  = service.virtual_machine_detach_disk(href + "/hardwareconfiguration/disks/actions/detach", options).body
+          data                  = service.virtual_machine_detach_disk(href + '/hardwareconfiguration/disks/actions/detach', options).body
           detached_disk         = self.service.detached_disks.new(data)
         end
 
@@ -179,13 +179,13 @@ module Fog
           options        = {}
           options[:name] = detached_disk.name
           options[:href] = detached_disk.href
-          data           = service.virtual_machine_attach_disk(href + "/hardwareconfiguration/disks/actions/attach", options).body
+          data           = service.virtual_machine_attach_disk(href + '/hardwareconfiguration/disks/actions/attach', options).body
           task           = self.service.tasks.new(data)
         end
 
         def delete_disk(index)
           vm_disks = disks.delete_if { |h| h[:Index] == index.to_s }
-          data     = service.virtual_machine_edit_hardware_configuration(href + "/hardwareconfiguration", _configuration_data(:disks => vm_disks)).body
+          data     = service.virtual_machine_edit_hardware_configuration(href + '/hardwareconfiguration', _configuration_data(:disks => vm_disks)).body
           task     = self.service.tasks.new(data)
         end
 
@@ -197,8 +197,8 @@ module Fog
 
         def add_nic(network)
           unit_number = nics.map { |n| n[:UnitNumber].to_i }.sort[-1] + 1
-          vm_nics = nics << {:UnitNumber => unit_number, :Network => {:href => network.href, :name => network.name, :type => "application/vnd.tmrk.cloud.network"}}
-          data = service.virtual_machine_edit_hardware_configuration(href + "/hardwareConfiguration", _configuration_data(:nics => vm_nics)).body
+          vm_nics = nics << {:UnitNumber => unit_number, :Network => {:href => network.href, :name => network.name, :type => 'application/vnd.tmrk.cloud.network'}}
+          data = service.virtual_machine_edit_hardware_configuration(href + '/hardwareConfiguration', _configuration_data(:nics => vm_nics)).body
           task = self.service.tasks.new(:href => data[:href])[0]
         end
 
@@ -211,7 +211,7 @@ module Fog
           slice_networks = if slice_ips.empty?
                              []
                            else
-                             ips.map { |ip| {:href => ip.network.href, :name => ip.network.name.split(' ')[0], :type => ip.network.type} }.push({:href => options[:href], :name => options[:network_name], :type => "application/vnd.tmrk.cloud.network"}).uniq
+                             ips.map { |ip| {:href => ip.network.href, :name => ip.network.name.split(' ')[0], :type => ip.network.type} }.push({:href => options[:href], :name => options[:network_name], :type => 'application/vnd.tmrk.cloud.network'}).uniq
                            end
           slice_ips = slice_ips.map { |i| {:name => i.address.name, :network_name => i.network.name} }.push({:name => options[:ip], :network_name => options[:network_name]}).uniq
           slice_ips.each do |ip|
@@ -222,7 +222,7 @@ module Fog
               end
             end
           end
-          data = service.virtual_machine_edit_assigned_ips(href + "/assignedIps", slice_networks).body
+          data = service.virtual_machine_edit_assigned_ips(href + '/assignedIps', slice_networks).body
           task = self.service.tasks.new(data)
         end
 
@@ -251,12 +251,12 @@ module Fog
               end
             end
           end
-          data = service.virtual_machine_edit_assigned_ips(href + "/assignedips", slice_networks).body
+          data = service.virtual_machine_edit_assigned_ips(href + '/assignedips', slice_networks).body
           task = self.service.tasks.new(data)
         end
 
         def upload_file(options)
-          service.virtual_machine_upload_file(href + "/guest/action/files", options)
+          service.virtual_machine_upload_file(href + '/guest/action/files', options)
           true
         end
 
@@ -283,16 +283,16 @@ module Fog
         end
 
         def compute_pool_id
-          other_links.detect { |l| l[:type] == "application/vnd.tmrk.cloud.computePool" }[:href].scan(/\d+/)[0]
+          other_links.detect { |l| l[:type] == 'application/vnd.tmrk.cloud.computePool' }[:href].scan(/\d+/)[0]
         end
 
         def compute_pool
           reload if other_links.nil?
-          @compute_pool = self.service.compute_pools.new(:href => other_links.detect { |l| l[:type] == "application/vnd.tmrk.cloud.computePool" }[:href])
+          @compute_pool = self.service.compute_pools.new(:href => other_links.detect { |l| l[:type] == 'application/vnd.tmrk.cloud.computePool' }[:href])
         end
 
         def environment_id
-          other_links.detect { |l| l[:type] == "application/vnd.tmrk.cloud.environment" }[:href].scan(/\d+/)[0]
+          other_links.detect { |l| l[:type] == 'application/vnd.tmrk.cloud.environment' }[:href].scan(/\d+/)[0]
         end
 
         def id

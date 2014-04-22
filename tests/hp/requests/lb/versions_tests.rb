@@ -1,4 +1,4 @@
-Shindo.tests("HP::LB | versions requests", ['hp', 'lb', 'versions']) do
+Shindo.tests('HP::LB | versions requests', ['hp', 'lb', 'versions']) do
   @version_format = {
     'id'        => String,
     'links'     => [Hash],

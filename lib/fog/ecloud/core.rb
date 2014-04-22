@@ -21,11 +21,11 @@ module Fog
     end
 
     def self.ip_address
-      4.times.map{ Fog::Mock.random_numbers(3) }.join(".")
+      4.times.map{ Fog::Mock.random_numbers(3) }.join('.')
     end
 
     def self.mac_address
-      6.times.map{ Fog::Mock.random_numbers(2) }.join(":")
+      6.times.map{ Fog::Mock.random_numbers(2) }.join(':')
     end
   end
 end

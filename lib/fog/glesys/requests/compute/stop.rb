@@ -4,7 +4,7 @@ module Fog
       class Real
 
         def stop(param)
-          request("/server/stop", param)
+          request('/server/stop', param)
         end
       end
 

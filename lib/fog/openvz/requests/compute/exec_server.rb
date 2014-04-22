@@ -4,7 +4,7 @@ module Fog
       class Real
 
         def exec_server(id,args = [])
-          vzctl("exec",{:ctid => id},args)
+          vzctl('exec',{:ctid => id},args)
         end
 
       end

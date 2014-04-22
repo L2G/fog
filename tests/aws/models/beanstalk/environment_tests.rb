@@ -1,4 +1,4 @@
-Shindo.tests("Fog::AWS[:beanstalk] | environment", ['aws', 'beanstalk']) do
+Shindo.tests('Fog::AWS[:beanstalk] | environment', ['aws', 'beanstalk']) do
 
   pending if Fog.mocking?
 
@@ -32,31 +32,31 @@ Shindo.tests("Fog::AWS[:beanstalk] | environment", ['aws', 'beanstalk']) do
   # Note: These model tests can take quite a bit of time to run, about 10 minutes typically.
   model_tests(@beanstalk.environments, @environment_opts, false) do
     # Wait for initial ready before next tests.
-    tests("#ready?").succeeds do
+    tests('#ready?').succeeds do
       @instance.wait_for { ready? }
     end
 
-    tests("#healthy?").succeeds do
+    tests('#healthy?').succeeds do
       @instance.wait_for { healthy? }
     end
 
-    test("#events") do
+    test('#events') do
       # There should be some events now.
       @instance.events.length > 0
     end
 
-    test("#version") do
+    test('#version') do
       @instance.version.label == @version_names[0]
     end
 
-    test("#version= string") do
+    test('#version= string') do
       # Set to version 2
       @instance.version = @version_names[1]
 
       count = 0
       if @instance.version.label == @version_names[1]
         @instance.events.each { |event|
-          if event.message == "Environment update is starting."
+          if event.message == 'Environment update is starting.'
             count = count + 1
           end
         }
@@ -65,18 +65,18 @@ Shindo.tests("Fog::AWS[:beanstalk] | environment", ['aws', 'beanstalk']) do
       count == 1
     end
 
-    tests("#ready? after version= string").succeeds do
+    tests('#ready? after version= string').succeeds do
       @instance.wait_for { ready? }
     end
 
-    test("#version= version object") do
+    test('#version= version object') do
       # reset back to first version using version object
       @instance.version = @versions[0]
 
       count = 0
       if @instance.version.label == @version_names[0]
         @instance.events.each { |event|
-          if event.message == "Environment update is starting."
+          if event.message == 'Environment update is starting.'
             count = count + 1
           end
         }
@@ -86,7 +86,7 @@ Shindo.tests("Fog::AWS[:beanstalk] | environment", ['aws', 'beanstalk']) do
       count == 2
     end
 
-    tests("#ready? after version= version object").succeeds do
+    tests('#ready? after version= version object').succeeds do
       @instance.wait_for { ready? }
     end
 
@@ -96,7 +96,7 @@ Shindo.tests("Fog::AWS[:beanstalk] | environment", ['aws', 'beanstalk']) do
 
       passed = false
       @instance.events.each { |event|
-        if event.message == "restartAppServer is starting."
+        if event.message == 'restartAppServer is starting.'
           passed = true
         end
       }
@@ -107,7 +107,7 @@ Shindo.tests("Fog::AWS[:beanstalk] | environment", ['aws', 'beanstalk']) do
       @instance.rebuild
       passed = false
       @instance.events.each { |event|
-        if event.message == "rebuildEnvironment is starting."
+        if event.message == 'rebuildEnvironment is starting.'
           passed = true
         end
       }
@@ -115,7 +115,7 @@ Shindo.tests("Fog::AWS[:beanstalk] | environment", ['aws', 'beanstalk']) do
     end
 
     # Wait for ready or next tests may fail
-    tests("#ready? after rebuild").succeeds do
+    tests('#ready? after rebuild').succeeds do
       @instance.wait_for { ready? }
     end
 

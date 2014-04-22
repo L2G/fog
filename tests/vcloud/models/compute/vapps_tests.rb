@@ -1,6 +1,6 @@
 require 'fog/vcloud/models/compute/vapps'
 
-Shindo.tests("Vcloud::Compute | vapps", ['vcloud']) do
+Shindo.tests('Vcloud::Compute | vapps', ['vcloud']) do
 
   Fog::Vcloud::Compute::SUPPORTED_VERSIONS.each do |version|
     tests("api version #{version}") do
@@ -10,7 +10,7 @@ Shindo.tests("Vcloud::Compute | vapps", ['vcloud']) do
         :href       =>  "https://vcloud.example.com/api#{(version == '1.0') ? '/v1.0' : ''}/vdc/1"
       )
 
-      tests("collection") do
+      tests('collection') do
         returns(2) { instance.size }
         returns("https://vcloud.example.com/api#{(version == '1.0') ? '/v1.0' : ''}/vApp/vapp-1") { instance.first.href }
       end

@@ -9,7 +9,7 @@ module Fog
             response.status = 204
             response
           else
-            raise Excon::Errors::NotFound, "Not Found"
+            raise Excon::Errors::NotFound, 'Not Found'
           end
         end
       end
@@ -17,7 +17,7 @@ module Fog
       class Real
         def delete_key(name)
           request(
-            :method => "DELETE",
+            :method => 'DELETE',
             :path => "/my/keys/#{name}",
             :expects => 204
           )

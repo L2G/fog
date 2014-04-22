@@ -19,7 +19,7 @@ module Fog
           detached_disk_response = {:DetachedDisk => (detached_disks.size > 1 ? detached_disks : detached_disks.first)} # GAH
           body = {
             :href  => uri,
-            :type  => "application/vnd.tmrk.cloud.detachedDisk; type=collection",
+            :type  => 'application/vnd.tmrk.cloud.detachedDisk; type=collection',
             :Links => {
               :Link => Fog::Ecloud.keep(compute_pool, :name, :href, :type),
             }

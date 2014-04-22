@@ -37,7 +37,7 @@ module Fog
             end
             response.headers = headers
             response.status = 204
-            response.body = ""
+            response.body = ''
             response
           else
             raise Fog::CDN::HP::NotFound

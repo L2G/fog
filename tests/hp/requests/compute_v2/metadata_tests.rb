@@ -1,4 +1,4 @@
-Shindo.tests("Fog::Compute::HPV2 | metadata requests", ['hp', 'v2', 'compute']) do
+Shindo.tests('Fog::Compute::HPV2 | metadata requests', ['hp', 'v2', 'compute']) do
 
   service = Fog::Compute.new(:provider => 'HP', :version => :v2)
 
@@ -9,7 +9,7 @@ Shindo.tests("Fog::Compute::HPV2 | metadata requests", ['hp', 'v2', 'compute']) 
     'meta'  => Fog::Nullable::Hash
   }
 
-  @base_image_id = ENV["BASE_IMAGE_ID"] || "7f60b54c-cd15-433f-8bed-00acbcd25a17"
+  @base_image_id = ENV['BASE_IMAGE_ID'] || '7f60b54c-cd15-433f-8bed-00acbcd25a17'
 
   tests('success') do
     @server_name = 'fogmetadatatest'
@@ -26,49 +26,49 @@ Shindo.tests("Fog::Compute::HPV2 | metadata requests", ['hp', 'v2', 'compute']) 
 
     tests("#list_metadata('servers', #{@server_id})").formats(@metadata_format) do
       metadata = service.list_metadata('servers', @server_id).body
-      test ("metadata exists") do
-        metadata['metadata']['Meta1'] == "MetaValue1"
+      test ('metadata exists') do
+        metadata['metadata']['Meta1'] == 'MetaValue1'
       end
       metadata
     end
 
     tests("#set_metadata('servers', #{@server_id}, {'MetaNew3' => 'MetaNewValue3'})").formats(@metadata_format) do
       data = service.set_metadata('servers', @server_id, {'MetaNew3' => 'MetaNewValue3'}).body
-      test ("metadata set correctly") do
+      test ('metadata set correctly') do
         metadata = service.list_metadata('servers', @server_id).body
-        metadata['metadata']['MetaNew3'] == "MetaNewValue3"
+        metadata['metadata']['MetaNew3'] == 'MetaNewValue3'
       end
       data
     end
 
     tests("#update_metadata('servers', #{@server_id}, {'MetaUpd4' => 'MetaUpdValue4'})").formats(@metadata_format) do
       data = service.update_metadata('servers', @server_id, {'MetaUpd4' => 'MetaUpdValue4'}).body
-      test ("metadata updated correctly") do
+      test ('metadata updated correctly') do
         metadata = service.list_metadata('servers', @server_id).body
-        metadata['metadata']['MetaUpd4'] == "MetaUpdValue4"
+        metadata['metadata']['MetaUpd4'] == 'MetaUpdValue4'
       end
       data
     end
 
     tests("#get_meta('servers', #{@server_id}, 'MetaNew3')").formats(@metaitem_format) do
       mitem = service.get_meta('servers', @server_id, 'MetaNew3').body
-      test ("metadata item exists") do
-        mitem['meta']['MetaNew3'] == "MetaNewValue3"
+      test ('metadata item exists') do
+        mitem['meta']['MetaNew3'] == 'MetaNewValue3'
       end
       mitem
     end
 
     tests("#update_meta('servers', #{@server_id}, 'MetaNew3', 'MetaUpdValue3')").formats(@metaitem_format) do
       mitem = service.update_meta('servers', @server_id, 'MetaNew3', 'MetaUpdValue3').body
-      test ("metadata item updated correctly") do
-        mitem['meta']['MetaNew3'] == "MetaUpdValue3"
+      test ('metadata item updated correctly') do
+        mitem['meta']['MetaNew3'] == 'MetaUpdValue3'
       end
       mitem
     end
 
     tests("#delete_meta('servers', #{@server_id}, 'MetaNew3')").succeeds do
       data = service.delete_meta('servers', @server_id, 'MetaNew3').body
-      test ("metadata item deleted correctly") do
+      test ('metadata item deleted correctly') do
         metadata = service.list_metadata('servers', @server_id).body
         metadata['metadata'].fetch('MetaNew3', nil) == nil
       end

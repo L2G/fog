@@ -3,7 +3,7 @@ module Fog
     class CloudSigma
       class Real
         def get_profile
-          get_request("profile/")
+          get_request('profile/')
         end
       end
 

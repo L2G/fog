@@ -1,4 +1,4 @@
-Shindo.tests("Fog::Joyent[:analytics] | metrics", %w{joyent}) do
+Shindo.tests('Fog::Joyent[:analytics] | metrics', %w{joyent}) do
   @analytics = Fog::Joyent[:analytics]
   @metrics = @analytics.metrics
 
@@ -8,12 +8,12 @@ Shindo.tests("Fog::Joyent[:analytics] | metrics", %w{joyent}) do
 
   tests('#new').succeeds do
     @metrics.new({
-                     "module" => "cpu",
-                     "stat" => "thread_executions",
-                     "label" => "thread executions",
-                     "interval" => "interval",
-                     "fields" => ["hostname", "zonename", "runtime"],
-                     "unit" => "operations"
+                     'module' => 'cpu',
+                     'stat' => 'thread_executions',
+                     'label' => 'thread executions',
+                     'interval' => 'interval',
+                     'fields' => ['hostname', 'zonename', 'runtime'],
+                     'unit' => 'operations'
                  })
   end
 

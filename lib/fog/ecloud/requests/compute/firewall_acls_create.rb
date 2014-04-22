@@ -7,13 +7,13 @@ module Fog
 
         def firewall_acls_create(data)
           validate_data([:permission, :protocol, :source, :destination], data)
-          raise ArgumentError.new("Required data missing: source[:type] is required") unless data[:source][:type]
-          raise ArgumentError.new("Required data missing: destination[:type] is required") unless data[:destination][:type]
+          raise ArgumentError.new('Required data missing: source[:type] is required') unless data[:source][:type]
+          raise ArgumentError.new('Required data missing: destination[:type] is required') unless data[:destination][:type]
 
           request(
             :body => generate_create_firewall_acls_request(data),
             :expects => 201,
-            :method => "POST",
+            :method => 'POST',
             :headers => {},
             :uri => data[:uri],
             :parse => true

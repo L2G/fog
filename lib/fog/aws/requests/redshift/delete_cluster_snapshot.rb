@@ -22,7 +22,7 @@ module Fog
           snapshot_identifier         = options[:snapshot_identifier]
           snapshot_cluster_identifier = options[:snapshot_cluster_identifier]
 
-          path = "/"
+          path = '/'
           params = {
             :headers    => {},
             :path       => path,

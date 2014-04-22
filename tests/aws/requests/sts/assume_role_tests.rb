@@ -1,6 +1,6 @@
 Shindo.tests('AWS::STS | assume role', ['aws']) do
 
-  @policy = {"Statement" => [{"Effect" => "Allow", "Action" => "*", "Resource" => "*"}]}
+  @policy = {'Statement' => [{'Effect' => 'Allow', 'Action' => '*', 'Resource' => '*'}]}
 
   @response_format = {
     'SessionToken' => String,
@@ -13,7 +13,7 @@ Shindo.tests('AWS::STS | assume role', ['aws']) do
 
   tests("#assume_role('rolename', 'assumed_role_session', 'external_id', #{@policy.inspect}, 900)").formats(@response_format) do
     pending if Fog.mocking?
-    Fog::AWS[:sts].assume_role("rolename","assumed_role_session","external_id", @policy, 900).body
+    Fog::AWS[:sts].assume_role('rolename','assumed_role_session','external_id', @policy, 900).body
   end
 
 end

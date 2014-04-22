@@ -1,7 +1,7 @@
 Shindo.tests('Fog::Rackspace::Monitoring', ['rackspace','rackspace_monitoring']) do
 
   def assert_method(url, method)
-    @service.instance_variable_set "@rackspace_auth_url", url
+    @service.instance_variable_set '@rackspace_auth_url', url
     returns(method) { @service.send :authentication_method }
   end
 
@@ -29,18 +29,18 @@ Shindo.tests('Fog::Rackspace::Monitoring', ['rackspace','rackspace_monitoring'])
 
     tests('variables populated').succeeds do
       @service = Fog::Rackspace::Monitoring.new :rackspace_auth_url => 'https://identity.api.rackspacecloud.com/v2.0', :connection_options => {:ssl_verify_peer => true}
-      returns(true, "auth token populated") { !@service.send(:auth_token).nil? }
-      returns(false, "path populated") { @service.instance_variable_get("@uri").host.nil? }
-      identity_service = @service.instance_variable_get("@identity_service")
-      returns(false, "identity service was used") { identity_service.nil? }
-      returns(true, "connection_options are passed") { identity_service.instance_variable_get("@connection_options").has_key?(:ssl_verify_peer) }
+      returns(true, 'auth token populated') { !@service.send(:auth_token).nil? }
+      returns(false, 'path populated') { @service.instance_variable_get('@uri').host.nil? }
+      identity_service = @service.instance_variable_get('@identity_service')
+      returns(false, 'identity service was used') { identity_service.nil? }
+      returns(true, 'connection_options are passed') { identity_service.instance_variable_get('@connection_options').has_key?(:ssl_verify_peer) }
       @service.list_entities
     end
     tests('custom endpoint') do
       @service = Fog::Rackspace::Monitoring.new :rackspace_auth_url => 'https://identity.api.rackspacecloud.com/v2.0',
         :rackspace_monitoring_url => 'https://my-custom-endpoint.com'
-        returns(true, "auth token populated") { !@service.send(:auth_token).nil? }
-        returns(true, "uses custom endpoint") { (@service.instance_variable_get("@uri").host =~ /my-custom-endpoint\.com/) != nil }
+        returns(true, 'auth token populated') { !@service.send(:auth_token).nil? }
+        returns(true, 'uses custom endpoint') { (@service.instance_variable_get('@uri').host =~ /my-custom-endpoint\.com/) != nil }
     end
   end
 
@@ -49,14 +49,14 @@ Shindo.tests('Fog::Rackspace::Monitoring', ['rackspace','rackspace_monitoring'])
 
     tests('no params').succeeds do
       @service = Fog::Rackspace::Monitoring.new
-      returns(true, "auth token populated") { !@service.send(:auth_token).nil? }
-      returns(true) { (@service.instance_variable_get("@uri").host =~ /monitoring.api.rackspacecloud.com/) != nil }
+      returns(true, 'auth token populated') { !@service.send(:auth_token).nil? }
+      returns(true) { (@service.instance_variable_get('@uri').host =~ /monitoring.api.rackspacecloud.com/) != nil }
       @service.list_entities
     end
     tests('custom endpoint') do
       @service = Fog::Rackspace::Monitoring.new :rackspace_monitoring_url => 'https://my-custom-endpoint.com'
-      returns(true, "auth token populated") { !@service.send(:auth_token).nil? }
-      returns(true, "uses custom endpoint") { (@service.instance_variable_get("@uri").host =~ /my-custom-endpoint\.com/) != nil }
+      returns(true, 'auth token populated') { !@service.send(:auth_token).nil? }
+      returns(true, 'uses custom endpoint') { (@service.instance_variable_get('@uri').host =~ /my-custom-endpoint\.com/) != nil }
     end
   end
 
@@ -65,8 +65,8 @@ Shindo.tests('Fog::Rackspace::Monitoring', ['rackspace','rackspace_monitoring'])
 
     tests('should reauth with valid credentials') do
       @service = Fog::Rackspace::Monitoring.new
-      returns(true, "auth token populated") { !@service.send(:auth_token).nil? }
-      @service.instance_variable_set("@auth_token", "bad_token")
+      returns(true, 'auth token populated') { !@service.send(:auth_token).nil? }
+      @service.instance_variable_set('@auth_token', 'bad_token')
       returns(true) { [200, 203].include? @service.list_entities.status }
     end
     tests('should terminate with incorrect credentials') do

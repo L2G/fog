@@ -5,7 +5,7 @@ module Fog
 
         def list_balancers(options = {})
           request(
-            :path     => "/Network/LoadBalancer/list",
+            :path     => '/Network/LoadBalancer/list',
             :body     => Fog::JSON.encode(:params => options)
           )
         end

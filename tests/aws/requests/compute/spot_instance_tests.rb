@@ -44,7 +44,7 @@ Shindo.tests('Fog::Compute[:aws] | spot instance requests', ['aws']) do
       data
     end
 
-    tests("#describe_spot_instance_requests").formats(@spot_instance_requests_format) do
+    tests('#describe_spot_instance_requests').formats(@spot_instance_requests_format) do
       Fog::Compute[:aws].describe_spot_instance_requests('spot-instance-request-id' => [@spot_instance_request_id]).body
     end
 

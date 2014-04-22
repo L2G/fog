@@ -12,7 +12,7 @@ Shindo.tests('Fog::Compute[:ibm] | location requests', ['ibm']) do
 
   tests('success') do
 
-    tests("#list_vlans").formats(@vlans_format) do
+    tests('#list_vlans').formats(@vlans_format) do
       Fog::Compute[:ibm].list_vlans.body
     end
 

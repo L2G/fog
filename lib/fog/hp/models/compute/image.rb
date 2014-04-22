@@ -35,27 +35,27 @@ module Fog
 
         def metadata=(new_metadata = {})
           metas = []
-          new_metadata.each_pair {|k,v| metas << {"key" => k, "value" => v} }
+          new_metadata.each_pair {|k,v| metas << {'key' => k, 'value' => v} }
           metadata.load(metas)
         end
 
         def min_disk
-          m = metadata.get("min_disk")
+          m = metadata.get('min_disk')
           m.value unless m.nil?
         end
 
         def min_ram
-          m = metadata.get("min_ram")
+          m = metadata.get('min_ram')
           m.value unless m.nil?
         end
 
         def image_type
-          m = metadata.get("image_type")
+          m = metadata.get('image_type')
           m.value unless m.nil?
         end
 
         def architecture
-          m = metadata.get("architecture")
+          m = metadata.get('architecture')
           m.value unless m.nil?
         end
 

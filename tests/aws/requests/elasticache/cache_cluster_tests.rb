@@ -39,7 +39,7 @@ Shindo.tests('AWS::Elasticache | cache cluster requests', ['aws', 'elasticache']
     '#describe_cache_clusters with cluster ID'
     ).formats(AWS::Elasticache::Formats::DESCRIBE_CACHE_CLUSTERS) do
       body = AWS[:elasticache].describe_cache_clusters(CLUSTER_ID).body
-      returns(1, "size of 1") { body['CacheClusters'].size }
+      returns(1, 'size of 1') { body['CacheClusters'].size }
       returns(CLUSTER_ID, "has #{CLUSTER_ID}") do
         body['CacheClusters'].first['CacheClusterId']
       end

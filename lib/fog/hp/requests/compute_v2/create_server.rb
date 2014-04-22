@@ -136,24 +136,24 @@ module Fog
           id = Fog::HP::Mock.uuid.to_s
           data = {
             'addresses' => addresses,
-            'flavor'    => {"id" => "#{flavor_id}", "links" => [{"href" => "http://nova1:8774/admin/flavors/#{flavor_id}", "rel" => "bookmark"}]},
+            'flavor'    => {'id' => "#{flavor_id}", 'links' => [{'href' => "http://nova1:8774/admin/flavors/#{flavor_id}", 'rel' => 'bookmark'}]},
             'id'        => id,
-            'image'     => {"id" => "#{image_id}", "links" => [{"href" => "http://nova1:8774/admin/images/#{image_id}", "rel" => "bookmark"}]},
-            'links'     => [{"href" => "http://nova1:8774/v1.1/admin/servers/#{id}", "rel" => "self"}, {"href" => "http://nova1:8774/admin/servers/#{id}", "rel" => "bookmark"}],
-            'hostId'    => "123456789ABCDEF01234567890ABCDEF",
+            'image'     => {'id' => "#{image_id}", 'links' => [{'href' => "http://nova1:8774/admin/images/#{image_id}", 'rel' => 'bookmark'}]},
+            'links'     => [{'href' => "http://nova1:8774/v1.1/admin/servers/#{id}", 'rel' => 'self'}, {'href' => "http://nova1:8774/admin/servers/#{id}", 'rel' => 'bookmark'}],
+            'hostId'    => '123456789ABCDEF01234567890ABCDEF',
             'metadata'  => options['metadata'] || {},
             'name'      => name || "server_#{rand(999)}",
-            'accessIPv4'  => options['accessIPv4'] || "",
-            'accessIPv6'  => options['accessIPv6'] || "",
+            'accessIPv4'  => options['accessIPv4'] || '',
+            'accessIPv6'  => options['accessIPv6'] || '',
             'progress'  => 0,
             'status'    => 'ACTIVE',
-            'created'   => "2012-01-01T13:32:20Z",
-            'updated'   => "2012-01-01T13:32:20Z",
+            'created'   => '2012-01-01T13:32:20Z',
+            'updated'   => '2012-01-01T13:32:20Z',
             'user_id'   => Fog::HP::Mock.user_id.to_s,
             'tenant_id' => Fog::Mock.random_numbers(14).to_s,
-            'config_drive' => "",
-            'security_groups' => [{"name" => "#{sec_group_name}"}],
-            'key_name'  => options['key_name'] || ""
+            'config_drive' => '',
+            'security_groups' => [{'name' => "#{sec_group_name}"}],
+            'key_name'  => options['key_name'] || ''
           }
           self.data[:last_modified][:servers][data['id']] = Time.now
           self.data[:servers][data['id']] = data

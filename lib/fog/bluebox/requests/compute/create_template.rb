@@ -16,7 +16,7 @@ module Fog
           request(
             :expects  => 202,
             :method   => 'POST',
-            :path     => "api/block_templates.json",
+            :path     => 'api/block_templates.json',
             :query    => {'id' => block_id}.merge!(options)
           )
         end

@@ -24,9 +24,9 @@ module Fog
             raise ArgumentError.new('Name must be fewer than 15 characters')
           end
           unless vapp_template
-            raise ArgumentError.new("vApp Image Template is a compulsary parameter")
+            raise ArgumentError.new('vApp Image Template is a compulsary parameter')
           end
-          options['ssh_key_fingerprint'] ||= default_ssh_key["FingerPrint"]
+          options['ssh_key_fingerprint'] ||= default_ssh_key['FingerPrint']
           options['cpus'] ||= 1
           options['memory'] ||= 512
           options['network_id'] ||= default_network_id

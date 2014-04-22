@@ -14,7 +14,7 @@ module Fog
         # @see https://api.gb1.brightbox.com/1.0/#collaboration_create_collaboration
         #
         def create_collaboration(options)
-          wrapped_request("post", "/1.0/collaborations", [201], options)
+          wrapped_request('post', '/1.0/collaborations', [201], options)
         end
 
       end

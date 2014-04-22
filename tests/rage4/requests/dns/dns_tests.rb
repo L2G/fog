@@ -7,9 +7,9 @@ Shindo.tests('Fog::DNS[:rage4] | DNS requests', ['rage4', 'dns']) do
 
   @created_domain_list = []
 
-  tests("success") do
+  tests('success') do
 
-    test("get current domain count") do
+    test('get current domain count') do
       pending if Fog.mocking?
 
       response = Fog::DNS[:rage4].list_domains()
@@ -25,7 +25,7 @@ Shindo.tests('Fog::DNS[:rage4] | DNS requests', ['rage4', 'dns']) do
     end
 
 
-    test("create domain") do
+    test('create domain') do
       pending if Fog.mocking?
 
       domain = generate_unique_domain
@@ -39,11 +39,11 @@ Shindo.tests('Fog::DNS[:rage4] | DNS requests', ['rage4', 'dns']) do
         @created_domain_list << response.body['id']
       end
 
-      response.status == 200 && response.body['error'] == "" &&
+      response.status == 200 && response.body['error'] == '' &&
       response.body['status'] && !@domain_id.nil?
     end
 
-    test("create_domain_vanity") do
+    test('create_domain_vanity') do
       pending if Fog.mocking?
 
       domain = generate_unique_domain
@@ -53,11 +53,11 @@ Shindo.tests('Fog::DNS[:rage4] | DNS requests', ['rage4', 'dns']) do
         @created_domain_list << response.body['id']
       end
 
-      response.status == 200 && response.body['error'] == "" &&
+      response.status == 200 && response.body['error'] == '' &&
       response.body['status']
     end
 
-    test("create_reverse_domain_4") do
+    test('create_reverse_domain_4') do
       pending if Fog.mocking?
 
       response = Fog::DNS[:rage4].create_reverse_domain_4('192.168.1.1', 29)
@@ -66,11 +66,11 @@ Shindo.tests('Fog::DNS[:rage4] | DNS requests', ['rage4', 'dns']) do
         @created_domain_list << response.body['id']
       end
 
-      response.status == 200 && response.body['error'] == "" &&
+      response.status == 200 && response.body['error'] == '' &&
       response.body['status']
     end
 
-    test("get_domain") do
+    test('get_domain') do
       pending if Fog.mocking?
 
       response = Fog::DNS[:rage4].get_domain(@domain_id)
@@ -83,7 +83,7 @@ Shindo.tests('Fog::DNS[:rage4] | DNS requests', ['rage4', 'dns']) do
       returns(0) {response.body['subnet_mask']}
     end
 
-    test("get_domain_by_name") do
+    test('get_domain_by_name') do
       pending if Fog.mocking?
 
       response = Fog::DNS[:rage4].get_domain_by_name(@domain)
@@ -96,7 +96,7 @@ Shindo.tests('Fog::DNS[:rage4] | DNS requests', ['rage4', 'dns']) do
       returns(0) {response.body['subnet_mask']}
     end
 
-    test("update_domain") do
+    test('update_domain') do
       pending if Fog.mocking?
 
       response = Fog::DNS[:rage4].update_domain(@domain_id, {:email => 'test@test.com'})
@@ -104,12 +104,12 @@ Shindo.tests('Fog::DNS[:rage4] | DNS requests', ['rage4', 'dns']) do
       returns(200) { response.status }
       returns(true) {response.body['status']}
       returns(@domain_id) {response.body['id']}
-      returns("") {response.body['error'] }
+      returns('') {response.body['error'] }
 
     end
 
 
-    test("show_current_usage") do
+    test('show_current_usage') do
       pending if Fog.mocking?
 
       response = Fog::DNS[:rage4].show_current_usage(@domain_id)
@@ -117,7 +117,7 @@ Shindo.tests('Fog::DNS[:rage4] | DNS requests', ['rage4', 'dns']) do
       returns([])  { response.body }
     end
 
-    test("show_global_usage") do
+    test('show_global_usage') do
       pending if Fog.mocking?
 
       response = Fog::DNS[:rage4].show_global_usage()
@@ -125,7 +125,7 @@ Shindo.tests('Fog::DNS[:rage4] | DNS requests', ['rage4', 'dns']) do
       returns([])  { response.body }
     end
 
-    test("list_record_types") do
+    test('list_record_types') do
       pending if Fog.mocking?
 
       response = Fog::DNS[:rage4].list_record_types()
@@ -138,7 +138,7 @@ Shindo.tests('Fog::DNS[:rage4] | DNS requests', ['rage4', 'dns']) do
       returns(Array) { response.body.class }
     end
 
-    test("list_geo_regions") do
+    test('list_geo_regions') do
       pending if Fog.mocking?
 
       response = Fog::DNS[:rage4].list_geo_regions()
@@ -151,28 +151,28 @@ Shindo.tests('Fog::DNS[:rage4] | DNS requests', ['rage4', 'dns']) do
       returns(Array) { response.body.class }
     end
 
-    test("create_record") do
+    test('create_record') do
       pending if Fog.mocking?
 
-      name = "www." + @domain
+      name = 'www.' + @domain
       type = 2 #"A"
-      data = "1.2.3.4"
+      data = '1.2.3.4'
       response = Fog::DNS[:rage4].create_record(@domain_id, name , data, type)
 
       if response.status == 200
         @record_id = response.body['id']
       end
 
-      response.status == 200 && response.body['error'] == "" &&
+      response.status == 200 && response.body['error'] == '' &&
       response.body['status'] && !@record_id.nil?
     end
 
-    test("create_record with options") do
+    test('create_record with options') do
       pending if Fog.mocking?
 
-      name = "www." + @domain
+      name = 'www.' + @domain
       type = 2 #"A"
-      data = "1.2.3.5"
+      data = '1.2.3.5'
       options = { :udplimit => true }
       response = Fog::DNS[:rage4].create_record(@domain_id, name , data, type, options)
 
@@ -180,40 +180,40 @@ Shindo.tests('Fog::DNS[:rage4] | DNS requests', ['rage4', 'dns']) do
         @record_id = response.body['id']
       end
 
-      response.status == 200 && response.body['error'] == "" &&
+      response.status == 200 && response.body['error'] == '' &&
       response.body['status'] && !@record_id.nil?
     end
 
-    test("update_record") do
+    test('update_record') do
       pending if Fog.mocking?
 
-      name = "www." + @domain
+      name = 'www.' + @domain
       type = 2 #"A"
-      data = "4.3.2.1"
+      data = '4.3.2.1'
       response = Fog::DNS[:rage4].update_record(@record_id, name, data, type)
 
       returns(@record_id) { response.body['id'] }
 
-      response.status == 200 && response.body['error'] == "" &&
+      response.status == 200 && response.body['error'] == '' &&
       response.body['status']
     end
 
-    test("update_record with options") do
+    test('update_record with options') do
       pending if Fog.mocking?
 
-      name = "www." + @domain
+      name = 'www.' + @domain
       type = 2 #"A"
-      data = "4.3.2.1"
+      data = '4.3.2.1'
       options = { :udplimit => true }
       response = Fog::DNS[:rage4].update_record(@record_id, name, data, type, options)
 
       returns(@record_id) { response.body['id'] }
 
-      response.status == 200 && response.body['error'] == "" &&
+      response.status == 200 && response.body['error'] == '' &&
       response.body['status']
     end
 
-    test("list_records") do
+    test('list_records') do
       pending if Fog.mocking?
 
       response = Fog::DNS[:rage4].list_records(@domain_id)
@@ -223,8 +223,8 @@ Shindo.tests('Fog::DNS[:rage4] | DNS requests', ['rage4', 'dns']) do
       response.body.each do |record|
         if record['id'] == @record_id
           returns(@record_id)       { record['id'] }
-          returns("www." + @domain) { record['name'] }
-          returns("A") { record['type'] }
+          returns('www.' + @domain) { record['name'] }
+          returns('A') { record['type'] }
           returns(3600) { record['ttl'] }
           returns(nil) { record['priority'] }
           returns(@domain_id) { record['domain_id'] }
@@ -239,17 +239,17 @@ Shindo.tests('Fog::DNS[:rage4] | DNS requests', ['rage4', 'dns']) do
       response.status == 200
     end
 
-    test("delete_record") do
+    test('delete_record') do
       pending if Fog.mocking?
 
       response = Fog::DNS[:rage4].delete_record(@record_id)
       returns(@record_id) { response.body['id'] }
 
-      response.status == 200 && response.body['error'] == "" &&
+      response.status == 200 && response.body['error'] == '' &&
       response.body['status']
     end
 
-    test("delete_domain") do
+    test('delete_domain') do
       pending if Fog.mocking?
 
       response = nil
@@ -259,7 +259,7 @@ Shindo.tests('Fog::DNS[:rage4] | DNS requests', ['rage4', 'dns']) do
 
         returns(true) {response.body['status']}
         returns(domain_id) {response.body['id']}
-        returns("") {response.body['error'] }
+        returns('') {response.body['error'] }
       end
 
       response.status == 200

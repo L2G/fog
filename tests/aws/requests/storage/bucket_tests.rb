@@ -1,4 +1,4 @@
-Shindo.tests('Fog::Storage[:aws] | bucket requests', ["aws"]) do
+Shindo.tests('Fog::Storage[:aws] | bucket requests', ['aws']) do
   @aws_bucket_name = 'fogbuckettests-' + Time.now.to_i.to_s(32)
 
   tests('success') do
@@ -56,7 +56,7 @@ Shindo.tests('Fog::Storage[:aws] | bucket requests', ["aws"]) do
       end
     end
 
-    tests("#get_service").formats(@service_format) do
+    tests('#get_service').formats(@service_format) do
       Fog::Storage[:aws].get_service.body
     end
 
@@ -78,7 +78,7 @@ Shindo.tests('Fog::Storage[:aws] | bucket requests', ["aws"]) do
         @bucket = Fog::Storage[:aws].get_bucket(@aws_bucket_name)
       end
 
-      tests(".body['Contents'].map{|n| n['Key']}").returns(["a/a1/file1", "a/file2", "b/file3", "file4"]) do
+      tests(".body['Contents'].map{|n| n['Key']}").returns(['a/a1/file1', 'a/file2', 'b/file3', 'file4']) do
         @bucket.body['Contents'].map{|n| n['Key']}
       end
 
@@ -146,7 +146,7 @@ Shindo.tests('Fog::Storage[:aws] | bucket requests', ["aws"]) do
       'AccessControlList' => [
         {
           'Grantee' => @aws_owner,
-          'Permission' => "FULL_CONTROL"
+          'Permission' => 'FULL_CONTROL'
         }
       ]
     }
@@ -160,7 +160,7 @@ Shindo.tests('Fog::Storage[:aws] | bucket requests', ["aws"]) do
         'AccessControlList' => [
           {
             'Grantee' => { 'ID' => 'f62f0218873cfa5d56ae9429ae75a592fec4fd22a5f24a20b1038a7db9a8f150', 'DisplayName' => 'mtd' },
-            'Permission' => "FULL_CONTROL"
+            'Permission' => 'FULL_CONTROL'
           }
         ]
     }) do
@@ -170,7 +170,7 @@ Shindo.tests('Fog::Storage[:aws] | bucket requests', ["aws"]) do
         'AccessControlList' => [
           {
             'Grantee' => { 'EmailAddress' => 'mtd@amazon.com' },
-            'Permission' => "FULL_CONTROL"
+            'Permission' => 'FULL_CONTROL'
           }
         ]
       })
@@ -182,7 +182,7 @@ Shindo.tests('Fog::Storage[:aws] | bucket requests', ["aws"]) do
       'AccessControlList' => [
         {
           'Grantee' => { 'URI' => 'http://acs.amazonaws.com/groups/global/AllUsers' },
-          'Permission' => "FULL_CONTROL"
+          'Permission' => 'FULL_CONTROL'
         }
       ]
     }
@@ -283,7 +283,7 @@ Shindo.tests('Fog::Storage[:aws] | bucket requests', ["aws"]) do
       Fog::Storage[:aws].put_bucket_cors(@aws_bucket_name, cors)
     end
 
-    tests("bucket tagging") do
+    tests('bucket tagging') do
 
       tests("#put_bucket_tagging('#{@aws_bucket_name}')").succeeds do
         Fog::Storage[:aws].put_bucket_tagging(@aws_bucket_name, {'Key1' => 'Value1', 'Key2' => 'Value2'})
@@ -347,7 +347,7 @@ Shindo.tests('Fog::Storage[:aws] | bucket requests', ["aws"]) do
 
     tests('put existing bucket - non-default region') do
       storage_eu_endpoint = Fog::Storage[:aws]
-      storage_eu_endpoint.region = "eu-west-1"
+      storage_eu_endpoint.region = 'eu-west-1'
       storage_eu_endpoint.put_bucket(@aws_bucket_name)
 
       tests("#put_bucket('#{@aws_bucket_name}') existing").raises(Excon::Errors::Conflict) do

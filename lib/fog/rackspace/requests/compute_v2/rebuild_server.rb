@@ -62,7 +62,7 @@ module Fog
         def rebuild_server(server_id, image_id, options = {})
           server = self.data[:servers][server_id]
           response(
-            :body => {"server" => server},
+            :body => {'server' => server},
             :status => 202
           )
         end

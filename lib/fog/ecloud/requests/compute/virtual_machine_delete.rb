@@ -28,9 +28,9 @@ module Fog
           task = {
             :id            => task_id,
             :href          => "/cloudapi/ecloud/tasks/#{task_id}",
-            :type          => "application/vnd.tmrk.cloud.task",
-            :Operation     => "Delete Server",
-            :Status        => "Complete",
+            :type          => 'application/vnd.tmrk.cloud.task',
+            :Operation     => 'Delete Server',
+            :Status        => 'Complete',
             :ImpactedItem  => Fog::Ecloud.keep(server, :name, :href, :type),
             :StartTime     => Time.now.iso8601,
             :CompletedTime => Time.now.iso8601,

@@ -15,10 +15,10 @@ Shindo.tests('Fog::Compute[:brightbox] | image requests', ['brightbox']) do
 
     # Fog::Compute[:brightbox].images.get(@image_id).wait_for { ready? }
 
-    tests("#list_images") do
+    tests('#list_images') do
       pending if Fog.mocking?
       result = Fog::Compute[:brightbox].list_images
-      @image_id = result.first["id"]
+      @image_id = result.first['id']
       data_matches_schema(Brightbox::Compute::Formats::Collection::IMAGES, {:allow_extra_keys => true}) { result }
     end
 
@@ -50,7 +50,7 @@ Shindo.tests('Fog::Compute[:brightbox] | image requests', ['brightbox']) do
       Fog::Compute[:brightbox].get_image('img-00000')
     end
 
-    tests("#get_image").raises(ArgumentError) do
+    tests('#get_image').raises(ArgumentError) do
       pending if Fog.mocking?
       Fog::Compute[:brightbox].get_image
     end

@@ -17,7 +17,7 @@ module Fog
         attr_reader :response_data, :status_code, :transaction_id
 
         def to_s
-          status = status_code ? "HTTP #{status_code}" : "HTTP <Unknown>"
+          status = status_code ? "HTTP #{status_code}" : 'HTTP <Unknown>'
           "[#{status} | #{transaction_id}] #{super}"
         end
 
@@ -101,7 +101,7 @@ module Fog
 
     def self.authenticate(options, connection_options = {})
       rackspace_auth_url = options[:rackspace_auth_url]
-      rackspace_auth_url ||= options[:rackspace_endpoint] == Fog::Compute::RackspaceV2::LON_ENDPOINT ? "lon.auth.api.rackspacecloud.com" : "auth.api.rackspacecloud.com"
+      rackspace_auth_url ||= options[:rackspace_endpoint] == Fog::Compute::RackspaceV2::LON_ENDPOINT ? 'lon.auth.api.rackspacecloud.com' : 'auth.api.rackspacecloud.com'
       url = rackspace_auth_url.match(/^https?:/) ? \
                 rackspace_auth_url : 'https://' + rackspace_auth_url
       uri = URI.parse(url)
@@ -129,8 +129,8 @@ module Fog
 
     def self.normalize_url(endpoint)
       return nil unless endpoint
-      str = endpoint.chomp " "
-      str = str.chomp "/"
+      str = endpoint.chomp ' '
+      str = str.chomp '/'
       str.downcase
     end
 

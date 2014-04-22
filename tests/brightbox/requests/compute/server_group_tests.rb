@@ -17,15 +17,15 @@ Shindo.tests('Fog::Compute[:brightbox] | server group requests', ['brightbox']) 
     tests("#create_server_group(#{create_options.inspect})") do
       pending if Fog.mocking?
       result = Fog::Compute[:brightbox].create_server_group(create_options)
-      @server_group_id = result["id"]
+      @server_group_id = result['id']
       data_matches_schema(Brightbox::Compute::Formats::Full::SERVER_GROUP, {:allow_extra_keys => true}) { result }
     end
 
-    tests("#list_server_groups") do
+    tests('#list_server_groups') do
       pending if Fog.mocking?
       result = Fog::Compute[:brightbox].list_server_groups
       data_matches_schema(Brightbox::Compute::Formats::Collection::SERVER_GROUPS, {:allow_extra_keys => true}) { result }
-      @default_group_id = result.select {|grp| grp["default"] == true }.first["id"]
+      @default_group_id = result.select {|grp| grp['default'] == true }.first['id']
     end
 
     tests("#get_server_group('#{@server_group_id}')") do
@@ -60,7 +60,7 @@ Shindo.tests('Fog::Compute[:brightbox] | server group requests', ['brightbox']) 
       pending if Fog.mocking?
       result = Fog::Compute[:brightbox].move_servers_server_group(@server_group_id, move_options)
       data_matches_schema(Brightbox::Compute::Formats::Full::SERVER_GROUP, {:allow_extra_keys => true}) { result }
-      test("group is emptied") { result["servers"].empty? }
+      test('group is emptied') { result['servers'].empty? }
     end
 
     tests("#destroy_server_group('#{@server_group_id}')") do
@@ -77,7 +77,7 @@ Shindo.tests('Fog::Compute[:brightbox] | server group requests', ['brightbox']) 
 
   tests('failure') do
 
-    tests("#create_server_group").raises(ArgumentError) do
+    tests('#create_server_group').raises(ArgumentError) do
       pending if Fog.mocking?
       Fog::Compute[:brightbox].create_server_group
     end
@@ -87,7 +87,7 @@ Shindo.tests('Fog::Compute[:brightbox] | server group requests', ['brightbox']) 
       Fog::Compute[:brightbox].get_server_group('grp-00000')
     end
 
-    tests("#get_server_group").raises(ArgumentError) do
+    tests('#get_server_group').raises(ArgumentError) do
       pending if Fog.mocking?
       Fog::Compute[:brightbox].get_server_group
     end

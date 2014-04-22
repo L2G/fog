@@ -1,4 +1,4 @@
-Shindo.tests("Fog::Network[:openstack] | lb_health_monitor", ['openstack']) do
+Shindo.tests('Fog::Network[:openstack] | lb_health_monitor', ['openstack']) do
 
   tests('success') do
     before do

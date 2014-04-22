@@ -11,7 +11,7 @@ module Fog
 
         def all(filters = {})
           if filters[:zone]
-            data = service.list_machine_types(filters[:zone]).body["items"]
+            data = service.list_machine_types(filters[:zone]).body['items']
           else
             data = []
             service.list_aggregated_machine_types.body['items'].each_value do |zone|

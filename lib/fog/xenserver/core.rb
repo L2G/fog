@@ -23,8 +23,8 @@ module Fog
 
       def authenticate( username, password )
         response = @factory.call('session.login_with_password', username.to_s, password.to_s)
-        raise Fog::XenServer::InvalidLogin.new unless response["Status"] =~ /Success/
-        @credentials = response["Value"]
+        raise Fog::XenServer::InvalidLogin.new unless response['Status'] =~ /Success/
+        @credentials = response['Value']
       end
 
       def request(options, *params)
@@ -43,9 +43,9 @@ module Fog
               response = eval("@factory.call('#{method}', '#{@credentials}', #{params.map {|p|  p.is_a?(String) ? "'#{p}'" : p}.join(',')})")
             end
           end
-          raise RequestFailed.new("#{method}: " + response["ErrorDescription"].to_s) unless response["Status"].eql? "Success"
+          raise RequestFailed.new("#{method}: " + response['ErrorDescription'].to_s) unless response['Status'].eql? 'Success'
           if parser
-            parser.parse( response["Value"] )
+            parser.parse( response['Value'] )
             response = parser.response
           end
 

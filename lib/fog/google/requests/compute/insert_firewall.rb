@@ -21,21 +21,21 @@ module Fog
             'project' => @project,
           }
           body_object = {
-            "name" => firewall_name,
-            "network" => network,
-            "allowed" => allowed,
+            'name' => firewall_name,
+            'network' => network,
+            'allowed' => allowed,
           }
           unless options[:description].nil?
-            body_object["description"] = options[:description]
+            body_object['description'] = options[:description]
           end
           unless options[:source_ranges].nil? || options[:source_ranges].empty?
-            body_object["sourceRanges"] = options[:source_ranges]
+            body_object['sourceRanges'] = options[:source_ranges]
           end
           unless options[:source_tags].nil? || options[:source_tags].empty?
-            body_object["sourceTags"] = options[:source_tags]
+            body_object['sourceTags'] = options[:source_tags]
           end
           unless options[:target_tags].nil? || options[:target_tags].empty?
-            body_object["targetTags"] = options[:target_tags]
+            body_object['targetTags'] = options[:target_tags]
           end
 
           result = self.build_result(api_method, parameters, body_object)

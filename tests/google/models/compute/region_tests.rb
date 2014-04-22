@@ -1,4 +1,4 @@
-Shindo.tests("Fog::Compute[:google] | region model", ['google']) do
+Shindo.tests('Fog::Compute[:google] | region model', ['google']) do
   @regions = Fog::Compute[:google].regions
 
   tests('success') do

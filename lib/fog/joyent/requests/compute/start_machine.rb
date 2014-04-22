@@ -4,9 +4,9 @@ module Fog
       class Real
         def start_machine(id)
           request(
-            :method => "POST",
+            :method => 'POST',
             :path => "/my/machines/#{id}",
-            :query => {"action" => "start"},
+            :query => {'action' => 'start'},
             :expects => 202
           )
         end

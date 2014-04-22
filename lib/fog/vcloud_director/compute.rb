@@ -370,7 +370,7 @@ module Fog
             # it deems to be unauthorized; no HTTP response is sent, but the
             # connection is sent a signal to terminate early.
             raise(
-              MalformedResponse, "Connection unexpectedly terminated by vcloud"
+              MalformedResponse, 'Connection unexpectedly terminated by vcloud'
             )
           # this is to know if Excon::Errors::Unauthorized really happens
           #rescue Excon::Errors::Unauthorized
@@ -509,19 +509,19 @@ module Fog
                   :networks => [uplink_network_uuid, default_network_uuid],
                   :vdc => vdc1_uuid,
                   :Configuration => {
-                    :GatewayBackingConfig => "compact",
+                    :GatewayBackingConfig => 'compact',
                     :GatewayInterfaces => {
                       :GatewayInterface => []},
                     :EdgeGatewayServiceConfiguration => {
                       :FirewallService => {
-                        :IsEnabled => "true",
-                        :DefaultAction => "drop",
-                        :LogDefaultAction => "false",
+                        :IsEnabled => 'true',
+                        :DefaultAction => 'drop',
+                        :LogDefaultAction => 'false',
                         :FirewallRule => []
                       },
-                      :NatService => {:IsEnabled => "true"}},
-                    :HaEnabled => "false",
-                    :UseDefaultRouteForDnsRelay => "false"
+                      :NatService => {:IsEnabled => 'true'}},
+                    :HaEnabled => 'false',
+                    :UseDefaultRouteForDnsRelay => 'false'
                   }
                 }
               },
@@ -534,13 +534,13 @@ module Fog
                   :IsShared => true,
                   :vdc => vdc1_uuid,
                   :FenceMode => 'natRouted',
-                  :ApplyRateLimit => "false",
+                  :ApplyRateLimit => 'false',
                   :Description => 'Org Network for mocking',
                   :Dns1 => '8.8.8.8',
                   :Dns2 => '8.8.4.4',
                   :DnsSuffix => 'example.com',
                   :Gateway => '192.168.1.1',
-                  :InterfaceType => "internal",
+                  :InterfaceType => 'internal',
                   :IpRanges => [{
                     :StartAddress => '192.168.1.2',
                     :EndAddress => '192.168.1.254'
@@ -549,23 +549,23 @@ module Fog
                   :Netmask => '255.255.255.0',
                   :name => 'Default Network',
                   :SubnetParticipation => {
-                      :Gateway => "192.168.1.0",
-                      :Netmask => "255.255.0.0",
-                      :IpAddress => "192.168.1.0"
+                      :Gateway => '192.168.1.0',
+                      :Netmask => '255.255.0.0',
+                      :IpAddress => '192.168.1.0'
                   },
-                  :UseForDefaultRoute => "false"
+                  :UseForDefaultRoute => 'false'
                 },
 
                 isolated_vdc1_network_uuid => {
                   :IsShared => false,
                   :vdc => vdc1_uuid,
-                  :ApplyRateLimit => "false",
+                  :ApplyRateLimit => 'false',
                   :FenceMode => 'isolated',
                   :Description => 'Org Network for mocking',
                   :Dns1 => '8.8.8.8',
                   :Dns2 => '8.8.4.4',
                   :DnsSuffix => 'example.com',
-                  :InterfaceType => "internal",
+                  :InterfaceType => 'internal',
                   :IpRanges => [{
                     :StartAddress => '10.1.0.100',
                     :EndAddress => '10.1.0.200'
@@ -574,22 +574,22 @@ module Fog
                   :Netmask => '255.255.255.0',
                   :name => 'vDC1 backend network',
                   :SubnetParticipation => {
-                      :Gateway => "192.168.1.0",
-                      :Netmask => "255.255.0.0",
-                      :IpAddress => "192.168.1.0"
+                      :Gateway => '192.168.1.0',
+                      :Netmask => '255.255.0.0',
+                      :IpAddress => '192.168.1.0'
                   },
-                  :UseForDefaultRoute => "false"
+                  :UseForDefaultRoute => 'false'
                 },
 
                 isolated_vdc2_network_uuid => {
                   :IsShared => false,
                   :vdc => vdc2_uuid,
-                  :ApplyRateLimit => "false",
+                  :ApplyRateLimit => 'false',
                   :Description => 'Org Network for mocking',
                   :Dns1 => '8.8.8.8',
                   :Dns2 => '8.8.4.4',
                   :DnsSuffix => 'example.com',
-                  :InterfaceType => "internal",
+                  :InterfaceType => 'internal',
                   :IpRanges => [{
                     :StartAddress => '10.2.0.100',
                     :EndAddress => '10.2.0.200'
@@ -598,24 +598,24 @@ module Fog
                   :Netmask => '255.255.255.0',
                   :name => 'vDC2 backend network',
                   :SubnetParticipation => {
-                      :Gateway => "192.168.1.0",
-                      :Netmask => "255.255.0.0",
-                      :IpAddress => "192.168.1.0"
+                      :Gateway => '192.168.1.0',
+                      :Netmask => '255.255.0.0',
+                      :IpAddress => '192.168.1.0'
                   },
-                  :UseForDefaultRoute => "false"
+                  :UseForDefaultRoute => 'false'
                 },
 
                 uplink_network_uuid => {
                   :IsShared => false,
                   :vdc => vdc1_uuid,
-                  :ApplyRateLimit => "false",
+                  :ApplyRateLimit => 'false',
                   :FenceMode => 'bridged',
                   :Description => 'Uplink Network for mocking',
                   :Dns1 => '8.8.8.8',
                   :Dns2 => '8.8.4.4',
                   :DnsSuffix => 'example.com',
                   :Gateway => '198.51.100.1',
-                  :InterfaceType => "uplink",
+                  :InterfaceType => 'uplink',
                   :IpRanges => [{
                     :StartAddress => '198.51.100.2',
                     :EndAddress => '198.51.100.254'
@@ -624,17 +624,17 @@ module Fog
                   :Netmask => '255.255.255.0',
                   :name => 'uplink Network',
                   :SubnetParticipation => {
-                    :Gateway => "198.51.100.81",
-                    :Netmask => "255.255.255.248",
-                    :IpAddress => "198.51.100.83",
+                    :Gateway => '198.51.100.81',
+                    :Netmask => '255.255.255.248',
+                    :IpAddress => '198.51.100.83',
                     :IpRanges => {
                       :IpRange => {
-                        :StartAddress => "198.51.100.84",
-                        :EndAddress => "198.51.100.86"
+                        :StartAddress => '198.51.100.84',
+                        :EndAddress => '198.51.100.86'
                       }
                     }
                   },
-                  :UseForDefaultRoute => "true"
+                  :UseForDefaultRoute => 'true'
                 }
 
               },

@@ -1,21 +1,21 @@
-Shindo.tests("AWS::CloudWatch | alarm_data", ['aws', 'cloudwatch']) do
+Shindo.tests('AWS::CloudWatch | alarm_data', ['aws', 'cloudwatch']) do
 
   pending if Fog.mocking?
 
   tests('success') do
-    tests("#all").succeeds do
+    tests('#all').succeeds do
       Fog::AWS[:cloud_watch].alarm_data.all
     end
 
     alarm_name_prefix = {'AlarmNamePrefix' => 'tmp'}
-    tests("#all_by_prefix").succeeds do
+    tests('#all_by_prefix').succeeds do
       Fog::AWS[:cloud_watch].alarm_data.all(alarm_name_prefix)
     end
 
     namespace = 'AWS/EC2'
     metric_name = 'CPUUtilization'
 
-    tests("#get").succeeds do
+    tests('#get').succeeds do
       Fog::AWS[:cloud_watch].alarm_data.get(namespace, metric_name).to_json
     end
 

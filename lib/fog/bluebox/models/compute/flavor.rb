@@ -14,7 +14,7 @@ module Fog
 
         def bits
           # 64
-          raise StandardError.new("Figure me out!?!")
+          raise StandardError.new('Figure me out!?!')
         end
 
         def cores
@@ -35,7 +35,7 @@ module Fog
           # when 15872
           #   1
           # end
-          raise StandardError.new("Figure me out!?!")
+          raise StandardError.new('Figure me out!?!')
         end
 
       end

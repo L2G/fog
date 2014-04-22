@@ -17,7 +17,7 @@ module Fog
             :body     => Fog::JSON.encode(data),
             :expects  => [200, 202],
             :method   => 'POST',
-            :path     => "snapshots"
+            :path     => 'snapshots'
           )
         end
 
@@ -28,14 +28,14 @@ module Fog
           response = Excon::Response.new
           response.status = 202
           response.body = {
-            "snapshot" => {
-               "status" => "creating",
-               "display_name" => name,
-               "created_at" => Time.now,
-               "display_description" => description,
-               "volume_id" => volume_id,
-               "id" => "5",
-               "size" => 1
+            'snapshot' => {
+               'status' => 'creating',
+               'display_name' => name,
+               'created_at' => Time.now,
+               'display_description' => description,
+               'volume_id' => volume_id,
+               'id' => '5',
+               'size' => 1
             }
           }
           response

@@ -14,8 +14,8 @@ module Fog
       class Real
         def list_machines(options = {})
           request(
-            :path => "/my/machines",
-            :method => "GET",
+            :path => '/my/machines',
+            :method => 'GET',
             :query => options,
             :expects => 200,
             :idempotent => true

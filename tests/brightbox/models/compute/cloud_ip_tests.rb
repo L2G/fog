@@ -1,15 +1,15 @@
-Shindo.tests("Fog::Compute[:brightbox] | CloudIp model", ["brightbox"]) do
+Shindo.tests('Fog::Compute[:brightbox] | CloudIp model', ['brightbox']) do
   pending if Fog.mocking?
 
   @test_service = Fog::Compute[:brightbox]
 
-  tests("success") do
+  tests('success') do
     @server = Brightbox::Compute::TestSupport.get_test_server
     server_id = @server.id
 
     @cip = @test_service.cloud_ips.allocate
 
-    tests("#destination_id") do
+    tests('#destination_id') do
       returns(true) do
         @cip.respond_to?(:destination_id)
       end

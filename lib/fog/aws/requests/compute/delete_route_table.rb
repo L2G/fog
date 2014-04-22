@@ -29,7 +29,7 @@ module Fog
 
       class Mock
         def delete_route_table(route_table_id)
-          route_table = self.data[:route_tables].find { |routetable| routetable["routeTableId"].eql? route_table_id }
+          route_table = self.data[:route_tables].find { |routetable| routetable['routeTableId'].eql? route_table_id }
           if !route_table.nil? && route_table['associationSet'].empty?
             self.data[:route_tables].delete(route_table)
               response = Excon::Response.new

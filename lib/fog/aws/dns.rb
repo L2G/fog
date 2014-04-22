@@ -59,7 +59,7 @@ module Fog
         end
 
         def signature(params)
-          "foo"
+          'foo'
         end
 
         def setup_credentials(options)

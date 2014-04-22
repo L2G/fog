@@ -31,7 +31,7 @@ module Fog
           if self.data[:network_acls][network_acl_id]
 
             if self.data[:network_acls][network_acl_id]['associationSet'].any?
-              raise Fog::Compute::AWS::Error.new("ACL is in use")
+              raise Fog::Compute::AWS::Error.new('ACL is in use')
             end
 
             self.data[:network_acls].delete(network_acl_id)

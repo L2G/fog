@@ -78,7 +78,7 @@ module Fog
               end
             end
             if options['PrivateIpAddress'].nil?
-              options['PrivateIpAddress'] = "10.0.0.2"
+              options['PrivateIpAddress'] = '10.0.0.2'
             end
 
             data = {

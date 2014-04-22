@@ -1,5 +1,5 @@
 require 'fog/storm_on_demand/core'
-require "fog/storm_on_demand/shared"
+require 'fog/storm_on_demand/shared'
 
 module Fog
   module Storage

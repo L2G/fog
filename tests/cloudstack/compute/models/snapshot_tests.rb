@@ -6,7 +6,7 @@ def snapshot_tests(connection, params, mocks_implemented = true)
   end
 end
 
-Shindo.tests("Fog::Compute[:cloudstack] | snapshot", "cloudstack") do
+Shindo.tests('Fog::Compute[:cloudstack] | snapshot', 'cloudstack') do
 
   config = compute_providers[:cloudstack]
 

@@ -51,10 +51,10 @@ module Fog
 
           block_devices.each_with_index do |bd, index|
             index += 1
-            ["DeviceName","VirtualName"].each do |n|
+            ['DeviceName','VirtualName'].each do |n|
               common_options["BlockDeviceMapping.#{index}.#{n}"] = bd[n] if bd[n]
             end
-            ["SnapshotId","VolumeSize","NoDevice","DeleteOnTermination"].each do |n|
+            ['SnapshotId','VolumeSize','NoDevice','DeleteOnTermination'].each do |n|
               common_options["BlockDeviceMapping.#{index}.Ebs.#{n}"] = bd[n] if bd[n]
             end
           end
@@ -101,10 +101,10 @@ module Fog
               block_device_mapping = {
                 'ebs' => {}
               }
-              ["DeviceName","VirtualName"].each do |n|
+              ['DeviceName','VirtualName'].each do |n|
                 block_device_mapping[n] = bd[n] if bd[n]
               end
-              ["SnapshotId","VolumeSize","NoDevice","DeleteOnTermination"].each do |n|
+              ['SnapshotId','VolumeSize','NoDevice','DeleteOnTermination'].each do |n|
                 block_device_mapping['ebs'][n] = bd[n] if bd[n]
               end
               image['blockDeviceMapping'] << block_device_mapping

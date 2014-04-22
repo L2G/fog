@@ -1,5 +1,5 @@
-require "fog/core/collection"
-require "fog/storm_on_demand/models/network/zone"
+require 'fog/core/collection'
+require 'fog/storm_on_demand/models/network/zone'
 
 module Fog
   module Network

@@ -17,13 +17,13 @@ end
 # Use username defined in ~/.fog file, if absent prompt for username.
 # For more details on ~/.fog refer to http://fog.io/about/getting_started.html
 def rackspace_username
-  Fog.credentials[:rackspace_username] || get_user_input("Enter Rackspace Username")
+  Fog.credentials[:rackspace_username] || get_user_input('Enter Rackspace Username')
 end
 
 # Use api key defined in ~/.fog file, if absent prompt for api key
 # For more details on ~/.fog refer to http://fog.io/about/getting_started.html
 def rackspace_api_key
-  Fog.credentials[:rackspace_api_key] || get_user_input("Enter Rackspace API key")
+  Fog.credentials[:rackspace_api_key] || get_user_input('Enter Rackspace API key')
 end
 
 def select_group(groups)
@@ -55,13 +55,13 @@ groups = auto_scale_service.groups
 group = select_group(groups)
 
 # prompt for policy name
-policy_name = get_user_input "Enter name for policy"
+policy_name = get_user_input 'Enter name for policy'
 
 # prompt for cool down period for policy
-cooldown = get_user_input_as_int "Enter cool down period in seconds"
+cooldown = get_user_input_as_int 'Enter cool down period in seconds'
 
 # prompt for change increment
-change = get_user_input_as_int "Enter change increment"
+change = get_user_input_as_int 'Enter change increment'
 
 group.policies.create :name => policy_name, :cooldown => cooldown, :type => 'webhook', :change => change
 

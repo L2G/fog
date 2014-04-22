@@ -12,7 +12,7 @@ Shindo.tests('Fog::Rackspace::LoadBalancers | access_lists_tests', ['rackspace']
         end
 
         @lb.wait_for { ready? }
-        tests("list_access_rules").formats(ACCESS_LIST_FORMAT) do
+        tests('list_access_rules').formats(ACCESS_LIST_FORMAT) do
           data = @service.list_access_rules(@lb.id).body
           returns(1) { data.size }
           @access_list_id = data['accessList'].first['id']

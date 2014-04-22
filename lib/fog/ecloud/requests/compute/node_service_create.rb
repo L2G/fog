@@ -19,7 +19,7 @@ module Fog
           request(
             :body => generate_node_service_request(service_data),
             :expects => 201,
-            :method => "POST",
+            :method => 'POST',
             :headers => {},
             :uri => service_data[:uri],
             :parse => true
@@ -57,7 +57,7 @@ module Fog
           service = {
             :href => "/cloudapi/ecloud/nodeservices/#{service_id}",
             :name => service_data[:name],
-            :type => "application/vnd.tmrk.cloud.nodeService",
+            :type => 'application/vnd.tmrk.cloud.nodeService',
             :Links => {
               :Link => [
                 Fog::Ecloud.keep(internet_service, :href, :name, :type),

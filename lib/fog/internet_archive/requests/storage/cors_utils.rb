@@ -25,7 +25,7 @@ module Fog
             data << "  </CORSRule>\n"
           end
 
-          data << "</CORSConfiguration>"
+          data << '</CORSConfiguration>'
 
           data
         end

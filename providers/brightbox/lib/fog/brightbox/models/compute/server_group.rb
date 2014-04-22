@@ -17,20 +17,20 @@ module Fog
         attribute :default
         attribute :created_at, :type => :time
 
-        attribute :server_ids, :aliases => "servers"
+        attribute :server_ids, :aliases => 'servers'
 
         def save
           options = {
             :name => name,
             :description => description
-          }.delete_if { |k, v| v.nil? || v == "" }
+          }.delete_if { |k, v| v.nil? || v == '' }
           data = service.create_server_group(options)
           merge_attributes(data)
           true
         end
 
         def servers
-          srv_ids = server_ids.map { |srv| srv["id"] }
+          srv_ids = server_ids.map { |srv| srv['id'] }
           srv_ids.map do |srv_id|
             service.servers.get(srv_id)
           end
@@ -86,7 +86,7 @@ module Fog
         protected
 
         def server_references(identifiers)
-          identifiers.map { |id| { "server" => id } }
+          identifiers.map { |id| { 'server' => id } }
         end
       end
     end

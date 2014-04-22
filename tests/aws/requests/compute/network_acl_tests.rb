@@ -50,28 +50,28 @@ Shindo.tests('Fog::Compute[:aws] | network acl requests', ['aws']) do
       data['networkAcl']
     end
 
-    tests("#create_network_acl_entry").formats(AWS::Compute::Formats::BASIC) do
+    tests('#create_network_acl_entry').formats(AWS::Compute::Formats::BASIC) do
       Fog::Compute[:aws].create_network_acl_entry(@network_acl['networkAclId'], 100, 6, 'allow', '0.0.0.0/8', false, 'PortRange.From' => 22, 'PortRange.To' => 22).body
     end
 
-    tests("#replace_network_acl_entry").formats(AWS::Compute::Formats::BASIC) do
+    tests('#replace_network_acl_entry').formats(AWS::Compute::Formats::BASIC) do
       Fog::Compute[:aws].replace_network_acl_entry(@network_acl['networkAclId'], 100, 6, 'deny', '0.0.0.0/8', false, 'PortRange.From' => 22, 'PortRange.To' => 22).body
     end
 
-    tests("#delete_network_acl_entry").formats(AWS::Compute::Formats::BASIC) do
+    tests('#delete_network_acl_entry').formats(AWS::Compute::Formats::BASIC) do
       Fog::Compute[:aws].delete_network_acl_entry(@network_acl['networkAclId'], 100, false).body
     end
 
     default_acl = Fog::Compute[:aws].describe_network_acls('vpc-id' => @vpc.id, 'default' => true).body['networkAclSet'].first
     @assoc_id   = default_acl['associationSet'].first['networkAclAssociationId']
 
-    tests("#replace_network_acl_association").formats(@network_acl_replace_association) do
+    tests('#replace_network_acl_association').formats(@network_acl_replace_association) do
       data = Fog::Compute[:aws].replace_network_acl_association(@assoc_id, @network_acl['networkAclId']).body
       @assoc_id = data['newAssociationId']
       data
     end
 
-    tests("#replace_network_acl_association").formats(@network_acl_replace_association) do
+    tests('#replace_network_acl_association').formats(@network_acl_replace_association) do
       Fog::Compute[:aws].replace_network_acl_association(@assoc_id, default_acl['networkAclId']).body
     end
 

@@ -2,15 +2,15 @@ Shindo.tests('Fog::Compute[:ibm] | servers', ['ibm']) do
 
   tests('success') do
 
-    @name           = "fog-test-instance-" + Time.now.to_i.to_s(32)
-    @image_id       = "20010001"
-    @instance_type  = "BRZ32.1/2048/60*175"
-    @location_id    = "41"
-    @key_name       = "fog-test-key-" + Time.now.to_i.to_s(32)
+    @name           = 'fog-test-instance-' + Time.now.to_i.to_s(32)
+    @image_id       = '20010001'
+    @instance_type  = 'BRZ32.1/2048/60*175'
+    @location_id    = '41'
+    @key_name       = 'fog-test-key-' + Time.now.to_i.to_s(32)
     @key            = Fog::Compute[:ibm].keys.create(:name => @key_name)
 
     @n_servers   = Fog::Compute[:ibm].servers.length
-    @instance_id = Fog::Compute[:ibm].create_instance(@name, @image_id, @instance_type, @location_id, :key_name => @key_name).body["instances"][0]["id"]
+    @instance_id = Fog::Compute[:ibm].create_instance(@name, @image_id, @instance_type, @location_id, :key_name => @key_name).body['instances'][0]['id']
 
     tests('Fog::Compute[:ibm].servers') do
       returns(@n_servers + 1) { Fog::Compute[:ibm].servers.length }

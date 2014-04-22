@@ -50,13 +50,13 @@ module Fog
         def get_vcloud
           body =
             {:href => make_href('admin/'),
-             :type => "application/vnd.vmware.admin.vcloud+xml",
+             :type => 'application/vnd.vmware.admin.vcloud+xml',
              :name => 'VMware vCloud Director',
              :Description => '5.1.2.1377223 Tue Oct 15 20:56:05 GMT 2013',
              :Tasks => {:Task => []},
              :OrganizationReferences =>
               {:OrganizationReference =>
-               [{:type => "application/vnd.vmware.admin.organization+xml",
+               [{:type => 'application/vnd.vmware.admin.organization+xml',
                  :name => data[:org][:name],
                  :href => make_href("api/admin/org/#{data[:org][:uuid]}")}]},
              :ProviderVdcReferences => {:ProviderVdcReference => []},

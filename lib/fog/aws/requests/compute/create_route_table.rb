@@ -36,20 +36,20 @@ module Fog
       class Mock
         def create_route_table(vpc_id)
           response = Excon::Response.new
-          vpc = self.data[:vpcs].find { |vpc| vpc["vpcId"].eql? vpc_id }
+          vpc = self.data[:vpcs].find { |vpc| vpc['vpcId'].eql? vpc_id }
           unless vpc.nil?
             response.status = 200
             route_table = {
               'routeTableId' => "rtb-#{Fog::Mock.random_hex(8)}",
-              'vpcId' => vpc["vpcId"],
+              'vpcId' => vpc['vpcId'],
               'routeSet' => [{
-                "destinationCidrBlock" => vpc["cidrBlock"],
-                "gatewayId" => "local",
-                "instanceId" => nil,
-                "instanceOwnerId" => nil,
-                "networkInterfaceId" => nil,
-                "state" => "pending",
-                "origin" => "CreateRouteTable"
+                'destinationCidrBlock' => vpc['cidrBlock'],
+                'gatewayId' => 'local',
+                'instanceId' => nil,
+                'instanceOwnerId' => nil,
+                'networkInterfaceId' => nil,
+                'state' => 'pending',
+                'origin' => 'CreateRouteTable'
               }],
               'associationSet' => [],
               'tagSet' => {}

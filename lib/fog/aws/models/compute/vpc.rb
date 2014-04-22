@@ -15,8 +15,8 @@ module Fog
         attribute :tenancy,          :aliases => 'instanceTenancy'
 
         def initialize(attributes = {})
-          self.dhcp_options_id ||= "default"
-          self.tenancy ||= "default"
+          self.dhcp_options_id ||= 'default'
+          self.tenancy ||= 'default'
           super
         end
 

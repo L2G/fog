@@ -13,7 +13,7 @@ module Fog
         attribute :zone
 
         def initialize(attributes)
-          attributes["service_name"] = attributes.delete "service"
+          attributes['service_name'] = attributes.delete 'service'
           # Old 'connection' is renamed as service and should be used instead
           prepare_service_value(attributes)
           super

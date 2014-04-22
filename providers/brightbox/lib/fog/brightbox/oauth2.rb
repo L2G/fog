@@ -19,7 +19,7 @@ module Fog::Brightbox::OAuth2
     encoded_credentials = Base64.encode64(header_content).chomp
 
     connection.request(
-      :path => "/token",
+      :path => '/token',
       :expects  => 200,
       :headers  => {
         'Authorization' => "Basic #{encoded_credentials}",
@@ -107,7 +107,7 @@ module Fog::Brightbox::OAuth2
     end
 
     def authorization_body_data
-      raise "Not implemented"
+      raise 'Not implemented'
     end
   end
 
@@ -118,8 +118,8 @@ module Fog::Brightbox::OAuth2
   class ClientCredentialsStrategy < GrantTypeStrategy
     def authorization_body_data
       {
-        "grant_type" => "none",
-        "client_id"  => @credentials.client_id
+        'grant_type' => 'none',
+        'client_id'  => @credentials.client_id
       }
     end
   end
@@ -131,10 +131,10 @@ module Fog::Brightbox::OAuth2
   class UserCredentialsStrategy < GrantTypeStrategy
     def authorization_body_data
       {
-        "grant_type" => "password",
-        "client_id"  => @credentials.client_id,
-        "username"   => @credentials.username,
-        "password"   => @credentials.password
+        'grant_type' => 'password',
+        'client_id'  => @credentials.client_id,
+        'username'   => @credentials.username,
+        'password'   => @credentials.password
       }
     end
   end
@@ -145,9 +145,9 @@ module Fog::Brightbox::OAuth2
   class RefreshTokenStrategy < GrantTypeStrategy
     def authorization_body_data
       {
-        "grant_type"    => "refresh_token",
-        "client_id"     => @credentials.client_id,
-        "refresh_token" => @credentials.refresh_token
+        'grant_type'    => 'refresh_token',
+        'client_id'     => @credentials.client_id,
+        'refresh_token' => @credentials.refresh_token
       }
     end
   end
@@ -161,6 +161,6 @@ module Fog::Brightbox::OAuth2
   #
   def update_credentials_from_response(credentials, response)
     response_data = Fog::JSON.decode(response.body)
-    credentials.update_tokens(response_data["access_token"], response_data["refresh_token"], response_data["expires_in"])
+    credentials.update_tokens(response_data['access_token'], response_data['refresh_token'], response_data['expires_in'])
   end
 end

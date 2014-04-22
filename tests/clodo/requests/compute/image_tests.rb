@@ -18,18 +18,18 @@ Shindo.tests('Fog::Compute[:clodo] | image requests', ['clodo']) do
     '_attr' => @image_format
   }
 
-  tests("success") do
-    tests("- list_images").formats([@image_format]) do
+  tests('success') do
+    tests('- list_images').formats([@image_format]) do
       clodo.list_images.body['images']
     end
 
-    tests("- list_images_detail").formats([@image_details_format]) do
+    tests('- list_images_detail').formats([@image_details_format]) do
       clodo.list_images_detail.body['images']
     end
   end
 
-  tests("failure") do
-    tests("- get_image_details(541)").returns(nil) do
+  tests('failure') do
+    tests('- get_image_details(541)').returns(nil) do
       clodo.images.get(541)
     end
   end

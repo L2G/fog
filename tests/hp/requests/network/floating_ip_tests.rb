@@ -56,11 +56,11 @@ Shindo.tests('HP::Network | networking floating ip requests', ['hp', 'networking
     end
 
     tests('#disassociate_floating_ip("0")').raises(Fog::HP::Network::NotFound) do
-      HP[:network].disassociate_floating_ip("0")
+      HP[:network].disassociate_floating_ip('0')
     end
 
     tests('#delete_floating_ip("0")').raises(Fog::HP::Network::NotFound) do
-      HP[:network].delete_floating_ip("0")
+      HP[:network].delete_floating_ip('0')
     end
   end
 

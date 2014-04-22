@@ -10,7 +10,7 @@ module Fog
         model Fog::Compute::Google::Zone
 
         def all
-          data = service.list_zones.body["items"] || []
+          data = service.list_zones.body['items'] || []
           load(data)
         end
 

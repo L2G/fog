@@ -17,7 +17,7 @@ module Fog
         def delete_cluster_subnet_group(options = {})
           cluster_subnet_group_name = options[:cluster_subnet_group_name]
 
-          path = "/"
+          path = '/'
           params = {
             :idempotent => true,
             :headers    => {},

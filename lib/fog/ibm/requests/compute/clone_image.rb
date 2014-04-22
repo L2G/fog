@@ -35,7 +35,7 @@ module Fog
             id = Fog::IBM::Mock.instance_id
             self.data[:images][id] = self.data[:images][image_id].merge('id' => id, 'name' => name, 'description' => description)
             response.status = 200
-            response.body   = { "ImageID" => id }
+            response.body   = { 'ImageID' => id }
           else
             response.status = 404
           end

@@ -5,12 +5,12 @@ Shindo.tests('Fog::Compute[:ibm] | server', ['ibm']) do
     @server         = nil
     @instance_id    = nil
 
-    @name           = "fog-test-instance-" + Time.now.to_i.to_s(32)
-    @image_id       = "20010001"
-    @instance_type  = "BRZ32.1/2048/60*175"
-    @location_id    = "41"
+    @name           = 'fog-test-instance-' + Time.now.to_i.to_s(32)
+    @image_id       = '20010001'
+    @instance_type  = 'BRZ32.1/2048/60*175'
+    @location_id    = '41'
 
-    @key_name       = "fog-test-key-" + Time.now.to_i.to_s(32)
+    @key_name       = 'fog-test-key-' + Time.now.to_i.to_s(32)
     @key            = Fog::Compute[:ibm].keys.create(:name => @key_name)
 
     tests('Fog::Compute::IBM::Server.new') do
@@ -44,7 +44,7 @@ Shindo.tests('Fog::Compute[:ibm] | server', ['ibm']) do
     end
 
     tests('Fog::Compute::IBM::Server#state') do
-      returns("Active") { @server.state }
+      returns('Active') { @server.state }
     end
 
     # TODO: make this work
@@ -53,7 +53,7 @@ Shindo.tests('Fog::Compute[:ibm] | server', ['ibm']) do
     # end
 
     tests('Fog::Compute::IBM::Server#rename("name")') do
-      name = @server.name + "-rename"
+      name = @server.name + '-rename'
       returns(true) { @server.rename(name) }
       returns(name) { @server.name }
     end

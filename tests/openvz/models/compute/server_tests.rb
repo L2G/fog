@@ -1,4 +1,4 @@
-Shindo.tests("Fog::Compute[:openvz] | server model", ['openvz', 'compute']) do
+Shindo.tests('Fog::Compute[:openvz] | server model', ['openvz', 'compute']) do
 
   server  = openvz_fog_test_server
 
@@ -28,7 +28,7 @@ Shindo.tests("Fog::Compute[:openvz] | server model", ['openvz', 'compute']) do
         :ctid,
         :description
       ]
-      tests("The server model should respond to") do
+      tests('The server model should respond to') do
         attributes.each do |attribute|
           test("#{attribute}") { server.respond_to? attribute }
         end

@@ -7,7 +7,7 @@ module Fog
         class DescribeEvents < Fog::Parsers::AWS::ElasticBeanstalk::BaseParser
 
           def initialize
-            super("DescribeEventsResult")
+            super('DescribeEventsResult')
             tag 'Events', :object, :list
             tag 'ApplicationName', :string
             tag 'EnvironmentName', :string

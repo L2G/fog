@@ -12,23 +12,23 @@ module Fog
         end
 
         def services
-          catalog.collect {|s| s["name"]}
+          catalog.collect {|s| s['name']}
         end
 
         def get_endpoints(service_name, service_net = false)
-          h = catalog.find {|service| service["name"] == service_name.to_s}
+          h = catalog.find {|service| service['name'] == service_name.to_s}
           return {} unless h
           key = network_type_key(service_net)
-          h["endpoints"].select {|e| e[key]}
+          h['endpoints'].select {|e| e[key]}
         end
 
 
         def display_service_regions(service_name, service_net = false)
           endpoints = get_endpoints(service_name, service_net)
           regions = endpoints.collect do |e|
-            e["region"] ? ":#{e["region"].downcase}" : ":global"
+            e['region'] ? ":#{e["region"].downcase}" : ':global'
           end
-          regions.join(", ")
+          regions.join(', ')
         end
 
         def get_endpoint(service_name, region = nil, service_net = false)
@@ -48,7 +48,7 @@ module Fog
           return endpoint[network_type] if endpoint && endpoint[network_type]
 
           # endpoint doesnt have region
-          if endpoints.size == 1 && matching_region?(endpoints[0], "GLOBAL")
+          if endpoints.size == 1 && matching_region?(endpoints[0], 'GLOBAL')
             return endpoints[0][network_type]
           end
 
@@ -62,22 +62,22 @@ module Fog
         end
 
         def self.from_response(service, hash)
-          ServiceCatalog.new :service => service, :catalog => hash["access"]["serviceCatalog"]
+          ServiceCatalog.new :service => service, :catalog => hash['access']['serviceCatalog']
         end
 
         private
 
         def network_type_key(service_net)
-          service_net ? "internalURL" : "publicURL"
+          service_net ? 'internalURL' : 'publicURL'
         end
 
         def matching_region?(h, region)
-          region_key(h["region"]) == region
+          region_key(h['region']) == region
         end
 
         def region_key(region)
           return region.to_s.upcase if region.is_a? Symbol
-          (region.nil? || region.empty?) ? "GLOBAL" : region.to_s.upcase
+          (region.nil? || region.empty?) ? 'GLOBAL' : region.to_s.upcase
         end
 
       end

@@ -38,20 +38,20 @@ module Fog
           response = Excon::Response.new
           response.status = 200
           attributes  = {
-            "keyName"           => name,
-            "lastModifiedTime"  => Fog::IBM::Mock.launch_time,
-            "default"           => false,
-            "instanceIds"       => [],
+            'keyName'           => name,
+            'lastModifiedTime'  => Fog::IBM::Mock.launch_time,
+            'default'           => false,
+            'instanceIds'       => [],
           }
           if public_key.nil?
             private_key   = Fog::IBM::Mock.key_material
             public_key    = private_key.public_key
-            response.body = attributes.merge("keyMaterial" => private_key.to_s)
+            response.body = attributes.merge('keyMaterial' => private_key.to_s)
           else
             response.body = { 'success' => true }
           end
-          self.data[:keys][name] = attributes.merge("keyMaterial" => public_key.to_s)
-          self.data[:private_keys][name] = attributes.merge("keyMaterial" => private_key.to_s)
+          self.data[:keys][name] = attributes.merge('keyMaterial' => public_key.to_s)
+          self.data[:private_keys][name] = attributes.merge('keyMaterial' => private_key.to_s)
           response
         end
 
