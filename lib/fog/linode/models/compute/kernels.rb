@@ -18,7 +18,7 @@ module Fog
         end
 
         private
-        def kernels(id=nil)
+        def kernels(id = nil)
           service.avail_kernels(id).body['DATA'].map { |kernel| map_kernel kernel }
         end
 

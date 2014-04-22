@@ -9,7 +9,7 @@ module Fog
         attribute :name
         attribute :status
 
-        def initialize(attributes={})
+        def initialize(attributes = {})
           super
           self.username = 'root'
         end

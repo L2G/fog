@@ -55,7 +55,7 @@ module Fog
         attr_accessor :block_device_mapping
 
 
-        def initialize(attributes={})
+        def initialize(attributes = {})
           # Old 'connection' is renamed as service and should be used instead
           prepare_service_value(attributes)
 
@@ -78,7 +78,7 @@ module Fog
           end
         end
 
-        def metadata=(new_metadata={})
+        def metadata=(new_metadata = {})
           return unless new_metadata
           metas = []
           new_metadata.each_pair {|k,v| metas << {"key" => k, "value" => v} }
@@ -185,7 +185,7 @@ module Fog
           true
         end
 
-        def rebuild(image_ref, name, admin_pass=nil, metadata=nil, personality=nil)
+        def rebuild(image_ref, name, admin_pass = nil, metadata = nil, personality = nil)
           requires :id
           service.rebuild_server(id, image_ref, name, admin_pass, metadata, personality)
           true
@@ -229,7 +229,7 @@ module Fog
           true
         end
 
-        def create_image(name, metadata={})
+        def create_image(name, metadata = {})
           requires :id
           service.create_image(id, name, metadata)
         end

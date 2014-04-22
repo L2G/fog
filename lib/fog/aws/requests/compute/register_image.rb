@@ -34,7 +34,7 @@ module Fog
 
         # {Amazon API Reference}[http://docs.amazonwebservices.com/AWSEC2/latest/APIReference/ApiReference-query-RegisterImage.html]
 
-        def register_image(name, description, location, block_devices=[], options={})
+        def register_image(name, description, location, block_devices = [], options = {})
           common_options = {
             'Action'      => 'RegisterImage',
             'Name'        => name,
@@ -64,7 +64,7 @@ module Fog
       end
 
       class Mock
-        def register_image(name, description, location, block_devices=[], options={})
+        def register_image(name, description, location, block_devices = [], options = {})
           unless name.empty?
             image = {
               'imageId' => Fog::AWS::Mock.image_id,

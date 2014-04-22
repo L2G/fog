@@ -11,7 +11,7 @@ module Fog
         attribute :datacenter
         attribute :interfacetypes
 
-        def initialize(attributes={} )
+        def initialize(attributes = {} )
           super defaults.merge(attributes)
         end
 
@@ -19,7 +19,7 @@ module Fog
           id
         end
 
-        def interfacetypes filters={}
+        def interfacetypes filters = {}
           attributes[:interfacetypes] ||= service.interfacetypes({ :datacenter => datacenter, :servertype => self }.merge(filters))
         end
 

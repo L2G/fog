@@ -19,7 +19,7 @@ module Fog
         # ==== Returns
         # * response<~Excon::Response>:
         #   * body<~Hash>:
-        def describe_orderable_db_instance_options(engine=nil, opts={})
+        def describe_orderable_db_instance_options(engine = nil, opts = {})
           params = {}
           params['Engine'] = engine if engine
           params['DBInstanceClass'] = opts[:db_instance_class] if opts[:db_instance_class]
@@ -39,7 +39,7 @@ module Fog
 
       class Mock
 
-        def describe_orderable_db_instance_options(engine=nil, opts={})
+        def describe_orderable_db_instance_options(engine = nil, opts = {})
           instance_options = []
           response = Excon::Response.new
           if engine

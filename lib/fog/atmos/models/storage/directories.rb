@@ -36,7 +36,7 @@ module Fog
           nil
         end
 
-        def new(attributes ={})
+        def new(attributes = {})
           attributes = {:directory => directory}.merge(attributes) if directory
           super(attributes)
         end

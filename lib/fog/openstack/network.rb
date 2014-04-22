@@ -201,7 +201,7 @@ module Fog
           @data = nil
         end
 
-        def initialize(options={})
+        def initialize(options = {})
           @openstack_username = options[:openstack_username]
           @openstack_tenant   = options[:openstack_tenant]
         end
@@ -226,7 +226,7 @@ module Fog
         attr_reader :current_user
         attr_reader :current_tenant
 
-        def initialize(options={})
+        def initialize(options = {})
           @openstack_auth_token = options[:openstack_auth_token]
 
           unless @openstack_auth_token

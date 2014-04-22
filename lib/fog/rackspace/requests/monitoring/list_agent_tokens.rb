@@ -3,7 +3,7 @@ module Fog
     class Monitoring
       class Real
 
-        def list_agent_tokens(options={})
+        def list_agent_tokens(options = {})
           request(
             :expects  => [200, 203],
             :method   => 'GET',
@@ -15,7 +15,7 @@ module Fog
 
       class Mock
 
-        def list_agent_tokens(options={})
+        def list_agent_tokens(options = {})
           token = Fog::Mock.random_letters(50).to_s
 
           response = Excon::Response.new

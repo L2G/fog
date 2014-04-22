@@ -20,13 +20,13 @@ module Fog
           true
         end
 
-        def associate_port(port_id, options={})
+        def associate_port(port_id, options = {})
           requires :id
           merge_attributes(service.associate_floating_ip(id, port_id, options).body['floatingip'])
           true
         end
 
-        def disassociate_port(options={})
+        def disassociate_port(options = {})
           requires :id
           merge_attributes(service.disassociate_floating_ip(id, options).body['floatingip'])
           true

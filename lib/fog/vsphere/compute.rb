@@ -313,7 +313,7 @@ module Fog
           end
         end
 
-        def initialize(options={})
+        def initialize(options = {})
           require 'rbvmomi'
           @vsphere_username = options[:vsphere_username]
           @vsphere_password = 'REDACTED'
@@ -336,7 +336,7 @@ module Fog
 
         include Shared
 
-        def initialize(options={})
+        def initialize(options = {})
           require 'rbvmomi'
           @vsphere_username = options[:vsphere_username]
           @vsphere_password = options[:vsphere_password]

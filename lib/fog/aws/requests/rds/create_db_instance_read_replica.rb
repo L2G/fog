@@ -17,7 +17,7 @@ module Fog
         # ==== Returns
         # * response<~Excon::Response>:
         #   * body<~Hash>:
-        def create_db_instance_read_replica(instance_identifier, source_identifier, options={})
+        def create_db_instance_read_replica(instance_identifier, source_identifier, options = {})
 
 
           request({
@@ -32,7 +32,7 @@ module Fog
 
       class Mock
 
-        def create_db_instance_read_replica(instance_identifier, source_identifier, options={})
+        def create_db_instance_read_replica(instance_identifier, source_identifier, options = {})
           # TODO: throw error when instance_identifier already exists,
           # or source_identifier doesn't exist
 

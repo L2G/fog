@@ -38,7 +38,7 @@ module Fog
           @data = nil
         end
 
-        def initialize(options={})
+        def initialize(options = {})
           @dnsimple_email = options[:dnsimple_email]
           @dnsimple_password  = options[:dnsimple_password]
           @dnsimple_token = options[:dnsimple_token]
@@ -57,7 +57,7 @@ module Fog
 
       class Real
 
-        def initialize(options={})
+        def initialize(options = {})
           @dnsimple_email = options[:dnsimple_email]
           @dnsimple_password  = options[:dnsimple_password]
           @dnsimple_token = options[:dnsimple_token]

@@ -15,7 +15,7 @@ module Fog
         # @raise [Fog::Storage::Rackspace::BadRequest] - HTTP 400
         # @raise [Fog::Storage::Rackspace::InternalServerError] - HTTP 500
         # @raise [Fog::Storage::Rackspace::ServiceError]
-        def copy_object(source_container_name, source_object_name, target_container_name, target_object_name, options={})
+        def copy_object(source_container_name, source_object_name, target_container_name, target_object_name, options = {})
           headers = { 'X-Copy-From' => "/#{source_container_name}/#{source_object_name}" }.merge(options)
           request({
             :expects  => 201,

@@ -3,7 +3,7 @@ module Fog
     class OpenStack
       class Real
 
-        def list_snapshots(detailed=true)
+        def list_snapshots(detailed = true)
 
           path = detailed ? 'os-snapshots/detail' : 'os-snapshots'
           request(
@@ -17,7 +17,7 @@ module Fog
 
       class Mock
 
-        def list_snapshots(detailed=true)
+        def list_snapshots(detailed = true)
           response = Excon::Response.new
           response.status = 200
           response.body = {

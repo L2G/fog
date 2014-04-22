@@ -9,7 +9,7 @@ module Fog
 
         model Fog::Compute::Google::HttpHealthCheck
 
-        def all(filters={})
+        def all(filters = {})
           data = service.list_http_health_checks.body['items'] || []
           load(data)
         end

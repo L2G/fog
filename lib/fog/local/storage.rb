@@ -29,7 +29,7 @@ module Fog
           @data = nil
         end
 
-        def initialize(options={})
+        def initialize(options = {})
           Fog::Mock.not_implemented
 
           @local_root = ::File.expand_path(options[:local_root])
@@ -65,7 +65,7 @@ module Fog
 
         attr_reader :endpoint
 
-        def initialize(options={})
+        def initialize(options = {})
           @local_root = ::File.expand_path(options[:local_root])
 
           @endpoint = options[:endpoint] || build_endpoint_from_options(options)
@@ -79,7 +79,7 @@ module Fog
           ::File.join(@local_root, partial)
         end
 
-        def copy_object(source_directory_name, source_object_name, target_directory_name, target_object_name, options={})
+        def copy_object(source_directory_name, source_object_name, target_directory_name, target_object_name, options = {})
           require 'fileutils'
           source_path = path_to(::File.join(source_directory_name, source_object_name))
           target_path = path_to(::File.join(target_directory_name, target_object_name))

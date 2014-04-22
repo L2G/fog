@@ -19,7 +19,7 @@ module Fog
       class BadRequest < Fog::Rackspace::Errors::BadRequest
         attr_reader :validation_errors
 
-        def self.slurp(error, service=nil)
+        def self.slurp(error, service = nil)
           new_error = super(error)
           if  new_error.response_data && new_error.response_data['details']
             new_error.instance_variable_set(:@validation_errors, new_error.response_data['details'])
@@ -113,7 +113,7 @@ module Fog
 
       class Mock < Fog::Rackspace::Service
 
-        def initialize(options={})
+        def initialize(options = {})
         end
 
         def request(params)
@@ -130,7 +130,7 @@ module Fog
           @rackspace_region
         end
 
-        def initialize(options={})
+        def initialize(options = {})
           @rackspace_api_key = options[:rackspace_api_key]
           @rackspace_username = options[:rackspace_username]
           @rackspace_auth_url = options[:rackspace_auth_url]
@@ -147,7 +147,7 @@ module Fog
           @connection.reset
         end
 
-        def endpoint_uri(service_endpoint_url=nil)
+        def endpoint_uri(service_endpoint_url = nil)
           @uri = super(@rackspace_endpoint || service_endpoint_url, :rackspace_monitoring_url)
         end
 

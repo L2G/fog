@@ -12,7 +12,7 @@ module Fog
         attribute :status
         attribute :valid_source_hvs
 
-        def initialize(attributes={})
+        def initialize(attributes = {})
           super
         end
 

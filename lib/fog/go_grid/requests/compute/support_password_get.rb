@@ -13,7 +13,7 @@ module Fog
         # * response<~Excon::Response>:
         #   * body<~Array>:
         # TODO: docs
-        def support_password_get(id, options={})
+        def support_password_get(id, options = {})
           request(
             :path     => 'support/password/get',
             :query    => {

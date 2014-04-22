@@ -15,7 +15,7 @@ module Fog
         attribute :region_support
         attribute :type
 
-        def initialize(attributes={})
+        def initialize(attributes = {})
           super
         end
 
@@ -29,7 +29,7 @@ module Fog
           service.delete_zone(:id => identity).body['deleted']
         end
 
-        def update(options={})
+        def update(options = {})
           requires :identity
           service.update_zone({:id => identity}.merge!(options))
         end

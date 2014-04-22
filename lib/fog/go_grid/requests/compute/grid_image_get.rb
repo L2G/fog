@@ -15,7 +15,7 @@ module Fog
         # * response<~Excon::Response>:
         #   * body<~Array>:
         # TODO: docs
-        def grid_image_get(options={})
+        def grid_image_get(options = {})
           request(
             :path     => 'grid/image/get',
             :query    => options
@@ -26,7 +26,7 @@ module Fog
 
       class Mock
 
-        def grid_image_get(options={})
+        def grid_image_get(options = {})
           #response = Excon::Response.new
 
           #images = self.data[:list].values

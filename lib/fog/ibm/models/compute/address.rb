@@ -29,7 +29,7 @@ module Fog
         attribute :mode
         attribute :owner
 
-        def initialize(new_attributes={})
+        def initialize(new_attributes = {})
           super(new_attributes)
           self.offering_id ||= '20001223'
           self.location ||= '82'

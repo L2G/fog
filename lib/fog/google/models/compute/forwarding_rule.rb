@@ -44,7 +44,7 @@ module Fog
           reload
         end
 
-        def destroy(async=true)
+        def destroy(async = true)
           requires :name, :region
           operation = service.delete_forwarding_rule(name, region)
           if not async

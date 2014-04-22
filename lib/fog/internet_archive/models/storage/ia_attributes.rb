@@ -16,7 +16,7 @@ module Fog
 
       module InstanceMethods
         # set_metadata_array_headers(:collections, options)
-        def set_metadata_array_headers(array_attribute, options={})
+        def set_metadata_array_headers(array_attribute, options = {})
           attr_values = Array(self.send(array_attribute))
           opt_values = options.collect do |key,value|
             options.delete(key) if (key.to_s =~ /^x-(amz||archive)-meta(\d*)-#{array_attribute.to_s[0..-2]}/)

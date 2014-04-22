@@ -39,7 +39,7 @@ module Fog
       end
 
       class Mock
-        def list_networks(filters={ })
+        def list_networks(filters = { })
           net1 = mock_network 'net1'
           net2 = mock_network 'net2'
           [net1, net2]

@@ -22,7 +22,7 @@ module Fog
         attribute :updated_at,  :aliases => 'updated-at'
         attribute :zone_id,     :aliases => 'zone-id'
 
-        def initialize(attributes={})
+        def initialize(attributes = {})
           super
         end
 

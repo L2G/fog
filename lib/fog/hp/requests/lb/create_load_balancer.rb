@@ -39,7 +39,7 @@ module Fog
       #       * 'type'<~String> - Type for the virtual IP
       #       * 'ipVersion'<~String> - IP Version for the virtual IP
       class Real
-        def create_load_balancer(name, nodes, options={})
+        def create_load_balancer(name, nodes, options = {})
           ### Inconsistent behavior. Should be passing in as a 'loadbalancer' => {'name', 'nodes'}
           data = {
             'name'  => name,
@@ -68,7 +68,7 @@ module Fog
       end
 
       class Mock
-        def create_load_balancer(name, nodes, options={})
+        def create_load_balancer(name, nodes, options = {})
           ### Call: {"name" => "my-shiny-lb1", "nodes" => [{"address" => "15.185.1.1", "port" => "80"}]}
           response = Excon::Response.new
           response.status = 202

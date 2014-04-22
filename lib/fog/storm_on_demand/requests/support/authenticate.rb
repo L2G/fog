@@ -3,7 +3,7 @@ module Fog
     class StormOnDemand
       class Real
 
-        def authenticate(options={})
+        def authenticate(options = {})
           request(
             :path => '/Support/Ticket/authenticate',
             :body => Fog::JSON.encode(:params => options)

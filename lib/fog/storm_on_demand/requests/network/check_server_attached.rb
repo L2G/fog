@@ -3,7 +3,7 @@ module Fog
     class StormOnDemand
       class Real
 
-        def check_server_attached(options={})
+        def check_server_attached(options = {})
           request(
             :path => '/Network/Private/isAttached',
             :body => Fog::JSON.encode(:params => options)

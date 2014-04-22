@@ -2,7 +2,7 @@ module Fog
   module DNS
     class Rackspace
       class Real
-        def remove_domain(domain_id, options={})
+        def remove_domain(domain_id, options = {})
 
           validate_path_fragment :domain_id, domain_id
 

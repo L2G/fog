@@ -277,7 +277,7 @@ module Fog
         ]
       end
 
-      def self.key_id(length=21)
+      def self.key_id(length = 21)
         #Probably close enough
         Fog::Mock.random_selection('ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789',length)
       end

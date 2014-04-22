@@ -7,7 +7,7 @@ module Fog
       class Pgpus < Fog::Collection
         model Fog::Compute::XenServer::Pgpu
 
-        def all(options={})
+        def all(options = {})
           data = service.get_records 'PGPU'
           load(data)
         end

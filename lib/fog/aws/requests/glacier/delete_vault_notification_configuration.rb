@@ -15,7 +15,7 @@ module Fog
         # ==== See Also
         # http://docs.amazonwebservices.com/amazonglacier/latest/dev/api-vault-notifications-delete.html
         #
-        def delete_vault_notification_configuration(name,options={})
+        def delete_vault_notification_configuration(name,options = {})
           account_id = options['account_id'] || '-'
           path = "/#{account_id}/vaults/#{Fog::AWS.escape(name)}/notification-configuration"
           request(

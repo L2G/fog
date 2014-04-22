@@ -115,7 +115,7 @@ module Fog
           service.jobs.new(data["startvirtualmachineresponse"])
         end
 
-        def stop(force=false)
+        def stop(force = false)
           requires :id
           data = service.stop_virtual_machine("id" => self.id, "force" => force)
           service.jobs.new(data["stopvirtualmachineresponse"])

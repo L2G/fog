@@ -11,7 +11,7 @@ module Fog
 
         attribute :marker
 
-        def all(options={})
+        def all(options = {})
           data = service.list_entities(options).body
           self.marker = data['metadata']['next_marker']
 
@@ -25,7 +25,7 @@ module Fog
           nil
         end
 
-        def overview(options={})
+        def overview(options = {})
           body = service.list_overview(options).body
           marker = body['metadata']['next_marker']
 

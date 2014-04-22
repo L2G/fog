@@ -10,7 +10,7 @@ module Fog
         attribute :ruleset
         attribute :type
 
-        def initialize(attributes={})
+        def initialize(attributes = {})
           super
         end
 

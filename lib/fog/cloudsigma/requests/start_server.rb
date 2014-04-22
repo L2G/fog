@@ -2,7 +2,7 @@ module Fog
   module Compute
     class CloudSigma
       class Real
-        def start_server(server_id, start_params={})
+        def start_server(server_id, start_params = {})
           request(:path => "servers/#{server_id}/action/",
                   :method => 'POST',
                   :query => {:do => :start}.merge!(start_params),
@@ -11,7 +11,7 @@ module Fog
       end
 
       class Mock
-        def start_server(server_id, start_params={})
+        def start_server(server_id, start_params = {})
           server = self.data[:servers][server_id]
           server['status'] = 'running'
 

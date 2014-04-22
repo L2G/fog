@@ -3,7 +3,7 @@ module Fog
     class OpenStack
       class Real
 
-        def create_image(server_id, name, metadata={})
+        def create_image(server_id, name, metadata = {})
           body = { 'createImage' => {
             'name' => name,
             'metadata' => metadata
@@ -17,7 +17,7 @@ module Fog
 
       class Mock
 
-        def create_image(server_id, name, metadata={})
+        def create_image(server_id, name, metadata = {})
           response = Excon::Response.new
           response.status = 202
 

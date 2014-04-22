@@ -15,7 +15,7 @@ module Fog
           catalog.collect {|s| s["name"]}
         end
 
-        def get_endpoints(service_name, service_net=false)
+        def get_endpoints(service_name, service_net = false)
           h = catalog.find {|service| service["name"] == service_name.to_s}
           return {} unless h
           key = network_type_key(service_net)
@@ -23,7 +23,7 @@ module Fog
         end
 
 
-        def display_service_regions(service_name, service_net=false)
+        def display_service_regions(service_name, service_net = false)
           endpoints = get_endpoints(service_name, service_net)
           regions = endpoints.collect do |e|
             e["region"] ? ":#{e["region"].downcase}" : ":global"
@@ -31,7 +31,7 @@ module Fog
           regions.join(", ")
         end
 
-        def get_endpoint(service_name, region=nil, service_net=false)
+        def get_endpoint(service_name, region = nil, service_net = false)
           service_region = region_key(region)
 
           network_type = network_type_key(service_net)

@@ -32,7 +32,7 @@ module Fog
           @data = nil
         end
 
-        def initialize(options={})
+        def initialize(options = {})
           @bare_metal_cloud_username = options[:bare_metal_cloud_username]
         end
 
@@ -48,7 +48,7 @@ module Fog
 
       class Real
 
-        def initialize(options={})
+        def initialize(options = {})
           require 'fog/core/parser'
 
           @bare_metal_cloud_password = options[:bare_metal_cloud_password]

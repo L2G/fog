@@ -24,7 +24,7 @@ module Fog
         #       * 'volume_id'<~String>: - UUId of the volume from which the snapshot was created
         #       * 'created_at'<~String>: - Timestamp in UTC when volume was created
         #       * metadata<~Hash>: Hash of metadata for the snapshot
-        def list_snapshots(options={})
+        def list_snapshots(options = {})
           response = request(
             :expects  => 200,
             :method   => 'GET',
@@ -38,7 +38,7 @@ module Fog
 
       class Mock # :nodoc:all
 
-        def list_snapshots(options={})
+        def list_snapshots(options = {})
           response = Excon::Response.new
           snapshots = []
           data = list_snapshots_detail.body['snapshots']

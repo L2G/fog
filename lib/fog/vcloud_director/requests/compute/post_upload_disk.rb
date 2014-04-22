@@ -43,7 +43,7 @@ module Fog
         #
         # @see http://pubs.vmware.com/vcd-51/topic/com.vmware.vcloud.api.reference.doc_51/doc/operations/POST-CreateDisk.html
         # @since vCloud API version 5.1
-        def post_upload_disk(id, name, size, options={})
+        def post_upload_disk(id, name, size, options = {})
           body = Nokogiri::XML::Builder.new do
             DiskCreateParams(:xmlns => 'http://www.vmware.com/vcloud/v1.5') {
               attrs = {
@@ -79,7 +79,7 @@ module Fog
       end
 
       class Mock
-        def post_upload_disk(id, name, size, options={})
+        def post_upload_disk(id, name, size, options = {})
           unless size.to_s =~ /^\d+$/
             raise Fog::Compute::VcloudDirector::BadRequest.new(
               "validation error on field 'diskSpec.sizeBytes': must be greater than or equal to 0"

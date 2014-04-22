@@ -3,7 +3,7 @@ module Fog
     class Cloudstack
       class Real
 
-        def revoke_security_group_ingress(options={})
+        def revoke_security_group_ingress(options = {})
           options.merge!(
             'command' => 'revokeSecurityGroupIngress'
           )
@@ -14,7 +14,7 @@ module Fog
       end # Real
 
       class Mock
-        def revoke_security_group_ingress(options={})
+        def revoke_security_group_ingress(options = {})
           unless security_group_rule_id = options['id']
             raise Fog::Compute::Cloudstack::BadRequest.new('Unable to execute API command missing parameter id')
           end

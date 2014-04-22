@@ -12,7 +12,7 @@ module Fog
         end
 
         private
-        def datacenters(id=nil)
+        def datacenters(id = nil)
           service.avail_datacenters.body['DATA'].map { |datacenter| map_datacenter datacenter }
         end
 

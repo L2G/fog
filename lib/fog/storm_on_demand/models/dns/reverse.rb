@@ -5,7 +5,7 @@ module Fog
     class StormOnDemand
       class Reverse < Fog::Model
 
-        def initialize(attributes={})
+        def initialize(attributes = {})
           super
         end
 

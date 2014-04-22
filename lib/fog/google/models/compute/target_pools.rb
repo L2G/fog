@@ -9,7 +9,7 @@ module Fog
 
         model Fog::Compute::Google::TargetPool
 
-        def all(filters={})
+        def all(filters = {})
           if filters['region'].nil?
             data = []
             service.list_regions.body['items'].each do |region|
@@ -21,7 +21,7 @@ module Fog
           load(data)
         end
 
-        def get(identity, region=nil)
+        def get(identity, region = nil)
           response = nil
           if region.nil?
             service.list_regions.body['items'].each do |region|

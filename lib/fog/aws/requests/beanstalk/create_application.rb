@@ -17,7 +17,7 @@ module Fog
         # ==== See Also
         # http://docs.amazonwebservices.com/elasticbeanstalk/latest/api/API_CreateApplication.html
         #
-        def create_application(options={})
+        def create_application(options = {})
           request({
                       'Operation'    => 'CreateApplication',
                       :parser     => Fog::Parsers::AWS::ElasticBeanstalk::CreateApplication.new

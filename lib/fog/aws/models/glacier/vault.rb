@@ -24,7 +24,7 @@ module Fog
           @archives ||= Fog::AWS::Glacier::Archives.new(:vault => self, :service => service)
         end
 
-        def jobs(filters={})
+        def jobs(filters = {})
           Fog::AWS::Glacier::Jobs.new(:vault => self, :service => service, :filters => filters)
         end
 

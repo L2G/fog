@@ -13,7 +13,7 @@ module Fog
         attribute :caller_reference, :aliases => 'CallerReference'
         attribute :paths,            :aliases => 'Paths'
 
-        def initialize(new_attributes={})
+        def initialize(new_attributes = {})
           new_attributes[:caller_reference] ||= Time.now.utc.to_i.to_s
           super(invalidation_to_attributes(new_attributes))
         end
@@ -46,7 +46,7 @@ module Fog
           @distribution = dist
         end
 
-        def invalidation_to_attributes(new_attributes={})
+        def invalidation_to_attributes(new_attributes = {})
           invalidation_batch = new_attributes.delete('InvalidationBatch') || {}
           if invalidation_batch['Path']
             new_attributes[:paths] = invalidation_batch['Path']

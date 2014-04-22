@@ -2,7 +2,7 @@ module Fog
   module DNS
     class Rackspace
       class Real
-        def modify_domain(domain_id, options={})
+        def modify_domain(domain_id, options = {})
 
           validate_path_fragment :domain_id, domain_id
 

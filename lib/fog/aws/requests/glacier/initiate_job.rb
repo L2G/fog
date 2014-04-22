@@ -22,7 +22,7 @@ module Fog
         # ==== See Also
         # http://docs.amazonwebservices.com/amazonglacier/latest/dev/api-initiate-job-post.html
         #
-        def initiate_job(name, job_specification, options={})
+        def initiate_job(name, job_specification, options = {})
           account_id = options['account_id'] || '-'
           path = "/#{account_id}/vaults/#{Fog::AWS.escape(name)}/jobs"
 

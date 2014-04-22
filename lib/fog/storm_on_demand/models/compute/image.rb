@@ -23,12 +23,12 @@ module Fog
           true
         end
 
-        def update(options={})
+        def update(options = {})
           requires :identity
           service.update_image({:id => identity}.merge!(options)).body
         end
 
-        def restore(options={})
+        def restore(options = {})
           requires :identity
           service.restore_image({:id => identity}.merge!(options))
           true

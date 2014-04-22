@@ -15,7 +15,7 @@ module Fog
         # ==== Returns
         # * response<~Excon::Response>:
         #   * body<~Hash>
-        def modify_instance_groups(options={})
+        def modify_instance_groups(options = {})
 
           if job_ids = options.delete('InstanceGroups')
             options.merge!(Fog::AWS.serialize_keys('InstanceGroups', job_ids))
@@ -30,7 +30,7 @@ module Fog
 
       class Mock
 
-        def modify_instance_groups(options={})
+        def modify_instance_groups(options = {})
           Fog::Mock.not_implemented
         end
 

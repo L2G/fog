@@ -47,7 +47,7 @@ module Fog
         # ==== Returns
         # * response<~Excon::Response>:
         #   * body<~Hash>:
-        def run_job_flow(name, options={})
+        def run_job_flow(name, options = {})
 
           if bootstrap_actions = options.delete('BootstrapActions')
             options.merge!(Fog::AWS.serialize_keys('BootstrapActions', bootstrap_actions))
@@ -68,7 +68,7 @@ module Fog
           }.merge(options))
         end
 
-        def run_hive(name, options={})
+        def run_hive(name, options = {})
           steps = []
           steps << {
             'Name' => 'Setup Hive',
@@ -98,7 +98,7 @@ module Fog
 
       class Mock
 
-        def run_job_flow(db_name, options={})
+        def run_job_flow(db_name, options = {})
           Fog::Mock.not_implemented
         end
 

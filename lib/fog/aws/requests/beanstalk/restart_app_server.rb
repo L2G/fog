@@ -17,7 +17,7 @@ module Fog
         # ==== See Also
         # http://docs.amazonwebservices.com/elasticbeanstalk/latest/api/API_RestartAppServer.html
         #
-        def restart_app_server(options={})
+        def restart_app_server(options = {})
           request({
                       'Operation'    => 'RestartAppServer',
                       :parser     => Fog::Parsers::AWS::ElasticBeanstalk::Empty.new

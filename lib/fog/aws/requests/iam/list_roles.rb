@@ -30,7 +30,7 @@ module Fog
         # ==== See Also
         # http://docs.amazonwebservices.com/IAM/latest/APIReference/API_ListRoles.html
         #
-        def list_roles(options={})
+        def list_roles(options = {})
           request({
             'Action'    => 'ListRoles',
             :parser     => Fog::Parsers::AWS::IAM::ListRoles.new

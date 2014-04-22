@@ -12,7 +12,7 @@ module Fog
 
       class Real
 
-        def get_snapshot(snap_name, project=@project)
+        def get_snapshot(snap_name, project = @project)
           if snap_name.nil?
             raise ArgumentError.new "snap_name must not be nil."
           end

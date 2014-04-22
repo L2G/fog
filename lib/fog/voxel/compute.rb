@@ -54,7 +54,7 @@ module Fog
           @data = nil
         end
 
-        def initialize(options={})
+        def initialize(options = {})
           @voxel_api_key = options[:voxel_api_key]
         end
 

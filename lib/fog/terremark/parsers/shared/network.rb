@@ -11,7 +11,7 @@ module Fog
             }
           end
 
-          def start_element(name,attributes=[])
+          def start_element(name,attributes = [])
             super
             case name
             when "Network"

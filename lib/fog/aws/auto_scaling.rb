@@ -85,7 +85,7 @@ module Fog
         # ==== Returns
         # * AutoScaling object with connection to AWS.
 
-        def initialize(options={})
+        def initialize(options = {})
           require 'fog/core/parser'
 
           @use_iam_profile = options[:use_iam_profile]
@@ -249,7 +249,7 @@ module Fog
           @data = nil
         end
 
-        def initialize(options={})
+        def initialize(options = {})
           @use_iam_profile = options[:use_iam_profile]
           setup_credentials(options)
           @region = options[:region] || 'us-east-1'

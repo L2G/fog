@@ -20,7 +20,7 @@ module Fog
 
         attr_reader :password
 
-        def initialize(attributes={})
+        def initialize(attributes = {})
           self.flavor_id  ||= 1  # 256 server
           self.image_id   ||= 49 # Ubuntu 10.04 LTS 64bit
           super

@@ -7,7 +7,7 @@ module Fog
       class Consoles < Fog::Collection
         model Fog::Compute::XenServer::Console
 
-        def all(options={})
+        def all(options = {})
           data = service.get_records 'console'
           load(data)
         end

@@ -24,7 +24,7 @@ module Fog
         attribute :termination_policies,      :aliases => 'TerminationPolicies'
         attribute :vpc_zone_identifier,       :aliases => 'VPCZoneIdentifier'
 
-        def initialize(attributes={})
+        def initialize(attributes = {})
           self.instances = []
           self.default_cooldown = 300
           self.desired_capacity = 0

@@ -2,7 +2,7 @@ module Fog
   module DNS
     class Rackspace
       class Real
-        def list_domains(options={})
+        def list_domains(options = {})
 
           path = 'domains'
           unless options.empty?

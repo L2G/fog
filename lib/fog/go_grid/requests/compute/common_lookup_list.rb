@@ -15,7 +15,7 @@ module Fog
         # * response<~Excon::Response>:
         #   * body<~Array>:
         # TODO: docs
-        def common_lookup_list(lookup, options={})
+        def common_lookup_list(lookup, options = {})
           request(
             :path     => 'common/lookup/list',
             :query    => {'lookup' => lookup}.merge!(options)

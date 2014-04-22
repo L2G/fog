@@ -3,7 +3,7 @@ module Fog
     class Linode
       class Real
 
-        def linode_ip_list(linode_id, ip_id=nil)
+        def linode_ip_list(linode_id, ip_id = nil)
           options = {}
           if ip_id
             options.merge!(:ipaddressId => ip_id)
@@ -18,7 +18,7 @@ module Fog
       end
 
       class Mock
-        def linode_ip_list(linode_id, ip_id=nil)
+        def linode_ip_list(linode_id, ip_id = nil)
           response = Excon::Response.new
           response.status = 200
           body = {
@@ -44,7 +44,7 @@ module Fog
 
         private
 
-        def create_mock_ip(linode_id, ip_id, is_public=true)
+        def create_mock_ip(linode_id, ip_id, is_public = true)
           {
             "IPADDRESSID" => ip_id,
             "RDNS_NAME" => "li-test.members.linode.com",

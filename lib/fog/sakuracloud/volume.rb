@@ -70,7 +70,7 @@ module Fog
           @data = nil
         end
 
-        def initialize(options={})
+        def initialize(options = {})
           @sakuracloud_api_token        = options[:sakuracloud_api_token]
           @sakuracloud_api_token_secret = options[:sakuracloud_api_token_secret]
         end

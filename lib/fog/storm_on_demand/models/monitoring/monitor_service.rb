@@ -11,7 +11,7 @@ module Fog
         attribute :uniq_id
         attribute :unmonitored
 
-        def initialize(attributes={})
+        def initialize(attributes = {})
           super
         end
 

@@ -51,7 +51,7 @@ module Fog
 
       class Mock < Fog::Rackspace::Service
 
-        def initialize(options={})
+        def initialize(options = {})
           @rackspace_api_key = options[:rackspace_api_key]
           @rackspace_username = options[:rackspace_username]
           @rackspace_auth_url = options[:rackspace_auth_url]
@@ -88,7 +88,7 @@ module Fog
           @rackspace_region
         end
 
-        def initialize(options={})
+        def initialize(options = {})
           @rackspace_api_key = options[:rackspace_api_key]
           @rackspace_username = options[:rackspace_username]
           @rackspace_auth_url = options[:rackspace_auth_url]
@@ -104,7 +104,7 @@ module Fog
           @connection = Fog::Core::Connection.new(endpoint_uri.to_s, @persistent, @connection_options)
         end
 
-        def endpoint_uri(service_endpoint_url=nil)
+        def endpoint_uri(service_endpoint_url = nil)
           @uri = super(@rackspace_endpoint || service_endpoint_url, :rackspace_dns_url)
         end
 
@@ -161,7 +161,7 @@ module Fog
           @auth_token = credentials['X-Auth-Token']
         end
 
-        def authenticate(options={})
+        def authenticate(options = {})
           super({
             :rackspace_api_key  => @rackspace_api_key,
             :rackspace_username => @rackspace_username,

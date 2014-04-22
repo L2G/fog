@@ -14,7 +14,7 @@ module Fog
         attribute :description, :aliases => :Description
         attribute :vapp_template_id
 
-        def instantiate(vapp_name, options={})
+        def instantiate(vapp_name, options = {})
           response = service.instantiate_vapp_template(vapp_name, vapp_template_id, options)
           service.process_task(response.body[:Tasks][:Task])
           response.body[:href].split('/').last # returns the vapp_id if it was instantiated successfully .

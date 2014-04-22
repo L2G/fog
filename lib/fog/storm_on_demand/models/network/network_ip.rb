@@ -13,7 +13,7 @@ module Fog
         attribute :netmask
         attribute :reverse_dns
 
-        def initialize(attributes={})
+        def initialize(attributes = {})
           super
         end
 

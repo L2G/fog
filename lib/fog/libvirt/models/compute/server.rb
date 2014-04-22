@@ -44,7 +44,7 @@ module Fog
         #                :name => "", :cpus => 1, :memory_size => 256 , :volume_template
         #   }
 
-        def initialize(attributes={} )
+        def initialize(attributes = {} )
           @xml = attributes.delete(:xml)
           verify_boot_order(attributes[:boot_order])
           super defaults.merge(attributes)
@@ -81,7 +81,7 @@ module Fog
           volumes.first.path if volumes and volumes.first
         end
 
-        def destroy(options={ :destroy_volumes => false})
+        def destroy(options = { :destroy_volumes => false})
           poweroff unless stopped?
           service.vm_action(uuid, :undefine)
           volumes.each { |vol| vol.destroy } if options[:destroy_volumes]
@@ -214,7 +214,7 @@ module Fog
         # It returns an array of public and private ip addresses
         # Currently only one ip address is returned, but in the future this could be multiple
         # if the server has multiple network interface
-        def addresses(service=service, options={})
+        def addresses(service = service, options = {})
           mac = self.mac
 
           # Aug 24 17:34:41 juno arpwatch: new station 10.247.4.137 52:54:00:88:5a:0a eth0.4

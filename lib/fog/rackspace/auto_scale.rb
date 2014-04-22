@@ -11,7 +11,7 @@ module Fog
       class BadRequest <  Fog::Rackspace::Errors::BadRequest
         attr_reader :validation_errors
 
-        def self.slurp(error, service=nil)
+        def self.slurp(error, service = nil)
           if error && error.response
             status_code = error.response.status
             if error.response.body
@@ -111,11 +111,11 @@ module Fog
             raise ServiceError.slurp(error, self)
           end
 
-          def endpoint_uri(service_endpoint_url=nil)
+          def endpoint_uri(service_endpoint_url = nil)
             @uri = super(@options[:rackspace_auto_scale_url], :rackspace_auto_scale_url)
           end
 
-          def authenticate(options={})
+          def authenticate(options = {})
             super(select_options([:rackspace_username, :rackspace_api_key, :rackspace_auth_url, :connection_options]))
           end
 

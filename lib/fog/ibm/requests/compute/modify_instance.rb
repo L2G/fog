@@ -24,7 +24,7 @@ module Fog
         #  feature is not supported by the data center, you will get an exception like
         #  "Unsupported exception. Dynamic features are not supported on the KVM
         #  Host".
-        def modify_instance(instance_id, options={})
+        def modify_instance(instance_id, options = {})
           request(
             :method   => 'PUT',
             :expects  => 200,
@@ -36,7 +36,7 @@ module Fog
 
       class Mock
 
-        def modify_instance(instance_id, params={})
+        def modify_instance(instance_id, params = {})
           response = Excon::Response.new
           if instance_exists? instance_id
             if params['state'] == 'restart'

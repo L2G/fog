@@ -6,7 +6,7 @@ module Fog
         # Attaches a disk volume to a virtual machine.
         #
         # {CloudStack API Reference}[http://http://download.cloud.com/releases/2.2.0/api_2.2.12/global_admin/attachVolume.html]
-        def attach_volume(options={})
+        def attach_volume(options = {})
           options.merge!(
             'command' => 'attachVolume'
           )
@@ -18,7 +18,7 @@ module Fog
 
       class Mock
 
-        def attach_volume(options={})
+        def attach_volume(options = {})
           volume_id = options['id']
           server_id = options['virtualmachineid']
 

@@ -21,7 +21,7 @@ module Fog
           "[#{status} | #{transaction_id}] #{super}"
         end
 
-        def self.slurp(error, service=nil)
+        def self.slurp(error, service = nil)
           data = nil
           message = nil
           status_code = nil
@@ -72,7 +72,7 @@ module Fog
           "#{super} - #{validation_errors}"
         end
 
-        def self.slurp(error, service=nil)
+        def self.slurp(error, service = nil)
           new_error = super(error)
           unless new_error.response_data.nil? or new_error.response_data['badRequest'].nil?
             new_error.instance_variable_set(:@validation_errors, new_error.response_data['badRequest']['validationErrors'])

@@ -7,7 +7,7 @@ module Fog
       class Vtpms < Fog::Collection
         model Fog::Compute::XenServer::Vtpm
 
-        def all(options={})
+        def all(options = {})
           data = service.get_records 'VTPM'
           load(data)
         end

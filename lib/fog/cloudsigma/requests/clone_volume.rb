@@ -2,7 +2,7 @@ module Fog
   module Compute
     class CloudSigma
       class Real
-        def clone_volume(vol_id, clone_params={})
+        def clone_volume(vol_id, clone_params = {})
           request(:path => "drives/#{vol_id}/action/",
                   :method => 'POST',
                   :query => {:do => :clone},
@@ -12,7 +12,7 @@ module Fog
       end
 
       class Mock
-        def clone_volume(vol_id, clone_params={})
+        def clone_volume(vol_id, clone_params = {})
           volume = self.data[:volumes][vol_id].dup
           uuid = self.class.random_uuid
           volume['uuid'] = uuid

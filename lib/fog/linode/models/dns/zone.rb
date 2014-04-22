@@ -22,7 +22,7 @@ module Fog
         # "REFRESH_SEC":0,
         # "TTL_SEC":0
 
-        def initialize(attributes={})
+        def initialize(attributes = {})
           self.type ||= 'master'
           super
         end

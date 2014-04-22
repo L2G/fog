@@ -7,7 +7,7 @@ module Fog
       class HostPatchs < Fog::Collection
         model Fog::Compute::XenServer::HostPatch
 
-        def all(options={})
+        def all(options = {})
           data = service.get_records 'host_patch'
           load(data)
         end

@@ -83,7 +83,7 @@ module Fog
         # @raise [Fog::Rackspace::BlockStorage::ServiceError]
         # @note All writes to the volume should be flushed before creating the snapshot, either by un-mounting any file systems on the volume or by detaching the volume.
         # @see http://docs.rackspace.com/cbs/api/v1.0/cbs-devguide/content/POST_createSnapshot__v1__tenant_id__snapshots.html
-        def create_snapshot(options={})
+        def create_snapshot(options = {})
           requires :identity
           service.snapshots.create(options.merge(:volume_id => identity))
         end

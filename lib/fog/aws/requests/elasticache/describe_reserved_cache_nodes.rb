@@ -12,7 +12,7 @@ module Fog
         # ==== Returns
         # * response<~Excon::Response>:
         #   * body<~Hash>:
-        def describe_reserved_cache_nodes(identifier=nil, opts={})
+        def describe_reserved_cache_nodes(identifier = nil, opts = {})
           params = {}
           params['ReservedCacheNodeId'] = identifier if identifier
           if opts[:marker]
@@ -32,7 +32,7 @@ module Fog
 
       class Mock
 
-        def describe_db_reserved_instances(identifier=nil, opts={})
+        def describe_db_reserved_instances(identifier = nil, opts = {})
           Fog::Mock.not_implemented
         end
 

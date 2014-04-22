@@ -9,7 +9,7 @@ module Fog
 
         model Fog::Compute::StormOnDemand::Image
 
-        def create(options={})
+        def create(options = {})
           service.create_image(options)
           true
         end
@@ -19,7 +19,7 @@ module Fog
           new(img)
         end
 
-        def all(options={})
+        def all(options = {})
           data = service.list_images(options).body['items']
           load(data)
         end

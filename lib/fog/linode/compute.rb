@@ -62,7 +62,7 @@ module Fog
           @data = nil
         end
 
-        def initialize(options={})
+        def initialize(options = {})
           @linode_api_key = options[:linode_api_key]
         end
 
@@ -78,7 +78,7 @@ module Fog
 
       class Real
 
-        def initialize(options={})
+        def initialize(options = {})
           @linode_api_key = options[:linode_api_key]
           @host   = options[:host]    || "api.linode.com"
           @port   = options[:port]    || 443

@@ -81,7 +81,7 @@ module Fog
 
 
       module CommonMockAndReal
-        def initialize(options={})
+        def initialize(options = {})
           @init_options = options
 
           setup_connection(options)

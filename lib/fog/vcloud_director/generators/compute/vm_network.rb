@@ -37,7 +37,7 @@ module Fog
         class VmNetwork
           attr_reader :attrs
 
-          def initialize(attrs={})
+          def initialize(attrs = {})
             @attrs = attrs
           end
 
@@ -91,7 +91,7 @@ module Fog
             END
           end
 
-          def body(opts={})
+          def body(opts = {})
             <<-END
               <ovf:Info>#{opts[:info]}</ovf:Info>
               <PrimaryNetworkConnectionIndex>#{opts[:primary_network_connection_index]}</PrimaryNetworkConnectionIndex>

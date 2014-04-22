@@ -24,7 +24,7 @@ module Fog
       collection  :pipelines
 
       class Mock
-        def initialize(options={})
+        def initialize(options = {})
           Fog::Mock.not_implemented
         end
       end
@@ -51,7 +51,7 @@ module Fog
         #
         # ==== Returns
         # * DataPipeline object with connection to AWS.
-        def initialize(options={})
+        def initialize(options = {})
           @use_iam_profile = options[:use_iam_profile]
           @connection_options     = options[:connection_options] || {}
 

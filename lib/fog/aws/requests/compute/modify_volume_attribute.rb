@@ -18,7 +18,7 @@ module Fog
         #     * 'return'<~Boolean> - success?
         #
         # {Amazon API Reference}[http://http://docs.amazonwebservices.com/AWSEC2/latest/APIReference/ApiReference-query-ModifyVolumeAttribute.html]
-        def modify_volume_attribute(volume_id=nil, auto_enable_io_value=false)
+        def modify_volume_attribute(volume_id = nil, auto_enable_io_value = false)
           request(
             'Action'             => 'ModifyVolumeAttribute',
             'VolumeId'           => volume_id,
@@ -32,7 +32,7 @@ module Fog
 
       class Mock
 
-        def modify_volume_attribute(volume_id=nil, auto_enable_io_value=false)
+        def modify_volume_attribute(volume_id = nil, auto_enable_io_value = false)
           response = Excon::Response.new
           if volume = self.data[:volumes][volume_id]
             response.status = 200

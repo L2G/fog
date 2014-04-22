@@ -27,7 +27,7 @@ module Fog
         # Initialize
         # @param [Fog::Storage::Rackspace::Directory,Fog::Storage::Rackspace::File] parent object of the metadata
         # @param [Hash] hash containing initial metadata values
-        def initialize(parent, hash={})
+        def initialize(parent, hash = {})
           @data = hash || {}
           @deleted_hash = {}
           @parent = parent

@@ -17,7 +17,7 @@ module Fog
         # * response<~Excon::Response>:
         #   * body<~Array>:
         # TODO: docs
-        def grid_server_list(options={})
+        def grid_server_list(options = {})
           request(
             :path     => 'grid/server/list',
             :query    => options

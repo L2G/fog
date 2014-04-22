@@ -3,7 +3,7 @@ module Fog
     class StormOnDemand
       class Real
 
-        def list_records(options={})
+        def list_records(options = {})
           request(
             :path => '/Network/DNS/Record/list',
             :body => Fog::JSON.encode(:params => options)

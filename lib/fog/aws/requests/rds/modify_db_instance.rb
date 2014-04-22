@@ -28,7 +28,7 @@ module Fog
         # ==== Returns
         # * response<~Excon::Response>:
         #   * body<~Hash>:
-        def modify_db_instance(db_name, apply_immediately, options={})
+        def modify_db_instance(db_name, apply_immediately, options = {})
 
           if security_groups = options.delete('DBSecurityGroups')
             options.merge!(Fog::AWS.indexed_param('DBSecurityGroups.member.%d', [*security_groups]))
@@ -50,7 +50,7 @@ module Fog
 
       class Mock
 
-        def modify_db_instance(db_name, apply_immediately, options={})
+        def modify_db_instance(db_name, apply_immediately, options = {})
           response = Excon::Response.new
           if self.data[:servers][db_name]
             if self.data[:servers][db_name]["DBInstanceStatus"] != "available"

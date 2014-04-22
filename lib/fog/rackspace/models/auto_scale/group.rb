@@ -70,7 +70,7 @@ module Fog
         # Sets the configuration when this object is populated.
         #
         # @param object [Hash<String, String>] Object which will stock the object
-        def launch_config=(object={})
+        def launch_config=(object = {})
           if object.is_a?(Hash)
             attributes[:launch_config] = load_model('LaunchConfig', object)
           else

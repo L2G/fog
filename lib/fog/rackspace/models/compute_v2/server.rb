@@ -161,7 +161,7 @@ module Fog
         attribute :key_name
 
 
-        def initialize(attributes={})
+        def initialize(attributes = {})
           @service = attributes[:service]
           super
         end
@@ -184,7 +184,7 @@ module Fog
 
         # Set server metadata
         # @param [Hash] hash contains key value pairs
-        def metadata=(hash={})
+        def metadata=(hash = {})
           metadata.from_hash(hash)
         end
 
@@ -376,7 +376,7 @@ module Fog
         # @raise [Fog::Compute::RackspaceV2::InternalServerError] - HTTP 500
         # @raise [Fog::Compute::RackspaceV2::ServiceError]
         # @see http://docs.rackspace.com/servers/api/v2/cs-devguide/content/Attach_Volume_to_Server.html
-        def attach_volume(volume, device=nil)
+        def attach_volume(volume, device = nil)
           requires :identity
           volume_id = volume.is_a?(String) ? volume : volume.id
           attachments.create(:server_id => identity, :volume_id => volume_id, :device => device)
@@ -399,7 +399,7 @@ module Fog
         # @param [Array,String] error_states By default state is ERROR
         # @return [Boolean] returns true if server is in a ready state
         # @raise [Fog::Compute::RackspaceV2::InvalidServerStateException] if server state is an error state
-        def ready?(ready_state = ACTIVE, error_states=[ERROR])
+        def ready?(ready_state = ACTIVE, error_states = [ERROR])
           if error_states
             error_states = Array(error_states)
             raise InvalidServerStateException.new(ready_state, state) if error_states.include?(state)
@@ -439,7 +439,7 @@ module Fog
         # * Status Transition:
         #   * ACTIVE -> REBUILD -> ACTIVE
         #   * ACTIVE -> REBUILD -> ERROR (on error)
-        def rebuild(image_id, options={})
+        def rebuild(image_id, options = {})
           requires :identity
           service.rebuild_server(identity, image_id, options)
           self.state = REBUILD

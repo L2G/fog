@@ -11,7 +11,7 @@ module Fog
         #
         # @see http://pubs.vmware.com/vcd-51/topic/com.vmware.vcloud.api.reference.doc_51/doc/operations/POST-UpdateMediaMetadata.html
         # @since vCloud API version 1.5
-        def post_update_media_metadata(id, metadata={})
+        def post_update_media_metadata(id, metadata = {})
           body = Nokogiri::XML::Builder.new do
             attrs = {
               :xmlns => 'http://www.vmware.com/vcloud/v1.5',

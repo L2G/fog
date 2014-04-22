@@ -49,7 +49,7 @@ module Fog
         # ==== See Also
         # http://docs.amazonwebservices.com/AutoScaling/latest/APIReference/API_DescribeTags.html
         #
-        def describe_tags(options={})
+        def describe_tags(options = {})
           if filters = options.delete('Filters')
             options.merge!(Fog::AWS.indexed_filters(filters))
           end
@@ -63,7 +63,7 @@ module Fog
 
       class Mock
 
-        def describe_tags(options={})
+        def describe_tags(options = {})
           raise Fog::Mock::NotImplementedError
         end
 

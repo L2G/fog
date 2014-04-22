@@ -6,7 +6,7 @@ module Fog
 
         protected
 
-        def wait_for_job(job_id, timeout=Fog.timeout, interval=1)
+        def wait_for_job(job_id, timeout = Fog.timeout, interval = 1)
           retries = 5
           response = nil
           Fog.wait_for(timeout, interval) do

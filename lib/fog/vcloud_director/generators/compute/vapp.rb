@@ -7,7 +7,7 @@ module Fog
         class Vapp
           attr_reader :name, :options
 
-          def initialize(name, options={})
+          def initialize(name, options = {})
             @name = name
             @options = options
           end

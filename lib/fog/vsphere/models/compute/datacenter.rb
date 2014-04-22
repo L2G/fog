@@ -29,7 +29,7 @@ module Fog
           service.servers({ :datacenter => path.join("/") }.merge(filters))
         end
 
-        def servertypes filters={}
+        def servertypes filters = {}
           service.servertypes({:datacenter => name }.merge(filters))
         end
 

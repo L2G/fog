@@ -7,7 +7,7 @@ module Fog
       class Tunnels < Fog::Collection
         model Fog::Compute::XenServer::Tunnel
 
-        def all(options={})
+        def all(options = {})
           data = service.get_records 'tunnel'
           load(data)
         end

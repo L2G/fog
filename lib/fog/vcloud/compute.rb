@@ -144,7 +144,7 @@ module Fog
 
       class Mock
 
-        def initialize(options={})
+        def initialize(options = {})
           Fog::Mock.not_implemented
         end
 

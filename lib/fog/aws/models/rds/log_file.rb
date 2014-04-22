@@ -14,7 +14,7 @@ module Fog
         attribute :marker, :aliases => 'Marker'
         attribute :more_content_available, :aliases => 'AdditionalDataPending', :type => :boolean
 
-        def content_excerpt(marker=nil)
+        def content_excerpt(marker = nil)
           result = service.download_db_logfile_portion(self.rds_id, self.name, {:marker => marker})
           merge_attributes(result.body['DownloadDBLogFilePortionResult'])
         end

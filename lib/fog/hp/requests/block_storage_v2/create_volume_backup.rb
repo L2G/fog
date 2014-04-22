@@ -19,7 +19,7 @@ module Fog
         #       * 'id'<~String> - UUId for the volume backup
         #       * 'name'<~String> - Name of the volume backup
         #       * 'links'<~Array> - array of volume backup links
-        def create_volume_backup(volume_id, options={})
+        def create_volume_backup(volume_id, options = {})
           data = {
             'backup' => {
               'volume_id' => volume_id
@@ -43,7 +43,7 @@ module Fog
 
       class Mock  # :nodoc:all
 
-        def create_volume_backup(volume_id, options={})
+        def create_volume_backup(volume_id, options = {})
           response = Excon::Response.new
           tenant_id = Fog::Mock.random_numbers(14).to_s
           id = Fog::HP::Mock.uuid.to_s

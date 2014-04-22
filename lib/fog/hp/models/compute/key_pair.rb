@@ -32,7 +32,7 @@ module Fog
           true
         end
 
-        def write(path="#{ENV['HOME']}/.ssh/hp_#{Fog.credential}_#{name}.pem")
+        def write(path = "#{ENV['HOME']}/.ssh/hp_#{Fog.credential}_#{name}.pem")
           if writable?
             split_private_key = private_key.split(/\n/)
             File.open(path, "w") do |f|

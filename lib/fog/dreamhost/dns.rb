@@ -29,7 +29,7 @@ module Fog
           @data = nil
         end
 
-        def initialize(options={})
+        def initialize(options = {})
           @dreamhost_api_key  = options[:dreamhost_api_key]
         end
 
@@ -45,7 +45,7 @@ module Fog
 
       class Real
 
-        def initialize(options={})
+        def initialize(options = {})
           @dreamhost_api_key  = options[:dreamhost_api_key]
           if options[:dreamhost_url]
             uri = URI.parse(options[:dreamhost_url])

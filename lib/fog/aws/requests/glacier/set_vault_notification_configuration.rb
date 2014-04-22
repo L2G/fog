@@ -18,7 +18,7 @@ module Fog
         # ==== See Also
         # http://docs.amazonwebservices.com/amazonglacier/latest/dev/api-vault-notifications-put.html
         #
-        def set_vault_notification_configuration(name,sns_topic, events, options={})
+        def set_vault_notification_configuration(name,sns_topic, events, options = {})
           account_id = options['account_id'] || '-'
           path = "/#{account_id}/vaults/#{Fog::AWS.escape(name)}/notification-configuration"
           request(

@@ -3,7 +3,7 @@ module Fog
     class OpenStack
       class Real
 
-        def create_user(name, password, email, tenantId=nil, enabled=true)
+        def create_user(name, password, email, tenantId = nil, enabled = true)
           data = {
             'user' => {
               'name'      => name,
@@ -26,7 +26,7 @@ module Fog
 
       class Mock
 
-        def create_user(name, password, email, tenantId=nil, enabled=true)
+        def create_user(name, password, email, tenantId = nil, enabled = true)
           response = Excon::Response.new
           response.status = 200
           data = {

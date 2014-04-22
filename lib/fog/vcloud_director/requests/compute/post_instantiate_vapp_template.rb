@@ -49,7 +49,7 @@ module Fog
         #
         # @see http://pubs.vmware.com/vcd-51/topic/com.vmware.vcloud.api.reference.doc_51/doc/operations/POST-InstantiateVAppTemplate.html
         # @since vCloud API version 0.9
-        def post_instantiate_vapp_template(id, vapp_template_id, name, options={})
+        def post_instantiate_vapp_template(id, vapp_template_id, name, options = {})
           body = Nokogiri::XML::Builder.new do
             attrs = {
               'xmlns' => 'http://www.vmware.com/vcloud/v1.5',

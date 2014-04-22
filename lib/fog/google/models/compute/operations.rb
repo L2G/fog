@@ -20,7 +20,7 @@ module Fog
           load(data['items'] || [])
         end
 
-        def get(identity, zone=nil, region=nil)
+        def get(identity, zone = nil, region = nil)
           if not zone.nil?
             response = service.get_zone_operation(zone, identity)
           elsif not region.nil?

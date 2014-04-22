@@ -94,7 +94,7 @@ module Fog
       class Mock < Fog::Rackspace::Service
         include Shared
 
-        def initialize(options={})
+        def initialize(options = {})
           @rackspace_api_key = options[:rackspace_api_key]
           @rackspace_username = options[:rackspace_username]
           @rackspace_auth_url = options[:rackspace_auth_url]
@@ -105,7 +105,7 @@ module Fog
       class Real < Fog::Rackspace::Service
         include Shared
 
-        def initialize(options={})
+        def initialize(options = {})
           @rackspace_api_key = options[:rackspace_api_key]
           @rackspace_username = options[:rackspace_username]
           @rackspace_auth_url = options[:rackspace_auth_url]
@@ -134,7 +134,7 @@ module Fog
           raise ServiceError.slurp(error, self)
         end
 
-        def authenticate(options={})
+        def authenticate(options = {})
           super({
             :rackspace_api_key => @rackspace_api_key,
             :rackspace_username => @rackspace_username,
@@ -151,7 +151,7 @@ module Fog
           @rackspace_region
         end
 
-        def endpoint_uri(service_endpoint_url=nil)
+        def endpoint_uri(service_endpoint_url = nil)
           @uri = super(@rackspace_endpoint || service_endpoint_url, :rackspace_load_balancers_url)
         end
 

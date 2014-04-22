@@ -17,7 +17,7 @@ module Fog
         attribute :total
         attribute :type
 
-        def initialize(attributes={})
+        def initialize(attributes = {})
           super
         end
 

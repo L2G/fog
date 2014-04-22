@@ -26,7 +26,7 @@ module Fog
         attribute :udp_limit
 
 
-        def initialize(attributes={})
+        def initialize(attributes = {})
           super
         end
 

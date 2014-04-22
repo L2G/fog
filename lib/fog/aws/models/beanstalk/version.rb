@@ -13,7 +13,7 @@ module Fog
         attribute :source_bundle, :aliases => 'SourceBundle'
         attribute :auto_create_application # FIXME - should be write only
 
-        def initialize(attributes={})
+        def initialize(attributes = {})
           super
         end
 

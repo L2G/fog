@@ -18,7 +18,7 @@ module Fog
         end
 
         private
-        def images(id=nil)
+        def images(id = nil)
           service.avail_distributions(id).body['DATA'].map { |image| map_image image }
         end
 

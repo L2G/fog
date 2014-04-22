@@ -16,7 +16,7 @@ module Fog
         end
 
         # This method deliberately returns only a single page of results
-        def all(filters=filters)
+        def all(filters = filters)
           self.filters.merge!(filters)
 
           result = service.describe_orderable_db_instance_options(engine, self.filters).body['DescribeOrderableDBInstanceOptionsResult']

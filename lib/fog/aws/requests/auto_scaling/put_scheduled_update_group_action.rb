@@ -40,7 +40,7 @@ module Fog
         # ==== See Also
         # http://docs.amazonwebservices.com/AutoScaling/latest/APIReference/API_PutScheduledUpdateGroupAction.html
         #
-        def put_scheduled_update_group_action(auto_scaling_group_name, scheduled_action_name, time=nil, options = {})
+        def put_scheduled_update_group_action(auto_scaling_group_name, scheduled_action_name, time = nil, options = {})
           # The 'Time' paramenter is now an alias for StartTime and needs to be identical if specified.
           time = options['StartTime'].nil? ? time : options['StartTime']
           if !time.nil?

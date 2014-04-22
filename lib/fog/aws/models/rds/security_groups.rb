@@ -10,7 +10,7 @@ module Fog
         attribute :filters
         model Fog::AWS::RDS::SecurityGroup
 
-        def initialize(attributes={})
+        def initialize(attributes = {})
           self.filters ||= {}
           if attributes[:server]
             filters[:identifier] = attributes[:server].id

@@ -8,7 +8,7 @@ module Fog
       class Domains < Fog::Collection
         model Fog::DNS::StormOnDemand::Domain
 
-        def all(options={})
+        def all(options = {})
           domains = service.list_domains(options).body['items']
           load(domains)
         end

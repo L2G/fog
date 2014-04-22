@@ -15,7 +15,7 @@ module Fog
         # * response<~Excon::Response>:
         #   * body<~Array>:
         # TODO: docs
-        def grid_loadbalancer_list(options={})
+        def grid_loadbalancer_list(options = {})
           request(
             :path     => 'grid/loadbalancer/list',
             :query    => options

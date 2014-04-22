@@ -3,7 +3,7 @@ module Fog
     class Ovirt
       class Real
 
-        def datacenters filter={}
+        def datacenters filter = {}
           client.datacenters(filter).map {|ovirt_obj| ovirt_attrs ovirt_obj}
         end
 

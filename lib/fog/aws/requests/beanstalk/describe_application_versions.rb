@@ -19,7 +19,7 @@ module Fog
         # ==== See Also
         # http://docs.amazonwebservices.com/elasticbeanstalk/latest/api/API_DescribeApplicationVersions.html
         #
-        def describe_application_versions(options={})
+        def describe_application_versions(options = {})
           if version_labels = options.delete('VersionLabels')
             options.merge!(AWS.indexed_param('VersionLabels.member.%d', [*version_labels]))
           end

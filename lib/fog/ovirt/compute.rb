@@ -79,7 +79,7 @@ module Fog
       class Mock
         include Shared
 
-        def initialize(options={})
+        def initialize(options = {})
           require 'rbovirt'
         end
 
@@ -100,7 +100,7 @@ module Fog
         include Shared
 
 
-        def initialize(options={})
+        def initialize(options = {})
           require 'rbovirt'
           username   = options[:ovirt_username]
           password   = options[:ovirt_password]

@@ -3,7 +3,7 @@ module Fog
     class OpenStack
       class Real
 
-        def list_usages(date_start = nil, date_end = nil, detailed=false)
+        def list_usages(date_start = nil, date_end = nil, detailed = false)
           params = Hash.new
           params[:start] = date_start.iso8601.gsub(/\+.*/, '') if date_start
           params[:end]   = date_end.iso8601.gsub(/\+.*/, '')   if date_end
@@ -20,7 +20,7 @@ module Fog
       end
 
       class Mock
-        def list_usages(date_start = nil, date_end = nil, detailed=false)
+        def list_usages(date_start = nil, date_end = nil, detailed = false)
           params = Hash.new
           response        = Excon::Response.new
           response.status = 200

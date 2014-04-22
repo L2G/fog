@@ -58,7 +58,7 @@ module Fog
           @data = nil
         end
 
-        def initialize(options={})
+        def initialize(options = {})
           @clodo_username = options[:clodo_username]
         end
 
@@ -74,7 +74,7 @@ module Fog
 
       class Real
 
-        def initialize(options={})
+        def initialize(options = {})
           @clodo_api_key = options[:clodo_api_key]
           @clodo_username = options[:clodo_username]
           @clodo_auth_url = options[:clodo_auth_url]

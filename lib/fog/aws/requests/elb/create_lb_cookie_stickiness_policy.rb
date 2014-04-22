@@ -19,7 +19,7 @@ module Fog
         #   * body<~Hash>:
         #     * 'ResponseMetadata'<~Hash>:
         #       * 'RequestId'<~String> - Id of request
-        def create_lb_cookie_stickiness_policy(lb_name, policy_name, cookie_expiration_period=nil)
+        def create_lb_cookie_stickiness_policy(lb_name, policy_name, cookie_expiration_period = nil)
           params = {'PolicyName' => policy_name, 'CookieExpirationPeriod' => cookie_expiration_period}
 
           request({
@@ -32,7 +32,7 @@ module Fog
       end
 
       class Mock
-        def create_lb_cookie_stickiness_policy(lb_name, policy_name, cookie_expiration_period=nil)
+        def create_lb_cookie_stickiness_policy(lb_name, policy_name, cookie_expiration_period = nil)
           if load_balancer = self.data[:load_balancers][lb_name]
             response = Excon::Response.new
             response.status = 200

@@ -12,7 +12,7 @@ module Fog
         # @raise [Fog::Storage::Rackspace::BadRequest] - HTTP 400
         # @raise [Fog::Storage::Rackspace::InternalServerError] - HTTP 500
         # @raise [Fog::Storage::Rackspace::ServiceError]
-        def put_container(name, options={})
+        def put_container(name, options = {})
           request(
             :expects  => [201, 202],
             :method   => 'PUT',
@@ -24,7 +24,7 @@ module Fog
       end
 
       class Mock
-        def put_container(name, options={})
+        def put_container(name, options = {})
           existed = ! mock_container(name).nil?
           container = add_container(name)
           options.keys.each do |k|

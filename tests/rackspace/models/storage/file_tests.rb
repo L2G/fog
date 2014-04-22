@@ -30,11 +30,11 @@ Shindo.tests('Fog::Rackspace::Storage | file', ['rackspace']) do
     end
   end
 
-  def object_attributes(file=@instance)
+  def object_attributes(file = @instance)
     @instance.service.head_object(@directory.key, file.key).headers
   end
 
-  def object_meta_attributes(file=@instance)
+  def object_meta_attributes(file = @instance)
     object_attributes(file).reject {|k, v| !(k =~ /X-Object-Meta-/)}
   end
 

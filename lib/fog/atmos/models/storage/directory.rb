@@ -34,7 +34,7 @@ module Fog
           reload
         end
 
-        def destroy(opts={})
+        def destroy(opts = {})
           if opts[:recursive]
             files.each {|f| f.destroy }
             directories.each do |d|

@@ -25,7 +25,7 @@ module Fog
         # ==== See Also
         # http://docs.amazonwebservices.com/elasticbeanstalk/latest/api/API_DescribeConfigurationOptions.html
         #
-        def describe_configuration_options(options={})
+        def describe_configuration_options(options = {})
           if option_filters = options.delete('Options')
             options.merge!(AWS.indexed_param('Options.member.%d', [*option_filters]))
           end

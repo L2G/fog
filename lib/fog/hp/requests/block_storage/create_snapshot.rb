@@ -23,7 +23,7 @@ module Fog
         #       * 'status'<~String>: - Status of the snapshot i.e. "creating"
         #       * 'volumeId'<~Integer>: - Id of the volume from which the snapshot was created
         #       * 'createdAt'<~String>: - Timestamp in UTC when snapshot was created
-        def create_snapshot(name, description, volume_id, options={})
+        def create_snapshot(name, description, volume_id, options = {})
           data = {
             'snapshot' => {
               'display_name'        => name,
@@ -49,7 +49,7 @@ module Fog
 
       class Mock  # :nodoc:all
 
-        def create_snapshot(name, description, volume_id, options={})
+        def create_snapshot(name, description, volume_id, options = {})
           response = Excon::Response.new
           if self.data[:volumes][volume_id]
             response.status = 200

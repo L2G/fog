@@ -34,7 +34,7 @@ module Fog
 
       class Real
 
-        def initialize(options={})
+        def initialize(options = {})
           @rage4_email = options[:rage4_email]
           @rage4_password  = options[:rage4_api_key]
           @connection_options = options[:connection_options] || {}

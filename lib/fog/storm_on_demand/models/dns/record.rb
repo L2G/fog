@@ -25,7 +25,7 @@ module Fog
         attribute :weight
         attribute :zone_id
 
-        def initialize(attributes={})
+        def initialize(attributes = {})
           super
         end
 
@@ -35,7 +35,7 @@ module Fog
           true
         end
 
-        def update(options={})
+        def update(options = {})
           requires :identity
           service.update_record({:id => identity}.merge!(options))
           true

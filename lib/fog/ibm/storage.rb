@@ -24,7 +24,7 @@ module Fog
       request :get_volume
 
       class Real
-        def initialize(options={})
+        def initialize(options = {})
           @connection = Fog::IBM::Connection.new(options[:ibm_username], options[:ibm_password])
         end
 
@@ -68,7 +68,7 @@ module Fog
           @data = self.class.data[@ibm_username]
         end
 
-        def initialize(options={})
+        def initialize(options = {})
           @ibm_username = options[:ibm_username]
           @ibm_password = options[:ibm_password]
           @data = self.class.data[@ibm_username]

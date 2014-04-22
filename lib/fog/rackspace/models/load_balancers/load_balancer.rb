@@ -44,7 +44,7 @@ module Fog
           end
         end
 
-        def access_rules=(new_access_rules=[])
+        def access_rules=(new_access_rules = [])
           access_rules.load(new_access_rules)
         end
 
@@ -56,7 +56,7 @@ module Fog
           end
         end
 
-        def nodes=(new_nodes=[])
+        def nodes=(new_nodes = [])
           nodes.load(new_nodes)
         end
 
@@ -85,7 +85,7 @@ module Fog
           end
         end
 
-        def virtual_ips=(new_virtual_ips=[])
+        def virtual_ips=(new_virtual_ips = [])
           virtual_ips.load(new_virtual_ips)
         end
 

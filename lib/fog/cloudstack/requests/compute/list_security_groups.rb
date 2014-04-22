@@ -3,7 +3,7 @@ module Fog
     class Cloudstack
       class Real
 
-        def list_security_groups(options={})
+        def list_security_groups(options = {})
           options.merge!(
             'command' => 'listSecurityGroups'
           )
@@ -14,7 +14,7 @@ module Fog
       end # Real
 
       class Mock
-        def list_security_groups(options={})
+        def list_security_groups(options = {})
           security_groups = []
           if security_group_id = options['id']
             security_group = self.data[:security_groups][security_group_id]

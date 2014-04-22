@@ -10,7 +10,7 @@ module Fog
 
         protected
 
-        def get_raw_network(name, datacenter_name, distributedswitch_name=nil)
+        def get_raw_network(name, datacenter_name, distributedswitch_name = nil)
           dc = find_raw_datacenter(datacenter_name)
 
           @connection.serviceContent.viewManager.CreateContainerView({

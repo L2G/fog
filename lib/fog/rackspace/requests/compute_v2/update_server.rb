@@ -15,7 +15,7 @@ module Fog
         # @raise [Fog::Compute::RackspaceV2::ServiceError]
         # @note If you edit the server name, the server host name does not change. Also, server names are not guaranteed to be unique.
         # @see http://docs.rackspace.com/servers/api/v2/cs-devguide/content/ServerUpdate.html
-        def update_server(server_id, options={})
+        def update_server(server_id, options = {})
           data = options.is_a?(Hash) ? options : { 'name' => options } #LEGACY - second parameter was previously server name
 
           request(

@@ -6,7 +6,7 @@ module Fog
         # Deletes a specified snapshot.
         #
         # {CloudStack API Reference}[http://cloudstack.apache.org/docs/api/apidocs-4.0.0/user/deleteSnapshot.html]
-        def delete_snapshot(options={})
+        def delete_snapshot(options = {})
           options.merge!(
             'command' => 'deleteSnapshot'
           )
@@ -21,7 +21,7 @@ module Fog
         # Deletes a specified snapashot.
         #
         # {CloudStack API Reference}[http://cloudstack.apache.org/docs/api/apidocs-4.0.0/user/deleteSnapshot.html]
-        def delete_snapshot(options={})
+        def delete_snapshot(options = {})
           snapshot_id = options['id']
           snapshots = self.data[:snapshots]
 

@@ -28,7 +28,7 @@ module Fog
         #     * 'priority'<~Integer> - Priority for the record
         #     * 'created_at'<~String> - created date time stamp
         #     * 'updated_at'<~String> - updated date time stamp
-        def create_record(domain_id, name, type, data, options={})
+        def create_record(domain_id, name, type, data, options = {})
           data = {
               :name => name,
               :type => type,
@@ -49,7 +49,7 @@ module Fog
         end
       end
       class Mock
-        def create_record(domain_id, name, type, data, options={})
+        def create_record(domain_id, name, type, data, options = {})
           response        = Excon::Response.new
           if list_domains.body['domains'].detect {|_| _['id'] == domain_id}
             response.status = 200

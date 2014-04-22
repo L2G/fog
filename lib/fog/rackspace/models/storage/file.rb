@@ -99,7 +99,7 @@ module Fog
         # @raise [Fog::Storage::Rackspace::InternalServerError] - HTTP 500
         # @raise [Fog::Storage::Rackspace::ServiceError]
         # @see http://docs.rackspace.com/files/api/v1/cf-devguide/content/Copy_Object-d1e2241.html
-        def copy(target_directory_key, target_file_key, options={})
+        def copy(target_directory_key, target_file_key, options = {})
           requires :directory, :key
           options['Content-Type'] ||= content_type if content_type
           options['Access-Control-Allow-Origin'] ||= access_control_allow_origin if access_control_allow_origin

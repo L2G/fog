@@ -29,7 +29,7 @@ module Fog
         attribute :vcpu
         attribute :zone_availability
 
-        def initialize(attributes={})
+        def initialize(attributes = {})
           super
         end
 

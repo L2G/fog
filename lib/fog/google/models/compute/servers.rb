@@ -9,7 +9,7 @@ module Fog
 
         model Fog::Compute::Google::Server
 
-        def all(filters={})
+        def all(filters = {})
           if filters['zone']
             data = service.list_servers(filters['zone']).body['items'] || []
           else
@@ -21,7 +21,7 @@ module Fog
           load(data)
         end
 
-        def get(identity, zone=nil)
+        def get(identity, zone = nil)
           response = nil
           if zone
             response = service.get_server(identity, zone).body

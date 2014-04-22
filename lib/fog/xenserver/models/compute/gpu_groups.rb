@@ -7,7 +7,7 @@ module Fog
       class GpuGroups < Fog::Collection
         model Fog::Compute::XenServer::GpuGroup
 
-        def all(options={})
+        def all(options = {})
           data = service.get_records 'GPU_group'
           load(data)
         end

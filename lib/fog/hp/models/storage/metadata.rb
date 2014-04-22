@@ -45,14 +45,14 @@ module Fog
           super({ :parent => @parent }.merge!(attributes))
         end
 
-        def set(data=nil)
+        def set(data = nil)
           requires :parent
           if @parent.key
             service.put_container(@parent.key, meta_hash(data))
           end
         end
 
-        def update(data=nil)
+        def update(data = nil)
           requires :parent
           if @parent.key
             service.post_container(@parent.key, meta_hash(data))
@@ -61,7 +61,7 @@ module Fog
 
 
         private
-        def meta_hash(data=nil)
+        def meta_hash(data = nil)
           if data.nil?
             data = {}
             self.each do |meta|

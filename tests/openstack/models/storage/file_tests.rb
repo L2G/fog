@@ -2,7 +2,7 @@ Shindo.tests('Fog::OpenStack::Storage | file', ['openstack']) do
 
   pending if Fog.mocking?
 
-  def object_attributes(file=@instance)
+  def object_attributes(file = @instance)
     @instance.service.head_object(@directory.key, file.key).headers
   end
 

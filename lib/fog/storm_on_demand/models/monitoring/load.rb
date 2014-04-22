@@ -12,7 +12,7 @@ module Fog
         attribute :proc
         attribute :uptime
 
-        def initialize(attributes={})
+        def initialize(attributes = {})
           super
         end
 

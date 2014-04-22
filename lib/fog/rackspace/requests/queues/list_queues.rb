@@ -16,7 +16,7 @@ module Fog
         # @raise [Fog::Rackspace::Queues::InternalServerError] - HTTP 500
         # @raise [Fog::Rackspace::Queues::ServiceError]
         # @see http://docs.rackspace.com/queues/api/v1.0/cq-devguide/content/GET_listQueues__version__queues_.html
-        def list_queues(options={})
+        def list_queues(options = {})
           request(
             :expects => [200, 204],
             :method => 'GET',
@@ -27,7 +27,7 @@ module Fog
       end
 
       class Mock
-        def list_queues(options={})
+        def list_queues(options = {})
           limit = options[:limit] || 10
           marker = options[:marker]
           detailed = options[:detailed] || false

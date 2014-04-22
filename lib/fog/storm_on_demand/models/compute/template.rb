@@ -14,7 +14,7 @@ module Fog
         attribute :zone_availability
       end
 
-      def initialize(attributes={})
+      def initialize(attributes = {})
         super
       end
 

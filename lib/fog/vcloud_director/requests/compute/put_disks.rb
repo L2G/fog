@@ -21,7 +21,7 @@ module Fog
         #
         # @see http://pubs.vmware.com/vcd-51/topic/com.vmware.vcloud.api.reference.doc_51/doc/operations/PUT-Disks.html
         # @since vCloud API version 0.9
-        def put_disks(id, disks=[])
+        def put_disks(id, disks = [])
           data = Fog::Generators::Compute::VcloudDirector::Disks.new(disks)
 
           request(

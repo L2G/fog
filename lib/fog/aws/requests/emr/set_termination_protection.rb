@@ -14,7 +14,7 @@ module Fog
         # ==== Returns
         # * response<~Excon::Response>:
         #   * body<~Hash>
-        def set_termination_protection(is_protected, options={})
+        def set_termination_protection(is_protected, options = {})
 
           if job_ids = options.delete('JobFlowIds')
             options.merge!(Fog::AWS.serialize_keys('JobFlowIds', job_ids))
@@ -29,7 +29,7 @@ module Fog
 
       class Mock
 
-        def set_termination_protection(db_name, options={})
+        def set_termination_protection(db_name, options = {})
           Fog::Mock.not_implemented
         end
 

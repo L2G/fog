@@ -6,7 +6,7 @@ module Fog
         # Lists all available service offerings.
         #
         # {CloudStack API Reference}[http://download.cloud.com/releases/2.2.0/api_2.2.4/global_admin/listServiceOfferings.html]
-        def list_service_offerings(options={})
+        def list_service_offerings(options = {})
           options.merge!(
             'command' => 'listServiceOfferings'
           )
@@ -18,7 +18,7 @@ module Fog
 
       class Mock
 
-        def list_service_offerings(options={})
+        def list_service_offerings(options = {})
           flavors = []
           if service_offering_id = options['id']
             flavor = self.data[:flavors][service_offering_id]

@@ -43,7 +43,7 @@ module Fog
 
       class Mock
 
-        def initialize(options={})
+        def initialize(options = {})
           @api_url            = options[:glesys_api_url] || API_URL
           @glesys_username    = options[:glesys_username]
           @glesys_api_key     = options[:glesys_api_key]

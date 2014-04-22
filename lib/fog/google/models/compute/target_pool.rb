@@ -40,7 +40,7 @@ module Fog
           self
         end
 
-        def destroy(async=true)
+        def destroy(async = true)
           requires :name, :region
           operation = service.delete_target_pool(name, region)
           if not async

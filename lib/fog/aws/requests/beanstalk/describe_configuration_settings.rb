@@ -19,7 +19,7 @@ module Fog
         # ==== See Also
         # http://docs.amazonwebservices.com/elasticbeanstalk/latest/api/API_DescribeConfigurationSettings.html
         #
-        def describe_configuration_settings(options={})
+        def describe_configuration_settings(options = {})
           request({
                       'Operation'    => 'DescribeConfigurationSettings',
                       :parser     => Fog::Parsers::AWS::ElasticBeanstalk::DescribeConfigurationSettings.new

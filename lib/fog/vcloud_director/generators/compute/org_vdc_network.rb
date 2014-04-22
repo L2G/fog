@@ -7,7 +7,7 @@ module Fog
         class OrgVdcNetwork
           attr_reader :options
 
-          def initialize(options={})
+          def initialize(options = {})
             @options = options
           end
 

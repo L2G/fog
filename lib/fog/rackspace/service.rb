@@ -10,7 +10,7 @@ module Fog
         raise Fog::Errors::NotImplemented.new("Please implement the #region method")
       end
 
-      def endpoint_uri(service_endpoint=nil, endpoint_name=nil)
+      def endpoint_uri(service_endpoint = nil, endpoint_name = nil)
         return @uri if @uri
 
         url = service_endpoint
@@ -26,7 +26,7 @@ module Fog
         @uri = URI.parse url
       end
 
-      def authenticate(options={})
+      def authenticate(options = {})
          self.send authentication_method, options
       end
 
@@ -73,7 +73,7 @@ module Fog
         end
       end
 
-      def headers(options={})
+      def headers(options = {})
         { 'Content-Type' => 'application/json',
           'Accept' => 'application/json',
           'X-Auth-Token' => auth_token

@@ -18,7 +18,7 @@ module Fog
         end
 
         private
-        def flavors(id=nil)
+        def flavors(id = nil)
           service.avail_linodeplans(id).body['DATA'].map { |flavor| map_flavor flavor }
         end
 

@@ -6,7 +6,7 @@ module Fog
         # Registers an existing template into the cloud.
         #
         # {CloudStack API Reference}[http://download.cloud.com/releases/3.0.0/api_3.0.0/user/registerTemplate.html]
-        def register_template(options={})
+        def register_template(options = {})
           options.merge!(
               'command' => 'registerTemplate'
           )
@@ -17,7 +17,7 @@ module Fog
       end # Real
 
       class Mock
-        def register_template(options={})
+        def register_template(options = {})
           mock_template_id = self.data[:images].keys.first
           registered_template = self.data[:images][mock_template_id]
 

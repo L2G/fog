@@ -3,7 +3,7 @@ module Fog
     class Linode
       class Real
 
-        def linode_update(linode_id, options={})
+        def linode_update(linode_id, options = {})
           request(
             :expects  => 200,
             :method   => 'GET',
@@ -14,7 +14,7 @@ module Fog
       end
 
       class Mock
-        def linode_update(linode_id, options={})
+        def linode_update(linode_id, options = {})
           response = Excon::Response.new
           response.status = 200
           response.body = {

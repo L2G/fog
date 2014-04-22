@@ -43,7 +43,7 @@ module Fog
 
         end
 
-        def get_vm_interface(vm_id, options={})
+        def get_vm_interface(vm_id, options = {})
           raise ArgumentError, "instance id is a required parameter" unless vm_id
           if options.is_a? Fog::Compute::Vsphere::Interface
             options

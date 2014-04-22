@@ -4,7 +4,7 @@ module Fog
 
       class Mock
 
-        def insert_disk(disk_name, zone_name, image_name=nil, options={})
+        def insert_disk(disk_name, zone_name, image_name = nil, options = {})
           # check that image and zone exist
           image = nil
           if image_name
@@ -64,7 +64,7 @@ module Fog
 
       class Real
 
-        def insert_disk(disk_name, zone_name, image_name=nil, opts={})
+        def insert_disk(disk_name, zone_name, image_name = nil, opts = {})
           api_method = @compute.disks.insert
           parameters = {
             'project' => @project,

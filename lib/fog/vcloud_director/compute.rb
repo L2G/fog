@@ -253,7 +253,7 @@ module Fog
       request :put_vm_capabilities
 
       class Model < Fog::Model
-        def initialize(attrs={})
+        def initialize(attrs = {})
           super(attrs)
           lazy_load_attrs.each do |attr|
             attributes[attr] = NonLoaded if attributes[attr].nil?
@@ -294,7 +294,7 @@ module Fog
       end
 
       class Collection < Fog::Collection
-        def all(lazy_load=true)
+        def all(lazy_load = true)
           lazy_load ? index : get_everyone
         end
 
@@ -327,7 +327,7 @@ module Fog
         attr_reader :end_point, :api_version, :show_progress
         alias_method :show_progress?, :show_progress
 
-        def initialize(options={})
+        def initialize(options = {})
           @vcloud_director_password = options[:vcloud_director_password]
           @vcloud_director_username = options[:vcloud_director_username]
           @connection_options = options[:connection_options] || {}
@@ -430,7 +430,7 @@ module Fog
           raise TaskError.new "status: #{task.status}, error: #{task.error}" unless task.success?
         end
 
-        def add_id_from_href!(data={})
+        def add_id_from_href!(data = {})
           data[:id] = data[:href].split('/').last
         end
 
@@ -440,7 +440,7 @@ module Fog
         # @param [String,Symbol] key1
         # @param [String,Symbol] key2
         # @return [Hash]
-        def ensure_list!(hash, key1, key2=nil)
+        def ensure_list!(hash, key1, key2 = nil)
           if key2.nil?
             hash[key1] ||= []
             hash[key1] = [hash[key1]] if hash[key1].is_a?(Hash)
@@ -669,7 +669,7 @@ module Fog
           end[@vcloud_director_username]
         end
 
-        def initialize(options={})
+        def initialize(options = {})
           @vcloud_director_password = options[:vcloud_director_password]
           @vcloud_director_username = options[:vcloud_director_username]
           #@connection_options = options[:connection_options] || {}
@@ -723,7 +723,7 @@ module Fog
         #   * :href<~String> - Contains the URI to the entity.
         #   * :type<~String> - Contains the MIME type of the entity.
         # @return [String] Object identifier of the task.
-        def enqueue_task(operation, operation_name, owner, options={})
+        def enqueue_task(operation, operation_name, owner, options = {})
           task_id = uuid
           now = DateTime.now
 
@@ -769,7 +769,7 @@ module Fog
           raise TaskError.new "status: #{task[:status]}, error: #{task[:Error]}"
         end
 
-        def add_id_from_href!(data={})
+        def add_id_from_href!(data = {})
           data[:id] = data[:href].split('/').last
         end
 

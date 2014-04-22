@@ -14,7 +14,7 @@ module Fog
         attribute :state, :aliases => 'pipelineState'
         attribute :unique_id, :aliases => 'uniqueId'
 
-        def initialize(attributes={})
+        def initialize(attributes = {})
 
           # Extract the 'fields' portion of a response to attributes
           if attributes.include?('fields')

@@ -19,7 +19,7 @@ module Fog
         #     * 'return'<~Boolean> - success?
         #
         # {Amazon API Reference}[http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-AssignPrivateIpAddresses.html]
-        def assign_private_ip_addresses(network_interface_id, options={})
+        def assign_private_ip_addresses(network_interface_id, options = {})
 
           if options['PrivateIpAddresses'] && options['SecondaryPrivateIpAddressCount']
             raise Fog::Compute::AWS::Error.new("You may specify secondaryPrivateIpAddressCount or specific secondary private IP addresses, but not both.")
@@ -40,7 +40,7 @@ module Fog
 
       class Mock
 
-        def assign_private_ip_addresses(network_interface_id, options={})
+        def assign_private_ip_addresses(network_interface_id, options = {})
           if options['PrivateIpAddresses'] && options['SecondaryPrivateIpAddressCount']
             raise Fog::Compute::AWS::Error.new("You may specify secondaryPrivateIpAddressCount or specific secondary private IP addresses, but not both.")
           end

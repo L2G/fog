@@ -18,7 +18,7 @@ module Fog
         attribute :num_of_volumes
         attribute :state
 
-        def initialize(attributes={} )
+        def initialize(attributes = {} )
           # Can be created by passing in XML
           @xml = attributes.delete(:xml)
           super(attributes)

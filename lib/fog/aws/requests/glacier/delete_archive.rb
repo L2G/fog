@@ -17,7 +17,7 @@ module Fog
         # ==== See Also
         # http://docs.amazonwebservices.com/amazonglacier/latest/dev/api-vault-delete.html
         #
-        def delete_archive(name,archive_id,options={})
+        def delete_archive(name,archive_id,options = {})
           account_id = options['account_id'] || '-'
           path = "/#{account_id}/vaults/#{Fog::AWS.escape(name)}/archives/#{archive_id}"
           request(

@@ -48,7 +48,7 @@ module Fog
         attribute :guest_id
         attribute :scsi_controller # this is the first scsi controller. Right now no more of them can be used.
 
-        def initialize(attributes={} )
+        def initialize(attributes = {} )
           super defaults.merge(attributes)
           self.instance_uuid ||= id # TODO: remvoe instance_uuid as it can be replaced with simple id
           initialize_interfaces

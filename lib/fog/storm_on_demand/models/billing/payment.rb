@@ -6,7 +6,7 @@ module Fog
 
       class Payment < Fog::Model
 
-        def initialize(attributes={})
+        def initialize(attributes = {})
           super
         end
 

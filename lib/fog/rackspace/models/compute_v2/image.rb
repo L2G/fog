@@ -63,7 +63,7 @@ module Fog
         # @return [Array] image links.
         attribute :links
 
-        def initialize(attributes={})
+        def initialize(attributes = {})
           @service = attributes[:service]
           super
         end
@@ -81,7 +81,7 @@ module Fog
 
         # Set server metadata
         # @param [Hash] hash contains key value pairs
-        def metadata=(hash={})
+        def metadata=(hash = {})
           metadata.from_hash(hash)
         end
 
@@ -94,7 +94,7 @@ module Fog
         # @raise [Fog::Compute::RackspaceV2::InternalServerError] - HTTP 500
         # @raise [Fog::Compute::RackspaceV2::ServiceError]
         # @raise [Fog::Compute::RackspaceV2::InvalidImageStateException] if server state is an error state
-        def ready?(ready_state = ACTIVE, error_states=[ERROR])
+        def ready?(ready_state = ACTIVE, error_states = [ERROR])
           if error_states
             error_states = Array(error_states)
             raise InvalidImageStateException.new(ready_state, state) if error_states.include?(state)

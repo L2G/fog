@@ -17,7 +17,7 @@ module Fog
           service.get_ticket_details(:id => ticket_id, :secid => secid).body
         end
 
-        def all(options={})
+        def all(options = {})
           tickets = service.list_tickets(options).body['items']
           load(tickets)
         end

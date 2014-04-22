@@ -12,7 +12,7 @@ module Fog
 
       class Real
 
-        def insert_snapshot(disk_name, zone_name, project=@project, opts={})
+        def insert_snapshot(disk_name, zone_name, project = @project, opts = {})
 
           # This is unfortunate, since we might be called from 2 contexts
           # 1. disk.snapshot <-- here validation of disk_name is not needed

@@ -18,7 +18,7 @@ module Fog
         #     * 'id'<~String>: id
         #     * 'ip'<~String>: returns string of spaces (ip not yet allocated right after creation)
         #     * 'state'<~Integer>: status of address (0 when new)
-        def create_address(location, offering_id, options={})
+        def create_address(location, offering_id, options = {})
           request(
             :method   => 'POST',
             :expects  => 200,
@@ -35,7 +35,7 @@ module Fog
 
       class Mock
 
-        def create_address(location_id, offering_id="20001223", options={})
+        def create_address(location_id, offering_id = "20001223", options = {})
           address         = Fog::IBM::Mock.create_address(location_id, offering_id, options)
           self.data[:addresses][address['id']] = address
           response        = Excon::Response.new

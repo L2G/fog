@@ -51,7 +51,7 @@ module Fog
           @enabled
         end
 
-        def endpoint_uri(service_endpoint_url=nil)
+        def endpoint_uri(service_endpoint_url = nil)
           @uri = super(@rackspace_cdn_url || service_endpoint_url, :rackspace_cdn_url)
         end
 
@@ -112,7 +112,7 @@ module Fog
           @data = nil
         end
 
-        def initialize(options={})
+        def initialize(options = {})
           apply_options(options)
           authenticate(options)
           @enabled = !! endpoint_uri
@@ -136,7 +136,7 @@ module Fog
       class Real < Fog::Rackspace::Service
         include Base
 
-        def initialize(options={})
+        def initialize(options = {})
           apply_options(options)
           authenticate(options)
           @enabled = false
@@ -186,7 +186,7 @@ module Fog
         end
 
         # Fix for invalid auth_token, likely after 24 hours.
-        def authenticate(options={})
+        def authenticate(options = {})
          super({
            :rackspace_api_key  => @rackspace_api_key,
            :rackspace_username => @rackspace_username,

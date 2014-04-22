@@ -21,7 +21,7 @@ module Fog
         # * 'return'<~Boolean> - Returns true if the request succeeds. Otherwise, returns an error.
         #
         # {Amazon API Reference}[http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-CreateRoute.html]
-        def create_route(route_table_id, destination_cidr_block, internet_gateway_id=nil, instance_id=nil, network_interface_id=nil)
+        def create_route(route_table_id, destination_cidr_block, internet_gateway_id = nil, instance_id = nil, network_interface_id = nil)
           request_vars = {
             'Action'                => 'CreateRoute',
             'RouteTableId'          => route_table_id,
@@ -41,7 +41,7 @@ module Fog
 
       class Mock
 
-        def create_route(route_table_id, destination_cidr_block, internet_gateway_id=nil, instance_id=nil, network_interface_id=nil)
+        def create_route(route_table_id, destination_cidr_block, internet_gateway_id = nil, instance_id = nil, network_interface_id = nil)
           instance_owner_id = nil
           route_table = self.data[:route_tables].find { |routetable| routetable["routeTableId"].eql? route_table_id }
           if !route_table.nil? && destination_cidr_block

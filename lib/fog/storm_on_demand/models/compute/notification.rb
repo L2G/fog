@@ -18,7 +18,7 @@ module Fog
         attribute :system_identifier
         attribute :uniq_id
 
-        def initialize(attributes={})
+        def initialize(attributes = {})
           super
         end
 

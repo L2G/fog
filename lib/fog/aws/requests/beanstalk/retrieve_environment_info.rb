@@ -17,7 +17,7 @@ module Fog
         # ==== See Also
         # http://docs.amazonwebservices.com/elasticbeanstalk/latest/api/API_RetrieveEnvironmentInfo.html
         #
-        def retrieve_environment_info(options={})
+        def retrieve_environment_info(options = {})
           request({
                       'Operation'    => 'RetrieveEnvironmentInfo',
                       :parser     => Fog::Parsers::AWS::ElasticBeanstalk::RetrieveEnvironmentInfo.new

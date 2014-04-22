@@ -9,7 +9,7 @@ module Fog
         attribute :filters
 
         # Creates a new auto scaling group.
-        def initialize(attributes={})
+        def initialize(attributes = {})
           self.filters = attributes
           super
         end

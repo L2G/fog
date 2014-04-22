@@ -32,7 +32,7 @@ module Fog
         # ==== See Also
         # http://docs.amazonwebservices.com/elasticbeanstalk/latest/api/API_CreateEnvironment.html
         #
-        def create_environment(options={})
+        def create_environment(options = {})
           if option_settings = options.delete('OptionSettings')
             options.merge!(AWS.indexed_param('OptionSettings.member.%d', [*option_settings]))
           end

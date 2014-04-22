@@ -110,7 +110,7 @@ module Fog
           @data = nil
         end
 
-        def initialize(options={})
+        def initialize(options = {})
 
           @use_iam_profile = options[:use_iam_profile]
           @region = options[:region] || 'us-east-1'
@@ -157,7 +157,7 @@ module Fog
         #
         # ==== Returns
         # * ELB object with connection to AWS.
-        def initialize(options={})
+        def initialize(options = {})
           @use_iam_profile = options[:use_iam_profile]
           setup_credentials(options)
           @connection_options     = options[:connection_options] || {}

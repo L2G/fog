@@ -24,7 +24,7 @@ module Fog
         # Can be created by passing in :xml => "<xml to create volume>"
         # A volume always belongs to a pool, :pool_name => "<name of pool>"
         #
-        def initialize(attributes={ })
+        def initialize(attributes = { })
           @xml = attributes.delete(:xml)
           super(defaults.merge(attributes))
 

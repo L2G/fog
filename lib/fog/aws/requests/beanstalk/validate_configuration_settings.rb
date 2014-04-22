@@ -18,7 +18,7 @@ module Fog
         # ==== See Also
         # http://docs.amazonwebservices.com/elasticbeanstalk/latest/api/API_CreateConfigurationTemplate.html
         #
-        def validate_configuration_settings(options={})
+        def validate_configuration_settings(options = {})
           if option_settings = options.delete('OptionSettings')
             options.merge!(AWS.indexed_param('OptionSettings.member.%d', [*option_settings]))
           end

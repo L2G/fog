@@ -18,7 +18,7 @@ module Fog
         # ==== See Also
         # http://docs.amazonwebservices.com/elasticbeanstalk/latest/api/API_RebuildEnvironment.html
         #
-        def rebuild_environment(options={})
+        def rebuild_environment(options = {})
           request({
                       'Operation'    => 'RebuildEnvironment',
                       :parser     => Fog::Parsers::AWS::ElasticBeanstalk::Empty.new

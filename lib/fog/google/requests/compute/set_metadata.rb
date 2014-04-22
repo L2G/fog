@@ -4,7 +4,7 @@ module Fog
 
       class Mock
 
-        def set_metadata(instance, zone, fingerprint, metadata={})
+        def set_metadata(instance, zone, fingerprint, metadata = {})
           Fog::Mock.not_implemented
         end
 
@@ -24,7 +24,7 @@ module Fog
         #
         # ==== Returns
         # * response<~Excon::Response>
-        def set_metadata(instance, zone, fingerprint, metadata={})
+        def set_metadata(instance, zone, fingerprint, metadata = {})
           api_method = @compute.instances.set_metadata
           parameters = {
             'project' => @project,

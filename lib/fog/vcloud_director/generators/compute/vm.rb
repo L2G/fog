@@ -7,7 +7,7 @@ module Fog
         class Vm
           attr_reader :attrs
 
-          def initialize(attrs={})
+          def initialize(attrs = {})
             @attrs = attrs
           end
 

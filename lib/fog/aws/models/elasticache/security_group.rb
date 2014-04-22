@@ -27,7 +27,7 @@ module Fog
           service.create_cache_security_group(id, description)
         end
 
-        def authorize_ec2_group(group_name, group_owner_id=owner_id)
+        def authorize_ec2_group(group_name, group_owner_id = owner_id)
           requires :id
           requires :owner_id if group_owner_id.nil?
           data = service.authorize_cache_security_group_ingress(
@@ -36,7 +36,7 @@ module Fog
           merge_attributes(data.body['CacheSecurityGroup'])
         end
 
-        def revoke_ec2_group(group_name, group_owner_id=owner_id)
+        def revoke_ec2_group(group_name, group_owner_id = owner_id)
           requires :id
           requires :owner_id if group_owner_id.nil?
           data = service.revoke_cache_security_group_ingress(

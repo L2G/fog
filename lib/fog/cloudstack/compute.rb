@@ -140,7 +140,7 @@ module Fog
 
       class Real
 
-        def initialize(options={})
+        def initialize(options = {})
           @cloudstack_api_key           = options[:cloudstack_api_key]
           @cloudstack_secret_access_key = options[:cloudstack_secret_access_key]
           @cloudstack_session_id        = options[:cloudstack_session_id]
@@ -227,7 +227,7 @@ module Fog
           return params, headers
         end
 
-        def issue_request(params={},headers={},method='GET',expects=200)
+        def issue_request(params = {},headers = {},method = 'GET',expects = 200)
           begin
             @connection.request({
               :query => params,
@@ -256,7 +256,7 @@ module Fog
       end # Real
 
       class Mock
-        def initialize(options={})
+        def initialize(options = {})
           @cloudstack_api_key = options[:cloudstack_api_key]
         end
 

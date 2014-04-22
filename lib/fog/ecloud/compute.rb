@@ -270,7 +270,7 @@ module Fog
         include Shared
 
         class << self
-          def basic_request(name, expects=[200], method=:get, headers={}, body='')
+          def basic_request(name, expects = [200], method = :get, headers = {}, body = '')
             define_method(name) do |uri|
               request({
                 :expects => expects,
@@ -797,7 +797,7 @@ module Fog
           @data = nil
         end
 
-        def initialize(options={})
+        def initialize(options = {})
           @base_path = '/cloudapi/ecloud'
           @ecloud_api_key = options[:ecloud]
         end
@@ -810,7 +810,7 @@ module Fog
           self.class.data.delete(@ecloud_api_key)
         end
 
-        def response(params={})
+        def response(params = {})
           body    = params[:body]
           headers = {
             "Content-Type" => "application/xml"

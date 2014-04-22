@@ -15,7 +15,7 @@ module Fog
         # ==== Returns
         # * response<~Excon::Response>:
         #   * body<~Hash>:
-        def describe_objects(id, objectIds, options={})
+        def describe_objects(id, objectIds, options = {})
           params = options.merge({
             'pipelineId' => id,
             'objectIds' => objectIds,
@@ -32,7 +32,7 @@ module Fog
       end
 
       class Mock
-        def describe_objects(id, objects, options={})
+        def describe_objects(id, objects, options = {})
           Fog::Mock.not_implemented
         end
       end

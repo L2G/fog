@@ -14,7 +14,7 @@ module Fog
         #   * body<~Hash>:
         #
         # @see http://pubs.vmware.com/vcd-51/topic/com.vmware.vcloud.api.reference.doc_51/doc/operations/PUT-VmCapabilities.html
-        def put_vm_capabilities(id, options={})
+        def put_vm_capabilities(id, options = {})
           body = Nokogiri::XML::Builder.new do
             attrs = {
               :xmlns => 'http://www.vmware.com/vcloud/v1.5'

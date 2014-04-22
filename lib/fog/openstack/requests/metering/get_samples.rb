@@ -3,7 +3,7 @@ module Fog
     class OpenStack
       class Real
 
-        def get_samples(meter_id, options=[])
+        def get_samples(meter_id, options = [])
 
           data = {
             'q' => Array.new

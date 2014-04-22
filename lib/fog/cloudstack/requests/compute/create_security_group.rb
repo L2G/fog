@@ -2,7 +2,7 @@ module Fog
   module Compute
     class Cloudstack
       class Real
-        def create_security_group(options={})
+        def create_security_group(options = {})
           options.merge!(
             'command' => 'createSecurityGroup'
           )
@@ -12,7 +12,7 @@ module Fog
       end # Real
 
       class Mock
-        def create_security_group(options={})
+        def create_security_group(options = {})
           security_group_id = Fog::Cloudstack.uuid
 
           security_group = {

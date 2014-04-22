@@ -7,7 +7,7 @@ module Fog
       class HostCrashDumps < Fog::Collection
         model Fog::Compute::XenServer::HostCrashDump
 
-        def all(options={})
+        def all(options = {})
           data = service.get_records 'host_crashdump'
           load(data)
         end

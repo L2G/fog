@@ -10,7 +10,7 @@ module Fog
         # ==== Returns
         # * response<~Excon::Response>:
         #   * body<~Hash>:
-        def restore_db_instance_to_point_in_time(source_db_name, target_db_name, opts={})
+        def restore_db_instance_to_point_in_time(source_db_name, target_db_name, opts = {})
           request({
             'Action'  => 'RestoreDBInstanceToPointInTime',
             'SourceDBInstanceIdentifier' => source_db_name,
@@ -23,7 +23,7 @@ module Fog
 
       class Mock
 
-        def restore_db_instance_to_point_in_time(source_db_name, target_db_name, opts={})
+        def restore_db_instance_to_point_in_time(source_db_name, target_db_name, opts = {})
           Fog::Mock.not_implemented
         end
 

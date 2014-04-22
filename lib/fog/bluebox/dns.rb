@@ -36,7 +36,7 @@ module Fog
           @data = nil
         end
 
-        def initialize(options={})
+        def initialize(options = {})
           @bluebox_customer_id = options[:bluebox_customer_id]
           @bluebox_api_key = options[:bluebox_api_key]
         end
@@ -51,7 +51,7 @@ module Fog
       end
 
       class Real
-        def initialize(options ={})
+        def initialize(options = {})
           @bluebox_customer_id = options[:bluebox_customer_id]
           @bluebox_api_key = options[:bluebox_api_key]
           @connection_options     = options[:connection_options] || {}

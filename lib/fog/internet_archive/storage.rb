@@ -194,7 +194,7 @@ module Fog
           @data = nil
         end
 
-        def initialize(options={})
+        def initialize(options = {})
           setup_credentials(options)
           options[:region] ||= 'us-east-1'
           @host = options[:host] || Fog::InternetArchive::API_DOMAIN_NAME
@@ -244,7 +244,7 @@ module Fog
         #
         # ==== Returns
         # * S3 object with connection to aws.
-        def initialize(options={})
+        def initialize(options = {})
           require 'fog/core/parser'
 
           setup_credentials(options)

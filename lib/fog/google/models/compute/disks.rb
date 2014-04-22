@@ -9,7 +9,7 @@ module Fog
 
         model Fog::Compute::Google::Disk
 
-        def all(filters={})
+        def all(filters = {})
           if filters['zone']
             data = service.list_disks(filters['zone']).body['items'] || []
           else
@@ -21,7 +21,7 @@ module Fog
           load(data)
         end
 
-        def get(identity, zone=nil)
+        def get(identity, zone = nil)
           response = nil
           if zone
             response = service.get_disk(identity, zone).body

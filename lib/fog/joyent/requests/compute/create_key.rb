@@ -38,7 +38,7 @@ module Fog
         #     * 'name'<~String> - Name for this key
         #     * 'key'<~String> - OpenSSH formatted public key
         #
-        def create_key(params={})
+        def create_key(params = {})
           raise ArgumentError, "error creating key: [name] is required" unless params[:name]
           raise ArgumentError, "error creating key: [key] is required" unless params[:key]
 

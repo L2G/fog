@@ -24,7 +24,7 @@ module Fog
       class Mock < Fog::Storage::Atmos::Mock
         include Utils
 
-        def initialize(options={})
+        def initialize(options = {})
           @ninefold_storage_token = options[:ninefold_storage_token]
           @ninefold_storage_secret = options[:ninefold_storage_secret]
         end
@@ -38,7 +38,7 @@ module Fog
       class Real < Fog::Storage::Atmos::Real
         include Utils
 
-        def initialize(options={})
+        def initialize(options = {})
           endpoint = "#{STORAGE_SCHEME}://"\
                      "#{STORAGE_HOST}:"\
                      "#{STORAGE_PORT}"\

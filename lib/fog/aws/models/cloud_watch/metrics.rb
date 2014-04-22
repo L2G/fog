@@ -10,7 +10,7 @@ module Fog
 
         model Fog::AWS::CloudWatch::Metric
 
-        def all(conditions={})
+        def all(conditions = {})
           result = service.list_metrics(conditions).body['ListMetricsResult']
           merge_attributes("NextToken" => result["NextToken"])
           load(result['Metrics']) # an array of attribute hashes
@@ -33,7 +33,7 @@ module Fog
           end
         end
 
-        def get(namespace, metric_name, dimensions=nil)
+        def get(namespace, metric_name, dimensions = nil)
           list_opts = {'Namespace' => namespace, 'MetricName' => metric_name}
           if dimensions
             dimensions_array = dimensions.collect do |name, value|

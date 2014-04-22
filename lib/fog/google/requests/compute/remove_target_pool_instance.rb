@@ -4,7 +4,7 @@ module Fog
 
       class Mock
 
-        def set_metadata(instance, zone, fingerprint, metadata={})
+        def set_metadata(instance, zone, fingerprint, metadata = {})
           Fog::Mock.not_implemented
         end
 

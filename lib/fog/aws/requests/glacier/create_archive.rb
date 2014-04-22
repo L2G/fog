@@ -17,7 +17,7 @@ module Fog
         # ==== See Also
         # http://docs.amazonwebservices.com/amazonglacier/latest/dev/api-archive-post.html
         #
-        def create_archive(vault_name, body, options={})
+        def create_archive(vault_name, body, options = {})
           account_id = options['account_id'] || '-'
           path = "/#{account_id}/vaults/#{Fog::AWS.escape(vault_name)}/archives"
 

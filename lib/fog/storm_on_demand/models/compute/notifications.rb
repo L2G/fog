@@ -8,12 +8,12 @@ module Fog
       class Notifications < Fog::Collection
         model Fog::Compute::StormOnDemand::Notification
 
-        def all(options={})
+        def all(options = {})
           data = service.list_notifications(options).body['items']
           load(data)
         end
 
-        def current(options={})
+        def current(options = {})
           data = service.current_notifications(options).body['items']
           load(data)
         end

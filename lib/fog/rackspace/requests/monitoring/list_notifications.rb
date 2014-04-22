@@ -3,7 +3,7 @@ module Fog
     class Monitoring
       class Real
 
-        def list_notifications(options={})
+        def list_notifications(options = {})
           request(
             :expects  => [200],
             :method   => 'GET',
@@ -15,7 +15,7 @@ module Fog
       end
 
       class Mock
-        def list_notifications(options={})
+        def list_notifications(options = {})
           account_id = Fog::Mock.random_numbers(6).to_s
           server_id = Fog::Rackspace::MockData.uuid
           entity_id = Fog::Mock.random_letters(10)

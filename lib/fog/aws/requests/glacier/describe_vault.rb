@@ -16,7 +16,7 @@ module Fog
         # ==== See Also
         # http://docs.amazonwebservices.com/amazonglacier/latest/dev/api-vault-get.html
         #
-        def describe_vault(name,options={})
+        def describe_vault(name,options = {})
           account_id = options['account_id'] || '-'
           path = "/#{account_id}/vaults/#{Fog::AWS.escape(name)}"
           request(

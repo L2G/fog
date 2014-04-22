@@ -94,7 +94,7 @@ module Fog
           @ec2_credentials = nil
         end
 
-        def initialize(options={})
+        def initialize(options = {})
           @openstack_username = options[:openstack_username] || 'admin'
           @openstack_tenant   = options[:openstack_tenant]   || 'admin'
           @openstack_auth_uri = URI.parse(options[:openstack_auth_url])
@@ -168,7 +168,7 @@ module Fog
         attr_reader :current_tenant
         attr_reader :unscoped_token
 
-        def initialize(options={})
+        def initialize(options = {})
           @openstack_auth_token = options[:openstack_auth_token]
 
           unless @openstack_auth_token

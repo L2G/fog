@@ -3,7 +3,7 @@ module Fog
     class OpenStack
       class Real
 
-        def create_volume_snapshot(volume_id, name, description, force=false)
+        def create_volume_snapshot(volume_id, name, description, force = false)
           data = {
             'snapshot' => {
               'volume_id'           => volume_id,
@@ -24,7 +24,7 @@ module Fog
       end
 
       class Mock
-        def create_volume_snapshot(volume_id, name, description, force=false)
+        def create_volume_snapshot(volume_id, name, description, force = false)
           response = Excon::Response.new
           response.status = 202
           response.body = {

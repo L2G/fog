@@ -17,7 +17,7 @@ module Fog
         # * response<~Excon::Response>:
         #   * body<~Array>:
         # TODO: docs
-        def support_password_list(options={})
+        def support_password_list(options = {})
           request(
             :path     => 'support/password/list',
             :query    => options

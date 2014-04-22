@@ -28,7 +28,7 @@ module Fog
           self.status == 'available'
         end
 
-        def restore(volume_id=nil)
+        def restore(volume_id = nil)
           requires :id
           if volume_id
             service.restore_volume_backup(id, :volume_id => volume_id)

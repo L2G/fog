@@ -19,7 +19,7 @@ module Fog
 
         attribute :jobid
 
-        def initialize(attributes={})
+        def initialize(attributes = {})
           super
         end
 

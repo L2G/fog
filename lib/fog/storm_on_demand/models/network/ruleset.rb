@@ -11,7 +11,7 @@ module Fog
         attribute :ruleset
         attribute :uniq_id
 
-        def initialize(attributes={})
+        def initialize(attributes = {})
           super
         end
 

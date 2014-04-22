@@ -18,7 +18,7 @@ module Fog
         # ==== Returns
         # * response<~Excon::Response>:
         #   * body<~Hash>:
-        def describe_db_log_files(rds_id=nil, opts={})
+        def describe_db_log_files(rds_id = nil, opts = {})
           params = {}
           params['DBInstanceIdentifier'] = rds_id if rds_id
           params['Marker'] = opts[:marker] if opts[:marker]
@@ -36,7 +36,7 @@ module Fog
 
       class Mock
 
-        def describe_db_log_files(rds_id=nil, opts={})
+        def describe_db_log_files(rds_id = nil, opts = {})
           response = Excon::Response.new
           log_file_set = []
 

@@ -20,7 +20,7 @@ module Fog
         attribute :value_scope, :aliases => 'value-scope'
         attribute :uris, :type => :array
 
-        def initialize(attributes={})
+        def initialize(attributes = {})
           self.decomposition = []
           self.value_arity = 'scalar'
           self.retention_time = 600

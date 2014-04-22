@@ -59,7 +59,7 @@ module Fog
           return users
         end
 
-        def grant(perm, users=nil)
+        def grant(perm, users = nil)
           # support passing in a list of users in a comma-separated list or as an Array
           if users.is_a?(String)
             user_list = users.split(',')
@@ -80,7 +80,7 @@ module Fog
           true
         end
 
-        def revoke(perm, users=nil)
+        def revoke(perm, users = nil)
           # support passing in a list of users in a comma-separated list or as an Array
           if users.is_a?(String)
             user_list = users.split(',')
@@ -110,7 +110,7 @@ module Fog
           end
         end
 
-        def metadata=(new_metadata={})
+        def metadata=(new_metadata = {})
           metas = []
           new_metadata.each_pair {|k,v| metas << {'key' => k, 'value' => v} }
           metadata.load(metas)

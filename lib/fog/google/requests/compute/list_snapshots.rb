@@ -12,7 +12,7 @@ module Fog
 
       class Real
 
-        def list_snapshots(project=nil)
+        def list_snapshots(project = nil)
           api_method = @compute.snapshots.list
           project = @project if project.nil?
           parameters = {

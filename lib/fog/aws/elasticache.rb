@@ -53,7 +53,7 @@ module Fog
 
       class Real
         include Fog::AWS::CredentialFetcher::ConnectionMethods
-        def initialize(options={})
+        def initialize(options = {})
           @use_iam_profile = options[:use_iam_profile]
           setup_credentials(options)
 
@@ -157,7 +157,7 @@ module Fog
           @data = nil
         end
 
-        def initialize(options={})
+        def initialize(options = {})
           @aws_credentials_expire_at = Time::now + 20
           setup_credentials(options)
           @region = options[:region] || 'us-east-1'

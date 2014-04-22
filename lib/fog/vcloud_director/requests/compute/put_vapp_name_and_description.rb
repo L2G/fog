@@ -20,7 +20,7 @@ module Fog
         #
         # @see http://pubs.vmware.com/vcd-55/topic/com.vmware.vcloud.api.reference.doc_55/doc/operations/PUT-VAppNameAndDescription.html
         # @since vCloud API version 0.9
-        def put_vapp_name_and_description(id, name, options={})
+        def put_vapp_name_and_description(id, name, options = {})
           body = Fog::Generators::Compute::VcloudDirector::Vapp.new(name, options).generate_xml
           request(
             :body    => body,

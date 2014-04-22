@@ -2,7 +2,7 @@ module Fog
   module Compute
     class CloudSigma
       class Real
-        def clone_libvolume(vol_id, clone_params={})
+        def clone_libvolume(vol_id, clone_params = {})
           request(:path => "libdrives/#{vol_id}/action/",
                   :method => 'POST',
                   :query => {:do => :clone},
@@ -12,7 +12,7 @@ module Fog
       end
 
       class Mock
-        def clone_libvolume(vol_id, clone_params={})
+        def clone_libvolume(vol_id, clone_params = {})
           volume = self.data[:libvolumes][vol_id].dup
           uuid = self.class.random_uuid
           volume['uuid'] = uuid

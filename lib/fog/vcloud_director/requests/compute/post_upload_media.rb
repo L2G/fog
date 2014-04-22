@@ -23,7 +23,7 @@ module Fog
         # @see http://pubs.vmware.com/vcd-51/topic/com.vmware.vcloud.api.reference.doc_51/doc/operations/POST-UploadMedia.html
         # @since vCloud API version 0.9
         # @todo Support vDC Storage Profiles.
-        def post_upload_media(vdc_id, name, image_type, size, options={})
+        def post_upload_media(vdc_id, name, image_type, size, options = {})
           body = Nokogiri::XML::Builder.new do
             attrs = {
               :xmlns => 'http://www.vmware.com/vcloud/v1.5',
@@ -53,7 +53,7 @@ module Fog
       end
 
       class Mock
-        def post_upload_media(vdc_id, name, image_type, size, options={})
+        def post_upload_media(vdc_id, name, image_type, size, options = {})
           unless ['iso','floppy'].include?(image_type)
             raise Fog::Compute::VcloudDirector::BadRequest.new(
               'The value of parameter imageType is incorrect.'

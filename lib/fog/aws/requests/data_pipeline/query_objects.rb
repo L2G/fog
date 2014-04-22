@@ -14,7 +14,7 @@ module Fog
         # ==== Returns
         # * response<~Excon::Response>:
         #   * body<~Hash>:
-        def query_objects(id, sphere, options={})
+        def query_objects(id, sphere, options = {})
           params = {
             'pipelineId' => id,
             'sphere' => sphere,
@@ -32,7 +32,7 @@ module Fog
       end
 
       class Mock
-        def query_objects(id, sphere, options={})
+        def query_objects(id, sphere, options = {})
           Fog::Mock.not_implemented
         end
       end

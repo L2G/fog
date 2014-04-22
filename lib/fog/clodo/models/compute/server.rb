@@ -40,7 +40,7 @@ module Fog
         attribute :vps_user_pass
         attribute :vps_vnc_pass
 
-        def initialize(attributes={})
+        def initialize(attributes = {})
           self.image_id   ||= attributes[:vps_os] ? attributes[:vps_os] : 666
           super attributes
         end

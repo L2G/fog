@@ -5,7 +5,7 @@ module Fog
       API_URL = 'https://api.stormondemand.com'
       API_VERSION = 'v1'
 
-      def initialize(options={})
+      def initialize(options = {})
         uri = URI.parse(options[:storm_on_demand_auth_url] ||= API_URL)
         @connection_options = options[:connection_options] || {}
         @host       = uri.host

@@ -18,7 +18,7 @@ module Fog
         attribute :unit_number
         attribute :server_id
 
-        def initialize(attributes={} )
+        def initialize(attributes = {} )
           # Assign server first to prevent race condition with persisted?
           self.server_id = attributes.delete(:server_id)
 

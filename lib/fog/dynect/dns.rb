@@ -30,7 +30,7 @@ module Fog
       class JobIncomplete < Error; end
 
       class Mock
-        def initialize(options={})
+        def initialize(options = {})
           @dynect_customer = options[:dynect_customer]
           @dynect_username = options[:dynect_username]
           @dynect_password = options[:dynect_password]
@@ -60,7 +60,7 @@ module Fog
       end
 
       class Real
-        def initialize(options={})
+        def initialize(options = {})
           @dynect_customer = options[:dynect_customer]
           @dynect_username = options[:dynect_username]
           @dynect_password = options[:dynect_password]

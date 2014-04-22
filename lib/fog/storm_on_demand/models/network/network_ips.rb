@@ -18,16 +18,16 @@ module Fog
           new(data)
         end
 
-        def all(options={})
+        def all(options = {})
           data = service.list_network_ips(options).body['items']
           load(data)
         end
 
-        def get_public_accounts(options={})
+        def get_public_accounts(options = {})
           service.list_ip_public_accounts(options).body['items']
         end
 
-        def all_public(options={})
+        def all_public(options = {})
           data = service.list_network_public_ips(options).body['items']
           load(data)
         end

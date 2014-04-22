@@ -3,7 +3,7 @@ module Fog
     class Linode
       class Real
 
-        def linode_config_list(linode_id, config_id=nil, options={})
+        def linode_config_list(linode_id, config_id = nil, options = {})
           if config_id
             options.merge!(:configid => config_id)
           end
@@ -17,7 +17,7 @@ module Fog
       end
 
       class Mock
-        def linode_config_list(linode_id, config_id=nil, options={})
+        def linode_config_list(linode_id, config_id = nil, options = {})
           response = Excon::Response.new
           response.status = 200
 

@@ -17,7 +17,7 @@ module Fog
         # * response<~Excon::Response>:
         #   * body<~Array>:
         # TODO: docs
-        def grid_ip_list(options={})
+        def grid_ip_list(options = {})
           request(
             :path     => 'grid/ip/list',
             :query    => options

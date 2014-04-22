@@ -14,7 +14,7 @@ module Fog
         # @param [#read] io The input object to read from.
         # @param [String] image_type Media image type. One of: iso, floppy.
         # @return [Media]
-        def create(name, io, image_type='iso')
+        def create(name, io, image_type = 'iso')
           requires :vdc
 
           response = service.post_upload_media(vdc.id, name, image_type, io.size)

@@ -6,7 +6,7 @@ module Fog
         # Disables an account.
         #
         # {CloudStack API Reference}[http://download.cloud.com/releases/2.2.0/api_2.2.4/global_admin/disableAccount.html]
-        def disable_account(options={})
+        def disable_account(options = {})
           options.merge!(
             'command' => 'disableAccount'
           )

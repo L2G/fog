@@ -12,7 +12,7 @@ module Fog
             @response = { 'volumeStatusSet' => [] }
           end
 
-          def start_element(name, attrs=[])
+          def start_element(name, attrs = [])
             super
             case name
             when 'actionsSet'

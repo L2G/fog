@@ -16,7 +16,7 @@ module Fog
         # ==== See Also
         # http://docs.amazonwebservices.com/amazonglacier/latest/dev/api-multipart-list-uploads.html
         #
-        def list_multipart_uploads(vault_name, options={})
+        def list_multipart_uploads(vault_name, options = {})
           account_id = options.delete('account_id') || '-'
           path = "/#{account_id}/vaults/#{Fog::AWS.escape(vault_name)}/multipart-uploads"
 

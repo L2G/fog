@@ -43,7 +43,7 @@ module Fog
           reload
         end
 
-        def destroy(async=true)
+        def destroy(async = true)
           requires :name, :zone
 
           data = service.delete_disk(name, zone_name)
@@ -60,7 +60,7 @@ module Fog
 
         # auto_delete can only be applied to disks created before instance creation.
         # auto_delete = true will automatically delete disk upon instance termination.
-        def get_object(writable=true, boot=false, device_name=nil, auto_delete=false)
+        def get_object(writable = true, boot = false, device_name = nil, auto_delete = false)
           mode = writable ? 'READ_WRITE' : 'READ_ONLY'
           value = {
             'autoDelete' => auto_delete,
@@ -73,7 +73,7 @@ module Fog
           return Hash[value]
         end
 
-        def get_as_boot_disk(writable=true, auto_delete=false)
+        def get_as_boot_disk(writable = true, auto_delete = false)
           get_object(writable, true, nil, auto_delete)
         end
 
@@ -95,7 +95,7 @@ module Fog
           self
         end
 
-        def create_snapshot(snapshot_name, snapshot_description="")
+        def create_snapshot(snapshot_name, snapshot_description = "")
           requires :name, :zone
 
           if snapshot_name.nil? or snapshot_name.empty?

@@ -7,7 +7,7 @@ module Fog
       class Pcis < Fog::Collection
         model Fog::Compute::XenServer::Pci
 
-        def all(options={})
+        def all(options = {})
           data = service.get_records 'PCI'
           load(data)
         end

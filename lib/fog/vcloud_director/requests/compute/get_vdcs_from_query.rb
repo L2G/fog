@@ -53,7 +53,7 @@ module Fog
         #
         # @see http://pubs.vmware.com/vcd-55/topic/com.vmware.vcloud.api.reference.doc_55/doc/operations/GET-RightsFromQuery-query.html
         # @since vCloud API version 1.5
-        def get_vdcs_from_query(options={})
+        def get_vdcs_from_query(options = {})
           query = []
           query << "sortAsc=#{options[:sortAsc]}" if options[:sortAsc]
           query << "sortDesc=#{options[:sortDesc]}" if options[:sortDesc]

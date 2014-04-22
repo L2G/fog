@@ -23,7 +23,7 @@ module Fog
           super
         end
 
-        def save(force=false)
+        def save(force = false)
           requires :volume_id, :name, :description
           data = service.create_volume_snapshot(volume_id, name, description, force)
           merge_attributes(data.body['snapshot'])

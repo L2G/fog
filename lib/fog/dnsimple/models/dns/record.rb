@@ -20,7 +20,7 @@ module Fog
         attribute :created_at
         attribute :updated_at
 
-        def initialize(attributes={})
+        def initialize(attributes = {})
           super
         end
 

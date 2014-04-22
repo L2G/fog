@@ -27,7 +27,7 @@ module Fog
           true
         end
 
-        def parameters(filters={})
+        def parameters(filters = {})
           service.parameters({:group => self}.merge(filters))
         end
       end

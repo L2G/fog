@@ -16,7 +16,7 @@ module Fog
         # ==== See Also
         # http://docs.amazonwebservices.com/elasticbeanstalk/latest/api/API_DescribeApplications.html
         #
-        def describe_applications(application_names=[])
+        def describe_applications(application_names = [])
           options = {}
           options.merge!(AWS.indexed_param('ApplicationNames.member.%d', [*application_names]))
           request({

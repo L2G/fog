@@ -30,13 +30,13 @@ module Fog
           @data = nil
         end
 
-        def self.reset_data(keys=data.keys)
+        def self.reset_data(keys = data.keys)
           for key in [*keys]
             data.delete(key)
           end
         end
 
-        def initialize(options={})
+        def initialize(options = {})
           @storm_on_demand_username = options[:storm_on_demand_username]
         end
 

@@ -8,7 +8,7 @@ module Fog
         attribute :message
         attribute :subject
 
-        def initialize(attributes={})
+        def initialize(attributes = {})
           super
         end
 

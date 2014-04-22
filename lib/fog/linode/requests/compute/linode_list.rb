@@ -12,7 +12,7 @@ module Fog
         # * response<~Excon::Response>:
         #   * body<~Array>:
         # TODO: docs
-        def linode_list(linode_id=nil)
+        def linode_list(linode_id = nil)
           options = {}
           if linode_id
             options.merge!(:linodeId => linode_id)
@@ -27,7 +27,7 @@ module Fog
       end
 
       class Mock
-        def linode_list(linode_id=nil)
+        def linode_list(linode_id = nil)
           body = {
             "ERRORARRAY" => [],
             "ACTION" => "linode.list"

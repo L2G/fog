@@ -26,7 +26,7 @@ module Fog
         #
         # ==== Returns
         # * datapoints<~Fog::Rackspace::Monitoring::Datapoints>:
-        def fetch(options={})
+        def fetch(options = {})
           requires :metric
           options[:from] ||= (Time.now.to_i * 1000) - (3600 * 1000)
           options[:to] ||= Time.now.to_i * 1000

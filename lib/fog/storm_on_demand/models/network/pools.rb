@@ -18,7 +18,7 @@ module Fog
           new(p)
         end
 
-        def get_assignments(options={})
+        def get_assignments(options = {})
           service.get_assignments(options).body['items']
         end
 

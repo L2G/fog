@@ -10,7 +10,7 @@ module Fog
 
       class Mock
 
-        def initialize(options={})
+        def initialize(options = {})
           Fog::Mock.not_implemented
         end
 
@@ -18,7 +18,7 @@ module Fog
 
       class Real
 
-        def initialize(options={})
+        def initialize(options = {})
           begin
             require 'fission'
           rescue LoadError => e

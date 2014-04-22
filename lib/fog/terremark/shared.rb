@@ -209,7 +209,7 @@ module Fog
           200
         end
 
-        def initialize(options={})
+        def initialize(options = {})
           self.class.instance_eval '
             def self.data
               @data ||= Hash.new do |hash, key|

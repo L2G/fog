@@ -18,7 +18,7 @@ module Fog
         # ==== See Also
         # http://docs.amazonwebservices.com/amazonglacier/latest/dev/api-job-output-get.html
         #
-        def get_job_output(vault_name, job_id, options={})
+        def get_job_output(vault_name, job_id, options = {})
           account_id = options.delete('account_id') || '-'
           path = "/#{account_id}/vaults/#{Fog::AWS.escape(vault_name)}/jobs/#{job_id}/output"
           headers = {}

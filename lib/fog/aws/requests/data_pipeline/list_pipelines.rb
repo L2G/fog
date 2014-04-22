@@ -11,7 +11,7 @@ module Fog
         # ==== Returns
         # * response<~Excon::Response>:
         #   * body<~Hash>:
-        def list_pipelines(options={})
+        def list_pipelines(options = {})
           params = {}
           params['Marker'] = options[:marker] if options[:marker]
 
@@ -26,7 +26,7 @@ module Fog
       end
 
       class Mock
-        def list_pipelines(options={})
+        def list_pipelines(options = {})
           Fog::Mock.not_implemented
         end
       end

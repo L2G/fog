@@ -3,7 +3,7 @@ module Fog
     class StormOnDemand
       class Real
 
-        def server_history(options={})
+        def server_history(options = {})
           request(
             :path => '/Storm/Server/history',
             :body => Fog::JSON.encode(:params => options)

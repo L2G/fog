@@ -8,7 +8,7 @@ module Fog
       class Applications < Fog::Collection
         model Fog::AWS::ElasticBeanstalk::Application
 
-        def all(application_names=[])
+        def all(application_names = [])
           data = service.describe_applications(application_names).body['DescribeApplicationsResult']['Applications']
           load(data) # data is an array of attribute hashes
         end

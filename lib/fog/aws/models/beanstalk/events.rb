@@ -8,7 +8,7 @@ module Fog
       class Events < Fog::Collection
         model Fog::AWS::ElasticBeanstalk::Event
 
-        def all(options={})
+        def all(options = {})
           data = service.describe_events(options).body['DescribeEventsResult']['Events']
           load(data) # data is an array of attribute hashes
         end

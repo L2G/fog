@@ -6,7 +6,7 @@ module Fog
         # Updates a disk offering.
         #
         # {CloudStack API Reference}[http://cloudstack.apache.org/docs/api/apidocs-4.0.0/root_admin/deleteDiskOffering.html]
-        def delete_disk_offering(options={})
+        def delete_disk_offering(options = {})
           options.merge!(
             'command' => 'deleteDiskOffering'
           )
@@ -17,7 +17,7 @@ module Fog
 
       class Mock
 
-        def delete_disk_offering(options={})
+        def delete_disk_offering(options = {})
           disk_offering_id = options['id']
           data[:disk_offerings].delete(disk_offering_id) if data[:disk_offerings][disk_offering_id]
 

@@ -17,7 +17,7 @@ module Fog
         # ==== See Also
         # http://docs.amazonwebservices.com/elasticbeanstalk/latest/api/API_DescribeEnvironmentResources.html
         #
-        def describe_environment_resources(options={})
+        def describe_environment_resources(options = {})
           request({
                       'Operation'    => 'DescribeEnvironmentResources',
                       :parser     => Fog::Parsers::AWS::ElasticBeanstalk::DescribeEnvironmentResources.new

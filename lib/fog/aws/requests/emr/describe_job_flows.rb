@@ -79,7 +79,7 @@ module Fog
         #         * 'Key'<~String> - The unique identifier of a key value pair
         #         * 'Value'<~String> - The value part of the identified key
         #     * 'Name'<~String> - The name of the job flow step
-        def describe_job_flows(options={})
+        def describe_job_flows(options = {})
 
           if job_ids = options.delete('JobFlowIds')
             options.merge!(Fog::AWS.serialize_keys('JobFlowIds', job_ids))
@@ -98,7 +98,7 @@ module Fog
 
       class Mock
 
-        def describe_job_flows(db_name, options={})
+        def describe_job_flows(db_name, options = {})
           Fog::Mock.not_implemented
         end
 

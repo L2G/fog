@@ -12,7 +12,7 @@ module Fog
         # * response<~Excon::Response>:
         #   * body<~Array>:
         # TODO: docs
-        def avail_kernels(kernel_id=nil)
+        def avail_kernels(kernel_id = nil)
           options = {}
           if kernel_id
             options.merge!(:kernelId => kernel_id)
@@ -27,7 +27,7 @@ module Fog
       end
 
       class Mock
-        def avail_kernels(kernel_id=nil)
+        def avail_kernels(kernel_id = nil)
           response = Excon::Response.new
           response.status = 200
 

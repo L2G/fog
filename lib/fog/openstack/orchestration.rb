@@ -39,7 +39,7 @@ module Fog
           @data = nil
         end
 
-        def initialize(options={})
+        def initialize(options = {})
           @openstack_username = options[:openstack_username]
           @openstack_auth_uri = URI.parse(options[:openstack_auth_url])
 
@@ -81,7 +81,7 @@ module Fog
         attr_reader :current_user
         attr_reader :current_tenant
 
-        def initialize(options={})
+        def initialize(options = {})
           @openstack_auth_token = options[:openstack_auth_token]
           @auth_token        = options[:openstack_auth_token]
           @openstack_identity_public_endpoint = options[:openstack_identity_endpoint]

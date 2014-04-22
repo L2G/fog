@@ -3,7 +3,7 @@ module Fog
     class Monitoring
       class Real
 
-        def list_overview(options={})
+        def list_overview(options = {})
           request(
             :expects  => [200, 203],
             :method   => 'GET',
@@ -14,7 +14,7 @@ module Fog
       end
 
       class Mock
-        def list_overview(options={})
+        def list_overview(options = {})
 
           alarm_id   = Fog::Mock.random_letters(10)
           check_id   = Fog::Mock.random_letters(10)

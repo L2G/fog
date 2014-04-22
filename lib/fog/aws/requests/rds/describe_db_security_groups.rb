@@ -15,7 +15,7 @@ module Fog
         # ==== Returns
         # * response<~Excon::Response>:
         #   * body<~Hash>:
-        def describe_db_security_groups(opts={})
+        def describe_db_security_groups(opts = {})
           opts = {'DBSecurityGroupName' => opts} if opts.is_a?(String)
 
           request({
@@ -28,7 +28,7 @@ module Fog
 
       class Mock
 
-        def describe_db_security_groups(opts={})
+        def describe_db_security_groups(opts = {})
           response = Excon::Response.new
           sec_group_set = []
           if opts.is_a?(String)

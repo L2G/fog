@@ -17,7 +17,7 @@ module Fog
         # ==== See Also
         # http://docs.amazonwebservices.com/amazonglacier/latest/dev/api-vaults-get.html
         #
-        def list_vaults(options={})
+        def list_vaults(options = {})
           account_id = options.delete('account_id') || '-'
           path = "/#{account_id}/vaults"
           request(

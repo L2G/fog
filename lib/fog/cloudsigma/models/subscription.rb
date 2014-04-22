@@ -34,7 +34,7 @@ module Fog
           merge_attributes(new_attributes)
         end
 
-        def extend(period=nil, end_time=nil)
+        def extend(period = nil, end_time = nil)
           requires :identity
           data = {}
           if period

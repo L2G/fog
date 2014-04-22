@@ -21,7 +21,7 @@ module Fog
       #       * 'condition'<~String> - Condition for the node. Valid values are ['ENABLED', 'DISABLED']
       #       * 'status'<~String> - Status for the node
       class Real
-        def create_load_balancer_node(load_balancer_id, address, port, options={})
+        def create_load_balancer_node(load_balancer_id, address, port, options = {})
           data = {
             'nodes' => [
                 {
@@ -44,7 +44,7 @@ module Fog
         end
       end
       class Mock
-        def create_load_balancer_node(load_balancer_id, address, port, options={})
+        def create_load_balancer_node(load_balancer_id, address, port, options = {})
           response = Excon::Response.new
           if get_load_balancer(load_balancer_id)
             response.status = 202

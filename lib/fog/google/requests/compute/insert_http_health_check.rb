@@ -4,7 +4,7 @@ module Fog
 
       class Mock
 
-        def insert_http_health_check(name, options={})
+        def insert_http_health_check(name, options = {})
           Fog::Mock.not_implemented
         end
 
@@ -12,7 +12,7 @@ module Fog
 
       class Real
 
-        def insert_http_health_check(name, opts={})
+        def insert_http_health_check(name, opts = {})
           api_method = @compute.http_health_checks.insert
           parameters = {
             'project' => @project

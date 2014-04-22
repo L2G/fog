@@ -29,7 +29,7 @@ module Fog
         #       * 'availabilityZone'<~String> - Availability zone i.e. "nova"
         #       * attachments<~Array>: Array of hashes of attachments
         #       * metadata<~Hash>: Hash of metadata for the volume
-        def create_volume(name, description, size, options={})
+        def create_volume(name, description, size, options = {})
           data = {
             'volume' => {
               'display_name'        => name,
@@ -55,7 +55,7 @@ module Fog
 
       class Mock  # :nodoc:all
 
-        def create_volume(name, description, size, options={})
+        def create_volume(name, description, size, options = {})
           if options['snapshotId'] && options['imageRef']
             raise Fog::Errors::BadRequest.new("Snapshot and image cannot be specified together.")
           else

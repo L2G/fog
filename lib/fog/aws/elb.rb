@@ -80,7 +80,7 @@ module Fog
           @data = nil
         end
 
-        def initialize(options={})
+        def initialize(options = {})
           @use_iam_profile = options[:use_iam_profile]
           setup_credentials(options)
 
@@ -124,7 +124,7 @@ module Fog
         #
         # ==== Returns
         # * ELB object with connection to AWS.
-        def initialize(options={})
+        def initialize(options = {})
           require 'fog/core/parser'
 
           @use_iam_profile = options[:use_iam_profile]
@@ -148,7 +148,7 @@ module Fog
 
         private
 
-        def setup_credentials(options={})
+        def setup_credentials(options = {})
           @aws_access_key_id      = options[:aws_access_key_id]
           @aws_secret_access_key  = options[:aws_secret_access_key]
           @aws_session_token      = options[:aws_session_token]

@@ -13,7 +13,7 @@ module Fog
         # * options<~Hash>:
         #   * 'volume_id'<~String> - UUId of the volume that will be overwritten by the backup data
         #
-        def restore_volume_backup(backup_id, options={})
+        def restore_volume_backup(backup_id, options = {})
           data = {
             'restore' => {
               'backup_id' => backup_id
@@ -37,7 +37,7 @@ module Fog
 
       class Mock # :nodoc:all
 
-        def restore_volume_backup(backup_id, options={})
+        def restore_volume_backup(backup_id, options = {})
           volume_id = options['volume_id']
 
           response = Excon::Response.new

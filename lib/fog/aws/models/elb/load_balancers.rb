@@ -6,7 +6,7 @@ module Fog
         model Fog::AWS::ELB::LoadBalancer
 
         # Creates a new load balancer
-        def initialize(attributes={})
+        def initialize(attributes = {})
           super
         end
 

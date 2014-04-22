@@ -3,7 +3,7 @@ module Fog
     class Linode
       class Real
 
-        def avail_stackscripts(options={})
+        def avail_stackscripts(options = {})
           result = request(
             :expects  => 200,
             :method   => 'GET',
@@ -16,7 +16,7 @@ module Fog
       end
 
       class Mock
-        def avail_stackscripts(stackscript_id=nil)
+        def avail_stackscripts(stackscript_id = nil)
           response = Excon::Response.new
           response.status = 200
 

@@ -64,7 +64,7 @@ module Fog
           response
         end
 
-        def list_request(path, override_params={})
+        def list_request(path, override_params = {})
           default_params = {:method => 'GET', :expects => 200, :query => {:limit => 0}}
           override_params[:path] = path
           params = default_params.merge(override_params)
@@ -72,7 +72,7 @@ module Fog
           request(params)
         end
 
-        def get_request(path, override_params={})
+        def get_request(path, override_params = {})
           default_params = {:method => 'GET', :expects => 200}
           override_params[:path] = path
           params = default_params.merge(override_params)
@@ -80,7 +80,7 @@ module Fog
           request(params)
         end
 
-        def delete_request(path, override_params={})
+        def delete_request(path, override_params = {})
           default_params = {:method => 'DELETE', :expects => 204}
           override_params[:path] = path
           params = default_params.merge(override_params)
@@ -88,7 +88,7 @@ module Fog
           request(params)
         end
 
-        def create_request(path, data, override_params={})
+        def create_request(path, data, override_params = {})
           default_params = {:method => 'POST', :expects => [200, 201, 202]}
 
           override_params[:path] = path
@@ -98,7 +98,7 @@ module Fog
           request(params)
         end
 
-        def update_request(path, data, override_params={})
+        def update_request(path, data, override_params = {})
           default_params = {:method => 'PUT', :expects => [200, 202]}
 
           override_params[:path] = path
@@ -116,7 +116,7 @@ module Fog
 
         end
 
-        def mock_get(obj_or_collection, status, key=nil)
+        def mock_get(obj_or_collection, status, key = nil)
           data = self.data[obj_or_collection]
           if key
             data = data[key]
@@ -166,7 +166,7 @@ module Fog
           Excon::Response.new(:body => '', :status => status)
         end
 
-        def mock_create(collection, status, data, key, defaults={}, &clean_before_store)
+        def mock_create(collection, status, data, key, defaults = {}, &clean_before_store)
           data_with_defaults = data.merge(defaults) {|k, oldval, newval| oldval == nil ? newval : oldval}
 
           if clean_before_store

@@ -15,7 +15,7 @@ module Fog
         attribute :PublicIpAddress
         attribute :public_ip_address_id
 
-        def destroy(delete_public_ip=true)
+        def destroy(delete_public_ip = true)
           service.delete_internet_service(self.Id)
           service.delete_public_ip(self.PublicIpAddress["Id"]) if delete_public_ip
         true

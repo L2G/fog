@@ -64,7 +64,7 @@ module Fog
       class Mock
         include Utils
 
-        def initialize(options={})
+        def initialize(options = {})
           setup_credentials(options)
         end
 
@@ -77,7 +77,7 @@ module Fog
       class Real
         include Utils
 
-        def initialize(options={})
+        def initialize(options = {})
           setup_credentials(options)
           @connection_options = options[:connection_options] || {}
           @hmac               = Fog::HMAC.new('sha1', @storage_secret_decoded)

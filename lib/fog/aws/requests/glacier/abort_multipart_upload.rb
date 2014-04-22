@@ -16,7 +16,7 @@ module Fog
         # ==== See Also
         # http://docs.amazonwebservices.com/amazonglacier/latest/dev/api-multipart-abort-upload.html
         #
-        def abort_multipart_upload(vault_name, upload_id, options={})
+        def abort_multipart_upload(vault_name, upload_id, options = {})
           account_id = options['account_id'] || '-'
           path = "/#{account_id}/vaults/#{Fog::AWS.escape(vault_name)}/multipart-uploads/#{upload_id}"
 

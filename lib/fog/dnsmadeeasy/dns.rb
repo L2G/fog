@@ -44,7 +44,7 @@ module Fog
           @data = nil
         end
 
-        def initialize(options={})
+        def initialize(options = {})
           @dnsmadeeasy_api_key = options[:dnsmadeeasy_api_key]
           @dnsmadeeasy_secret_key = options[:dnsmadeeasy_secret_key]
         end
@@ -77,7 +77,7 @@ module Fog
         #
         # ==== Returns
         # * dns object with connection to aws.
-        def initialize(options={})
+        def initialize(options = {})
           require 'fog/core/parser'
 
           @dnsmadeeasy_api_key = options[:dnsmadeeasy_api_key]

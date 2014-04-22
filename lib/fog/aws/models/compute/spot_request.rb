@@ -38,7 +38,7 @@ module Fog
 
         attr_writer   :iam_instance_profile_name, :iam_instance_profile_arn
 
-        def initialize(attributes={})
+        def initialize(attributes = {})
           self.groups ||= ["default"]
           self.flavor_id ||= 't1.micro'
           self.image_id   ||= begin

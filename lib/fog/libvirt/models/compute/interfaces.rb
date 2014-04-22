@@ -9,7 +9,7 @@ module Fog
 
         model Fog::Compute::Libvirt::Interface
 
-        def all(filter={})
+        def all(filter = {})
           load(service.list_interfaces(filter))
         end
 

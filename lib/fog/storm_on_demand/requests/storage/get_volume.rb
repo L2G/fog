@@ -3,7 +3,7 @@ module Fog
     class StormOnDemand
       class Real
 
-        def get_volume(options={})
+        def get_volume(options = {})
           request(
             :path => '/Storage/Block/Volume/details',
             :body => Fog::JSON.encode(:params => options)

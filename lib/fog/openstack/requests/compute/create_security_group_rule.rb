@@ -3,7 +3,7 @@ module Fog
     class OpenStack
       class Real
 
-        def create_security_group_rule(parent_group_id, ip_protocol, from_port, to_port, cidr, group_id=nil)
+        def create_security_group_rule(parent_group_id, ip_protocol, from_port, to_port, cidr, group_id = nil)
           data = {
             'security_group_rule' => {
               'parent_group_id' => parent_group_id,
@@ -26,7 +26,7 @@ module Fog
       end
 
       class Mock
-        def create_security_group_rule(parent_group_id, ip_protocol, from_port, to_port, cidr, group_id=nil)
+        def create_security_group_rule(parent_group_id, ip_protocol, from_port, to_port, cidr, group_id = nil)
           parent_group_id = parent_group_id.to_i
           response = Excon::Response.new
           response.status = 200

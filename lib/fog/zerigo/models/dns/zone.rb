@@ -25,7 +25,7 @@ module Fog
         # <tag-list>one two</tag-list>
         # <hosts-count>1</hosts-count>
 
-        def initialize(attributes={})
+        def initialize(attributes = {})
           self.type ||= 'pri_sec'
           super
         end

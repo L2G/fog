@@ -19,7 +19,7 @@ module Fog
         attribute :strategy
         attribute :vip
 
-        def initialize(attributes={})
+        def initialize(attributes = {})
           super
         end
 

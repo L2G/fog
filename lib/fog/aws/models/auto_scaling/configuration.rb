@@ -23,7 +23,7 @@ module Fog
         attribute :spot_price,            :aliases => 'SpotPrice'
 
 
-        def initialize(attributes={})
+        def initialize(attributes = {})
           #attributes[:availability_zones] ||= %w(us-east-1a us-east-1b us-east-1c us-east-1d)
           #attributes['ListenerDescriptions'] ||= [{
           #  'Listener' => {'LoadBalancerPort' => 80, 'InstancePort' => 80, 'Protocol' => 'http'},

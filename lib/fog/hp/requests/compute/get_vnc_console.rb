@@ -15,7 +15,7 @@ module Fog
         #       * 'type'<~String> - Type of the vnc console
         #       * 'url'<~String> - Url to access a VNC console of a server from a browser
         #
-        def get_vnc_console(server_id, type='novnc')
+        def get_vnc_console(server_id, type = 'novnc')
           body = { 'os-getVNCConsole' => { 'type' => type }}
           server_action(server_id, body, 200)
         end
@@ -24,7 +24,7 @@ module Fog
 
       class Mock
 
-        def get_vnc_console(server_id, type='novnc')
+        def get_vnc_console(server_id, type = 'novnc')
           output = {
               'type' => type,
               'url'  => 'https://region.compute.hpcloud.com/vnc_auto.html?token=123ABX234'

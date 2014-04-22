@@ -3,7 +3,7 @@ module Fog
     class Linode
       class Real
 
-        def linode_disk_list(linode_id, disk_id=nil)
+        def linode_disk_list(linode_id, disk_id = nil)
           options = {}
           if disk_id
             options.merge!(:diskId => disk_id)
@@ -18,7 +18,7 @@ module Fog
       end
 
       class Mock
-        def linode_disk_list(linode_id, disk_id=nil)
+        def linode_disk_list(linode_id, disk_id = nil)
           response = Excon::Response.new
           response.status = 200
           body = {

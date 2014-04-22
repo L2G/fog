@@ -131,7 +131,7 @@ module Fog
           Fog::Mock.random_hex(16)
         end
 
-        def initialize(options={})
+        def initialize(options = {})
           @use_iam_profile = options[:use_iam_profile]
           @aws_credentials_expire_at = Time::now + 20
           setup_credentials(options)
@@ -170,7 +170,7 @@ module Fog
         #
         # ==== Returns
         # * IAM object with connection to AWS.
-        def initialize(options={})
+        def initialize(options = {})
           require 'fog/core/parser'
 
           @use_iam_profile = options[:use_iam_profile]

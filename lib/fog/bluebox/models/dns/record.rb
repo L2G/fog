@@ -17,7 +17,7 @@ module Fog
         attribute :type
         attribute :value,       :aliases => 'content'
 
-        def initialize(attributes={})
+        def initialize(attributes = {})
           super
         end
 

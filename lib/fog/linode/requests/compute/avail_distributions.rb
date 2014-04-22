@@ -12,7 +12,7 @@ module Fog
         # * response<~Excon::Response>:
         #   * body<~Array>:
         # TODO: docs
-        def avail_distributions(distribution_id=nil)
+        def avail_distributions(distribution_id = nil)
           options = {}
           if distribution_id
             options.merge!(:distributionId => distribution_id)
@@ -27,7 +27,7 @@ module Fog
       end
 
       class Mock
-        def avail_distributions(distribution_id=nil)
+        def avail_distributions(distribution_id = nil)
           response = Excon::Response.new
           response.status = 200
 

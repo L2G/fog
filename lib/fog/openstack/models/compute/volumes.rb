@@ -8,7 +8,7 @@ module Fog
       class Volumes < Fog::Collection
         model Fog::Compute::OpenStack::Volume
 
-        def all(detailed=true)
+        def all(detailed = true)
           load(service.list_volumes(detailed).body['volumes'])
         end
 

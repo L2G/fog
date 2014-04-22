@@ -63,7 +63,7 @@ module Fog
           machine_type = flavor_id
         end
 
-        def destroy(async=true)
+        def destroy(async = true)
           requires :name, :zone
 
           data = service.delete_server(name, zone_name)

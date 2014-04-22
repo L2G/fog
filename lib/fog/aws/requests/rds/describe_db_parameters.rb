@@ -13,7 +13,7 @@ module Fog
         # ==== Returns
         # * response<~Excon::Response>:
         #   * body<~Hash>:
-        def describe_db_parameters(name, opts={})
+        def describe_db_parameters(name, opts = {})
           params = {}
           if opts[:marker]
             params['Marker'] = opts[:marker]
@@ -36,7 +36,7 @@ module Fog
 
       class Mock
 
-        def describe_db_parameters(name, opts={})
+        def describe_db_parameters(name, opts = {})
           Fog::Mock.not_implemented
         end
       end

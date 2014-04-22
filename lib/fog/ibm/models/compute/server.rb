@@ -48,7 +48,7 @@ module Fog
         attribute :volume_ids, :aliases => 'volumes'
         attribute :vlan_id, :aliases => 'vlanID'
 
-        def initialize(new_attributes={})
+        def initialize(new_attributes = {})
           super(new_attributes)
           self.name ||= 'fog-instance'
           self.image_id ||= '20010001'
@@ -100,7 +100,7 @@ module Fog
           true
         end
 
-        def allocate_ip(wait_for_ready=true)
+        def allocate_ip(wait_for_ready = true)
           requires :location_id
           new_ip = service.addresses.new(:location => location_id)
           new_ip.save
@@ -177,7 +177,7 @@ module Fog
 
         # Creates an image from the current instance
         # if name isn't passed then we'll take the current name and timestamp it
-        def to_image(opts={})
+        def to_image(opts = {})
          options = {
            :name => name + " as of " + Time.now.strftime("%Y-%m-%d %H:%M"),
            :description => ""

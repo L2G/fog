@@ -54,7 +54,7 @@ module Fog
 
         private
 
-        def add_route_association(routeTableId, subnetId, main=nil)
+        def add_route_association(routeTableId, subnetId, main = nil)
           response = {
               "routeTableAssociationId" => "rtbassoc-#{Fog::Mock.random_hex(8)}",
               "routeTableId" => routeTableId,

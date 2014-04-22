@@ -2,7 +2,7 @@ module Fog
   module Compute
     class Cloudstack
       class Real
-        def assign_virtual_machine(options={})
+        def assign_virtual_machine(options = {})
           options.merge!('command' => 'assignVirtualMachine')
 
           request(options)

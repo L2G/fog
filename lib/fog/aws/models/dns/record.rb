@@ -22,7 +22,7 @@ module Fog
         attribute :weight,        :aliases => ['Weight']
         attribute :set_identifier,:aliases => ['SetIdentifier']
 
-        def initialize(attributes={})
+        def initialize(attributes = {})
           super
         end
 

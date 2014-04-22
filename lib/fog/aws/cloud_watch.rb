@@ -50,7 +50,7 @@ module Fog
           @data = nil
         end
 
-        def initialize(options={})
+        def initialize(options = {})
           @aws_access_key_id = options[:aws_access_key_id]
 
           @region = options[:region] || 'us-east-1'
@@ -89,7 +89,7 @@ module Fog
         #
         # ==== Returns
         # * CloudWatch object with connection to AWS.
-        def initialize(options={})
+        def initialize(options = {})
           @use_iam_profile = options[:use_iam_profile]
           setup_credentials(options)
 

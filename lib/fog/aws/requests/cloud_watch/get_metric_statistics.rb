@@ -24,7 +24,7 @@ module Fog
         # ==== See Also
         # http://docs.amazonwebservices.com/AmazonCloudWatch/latest/APIReference/API_GetMetricStatistics.html
         #
-        def get_metric_statistics(options={})
+        def get_metric_statistics(options = {})
           %w{Statistics StartTime EndTime Period MetricName Namespace}.each do |required_parameter|
             raise ArgumentError, "Must provide #{required_parameter}" unless options.has_key?(required_parameter)
           end

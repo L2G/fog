@@ -83,7 +83,7 @@ module Fog
       end
 
       class Mock
-        def create_server(name, image_id, flavor_id, min_count, max_count, options={})
+        def create_server(name, image_id, flavor_id, min_count, max_count, options = {})
           server_id   = Fog::Rackspace::MockData.uuid
           public_ip4  = Fog::Rackspace::MockData.ipv4_address
           public_ip6  = Fog::Rackspace::MockData.ipv6_address

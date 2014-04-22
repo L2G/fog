@@ -32,12 +32,12 @@ module Fog
           nil
         end
 
-        def update(data=nil)
+        def update(data = nil)
           requires :parent
           service.update_metadata(collection_name, @parent.id, to_hash(data))
         end
 
-        def set(data=nil)
+        def set(data = nil)
           requires :parent
           service.set_metadata(collection_name, @parent.id, to_hash(data))
         end
@@ -47,7 +47,7 @@ module Fog
           super({ :parent => @parent }.merge!(attributes))
         end
 
-        def to_hash(data=nil)
+        def to_hash(data = nil)
           if data.nil?
             data = {}
             self.each do |meta|

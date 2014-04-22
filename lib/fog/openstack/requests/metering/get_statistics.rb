@@ -3,7 +3,7 @@ module Fog
     class OpenStack
       class Real
 
-        def get_statistics(meter_id, options={})
+        def get_statistics(meter_id, options = {})
 
           data = {
             'period' => options['period'],
@@ -32,7 +32,7 @@ module Fog
 
       class Mock
 
-        def get_statistics(meter_id, options={})
+        def get_statistics(meter_id, options = {})
           response = Excon::Response.new
           response.status = 200
           response.body = [{

@@ -3,7 +3,7 @@ module Fog
     class StormOnDemand
       class Real
 
-        def create_token(options={})
+        def create_token(options = {})
           request(
             :path => '/Account/Auth/token',
             :body => Fog::JSON.encode(:params => options)

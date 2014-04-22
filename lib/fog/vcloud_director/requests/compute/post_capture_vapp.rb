@@ -17,7 +17,7 @@ module Fog
         #
         # @see http://pubs.vmware.com/vcd-51/topic/com.vmware.vcloud.api.reference.doc_51/doc/operations/POST-CaptureVApp.html
         # @since vCloud API version 0.9
-        def post_capture_vapp(vdc_id, name, source_id, options={})
+        def post_capture_vapp(vdc_id, name, source_id, options = {})
           body = Nokogiri::XML::Builder.new do
             attrs = {
               :xmlns => 'http://www.vmware.com/vcloud/v1.5',

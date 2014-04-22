@@ -12,7 +12,7 @@ module Fog
         attribute :launch_configuration_name, :aliases => 'LaunchConfigurationName'
         attribute :life_cycle_state,          :aliases => 'LifecycleState'
 
-        def initialize(attributes={})
+        def initialize(attributes = {})
           super
         end
 

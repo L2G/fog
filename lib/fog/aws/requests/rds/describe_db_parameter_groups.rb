@@ -13,7 +13,7 @@ module Fog
         # ==== Returns
         # * response<~Excon::Response>:
         #   * body<~Hash>:
-        def describe_db_parameter_groups(name=nil, opts={})
+        def describe_db_parameter_groups(name = nil, opts = {})
           params = {}
           if opts[:marker]
             params['Marker'] = opts[:marker]
@@ -35,7 +35,7 @@ module Fog
 
       class Mock
 
-        def describe_db_parameter_groups(name=nil, opts={})
+        def describe_db_parameter_groups(name = nil, opts = {})
           response = Excon::Response.new
           parameter_set = []
           if name

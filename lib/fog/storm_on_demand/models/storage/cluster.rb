@@ -9,7 +9,7 @@ module Fog
         attribute :description
         attribute :zone
 
-        def initialize(attributes={})
+        def initialize(attributes = {})
           super
         end
 

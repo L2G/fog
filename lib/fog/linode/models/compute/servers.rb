@@ -18,7 +18,7 @@ module Fog
         end
 
         private
-        def servers(id=nil)
+        def servers(id = nil)
           service.linode_list(id).body['DATA'].map { |server| map_server server }
         end
 

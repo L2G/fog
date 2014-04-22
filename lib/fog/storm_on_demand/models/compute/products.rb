@@ -17,7 +17,7 @@ module Fog
           service.get_product_code(options).body
         end
 
-        def all(options={})
+        def all(options = {})
           service.list_products(options).body['items']
         end
 

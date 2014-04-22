@@ -40,7 +40,7 @@ module Fog
           merge_attributes(data)
         end
 
-        def destroy(async=true)
+        def destroy(async = true)
           requires :name
           operation = service.delete_http_health_check(name)
 

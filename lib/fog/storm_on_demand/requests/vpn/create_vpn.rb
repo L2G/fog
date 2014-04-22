@@ -3,7 +3,7 @@ module Fog
     class StormOnDemand
       class Real
 
-        def create_vpn(options={})
+        def create_vpn(options = {})
           request(
             :path => '/VPN/create',
             :body => Fog::JSON.encode(:params => options)

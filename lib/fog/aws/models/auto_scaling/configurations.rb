@@ -8,7 +8,7 @@ module Fog
         model Fog::AWS::AutoScaling::Configuration
 
         # Creates a new launch configuration
-        def initialize(attributes={})
+        def initialize(attributes = {})
           super
         end
 

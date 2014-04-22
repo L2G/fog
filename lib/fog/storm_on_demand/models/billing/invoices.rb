@@ -8,7 +8,7 @@ module Fog
       class Invoices < Fog::Collection
         model Fog::Billing::StormOnDemand::Invoice
 
-        def all(options={})
+        def all(options = {})
           invoices = service.list_invoices(options).body['items']
           load(invoices)
         end

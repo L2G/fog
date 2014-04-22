@@ -28,7 +28,7 @@ module Fog
         #       * 'availability_zone'<~String> - Availability zone i.e. "az1"
         #       * attachments<~Array>: Array of hashes of attachments
         #       * metadata<~Hash>: Hash of metadata for the volume
-        def update_volume(volume_id, options={})
+        def update_volume(volume_id, options = {})
           data = {
             'volume' => {}
           }
@@ -50,7 +50,7 @@ module Fog
 
       class Mock  # :nodoc:all
 
-        def update_volume(volume_id, options={})
+        def update_volume(volume_id, options = {})
           response = Excon::Response.new
           if volume = self.data[:volumes][volume_id]
             response.status = 200

@@ -20,7 +20,7 @@ module Fog
           model.save
         end
 
-        def all(options={})
+        def all(options = {})
           merge_attributes(options)
           security_group = self.security_group
           rules = security_group.ingress_rules.map{|r| r.merge("direction" => "ingress", "security_group_id" => security_group_id)}

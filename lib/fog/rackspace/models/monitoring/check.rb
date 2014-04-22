@@ -25,7 +25,7 @@ module Fog
            attributes[:entity] = obj.is_a?(String) ? Entity.new(:id => obj) : obj
         end
 
-        def params(options={})
+        def params(options = {})
           h = {
             'label'       => label,
             'metadata'    => metadata,

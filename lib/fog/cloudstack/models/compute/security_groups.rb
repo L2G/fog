@@ -8,7 +8,7 @@ module Fog
 
         model Fog::Compute::Cloudstack::SecurityGroup
 
-        def all(options={})
+        def all(options = {})
           data = service.list_security_groups(options)["listsecuritygroupsresponse"]["securitygroup"] || []
           load(data)
         end

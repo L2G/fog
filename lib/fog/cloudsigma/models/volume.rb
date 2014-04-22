@@ -59,7 +59,7 @@ module Fog
 
         alias_method :delete, :destroy
 
-        def clone(clone_params={})
+        def clone(clone_params = {})
           requires :identity
           response = service.clone_volume(identity, clone_params)
 

@@ -25,7 +25,7 @@ module Fog
         # ==== See Also
         # http://docs.amazonwebservices.com/IAM/latest/APIReference/API_ListRoleProfiles.html
         #
-        def list_role_policies(role_name,options={})
+        def list_role_policies(role_name,options = {})
           request({
             'Action'    => 'ListRolePolicies',
             'RoleName'  => role_name,

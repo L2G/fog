@@ -16,7 +16,7 @@ module Fog
         #     * 'default'<~Bool>: is default?
         #     * 'instanceIds'<~Array>: id's of instances using key (should be empty upon creation)
         #     * 'keyMaterial'<~String>: private key contents
-        def create_key(name, public_key=nil)
+        def create_key(name, public_key = nil)
           request(
             :method   => 'POST',
             :expects  => 200,
@@ -34,7 +34,7 @@ module Fog
 
         # SmartCloud returns the private key when create_key is called
         # We need to store both the private and public key for later use
-        def create_key(name, public_key=nil)
+        def create_key(name, public_key = nil)
           response = Excon::Response.new
           response.status = 200
           attributes  = {

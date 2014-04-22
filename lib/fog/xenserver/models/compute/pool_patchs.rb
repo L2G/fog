@@ -7,7 +7,7 @@ module Fog
       class PoolPatchs < Fog::Collection
         model Fog::Compute::XenServer::PoolPatch
 
-        def all(options={})
+        def all(options = {})
           data = service.get_records 'pool_patch'
           load(data)
         end

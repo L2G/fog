@@ -11,7 +11,7 @@ module Fog
         attribute :datacenter
         attribute :servertype
 
-        def initialize(attributes={} )
+        def initialize(attributes = {} )
           super attributes
         end
 

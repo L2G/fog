@@ -7,7 +7,7 @@ module Fog
       class Roles < Fog::Collection
         model Fog::Compute::XenServer::Role
 
-        def all(options={})
+        def all(options = {})
           data = service.get_records 'role'
           load(data)
         end

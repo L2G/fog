@@ -8,7 +8,7 @@ module Fog
       class Environments < Fog::Collection
         model Fog::AWS::ElasticBeanstalk::Environment
 
-        def all(options={})
+        def all(options = {})
           data = service.describe_environments(options).body['DescribeEnvironmentsResult']['Environments']
           load(data) # data is an array of attribute hashes
         end

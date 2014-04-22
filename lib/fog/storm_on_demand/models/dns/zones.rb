@@ -18,7 +18,7 @@ module Fog
           new(zone)
         end
 
-        def all(options={})
+        def all(options = {})
           zones = service.list_zones(options).body['items']
           load(zones)
         end

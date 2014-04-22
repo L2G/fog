@@ -39,7 +39,7 @@ module Fog
           @directory
         end
 
-        def copy(target_directory_key, target_file_key, options={})
+        def copy(target_directory_key, target_file_key, options = {})
           requires :directory, :key
           service.copy_object(directory.key, key, target_directory_key, target_file_key)
           target_directory = service.directories.new(:key => target_directory_key)

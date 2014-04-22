@@ -150,7 +150,7 @@ module Fog
           @data = nil
         end
 
-        def initialize(options={})
+        def initialize(options = {})
           # deprecate hp_account_id
           if options[:hp_account_id]
             Fog::Logger.deprecation(":hp_account_id is deprecated, please use :hp_access_key instead.")
@@ -176,7 +176,7 @@ module Fog
         include Utils
         attr_reader :credentials
 
-        def initialize(options={})
+        def initialize(options = {})
           # deprecate hp_account_id
           if options[:hp_account_id]
             Fog::Logger.deprecation(":hp_account_id is deprecated, please use :hp_access_key instead.")

@@ -7,7 +7,7 @@ module Fog
       class Vmpps < Fog::Collection
         model Fog::Compute::XenServer::Vmpp
 
-        def all(options={})
+        def all(options = {})
           data = service.get_records 'VMPP'
           load(data)
         end

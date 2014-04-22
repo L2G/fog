@@ -30,7 +30,7 @@ module Fog
         # ==== See Also
         # http://docs.aws.amazon.com/STS/latest/APIReference/API_GetFederationToken.html
 
-        def get_federation_token(name, policy, duration=43200)
+        def get_federation_token(name, policy, duration = 43200)
           request({
             'Action'          => 'GetFederationToken',
             'Name'            => name,
@@ -42,7 +42,7 @@ module Fog
         end
       end
       class Mock
-        def get_federation_token(name, policy, duration=43200)
+        def get_federation_token(name, policy, duration = 43200)
           Excon::Response.new.tap do |response|
             response.status = 200
             response.body = {

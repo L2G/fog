@@ -10,7 +10,7 @@ module Fog
       #   * 'name'<~String> - Name for the load balancer
       #   * 'algorithm'<~String> - Algorithm for the load balancer
       class Real
-        def update_load_balancer(load_balancer_id, options={})
+        def update_load_balancer(load_balancer_id, options = {})
           data = {}
           l_options = ['name', 'algorithm']
           l_options.select{|o| options[o]}.each do |key|
@@ -27,7 +27,7 @@ module Fog
 
       end
       class Mock
-        def update_load_balancer(load_balancer_id, options={})
+        def update_load_balancer(load_balancer_id, options = {})
           response = Excon::Response.new
           if lb = list_load_balancers.body['loadBalancers'].detect { |_| _['id'] == load_balancer_id }
 

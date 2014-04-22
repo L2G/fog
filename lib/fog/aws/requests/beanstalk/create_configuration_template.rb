@@ -29,7 +29,7 @@ module Fog
         # ==== See Also
         # http://docs.amazonwebservices.com/elasticbeanstalk/latest/api/API_CreateConfigurationTemplate.html
         #
-        def create_configuration_template(options={})
+        def create_configuration_template(options = {})
           if option_settings = options.delete('OptionSettings')
             options.merge!(AWS.indexed_param('OptionSettings.member.%d', [*option_settings]))
           end

@@ -37,7 +37,7 @@ module Fog
         # ==== See Also
         # http://docs.amazonwebservices.com/IAM/latest/APIReference/API_ListInstanceProfilesForRole.html
         #
-        def list_instance_profiles_for_role(role_name,options={})
+        def list_instance_profiles_for_role(role_name,options = {})
           request({
             'Action'    => 'ListInstanceProfilesForRole',
             'RoleName'  => role_name,

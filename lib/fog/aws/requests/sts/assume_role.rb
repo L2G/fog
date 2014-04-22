@@ -27,7 +27,7 @@ module Fog
         # http://docs.aws.amazon.com/STS/latest/APIReference/API_AssumeRole.html
         #
 
-        def assume_role(role_session_name, role_arn, external_id=nil, policy=nil, duration=3600)
+        def assume_role(role_session_name, role_arn, external_id = nil, policy = nil, duration = 3600)
           request({
             'Action'          => 'AssumeRole',
             'RoleSessionName' => role_session_name,

@@ -23,7 +23,7 @@ module Fog
         # http://docs.amazonwebservices.com/AmazonCloudWatch/latest/APIReference/API_DescribeAlarms.html
         #
 
-        def describe_alarms(options={})
+        def describe_alarms(options = {})
           if alarm_names = options.delete('AlarmNames')
             options.merge!(AWS.indexed_param('AlarmNames.member.%d', [*alarm_names]))
           end
@@ -35,7 +35,7 @@ module Fog
       end
 
       class Mock
-        def describe_alarms(options={})
+        def describe_alarms(options = {})
           results = { 'MetricAlarms' => [] }
           data[:metric_alarms].each do |alarm_name, alarm_data|
             results['MetricAlarms'] << {

@@ -57,7 +57,7 @@ module Fog
 
       class Mock
 
-        def initialize(options={})
+        def initialize(options = {})
           Fog::Mock.not_implemented
         end
 
@@ -65,7 +65,7 @@ module Fog
 
       class Real
         include Fog::AWS::CredentialFetcher::ConnectionMethods
-        def initialize(options={})
+        def initialize(options = {})
           require 'fog/core/parser'
 
           @use_iam_profile = options[:use_iam_profile]

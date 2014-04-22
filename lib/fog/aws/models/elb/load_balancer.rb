@@ -19,7 +19,7 @@ module Fog
         attribute :scheme,                :aliases => 'Scheme'
         attribute :vpc_id,                :aliases => 'VPCId'
 
-        def initialize(attributes={})
+        def initialize(attributes = {})
           if attributes[:subnet_ids] ||= attributes['Subnets']
             attributes[:availability_zones] ||= attributes['AvailabilityZones']
           else

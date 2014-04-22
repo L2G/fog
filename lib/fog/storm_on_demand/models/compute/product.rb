@@ -19,7 +19,7 @@ module Fog
         attribute :related_product
         attribute :series
 
-        def initialize(attributes={})
+        def initialize(attributes = {})
           super
         end
 

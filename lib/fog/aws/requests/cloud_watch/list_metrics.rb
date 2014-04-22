@@ -20,7 +20,7 @@ module Fog
         # ==== See Also
         # http://docs.amazonwebservices.com/AmazonCloudWatch/latest/APIReference/API_ListMetrics.html
         #
-        def list_metrics(options={})
+        def list_metrics(options = {})
           if dimensions = options.delete('Dimensions')
             options.merge!(AWS.indexed_param('Dimensions.member.%d.Name', dimensions.collect {|dimension| dimension['Name']}))
             options.merge!(AWS.indexed_param('Dimensions.member.%d.Value', dimensions.collect {|dimension| dimension['Value']}))
@@ -35,7 +35,7 @@ module Fog
       end
 
       class Mock
-        def list_metrics(options={})
+        def list_metrics(options = {})
           body = case options["NextToken"]
                  when nil
                    { "ListMetricsResult" => {

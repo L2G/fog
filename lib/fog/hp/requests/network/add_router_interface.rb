@@ -15,7 +15,7 @@ module Fog
         #   * body<~Hash>:
         #     * 'subnet_id'<~String>: - UUId for the subnet
         #     * 'port_id'<~String>: - UUId for the port
-        def add_router_interface(router_id, subnet_id=nil, port_id=nil, options = {})
+        def add_router_interface(router_id, subnet_id = nil, port_id = nil, options = {})
           # Either a subnet or a port can be passed, not both
           if (subnet_id && port_id) || (subnet_id.nil? && port_id.nil?)
             raise ArgumentError.new('Either a subnet or a port can be passed, not both')
@@ -36,7 +36,7 @@ module Fog
       end
 
       class Mock
-        def add_router_interface(router_id, subnet_id=nil, port_id=nil, options = {})
+        def add_router_interface(router_id, subnet_id = nil, port_id = nil, options = {})
           response = Excon::Response.new
           if list_routers.body['routers'].detect {|_| _['id'] == router_id}
             # Either a subnet or a port can be passed, not both

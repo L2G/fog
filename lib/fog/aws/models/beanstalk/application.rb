@@ -12,7 +12,7 @@ module Fog
         attribute :description, :aliases => 'Description'
         attribute :version_names, :aliases => 'Versions'
 
-        def initialize(attributes={})
+        def initialize(attributes = {})
           super
         end
 

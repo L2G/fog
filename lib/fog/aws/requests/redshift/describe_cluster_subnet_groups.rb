@@ -22,7 +22,7 @@ module Fog
         #
         # ==== See Also
         # http://docs.aws.amazon.com/redshift/latest/APIReference/API_DescribeClusterSubnetGroups.html
-        def describe_cluster_subnet_groups(cluster_subnet_group_name=nil, marker=nil,max_records=nil)
+        def describe_cluster_subnet_groups(cluster_subnet_group_name = nil, marker = nil,max_records = nil)
           path = "/"
           params = {
             :idempotent => true,

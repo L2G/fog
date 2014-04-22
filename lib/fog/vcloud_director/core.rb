@@ -13,7 +13,7 @@ module Fog
         attr_reader :status_code
         attr_reader :vendor_specific_error_code
 
-        def self.slurp(error, service=nil)
+        def self.slurp(error, service = nil)
           major_error_code = nil
           message = nil
           minor_error_code = nil

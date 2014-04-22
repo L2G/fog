@@ -2,7 +2,7 @@ module Fog
   module Compute
     class Cloudstack
       class Real
-        def authorize_security_group_egress(options={})
+        def authorize_security_group_egress(options = {})
           options.merge!(
             'command' => 'authorizeSecurityGroupEgress'
           )
@@ -11,7 +11,7 @@ module Fog
         end
       end # Real
       class Mock
-        def authorize_security_group_egress(options={})
+        def authorize_security_group_egress(options = {})
           security_group_id      = options['securitygroupid']
           security_group_rule_id = Fog::Cloudstack.uuid
 

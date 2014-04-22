@@ -16,7 +16,7 @@ module Fog
         end
 
         # This method deliberately returns only a single page of results
-        def all(filters=filters)
+        def all(filters = filters)
           self.filters.merge!(filters)
 
           result = service.describe_db_log_files(rds_id, self.filters).body['DescribeDBLogFilesResult']
@@ -24,7 +24,7 @@ module Fog
           load(result['DBLogFiles'])
         end
 
-        def each(filters=filters)
+        def each(filters = filters)
           if block_given?
             loop do
               page = self.all(filters)
@@ -37,7 +37,7 @@ module Fog
           self
         end
 
-        def get(file_name=nil)
+        def get(file_name = nil)
           if file_name
             matches = self.select {|log_file| log_file.name.upcase == file_name.upcase}
             return matches.first unless matches.empty?

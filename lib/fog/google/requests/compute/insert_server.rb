@@ -24,7 +24,7 @@ module Fog
           disks
         end
 
-        def insert_server(server_name, zone_name, options={}, *deprecated_args)
+        def insert_server(server_name, zone_name, options = {}, *deprecated_args)
 
           # check that zone exists
           get_zone(zone_name)
@@ -117,7 +117,7 @@ module Fog
           { "items" => metadata.map {|k,v| {"key" => k, "value" => v}} }
         end
 
-        def insert_server(server_name, zone_name, options={}, *deprecated_args)
+        def insert_server(server_name, zone_name, options = {}, *deprecated_args)
           if deprecated_args.length > 0 or not options.is_a? Hash
             raise ArgumentError.new 'Too many parameters specified. This may be the cause of code written for an outdated'\
                 ' version of fog. Usage: server_name, zone_name, [options]'

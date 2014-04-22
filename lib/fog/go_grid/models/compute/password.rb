@@ -15,7 +15,7 @@ module Fog
         attribute :password
         attribute :server
 
-        def initialize(attributes={})
+        def initialize(attributes = {})
           super
         end
 

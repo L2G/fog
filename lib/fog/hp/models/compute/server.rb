@@ -56,7 +56,7 @@ module Fog
           end
         end
 
-        def metadata=(new_metadata={})
+        def metadata=(new_metadata = {})
           metas = []
           new_metadata.each_pair {|k,v| metas << {"key" => k, "value" => v} }
           metadata.load(metas)
@@ -71,7 +71,7 @@ module Fog
           service.get_console_output(id, num_lines)
         end
 
-        def vnc_console_url(type='novnc')
+        def vnc_console_url(type = 'novnc')
           requires :id
           if resp = service.get_vnc_console(id, type).body
             resp['console']['url']
@@ -200,7 +200,7 @@ module Fog
           true
         end
 
-        def rebuild(image_id, name, admin_pass=nil, metadata=nil, personality=nil)
+        def rebuild(image_id, name, admin_pass = nil, metadata = nil, personality = nil)
           requires :id
           service.rebuild_server(id, image_id, name, admin_pass, metadata, personality)
           true
@@ -224,7 +224,7 @@ module Fog
           true
         end
 
-        def create_image(name, metadata={})
+        def create_image(name, metadata = {})
           requires :id
           service.create_image(id, name, metadata)
         end

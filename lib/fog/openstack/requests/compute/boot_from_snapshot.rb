@@ -2,7 +2,7 @@ module Fog
   module Compute
     class OpenStack
       class Real
-        def boot_from_snapshot(name, image_ref, flavor_ref, options={})
+        def boot_from_snapshot(name, image_ref, flavor_ref, options = {})
           data = {
             'server' => {
               'flavorRef'  => flavor_ref,

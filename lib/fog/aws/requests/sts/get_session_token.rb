@@ -5,7 +5,7 @@ module Fog
 
         require 'fog/aws/parsers/sts/get_session_token'
 
-        def get_session_token(duration=43200)
+        def get_session_token(duration = 43200)
           request({
             'Action'          => 'GetSessionToken',
             'DurationSeconds' => duration,

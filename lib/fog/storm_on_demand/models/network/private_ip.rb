@@ -7,7 +7,7 @@ module Fog
       class PrivateIp < Fog::Model
         attribute :zones
 
-        def initialize(attributes={})
+        def initialize(attributes = {})
           super
         end
 

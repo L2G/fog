@@ -15,7 +15,7 @@ module Fog
         # ==== Returns
         # * response<~Excon::Response>:
         #   * body<~Hash>:
-        def revoke_db_security_group_ingress(name, opts={})
+        def revoke_db_security_group_ingress(name, opts = {})
           unless opts.key?('CIDRIP') || (opts.key?('EC2SecurityGroupName') && opts.key?('EC2SecurityGroupOwnerId'))
             raise ArgumentError, 'Must specify CIDRIP, or both EC2SecurityGroupName and EC2SecurityGroupOwnerId'
           end

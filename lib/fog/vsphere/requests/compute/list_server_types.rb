@@ -2,7 +2,7 @@ module Fog
   module Compute
     class Vsphere
       class Real
-        def list_server_types(filters={})
+        def list_server_types(filters = {})
           datacenter_name = filters[:datacenter]
           servertypes = raw_server_types(datacenter_name)
           if servertypes
@@ -15,7 +15,7 @@ module Fog
           #select{ | guestdesc | guestdesc.select{ | k, v | filter.has_key?(k) and filter[k] == v }==filter }
         end
 
-        def raw_server_types(datacenter_name, filter={})
+        def raw_server_types(datacenter_name, filter = {})
           datacenter = find_raw_datacenter(datacenter_name)
           environmentBrowser = datacenter.hostFolder.childEntity.grep(RbVmomi::VIM::ComputeResource).first.environmentBrowser
           if environmentBrowser

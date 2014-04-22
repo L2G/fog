@@ -43,7 +43,7 @@ module Shindo
      end
    end
 
-    def wait_for_server_state(service, server_id, state, error_states=nil)
+    def wait_for_server_state(service, server_id, state, error_states = nil)
       current_state = nil
       until current_state == state
         current_state = service.get_server(server_id).body['server']['status']

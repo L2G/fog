@@ -33,7 +33,7 @@ module Fog
         #   * body [Hash]:
         #
         # @see http://docs.amazonwebservices.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html
-        def create_db_instance(db_name, options={})
+        def create_db_instance(db_name, options = {})
 
           if security_groups = options.delete('DBSecurityGroups')
             options.merge!(Fog::AWS.indexed_param('DBSecurityGroups.member.%d', [*security_groups]))
@@ -54,7 +54,7 @@ module Fog
 
       class Mock
 
-        def create_db_instance(db_name, options={})
+        def create_db_instance(db_name, options = {})
           response = Excon::Response.new
           if self.data[:servers] and self.data[:servers][db_name]
             # I don't know how to raise an exception that contains the excon data

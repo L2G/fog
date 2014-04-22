@@ -12,7 +12,7 @@ module Fog
         # * response<~Excon::Response>:
         #   * body<~Array>:
         # TODO: docs
-        def stackscript_list(script_id=nil)
+        def stackscript_list(script_id = nil)
           options = {}
           if script_id
             options.merge!(:stackScriptID => script_id)

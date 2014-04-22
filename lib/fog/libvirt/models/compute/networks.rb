@@ -9,7 +9,7 @@ module Fog
 
         model Fog::Compute::Libvirt::Network
 
-        def all(filter={})
+        def all(filter = {})
           load(service.list_networks(filter))
         end
 

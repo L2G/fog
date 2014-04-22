@@ -14,7 +14,7 @@ module Fog
         # * response<~Excon::Response>:
         #   * body<~Array>:
         # TODO: docs
-        def linode_delete(linode_id, options={})
+        def linode_delete(linode_id, options = {})
           request(
             :expects  => 200,
             :method   => 'GET',
@@ -25,7 +25,7 @@ module Fog
       end
 
       class Mock
-        def linode_delete(linode_id, options={})
+        def linode_delete(linode_id, options = {})
           response = Excon::Response.new
           response.status = 200
           response.body = {

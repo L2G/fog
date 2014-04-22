@@ -55,7 +55,7 @@ module Fog
           Fog::Mock.not_implemented
         end
 
-        def response(params={})
+        def response(params = {})
           body    = params[:body] || {}
           status  = params[:status] || 200
           headers = params[:headers] || {}
@@ -97,7 +97,7 @@ module Fog
           raise ServiceError.slurp(error, self)
         end
 
-        def authenticate(options={})
+        def authenticate(options = {})
           super({
             :rackspace_api_key => @rackspace_api_key,
             :rackspace_username => @rackspace_username,
@@ -118,7 +118,7 @@ module Fog
           "X-Compute-Request-Id"
         end
 
-        def endpoint_uri(service_endpoint_url=nil)
+        def endpoint_uri(service_endpoint_url = nil)
           @uri = super(@rackspace_endpoint || service_endpoint_url, :rackspace_block_storage_url)
         end
 

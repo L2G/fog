@@ -7,7 +7,7 @@ module Fog
       class ServerAppliances < Fog::Collection
         model Fog::Compute::XenServer::ServerAppliance
 
-        def all(options={})
+        def all(options = {})
           data = service.get_records 'VM_appliance'
           load(data)
         end

@@ -17,7 +17,7 @@ module Fog
         # ==== Returns
         # * response<~Excon::Response>:
         #   * body<~Hash>:
-        def download_db_logfile_portion(identifier=nil, filename=nil, opts={})
+        def download_db_logfile_portion(identifier = nil, filename = nil, opts = {})
           params = {}
           params['DBInstanceIdentifier'] = identifier if identifier
           params['LogFileName'] = filename if filename
@@ -35,7 +35,7 @@ module Fog
 
       class Mock
 
-        def download_db_logfile_portion(identifier=nil, filename=nil, opts={})
+        def download_db_logfile_portion(identifier = nil, filename = nil, opts = {})
           response = Excon::Response.new
           server_set = []
           if identifier

@@ -9,7 +9,7 @@ module Fog
         identity  :name
         attribute :check
 
-        def datapoints(options={})
+        def datapoints(options = {})
           @datapoints ||= begin
             Fog::Rackspace::Monitoring::DataPoints.new(
               :metric        => self,

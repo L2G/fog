@@ -157,7 +157,7 @@ module Fog
           @default_network = 'default'
         end
 
-        def build_excon_response(body, status=200)
+        def build_excon_response(body, status = 200)
           response = Excon::Response.new
           response.body = body
           if response.body and response.body["error"]
@@ -202,11 +202,11 @@ module Fog
         include Collections
         include Shared
 
-        def initialize(options={})
+        def initialize(options = {})
           shared_initialize(options)
         end
 
-        def build_response(params={})
+        def build_response(params = {})
           body = params[:body] || {}
           build_excon_response(body)
         end
@@ -895,7 +895,7 @@ module Fog
           @data = nil
         end
 
-        def data(project=@project)
+        def data(project = @project)
           self.class.data(api_version)[project]
         end
 
@@ -962,7 +962,7 @@ module Fog
         # app_version - an optional string to set as the app version in the user agent.
         #
         # Returns a new Google::APIClient
-        def new_pk12_google_client(google_client_email, google_key_location, app_name=nil, app_version=nil)
+        def new_pk12_google_client(google_client_email, google_key_location, app_name = nil, app_version = nil)
           # The devstorage scope is needed to be able to insert images
           # devstorage.read_only scope is not sufficient like you'd hope
           api_scope_url = 'https://www.googleapis.com/auth/compute https://www.googleapis.com/auth/devstorage.read_write'
@@ -998,7 +998,7 @@ module Fog
           return local_client
         end
 
-        def build_result(api_method, parameters, body_object=nil)
+        def build_result(api_method, parameters, body_object = nil)
           if body_object
             result = @client.execute(
               :api_method => api_method,

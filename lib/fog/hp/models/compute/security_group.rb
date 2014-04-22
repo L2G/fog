@@ -28,7 +28,7 @@ module Fog
           true
         end
 
-        def create_rule(range, ip_protocol = "tcp", cidr = "0.0.0.0/0", group_id=nil)
+        def create_rule(range, ip_protocol = "tcp", cidr = "0.0.0.0/0", group_id = nil)
           requires :id
           service.create_security_group_rule(id, ip_protocol, range.min, range.max, cidr, group_id)
         end

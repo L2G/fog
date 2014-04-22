@@ -4,7 +4,7 @@ module Fog
 
       class Mock
 
-        def get_image(image_name, project=@project)
+        def get_image(image_name, project = @project)
           image = data(project)[:images][image_name] || {
             "error" => {
               "errors" => [
@@ -25,7 +25,7 @@ module Fog
 
       class Real
 
-        def get_image(image_name, project=@project)
+        def get_image(image_name, project = @project)
           api_method = @compute.images.get
           parameters = {
             'image' => image_name,

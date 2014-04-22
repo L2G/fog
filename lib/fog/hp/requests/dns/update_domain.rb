@@ -23,7 +23,7 @@ module Fog
         #     * 'email'<~String> - Email for the domain
         #     * 'serial'<~Integer> - Serial number for the domain
         #     * 'created_at'<~String> - created date time stamp
-        def update_domain(domain_id, options={})
+        def update_domain(domain_id, options = {})
           data = {}
           l_options = [:name, :description, :ttl, :email]
           l_options.select{|o| options[o]}.each do |key|
@@ -40,7 +40,7 @@ module Fog
       end
 
       class Mock
-        def update_domain(domain_id, options={})
+        def update_domain(domain_id, options = {})
           response = Excon::Response.new
           if domain = list_domains.body['domains'].detect { |_| _['id'] == domain_id }
 

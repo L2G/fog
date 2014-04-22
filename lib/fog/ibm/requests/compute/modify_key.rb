@@ -13,7 +13,7 @@ module Fog
         # * response<~Excon::Response>:
         #   * body<~Hash>:
         #     * 'success'<~Bool>: success status of update request
-        def modify_key(key_name, params={})
+        def modify_key(key_name, params = {})
           request(
             :method   => 'PUT',
             :expects  => 200,
@@ -25,7 +25,7 @@ module Fog
       end
       class Mock
 
-        def modify_key(key_name, params={})
+        def modify_key(key_name, params = {})
           response = Excon::Response.new
           if key_exists? key_name
             if params['public_key']

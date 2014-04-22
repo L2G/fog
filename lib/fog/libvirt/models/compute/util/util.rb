@@ -7,12 +7,12 @@ module Fog
   module Compute
     module LibvirtUtil
 
-      def xml_element(xml, path, attribute=nil)
+      def xml_element(xml, path, attribute = nil)
         xml = Nokogiri::XML(xml)
         attribute.nil? ? (xml / path).first.text : (xml / path).first[attribute.to_sym]
       end
 
-      def xml_elements(xml, path, attribute=nil)
+      def xml_elements(xml, path, attribute = nil)
          xml = Nokogiri::XML(xml)
          attribute.nil? ? (xml / path).map : (xml / path).map{|element| element[attribute.to_sym]}
       end

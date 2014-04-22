@@ -27,7 +27,7 @@ module Fog
           end
         end
 
-        def metadata=(new_metadata={})
+        def metadata=(new_metadata = {})
           metas = []
           new_metadata.each_pair {|k,v| metas << {'key' => k, 'value' => v} }
           metadata.load(metas)

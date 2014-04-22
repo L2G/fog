@@ -7,7 +7,7 @@ module Fog
       class DrTasks < Fog::Collection
         model Fog::Compute::XenServer::DrTask
 
-        def all(options={})
+        def all(options = {})
           data = service.get_records 'DR_task'
           load(data)
         end

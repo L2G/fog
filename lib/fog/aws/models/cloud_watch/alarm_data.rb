@@ -7,12 +7,12 @@ module Fog
       class AlarmData < Fog::Collection
         model Fog::AWS::CloudWatch::AlarmDatum
 
-        def all(conditions={})
+        def all(conditions = {})
           data = service.describe_alarms(conditions).body['DescribeAlarmsResult']['MetricAlarms']
           load(data) # data is an array of attribute hashes
         end
 
-        def get(namespace, metric_name, dimensions=nil, period=nil, statistic=nil, unit=nil)
+        def get(namespace, metric_name, dimensions = nil, period = nil, statistic = nil, unit = nil)
           list_opts = {'Namespace' => namespace, 'MetricName' => metric_name}
           if dimensions
             dimensions_array = dimensions.collect do |name, value|

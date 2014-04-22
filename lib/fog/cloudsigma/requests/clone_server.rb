@@ -2,7 +2,7 @@ module Fog
   module Compute
     class CloudSigma
       class Real
-        def clone_server(server_id, clone_params={})
+        def clone_server(server_id, clone_params = {})
           request(:path => "servers/#{server_id}/action/",
                   :method => 'POST',
                   :query => {:do => :clone},
@@ -12,7 +12,7 @@ module Fog
       end
 
       class Mock
-        def clone_server(server_id, clone_params={})
+        def clone_server(server_id, clone_params = {})
           server = self.data[:servers][server_id].dup
           uuid = self.class.random_uuid
           server['uuid'] = uuid

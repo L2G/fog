@@ -17,7 +17,7 @@ module Fog
         # ==== See Also
         # http://docs.amazonwebservices.com/elasticbeanstalk/latest/api/API_DescribeEnvironments.html
         #
-        def describe_events(options={})
+        def describe_events(options = {})
           request({
                       'Operation'    => 'DescribeEvents',
                       :parser     => Fog::Parsers::AWS::ElasticBeanstalk::DescribeEvents.new

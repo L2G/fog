@@ -19,7 +19,7 @@ module Fog
         # ==== See Also
         # http://docs.amazonwebservices.com/amazonglacier/latest/dev/api-upload-part.html
         #
-        def upload_part(vault_name, upload_id, body, offset, hash, options={})
+        def upload_part(vault_name, upload_id, body, offset, hash, options = {})
           account_id = options['account_id'] || '-'
           path = "/#{account_id}/vaults/#{Fog::AWS.escape(vault_name)}/multipart-uploads/#{Fog::AWS.escape(upload_id)}"
 

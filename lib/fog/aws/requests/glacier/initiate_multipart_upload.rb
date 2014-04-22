@@ -18,7 +18,7 @@ module Fog
         # ==== See Also
         # http://docs.amazonwebservices.com/amazonglacier/latest/dev/api-multipart-initiate-upload.html
         #
-        def initiate_multipart_upload(name, part_size, options={})
+        def initiate_multipart_upload(name, part_size, options = {})
           account_id = options['account_id'] || '-'
           path = "/#{account_id}/vaults/#{Fog::AWS.escape(name)}/multipart-uploads"
 

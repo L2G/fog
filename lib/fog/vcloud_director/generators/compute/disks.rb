@@ -60,7 +60,7 @@ module Fog
         #
         # @see http://pubs.vmware.com/vcd-51/topic/com.vmware.vcloud.api.reference.doc_51/doc/types/RasdItemsListType.html
         class Disks
-          def initialize(items=[])
+          def initialize(items = [])
             @items = items[:disks]
           end
 
@@ -127,7 +127,7 @@ module Fog
             END
           end
 
-          def hard_disk_item(opts={})
+          def hard_disk_item(opts = {})
             <<-END
             <vcloud:Item>
               <rasd:AddressOnParent>#{opts[:address_on_parent]}</rasd:AddressOnParent>
@@ -141,7 +141,7 @@ module Fog
             END
           end
 
-          def ide_controller_item(opts={})
+          def ide_controller_item(opts = {})
             <<-END
             <vcloud:Item>
               <rasd:Address>#{opts[:address]}</rasd:Address>
@@ -153,7 +153,7 @@ module Fog
             END
           end
 
-          def scsi_controller(opts={})
+          def scsi_controller(opts = {})
             <<-END
             <vcloud:Item>
               <rasd:Address>#{opts[:address]}</rasd:Address>

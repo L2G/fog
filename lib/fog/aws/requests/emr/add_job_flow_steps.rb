@@ -23,7 +23,7 @@ module Fog
         # ==== Returns
         # * response<~Excon::Response>:
         #   * body<~Hash>:
-        def add_job_flow_steps(job_flow_id, options={})
+        def add_job_flow_steps(job_flow_id, options = {})
 
           if steps = options.delete('Steps')
             options.merge!(Fog::AWS.serialize_keys('Steps', steps))
@@ -39,7 +39,7 @@ module Fog
 
       class Mock
 
-        def add_job_flow_steps(db_name, options={})
+        def add_job_flow_steps(db_name, options = {})
           Fog::Mock.not_implemented
         end
 

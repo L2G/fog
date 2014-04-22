@@ -8,7 +8,7 @@ module Fog
         attribute :token
         attribute :expires
 
-        def initialize(attributes={})
+        def initialize(attributes = {})
           super
         end
 

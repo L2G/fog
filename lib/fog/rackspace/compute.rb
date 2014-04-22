@@ -170,7 +170,7 @@ module Fog
           @data = nil
         end
 
-        def initialize(options={})
+        def initialize(options = {})
           @rackspace_username = options[:rackspace_username]
         end
 
@@ -186,7 +186,7 @@ module Fog
 
       class Real < Fog::Rackspace::Service
 
-        def initialize(options={})
+        def initialize(options = {})
           @rackspace_api_key = options[:rackspace_api_key]
           @rackspace_username = options[:rackspace_username]
           @rackspace_auth_url = options[:rackspace_auth_url]
@@ -220,7 +220,7 @@ module Fog
            @rackspace_servicenet == true
         end
 
-         def authenticate(options={})
+         def authenticate(options = {})
             super({
              :rackspace_api_key  => @rackspace_api_key,
              :rackspace_username => @rackspace_username,
@@ -237,7 +237,7 @@ module Fog
            @rackspace_region
          end
 
-         def endpoint_uri(service_endpoint_url=nil)
+         def endpoint_uri(service_endpoint_url = nil)
            return @uri if @uri
            super(@rackspace_endpoint || service_endpoint_url, :rackspace_compute_v1_url)
          end

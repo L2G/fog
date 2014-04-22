@@ -15,11 +15,11 @@ module Fog
         attribute :region_id
         attribute :vpn
 
-        def initialize(attributes={})
+        def initialize(attributes = {})
           super
         end
 
-        def update(options={})
+        def update(options = {})
           requires :identity
           service.update_vpn({:uniq_id => identity}.merge!(options))
         end

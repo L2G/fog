@@ -3,7 +3,7 @@ module Fog
     class StormOnDemand
       class Real
 
-        def check_balancer_available(options={})
+        def check_balancer_available(options = {})
           request(
             :path => '/Network/LoadBalancer/available',
             :body => Fog::JSON.encode(:params => options)

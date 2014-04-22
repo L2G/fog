@@ -3,7 +3,7 @@ module Fog
     class StormOnDemand
       class Real
 
-        def list_rulesets(options={})
+        def list_rulesets(options = {})
           request(
             :path => '/Network/Firewall/Ruleset/list',
             :body => Fog::JSON.encode(:params => options)

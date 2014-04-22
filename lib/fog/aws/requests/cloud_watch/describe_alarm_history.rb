@@ -21,7 +21,7 @@ module Fog
         # http://docs.amazonwebservices.com/AmazonCloudWatch/latest/APIReference/index.html?API_DescribeAlarmHistory.html
         #
 
-        def describe_alarm_history(options={})
+        def describe_alarm_history(options = {})
           request({
               'Action'    => 'DescribeAlarmHistory',
               :parser     => Fog::Parsers::AWS::CloudWatch::DescribeAlarmHistory.new

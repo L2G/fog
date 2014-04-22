@@ -6,7 +6,7 @@ Shindo.tests('Fog::Service', ['core']) do
     class Real
       attr_reader :options
 
-      def initialize(opts={})
+      def initialize(opts = {})
         @options = opts
       end
     end

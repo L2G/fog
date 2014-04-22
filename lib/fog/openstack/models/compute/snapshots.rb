@@ -8,7 +8,7 @@ module Fog
       class Snapshots < Fog::Collection
         model Fog::Compute::OpenStack::Snapshot
 
-        def all(detailed=true)
+        def all(detailed = true)
           load(service.list_snapshots(detailed).body['snapshots'])
         end
 

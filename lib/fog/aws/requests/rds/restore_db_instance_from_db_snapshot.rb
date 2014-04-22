@@ -10,7 +10,7 @@ module Fog
         # ==== Returns
         # * response<~Excon::Response>:
         #   * body<~Hash>:
-        def restore_db_instance_from_db_snapshot(snapshot_id, db_name, opts={})
+        def restore_db_instance_from_db_snapshot(snapshot_id, db_name, opts = {})
           request({
             'Action'  => 'RestoreDBInstanceFromDBSnapshot',
             'DBSnapshotIdentifier' => snapshot_id,
@@ -23,7 +23,7 @@ module Fog
 
       class Mock
 
-        def restore_db_instance_from_db_snapshot(snapshot_id, db_id, options={})
+        def restore_db_instance_from_db_snapshot(snapshot_id, db_id, options = {})
           Fog::Mock.not_implemented
         end
 

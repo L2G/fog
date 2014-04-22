@@ -19,7 +19,7 @@ module Fog
         #     * 'data'<~String> - as above
         #     * 'active'<~String> - as above
         #     * 'aux'<~String> - as above
-        def create_record(zone_id, type, name, content, options={})
+        def create_record(zone_id, type, name, content, options = {})
           body = %Q{<?xml version="1.0" encoding="UTF-8"?><record><type>#{type}</type><name>#{name}</name><content>#{content}</content>}
           options.each do |k,v|
             body += %Q{<#{k}>#{v}</#{k}>}

@@ -46,7 +46,7 @@ module Fog
 
         #pass :range => 1..1234 to only retrieve those bytes
         #pass :io => f to stream the response to that tio
-        def get_output(options={})
+        def get_output(options = {})
           if io = options.delete(:io)
             options = options.merge :response_block => lambda {|chunk, remaining_bytes, total_bytes| io.write chunk}
           end

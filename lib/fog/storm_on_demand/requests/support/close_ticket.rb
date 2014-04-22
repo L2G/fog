@@ -3,7 +3,7 @@ module Fog
     class StormOnDemand
       class Real
 
-        def close_ticket(options={})
+        def close_ticket(options = {})
           request(
             :path => '/Support/Ticket/close',
             :body => Fog::JSON.encode(:params => options)

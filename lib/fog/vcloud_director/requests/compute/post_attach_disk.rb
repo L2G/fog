@@ -20,7 +20,7 @@ module Fog
         #
         # @see http://pubs.vmware.com/vcd-51/topic/com.vmware.vcloud.api.reference.doc_51/doc/operations/POST-AttachDisk.html
         # @since vCloud API version 5.1
-        def post_attach_disk(id, disk_id, options={})
+        def post_attach_disk(id, disk_id, options = {})
           body = Nokogiri::XML::Builder.new do
             attrs = {
               :xmlns => 'http://www.vmware.com/vcloud/v1.5'

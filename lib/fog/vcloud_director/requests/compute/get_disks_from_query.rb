@@ -53,7 +53,7 @@ module Fog
         #
         # @see http://pubs.vmware.com/vcd-51/topic/com.vmware.vcloud.api.reference.doc_51/doc/operations/GET-DisksFromQuery.html
         # @since vCloud API version 1.5
-        def get_disks_from_query(options={})
+        def get_disks_from_query(options = {})
           query = []
           query << "sortAsc=#{options[:sortAsc]}" if options[:sortAsc]
           query << "sortDesc=#{options[:sortDesc]}" if options[:sortDesc]

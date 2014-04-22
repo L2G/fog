@@ -14,7 +14,7 @@ module Fog
         attribute :tags,             :aliases => 'tagSet'
 
 
-        def initialize(attributes={})
+        def initialize(attributes = {})
           super
         end
 

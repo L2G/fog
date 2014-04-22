@@ -104,7 +104,7 @@ module Fog
           @rackspace_region
         end
 
-        def endpoint_uri(service_endpoint_url=nil)
+        def endpoint_uri(service_endpoint_url = nil)
           return @uri if @uri
           super(@rackspace_storage_url || service_endpoint_url, :rackspace_storage_url)
         end
@@ -340,7 +340,7 @@ module Fog
           @account_meta = nil
         end
 
-        def initialize(options={})
+        def initialize(options = {})
           apply_options(options)
           authenticate
           endpoint_uri
@@ -413,7 +413,7 @@ module Fog
 
         attr_reader :rackspace_cdn_ssl
 
-        def initialize(options={})
+        def initialize(options = {})
           apply_options(options)
 
           authenticate

@@ -3,7 +3,7 @@ module Fog
     class StormOnDemand
       class Real
 
-        def reply_ticket(options={})
+        def reply_ticket(options = {})
           request(
             :path => '/Support/Ticket/reply',
             :body => Fog::JSON.encode(:params => options)

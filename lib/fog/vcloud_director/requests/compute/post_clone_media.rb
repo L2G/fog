@@ -20,7 +20,7 @@ module Fog
         #
         # @see http://pubs.vmware.com/vcd-51/topic/com.vmware.vcloud.api.reference.doc_51/doc/operations/POST-CloneMedia.html
         # @since vCloud API version 0.9
-        def post_clone_media(vdc_id, source_id, options={})
+        def post_clone_media(vdc_id, source_id, options = {})
           body = Nokogiri::XML::Builder.new do
             attrs = {
               :xmlns => 'http://www.vmware.com/vcloud/v1.5'
@@ -50,7 +50,7 @@ module Fog
       end
 
       class Mock
-        def post_clone_media(vdc_id, source_id, options={})
+        def post_clone_media(vdc_id, source_id, options = {})
           # TODO: check this happens.
           unless source_media = data[:medias][source_id]
             raise Fog::Compute::VcloudDirector::Forbidden.new(

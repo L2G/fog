@@ -177,7 +177,7 @@ module Fog
           @data = nil
         end
 
-        def initialize(options={})
+        def initialize(options = {})
           @google_storage_access_key_id = options[:google_storage_access_key_id]
         end
 
@@ -216,7 +216,7 @@ module Fog
         #
         # ==== Returns
         # * Storage object with connection to google.
-        def initialize(options={})
+        def initialize(options = {})
           require 'fog/core/parser'
 
           @google_storage_access_key_id = options[:google_storage_access_key_id]

@@ -3,7 +3,7 @@ module Fog
     class Joyent
 
       class Mock
-        def list_machines(options={})
+        def list_machines(options = {})
           res = Excon::Response.new
           res.status = 200
           res.body = self.data[:machines].values
@@ -12,7 +12,7 @@ module Fog
       end
 
       class Real
-        def list_machines(options={})
+        def list_machines(options = {})
           request(
             :path => "/my/machines",
             :method => "GET",

@@ -18,7 +18,7 @@ module Fog
         # ==== See Also
         #http://docs.amazonwebservices.com/amazonglacier/latest/dev/api-jobs-get.html
         #
-        def list_jobs(vault_name, options={})
+        def list_jobs(vault_name, options = {})
           account_id = options.delete('account_id') || '-'
           path = "/#{account_id}/vaults/#{Fog::AWS.escape(vault_name)}/jobs"
 

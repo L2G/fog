@@ -52,7 +52,7 @@ module Fog
 
       class Mock
         include Shared
-        def initialize(options={})
+        def initialize(options = {})
           # libvirt is part of the gem => ruby-libvirt
           require 'libvirt'
         end
@@ -77,7 +77,7 @@ module Fog
         attr_reader :ip_command
 
 
-        def initialize(options={})
+        def initialize(options = {})
           @uri = ::Fog::Compute::LibvirtUtil::URI.new(enhance_uri(options[:libvirt_uri]))
           @ip_command = options[:libvirt_ip_command]
 

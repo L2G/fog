@@ -15,7 +15,7 @@ module Fog
         # @option options [String] :name search for domains containing the given substring
         # @option options [Integer] :limit number of records to return
         # @option options [Integer] :offset starting offset of records to return
-        def all(options={})
+        def all(options = {})
           clear
           body = service.list_domains(options).body
           merge_attributes(body)

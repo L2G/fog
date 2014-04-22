@@ -102,7 +102,7 @@ module Fog
           @data = nil
         end
 
-        def initialize(options={})
+        def initialize(options = {})
           @hp_access_key = options[:hp_access_key]
         end
 
@@ -120,7 +120,7 @@ module Fog
         include Utils
         attr_reader :credentials
 
-        def initialize(options={})
+        def initialize(options = {})
           @hp_access_key = options[:hp_access_key]
           @hp_secret_key = options[:hp_secret_key]
           @hp_auth_uri   = options[:hp_auth_uri]

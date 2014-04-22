@@ -28,13 +28,13 @@ module Fog
       request :image_get
 
       class Mock
-        def initialize(options={})
+        def initialize(options = {})
         end
       end
 
       class Real
 
-        def initialize(options={})
+        def initialize(options = {})
           require 'docker'
           username = options[:docker_username]
           password = options[:docker_password]

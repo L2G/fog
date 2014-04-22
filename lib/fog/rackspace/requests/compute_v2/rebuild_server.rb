@@ -43,7 +43,7 @@ module Fog
         # * Status Transition:
         #   * ACTIVE -> REBUILD -> ACTIVE
         #   * ACTIVE -> REBUILD -> ERROR (on error)
-        def rebuild_server(server_id, image_id, options={})
+        def rebuild_server(server_id, image_id, options = {})
           data = {
             'rebuild' => options || {}
           }
@@ -59,7 +59,7 @@ module Fog
       end
 
       class Mock
-        def rebuild_server(server_id, image_id, options={})
+        def rebuild_server(server_id, image_id, options = {})
           server = self.data[:servers][server_id]
           response(
             :body => {"server" => server},

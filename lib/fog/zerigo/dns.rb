@@ -41,7 +41,7 @@ module Fog
           @data = nil
         end
 
-        def initialize(options={})
+        def initialize(options = {})
           @zerigo_email = options[:zerigo_email]
           @zerigo_token = options[:zerigo_token]
         end
@@ -69,7 +69,7 @@ module Fog
 
       class Real
 
-        def initialize(options={})
+        def initialize(options = {})
           require 'fog/core/parser'
 
           @zerigo_email  = options[:zerigo_email]

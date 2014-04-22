@@ -3,7 +3,7 @@ module Fog
     class OpenStack
       class Real
 
-        def list_volumes(detailed=true, options={})
+        def list_volumes(detailed = true, options = {})
           path = detailed ? 'volumes/detail' : 'volumes'
           request(
             :expects  => 200,
@@ -17,7 +17,7 @@ module Fog
 
       class Mock
 
-        def list_volumes(detailed=true, options={})
+        def list_volumes(detailed = true, options = {})
           response = Excon::Response.new
           response.status = 200
           self.data[:volumes] ||= [

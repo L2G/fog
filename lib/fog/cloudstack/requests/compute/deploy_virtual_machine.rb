@@ -6,7 +6,7 @@ module Fog
         # Creates and automatically starts a virtual machine based on a service offering, disk offering, and template.
         #
         # {CloudStack API Reference}[http://download.cloud.com/releases/2.2.0/api_2.2.4/global_admin/deployVirtualMachine.html]
-        def deploy_virtual_machine(options={})
+        def deploy_virtual_machine(options = {})
           options.merge!(
             'command' => 'deployVirtualMachine'
           )
@@ -29,7 +29,7 @@ module Fog
 
       class Mock
 
-        def deploy_virtual_machine(options={})
+        def deploy_virtual_machine(options = {})
           zone_id = options['zoneid']
           unless zone_id
             raise Fog::Compute::Cloudstack::BadRequest.new('Unable to execute API command deployvirtualmachine due to missing parameter zoneid')

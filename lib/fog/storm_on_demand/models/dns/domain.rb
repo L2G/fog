@@ -17,7 +17,7 @@ module Fog
         attribute :tech_handle
         attribute :updated
 
-        def initialize(attributes={})
+        def initialize(attributes = {})
           super
         end
 

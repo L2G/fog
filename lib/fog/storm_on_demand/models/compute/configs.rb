@@ -9,7 +9,7 @@ module Fog
 
         model Fog::Compute::StormOnDemand::Config
 
-        def all(options={})
+        def all(options = {})
           data = service.list_configs(options).body['items']
           load(data)
         end

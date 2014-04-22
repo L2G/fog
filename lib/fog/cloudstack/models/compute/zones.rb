@@ -9,7 +9,7 @@ module Fog
 
         model Fog::Compute::Cloudstack::Zone
 
-        def all(filters={})
+        def all(filters = {})
           options = {
             'templatefilter' => 'self'
           }.merge(filters)

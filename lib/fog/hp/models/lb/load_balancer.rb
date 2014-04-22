@@ -42,7 +42,7 @@ module Fog
           end
         end
 
-        def nodes=(new_nodes=[])
+        def nodes=(new_nodes = [])
           nodes.load(new_nodes)
         end
 

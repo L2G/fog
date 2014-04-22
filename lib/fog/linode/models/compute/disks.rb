@@ -26,7 +26,7 @@ module Fog
         end
 
         private
-        def disks(linode_id, id=nil)
+        def disks(linode_id, id = nil)
           service.linode_disk_list(linode_id, id).body['DATA'].map { |disk| map_disk disk }
         end
 

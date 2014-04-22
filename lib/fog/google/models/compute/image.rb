@@ -47,7 +47,7 @@ module Fog
           self.status == READY_STATE
         end
 
-        def destroy(async=true)
+        def destroy(async = true)
           data = service.delete_image(name)
           operation = Fog::Compute::Google::Operations.new(:service => service).get(data.body['name'])
           unless async

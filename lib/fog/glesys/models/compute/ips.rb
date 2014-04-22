@@ -82,7 +82,7 @@ module Fog
           )
         end
 
-        def attach(ip, server_id=nil)
+        def attach(ip, server_id = nil)
 
           if server_id.nil?
             server_id = serverid

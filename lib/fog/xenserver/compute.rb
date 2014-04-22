@@ -115,7 +115,7 @@ module Fog
 
       class Real
 
-        def initialize(options={})
+        def initialize(options = {})
           @host        = options[:xenserver_url]
           @username    = options[:xenserver_username]
           @password    = options[:xenserver_password]
@@ -154,13 +154,13 @@ module Fog
           end
         end
 
-        def self.reset_data(keys=data.keys)
+        def self.reset_data(keys = data.keys)
           for key in [*keys]
             data.delete(key)
           end
         end
 
-        def initialize(options={})
+        def initialize(options = {})
           @host        = options[:xenserver_pool_master]
           @username    = options[:xenserver_username]
           @password    = options[:xenserver_password]

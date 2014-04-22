@@ -10,7 +10,7 @@ module Fog
         attribute :attachment_set,              :aliases => 'attachmentSet'
         attribute :tag_set,                     :aliases => 'tagSet'
 
-        def initialize(attributes={})
+        def initialize(attributes = {})
           super
         end
 

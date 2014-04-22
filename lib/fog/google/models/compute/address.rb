@@ -44,7 +44,7 @@ module Fog
           reload
         end
 
-        def destroy(async=true)
+        def destroy(async = true)
           requires :identity, :region
 
           data = service.delete_address(identity, self.region.split('/')[-1])

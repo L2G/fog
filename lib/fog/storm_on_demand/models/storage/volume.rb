@@ -14,7 +14,7 @@ module Fog
         attribute :status
         attribute :zone
 
-        def initialize(attributes={})
+        def initialize(attributes = {})
           super
         end
 
@@ -42,7 +42,7 @@ module Fog
                                 :new_size => new_size).body
         end
 
-        def update(options={})
+        def update(options = {})
           requires :identity
           service.update_volume({:uniq_id => identity}.merge!(options))
         end

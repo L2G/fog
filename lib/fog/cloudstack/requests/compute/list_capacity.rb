@@ -6,7 +6,7 @@ module Fog
         # Lists domains and provides detailed information for listed domains.
         #
         # {CloudStack API Reference}[http://download.cloud.com/releases/2.2.0/api_2.2.4/global_admin/listDomains.html]
-        def list_capacity(options={})
+        def list_capacity(options = {})
           options.merge!(
             'command' => 'listCapacity'
           )

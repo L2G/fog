@@ -20,7 +20,7 @@ module Fog
         # ==== Returns
         # * response<~Excon::Response>:
         #   * body<~Hash>:
-        def add_instance_groups(job_flow_id, options={})
+        def add_instance_groups(job_flow_id, options = {})
 
           if instance_groups = options.delete('InstanceGroups')
             options.merge!(Fog::AWS.indexed_param('InstanceGroups.member.%d', [*instance_groups]))
@@ -36,7 +36,7 @@ module Fog
       end
 
       class Mock
-        def add_instance_groups(job_flow_id, options={})
+        def add_instance_groups(job_flow_id, options = {})
           Fog::Mock.not_implemented
         end
 

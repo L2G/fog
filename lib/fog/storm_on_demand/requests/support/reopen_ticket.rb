@@ -3,7 +3,7 @@ module Fog
     class StormOnDemand
       class Real
 
-        def reopen_ticket(options={})
+        def reopen_ticket(options = {})
           request(
             :path => '/Support/Ticket/reopen',
             :body => Fog::JSON.encode(:params => options)

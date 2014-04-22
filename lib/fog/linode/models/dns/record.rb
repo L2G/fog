@@ -22,7 +22,7 @@ module Fog
         # "WEIGHT":0,
         # "PORT":0,
 
-        def initialize(attributes={})
+        def initialize(attributes = {})
           super
         end
 

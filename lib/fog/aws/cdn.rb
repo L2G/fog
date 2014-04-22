@@ -45,7 +45,7 @@ module Fog
           @data = nil
         end
 
-        def initialize(options={})
+        def initialize(options = {})
           @use_iam_profile = options[:use_iam_profile]
           setup_credentials(options)
         end
@@ -62,7 +62,7 @@ module Fog
           "foo"
         end
 
-        def setup_credentials(options={})
+        def setup_credentials(options = {})
           @aws_access_key_id  = options[:aws_access_key_id]
         end
 
@@ -105,7 +105,7 @@ module Fog
           end
         end
 
-        def self.raise_error(status, code, message='')
+        def self.raise_error(status, code, message = '')
           response = Excon::Response.new
           response.status = status
           response.body = <<EOF
@@ -142,7 +142,7 @@ EOF
         #
         # ==== Returns
         # * cdn object with connection to aws.
-        def initialize(options={})
+        def initialize(options = {})
           require 'fog/core/parser'
 
           @use_iam_profile = options[:use_iam_profile]

@@ -7,7 +7,7 @@ module Fog
       class Blobs < Fog::Collection
         model Fog::Compute::XenServer::Blob
 
-        def all(options={})
+        def all(options = {})
           data = service.get_records 'blob'
           load(data)
         end

@@ -169,7 +169,7 @@ module Fog
 
     end
 
-    def self.get_service(body, service_type=[], service_name=nil)
+    def self.get_service(body, service_type = [], service_name = nil)
       body['access']['serviceCatalog'].detect do |s|
         if service_name.nil? or service_name.empty?
           service_type.include?(s['type'])

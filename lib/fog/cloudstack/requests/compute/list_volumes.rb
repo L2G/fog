@@ -6,7 +6,7 @@ module Fog
         # Lists all volumes.
         #
         # {CloudStack API Reference}[http://download.cloud.com/releases/2.2.0/api_2.2.4/global_admin/listVolumes.html]
-        def list_volumes(options={})
+        def list_volumes(options = {})
           options.merge!(
             'command' => 'listVolumes'
           )
@@ -17,7 +17,7 @@ module Fog
       end # Real
 
       class Mock
-        def list_volumes(options={})
+        def list_volumes(options = {})
           volume_id = options.delete('id')
           if volume_id
             volumes = [self.data[:volumes][volume_id]]

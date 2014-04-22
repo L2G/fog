@@ -6,7 +6,7 @@ module Fog
         # Creates a snapshot for an account that already exists.
         #
         # {CloudStack API Reference}[http://download.cloud.com/releases/2.2.0/api_2.2.4/global_admin/createSnapshot.html]
-        def create_snapshot(options={})
+        def create_snapshot(options = {})
           options.merge!(
             'command' => 'createSnapshot'
           )
@@ -17,7 +17,7 @@ module Fog
       end
 
       class Mock
-        def create_snapshot(options={})
+        def create_snapshot(options = {})
           snapshot_id = Fog::Cloudstack.uuid
 
           unless volume_id = options['volumeid']

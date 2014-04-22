@@ -19,7 +19,7 @@ module Fog
           true
         end
 
-        def add_interface(subnet_id=nil, port_id=nil, options={})
+        def add_interface(subnet_id = nil, port_id = nil, options = {})
           requires :id
           begin
             service.add_router_interface(id, subnet_id, port_id, options).body['router']
@@ -29,7 +29,7 @@ module Fog
           end
         end
 
-        def remove_interface(subnet_id=nil, port_id=nil, options={})
+        def remove_interface(subnet_id = nil, port_id = nil, options = {})
           requires :id
           begin
             service.remove_router_interface(id, subnet_id, port_id, options)

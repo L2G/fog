@@ -66,7 +66,7 @@ module Fog
 
         alias_method :delete, :destroy
 
-        def start(start_params={})
+        def start(start_params = {})
           requires :identity
           service.start_server(identity, start_params)
         end
@@ -90,7 +90,7 @@ module Fog
           service.close_vnc(identity)
         end
 
-        def clone(clone_params={})
+        def clone(clone_params = {})
           requires :identity
           response = service.clone_server(identity, clone_params)
 
@@ -162,7 +162,7 @@ module Fog
           self.volumes = []
         end
 
-        def add_nic(vlan=nil, ip_v4_conf=nil, ip_v6_conf=nil, model='virtio', boot_order=nil)
+        def add_nic(vlan = nil, ip_v4_conf = nil, ip_v6_conf = nil, model = 'virtio', boot_order = nil)
           nic_data = {
               'model' => model,
               'vlan' => vlan,
@@ -176,7 +176,7 @@ module Fog
           self.nics = self.nics << Nic.new(nic_data)
         end
 
-        def add_public_nic(ip_or_conf=:dhcp, model='virtio', boot_order=nil)
+        def add_public_nic(ip_or_conf = :dhcp, model = 'virtio', boot_order = nil)
           case ip_or_conf
             when :dhcp
               add_nic(nil, {:conf => :dhcp}, nil, model, boot_order)
@@ -188,7 +188,7 @@ module Fog
           end
         end
 
-        def add_private_nic(vlan, model='virtio', boot_order=nil)
+        def add_private_nic(vlan, model = 'virtio', boot_order = nil)
           vlan = vlan.kind_of?(String) ? vlan : vlan.identity
           add_nic(vlan, nil, nil, model, boot_order)
         end

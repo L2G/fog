@@ -29,7 +29,7 @@ module Fog
         #     * 'priority'<~Integer> - Priority for the record
         #     * 'created_at'<~String> - created date time stamp
         #     * 'updated_at'<~String> - updated date time stamp
-        def update_record(domain_id, record_id, options={})
+        def update_record(domain_id, record_id, options = {})
           data = {}
           l_options = [:name, :description, :type, :data, :priority, :ttl]
           l_options.select{|o| options[o]}.each do |key|

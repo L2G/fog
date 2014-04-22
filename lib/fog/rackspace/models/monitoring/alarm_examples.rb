@@ -20,7 +20,7 @@ module Fog
           nil
         end
 
-        def evaluate(alarm_example_id, options={})
+        def evaluate(alarm_example_id, options = {})
           data = service.evaluate_alarm_example(alarm_example_id, options).body
           new(data)
         end

@@ -25,7 +25,7 @@ module Fog
       end
 
       class Mock
-        def describe_cache_security_groups(name = nil, opts={})
+        def describe_cache_security_groups(name = nil, opts = {})
 
           if name
             sec_group_set = [self.data[:security_groups][name]].compact

@@ -16,7 +16,7 @@ module Fog
         attribute :ttl
         attribute :type,          :aliases => 'zone_type'
 
-        def initialize(attributes={})
+        def initialize(attributes = {})
           super
         end
 

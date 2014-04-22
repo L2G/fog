@@ -3,7 +3,7 @@ module Fog
     class HP
       class Real
 
-        def rebuild_server(server_id, image_ref, name, admin_pass=nil, metadata=nil, personality=nil)
+        def rebuild_server(server_id, image_ref, name, admin_pass = nil, metadata = nil, personality = nil)
 
           body = { 'rebuild' => {
             'imageRef' => image_ref,
@@ -19,7 +19,7 @@ module Fog
 
       class Mock
 
-        def rebuild_server(server_id, image_ref, name, admin_pass=nil, metadata=nil, personality=nil)
+        def rebuild_server(server_id, image_ref, name, admin_pass = nil, metadata = nil, personality = nil)
           response = get_server_details(server_id)
           response.body['server']['status'] = "REBUILD"
           response.status = 202

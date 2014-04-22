@@ -20,7 +20,7 @@ module Fog
         #     * 'requestId'<~String> - Id of request.
         #
         # {Amazon API Reference}[http://docs.amazonwebservices.com/AWSEC2/latest/APIReference/ApiReference-query-CreateImage.html]
-        def create_image(instance_id, name, description, no_reboot = false, options={})
+        def create_image(instance_id, name, description, no_reboot = false, options = {})
           params = {}
           block_device_mappings = options[:block_device_mappings] ||  []
 

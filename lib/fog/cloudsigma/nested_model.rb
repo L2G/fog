@@ -2,7 +2,7 @@ module Fog
   module CloudSigma
     class CloudsigmaModel < Fog::Model
       class << self
-        def model_attribute_array(name, model, options={})
+        def model_attribute_array(name, model, options = {})
           attributes_key = options[:aliases] || name
           class_eval <<-EOS, __FILE__, __LINE__
             def #{name}
@@ -25,7 +25,7 @@ module Fog
           end
         end
 
-        def model_attribute(name, model, options={})
+        def model_attribute(name, model, options = {})
           attributes_key = options[:aliases] || name
           class_eval <<-EOS, __FILE__, __LINE__
             def #{name}

@@ -18,7 +18,7 @@ module Fog
         #   * body<~Hash>:
         #
         # {Openstack API Reference}[http://docs.openstack.org]
-        def create_security_group_rule(parent_group_id, ip_protocol, from_port, to_port, cidr, group_id=nil)
+        def create_security_group_rule(parent_group_id, ip_protocol, from_port, to_port, cidr, group_id = nil)
           data = {
             'security_group_rule' => {
               'parent_group_id' => parent_group_id,
@@ -42,7 +42,7 @@ module Fog
 
       class Mock
 
-        def create_security_group_rule(parent_group_id, ip_protocol, from_port, to_port, cidr, group_id=nil)
+        def create_security_group_rule(parent_group_id, ip_protocol, from_port, to_port, cidr, group_id = nil)
           response = Excon::Response.new
           group = self.data[:security_groups][parent_group_id]
           if group

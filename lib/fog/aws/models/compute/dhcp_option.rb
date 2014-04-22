@@ -10,7 +10,7 @@ module Fog
         attribute :dhcp_configuration_set,      :aliases => 'dhcpConfigurationSet'
         attribute :tag_set,                     :aliases => 'tagSet'
 
-        def initialize(attributes={})
+        def initialize(attributes = {})
           super
         end
 

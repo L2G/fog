@@ -10,7 +10,7 @@ module Fog
         #   * body<~Hash>:
         #     * logs<~Array>:
         # TODO: docs
-        def get_instance_logs(instance_id, start_index=nil)
+        def get_instance_logs(instance_id, start_index = nil)
           request(
             :method   => 'GET',
             :expects  => 200,

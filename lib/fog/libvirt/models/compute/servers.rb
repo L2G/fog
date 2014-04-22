@@ -9,7 +9,7 @@ module Fog
 
         model Fog::Compute::Libvirt::Server
 
-        def all(filter={})
+        def all(filter = {})
           load(service.list_domains(filter))
         end
 

@@ -7,7 +7,7 @@ module Fog
       class Bonds < Fog::Collection
         model Fog::Compute::XenServer::CrashDump
 
-        def all(options={})
+        def all(options = {})
           data = service.get_records 'crashdump'
           load(data)
         end

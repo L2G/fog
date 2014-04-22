@@ -54,7 +54,7 @@ module Fog
           @data = nil
         end
 
-        def initialize(options={})
+        def initialize(options = {})
           @openvz_connect_command = options[:openvz_connect_command]
         end
 
@@ -70,7 +70,7 @@ module Fog
 
       class Real
 
-        def initialize(options={})
+        def initialize(options = {})
           @openvz_connect_command = options[:openvz_connect_command]
         end
 

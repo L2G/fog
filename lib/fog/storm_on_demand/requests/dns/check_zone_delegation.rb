@@ -3,7 +3,7 @@ module Fog
     class StormOnDemand
       class Real
 
-        def check_zone_delegation(options={})
+        def check_zone_delegation(options = {})
           request(
             :path => '/Network/DNS/Zone/delegation',
             :body => Fog::JSON.encode(:params => options)

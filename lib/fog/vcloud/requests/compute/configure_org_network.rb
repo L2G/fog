@@ -69,7 +69,7 @@ EOF
           firewall_rules
         end
 
-        def generate_configure_org_network_request(vapp_id, vapp_network, vapp_network_uri, org_network, org_network_uri, enable_firewall=false, portmap=nil)
+        def generate_configure_org_network_request(vapp_id, vapp_network, vapp_network_uri, org_network, org_network_uri, enable_firewall = false, portmap = nil)
 
           firewall_body = ""
           if not enable_firewall
@@ -121,7 +121,7 @@ EOF
 EOF
         end
 
-    def configure_org_network(vapp_id, vapp_network, vapp_network_uri, org_network, org_network_uri, enable_firewall=false, port_map=nil)
+    def configure_org_network(vapp_id, vapp_network, vapp_network_uri, org_network, org_network_uri, enable_firewall = false, port_map = nil)
       body = generate_configure_org_network_request(vapp_id, vapp_network, vapp_network_uri, org_network, org_network_uri, enable_firewall, port_map)
       #puts ("Body: #{body}")
 

@@ -43,7 +43,7 @@ module Fog
         #   from the database)
         # * default (Use the actions, order, and delay specified in the
         #   StartupSection)
-        def undeploy(action='powerOff')
+        def undeploy(action = 'powerOff')
           begin
             response = service.post_undeploy_vapp(id, :UndeployPowerAction => action)
           rescue Fog::Compute::VcloudDirector::BadRequest => ex

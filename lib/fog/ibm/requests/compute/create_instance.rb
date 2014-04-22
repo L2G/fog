@@ -31,7 +31,7 @@ module Fog
         #     * 'requestId'<~String>:
         #     * 'imageId'<~String>:
         #     * 'launchTime'<~Integer>: epoch time in ms representing when the instance was launched
-        def create_instance(name, image_id, instance_type, location, options={})
+        def create_instance(name, image_id, instance_type, location, options = {})
           body_data     = {
             'name'                    => name,
             'imageID'                 => image_id,
@@ -62,7 +62,7 @@ module Fog
 
       class Mock
 
-        def create_instance(name, image_id, instance_type, location, options={})
+        def create_instance(name, image_id, instance_type, location, options = {})
           response = Excon::Response.new
           # Since we want to test error conditions, we have a little regex that traps specially formed
           # instance type strings.

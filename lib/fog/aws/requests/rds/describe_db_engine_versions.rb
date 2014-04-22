@@ -5,7 +5,7 @@ module Fog
 
         require 'fog/aws/parsers/rds/describe_db_engine_versions'
 
-        def describe_db_engine_versions(opts={})
+        def describe_db_engine_versions(opts = {})
           params = {}
           params['DBParameterGroupFamily'] = opts[:db_parameter_group_family] if opts[:db_parameter_group_family]
           params['DefaultOnly'] = opts[:default_only] if opts[:default_only]
@@ -24,7 +24,7 @@ module Fog
 
       class Mock
 
-        def describe_db_engine_versions(opts={})
+        def describe_db_engine_versions(opts = {})
           Fog::Mock.not_implemented
         end
 

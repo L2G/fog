@@ -36,7 +36,7 @@ module Fog
 
         attr_accessor :password, :parameter_group_name, :security_group_names, :port
 
-        def create_read_replica(replica_id, options={})
+        def create_read_replica(replica_id, options = {})
           options[:security_group_names] ||= options['DBSecurityGroups']
           params = self.class.new(options).attributes_to_params
           service.create_db_instance_read_replica(replica_id, id, params)
@@ -47,7 +47,7 @@ module Fog
           state == 'available'
         end
 
-        def destroy(snapshot_identifier=nil)
+        def destroy(snapshot_identifier = nil)
           requires :id
           service.delete_db_instance(id, snapshot_identifier, snapshot_identifier.nil?)
           true

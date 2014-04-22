@@ -48,7 +48,7 @@ module Fog
 
       class Mock
 
-        def initialize(options={})
+        def initialize(options = {})
           Fog::Mock.not_implemented
         end
 
@@ -76,7 +76,7 @@ module Fog
         # * Redshift object with connection to AWS.
 
 
-        def initialize(options={})
+        def initialize(options = {})
 
           @use_iam_profile = options[:use_iam_profile]
           @region = options[:region] || 'us-east-1'

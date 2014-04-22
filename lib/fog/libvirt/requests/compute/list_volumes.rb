@@ -65,7 +65,7 @@ module Fog
       end
 
       class Mock
-        def list_volumes(filters={ })
+        def list_volumes(filters = { })
           vol1 = mock_volume 'vol1'
           vol2 = mock_volume 'vol2'
           [vol1, vol2]

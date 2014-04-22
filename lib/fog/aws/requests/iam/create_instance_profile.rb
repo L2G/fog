@@ -32,7 +32,7 @@ module Fog
         # ==== See Also
         # http://docs.amazonwebservices.com/IAM/latest/APIReference/API_CreateInstanceProfile.html
         #
-        def create_instance_profile(instance_profile_name, path='/', options={})
+        def create_instance_profile(instance_profile_name, path = '/', options = {})
           request({
             'Action'    => 'CreateInstanceProfile',
             'InstanceProfileName' => instance_profile_name,

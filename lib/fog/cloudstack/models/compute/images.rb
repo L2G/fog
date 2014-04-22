@@ -9,14 +9,14 @@ module Fog
 
         model Fog::Compute::Cloudstack::Image
 
-        def all(filters={})
+        def all(filters = {})
           options = get_filter_options(filters)
 
           data = service.list_templates(options)["listtemplatesresponse"]["template"] || []
           load(data)
         end
 
-        def get(template_id, filters={})
+        def get(template_id, filters = {})
           filter_option = get_filter_options(filters)
           options = filter_option.merge('id' => template_id)
 

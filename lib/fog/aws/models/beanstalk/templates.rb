@@ -12,7 +12,7 @@ module Fog
         #
         # Note: This is currently an expensive operation requiring multiple API calls due to a lack of
         # a describe configuration templates call in the AWS API.
-        def all(options={})
+        def all(options = {})
           application_filter = []
           if options.has_key?('ApplicationName')
             application_filter << options['ApplicationName']

@@ -8,7 +8,7 @@ module Fog
 
         model Fog::Rackspace::Monitoring::AgentToken
 
-        def all(options={})
+        def all(options = {})
           clear
           body = service.list_agent_tokens(options).body
 

@@ -22,7 +22,7 @@ module Fog
         #     * 'serial'<~Integer> - Serial number for the domain
         #     * 'created_at'<~String> - created date time stamp
       class Real
-        def create_domain(name, email, options={})
+        def create_domain(name, email, options = {})
           data = {
             :name => name,
             :email => email
@@ -43,7 +43,7 @@ module Fog
       end
 
       class Mock
-        def create_domain(name, email, options={})
+        def create_domain(name, email, options = {})
           response        = Excon::Response.new
           response.status = 200
 

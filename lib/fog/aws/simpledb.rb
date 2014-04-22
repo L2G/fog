@@ -33,7 +33,7 @@ module Fog
           @data = nil
         end
 
-        def initialize(options={})
+        def initialize(options = {})
           @use_iam_profile = options[:use_iam_profile]
           setup_credentials(options)
         end
@@ -70,7 +70,7 @@ module Fog
         #
         # ==== Returns
         # * SimpleDB object with connection to aws.
-        def initialize(options={})
+        def initialize(options = {})
           require 'fog/core/parser'
 
           @use_iam_profile = options[:use_iam_profile]

@@ -23,7 +23,7 @@ module Fog
         #       * 'volume_id'<~String>: - UUId of the volume from which the snapshot was created
         #       * 'created_at'<~String>: - Timestamp in UTC when volume was created
         #       * metadata<~Hash>: Hash of metadata for the snapshot
-        def update_snapshot(snapshot_id, options={})
+        def update_snapshot(snapshot_id, options = {})
           data = {
             'snapshot' => {}
           }
@@ -45,7 +45,7 @@ module Fog
 
       class Mock  # :nodoc:all
 
-        def update_snapshot(snapshot_id, options={})
+        def update_snapshot(snapshot_id, options = {})
           unless snapshot_id
             raise ArgumentError.new('snapshot_id is required')
           end

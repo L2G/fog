@@ -12,7 +12,7 @@ module Fog
         # ==== Returns
         # * response<~Excon::Response>:
         #   * body<~Hash>:
-        def describe_db_instances(identifier=nil, opts={})
+        def describe_db_instances(identifier = nil, opts = {})
           params = {}
           params['DBInstanceIdentifier'] = identifier if identifier
           if opts[:marker]
@@ -32,7 +32,7 @@ module Fog
 
       class Mock
 
-        def describe_db_instances(identifier=nil, opts={})
+        def describe_db_instances(identifier = nil, opts = {})
           response = Excon::Response.new
           server_set = []
           if identifier

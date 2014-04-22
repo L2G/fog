@@ -33,7 +33,7 @@ module Fog
         #       * 'availability_zone'<~String> - Availability zone i.e. "az1"
         #       * attachments<~Array>: Array of hashes of attachments
         #       * metadata<~Hash>: Hash of metadata for the volume
-        def create_volume(options={})
+        def create_volume(options = {})
           data = {
             'volume' => {}
           }
@@ -57,7 +57,7 @@ module Fog
 
       class Mock  # :nodoc:all
 
-        def create_volume(options={})
+        def create_volume(options = {})
           if options['snapshot_id'] && options['imageRef'] && options['source_volid']
             raise Fog::Errors::BadRequest.new('The snapshot_id, imageRef and the source_volid parameters are mutually exclusive, and only one should be specified in the request.')
           else

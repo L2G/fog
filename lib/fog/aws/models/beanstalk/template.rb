@@ -17,7 +17,7 @@ module Fog
         attribute :source_configuration
         attribute :option_settings, :aliases => 'OptionSettings'
 
-        def initialize(attributes={})
+        def initialize(attributes = {})
           super
         end
 

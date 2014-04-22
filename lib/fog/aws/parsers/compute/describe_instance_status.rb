@@ -17,7 +17,7 @@ module Fog
             @inside = nil
           end
 
-          def start_element(name, attrs=[])
+          def start_element(name, attrs = [])
             super
             case name
             when 'item'

@@ -97,11 +97,11 @@ module Fog
           raise ServiceError.slurp(error, self)
         end
 
-        def endpoint_uri(service_endpoint_url=nil)
+        def endpoint_uri(service_endpoint_url = nil)
           @uri = super(@rackspace_endpoint || service_endpoint_url, :rackspace_database_url)
         end
 
-        def authenticate(options={})
+        def authenticate(options = {})
           super({
             :rackspace_api_key  => @rackspace_api_key,
             :rackspace_username => @rackspace_username,

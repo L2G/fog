@@ -10,7 +10,7 @@ module Fog
 
         attribute :marker
 
-        def all(options={})
+        def all(options = {})
           data = service.list_notifications(options).body
           marker = data['metadata']['next_marker']
 

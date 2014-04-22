@@ -37,7 +37,7 @@ module Fog
         # ==== See Also
         # http://docs.amazonwebservices.com/IAM/latest/APIReference/API_ListInstanceProfiles.html
         #
-        def list_instance_profiles(options={})
+        def list_instance_profiles(options = {})
           request({
             'Action'    => 'ListInstanceProfiles',
             :parser     => Fog::Parsers::AWS::IAM::ListInstanceProfiles.new

@@ -3,7 +3,7 @@ module Fog
     class StormOnDemand
       class Real
 
-        def make_payment(options={})
+        def make_payment(options = {})
           request(
             :path => '/Billing/Payment/make',
             :body => Fog::JSON.encode(:params => options)

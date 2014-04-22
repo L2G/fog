@@ -274,7 +274,7 @@ module Fog
 
         attr_accessor :region
 
-        def initialize(options={})
+        def initialize(options = {})
           @use_iam_profile = options[:use_iam_profile]
           @aws_credentials_expire_at = Time::now + 20
           setup_credentials(options)
@@ -310,7 +310,7 @@ module Fog
           images
         end
 
-        def ec2_compatibility_mode(enabled=true)
+        def ec2_compatibility_mode(enabled = true)
           values = enabled ? ["EC2", "VPC"] : ["VPC"]
           self.data[:account_attributes].detect { |h| h["attributeName"] == "supported-platforms" }["values"] = values
         end
@@ -373,7 +373,7 @@ module Fog
 
         attr_accessor :region
 
-        def initialize(options={})
+        def initialize(options = {})
           require 'fog/core/parser'
 
           @use_iam_profile = options[:use_iam_profile]

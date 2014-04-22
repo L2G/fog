@@ -3,7 +3,7 @@ module Fog
     class OpenStack
       class Real
 
-        def list_meters(options=[])
+        def list_meters(options = [])
 
           data = {
             'q' => Array.new
@@ -31,7 +31,7 @@ module Fog
 
       class Mock
 
-        def list_meters(options={})
+        def list_meters(options = {})
           response = Excon::Response.new
           response.status = 200
           response.body = [{

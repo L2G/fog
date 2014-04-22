@@ -15,7 +15,7 @@ module Fog
         #
         # @see http://pubs.vmware.com/vcd-51/topic/com.vmware.vcloud.api.reference.doc_51/doc/operations/POST-InstantiateVAppTemplate.html
         # @since vCloud API version 0.9
-        def instantiate_vapp_template(vapp_name, template_id, options={})
+        def instantiate_vapp_template(vapp_name, template_id, options = {})
           params = populate_uris(options.merge(:vapp_name => vapp_name, :template_id => template_id))
 
           # @todo Move all the logic to a generator.
@@ -42,7 +42,7 @@ module Fog
           options
         end
 
-        def generate_instantiate_vapp_template_request(options ={})
+        def generate_instantiate_vapp_template_request(options = {})
           xml = Builder::XmlMarkup.new
           xml.InstantiateVAppTemplateParams(xmlns.merge!(:name => options[:vapp_name], :"xml:lang" => "en")) {
             xml.Description(options[:description])

@@ -4,7 +4,7 @@ module Fog
 
       class Mock
 
-        def insert_image(image_name, options={})
+        def insert_image(image_name, options = {})
           Fog::Mock.not_implemented
         end
 
@@ -12,7 +12,7 @@ module Fog
 
       class Real
 
-        def insert_image(image_name, options={})
+        def insert_image(image_name, options = {})
           api_method = @compute.images.insert
 
           parameters = {

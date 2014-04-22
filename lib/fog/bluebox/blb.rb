@@ -42,7 +42,7 @@ module Fog
       end
 
       class Real
-        def initialize(options={})
+        def initialize(options = {})
           @bluebox_api_key      = options[:bluebox_api_key]
           @bluebox_customer_id  = options[:bluebox_customer_id]
           @connection_options   = options[:connection_options] || {}

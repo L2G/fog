@@ -16,7 +16,7 @@ module Fog
         #     * 'requestId'<~String> - Id of the request
         #
         # {Amazon API Reference}[http://docs.amazonwebservices.com/AWSEC2/latest/APIReference/ApiReference-query-AllocateAddress.html]
-        def allocate_address(domain='standard')
+        def allocate_address(domain = 'standard')
           domain = domain == 'vpc' ? 'vpc' : 'standard'
           request(
             'Action'  => 'AllocateAddress',

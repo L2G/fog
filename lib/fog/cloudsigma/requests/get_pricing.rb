@@ -2,7 +2,7 @@ module Fog
   module Compute
     class CloudSigma
       class Real
-        def get_pricing(currency=nil, subscription=false)
+        def get_pricing(currency = nil, subscription = false)
           query = {:limit => 0}
           if currency
             query[:currency] = currency
@@ -18,7 +18,7 @@ module Fog
       end
 
       class Mock
-        def get_pricing(currency=nil, subscription=false)
+        def get_pricing(currency = nil, subscription = false)
           mock_get(:pricing,  200)
         end
       end

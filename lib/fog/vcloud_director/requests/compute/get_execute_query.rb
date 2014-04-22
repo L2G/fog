@@ -67,7 +67,7 @@ module Fog
         #
         # @see http://pubs.vmware.com/vcd-55/topic/com.vmware.vcloud.api.reference.doc_55/doc/operations/GET-ExecuteQuery.html
         # @since vCloud API version 1.5
-        def get_execute_query(type=nil, options={})
+        def get_execute_query(type = nil, options = {})
           if type.nil?
             response = request(
               :expects    => 200,
@@ -117,7 +117,7 @@ module Fog
       end
 
       class Mock
-        def get_execute_query(type=nil, options={})
+        def get_execute_query(type = nil, options = {})
 
           unless options[:fields].nil?
             Fog::Mock.not_implemented("Fields are not yet implemented in get_execute_query Mock for #{type}")

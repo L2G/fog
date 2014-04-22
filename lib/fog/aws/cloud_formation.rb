@@ -22,7 +22,7 @@ module Fog
 
       class Mock
 
-        def initialize(options={})
+        def initialize(options = {})
           Fog::Mock.not_implemented
         end
 
@@ -47,7 +47,7 @@ module Fog
         #
         # ==== Returns
         # * CloudFormation object with connection to AWS.
-        def initialize(options={})
+        def initialize(options = {})
           require 'fog/core/parser'
 
           @use_iam_profile = options[:use_iam_profile]

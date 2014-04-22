@@ -24,7 +24,7 @@ module Fog
           attributes[:check] = obj.is_a?(String) ? Check.new(:id => obj) : obj
         end
 
-        def params(options={})
+        def params(options = {})
           h = {
             'disabled'             => disabled,
             'label'                => label,

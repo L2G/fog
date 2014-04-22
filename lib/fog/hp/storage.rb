@@ -73,7 +73,7 @@ module Fog
           "#{@scheme}://#{@host}:#{@port}#{@path}"
         end
 
-        def public_url(container=nil, object=nil)
+        def public_url(container = nil, object = nil)
           public_url = nil
           unless container.nil?
             if object.nil?
@@ -87,7 +87,7 @@ module Fog
           public_url
         end
 
-        def perm_to_acl(perm, users=[])
+        def perm_to_acl(perm, users = [])
           read_perm_acl = []
           write_perm_acl = []
           valid_public_perms  = ['pr', 'pw', 'prw']
@@ -142,7 +142,7 @@ module Fog
           header
         end
 
-        def header_to_perm_acl(read_header=nil, write_header=nil)
+        def header_to_perm_acl(read_header = nil, write_header = nil)
           read_h, write_h = nil
           read_h = read_header.split(',') unless read_header.nil?
           write_h = write_header.split(',') unless write_header.nil?
@@ -271,7 +271,7 @@ module Fog
           @data = nil
         end
 
-        def initialize(options={})
+        def initialize(options = {})
           # deprecate hp_account_id
           if options[:hp_account_id]
             Fog::Logger.deprecation(":hp_account_id is deprecated, please use :hp_access_key instead.")
@@ -301,7 +301,7 @@ module Fog
         attr_reader :credentials
         attr_reader :hp_cdn_ssl
 
-        def initialize(options={})
+        def initialize(options = {})
           # deprecate hp_account_id
           if options[:hp_account_id]
             Fog::Logger.deprecation(":hp_account_id is deprecated, please use :hp_access_key instead.")

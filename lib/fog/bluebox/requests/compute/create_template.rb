@@ -12,7 +12,7 @@ module Fog
         # * response<~Excon::Response>:
         #   * body<~Array>:
         # TODO
-        def create_template(block_id, options={})
+        def create_template(block_id, options = {})
           request(
             :expects  => 202,
             :method   => 'POST',

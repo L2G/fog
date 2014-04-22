@@ -3,7 +3,7 @@ module Fog
     class StormOnDemand
       class Real
 
-        def list_tickets(options={})
+        def list_tickets(options = {})
           request(
             :path => '/Support/Ticket/list',
             :body => Fog::JSON.encode(:params => options)

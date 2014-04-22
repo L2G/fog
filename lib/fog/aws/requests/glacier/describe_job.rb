@@ -16,7 +16,7 @@ module Fog
         # ==== See Also
         # http://docs.amazonwebservices.com/amazonglacier/latest/dev/api-describe-job-get.html
         #
-        def describe_job(vault_name, job_id, options={})
+        def describe_job(vault_name, job_id, options = {})
           account_id = options['account_id'] || '-'
           path = "/#{account_id}/vaults/#{Fog::AWS.escape(vault_name)}/jobs/#{job_id}"
 

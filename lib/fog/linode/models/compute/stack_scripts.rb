@@ -18,7 +18,7 @@ module Fog
         end
 
         private
-        def stackscripts(id=nil)
+        def stackscripts(id = nil)
           service.stackscript_list(id).body['DATA'].map { |script| map_stackscript script }
         end
 

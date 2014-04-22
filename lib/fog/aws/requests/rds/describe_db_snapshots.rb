@@ -17,7 +17,7 @@ module Fog
         # ==== Returns
         # * response<~Excon::Response>:
         #   * body<~Hash>:
-        def describe_db_snapshots(opts={})
+        def describe_db_snapshots(opts = {})
           params = {}
           params['SnapshotType'] = opts[:type] if opts[:type]
           params['DBInstanceIdentifier'] = opts[:identifier] if opts[:identifier]
@@ -34,7 +34,7 @@ module Fog
 
       class Mock
 
-        def describe_db_snapshots(opts={})
+        def describe_db_snapshots(opts = {})
           response = Excon::Response.new
           snapshots = self.data[:snapshots].values
           if opts[:identifier]

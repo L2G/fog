@@ -18,7 +18,7 @@ module Fog
         #     * 'return'<~Boolean> - success?
         #
         # {Amazon API Reference}[http://docs.amazonwebservices.com/AWSEC2/latest/APIReference/ApiReference-query-DisassociateAddress.html]
-        def disassociate_address(public_ip=nil, association_id=nil)
+        def disassociate_address(public_ip = nil, association_id = nil)
           request(
             'Action'        => 'DisassociateAddress',
             'PublicIp'      => public_ip,

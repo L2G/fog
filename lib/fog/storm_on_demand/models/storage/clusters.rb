@@ -8,7 +8,7 @@ module Fog
       class Clusters < Fog::Collection
         model Fog::Storage::StormOnDemand::Cluster
 
-        def all(options={})
+        def all(options = {})
           data = service.list_clusters(options).body['items']
           load(data)
         end

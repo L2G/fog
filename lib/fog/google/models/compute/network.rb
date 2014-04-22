@@ -28,7 +28,7 @@ module Fog
           reload
         end
 
-        def destroy(async=true)
+        def destroy(async = true)
           requires :identity
 
           data = service.delete_network(identity)

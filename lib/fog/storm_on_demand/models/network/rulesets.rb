@@ -17,7 +17,7 @@ module Fog
           new(r)
         end
 
-        def all(options={})
+        def all(options = {})
           r = service.list_rulesets(options).body['item']
           load(r)
         end

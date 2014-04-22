@@ -7,7 +7,7 @@ module Fog
       class PifsMetrics < Fog::Collection
         model Fog::Compute::XenServer::PifMetrics
 
-        def all(options={})
+        def all(options = {})
           data = service.get_records 'PIF_metrics'
           load(data)
         end

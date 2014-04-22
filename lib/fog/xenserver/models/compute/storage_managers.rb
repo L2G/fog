@@ -7,7 +7,7 @@ module Fog
       class StorageManagers < Fog::Collection
         model Fog::Compute::XenServer::StorageManager
 
-        def all(options={})
+        def all(options = {})
           data = service.get_records 'SM'
           load(data)
         end

@@ -43,7 +43,7 @@ module Fog
         #
         # @see http://pubs.vmware.com/vcd-51/topic/com.vmware.vcloud.api.reference.doc_51/doc/types/GuestCustomizationSectionType.html
         class Customization
-          def initialize(attrs={})
+          def initialize(attrs = {})
             @attrs = attrs
           end
 
@@ -77,7 +77,7 @@ module Fog
           #   * > &gt;
           #   * " &quot;
           #   * ' &apos;
-          def body(opts={})
+          def body(opts = {})
             <<-END
               <ovf:Info>Specifies Guest OS Customization Settings</ovf:Info>
               <Enabled>#{opts[:enabled]}</Enabled>

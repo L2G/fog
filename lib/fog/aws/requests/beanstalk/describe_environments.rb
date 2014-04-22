@@ -22,7 +22,7 @@ module Fog
         # ==== See Also
         # http://docs.amazonwebservices.com/elasticbeanstalk/latest/api/API_DescribeEnvironments.html
         #
-        def describe_environments(options={})
+        def describe_environments(options = {})
           if environment_ids = options.delete('EnvironmentIds')
             options.merge!(AWS.indexed_param('EnvironmentIds.member.%d', [*environment_ids]))
           end

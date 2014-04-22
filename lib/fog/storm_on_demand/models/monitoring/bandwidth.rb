@@ -12,7 +12,7 @@ module Fog
         attribute :pricing
         attribute :projected
 
-        def initialize(attributes={})
+        def initialize(attributes = {})
           super
         end
 

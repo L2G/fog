@@ -158,7 +158,7 @@ module Fog
 
         private
 
-        def region_to_host(region=nil)
+        def region_to_host(region = nil)
           case region.to_s
           when DEFAULT_REGION, ''
             's3.amazonaws.com'
@@ -167,11 +167,11 @@ module Fog
           end
         end
 
-        def object_to_path(object_name=nil)
+        def object_to_path(object_name = nil)
           '/' + escape(object_name.to_s).gsub('%2F','/')
         end
 
-        def bucket_to_path(bucket_name, path=nil)
+        def bucket_to_path(bucket_name, path = nil)
           "/#{escape(bucket_name.to_s)}#{path}"
         end
 
@@ -350,7 +350,7 @@ module Fog
           @data = nil
         end
 
-        def initialize(options={})
+        def initialize(options = {})
           @use_iam_profile = options[:use_iam_profile]
           setup_credentials(options)
           if @endpoint = options[:endpoint]
@@ -409,7 +409,7 @@ module Fog
         #
         # ==== Returns
         # * S3 object with connection to aws.
-        def initialize(options={})
+        def initialize(options = {})
           require 'fog/core/parser'
 
           @use_iam_profile = options[:use_iam_profile]

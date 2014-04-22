@@ -22,7 +22,7 @@ module Fog
         # ==== See Also
         # http://docs.amazonwebservices.com/elasticbeanstalk/latest/api/API_CreateApplicationVersion.html
         #
-        def create_application_version(options={})
+        def create_application_version(options = {})
           if source_bundle = options.delete('SourceBundle')
             # flatten hash
             options.merge!({

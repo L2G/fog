@@ -6,7 +6,7 @@ module Fog
         # Creates a load balancer rule
         #
         # {CloudStack API Reference}[http://download.cloud.com/releases/2.2.0/api_2.2.11/global_admin/createLoadBalancerRule.html]
-        def create_load_balancer_rule(options={})
+        def create_load_balancer_rule(options = {})
           options.merge!(
             'command' => 'createLoadBalancerRule'
           )

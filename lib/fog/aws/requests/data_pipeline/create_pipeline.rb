@@ -13,7 +13,7 @@ module Fog
         # ==== Returns
         # * response<~Excon::Response>:
         #   * body<~Hash>:
-        def create_pipeline(unique_id, name, description=nil)
+        def create_pipeline(unique_id, name, description = nil)
           params = {
             'uniqueId' => unique_id,
             'name' => name,
@@ -31,7 +31,7 @@ module Fog
       end
 
       class Mock
-        def create_pipeline(unique_id, name, description=nil)
+        def create_pipeline(unique_id, name, description = nil)
           Fog::Mock.not_implemented
         end
       end

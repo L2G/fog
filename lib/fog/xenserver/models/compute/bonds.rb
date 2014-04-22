@@ -7,7 +7,7 @@ module Fog
       class Bonds < Fog::Collection
         model Fog::Compute::XenServer::Bond
 
-        def all(options={})
+        def all(options = {})
           data = service.get_records 'Bond'
           load(data)
         end

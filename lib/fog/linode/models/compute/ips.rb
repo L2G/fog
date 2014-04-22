@@ -26,7 +26,7 @@ module Fog
         end
 
         private
-        def ips(linode_id, id=nil)
+        def ips(linode_id, id = nil)
           service.linode_ip_list(linode_id, id).body['DATA'].map { |ip| map_ip ip }
         end
 

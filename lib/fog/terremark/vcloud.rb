@@ -15,7 +15,7 @@ module Fog
 
      extend Fog::Terremark::Shared
 
-     def self.new(options={})
+     def self.new(options = {})
        Fog::Logger.deprecation("Fog::Terremark::Vcloud is deprecated, to be replaced with Vcloud 1.0 someday/maybe [light_black](#{caller.first})[/]")
 
        unless @required
@@ -37,7 +37,7 @@ module Fog
        include Fog::Terremark::Shared::Real
        include Fog::Terremark::Shared::Parser
 
-        def initialize(options={})
+        def initialize(options = {})
           @terremark_password = options[:terremark_vcloud_password]
           @terremark_username = options[:terremark_vcloud_username]
           @connection_options = options[:connection_options] || {}

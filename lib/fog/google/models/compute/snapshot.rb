@@ -26,7 +26,7 @@ module Fog
         READY_STATE     = 'READY'
         UPLOADING_STATE = 'UPLOADING'
 
-        def destroy(async=true)
+        def destroy(async = true)
           requires :identity
 
           data = service.delete_snapshot(identity)

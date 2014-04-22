@@ -19,7 +19,7 @@ module Fog
         # ==== See Also
         # http://docs.amazonwebservices.com/elasticbeanstalk/latest/api/API_TerminateEnvironment.html
         #
-        def terminate_environment(options={})
+        def terminate_environment(options = {})
           request({
                       'Operation'    => 'TerminateEnvironment',
                       :parser     => Fog::Parsers::AWS::ElasticBeanstalk::TerminateEnvironment.new
