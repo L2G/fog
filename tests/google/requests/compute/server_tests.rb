@@ -3,51 +3,51 @@ Shindo.tests('Fog::Compute[:google] | server requests', ['google']) do
   @google = Fog::Compute[:google]
 
   @insert_server_format = {
-      'kind' => String,
-      'id' => String,
-      'selfLink' => String,
-      'name' => String,
-      'targetLink' => String,
-      'user' => String,
-      'startTime' => String,
-      'insertTime' => String,
+      'kind'          => String,
+      'id'            => String,
+      'selfLink'      => String,
+      'name'          => String,
+      'targetLink'    => String,
+      'user'          => String,
+      'startTime'     => String,
+      'insertTime'    => String,
       'operationType' => String,
-      'status' => String,
-      'progress' => Integer
+      'status'        => String,
+      'progress'      => Integer
   }
 
   @get_server_format = {
-      'kind' => String,
-      'id' => String,
-      'selfLink' => String,
+      'kind'              => String,
+      'id'                => String,
+      'selfLink'          => String,
       'creationTimestamp' => String,
-      'name' => String,
-      'image' => String,
-      'machineType' => String,
-      'status' => String,
-      'zone' => String,
-      'disks' => [],
+      'name'              => String,
+      'image'             => String,
+      'machineType'       => String,
+      'status'            => String,
+      'zone'              => String,
+      'disks'             => [],
       'networkInterfaces' => []
   }
 
   @delete_server_format = {
-      'kind' => String,
-      'id' => String,
-      'selfLink' => String,
-      'name' => String,
-      'targetLink' => String,
-      'status' => String,
-      'user' => String,
-      'targetId' => String,
-      'progress' => Integer,
-      'insertTime' => String,
-      'startTime' => String,
+      'kind'          => String,
+      'id'            => String,
+      'selfLink'      => String,
+      'name'          => String,
+      'targetLink'    => String,
+      'status'        => String,
+      'user'          => String,
+      'targetId'      => String,
+      'progress'      => Integer,
+      'insertTime'    => String,
+      'startTime'     => String,
       'operationType' => String
   }
 
   @list_servers_format = {
-      'kind' => String,
-      'id' => String,
+      'kind'     => String,
+      'id'       => String,
       'selfLink' => String,
   }
 

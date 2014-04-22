@@ -15,8 +15,8 @@ module Fog
           networks = Array.new
           server.addresses.each_with_index do |address, index|
             networks << {
-              :id   => index + 1,
-              :name => address[0],
+              :id        => index + 1,
+              :name      => address[0],
               :addresses => address[1].map {|a| a['addr'] }
             }
           end

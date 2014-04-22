@@ -6,8 +6,8 @@ module Fog
           data = {
             'nodes' => [
               {
-                'address' => address,
-                'port' => port,
+                'address'   => address,
+                'port'      => port,
                 'condition' => condition
               }
           ] }
@@ -15,10 +15,10 @@ module Fog
             data['nodes'][0]['weight'] = options[:weight]
           end
           request(
-            :body     => Fog::JSON.encode(data),
-            :expects  => [200, 202],
-            :method   => 'POST',
-            :path     => "loadbalancers/#{load_balancer_id}/nodes.json"
+            :body    => Fog::JSON.encode(data),
+            :expects => [200, 202],
+            :method  => 'POST',
+            :path    => "loadbalancers/#{load_balancer_id}/nodes.json"
           )
         end
       end

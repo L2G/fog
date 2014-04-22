@@ -37,44 +37,44 @@ Shindo.tests('AWS::ELB | policy_tests', ['aws', 'elb']) do
       # Check the result of each policy by name
       returns(
                 'PolicyAttributeDescriptions' => [{
-                                                  'AttributeName' => 'CookieName',
+                                                  'AttributeName'  => 'CookieName',
                                                   'AttributeValue' => 'fog-app-cookie'
                                                 }],
-                'PolicyName' => 'fog-app-policy',
-                'PolicyTypeName' => 'AppCookieStickinessPolicyType'
+                'PolicyName'                  => 'fog-app-policy',
+                'PolicyTypeName'              => 'AppCookieStickinessPolicyType'
               ) do
         body['DescribeLoadBalancerPoliciesResult']['PolicyDescriptions'].detect{|e| e['PolicyName'] == 'fog-app-policy' }
       end
 
       returns(
                 'PolicyAttributeDescriptions' => [{
-                                                  'AttributeName' => 'CookieExpirationPeriod',
+                                                  'AttributeName'  => 'CookieExpirationPeriod',
                                                   'AttributeValue' => '300'
                                                 }],
-                'PolicyName' => 'fog-lb-expiry',
-                'PolicyTypeName' => 'LBCookieStickinessPolicyType'
+                'PolicyName'                  => 'fog-lb-expiry',
+                'PolicyTypeName'              => 'LBCookieStickinessPolicyType'
               ) do
         body['DescribeLoadBalancerPoliciesResult']['PolicyDescriptions'].detect{|e| e['PolicyName'] == 'fog-lb-expiry' }
       end
 
       returns(
                 'PolicyAttributeDescriptions' => [{
-                                                  'AttributeName' => 'CookieExpirationPeriod',
+                                                  'AttributeName'  => 'CookieExpirationPeriod',
                                                   'AttributeValue' => '0'
                                                 }],
-                'PolicyName' => 'fog-lb-no-expiry',
-                'PolicyTypeName' => 'LBCookieStickinessPolicyType'
+                'PolicyName'                  => 'fog-lb-no-expiry',
+                'PolicyTypeName'              => 'LBCookieStickinessPolicyType'
               ) do
         body['DescribeLoadBalancerPoliciesResult']['PolicyDescriptions'].detect{|e| e['PolicyName'] == 'fog-lb-no-expiry' }
       end
 
       returns(
                 'PolicyAttributeDescriptions' => [{
-                                                  'AttributeName' => 'PublicKey',
+                                                  'AttributeName'  => 'PublicKey',
                                                   'AttributeValue' => AWS::IAM::SERVER_CERT_PUBLIC_KEY
                                                 }],
-                'PolicyName' => 'fog-policy',
-                'PolicyTypeName' => 'PublicKeyPolicyType'
+                'PolicyName'                  => 'fog-policy',
+                'PolicyTypeName'              => 'PublicKeyPolicyType'
               ) do
         body['DescribeLoadBalancerPoliciesResult']['PolicyDescriptions'].detect{|e| e['PolicyName'] == 'fog-policy' }
       end

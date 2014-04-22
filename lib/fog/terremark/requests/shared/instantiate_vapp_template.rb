@@ -66,12 +66,12 @@ module Fog
 DATA
 
           request(
-            :body => data,
+            :body    => data,
             :expects => 200,
             :headers => { 'Content-Type' => 'application/vnd.vmware.vcloud.instantiateVAppTemplateParams+xml' },
-            :method => 'POST',
-            :parser => Fog::Parsers::Terremark::Shared::InstantiateVappTemplate.new,
-            :path => "vdc/#{options['vdc_id']}/action/instantiatevAppTemplate"
+            :method  => 'POST',
+            :parser  => Fog::Parsers::Terremark::Shared::InstantiateVappTemplate.new,
+            :path    => "vdc/#{options['vdc_id']}/action/instantiatevAppTemplate"
           )
         end
 

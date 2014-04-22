@@ -56,11 +56,11 @@ module Fog
 
           temp_url_options = {
             :scheme => scheme,
-            :host => @host,
-            :port => @port,
-            :path => object_path_escaped,
-            :query => URI.encode_www_form(
-              :temp_url_sig => sig,
+            :host   => @host,
+            :port   => @port,
+            :path   => object_path_escaped,
+            :query  => URI.encode_www_form(
+              :temp_url_sig     => sig,
               :temp_url_expires => expires
             )
           }

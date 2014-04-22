@@ -15,10 +15,10 @@ module Fog
 
           def build_group_config(attributes)
             Fog::Rackspace::AutoScale::GroupConfig.new :max_entities => attributes[:max_entities],
-              :min_entities => attributes[:min_entities],
-              :cooldown => attributes[:cooldown],
-              :name => attributes[:name],
-              :metadata => attributes[:metadata] || {}
+                                                       :min_entities => attributes[:min_entities],
+                                                       :cooldown     => attributes[:cooldown],
+                                                       :name         => attributes[:name],
+                                                       :metadata     => attributes[:metadata] || {}
           end
 
           def build_server_launch_config(attributes)
@@ -43,7 +43,7 @@ module Fog
           def load_balancer_to_hash(lb)
             raise ArgumentError.new('Expected LoadBalancer') unless lb.respond_to?(:id) && lb.respond_to?(:port)
             {
-              'port' =>  lb.port,
+              'port'           => lb.port,
               'loadBalancerId' => lb.id
             }
           end
@@ -53,11 +53,11 @@ module Fog
             flavor_id = get_id(:flavor, attributes)
 
             server_template =   {
-              'name' => attributes[:server_name],
-              'imageRef' => image_id,
-              'flavorRef' => flavor_id,
+              'name'                => attributes[:server_name],
+              'imageRef'            => image_id,
+              'flavorRef'           => flavor_id,
               'OS-DCF =>diskConfig' => attributes[:disk_config] || 'MANUAL',
-              'metadata' => attributes[:server_metadata] || {}
+              'metadata'            => attributes[:server_metadata] || {}
             }
 
             server_template['personality'] = attributes[:personality] if attributes[:personality]

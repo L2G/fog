@@ -5,10 +5,10 @@ module Fog
 
         def update_server(server_id, options = {})
           request(
-            :body     => Fog::JSON.encode( 'server' => options ),
-            :expects  => 200,
-            :method   => 'PUT',
-            :path     => "servers/#{server_id}.json"
+            :body    => Fog::JSON.encode( 'server' => options ),
+            :expects => 200,
+            :method  => 'PUT',
+            :path    => "servers/#{server_id}.json"
           )
         end
 

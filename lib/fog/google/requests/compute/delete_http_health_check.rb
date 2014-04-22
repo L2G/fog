@@ -15,7 +15,7 @@ module Fog
         def delete_http_health_check(name)
           api_method = @compute.http_health_checks.delete
           parameters = {
-            'project' => @project,
+            'project'         => @project,
             'httpHealthCheck' => name
           }
 

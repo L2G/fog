@@ -5,9 +5,9 @@ module Fog
 
         def linode_update(linode_id, options = {})
           request(
-            :expects  => 200,
-            :method   => 'GET',
-            :query    => { :api_action => 'linode.update', :linodeId => linode_id }.merge!(options)
+            :expects => 200,
+            :method  => 'GET',
+            :query   => { :api_action => 'linode.update', :linodeId => linode_id }.merge!(options)
           )
         end
 

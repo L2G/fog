@@ -28,9 +28,9 @@ module Fog
           options = options.reject {|key, value| value.nil?}
           request(
             :expects => [200, 203],
-            :method => 'GET',
-            :path => 'images',
-            :query => { 'format' => 'json' }.merge!(options)
+            :method  => 'GET',
+            :path    => 'images',
+            :query   => { 'format' => 'json' }.merge!(options)
           )
         end
       end

@@ -31,9 +31,9 @@ module Fog
             query[:resourceID] = resource_id
           end
           request(
-            :expects  => 200,
-            :method   => 'GET',
-            :query    => query
+            :expects => 200,
+            :method  => 'GET',
+            :query   => query
           )
         end
 

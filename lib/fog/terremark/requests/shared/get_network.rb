@@ -14,10 +14,10 @@ module Fog
         #   FIXME
         def get_network(network_id)
          request(
-            :expects  => 200,
-            :method   => 'GET',
-            :parser   => Fog::Parsers::Terremark::Shared::Network.new,
-            :path     => "network/#{network_id}"
+            :expects => 200,
+            :method  => 'GET',
+            :parser  => Fog::Parsers::Terremark::Shared::Network.new,
+            :path    => "network/#{network_id}"
           )
         end
 
@@ -31,8 +31,8 @@ module Fog
           if network = self.data[:organizations].map { |org| org[:vdcs].map { |vdc| vdc[:networks] } }.flatten.detect { |network| network[:id] == network_id }
 
             body = { 'links' => [],
-                     'type' => 'application/vnd.vmware.vcloud.network+xml',
-                     'href' => "#{@base_url}/network/#{network_id}" }
+                     'type'  => 'application/vnd.vmware.vcloud.network+xml',
+                     'href'  => "#{@base_url}/network/#{network_id}" }
 
             network.each_key do |key|
               body[key.to_s] = network[key]

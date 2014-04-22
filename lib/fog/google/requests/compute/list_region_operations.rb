@@ -16,7 +16,7 @@ module Fog
         def list_region_operations(region)
           api_method = @compute.region_operations.list
           parameters = {
-            'region' => region,
+            'region'  => region,
             'project' => @project,
           }
 

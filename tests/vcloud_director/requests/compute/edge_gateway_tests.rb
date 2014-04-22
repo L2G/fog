@@ -4,27 +4,27 @@ Shindo.tests('Compute::VcloudDirector | edge gateway requests', ['vclouddirector
 
   @new_edge_gateway_configuration = {
     :FirewallService =>
-      {
-        :IsEnabled => 'true',
-        :DefaultAction => 'allow',
+                        {
+        :IsEnabled        => 'true',
+        :DefaultAction    => 'allow',
         :LogDefaultAction => 'false',
-        :FirewallRule => [
+        :FirewallRule     => [
           {
-            :IsEnabled => 'false',
-            :MatchOnTranslate => 'false',
-            :Id => FIREWALL_RULE_ID,
-            :Policy => 'drop',
-            :Description => 'generated from edge_gateway_tests',
-            :Protocols => {
+            :IsEnabled            => 'false',
+            :MatchOnTranslate     => 'false',
+            :Id                   => FIREWALL_RULE_ID,
+            :Policy               => 'drop',
+            :Description          => 'generated from edge_gateway_tests',
+            :Protocols            => {
               :Tcp => 'true'
             },
-            :Port => '3412',
+            :Port                 => '3412',
             :DestinationPortRange => '3412',
-            :DestinationIp => 'internal',
-            :SourcePort => '3412',
-            :SourceIp => 'internal',
-            :SourcePortRange => '3412',
-            :EnableLogging => 'false'
+            :DestinationIp        => 'internal',
+            :SourcePort           => '3412',
+            :SourceIp             => 'internal',
+            :SourcePortRange      => '3412',
+            :EnableLogging        => 'false'
           }
         ]
       }

@@ -16,7 +16,7 @@ module Fog
         def delete_global_operation(operation)
           api_method = @compute.global_operations.delete
           parameters = {
-            'project' => @project,
+            'project'   => @project,
             'operation' => operation
           }
 

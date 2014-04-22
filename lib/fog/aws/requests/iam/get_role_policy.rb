@@ -23,10 +23,10 @@ module Fog
         #
         def get_role_policy(role_name, policy_name)
           request(
-            'Action'      => 'GetRolePolicy',
-            'PolicyName'  => policy_name,
-            'RoleName'    => role_name,
-            :parser       => Fog::Parsers::AWS::IAM::GetRolePolicy.new
+            'Action'     => 'GetRolePolicy',
+            'PolicyName' => policy_name,
+            'RoleName'   => role_name,
+            :parser      => Fog::Parsers::AWS::IAM::GetRolePolicy.new
           )
         end
 

@@ -1,59 +1,59 @@
 MINIMAL_HEADERS_FORMAT = {
   'X-RateLimit-Window' => String,
-  'X-RateLimit-Limit' => String,
-  'X-RateLimit-Type' => String,
-  'Content-Type' => String,
-  'Date' => String,
+  'X-RateLimit-Limit'  => String,
+  'X-RateLimit-Type'   => String,
+  'Content-Type'       => String,
+  'Date'               => String,
 }
 DELETE_HEADERS_FORMAT = MINIMAL_HEADERS_FORMAT.merge(
   'Content-Length' => String
 )
 HEADERS_FORMAT = MINIMAL_HEADERS_FORMAT.merge(
   'Content-Length' => String,
-  'X-Object-ID' => String,
-  'Location' => String
+  'X-Object-ID'    => String,
+  'Location'       => String
 )
 LIST_HEADERS_FORMAT = MINIMAL_HEADERS_FORMAT.merge(
   'X-RateLimit-Remaining' => String,
-  'X-Response-Id' => String,
-  'Transfer-Encoding' => String,
-  'X-LB' => String,
-  'Vary' => String
+  'X-Response-Id'         => String,
+  'Transfer-Encoding'     => String,
+  'X-LB'                  => String,
+  'Vary'                  => String
 )
 
 DATA_FORMAT = {
-  :status => Integer,
-  :body => String,
-  :headers => HEADERS_FORMAT,
+  :status    => Integer,
+  :body      => String,
+  :headers   => HEADERS_FORMAT,
   :remote_ip => String
 }
 DELETE_DATA_FORMAT = {
-  :status => Integer,
-  :body => String,
-  :headers => DELETE_HEADERS_FORMAT,
+  :status    => Integer,
+  :body      => String,
+  :headers   => DELETE_HEADERS_FORMAT,
   :remote_ip => String
 }
 
 LIST_MONITORING_ZONE = {
-    'values' =>
-      [{ 'id' => String,
-        'label' => Fog::Nullable::String,
-        'country_code' => String,
-        'source_ips' => [String, String] }],
-     'metadata' =>
-      { 'count' => Integer,
-       'limit' => Integer,
-       'marker' => Fog::Nullable::String,
-       'next_marker' => Fog::Nullable::String,
-       'next_href' => Fog::Nullable::String
+    'values'   =>
+                  [{ 'id'           => String,
+                     'label'        => Fog::Nullable::String,
+                     'country_code' => String,
+                     'source_ips'   => [String, String] }],
+    'metadata' =>
+                  { 'count'       => Integer,
+                    'limit'       => Integer,
+                    'marker'      => Fog::Nullable::String,
+                    'next_marker' => Fog::Nullable::String,
+                    'next_href'   => Fog::Nullable::String
      }
 }
 
 GET_MONITORING_ZONE = {
-    'id' => String,
-    'label' => String,
+    'id'           => String,
+    'label'        => String,
     'country_code' => String,
-    'source_ips' => [String]
+    'source_ips'   => [String]
 }
 
 # {"values"=>
@@ -96,44 +96,44 @@ GET_MONITORING_ZONE = {
 #    "next_href"=>nil}}
 
 CHECK_CREATE_OPTIONS = {
-  :details => {
-    :url => 'http://www.rackspace.com',
+  :details               => {
+    :url    => 'http://www.rackspace.com',
     :method => 'GET',
   },
-  :type => 'remote.http',
+  :type                  => 'remote.http',
   :monitoring_zones_poll => ['mzdfw'],
-  :target_hostname => 'rackspace.com',
-  :timeout => 30,
-  :period => 100
+  :target_hostname       => 'rackspace.com',
+  :timeout               => 30,
+  :period                => 100
 }
 
 OVERVIEW_FORMAT = {
-  :status => Integer,
-  :body => {
-    :values => [
+  :status    => Integer,
+  :body      => {
+    :values   => [
       {
-        :entity => {
-          :id => String,
-          :label => String,
+        :entity              => {
+          :id           => String,
+          :label        => String,
           :ip_addresses => {},
-          :metadata => String
+          :metadata     => String
         },
-        :checks => [
+        :checks              => [
         ],
-        :alarms => [
+        :alarms              => [
         ],
         :latest_alarm_states => [
         ]
       }
     ],
     :metadata => {
-      :count => Integer,
-      :limit => Integer,
-      :marker => String,
+      :count       => Integer,
+      :limit       => Integer,
+      :marker      => String,
       :next_marker => String,
-      :next_href => String
+      :next_href   => String
     }
   },
-  :headers => LIST_HEADERS_FORMAT,
+  :headers   => LIST_HEADERS_FORMAT,
   :remote_ip => String
 }

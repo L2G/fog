@@ -21,22 +21,22 @@ module Fog
             headers['Transfer-Encoding'] = 'chunked'
             headers.delete('Content-Length')
             return shared_request(
-              :request_block     => block,
-              :expects  => 201,
-              :headers  => headers,
-              :method   => 'PUT',
-              :path     => "#{path}/#{Fog::HP.escape(object_name)}"
+              :request_block => block,
+              :expects       => 201,
+              :headers       => headers,
+              :method        => 'PUT',
+              :path          => "#{path}/#{Fog::HP.escape(object_name)}"
             )
           end
           if headers.has_key?('Transfer-Encoding')
             headers.delete('Content-Length')
           end
           response = shared_request(
-            :body     => data[:body],
-            :expects  => 201,
-            :headers  => headers,
-            :method   => 'PUT',
-            :path     => "#{path}/#{Fog::HP.escape(object_name)}"
+            :body    => data[:body],
+            :expects => 201,
+            :headers => headers,
+            :method  => 'PUT',
+            :path    => "#{path}/#{Fog::HP.escape(object_name)}"
           )
           response
         end
@@ -53,12 +53,12 @@ module Fog
           end
           response.status = 201
           object = {
-            :body             => data[:body],
-            'Content-Type'    => options['Content-Type'] || data[:headers]['Content-Type'],
-            'ETag'            => Fog::HP::Mock.etag,
-            'Key'             => object_name,
-            'Date'            => Fog::Time.now.to_date_header,
-            'Content-Length'  => options['Content-Length'] || data[:headers]['Content-Length'],
+            :body            => data[:body],
+            'Content-Type'   => options['Content-Type'] || data[:headers]['Content-Type'],
+            'ETag'           => Fog::HP::Mock.etag,
+            'Key'            => object_name,
+            'Date'           => Fog::Time.now.to_date_header,
+            'Content-Length' => options['Content-Length'] || data[:headers]['Content-Length'],
           }
 
           for key, value in options
@@ -69,10 +69,10 @@ module Fog
           end
 
           response.headers = {
-            'Content-Length'  => object['Content-Length'],
-            'Content-Type'    => object['Content-Type'],
-            'ETag'            => object['ETag'],
-            'Date'            => object['Date']
+            'Content-Length' => object['Content-Length'],
+            'Content-Type'   => object['Content-Type'],
+            'ETag'           => object['ETag'],
+            'Date'           => object['Date']
           }
 
           response

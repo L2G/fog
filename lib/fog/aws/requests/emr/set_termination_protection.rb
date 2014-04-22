@@ -20,9 +20,9 @@ module Fog
             options.merge!(Fog::AWS.serialize_keys('JobFlowIds', job_ids))
           end
           request({
-            'Action'  => 'SetTerminationProtection',
+            'Action'               => 'SetTerminationProtection',
             'TerminationProtected' => is_protected,
-            :parser   => Fog::Parsers::AWS::EMR::SetTerminationProtection.new,
+            :parser                => Fog::Parsers::AWS::EMR::SetTerminationProtection.new,
           }.merge(options))
         end
       end

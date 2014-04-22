@@ -5,10 +5,10 @@ module Fog
         def create_notification(options = {})
           data = options.dup
           request(
-            :body     => JSON.encode(data),
-            :expects  => [201],
-            :method   => 'POST',
-            :path     => 'notifications'
+            :body    => JSON.encode(data),
+            :expects => [201],
+            :method  => 'POST',
+            :path    => 'notifications'
           )
         end
       end

@@ -28,13 +28,13 @@ module Fog
         #     * 'LastEvaluatedKey'<~Hash> - last key scanned, can be passed to ExclusiveStartKey for pagination
         def query(table_name, hash_key, options = {})
           body = {
-            'TableName'     => table_name,
-            'HashKeyValue'  => hash_key
+            'TableName'    => table_name,
+            'HashKeyValue' => hash_key
           }.merge(options)
 
           request(
-            :body     => Fog::JSON.encode(body),
-            :headers  => { 'x-amz-target' => 'DynamoDB_20111205.Query' }
+            :body    => Fog::JSON.encode(body),
+            :headers => { 'x-amz-target' => 'DynamoDB_20111205.Query' }
           )
         end
 

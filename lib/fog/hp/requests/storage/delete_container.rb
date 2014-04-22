@@ -10,9 +10,9 @@ module Fog
         #
         def delete_container(name)
           response = request(
-            :expects  => 204,
-            :method   => 'DELETE',
-            :path     => Fog::HP.escape(name)
+            :expects => 204,
+            :method  => 'DELETE',
+            :path    => Fog::HP.escape(name)
           )
           response
         end

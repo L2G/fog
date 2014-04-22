@@ -71,8 +71,8 @@ module Fog
           requires :raw_disk
 
           options = {
-            'rawDisk'         => raw_disk,
-            'description'     => description,
+            'rawDisk'     => raw_disk,
+            'description' => description,
           }
 
           data = service.insert_image(name, options)

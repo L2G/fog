@@ -7,8 +7,8 @@ module Fog
 
         def add_permission(options = {})
           request({
-            'Action'  => 'AddPermission',
-            :parser   => Fog::Parsers::AWS::SNS::AddPermission.new
+            'Action' => 'AddPermission',
+            :parser  => Fog::Parsers::AWS::SNS::AddPermission.new
           }.merge!(options))
         end
 

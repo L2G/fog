@@ -6,8 +6,8 @@ Shindo.tests('Fog::Rackspace::Identity | tenants', ['rackspace']) do
   username = "fog_user_#{Time.now.to_i}"
   options = {
     :username => username,
-    :email => 'email@example.com',
-    :enabled => true
+    :email    => 'email@example.com',
+    :enabled  => true
   }
 
   tests('#all').succeeds do

@@ -11,9 +11,9 @@ module Fog
         #   * status<~Integer> - 200 - OK
         def delete_all_domains
           request(
-            :expects  => 200,
-            :method   => 'DELETE',
-            :path     => '/V1.2/domains'
+            :expects => 200,
+            :method  => 'DELETE',
+            :path    => '/V1.2/domains'
           )
         end
 

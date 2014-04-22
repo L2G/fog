@@ -39,10 +39,10 @@ module Fog
           tag_set = deep_clone(self.data[:tags])
 
           aliases = {
-            'key'               => 'key',
-            'resource-id'       => 'resourceId',
-            'resource-type'     => 'resourceType',
-            'value'             => 'value'
+            'key'           => 'key',
+            'resource-id'   => 'resourceId',
+            'resource-type' => 'resourceType',
+            'value'         => 'value'
           }
 
           for filter_key, filter_value in filters
@@ -64,7 +64,7 @@ module Fog
             values.each do |value, resources|
               resources.each do |resource|
                 tagged_resources << resource.merge(
-                  'key' => key,
+                  'key'   => key,
                   'value' => value
                 )
               end
@@ -73,8 +73,8 @@ module Fog
 
           response.status = 200
           response.body = {
-            'requestId'       => Fog::AWS::Mock.request_id,
-            'tagSet'          => tagged_resources
+            'requestId' => Fog::AWS::Mock.request_id,
+            'tagSet'    => tagged_resources
           }
           response
         end

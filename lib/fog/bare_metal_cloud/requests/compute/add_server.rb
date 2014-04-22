@@ -19,11 +19,11 @@ module Fog
         #
         def add_server(plan_id, options = {})
           request(
-            :expects  => 200,
-            :method   => 'GET',
-            :parser   => Fog::ToHashDocument.new,
-            :path     => 'api/addServer',
-            :query    => { 'planId' => plan_id }.merge!(options)
+            :expects => 200,
+            :method  => 'GET',
+            :parser  => Fog::ToHashDocument.new,
+            :path    => 'api/addServer',
+            :query   => { 'planId' => plan_id }.merge!(options)
           )
         end
 

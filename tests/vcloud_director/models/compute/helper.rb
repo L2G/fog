@@ -9,7 +9,7 @@ def vcloud_director
     :connection_options => {
       :ssl_verify_peer => false,
       :connect_timeout => 200,
-      :read_timeout => 200
+      :read_timeout    => 200
     }
   )
 end

@@ -166,10 +166,10 @@ module Fog
           raise Fog::Errors::Error.new('Resaving an existing object may create a duplicate') if persisted?
           requires :image_id
           options = {
-            :image => image_id,
-            :name => name,
-            :zone => zone_id,
-            :user_data => user_data,
+            :image         => image_id,
+            :name          => name,
+            :zone          => zone_id,
+            :user_data     => user_data,
             :server_groups => server_groups
           }.delete_if { |k, v| v.nil? || v == '' }
 

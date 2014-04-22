@@ -21,7 +21,7 @@ module Fog
         def attach_to(server_id)
           requires :identity
           service.attach_volume_to_server(:uniq_id => identity,
-                                          :to => server_id).body
+                                          :to      => server_id).body
         end
 
         def destroy
@@ -32,13 +32,13 @@ module Fog
 
         def detach_from(server_id)
           requires :identity
-          service.detach_volume_from_server(:uniq_id => identity,
+          service.detach_volume_from_server(:uniq_id     => identity,
                                             :detach_from => server_id).body
         end
 
         def resize(new_size)
           requires :identity
-          service.resize_volume(:uniq_id => identity,
+          service.resize_volume(:uniq_id  => identity,
                                 :new_size => new_size).body
         end
 

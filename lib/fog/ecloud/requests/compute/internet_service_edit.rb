@@ -47,11 +47,11 @@ module Fog
           body = build_node_service_body_edit(options)
           request(
             :expects => 202,
-            :method => 'PUT',
+            :method  => 'PUT',
             :headers => {},
-            :body => body,
-            :uri => options[:uri],
-            :parse => true
+            :body    => body,
+            :uri     => options[:uri],
+            :parse   => true
           )
         end
       end

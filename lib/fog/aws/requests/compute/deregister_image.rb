@@ -19,9 +19,9 @@ module Fog
         # {Amazon API Reference}[http://docs.amazonwebservices.com/AWSEC2/latest/APIReference/ApiReference-query-DeregisterImage.html]
         def deregister_image(image_id)
           request(
-            'Action'      => 'DeregisterImage',
-            'ImageId'     => image_id,
-            :parser       => Fog::Parsers::Compute::AWS::DeregisterImage.new
+            'Action'  => 'DeregisterImage',
+            'ImageId' => image_id,
+            :parser   => Fog::Parsers::Compute::AWS::DeregisterImage.new
           )
         end
 
@@ -35,7 +35,7 @@ module Fog
             response.status = 200
             response.body = {
               'requestId' => Fog::AWS::Mock.request_id,
-              'return' => 'true'
+              'return'    => 'true'
             }
             response
           else

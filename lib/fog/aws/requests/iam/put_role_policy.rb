@@ -22,11 +22,11 @@ module Fog
         #
         def put_role_policy(role_name, policy_name, policy_document)
           request(
-            'Action'          => 'PutRolePolicy',
+            'Action'         => 'PutRolePolicy',
             'RoleName'       => role_name,
-            'PolicyName'      => policy_name,
-            'PolicyDocument'  => Fog::JSON.encode(policy_document),
-            :parser           => Fog::Parsers::AWS::IAM::Basic.new
+            'PolicyName'     => policy_name,
+            'PolicyDocument' => Fog::JSON.encode(policy_document),
+            :parser          => Fog::Parsers::AWS::IAM::Basic.new
           )
         end
 

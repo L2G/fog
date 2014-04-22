@@ -9,9 +9,9 @@ Shindo.tests('Fog::Rackspace::Monitoring | alarm_tests', ['rackspace','rackspace
     tests('#create new alarm').formats(DATA_FORMAT) do
       alarm_criteria = "if (metric['code'] == '404') { return new AlarmStatus(CRITICAL, 'Page not found');}"
       options = {
-        :check_id => check_id,
+        :check_id             => check_id,
         :notification_plan_id => np,
-        :criteria => alarm_criteria
+        :criteria             => alarm_criteria
       }
       response = account.create_alarm(entity_id,options).data
       alarm_id = response[:headers]['X-Object-ID']

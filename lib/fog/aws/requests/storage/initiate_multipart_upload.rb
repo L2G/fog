@@ -28,13 +28,13 @@ module Fog
         #
         def initiate_multipart_upload(bucket_name, object_name, options = {})
           request(
-            :expects    => 200,
-            :headers    => options,
+            :expects     => 200,
+            :headers     => options,
             :bucket_name => bucket_name,
             :object_name => object_name,
-            :method     => 'POST',
-            :parser     => Fog::Parsers::Storage::AWS::InitiateMultipartUpload.new,
-            :query      => { 'uploads' => nil }
+            :method      => 'POST',
+            :parser      => Fog::Parsers::Storage::AWS::InitiateMultipartUpload.new,
+            :query       => { 'uploads' => nil }
           )
         end
 
@@ -49,15 +49,15 @@ module Fog
           upload_id = UUID.uuid
           self.data[:multipart_uploads][bucket_name] ||= {}
           self.data[:multipart_uploads][bucket_name][upload_id] = {
-            :parts => {},
+            :parts   => {},
             :options => options,
           }
 
           response = Excon::Response.new
           response.status = 200
           response.body = {
-            'Bucket' => bucket_name,
-            'Key' => object_name,
+            'Bucket'   => bucket_name,
+            'Key'      => object_name,
             'UploadId' => upload_id,
           }
           response

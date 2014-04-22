@@ -10,10 +10,10 @@ module Fog
         # * headers<~Hash> - Hash of metadata name/value pairs
         def post_container(container, headers = {})
           response = request(
-            :expects  => 204,
-            :headers  => headers,
-            :method   => 'POST',
-            :path     => Fog::HP.escape(container)
+            :expects => 204,
+            :headers => headers,
+            :method  => 'POST',
+            :path    => Fog::HP.escape(container)
           )
           response
         end

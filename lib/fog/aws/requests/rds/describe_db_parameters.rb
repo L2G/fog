@@ -26,9 +26,9 @@ module Fog
           end
 
           request({
-            'Action'  => 'DescribeDBParameters',
+            'Action'               => 'DescribeDBParameters',
             'DBParameterGroupName' => name,
-            :parser   => Fog::Parsers::AWS::RDS::DescribeDBParameters.new
+            :parser                => Fog::Parsers::AWS::RDS::DescribeDBParameters.new
           }.merge(params))
         end
 

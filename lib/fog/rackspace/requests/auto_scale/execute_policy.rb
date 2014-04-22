@@ -6,8 +6,8 @@ module Fog
         def execute_policy(group_id, policy_id)
           request(
             :expects => [202],
-            :method => 'POST',
-            :path => "groups/#{group_id}/policies/#{policy_id}/execute"
+            :method  => 'POST',
+            :path    => "groups/#{group_id}/policies/#{policy_id}/execute"
           )
         end
       end

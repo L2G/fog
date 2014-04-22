@@ -10,9 +10,9 @@ Shindo.tests('HP::LB | virtual ips requests', ['hp', 'lb', 'virtual_ips']) do
     @nodes = [{ 'address' => '15.185.1.1', 'port' => '80' }]
     @virtual_ip = [{
                      'ipVersion' => 'IPV4',
-                     'type' => 'PUBLIC',
-                     'id' => '11111111',
-                     'address' => '15.185.3.3'
+                     'type'      => 'PUBLIC',
+                     'id'        => '11111111',
+                     'address'   => '15.185.3.3'
                   }]
     data = HP[:lb].create_load_balancer('rg-fog-lb3', @nodes, 'virtualIps' => @virtual_ip).body
     @lb_id = data['id']

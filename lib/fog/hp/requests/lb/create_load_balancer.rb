@@ -94,9 +94,9 @@ module Fog
           else
             data['virtualIps'] = [{
                              'ipVersion' => 'IPV4',
-                             'type' => 'PUBLIC',
-                             'id' => Fog::HP::Mock.uuid.to_s,
-                             'address' => Fog::HP::Mock.ip_address
+                             'type'      => 'PUBLIC',
+                             'id'        => Fog::HP::Mock.uuid.to_s,
+                             'address'   => Fog::HP::Mock.ip_address
                           }]
           end
 

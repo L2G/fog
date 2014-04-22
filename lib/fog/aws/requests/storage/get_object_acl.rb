@@ -41,14 +41,14 @@ module Fog
             query['versionId'] = version_id
           end
           request(
-            :expects    => 200,
-            :headers    => {},
+            :expects     => 200,
+            :headers     => {},
             :bucket_name => bucket_name,
             :object_name => object_name,
-            :idempotent => true,
-            :method     => 'GET',
-            :parser     => Fog::Parsers::Storage::AWS::AccessControlList.new,
-            :query      => query
+            :idempotent  => true,
+            :method      => 'GET',
+            :parser      => Fog::Parsers::Storage::AWS::AccessControlList.new,
+            :query       => query
           )
         end
 

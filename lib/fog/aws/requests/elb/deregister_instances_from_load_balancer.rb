@@ -46,7 +46,7 @@ module Fog
           load_balancer['Instances'].delete_if { |i| instance_ids.include? i['InstanceId'] }
 
           response.body = {
-            'ResponseMetadata' => {
+            'ResponseMetadata'                          => {
               'RequestId' => Fog::AWS::Mock.request_id
             },
             'DeregisterInstancesFromLoadBalancerResult' => {

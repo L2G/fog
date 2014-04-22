@@ -20,10 +20,10 @@ module Fog
 
         def publish(arn, message, options = {})
           request({
-            'Action'    => 'Publish',
-            'Message'   => message,
-            'TopicArn'  => arn.strip,
-            :parser     => Fog::Parsers::AWS::SNS::Publish.new
+            'Action'   => 'Publish',
+            'Message'  => message,
+            'TopicArn' => arn.strip,
+            :parser    => Fog::Parsers::AWS::SNS::Publish.new
           }.merge!(options))
         end
 

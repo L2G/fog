@@ -12,9 +12,9 @@ module Fog
 
         def show_global_usage
           request(
-                  :expects  => 200,
-                  :method   => 'GET',
-                  :path     => '/rapi/showcurrentglobalusage/' )
+                  :expects => 200,
+                  :method  => 'GET',
+                  :path    => '/rapi/showcurrentglobalusage/' )
 
         end
 

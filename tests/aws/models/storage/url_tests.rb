@@ -5,10 +5,10 @@ Shindo.tests('AWS | url', ['aws']) do
   @expires = Time.utc(2013,1,1).utc.to_i
 
   @storage = Fog::Storage.new(
-    :provider => 'AWS',
-    :aws_access_key_id => '123',
+    :provider              => 'AWS',
+    :aws_access_key_id     => '123',
     :aws_secret_access_key => 'abc',
-    :region => 'us-east-1'
+    :region                => 'us-east-1'
   )
 
   @file = @storage.directories.new(:key => 'fognonbucket').files.new(:key => 'test.txt')

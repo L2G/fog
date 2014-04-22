@@ -1,16 +1,16 @@
 Shindo.tests('Fog::Network[:openstack] | security_grouprule requests', ['openstack']) do
 
   @security_group_rule_format = {
-    'id'                    => String,
-    'remote_group_id'       => Fog::Nullable::String,
-    'direction'             => String,
-    'remote_ip_prefix'      => Fog::Nullable::String,
-    'protocol'              => Fog::Nullable::String,
-    'ethertype'             => String,
-    'port_range_max'        => Fog::Nullable::Integer,
-    'port_range_min'        => Fog::Nullable::Integer,
-    'security_group_id'     => String,
-    'tenant_id'             => String
+    'id'                => String,
+    'remote_group_id'   => Fog::Nullable::String,
+    'direction'         => String,
+    'remote_ip_prefix'  => Fog::Nullable::String,
+    'protocol'          => Fog::Nullable::String,
+    'ethertype'         => String,
+    'port_range_max'    => Fog::Nullable::Integer,
+    'port_range_min'    => Fog::Nullable::Integer,
+    'security_group_id' => String,
+    'tenant_id'         => String
   }
 
   tests('success') do

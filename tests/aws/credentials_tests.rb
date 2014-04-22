@@ -9,19 +9,19 @@ Shindo.tests('AWS | credentials', ['aws']) do
 
     expires_at = Time.at(Time.now.to_i + 500)
     credentials = {
-      'AccessKeyId' => 'dummykey',
+      'AccessKeyId'     => 'dummykey',
       'SecretAccessKey' => 'dummysecret',
-      'Token' => 'dummytoken',
-      'Expiration' => expires_at.xmlschema
+      'Token'           => 'dummytoken',
+      'Expiration'      => expires_at.xmlschema
     }
 
     Excon.stub({ :method => :get, :path => '/latest/meta-data/iam/security-credentials/arole' }, { :status => 200, :body => Fog::JSON.encode(credentials) })
 
     tests('#fetch_credentials') do
-      returns(:aws_access_key_id => 'dummykey',
-                :aws_secret_access_key => 'dummysecret',
-                :aws_session_token => 'dummytoken',
-                :aws_credentials_expire_at => expires_at) { Fog::Compute::AWS.fetch_credentials(:use_iam_profile => true) }
+      returns(:aws_access_key_id         => 'dummykey',
+              :aws_secret_access_key     => 'dummysecret',
+              :aws_session_token         => 'dummytoken',
+              :aws_credentials_expire_at => expires_at) { Fog::Compute::AWS.fetch_credentials(:use_iam_profile => true) }
     end
 
     compute = Fog::Compute::AWS.new(:use_iam_profile => true)

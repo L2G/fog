@@ -29,8 +29,8 @@ module Fog
         #
         def list_access_keys(options = {})
           request({
-            'Action'  => 'ListAccessKeys',
-            :parser   => Fog::Parsers::AWS::IAM::ListAccessKeys.new
+            'Action' => 'ListAccessKeys',
+            :parser  => Fog::Parsers::AWS::IAM::ListAccessKeys.new
           }.merge!(options))
         end
 
@@ -51,11 +51,11 @@ module Fog
           end
 
           Excon::Response.new.tap do |response|
-            response.body = { 'AccessKeys' => access_keys_data.map do |akey|
+            response.body = { 'AccessKeys'  => access_keys_data.map do |akey|
                                                 { 'Status' => akey['Status'], 'AccessKeyId' => akey['AccessKeyId'] }
                                               end,
-                               'IsTruncated' => false,
-                               'RequestId' => Fog::AWS::Mock.request_id }
+                              'IsTruncated' => false,
+                              'RequestId'   => Fog::AWS::Mock.request_id }
             response.status = 200
           end
         end

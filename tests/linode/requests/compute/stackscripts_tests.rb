@@ -2,19 +2,19 @@ Shindo.tests('Fog::Compute[:linode] | stack_script requests', ['linode']) do
 
   @stack_scripts_format = Linode::Compute::Formats::BASIC.merge(
     'DATA' => [{
-      'STACKSCRIPTID'       => Integer,
-      'SCRIPT'              => String,
-      'DESCRIPTION'         => String,
-      'DISTRIBUTIONIDLIST'  => String,
-      'LABEL'               => String,
-      'DEPLOYMENTSTOTAL'    => Integer,
-      'LATESTREV'           => Integer,
-      'CREATE_DT'           => String,
-      'DEPLOYMENTSACTIVE'   => Integer,
-      'REV_NOTE'            => String,
-      'REV_DT'              => String,
-      'ISPUBLIC'            => Integer,
-      'USERID'              => Integer
+      'STACKSCRIPTID'      => Integer,
+      'SCRIPT'             => String,
+      'DESCRIPTION'        => String,
+      'DISTRIBUTIONIDLIST' => String,
+      'LABEL'              => String,
+      'DEPLOYMENTSTOTAL'   => Integer,
+      'LATESTREV'          => Integer,
+      'CREATE_DT'          => String,
+      'DEPLOYMENTSACTIVE'  => Integer,
+      'REV_NOTE'           => String,
+      'REV_DT'             => String,
+      'ISPUBLIC'           => Integer,
+      'USERID'             => Integer
     }]
   )
 

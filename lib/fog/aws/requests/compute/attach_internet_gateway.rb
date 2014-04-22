@@ -19,11 +19,11 @@ module Fog
         # {Amazon API Reference}[http://docs.amazonwebservices.com/AWSEC2/latest/APIReference/ApiReference-query-AttachInternetGateway.html]
         def attach_internet_gateway(internet_gateway_id, vpc_id)
           request(
-            'Action'               => 'AttachInternetGateway',
-            'InternetGatewayId'    => internet_gateway_id,
-            'VpcId'                => vpc_id,
-            :idempotent   => true,
-            :parser       => Fog::Parsers::Compute::AWS::Basic.new
+            'Action'            => 'AttachInternetGateway',
+            'InternetGatewayId' => internet_gateway_id,
+            'VpcId'             => vpc_id,
+            :idempotent         => true,
+            :parser             => Fog::Parsers::Compute::AWS::Basic.new
           )
         end
 
@@ -37,7 +37,7 @@ module Fog
             response.status = 200
             response.body = {
               'requestId' => Fog::AWS::Mock.request_id,
-              'return' => true
+              'return'    => true
             }
             response
           else

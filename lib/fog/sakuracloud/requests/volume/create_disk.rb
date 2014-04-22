@@ -8,11 +8,11 @@ module Fog
         def create_disk( name, plan, sourcearchive )
           body = {
            'Disk' => {
-             'Name' => name,
+             'Name'          => name,
              'SourceArchive' => {
                'ID' => sourcearchive.to_s
               },
-              'Plan' => {
+             'Plan'          => {
                 'ID' => plan.to_i
               }
             }
@@ -22,10 +22,10 @@ module Fog
             :headers => {
               'Authorization' => "Basic #{@auth_encord}"
             },
-            :expects  => [202],
-            :method => 'POST',
-            :path => "#{Fog::SakuraCloud::SAKURACLOUD_API_ENDPOINT}/disk",
-            :body => Fog::JSON.encode(body)
+            :expects => [202],
+            :method  => 'POST',
+            :path    => "#{Fog::SakuraCloud::SAKURACLOUD_API_ENDPOINT}/disk",
+            :body    => Fog::JSON.encode(body)
           )
         end
       end # Real

@@ -22,10 +22,10 @@ module Fog
         def all(options = {})
           requires :directory
           options = {
-            'delimiter'   => delimiter,
-            'marker'      => marker,
-            'max-keys'    => max_keys,
-            'prefix'      => prefix
+            'delimiter' => delimiter,
+            'marker'    => marker,
+            'max-keys'  => max_keys,
+            'prefix'    => prefix
           }.merge!(options)
           options = options.reject {|key,value| value.nil? || value.to_s.empty?}
           merge_attributes(options)

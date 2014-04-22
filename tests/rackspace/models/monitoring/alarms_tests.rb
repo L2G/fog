@@ -5,15 +5,15 @@ Shindo.tests('Fog::Rackspace::Monitoring | alarms', ['rackspace','rackspace_moni
   begin
     @entity = service.entities.create :label => "fog_#{Time.now.to_i}"
     @check = service.checks.create(CHECK_CREATE_OPTIONS.merge(
-                                        :label => "fog_#{Time.now.to_i}",
+                                        :label  => "fog_#{Time.now.to_i}",
                                         :entity => @entity) )
     np = 'npTechnicalContactsEmail'
     options = CHECK_CREATE_OPTIONS.merge(
-      :label => "fog_#{Time.now.to_i}",
-      :entity => @entity,
-      :entity_id => @entity.id,
-      :check => @check,
-      :check_id => @check.id,
+      :label                => "fog_#{Time.now.to_i}",
+      :entity               => @entity,
+      :entity_id            => @entity.id,
+      :check                => @check,
+      :check_id             => @check.id,
       :notification_plan_id => np
     )
     collection = service.alarms(:entity => @entity)

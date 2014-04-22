@@ -267,9 +267,9 @@ module Fog
         # @return [Hash]
         def _wrapped_request(method, path, expected_responses, parameters = {})
           request_options = {
-            :method   => method.to_s.upcase,
-            :path     => path,
-            :expects  => expected_responses
+            :method  => method.to_s.upcase,
+            :path    => path,
+            :expects => expected_responses
           }
 
           # Select the account to scope for this request

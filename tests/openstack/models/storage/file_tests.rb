@@ -17,7 +17,7 @@ Shindo.tests('Fog::OpenStack::Storage | file', ['openstack']) do
   end
 
   file_attributes = {
-    :key => 'fog_file_tests',
+    :key  => 'fog_file_tests',
     :body => lorem_file
   }
 

@@ -26,12 +26,12 @@ module Fog
           validate_clone_vapp_options(options)
 
           request(
-            :body     => generate_clone_vapp_request(vapp_uri, options),
-            :expects  => 202,
-            :headers  => { 'Content-Type' => 'application/vnd.vmware.vcloud.cloneVAppParams+xml' },
-            :method   => 'POST',
-            :uri      => vdc_uri + '/action/clonevapp',
-            :parse    => true
+            :body    => generate_clone_vapp_request(vapp_uri, options),
+            :expects => 202,
+            :headers => { 'Content-Type' => 'application/vnd.vmware.vcloud.cloneVAppParams+xml' },
+            :method  => 'POST',
+            :uri     => vdc_uri + '/action/clonevapp',
+            :parse   => true
           )
         end
       end

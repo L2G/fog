@@ -14,9 +14,9 @@ module Fog
         #     * 'locations'<~Array>: list of locations
         def list_locations
           request(
-            :method   => 'GET',
-            :expects  => 200,
-            :path     => '/locations'
+            :method  => 'GET',
+            :expects => 200,
+            :path    => '/locations'
           )
         end
 

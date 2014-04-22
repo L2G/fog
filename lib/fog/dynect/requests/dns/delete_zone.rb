@@ -10,9 +10,9 @@ module Fog
 
         def delete_zone(zone)
           request(
-            :expects  => 200,
-            :method   => :delete,
-            :path     => "Zone/#{zone}"
+            :expects => 200,
+            :method  => :delete,
+            :path    => "Zone/#{zone}"
           )
         end
       end
@@ -25,12 +25,12 @@ module Fog
           response.status = 200
           response.body = {
             'status' => 'success',
-            'data' => {},
+            'data'   => {},
             'job_id' => Fog::Dynect::Mock.job_id,
-            'msgs' => [{
+            'msgs'   => [{
               'ERR_CD' => '',
-              'INFO' => '',
-              'LVL' => '',
+              'INFO'   => '',
+              'LVL'    => '',
               'SOURCE' => ''
             }]
           }

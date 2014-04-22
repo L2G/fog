@@ -5,8 +5,8 @@ module Fog
         def list_flavors()
           request(
             :expects => 200,
-            :method => 'GET',
-            :path => 'flavors'
+            :method  => 'GET',
+            :path    => 'flavors'
           )
         end
       end

@@ -10,17 +10,17 @@ module Fog
           vdi_ref = vdi_ref.reference if vdi_ref.kind_of? Fog::Compute::XenServer::VDI
           config.reject! { |k,v| (k == :server) or (k == :vdi) }
           default_config = {
-            :VM => vm_ref,
-            :VDI => vdi_ref,
-            :empty => false,
-            :other_config => { 'owner' => '' },
-            :userdevice => '0',
-            :bootable => true,
-            :mode => 'RW',
-            :qos_algorithm_type => '',
-            :qos_algorithm_params => {},
+            :VM                       => vm_ref,
+            :VDI                      => vdi_ref,
+            :empty                    => false,
+            :other_config             => { 'owner' => '' },
+            :userdevice               => '0',
+            :bootable                 => true,
+            :mode                     => 'RW',
+            :qos_algorithm_type       => '',
+            :qos_algorithm_params     => {},
             :qos_supported_algorithms => [],
-            :type => 'Disk'
+            :type                     => 'Disk'
           }.merge config
 
           @connection.request({ :parser => Fog::Parsers::XenServer::Base.new, :method => 'VBD.create' }, default_config )

@@ -15,9 +15,9 @@ module Fog
         #       * 'available'<~Boolean> - State of the availability zone, i.e. true/false
         def list_availability_zones
           request(
-            :expects  => 200,
-            :method   => 'GET',
-            :path     => 'os-availability-zone'
+            :expects => 200,
+            :method  => 'GET',
+            :path    => 'os-availability-zone'
           )
         end
 
@@ -31,11 +31,11 @@ module Fog
           response.body = {
             'availabilityZoneInfo' => [
                 { 'zoneState' => { 'available' => true },
-                 'hosts' => nil,
-                 'zoneName' => 'az1' },
+                  'hosts'     => nil,
+                  'zoneName'  => 'az1' },
                 { 'zoneState' => { 'available' => true },
-                 'hosts' => nil,
-                 'zoneName' => 'az2' }
+                  'hosts'     => nil,
+                  'zoneName'  => 'az2' }
             ]
           }
           response

@@ -33,11 +33,11 @@ module Fog
 
           path = '/'
           params = {
-            :headers    => {},
-            :path       => path,
-            :method     => :put,
-            :query      => {},
-            :parser     => Fog::Parsers::Redshift::AWS::RevokeClusterSecurityGroupIngress.new
+            :headers => {},
+            :path    => path,
+            :method  => :put,
+            :query   => {},
+            :parser  => Fog::Parsers::Redshift::AWS::RevokeClusterSecurityGroupIngress.new
           }
 
           params[:query]['Action']                   = 'AuthorizeClusterSecurityGroupIngress'

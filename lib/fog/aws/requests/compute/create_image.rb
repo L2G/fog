@@ -34,12 +34,12 @@ module Fog
           params.reject!{|k,v| v.nil?}
 
           request({
-            'Action'            => 'CreateImage',
-            'InstanceId'        => instance_id,
-            'Name'              => name,
-            'Description'       => description,
-            'NoReboot'          => no_reboot.to_s,
-            :parser             => Fog::Parsers::Compute::AWS::CreateImage.new
+            'Action'      => 'CreateImage',
+            'InstanceId'  => instance_id,
+            'Name'        => name,
+            'Description' => description,
+            'NoReboot'    => no_reboot.to_s,
+            :parser       => Fog::Parsers::Compute::AWS::CreateImage.new
           }.merge!(params))
         end
       end
@@ -72,7 +72,7 @@ module Fog
             response.status = 200
             response.body = {
               'requestId' => Fog::AWS::Mock.request_id,
-              'imageId' => register_image_response.body['imageId']
+              'imageId'   => register_image_response.body['imageId']
             }
           else
             response.status = 400

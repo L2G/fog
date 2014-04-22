@@ -1,16 +1,16 @@
 Shindo.tests('Fog::Compute[:openstack] | keypair requests', ['openstack']) do
 
   @keypair_format = {
-    'public_key' => String,
+    'public_key'  => String,
     'private_key' => String,
-    'user_id' => String,
-    'name' => String,
+    'user_id'     => String,
+    'name'        => String,
     'fingerprint' => String
   }
 
   @keypair_list_format = {
-    'public_key' => String,
-    'name' => String,
+    'public_key'  => String,
+    'name'        => String,
     'fingerprint' => String
   }
 

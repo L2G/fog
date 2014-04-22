@@ -97,76 +97,76 @@ module Fog
 
         def private_image(name, description)
           {
-            'name'        => name,
-            'createdTime' => Fog::IBM::Mock.launch_time,
+            'name'         => name,
+            'createdTime'  => Fog::IBM::Mock.launch_time,
             'productCodes' => [],
-            'id'          => Fog::IBM::Mock.instance_id,
-            'description' => description,
-            'visibility'  => 'PRIVATE',
-            'state'       => 0
+            'id'           => Fog::IBM::Mock.instance_id,
+            'description'  => description,
+            'visibility'   => 'PRIVATE',
+            'state'        => 0
           }
         end
 
         def create_instance(name, image_id, instance_type, location, options)
           {
-            'name'          => name,
-            'location'      => location,
-            'keyName'       => options[:key_name],
-            'primaryIP'     => Fog::IBM::Mock.primary_ip,
-            'productCodes'  => [],
-            'requestId'     => Fog::IBM::Mock.request_id,
-            'imageId'       => image_id,
-            'launchTime'    => Fog::IBM::Mock.launch_time,
-            'id'            => Fog::IBM::Mock.instance_id,
-            'volumes'       => [],
+            'name'            => name,
+            'location'        => location,
+            'keyName'         => options[:key_name],
+            'primaryIP'       => Fog::IBM::Mock.primary_ip,
+            'productCodes'    => [],
+            'requestId'       => Fog::IBM::Mock.request_id,
+            'imageId'         => image_id,
+            'launchTime'      => Fog::IBM::Mock.launch_time,
+            'id'              => Fog::IBM::Mock.instance_id,
+            'volumes'         => [],
             'isMiniEphemeral' => 'false',
-            'instanceType'  => instance_type,
-            'diskSize'      => '60',
-            'requestName'   => '',
-            'secondaryIP'   => [],
-            'status'        => 1,
-            'software'      => [
-              { 'name' => 'SUSE Linux Enterprise Server',
-                'type' => 'OS',
+            'instanceType'    => instance_type,
+            'diskSize'        => '60',
+            'requestName'     => '',
+            'secondaryIP'     => [],
+            'status'          => 1,
+            'software'        => [
+              { 'name'    => 'SUSE Linux Enterprise Server',
+                'type'    => 'OS',
                 'version' => '11 SP1' }
             ],
-            'expirationTime' => Fog::IBM::Mock.expiry_time,
-            'owner'         => Fog::IBM::Mock.owner
+            'expirationTime'  => Fog::IBM::Mock.expiry_time,
+            'owner'           => Fog::IBM::Mock.owner
           }
         end
 
         def create_volume(name, format, location_id, size, offering_id)
           {
-            'instanceId'  => '0',
-            'state'       => 1,
-            'size'        => size,
-            'offeringId'  => offering_id,
-            'ioPrice' => {
-              'rate'  => 0.11,
-              'unitOfMeasure' => 'CNT',
-              'countryCode'   => '897',
-              'effectiveDate' => Fog::IBM::Mock.launch_time,
-              'currencyCode'  => 'USD',
-              'pricePerQuantity'  => 1
+            'instanceId'   => '0',
+            'state'        => 1,
+            'size'         => size,
+            'offeringId'   => offering_id,
+            'ioPrice'      => {
+              'rate'             => 0.11,
+              'unitOfMeasure'    => 'CNT',
+              'countryCode'      => '897',
+              'effectiveDate'    => Fog::IBM::Mock.launch_time,
+              'currencyCode'     => 'USD',
+              'pricePerQuantity' => 1
             },
-            'owner'       => Fog::IBM::Mock.owner,
-            'createdTime' => Fog::IBM::Mock.launch_time,
-            'location'    => location_id,
+            'owner'        => Fog::IBM::Mock.owner,
+            'createdTime'  => Fog::IBM::Mock.launch_time,
+            'location'     => location_id,
             'productCodes' => [],
-            'format'      => format,
-            'name'        => name,
-            'id'          => Fog::IBM::Mock.id,
+            'format'       => format,
+            'name'         => name,
+            'id'           => Fog::IBM::Mock.id,
           }
         end
 
         def create_address(location_id, offering_id, vlan_id)
           # TODO: Figure out vlan handling
           {
-            'id'        => Fog::IBM::Mock.id,
-            'location'  => location_id,
+            'id'         => Fog::IBM::Mock.id,
+            'location'   => location_id,
             'offeringId' => offering_id,
-            'ip'        => '',
-            'state'     => 0
+            'ip'         => '',
+            'state'      => 0
           }
         end
 

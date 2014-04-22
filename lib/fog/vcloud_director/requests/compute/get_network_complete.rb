@@ -35,13 +35,13 @@ module Fog
           end
 
           body = {
-            :name => network[:name],
-            :href => make_href("network/#{id}"),
-            :type => 'application/vnd.vmware.vcloud.orgNetwork+xml',
-            :id   => id,
-            :Description => network[:Description],
+            :name          => network[:name],
+            :href          => make_href("network/#{id}"),
+            :type          => 'application/vnd.vmware.vcloud.orgNetwork+xml',
+            :id            => id,
+            :Description   => network[:Description],
             :Configuration => {
-              :IpScopes => {
+              :IpScopes                       => {
                 :IpScope => {
                   :IsInherited => network[:IsInherited].to_s,
                   :Gateway     => network[:Gateway],
@@ -55,22 +55,22 @@ module Fog
                   },
                 }
               },
-              :FenceMode => network[:FenceMode],
+              :FenceMode                      => network[:FenceMode],
               :RetainNetInfoAcrossDeployments => false.to_s,
             },
-            :IsShared => network[:IsShared].to_s,
+            :IsShared      => network[:IsShared].to_s,
           }
 
           body[:Configuration][:IpScopes][:IpScope][:IpRanges][:IpRange] =
             network[:IpRanges].map do |ip_range|
               { :StartAddress => ip_range[:StartAddress],
-               :EndAddress   => ip_range[:EndAddress] }
+                :EndAddress   => ip_range[:EndAddress] }
             end
 
           Excon::Response.new(
-            :status => 200,
+            :status  => 200,
             :headers => { 'Content-Type' => "#{body[:type]};version=#{api_version}" },
-            :body => body
+            :body    => body
           )
 
         end

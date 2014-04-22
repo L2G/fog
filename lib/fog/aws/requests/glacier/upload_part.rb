@@ -24,19 +24,19 @@ module Fog
           path = "/#{account_id}/vaults/#{Fog::AWS.escape(vault_name)}/multipart-uploads/#{Fog::AWS.escape(upload_id)}"
 
           headers = {
-            'Content-Length' => body.bytesize.to_s,
-            'Content-Range' => "bytes #{offset}-#{offset + body.bytesize - 1}/*",
-            'x-amz-content-sha256' => Digest::SHA256.hexdigest(body),
+            'Content-Length'         => body.bytesize.to_s,
+            'Content-Range'          => "bytes #{offset}-#{offset + body.bytesize - 1}/*",
+            'x-amz-content-sha256'   => Digest::SHA256.hexdigest(body),
             'x-amz-sha256-tree-hash' => hash
           }
 
           request(
-            :expects  => 204,
+            :expects    => 204,
             :idempotent => true,
-            :headers => headers,
-            :method   => :put,
-            :path     => path,
-            :body     => body
+            :headers    => headers,
+            :method     => :put,
+            :path       => path,
+            :body       => body
           )
         end
       end

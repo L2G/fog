@@ -36,10 +36,10 @@ module Fog
 
         def get_zone(zone_id_or_domain)
           request(
-            :expects  => 200,
-            :method   => 'GET',
-            :parser   => Fog::Parsers::DNS::Zerigo::GetZone.new,
-            :path     => "/api/1.1/zones/#{zone_id_or_domain}.xml"
+            :expects => 200,
+            :method  => 'GET',
+            :parser  => Fog::Parsers::DNS::Zerigo::GetZone.new,
+            :path    => "/api/1.1/zones/#{zone_id_or_domain}.xml"
           )
         end
 

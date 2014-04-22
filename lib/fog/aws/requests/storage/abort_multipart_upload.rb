@@ -13,12 +13,12 @@ module Fog
         #
         def abort_multipart_upload(bucket_name, object_name, upload_id)
           request(
-            :expects    => 204,
-            :headers    => {},
+            :expects     => 204,
+            :headers     => {},
             :bucket_name => bucket_name,
             :object_name => object_name,
-            :method     => 'DELETE',
-            :query      => { 'uploadId' => upload_id }
+            :method      => 'DELETE',
+            :query       => { 'uploadId' => upload_id }
           )
         end
 

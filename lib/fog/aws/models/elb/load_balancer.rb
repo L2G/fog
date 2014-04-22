@@ -28,7 +28,7 @@ module Fog
           unless attributes['ListenerDescriptions']
             new_listener = Fog::AWS::ELB::Listener.new
             attributes['ListenerDescriptions'] = [{
-              'Listener' => new_listener.to_params,
+              'Listener'    => new_listener.to_params,
               'PolicyNames' => new_listener.policy_names
             }]
           end
@@ -110,24 +110,24 @@ module Fog
 
         def backend_server_descriptions
           Fog::AWS::ELB::BackendServerDescriptions.new(
-            :data => attributes['BackendServerDescriptions'],
-            :service => service,
+            :data          => attributes['BackendServerDescriptions'],
+            :service       => service,
             :load_balancer => self
           )
         end
 
         def listeners
           Fog::AWS::ELB::Listeners.new(
-            :data => attributes['ListenerDescriptions'],
-            :service => service,
+            :data          => attributes['ListenerDescriptions'],
+            :service       => service,
             :load_balancer => self
           )
         end
 
         def policies
           Fog::AWS::ELB::Policies.new(
-            :data => policy_descriptions,
-            :service => service,
+            :data          => policy_descriptions,
+            :service       => service,
             :load_balancer => self
           )
         end

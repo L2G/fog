@@ -4,9 +4,9 @@ module Fog
       class Real
         def list_algorithms
           request(
-            :expects  => 200,
-            :method   => 'GET',
-            :path     => 'loadbalancers/algorithms'
+            :expects => 200,
+            :method  => 'GET',
+            :path    => 'loadbalancers/algorithms'
           )
         end
       end

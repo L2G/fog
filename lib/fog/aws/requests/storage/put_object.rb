@@ -30,13 +30,13 @@ module Fog
           data = Fog::Storage.parse_data(data)
           headers = data[:headers].merge!(options)
           request(
-            :body       => data[:body],
-            :expects    => 200,
-            :headers    => headers,
+            :body        => data[:body],
+            :expects     => 200,
+            :headers     => headers,
             :bucket_name => bucket_name,
             :object_name => object_name,
-            :idempotent => true,
-            :method     => 'PUT'
+            :idempotent  => true,
+            :method      => 'PUT'
           )
         end
 
@@ -61,10 +61,10 @@ module Fog
           response.status = 200
 
           response.headers = {
-            'Content-Length'   => object['Content-Length'],
-            'Content-Type'     => object['Content-Type'],
-            'ETag'             => object['ETag'],
-            'Last-Modified'    => object['Last-Modified'],
+            'Content-Length' => object['Content-Length'],
+            'Content-Type'   => object['Content-Type'],
+            'ETag'           => object['ETag'],
+            'Last-Modified'  => object['Last-Modified'],
           }
 
           response.headers['x-amz-version-id'] = object['VersionId'] if object['VersionId'] != 'null'

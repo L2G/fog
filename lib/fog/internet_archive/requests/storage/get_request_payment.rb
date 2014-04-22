@@ -17,13 +17,13 @@ module Fog
 
         def get_request_payment(bucket_name)
           request(
-            :expects  => 200,
-            :headers  => {},
-            :host     => "#{bucket_name}.#{@host}",
+            :expects    => 200,
+            :headers    => {},
+            :host       => "#{bucket_name}.#{@host}",
             :idempotent => true,
-            :method   => 'GET',
-            :parser   => Fog::Parsers::Storage::InternetArchive::GetRequestPayment.new,
-            :query    => { 'requestPayment' => nil }
+            :method     => 'GET',
+            :parser     => Fog::Parsers::Storage::InternetArchive::GetRequestPayment.new,
+            :query      => { 'requestPayment' => nil }
           )
         end
 

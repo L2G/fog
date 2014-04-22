@@ -14,9 +14,9 @@ module Fog
         #       *'value' <~Integer> Integer value of the type
         def list_record_types
           request(
-                  :expects  => 200,
-                  :method   => 'GET',
-                  :path     => '/rapi/listrecordtypes'
+                  :expects => 200,
+                  :method  => 'GET',
+                  :path    => '/rapi/listrecordtypes'
                   )
         end
 

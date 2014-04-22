@@ -3,8 +3,8 @@ Shindo.tests('Fog::Rackspace::AutoScale | groups', ['rackspace', 'rackspace_auto
   service = Fog::Rackspace::AutoScale.new :rackspace_region => :ord
 
   options = {
-    :policies => POLICIES_OPTIONS,
-    :group_config => GROUP_CONFIG_OPTIONS,
+    :policies      => POLICIES_OPTIONS,
+    :group_config  => GROUP_CONFIG_OPTIONS,
     :launch_config => LAUNCH_CONFIG_OPTIONS
   }
 

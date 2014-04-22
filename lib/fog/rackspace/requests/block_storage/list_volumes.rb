@@ -26,8 +26,8 @@ module Fog
         def list_volumes
           request(
             :expects => [200],
-            :method => 'GET',
-            :path => 'volumes'
+            :method  => 'GET',
+            :path    => 'volumes'
           )
         end
       end

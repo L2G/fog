@@ -26,15 +26,15 @@ module Fog
         def servers
           @servers ||= Fog::Vcloud::Compute::Servers.
             new( :service => service,
-                 :href => href,
-                 :vapp => self
+                 :href    => href,
+                 :vapp    => self
             )
         end
 
         def networks
           @networks ||= Fog::Vcloud::Compute::Networks.
             new( :service => service,
-                 :href => href
+                 :href    => href
             )
         end
 

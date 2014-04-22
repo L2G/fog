@@ -12,9 +12,9 @@ Shindo.tests('Fog::AWS[:beanstalk] | templates', ['aws', 'beanstalk']) do
   @application = @beanstalk.applications.create(:name => @application_name)
 
   params = {
-      :application_name => @application_name,
-      :name => @template_name,
-      :description => @template_description,
+      :application_name    => @application_name,
+      :name                => @template_name,
+      :description         => @template_description,
       :solution_stack_name => '32bit Amazon Linux running Tomcat 7'
   }
 

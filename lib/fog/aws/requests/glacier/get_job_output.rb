@@ -27,11 +27,11 @@ module Fog
           end
           request(
             options.merge(
-            :expects  => [200,206],
+            :expects    => [200,206],
             :idempotent => true,
-            :headers => headers,
-            :method   => :get,
-            :path     => path
+            :headers    => headers,
+            :method     => :get,
+            :path       => path
           ))
         end
       end

@@ -16,8 +16,8 @@ module Fog
         def get_queue_stats(queue_name)
           request(
             :expects => 200,
-            :method => 'GET',
-            :path => "queues/#{queue_name}/stats"
+            :method  => 'GET',
+            :path    => "queues/#{queue_name}/stats"
           )
         end
 
@@ -29,8 +29,8 @@ module Fog
 
           payload = {
             'claimed' => queue.claimed,
-            'total' => queue.total,
-            'free' => queue.free
+            'total'   => queue.total,
+            'free'    => queue.free
           }
 
           report_message(payload, 'oldest', queue.oldest)
@@ -49,8 +49,8 @@ module Fog
 
           ctime = Time.at(element.created).utc
           payload[description] = {
-            'age' => element.age,
-            'href' => element.href,
+            'age'     => element.age,
+            'href'    => element.href,
             'created' => ctime.strftime('%Y-%m-%dT%I:%M:%SZ')
           }
         end

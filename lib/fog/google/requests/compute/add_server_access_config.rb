@@ -12,9 +12,9 @@ module Fog
         def add_server_access_config(identity, zone, nic, options = {})
           api_method = @compute.instances.add_access_config
           parameters = {
-            'project'  => @project,
-            'instance' => identity,
-            'zone'     => zone.split('/')[-1],
+            'project'          => @project,
+            'instance'         => identity,
+            'zone'             => zone.split('/')[-1],
             'networkInterface' => nic,
           }
 

@@ -18,9 +18,9 @@ module Fog
         #     * 'keyMaterial'<~String>: public key
         def get_key(key_name)
           request(
-            :method   => 'GET',
-            :expects  => 200,
-            :path     => "/keys/#{key_name}"
+            :method  => 'GET',
+            :expects => 200,
+            :path    => "/keys/#{key_name}"
           )
         end
 

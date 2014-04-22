@@ -17,9 +17,9 @@ module Fog
         #
         def get_meta(collection_name, parent_id, key)
           request(
-            :expects  => [200, 203],
-            :method   => 'GET',
-            :path     => "#{collection_name}/#{parent_id}/metadata/#{key}"
+            :expects => [200, 203],
+            :method  => 'GET',
+            :path    => "#{collection_name}/#{parent_id}/metadata/#{key}"
           )
         end
 

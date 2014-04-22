@@ -5,17 +5,17 @@ module Fog
         def create_database(instance_id, name, options = {})
           data = {
             'databases' => [{
-              'name' => name,
+              'name'          => name,
               'character_set' => options[:character_set] || 'utf8',
-              'collate' => options[:collate] || 'utf8_general_ci'
+              'collate'       => options[:collate] || 'utf8_general_ci'
             }]
           }
 
           request(
-            :body => Fog::JSON.encode(data),
+            :body    => Fog::JSON.encode(data),
             :expects => 202,
-            :method => 'POST',
-            :path => "instances/#{instance_id}/databases"
+            :method  => 'POST',
+            :path    => "instances/#{instance_id}/databases"
           )
         end
       end

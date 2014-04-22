@@ -14,9 +14,9 @@ module Fog
         #     *'success'<~Bool>: true or false for success
         def delete_address(address_id)
           request(
-            :method   => 'DELETE',
-            :expects  => 200,
-            :path     => "/addresses/#{address_id}"
+            :method  => 'DELETE',
+            :expects => 200,
+            :path    => "/addresses/#{address_id}"
           )
         end
 

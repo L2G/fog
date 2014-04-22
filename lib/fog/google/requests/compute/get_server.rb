@@ -11,14 +11,14 @@ module Fog
           if server.nil? or server['zone'] != zone['selfLink']
             return build_response(:body => {
               'error' => {
-                'errors' => [
+                'errors'  => [
                  {
-                  'domain' => 'global',
-                  'reason' => 'notFound',
+                  'domain'  => 'global',
+                  'reason'  => 'notFound',
                   'message' => "The resource 'projects/#{@project}/zones/#{zone_name}/instances/#{server_name}' was not found"
                  }
                 ],
-                'code' => 404,
+                'code'    => 404,
                 'message' => "The resource 'projects/#{@project}/zones/#{zone_name}/instances/#{server_name}' was not found"
               }
             })
@@ -66,8 +66,8 @@ module Fog
 
           api_method = @compute.instances.get
           parameters = {
-            'project' => @project,
-            'zone' => zone,
+            'project'  => @project,
+            'zone'     => zone,
             'instance' => server_name
           }
 

@@ -5,10 +5,10 @@ module Fog
 
         def list_overview(options = {})
           request(
-            :expects  => [200, 203],
-            :method   => 'GET',
-            :path     => 'views/overview',
-            :query    => options
+            :expects => [200, 203],
+            :method  => 'GET',
+            :path    => 'views/overview',
+            :query   => options
           )
         end
       end
@@ -25,9 +25,9 @@ module Fog
           response = Excon::Response.new
           response.status = 200
           response.body = {
-            'values' => [
+            'values'   => [
               {
-                'entity' => {
+                'entity'              => {
                   'id'           => entity_id,
                   'label'        => 'mock_entity',
                   'ip_addresses' => {
@@ -37,44 +37,44 @@ module Fog
                     'access_ip1_v4' => Fog::Rackspace::MockData.ipv4_address,
                     'private0_v4'   => Fog::Rackspace::MockData.ipv4_address
                   },
-                  'metadata' => {
+                  'metadata'     => {
                     'testing' => 'Bar'
                   },
-                  'managed'    => false,
-                  'uri'        => 'https://ord.servers.api.rackspacecloud.com/' + account_id + '/servers/' + server_id,
-                  'agent_id'   => nil,
-                  'created_at' => Time.now.to_i - 1,
-                  'updated_at' => Time.now.to_i
+                  'managed'      => false,
+                  'uri'          => 'https://ord.servers.api.rackspacecloud.com/' + account_id + '/servers/' + server_id,
+                  'agent_id'     => nil,
+                  'created_at'   => Time.now.to_i - 1,
+                  'updated_at'   => Time.now.to_i
                 },
                 'checks'              => [
                   {
-                    'id'              => check_id,
-                    'label'           => 'mock',
-                    'type'            => 'remote.mock',
-                    'details'         => {},
+                    'id'                    => check_id,
+                    'label'                 => 'mock',
+                    'type'                  => 'remote.mock',
+                    'details'               => {},
                     'monitoring_zones_poll' => nil,
-                    'timeout'         => 10,
-                    'period'          => 30,
-                    'target_alias'    => nil,
-                    'target_hostname' => nil,
-                    'target_resolver' => nil,
-                    'disabled       ' => false,
-                    'metadata'        => nil,
-                    'created_at'      => Time.now.to_i - 1,
-                    'updated_at'      => Time.now.to_i
+                    'timeout'               => 10,
+                    'period'                => 30,
+                    'target_alias'          => nil,
+                    'target_hostname'       => nil,
+                    'target_resolver'       => nil,
+                    'disabled       '       => false,
+                    'metadata'              => nil,
+                    'created_at'            => Time.now.to_i - 1,
+                    'updated_at'            => Time.now.to_i
                   }
                 ],
-                'alarms' => [
+                'alarms'              => [
                   {
-                    'id'         => alarm_id,
-                    'label'      => nil,
-                    'check_id'   => check_id,
-                    'criteria'   => nil,
-                    'disabled'   => false,
+                    'id'                   => alarm_id,
+                    'label'                => nil,
+                    'check_id'             => check_id,
+                    'criteria'             => nil,
+                    'disabled'             => false,
                     'notification_plan_id' => 'npTechnicalContactsEmail',
-                    'metadata'   => nil,
-                    'created_at' => Time.now.to_i - 1,
-                    'updated_at' => Time.now.to_i
+                    'metadata'             => nil,
+                    'created_at'           => Time.now.to_i - 1,
+                    'updated_at'           => Time.now.to_i
                   }
                 ],
                 'latest_alarm_states' => []

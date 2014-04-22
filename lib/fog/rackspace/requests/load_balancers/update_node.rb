@@ -14,10 +14,10 @@ module Fog
           end
           #TODO - Do anything if no valid options are passed in?
           request(
-            :body     => Fog::JSON.encode(data),
-            :expects  => [200, 202],
-            :method   => 'PUT',
-            :path     => "loadbalancers/#{load_balancer_id}/nodes/#{node_id}.json"
+            :body    => Fog::JSON.encode(data),
+            :expects => [200, 202],
+            :method  => 'PUT',
+            :path    => "loadbalancers/#{load_balancer_id}/nodes/#{node_id}.json"
           )
         end
       end

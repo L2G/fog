@@ -5,15 +5,15 @@ module Fog
 
         def linode_disk_createfromdistribution(linode_id, distro_id, name, size, password)
           request(
-            :expects  => 200,
-            :method   => 'GET',
-            :query    => {
-              :api_action => 'linode.disk.createfromdistribution',
-              :linodeId => linode_id,
+            :expects => 200,
+            :method  => 'GET',
+            :query   => {
+              :api_action     => 'linode.disk.createfromdistribution',
+              :linodeId       => linode_id,
               :distributionId => distro_id,
-              :label => name,
-              :size => size,
-              :rootPass => password
+              :label          => name,
+              :size           => size,
+              :rootPass       => password
             }
           )
         end
@@ -27,7 +27,7 @@ module Fog
           response.body = {
             'ERRORARRAY' => [],
             'ACTION'     => 'linode.disk.createFromDistribution',
-            'DATA'       => { 'JobID' => rand(1000..9999),
+            'DATA'       => { 'JobID'  => rand(1000..9999),
                               'DiskID' => rand(10000..99999) }
           }
           response

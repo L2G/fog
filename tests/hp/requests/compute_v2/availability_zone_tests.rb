@@ -3,9 +3,9 @@ Shindo.tests('Fog::Compute::HPV2 | availability_zone requests', ['hp', 'v2', 'co
   service = Fog::Compute.new(:provider => 'HP', :version => :v2)
 
   @zone_format = {
-    'zoneName'    => String,
-    'zoneState'   => Hash,
-    'hosts'       => nil
+    'zoneName'  => String,
+    'zoneState' => Hash,
+    'hosts'     => nil
   }
 
   tests('success') do

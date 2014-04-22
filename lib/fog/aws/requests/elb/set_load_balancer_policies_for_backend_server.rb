@@ -25,9 +25,9 @@ module Fog
             params['PolicyNames'] = ''
           end
 
-          request({ 'Action' => 'SetLoadBalancerPoliciesForBackendServer',
+          request({ 'Action'           => 'SetLoadBalancerPoliciesForBackendServer',
                     'LoadBalancerName' => lb_name,
-                    :parser => Fog::Parsers::AWS::ELB::Empty.new
+                    :parser            => Fog::Parsers::AWS::ELB::Empty.new
                   }.merge!(params))
         end
       end

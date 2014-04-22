@@ -1,21 +1,21 @@
 Shindo.tests('Fog::Compute[:cloudstack] | os type requests', ['cloudstack']) do
 
   @os_types_format = {
-    'listostypesresponse'  => {
-      'count' => Integer,
+    'listostypesresponse' => {
+      'count'  => Integer,
       'ostype' => [
-        'id' => String,
-        'description' => String,
+        'id'           => String,
+        'description'  => String,
         'oscategoryid' => String
       ]
     }
   }
 
   @os_categories_format = {
-    'listoscategoriesresponse'  => {
-      'count' => Integer,
+    'listoscategoriesresponse' => {
+      'count'      => Integer,
       'oscategory' => [
-        'id' => Integer,
+        'id'   => Integer,
         'name' => String
       ]
     }

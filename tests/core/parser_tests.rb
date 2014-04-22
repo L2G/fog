@@ -67,10 +67,10 @@ posuere eu odio. Donec sodales, ante porta condimentum
 }
 
   @response = {
-      'key1' => 'value1',
-      'key2' => 'value2',
-      'key3' => 'value3',
-      'myArray' => [1,2,3],
+      'key1'     => 'value1',
+      'key2'     => 'value2',
+      'key3'     => 'value3',
+      'myArray'  => [1,2,3],
       'longText' => %{
 Lorem ipsum dolor sit amet, consectetur adipiscing elit.
 Donec quis metus arcu, quis cursus turpis.

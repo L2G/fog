@@ -101,8 +101,8 @@ module Fog
 
           options = {
             :expects => 200,
-            :method => 'GET',
-            :query => "#{req}&signature=#{encoded_signature}"
+            :method  => 'GET',
+            :query   => "#{req}&signature=#{encoded_signature}"
           }.merge(options)
 
           begin

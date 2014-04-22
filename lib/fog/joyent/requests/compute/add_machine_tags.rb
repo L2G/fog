@@ -8,9 +8,9 @@ module Fog
           raise ArgumentError, 'tags must be a Hash of tags' unless tags.is_a?(Hash)
 
           request(
-            :path => "/my/machines/#{machine_id}/tags",
-            :method => 'POST',
-            :body => tags,
+            :path    => "/my/machines/#{machine_id}/tags",
+            :method  => 'POST',
+            :body    => tags,
             :expects => 200
           )
         end

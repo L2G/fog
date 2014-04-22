@@ -8,12 +8,12 @@ module Fog
           validate_data([:interval, :response_timeout, :retries, :downtime, :enabled, :send_string, :receive_string], data)
 
           request(
-            :body => generate_ecv_monitor_request(data),
+            :body    => generate_ecv_monitor_request(data),
             :expects => 201,
-            :method => 'POST',
+            :method  => 'POST',
             :headers => {},
-            :uri => data[:uri],
-            :parse => true
+            :uri     => data[:uri],
+            :parse   => true
           )
         end
 

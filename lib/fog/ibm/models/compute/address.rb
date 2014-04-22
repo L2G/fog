@@ -39,7 +39,7 @@ module Fog
           requires :offering_id, :location
           data = service.create_address(location, offering_id,
                                         :vlan_id => vlan_id,
-                                        :ip => ip)
+                                        :ip      => ip)
           merge_attributes(data.body)
           true
         end

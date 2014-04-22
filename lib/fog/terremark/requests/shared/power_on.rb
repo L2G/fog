@@ -22,10 +22,10 @@ module Fog
         #       * 'type'<~String> - type of owner
         def power_on(vapp_id)
           request(
-            :expects  => 202,
-            :method   => 'POST',
-            :parser   => Fog::Parsers::Terremark::Shared::Task.new,
-            :path     => "vApp/#{vapp_id}/power/action/powerOn"
+            :expects => 202,
+            :method  => 'POST',
+            :parser  => Fog::Parsers::Terremark::Shared::Task.new,
+            :path    => "vApp/#{vapp_id}/power/action/powerOn"
           )
         end
 

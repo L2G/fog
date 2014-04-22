@@ -23,35 +23,35 @@ def create_tenant_network( tenant_name,
   tenant = id.tenants.find { |t| t.name == tenant_name }
 
   # Create a router for the tenant
-  router = network.routers.create :name => router_name,
-                                  :tenant_id => tenant.id,
+  router = network.routers.create :name                  => router_name,
+                                  :tenant_id             => tenant.id,
                                   :external_gateway_info => {
                                     'network_id' => external_net.id
                                   }
 
   # Create a private network for the tenant
-  net = network.networks.create :name => private_network_name,
+  net = network.networks.create :name      => private_network_name,
                                 :tenant_id => tenant.id
 
   # Create a subnet for the previous network and associate it
   # with the tenant
-  subnet = network.subnets.create :name => 'net_10',
+  subnet = network.subnets.create :name        => 'net_10',
                                   :network_id  => net.id,
                                   :ip_version  => 4,
                                   :gateway_ip  => subnet_gateway,
                                   :cidr        => subnet_range,
-                                  :tenant_id => tenant.id,
+                                  :tenant_id   => tenant.id,
                                   :enable_dhcp => true
 
   network.add_router_interface router.id, subnet.id
 end
 
 # Create a public shared network
-public_net = network.networks.create :name => 'nova',
+public_net = network.networks.create :name            => 'nova',
                                      :router_external => true
 
 # Create the public subnet
-public_subnet = network.subnets.create :name => 'floating_ips_net',
+public_subnet = network.subnets.create :name        => 'floating_ips_net',
                                        :network_id  => public_net.id,
                                        :ip_version  => 4,
                                        :cidr        => '1.2.3.0/24',

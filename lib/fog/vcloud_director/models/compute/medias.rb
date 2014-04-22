@@ -28,8 +28,8 @@ module Fog
           link = file[:Link].detect {|l| l[:rel] == 'upload:default'}
 
           headers = {
-            'Content-Length' => io.size,
-            'Content-Type' => 'application/octet-stream',
+            'Content-Length'         => io.size,
+            'Content-Type'           => 'application/octet-stream',
             'x-vcloud-authorization' => service.vcloud_token
           }
           chunker = lambda do
@@ -39,8 +39,8 @@ module Fog
           end
           Excon.put(
             link[:href],
-            :expects => 200,
-            :headers => headers,
+            :expects       => 200,
+            :headers       => headers,
             :request_block => chunker)
 
           service.process_task(response.body[:Tasks][:Task])

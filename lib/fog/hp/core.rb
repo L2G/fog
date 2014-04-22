@@ -86,21 +86,21 @@ module Fog
       @hp_access_key = options[:hp_access_key]
       @hp_secret_key  = options[:hp_secret_key]
       response = connection.request(
-        :expects  => [200, 204],
-        :headers  => {
+        :expects => [200, 204],
+        :headers => {
           'X-Auth-Key'  => @hp_secret_key,
           'X-Auth-User' => @hp_access_key
         },
-        :method   => 'GET',
-        :path     => @auth_path
+        :method  => 'GET',
+        :path    => @auth_path
       )
       response.headers.reject do |key, value|
         !['X-Server-Management-Url', 'X-Storage-Url', 'X-CDN-Management-Url', 'X-Auth-Token'].include?(key)
       end
 
       return {
-        :auth_token => response.headers['X-Auth-Token'],
-        :endpoint_url => nil,
+        :auth_token       => response.headers['X-Auth-Token'],
+        :endpoint_url     => nil,
         :cdn_endpoint_url => response.headers['X-Storage-Url']
       }
     end
@@ -201,9 +201,9 @@ module Fog
           :headers => {
               'Content-Type' => 'application/json'
           },
-          :method => 'POST',
-          :body => Fog::JSON.encode(request_body),
-          :path => @auth_path
+          :method  => 'POST',
+          :body    => Fog::JSON.encode(request_body),
+          :path    => @auth_path
 
       )
 
@@ -220,10 +220,10 @@ module Fog
       end
 
       creds = {
-        :auth_token => auth_token,
-        :expires => expires,
-        :service_catalog => service_catalog,
-        :endpoint_url => endpoint_url,
+        :auth_token       => auth_token,
+        :expires          => expires,
+        :service_catalog  => service_catalog,
+        :endpoint_url     => endpoint_url,
         :cdn_endpoint_url => cdn_endpoint_url
       }
       return creds

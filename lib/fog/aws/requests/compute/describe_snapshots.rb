@@ -110,7 +110,7 @@ module Fog
 
           response.status = 200
           response.body = {
-            'requestId' => Fog::AWS::Mock.request_id,
+            'requestId'   => Fog::AWS::Mock.request_id,
             'snapshotSet' => snapshot_set
           }
           response

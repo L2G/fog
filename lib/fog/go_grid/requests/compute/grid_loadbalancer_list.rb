@@ -17,8 +17,8 @@ module Fog
         # TODO: docs
         def grid_loadbalancer_list(options = {})
           request(
-            :path     => 'grid/loadbalancer/list',
-            :query    => options
+            :path  => 'grid/loadbalancer/list',
+            :query => options
           )
         end
 

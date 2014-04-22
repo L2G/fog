@@ -15,9 +15,9 @@ module Fog
         # TODO: docs
         def domain_delete(domain_id)
           request(
-            :expects  => 200,
-            :method   => 'GET',
-            :query    => { :api_action => 'domain.delete', :domainId => domain_id }
+            :expects => 200,
+            :method  => 'GET',
+            :query   => { :api_action => 'domain.delete', :domainId => domain_id }
           )
         end
 

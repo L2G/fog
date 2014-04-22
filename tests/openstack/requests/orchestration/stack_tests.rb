@@ -11,8 +11,8 @@ Shindo.tests('Fog::Orchestration[:openstack] | stack requests', ['openstack']) d
   }
 
   @create_format = {
-    'id'                  => String,
-    'links'               => Array,
+    'id'    => String,
+    'links' => Array,
   }
 
   tests('success') do

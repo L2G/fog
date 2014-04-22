@@ -24,7 +24,7 @@ module Fog
         def records
           @records ||= begin
             Fog::DNS::AWS::Records.new(
-              :zone       => self,
+              :zone    => self,
               :service => service
             )
           end

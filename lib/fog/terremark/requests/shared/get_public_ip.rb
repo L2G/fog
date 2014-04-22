@@ -16,10 +16,10 @@ module Fog
         #       * 'name'<~String> - name of item
         def get_public_ip(public_ip_id)
           opts = {
-            :expects  => 200,
-            :method   => 'GET',
-            :parser   => Fog::Parsers::Terremark::Shared::PublicIp.new,
-            :path     => "publicIps/#{public_ip_id}"
+            :expects => 200,
+            :method  => 'GET',
+            :parser  => Fog::Parsers::Terremark::Shared::PublicIp.new,
+            :path    => "publicIps/#{public_ip_id}"
           }
           if self.class == Fog::Terremark::Ecloud::Real
             opts[:path] = "extensions/publicIp/#{public_ip_id}"

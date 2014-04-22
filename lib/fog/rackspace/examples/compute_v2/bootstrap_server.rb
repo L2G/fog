@@ -32,11 +32,11 @@ end
 
 # create Next Generation Cloud Server service
 service = Fog::Compute.new(
-  :provider             => 'rackspace',
-  :rackspace_username   => rackspace_username,
-  :rackspace_api_key    => rackspace_api_key,
-  :version => :v2,  # Use Next Gen Cloud Servers
-  :rackspace_region => :ord #Use Chicago Region
+  :provider           => 'rackspace',
+  :rackspace_username => rackspace_username,
+  :rackspace_api_key  => rackspace_api_key,
+  :version            => :v2,  # Use Next Gen Cloud Servers
+  :rackspace_region   => :ord #Use Chicago Region
 )
 
 # pick the first flavor
@@ -63,11 +63,11 @@ puts "\n"
 
 begin
   # bootstrap server
-  server = service.servers.bootstrap :name => server_name,
-                                     :flavor_id => flavor.id,
-                                     :image_id => image.id,
+  server = service.servers.bootstrap :name        => server_name,
+                                     :flavor_id   => flavor.id,
+                                     :image_id    => image.id,
                                      :private_key => ssh_key.private_key,
-                                     :public_key => ssh_key.ssh_public_key
+                                     :public_key  => ssh_key.ssh_public_key
 
   if server.ready?
     puts "[DONE]\n\n"

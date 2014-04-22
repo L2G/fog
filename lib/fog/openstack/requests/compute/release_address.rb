@@ -6,8 +6,8 @@ module Fog
         def release_address(address_id)
           request(
             :expects => [200, 202],
-            :method => 'DELETE',
-            :path   => "os-floating-ips/#{address_id}"
+            :method  => 'DELETE',
+            :path    => "os-floating-ips/#{address_id}"
           )
         end
 
@@ -19,9 +19,9 @@ module Fog
           response = Excon::Response.new
           response.status = 202
           response.headers = {
-            'Content-Type' => 'text/html; charset=UTF-8',
+            'Content-Type'   => 'text/html; charset=UTF-8',
             'Content-Length' => '0',
-            'Date' => Date.new
+            'Date'           => Date.new
           }
           response.body = {}
           response

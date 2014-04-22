@@ -72,7 +72,7 @@ module Fog
                 'ResponseMetadata' => {
                   'RequestId' => Fog::AWS::Mock.request_id
                 },
-                'Message' => messages
+                'Message'          => messages
               }
               response.status = 200
             else

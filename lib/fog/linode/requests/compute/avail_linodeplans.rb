@@ -18,9 +18,9 @@ module Fog
             options.merge!(:planId => linodeplan_id)
           end
           result = request(
-            :expects  => 200,
-            :method   => 'GET',
-            :query    => { :api_action => 'avail.linodeplans' }.merge!(options)
+            :expects => 200,
+            :method  => 'GET',
+            :query   => { :api_action => 'avail.linodeplans' }.merge!(options)
           )
 
           #hack for plans not filtering by id like they should above, remove when they fix it.
@@ -36,7 +36,7 @@ module Fog
           response.status = 200
           body = {
             'ERRORARRAY' => [],
-            'ACTION' => 'avail.linodeplans'
+            'ACTION'     => 'avail.linodeplans'
           }
           if linodeplan_id
             mock_plan = create_mock_linodeplan(linodeplan_id)

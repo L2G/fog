@@ -26,10 +26,10 @@ module Fog
         #       * 'type'<~String> - type of result
         def get_task(task_id)
           request(
-            :expects  => 200,
-            :method   => 'GET',
-            :parser   => Fog::Parsers::Terremark::Shared::Task.new,
-            :path     => "task/#{task_id}"
+            :expects => 200,
+            :method  => 'GET',
+            :parser  => Fog::Parsers::Terremark::Shared::Task.new,
+            :path    => "task/#{task_id}"
           )
         end
 

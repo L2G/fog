@@ -43,12 +43,12 @@ module Fog
             </CreateInternetServiceRequest>
             DATA
           response = request(
-            :body     => data,
-            :expects  => 200,
-            :headers  => { 'Content-Type' => 'application/vnd.tmrk.vCloud.internetService+xml' },
-            :method   => 'POST',
-            :parser   => Fog::Parsers::Terremark::Shared::InternetService.new,
-            :path     => path,
+            :body          => data,
+            :expects       => 200,
+            :headers       => { 'Content-Type' => 'application/vnd.tmrk.vCloud.internetService+xml' },
+            :method        => 'POST',
+            :parser        => Fog::Parsers::Terremark::Shared::InternetService.new,
+            :path          => path,
             :override_path => true
           )
           response

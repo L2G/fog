@@ -10,7 +10,7 @@ Shindo.tests('OpenStack | authenticate', ['openstack']) do
 
     body = {
       'access' => {
-        'token' => {
+        'token'          => {
           'expires' => expires.iso8601,
           'id'      => token,
           'tenant'  => {
@@ -21,21 +21,21 @@ Shindo.tests('OpenStack | authenticate', ['openstack']) do
           }
         },
         'serviceCatalog' => [{
-          'endpoints' => [{
-            'adminURL' =>
-              "http://example:8774/v2/#{tenant_token}",
-              'region' => 'RegionOne',
+          'endpoints'       => [{
+            'adminURL'    =>
+                             "http://example:8774/v2/#{tenant_token}",
+            'region'      => 'RegionOne',
             'internalURL' =>
-              "http://example:8774/v2/#{tenant_token}",
-            'id' => Fog::Mock.random_numbers(8).to_s,
-            'publicURL' =>
-             "http://example:8774/v2/#{tenant_token}"
+                             "http://example:8774/v2/#{tenant_token}",
+            'id'          => Fog::Mock.random_numbers(8).to_s,
+            'publicURL'   =>
+                             "http://example:8774/v2/#{tenant_token}"
           }],
           'endpoints_links' => [],
-          'type' => 'compute',
-          'name' => 'nova'
+          'type'            => 'compute',
+          'name'            => 'nova'
         },
-        { 'endpoints' => [{
+        { 'endpoints'       => [{
             'adminURL'    => 'http://example:9292',
             'region'      => 'RegionOne',
             'internalURL' => 'http://example:9292',
@@ -46,20 +46,20 @@ Shindo.tests('OpenStack | authenticate', ['openstack']) do
           'type'            => 'image',
           'name'            => 'glance'
         }],
-        'user' => {
-          'username' => 'admin',
+        'user'           => {
+          'username'    => 'admin',
           'roles_links' => [],
-          'id' => Fog::Mock.random_numbers(8).to_s,
-          'roles' => [
+          'id'          => Fog::Mock.random_numbers(8).to_s,
+          'roles'       => [
             { 'name' => 'admin' },
             { 'name' => 'KeystoneAdmin' },
             { 'name' => 'KeystoneServiceAdmin' }
           ],
-          'name' => 'admin'
+          'name'        => 'admin'
         },
-        'metadata' => {
+        'metadata'       => {
           'is_admin' => 0,
-          'roles' => [
+          'roles'    => [
             Fog::Mock.random_numbers(8).to_s,
             Fog::Mock.random_numbers(8).to_s,
             Fog::Mock.random_numbers(8).to_s,] } } }
@@ -73,7 +73,7 @@ Shindo.tests('OpenStack | authenticate', ['openstack']) do
         :tenant                   => body['access']['token']['tenant'],
         :identity_public_endpoint => nil,
         :server_management_url    =>
-          body['access']['serviceCatalog'].
+                                     body['access']['serviceCatalog'].
             first['endpoints'].first['publicURL'],
         :token                    => token,
         :expires                  => expires.iso8601,
@@ -106,19 +106,19 @@ Shindo.tests('OpenStack | authenticate', ['openstack']) do
       body_clone = body.clone
       body_clone['access']['serviceCatalog'] <<
         {
-        'endpoints' => [{
-          'adminURL' =>
-            "http://example2:8774/v2/#{tenant_token}",
-            'region' => 'RegionOne',
+        'endpoints'       => [{
+          'adminURL'    =>
+                           "http://example2:8774/v2/#{tenant_token}",
+          'region'      => 'RegionOne',
           'internalURL' =>
-            "http://example2:8774/v2/#{tenant_token}",
-          'id' => Fog::Mock.random_numbers(8).to_s,
-          'publicURL' =>
-           "http://example2:8774/v2/#{tenant_token}"
+                           "http://example2:8774/v2/#{tenant_token}",
+          'id'          => Fog::Mock.random_numbers(8).to_s,
+          'publicURL'   =>
+                           "http://example2:8774/v2/#{tenant_token}"
         }],
         'endpoints_links' => [],
-        'type' => 'compute',
-        'name' => 'nova2'
+        'type'            => 'compute',
+        'name'            => 'nova2'
         }
 
       Excon.stub({ :method => 'POST', :path => '/v2.0/tokens' },
@@ -136,11 +136,11 @@ Shindo.tests('OpenStack | authenticate', ['openstack']) do
 
     tests('legacy v1 auth') do
       headers = {
-        'X-Storage-Url'   => 'https://swift.myhost.com/v1/AUTH_tenant',
-        'X-Auth-Token'    => 'AUTH_yui193bdc00c1c46c5858788yuio0e1e2p',
-        'X-Trans-Id'      => 'iu99nm9999f9b999c9b999dad9cd999e99',
-        'Content-Length'  => '0',
-        'Date'            => 'Wed, 07 Aug 2013 11:11:11 GMT'
+        'X-Storage-Url'  => 'https://swift.myhost.com/v1/AUTH_tenant',
+        'X-Auth-Token'   => 'AUTH_yui193bdc00c1c46c5858788yuio0e1e2p',
+        'X-Trans-Id'     => 'iu99nm9999f9b999c9b999dad9cd999e99',
+        'Content-Length' => '0',
+        'Date'           => 'Wed, 07 Aug 2013 11:11:11 GMT'
       }
 
       Excon.stub({ :method => 'GET', :path => '/auth/v1.0' },

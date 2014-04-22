@@ -20,7 +20,7 @@ module Fog
           request(
             'Action'             => 'DeleteNetworkInterface',
             'NetworkInterfaceId' => network_interface_id,
-            :parser => Fog::Parsers::Compute::AWS::Basic.new
+            :parser              => Fog::Parsers::Compute::AWS::Basic.new
           )
         end
       end

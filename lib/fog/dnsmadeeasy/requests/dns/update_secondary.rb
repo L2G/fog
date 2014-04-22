@@ -23,10 +23,10 @@ module Fog
           }
 
           request(
-            :expects  => 201,
-            :method   => 'PUT',
-            :path     => "/V1.2/secondary/#{secondary_name}",
-            :body     => Fog::JSON.encode(body)
+            :expects => 201,
+            :method  => 'PUT',
+            :path    => "/V1.2/secondary/#{secondary_name}",
+            :body    => Fog::JSON.encode(body)
           )
         end
 

@@ -34,12 +34,12 @@ module Fog
           end
           options['AttributeName'] ||= []
           request({
-            'Action'          => 'GetAttributes',
-            'ConsistentRead'  => !!options['ConsistentRead'],
-            'DomainName'      => domain_name,
-            'ItemName'        => item_name,
-            :idempotent       => true,
-            :parser           => Fog::Parsers::AWS::SimpleDB::GetAttributes.new(@nil_string)
+            'Action'         => 'GetAttributes',
+            'ConsistentRead' => !!options['ConsistentRead'],
+            'DomainName'     => domain_name,
+            'ItemName'       => item_name,
+            :idempotent      => true,
+            :parser          => Fog::Parsers::AWS::SimpleDB::GetAttributes.new(@nil_string)
           }.merge!(encode_attribute_names(options['AttributeName'])))
         end
 
@@ -67,9 +67,9 @@ module Fog
             end
             response.status = 200
             response.body = {
-              'Attributes'  => object,
-              'BoxUsage'    => Fog::AWS::Mock.box_usage,
-              'RequestId'   => Fog::AWS::Mock.request_id
+              'Attributes' => object,
+              'BoxUsage'   => Fog::AWS::Mock.box_usage,
+              'RequestId'  => Fog::AWS::Mock.request_id
             }
           else
             response.status = 400

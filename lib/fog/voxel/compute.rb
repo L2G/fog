@@ -28,9 +28,9 @@ module Fog
           @data ||= Hash.new do |hash, key|
             hash[key] = {
               :last_modified => { :servers => {}, :statuses => {}, :images => {} },
-              :servers => [],
-              :statuses => {},
-              :images  => [
+              :servers       => [],
+              :statuses      => {},
+              :images        => [
                 { 'id' => 1,   'name' => 'CentOS 4, 32-bit, base install' },
                 { 'id' => 2,   'name' => 'CentOS 4, 64-bit, base install' },
                 { 'id' => 3,   'name' => 'CentOS 5, 32-bit, base install' },

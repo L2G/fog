@@ -7,11 +7,11 @@ Shindo.tests('AWS::IAM | user requests', ['aws']) do
   tests('success') do
     @login_profile_format = {
       'LoginProfile' => {
-        'UserName'  => String,
-        'CreateDate'  => Time
+        'UserName'   => String,
+        'CreateDate' => Time
 
       },
-      'RequestId' => String
+      'RequestId'    => String
     }
 
     tests("#create_login_profile('fog_user')").formats(@login_profile_format) do

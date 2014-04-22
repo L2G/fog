@@ -17,8 +17,8 @@ module Fog
       class Real
         def get_dataset
           request(
-            :method => 'GET',
-            :path => '/my/datasets',
+            :method     => 'GET',
+            :path       => '/my/datasets',
             :idempotent => true
           )
         end

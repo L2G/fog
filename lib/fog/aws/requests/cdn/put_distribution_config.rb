@@ -76,8 +76,8 @@ module Fog
             :body       => data,
             :expects    => 200,
             :headers    => {
-              'Content-Type'  => 'text/xml',
-              'If-Match'      => etag
+              'Content-Type' => 'text/xml',
+              'If-Match'     => etag
             },
             :idempotent => true,
             :method     => 'PUT',

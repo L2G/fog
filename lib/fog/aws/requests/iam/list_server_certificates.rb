@@ -31,8 +31,8 @@ module Fog
         #
         def list_server_certificates(options = {})
           request({
-            'Action'  => 'ListServerCertificates',
-            :parser   => Fog::Parsers::AWS::IAM::ListServerCertificates.new
+            'Action' => 'ListServerCertificates',
+            :parser  => Fog::Parsers::AWS::IAM::ListServerCertificates.new
           }.merge!(options))
         end
 

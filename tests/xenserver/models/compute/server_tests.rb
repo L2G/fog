@@ -11,7 +11,7 @@ Shindo.tests('Fog::Compute[:xenserver] | server model', ['xenserver']) do
     s.destroy
   end
 
-  server = Fog::Compute[:xenserver].servers.create(:name => test_ephemeral_vm_name,
+  server = Fog::Compute[:xenserver].servers.create(:name          => test_ephemeral_vm_name,
                                                    :template_name => test_template_name)
   server.reload
 
@@ -84,7 +84,7 @@ Shindo.tests('Fog::Compute[:xenserver] | server model', ['xenserver']) do
     tests('it should create a server') do
       s = nil
       test("named #{test_ephemeral_vm_name}") do
-        s = servers.create(:name => test_ephemeral_vm_name,
+        s = servers.create(:name          => test_ephemeral_vm_name,
                            :template_name => test_template_name)
         servers.get(s.reference).name == test_ephemeral_vm_name
       end
@@ -94,9 +94,9 @@ Shindo.tests('Fog::Compute[:xenserver] | server model', ['xenserver']) do
       s = nil
       # The template has 2 VIFs already, we add 2 more
       test('with 4 NICs') do
-        s = servers.create(:name => test_ephemeral_vm_name,
+        s = servers.create(:name          => test_ephemeral_vm_name,
                            :template_name => test_template_name,
-                           :networks => [connection.default_network, connection.default_network])
+                           :networks      => [connection.default_network, connection.default_network])
         s.reload
         s.networks.size == 4
       end

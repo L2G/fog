@@ -11,9 +11,9 @@ module Fog
         # TODO: docs
         def avail_datacenters
           request(
-            :expects  => 200,
-            :method   => 'GET',
-            :query    => { :api_action => 'avail.datacenters' }
+            :expects => 200,
+            :method  => 'GET',
+            :query   => { :api_action => 'avail.datacenters' }
           )
         end
 
@@ -25,7 +25,7 @@ module Fog
           response.status = 200
           response.body = {
             'ERRORARRAY' => [],
-            'DATA' => [
+            'DATA'       => [
               { 'LOCATION' => 'Dallas, TX, USA',     'DATACENTERID' => 2 },
               { 'LOCATION' => 'Fremont, CA, USA',    'DATACENTERID' => 3 },
               { 'LOCATION' => 'Atlanta, GA, USA',    'DATACENTERID' => 4 },
@@ -33,7 +33,7 @@ module Fog
               { 'LOCATION' => 'London, England, UK', 'DATACENTERID' => 7 },
               { 'LOCATION' => 'Tokyo, JP',           'DATACENTERID' => 8 }
             ],
-            'ACTION' => 'avail.datacenters'
+            'ACTION'     => 'avail.datacenters'
           }
           response
         end

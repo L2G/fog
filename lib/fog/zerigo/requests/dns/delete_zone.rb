@@ -13,9 +13,9 @@ module Fog
 
         def delete_zone(zone_id)
           request(
-            :expects  => 200,
-            :method   => 'DELETE',
-            :path     => "/api/1.1/zones/#{zone_id}.xml"
+            :expects => 200,
+            :method  => 'DELETE',
+            :path    => "/api/1.1/zones/#{zone_id}.xml"
           )
         end
 

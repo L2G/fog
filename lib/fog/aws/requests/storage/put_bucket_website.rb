@@ -32,12 +32,12 @@ DATA
 
           data << '</WebsiteConfiguration>'
           request(
-            :body     => data,
-            :expects  => 200,
-            :headers  => {},
+            :body        => data,
+            :expects     => 200,
+            :headers     => {},
             :bucket_name => bucket_name,
-            :method   => 'PUT',
-            :query    => { 'website' => nil }
+            :method      => 'PUT',
+            :query       => { 'website' => nil }
           )
         end
 

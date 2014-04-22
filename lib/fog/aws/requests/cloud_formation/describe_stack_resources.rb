@@ -29,8 +29,8 @@ module Fog
 
         def describe_stack_resources(options = {})
           request({
-            'Action'    => 'DescribeStackResources',
-            :parser     => Fog::Parsers::AWS::CloudFormation::DescribeStackResources.new
+            'Action' => 'DescribeStackResources',
+            :parser  => Fog::Parsers::AWS::CloudFormation::DescribeStackResources.new
           }.merge!(options))
         end
 

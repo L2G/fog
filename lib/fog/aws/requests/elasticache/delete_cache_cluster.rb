@@ -14,9 +14,9 @@ module Fog
         #   * body <~Hash>
         def delete_cache_cluster(cluster_id)
           request(
-            'Action'          => 'DeleteCacheCluster',
-            'CacheClusterId'  => cluster_id,
-            :parser => Fog::Parsers::AWS::Elasticache::DescribeCacheClusters.new
+            'Action'         => 'DeleteCacheCluster',
+            'CacheClusterId' => cluster_id,
+            :parser          => Fog::Parsers::AWS::Elasticache::DescribeCacheClusters.new
           )
         end
 
@@ -28,8 +28,8 @@ module Fog
           cluster         = self.data[:clusters][cluster_id]
           cluster['CacheClusterStatus'] = 'deleting'
           response.body = {
-            'CacheClusters'     => self.data[:clusters].values,
-            'ResponseMetadata'  => { 'RequestId' => Fog::AWS::Mock.request_id }
+            'CacheClusters'    => self.data[:clusters].values,
+            'ResponseMetadata' => { 'RequestId' => Fog::AWS::Mock.request_id }
           }
           self.data[:clusters].delete(cluster_id)
           response

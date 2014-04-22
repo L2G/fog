@@ -8,7 +8,7 @@ Shindo.tests('AWS::SES | topic lifecycle tests', ['aws', 'sns']) do
       @queue_url,
       'Policy',
       Fog::JSON.encode(
-        'Id' => @topic_arn,
+        'Id'        => @topic_arn,
         'Statement' => {
           'Action'    => 'sqs:SendMessage',
           'Condition' => {
@@ -19,7 +19,7 @@ Shindo.tests('AWS::SES | topic lifecycle tests', ['aws', 'sns']) do
           'Resource'  => @queue_arn,
           'Sid'       => "#{@topic_arn}+sqs:SendMessage"
         },
-        'Version' => '2008-10-17'
+        'Version'   => '2008-10-17'
       )
     )
   end

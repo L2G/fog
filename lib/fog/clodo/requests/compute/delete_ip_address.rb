@@ -16,10 +16,10 @@ module Fog
           data = { 'ip' => ip }
 
           request(
-                  :expects  => [204],
-                  :method   => 'DELETE',
-                  :path     => "servers/#{server_id}/ips",
-                  :body     => Fog::JSON.encode(data)
+                  :expects => [204],
+                  :method  => 'DELETE',
+                  :path    => "servers/#{server_id}/ips",
+                  :body    => Fog::JSON.encode(data)
                   )
         end
       end

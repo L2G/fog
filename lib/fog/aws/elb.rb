@@ -64,9 +64,9 @@ module Fog
             owner_id = Fog::AWS::Mock.owner_id
             hash[region] = Hash.new do |region_hash, key|
               region_hash[key] = {
-                :owner_id => owner_id,
+                :owner_id       => owner_id,
                 :load_balancers => {},
-                :policy_types => Fog::AWS::ELB::Mock::POLICY_TYPES
+                :policy_types   => Fog::AWS::ELB::Mock::POLICY_TYPES
               }
             end
           end
@@ -166,13 +166,13 @@ module Fog
           body = Fog::AWS.signed_params(
             params,
 
-            :aws_access_key_id  => @aws_access_key_id,
-            :aws_session_token  => @aws_session_token,
-            :hmac               => @hmac,
-            :host               => @host,
-            :path               => @path,
-            :port               => @port,
-            :version            => '2012-06-01'
+            :aws_access_key_id => @aws_access_key_id,
+            :aws_session_token => @aws_session_token,
+            :hmac              => @hmac,
+            :host              => @host,
+            :path              => @path,
+            :port              => @port,
+            :version           => '2012-06-01'
 
           )
 

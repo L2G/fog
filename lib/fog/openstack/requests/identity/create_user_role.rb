@@ -5,9 +5,9 @@ module Fog
 
         def create_user_role(tenant_id, user_id, role_id)
           request(
-            :expects  => 200,
-            :method   => 'PUT',
-            :path     => "/tenants/#{tenant_id}/users/#{user_id}/roles/OS-KSADM/#{role_id}"
+            :expects => 200,
+            :method  => 'PUT',
+            :path    => "/tenants/#{tenant_id}/users/#{user_id}/roles/OS-KSADM/#{role_id}"
           )
         end
 

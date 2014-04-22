@@ -54,8 +54,8 @@ module Fog
 
           response.status = 200
           response.body = {
-            'requestId'     => Fog::AWS::Mock.request_id,
-            'addressesSet'  => addresses_set
+            'requestId'    => Fog::AWS::Mock.request_id,
+            'addressesSet' => addresses_set
           }
           response
         end

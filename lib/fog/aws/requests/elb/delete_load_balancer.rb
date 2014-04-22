@@ -37,7 +37,7 @@ module Fog
           self.data[:load_balancers].delete(lb_name)
 
           response.body = {
-            'ResponseMetadata' => {
+            'ResponseMetadata'         => {
               'RequestId' => Fog::AWS::Mock.request_id
             },
             'DeleteLoadBalancerResult' => nil

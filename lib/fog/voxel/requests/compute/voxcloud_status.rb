@@ -7,8 +7,8 @@ module Fog
 
         def voxcloud_status(device_id = nil)
           options = {
-            :parser     => Fog::Parsers::Compute::Voxel::VoxcloudStatus.new,
-            :verbosity  => 'compact'
+            :parser    => Fog::Parsers::Compute::Voxel::VoxcloudStatus.new,
+            :verbosity => 'compact'
           }
 
           unless device_id.nil?

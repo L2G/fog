@@ -18,9 +18,9 @@ module Fog
         # {Amazon API Reference}[http://docs.amazonwebservices.com/AWSEC2/latest/APIReference/ApiReference-query-DeleteInternetGateway.html]
         def delete_internet_gateway(internet_gateway_id)
           request(
-            'Action' => 'DeleteInternetGateway',
+            'Action'            => 'DeleteInternetGateway',
             'InternetGatewayId' => internet_gateway_id,
-            :parser => Fog::Parsers::Compute::AWS::Basic.new
+            :parser             => Fog::Parsers::Compute::AWS::Basic.new
           )
         end
       end
@@ -34,7 +34,7 @@ module Fog
 
               response.body = {
                 'requestId' => Fog::AWS::Mock.request_id,
-                'return' => true
+                'return'    => true
               }
             else
               message = 'MissingParameter => '

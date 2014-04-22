@@ -14,9 +14,9 @@ module Fog
         # TODO
         def get_location(location_id)
           request(
-            :expects  => 200,
-            :method   => 'GET',
-            :path     => "api/locations/#{location_id}.json"
+            :expects => 200,
+            :method  => 'GET',
+            :path    => "api/locations/#{location_id}.json"
           )
         end
 

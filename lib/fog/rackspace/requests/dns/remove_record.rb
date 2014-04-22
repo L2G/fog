@@ -10,9 +10,9 @@ module Fog
           path = "domains/#{domain_id}/records/#{record_id}"
 
           request(
-            :expects  => [202, 204],
-            :method   => 'DELETE',
-            :path     => path
+            :expects => [202, 204],
+            :method  => 'DELETE',
+            :path    => path
           )
         end
       end

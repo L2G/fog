@@ -16,10 +16,10 @@ module Fog
         def allocate_address
 
           request(
-            :body     => nil,
-            :expects  => 200,
-            :method   => 'POST',
-            :path     => 'os-floating-ips.json'
+            :body    => nil,
+            :expects => 200,
+            :method  => 'POST',
+            :path    => 'os-floating-ips.json'
           )
         end
 

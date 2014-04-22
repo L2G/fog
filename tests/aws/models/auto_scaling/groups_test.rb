@@ -1,15 +1,15 @@
 Shindo.tests('AWS::AutoScaling | group', ['aws', 'auto_scaling_m']) do
 
   params = {
-    :id => uniq_id,
-    :auto_scaling_group_name => 'name',
-    :availability_zones => [],
+    :id                        => uniq_id,
+    :auto_scaling_group_name   => 'name',
+    :availability_zones        => [],
     :launch_configuration_name => 'lc'
   }
 
   lc_params = {
-    :id => params[:launch_configuration_name],
-    :image_id => 'image-id',
+    :id            => params[:launch_configuration_name],
+    :image_id      => 'image-id',
     :instance_type => 'instance-type',
   }
 

@@ -18,7 +18,7 @@ Shindo.tests('Fog::Compute[:digitalocean] | servers collection', ['digitalocean'
   tests('#bootstrap with public/private_key_path').succeeds do
     pending if Fog.mocking?
     @server = service.servers.bootstrap({
-      :public_key_path => public_key_path,
+      :public_key_path  => public_key_path,
       :private_key_path => private_key_path
     }.merge(options))
     @server.destroy
@@ -27,7 +27,7 @@ Shindo.tests('Fog::Compute[:digitalocean] | servers collection', ['digitalocean'
   tests('#bootstrap with public/private_key').succeeds do
     pending if Fog.mocking?
     @server = service.servers.bootstrap({
-      :public_key => File.read(public_key_path),
+      :public_key  => File.read(public_key_path),
       :private_key => File.read(private_key_path)
     }.merge(options))
     @server.destroy

@@ -13,9 +13,9 @@ module Fog
         # @see    http://docs.rackspace.com/servers/api/v2/cs-devguide/content/DeleteKeyPair.html
         def delete_keypair(key_name)
           request(
-            :method   => 'DELETE',
-            :expects  => 202,
-            :path     => "/os-keypairs/#{URI.escape(key_name)}"
+            :method  => 'DELETE',
+            :expects => 202,
+            :path    => "/os-keypairs/#{URI.escape(key_name)}"
           )
         end
       end

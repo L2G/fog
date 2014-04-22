@@ -1,33 +1,33 @@
 Shindo.tests('Fog::Compute[:joyent] | machine requests', ['joyent']) do
 
   @machine_format = {
-    'id' => String,
-    'name' => String,
-    'type' => String,
-    'state' => String,
-    'dataset' => String,
-    'memory' => Integer,
-    'disk' => Integer,
-    'ips' => Array,
+    'id'       => String,
+    'name'     => String,
+    'type'     => String,
+    'state'    => String,
+    'dataset'  => String,
+    'memory'   => Integer,
+    'disk'     => Integer,
+    'ips'      => Array,
     'metadata' => Hash,
-    'created' => Time,
-    'updated' => Time
+    'created'  => Time,
+    'updated'  => Time
   }
 
   if Fog.mock?
     @machines = Fog::Compute[:joyent].data[:machines] = {
       '15080eca-3786-4bb8-a4d0-f43e1981cd72' => {
-        'id' => '15080eca-3786-4bb8-a4d0-f43e1981cd72',
-        'name' => 'getting-started',
-        'type' => 'smartmachine',
-        'state' => 'running',
-        'dataset' => 'sdc:sdc:smartos:1.3.15',
-        'memory' => 256,
-        'disk' => 5120,
-        'ips' => ['10.88.88.50'],
+        'id'       => '15080eca-3786-4bb8-a4d0-f43e1981cd72',
+        'name'     => 'getting-started',
+        'type'     => 'smartmachine',
+        'state'    => 'running',
+        'dataset'  => 'sdc:sdc:smartos:1.3.15',
+        'memory'   => 256,
+        'disk'     => 5120,
+        'ips'      => ['10.88.88.50'],
         'metadata' => {},
-        'created' => Time.parse('2011-06-03T00:02:31+00:00'),
-        'updated' => Time.parse('2011-06-03T00:02:31+00:00')
+        'created'  => Time.parse('2011-06-03T00:02:31+00:00'),
+        'updated'  => Time.parse('2011-06-03T00:02:31+00:00')
       }
     }
   end

@@ -17,7 +17,7 @@ Shindo.tests('Fog::Network[:openstack] | lb_health_monitor requests', ['openstac
   tests('success') do
     before do
       @lb_pool = Fog::Network[:openstack].lb_pools.create(:subnet_id => 'subnet_id',
-                                                          :protocol => 'HTTP',
+                                                          :protocol  => 'HTTP',
                                                           :lb_method => 'ROUND_ROBIN')
     end
 

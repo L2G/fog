@@ -30,9 +30,9 @@ module Fog
         # {Openstack API Reference}[http://docs.openstack.org]
         def get_security_group(security_group_id)
           request(
-            :expects  => [200],
-            :method   => 'GET',
-            :path     => "os-security-groups/#{security_group_id}"
+            :expects => [200],
+            :method  => 'GET',
+            :path    => "os-security-groups/#{security_group_id}"
           )
         end
 

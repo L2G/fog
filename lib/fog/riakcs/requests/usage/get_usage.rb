@@ -51,9 +51,9 @@ module Fog
             response.status = 200
             response.headers['Content-Type'] = 'application/json'
             response.body = {
-              'Access' => {
-                'Nodes'   => [],
-                'Errors'  => []
+              'Access'  => {
+                'Nodes'  => [],
+                'Errors' => []
               },
               'Storage' => {
                 'Samples' => [],

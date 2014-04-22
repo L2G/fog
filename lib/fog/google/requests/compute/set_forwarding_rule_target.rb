@@ -13,9 +13,9 @@ module Fog
         def set_forwarding_rule_target(rule, target)
           api_method = @compute.forwarding_rules.set_target
           parameters = {
-            'project' => @project,
+            'project'        => @project,
             'forwardingRule' => rule.name,
-            'region' => rule.region.split('/')[-1]
+            'region'         => rule.region.split('/')[-1]
           }
           body = {
             'target' => target

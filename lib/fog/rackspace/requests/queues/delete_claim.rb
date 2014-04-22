@@ -18,8 +18,8 @@ module Fog
         def delete_claim(queue_name, claim_id)
           request(
             :expects => 204,
-            :method => 'DELETE',
-            :path => "queues/#{queue_name}/claims/#{claim_id}"
+            :method  => 'DELETE',
+            :path    => "queues/#{queue_name}/claims/#{claim_id}"
           )
         end
       end

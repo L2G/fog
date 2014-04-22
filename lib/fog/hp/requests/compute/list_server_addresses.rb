@@ -15,9 +15,9 @@ module Fog
         #     *  'novanet_7':<~Array>  - The network name can change based on setup
         def list_server_addresses(server_id)
           request(
-            :expects  => 200,
-            :method   => 'GET',
-            :path     => "servers/#{server_id}/ips.json"
+            :expects => 200,
+            :method  => 'GET',
+            :path    => "servers/#{server_id}/ips.json"
           )
         end
 

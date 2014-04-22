@@ -18,8 +18,8 @@ module Fog
         def list_volume_types
           request(
             :expects => [200],
-            :method => 'GET',
-            :path => 'types'
+            :method  => 'GET',
+            :path    => 'types'
           )
         end
       end

@@ -30,9 +30,9 @@ module Fog
           end
 
           request({
-            'Action'  => 'AddJobFlowSteps',
+            'Action'    => 'AddJobFlowSteps',
             'JobFlowId' => job_flow_id,
-            :parser   => Fog::Parsers::AWS::EMR::AddJobFlowSteps.new,
+            :parser     => Fog::Parsers::AWS::EMR::AddJobFlowSteps.new,
           }.merge(options))
         end
       end

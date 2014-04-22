@@ -11,8 +11,8 @@ module Fog
         def delete_server(server_id)
           request(
             :expects => 202,
-            :method => 'DELETE',
-            :path   => "servers/#{server_id}"
+            :method  => 'DELETE',
+            :path    => "servers/#{server_id}"
           )
         end
 

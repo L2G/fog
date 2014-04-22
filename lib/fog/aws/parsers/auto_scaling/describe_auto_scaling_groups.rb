@@ -17,12 +17,12 @@ module Fog
 
           def reset_auto_scaling_group
             @auto_scaling_group = {
-              'AvailabilityZones' => [],
-              'EnabledMetrics' => [],
-              'Instances' => [],
-              'LoadBalancerNames' => [],
-              'SuspendedProcesses' => [],
-              'Tags' => [],
+              'AvailabilityZones'   => [],
+              'EnabledMetrics'      => [],
+              'Instances'           => [],
+              'LoadBalancerNames'   => [],
+              'SuspendedProcesses'  => [],
+              'Tags'                => [],
               'TerminationPolicies' => []
             }
           end

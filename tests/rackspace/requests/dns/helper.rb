@@ -1,8 +1,8 @@
 SUBDOMAIN_FORMAT = {
-  'name' => String,
-  'id' => Integer,
-  'created' => String,
-  'updated' => String,
+  'name'         => String,
+  'id'           => Integer,
+  'created'      => String,
+  'updated'      => String,
   'emailAddress' => String
 }
 
@@ -11,34 +11,34 @@ DOMAIN_FORMAT = SUBDOMAIN_FORMAT.merge(
 )
 
 LIST_SUBDOMAINS_FORMAT = {
-  'domains' => [SUBDOMAIN_FORMAT],
+  'domains'      => [SUBDOMAIN_FORMAT],
   'totalEntries' => Integer
 }
 
 LIST_DOMAIN_FORMAT = {
-  'domains' => [DOMAIN_FORMAT],
+  'domains'      => [DOMAIN_FORMAT],
   'totalEntries' => Integer,
-  'links' => [
+  'links'        => [
     {
-      'rel' => String,
+      'rel'  => String,
       'href' => String
     }
   ]
 }
 
 RECORD_FORMAT = {
-  'name' => String,
-  'id' => String,
-  'type' => String,
-  'data' => String,
-  'updated' => String,
-  'created' => String,
-  'ttl' => Integer,
+  'name'     => String,
+  'id'       => String,
+  'type'     => String,
+  'data'     => String,
+  'updated'  => String,
+  'created'  => String,
+  'ttl'      => Integer,
   'priority' => Fog::Nullable::Integer
 }
 
 RECORD_LIST_FORMAT = {
-  'records' => [RECORD_FORMAT],
+  'records'      => [RECORD_FORMAT],
   #In some cases this is returned (domain details) and in some cases it isn't (create domain).  Marking as nullable.
   'totalEntries' => Fog::Nullable::Integer
 }
@@ -49,7 +49,7 @@ NAME_SERVERS_FORMAT = [{
 
 BASIC_DOMAIN_DETAIL_FORMAT = DOMAIN_FORMAT.merge(
   'nameservers' => NAME_SERVERS_FORMAT,
-  'ttl' => Integer
+  'ttl'         => Integer
 )
 
 LIST_DOMAIN_DETAILS_WITH_RECORDS = BASIC_DOMAIN_DETAIL_FORMAT.merge(
@@ -57,10 +57,10 @@ LIST_DOMAIN_DETAILS_WITH_RECORDS = BASIC_DOMAIN_DETAIL_FORMAT.merge(
 )
 
 LIST_DOMAIN_DETAILS_WITH_RECORDS_AND_SUBDOMAINS_FORMAT = BASIC_DOMAIN_DETAIL_FORMAT.merge(
-  'recordsList'     => RECORD_LIST_FORMAT,
-  'subdomains'      => {
-    'domains'   => [SUBDOMAIN_FORMAT],
-    'totalEntries'  => Integer
+  'recordsList' => RECORD_LIST_FORMAT,
+  'subdomains'  => {
+    'domains'      => [SUBDOMAIN_FORMAT],
+    'totalEntries' => Integer
   }
 )
 

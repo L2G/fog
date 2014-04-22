@@ -9,9 +9,9 @@ module Fog
         # * 'security_group_id'<~String> - UUId of the security group to delete
         def delete_security_group(security_group_id)
           request(
-            :expects  => 204,
-            :method   => 'DELETE',
-            :path     => "security-groups/#{security_group_id}"
+            :expects => 204,
+            :method  => 'DELETE',
+            :path    => "security-groups/#{security_group_id}"
           )
         end
 

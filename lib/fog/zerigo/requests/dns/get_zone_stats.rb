@@ -23,10 +23,10 @@ module Fog
 
         def get_zone_stats(zone_id)
           request(
-            :expects  => 200,
-            :method   => 'GET',
-            :parser   => Fog::Parsers::DNS::Zerigo::GetZoneStats.new,
-            :path     => "/api/1.1/zones/#{zone_id}/stats.xml"
+            :expects => 200,
+            :method  => 'GET',
+            :parser  => Fog::Parsers::DNS::Zerigo::GetZoneStats.new,
+            :path    => "/api/1.1/zones/#{zone_id}/stats.xml"
           )
         end
 
@@ -41,11 +41,11 @@ module Fog
           if zone
             response.status = 200
             response.body = {
-              'id' => zone,
-              'domain' => zone['domain'],
+              'id'           => zone,
+              'domain'       => zone['domain'],
               'period-begin' => zone['created-at'].strftime('%F'),
-              'period-end' => Date.today.to_s,
-              'queries' => 0
+              'period-end'   => Date.today.to_s,
+              'queries'      => 0
             }
           else
             response.status = 404

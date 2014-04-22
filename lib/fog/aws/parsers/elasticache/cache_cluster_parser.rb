@@ -14,7 +14,7 @@ module Fog
           def reset_cache_cluster
             @cache_cluster = {
               'CacheSecurityGroups' => [],
-              'CacheNodes' => [],
+              'CacheNodes'          => [],
               'CacheParameterGroup' => {}
             }
           end

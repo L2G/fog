@@ -110,11 +110,11 @@ Shindo.tests('Fog::Storage[:rackspace] | large object requests', ['rackspace']) 
 
         tests('#put_static_obj_manifest').succeeds do
           segments = [
-            { :path => "#{ @segments[:a][:container] }/#{ @segments[:a][:name] }",
-              :etag => @segments[:a][:etag],
+            { :path       => "#{ @segments[:a][:container] }/#{ @segments[:a][:name] }",
+              :etag       => @segments[:a][:etag],
               :size_bytes => @segments[:a][:size] },
-            { :path => "#{ @segments[:c][:container] }/#{ @segments[:c][:name] }",
-              :etag => @segments[:c][:etag],
+            { :path       => "#{ @segments[:c][:container] }/#{ @segments[:c][:name] }",
+              :etag       => @segments[:c][:etag],
               :size_bytes => @segments[:c][:size] }
           ]
           Fog::Storage[:rackspace].put_static_obj_manifest(@directory.identity, 'fog_large_object', segments)
@@ -138,11 +138,11 @@ Shindo.tests('Fog::Storage[:rackspace] | large object requests', ['rackspace']) 
 
         tests('#delete_static_large_object') do
           expected = {
-            'Number Not Found'  => 0,
-            'Response Status'   => '200 OK',
-            'Errors'            => [],
-            'Number Deleted'    => 3,
-            'Response Body'     => ''
+            'Number Not Found' => 0,
+            'Response Status'  => '200 OK',
+            'Errors'           => [],
+            'Number Deleted'   => 3,
+            'Response Body'    => ''
           }
           returns(expected, 'deletes manifest and segments') do
             Fog::Storage[:rackspace].delete_static_large_object(@directory.identity, 'fog_large_object').body
@@ -155,11 +155,11 @@ Shindo.tests('Fog::Storage[:rackspace] | large object requests', ['rackspace']) 
 
         tests('#put_static_obj_manifest').succeeds do
           segments = [
-            { :path => "#{ @segments[:b][:container] }/#{ @segments[:b][:name] }",
-              :etag => @segments[:b][:etag],
+            { :path       => "#{ @segments[:b][:container] }/#{ @segments[:b][:name] }",
+              :etag       => @segments[:b][:etag],
               :size_bytes => @segments[:b][:size] },
-            { :path => "#{ @segments[:d][:container] }/#{ @segments[:d][:name] }",
-              :etag => @segments[:d][:etag],
+            { :path       => "#{ @segments[:d][:container] }/#{ @segments[:d][:name] }",
+              :etag       => @segments[:d][:etag],
               :size_bytes => @segments[:d][:size] }
           ]
           Fog::Storage[:rackspace].put_static_obj_manifest(@directory2.identity, 'fog_large_object', segments)
@@ -183,11 +183,11 @@ Shindo.tests('Fog::Storage[:rackspace] | large object requests', ['rackspace']) 
 
         tests('#delete_static_large_object') do
           expected = {
-            'Number Not Found'  => 0,
-            'Response Status'   => '200 OK',
-            'Errors'            => [],
-            'Number Deleted'    => 3,
-            'Response Body'     => ''
+            'Number Not Found' => 0,
+            'Response Status'  => '200 OK',
+            'Errors'           => [],
+            'Number Deleted'   => 3,
+            'Response Body'    => ''
           }
           returns(expected, 'deletes manifest and segments') do
             Fog::Storage[:rackspace].delete_static_large_object(@directory2.identity, 'fog_large_object').body
@@ -223,8 +223,8 @@ Shindo.tests('Fog::Storage[:rackspace] | large object requests', ['rackspace']) 
 
       tests('#put_static_obj_manifest with missing object') do
         segments = [
-          { :path => "#{ @segments[:c][:container] }/#{ @segments[:c][:name] }",
-            :etag => @segments[:c][:etag],
+          { :path       => "#{ @segments[:c][:container] }/#{ @segments[:c][:name] }",
+            :etag       => @segments[:c][:etag],
             :size_bytes => @segments[:c][:size] }
         ]
         expected = { 'Errors' => [[segments[0][:path], '404 Not Found']] }
@@ -248,8 +248,8 @@ Shindo.tests('Fog::Storage[:rackspace] | large object requests', ['rackspace']) 
 
       tests('#put_static_obj_manifest with invalid etag') do
         segments = [
-          { :path => "#{ @segments[:a][:container] }/#{ @segments[:a][:name] }",
-            :etag => @segments[:b][:etag],
+          { :path       => "#{ @segments[:a][:container] }/#{ @segments[:a][:name] }",
+            :etag       => @segments[:b][:etag],
             :size_bytes => @segments[:a][:size] }
         ]
         expected = { 'Errors' => [[segments[0][:path], 'Etag Mismatch']] }
@@ -273,8 +273,8 @@ Shindo.tests('Fog::Storage[:rackspace] | large object requests', ['rackspace']) 
 
       tests('#put_static_obj_manifest with invalid byte_size') do
         segments = [
-          { :path => "#{ @segments[:a][:container] }/#{ @segments[:a][:name] }",
-            :etag => @segments[:a][:etag],
+          { :path       => "#{ @segments[:a][:container] }/#{ @segments[:a][:name] }",
+            :etag       => @segments[:a][:etag],
             :size_bytes => @segments[:b][:size] }
         ]
         expected = { 'Errors' => [[segments[0][:path], 'Size Mismatch']] }
@@ -318,11 +318,11 @@ Shindo.tests('Fog::Storage[:rackspace] | large object requests', ['rackspace']) 
 
         tests('#put_static_obj_manifest for segments :a and :b').succeeds do
           segments = [
-            { :path => "#{ @segments[:a][:container] }/#{ @segments[:a][:name] }",
-              :etag => @segments[:a][:etag],
+            { :path       => "#{ @segments[:a][:container] }/#{ @segments[:a][:name] }",
+              :etag       => @segments[:a][:etag],
               :size_bytes => @segments[:a][:size] },
-            { :path => "#{ @segments[:b][:container] }/#{ @segments[:b][:name] }",
-              :etag => @segments[:b][:etag],
+            { :path       => "#{ @segments[:b][:container] }/#{ @segments[:b][:name] }",
+              :etag       => @segments[:b][:etag],
               :size_bytes => @segments[:b][:size] }
           ]
           Fog::Storage[:rackspace].put_static_obj_manifest(@directory.identity, 'fog_large_object', segments)
@@ -334,11 +334,11 @@ Shindo.tests('Fog::Storage[:rackspace] | large object requests', ['rackspace']) 
 
         tests('#delete_static_large_object') do
           expected = {
-            'Number Not Found'  => 1,
-            'Response Status'   => '200 OK',
-            'Errors'            => [],
-            'Number Deleted'    => 2,
-            'Response Body'     => ''
+            'Number Not Found' => 1,
+            'Response Status'  => '200 OK',
+            'Errors'           => [],
+            'Number Deleted'   => 2,
+            'Response Body'    => ''
           }
           returns(expected, 'deletes manifest and segment :a, and reports missing segment :b') do
             Fog::Storage[:rackspace].delete_static_large_object(@directory.identity, 'fog_large_object').body

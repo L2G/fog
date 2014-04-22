@@ -21,10 +21,10 @@ module Fog
         #
         def delete_role_policy(role_name, policy_name)
           request(
-            'Action'          => 'DeleteRolePolicy',
-            'PolicyName'      => policy_name,
-            'RoleName'        => role_name,
-            :parser           => Fog::Parsers::AWS::IAM::Basic.new
+            'Action'     => 'DeleteRolePolicy',
+            'PolicyName' => policy_name,
+            'RoleName'   => role_name,
+            :parser      => Fog::Parsers::AWS::IAM::Basic.new
           )
         end
 

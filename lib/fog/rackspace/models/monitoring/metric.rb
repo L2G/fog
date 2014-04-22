@@ -12,8 +12,8 @@ module Fog
         def datapoints(options = {})
           @datapoints ||= begin
             Fog::Rackspace::Monitoring::DataPoints.new(
-              :metric        => self,
-              :service       => service
+              :metric  => self,
+              :service => service
             )
           end
         end

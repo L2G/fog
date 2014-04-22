@@ -1,21 +1,21 @@
 Shindo.tests('Fog::Compute[:cloudstack] | snapshot requests', ['cloudstack']) do
 
   @snapshots_format = {
-    'listsnapshotsresponse'  => {
-      'count' => Integer,
+    'listsnapshotsresponse' => {
+      'count'    => Integer,
       'snapshot' => [
-        'id' => Integer,
-        'account' => String,
-        'domainid' => Integer,
-        'domain' => String,
+        'id'           => Integer,
+        'account'      => String,
+        'domainid'     => Integer,
+        'domain'       => String,
         'snapshottype' => String,
-        'volumeid' => Integer,
-        'volumename' => String,
-        'volumetype' => String,
-        'created' => String,
-        'name' => String,
+        'volumeid'     => Integer,
+        'volumename'   => String,
+        'volumetype'   => String,
+        'created'      => String,
+        'name'         => String,
         'intervaltype' => String,
-        'state' => String
+        'state'        => String
       ]
     }
   }

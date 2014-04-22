@@ -20,11 +20,11 @@ module Fog
         # {Amazon API Reference}[http://docs.amazonwebservices.com/AWSEC2/latest/APIReference/ApiReference-query-CopySnapshot.html]
         def copy_snapshot(source_snapshot_id, source_region, description = nil)
           request(
-            'Action'          => 'CopySnapshot',
+            'Action'           => 'CopySnapshot',
             'SourceSnapshotId' => source_snapshot_id,
-            'SourceRegion'    => source_region,
-            'Description'     => description,
-            :parser       => Fog::Parsers::Compute::AWS::CopySnapshot.new
+            'SourceRegion'     => source_region,
+            'Description'      => description,
+            :parser            => Fog::Parsers::Compute::AWS::CopySnapshot.new
           )
         end
 
@@ -43,7 +43,7 @@ module Fog
           response.status = 200
           snapshot_id = Fog::AWS::Mock.snapshot_id
           data = {
-            'snapshotId'  => snapshot_id,
+            'snapshotId' => snapshot_id,
           }
           self.data[:snapshots][snapshot_id] = data
           response.body = {

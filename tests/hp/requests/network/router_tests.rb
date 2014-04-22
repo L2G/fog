@@ -10,8 +10,8 @@ Shindo.tests('HP::Network | networking router requests', ['hp', 'networking', 'r
   }
 
   @router_interface_format = {
-    'subnet_id'  => String,
-    'port_id'    => String
+    'subnet_id' => String,
+    'port_id'   => String
   }
 
   n_data = HP[:network].create_network(:name => 'fog_network').body['network']
@@ -41,9 +41,9 @@ Shindo.tests('HP::Network | networking router requests', ['hp', 'networking', 'r
 
     tests("#update_router(#{@router_id})").formats('router' => @router_format) do
       attributes = {
-        :name => 'my_router_upd',
+        :name                  => 'my_router_upd',
         :external_gateway_info => { :network_id => '11111111111' },
-        :admin_state_up => true
+        :admin_state_up        => true
       }
       HP[:network].update_router(@router_id, attributes).body
     end

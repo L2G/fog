@@ -20,11 +20,11 @@ module Fog
         # {Amazon API Reference}[http://docs.amazonwebservices.com/AWSEC2/latest/APIReference/ApiReference-query-AssociateDhcpOptions.html]
         def associate_dhcp_options(dhcp_options_id, vpc_id)
           request(
-            'Action'               => 'AssociateDhcpOptions',
-            'DhcpOptionsId'        => dhcp_options_id,
-            'VpcId'                => vpc_id,
-            :idempotent   => true,
-            :parser       => Fog::Parsers::Compute::AWS::Basic.new
+            'Action'        => 'AssociateDhcpOptions',
+            'DhcpOptionsId' => dhcp_options_id,
+            'VpcId'         => vpc_id,
+            :idempotent     => true,
+            :parser         => Fog::Parsers::Compute::AWS::Basic.new
           )
         end
 
@@ -38,7 +38,7 @@ module Fog
             response.status = 200
             response.body = {
               'requestId' => Fog::AWS::Mock.request_id,
-              'return' => true
+              'return'    => true
             }
             response
           else

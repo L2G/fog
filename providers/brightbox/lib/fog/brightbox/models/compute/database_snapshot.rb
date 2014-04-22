@@ -23,7 +23,7 @@ module Fog
 
         def save
           options = {
-            :name => name,
+            :name        => name,
             :description => description
           }
           data = update_database_snapshot(options)

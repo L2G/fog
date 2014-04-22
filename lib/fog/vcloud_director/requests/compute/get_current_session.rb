@@ -42,39 +42,39 @@ module Fog
         def get_current_session
           body =
             { :href => make_href('session/'),
-             :type => 'application/vnd.vmware.vcloud.session+xml',
-             :org => data[:org][:name],
-             :user => user_name,
-             :Link =>
-              [{ :href => make_href('org/'),
-                :type => 'application/vnd.vmware.vcloud.orgList+xml',
-                :rel => 'down' },
+              :type => 'application/vnd.vmware.vcloud.session+xml',
+              :org  => data[:org][:name],
+              :user => user_name,
+              :Link =>
+                       [{ :href => make_href('org/'),
+                          :type => 'application/vnd.vmware.vcloud.orgList+xml',
+                          :rel  => 'down' },
                { :href => make_href('admin/'),
-                :type => 'application/vnd.vmware.admin.vcloud+xml',
-                :rel => 'down' },
+                 :type => 'application/vnd.vmware.admin.vcloud+xml',
+                 :rel  => 'down' },
                { :href => make_href("org/#{data[:org][:uuid]}"),
-                :name => data[:org][:name],
-                :type => 'application/vnd.vmware.vcloud.org+xml',
-                :rel => 'down' },
+                 :name => data[:org][:name],
+                 :type => 'application/vnd.vmware.vcloud.org+xml',
+                 :rel  => 'down' },
                { :href => make_href('query'),
-                :type => 'application/vnd.vmware.vcloud.query.queryList+xml',
-                :rel => 'down' },
+                 :type => 'application/vnd.vmware.vcloud.query.queryList+xml',
+                 :rel  => 'down' },
                { :href => make_href('entity/'),
-                :type => 'application/vnd.vmware.vcloud.entity+xml',
-                :rel => 'entityResolver' }] }
+                 :type => 'application/vnd.vmware.vcloud.entity+xml',
+                 :rel  => 'entityResolver' }] }
 
           if @api_version.to_f >= 5.1
             body[:Link] << {
               :href => make_href('extensibility'),
               :type => 'application/vnd.vmware.vcloud.apiextensibility+xml',
-              :rel => 'down:extensibility'
+              :rel  => 'down:extensibility'
             }
           end
 
           Excon::Response.new(
-            :body => body,
+            :body    => body,
             :headers => { 'Content-Type' => "#{body[:type]};version=#{api_version}" },
-            :status => 200
+            :status  => 200
           )
         end
       end

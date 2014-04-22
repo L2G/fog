@@ -24,11 +24,11 @@ module Fog
 
           options = {
             'description' => description,
-            'region' => region,
-            'IPAddress' => ip_address,
-            'IPProtocol' => ip_protocol || 'TCP',
-            'portRange' => port_range,
-            'target' => target
+            'region'      => region,
+            'IPAddress'   => ip_address,
+            'IPProtocol'  => ip_protocol || 'TCP',
+            'portRange'   => port_range,
+            'target'      => target
           }
 
           service.insert_forwarding_rule(name, region, options).body

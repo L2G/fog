@@ -14,22 +14,22 @@ Shindo.tests('Fog::Compute[:openstack] | limits requests', ['openstack']) do
   }
 
   @absolute_limits_format = {
-    'maxServerMeta'             => Fixnum,
-    'maxTotalInstances'         => Fixnum,
-    'maxPersonality'            => Fixnum,
-    'maxImageMeta'              => Fixnum,
-    'maxPersonalitySize'        => Fixnum,
-    'maxSecurityGroupRules'     => Fixnum,
-    'maxTotalKeypairs'          => Fixnum,
-    'maxSecurityGroups'         => Fixnum,
-    'maxTotalCores'             => Fixnum,
-    'maxTotalFloatingIps'       => Fixnum,
-    'maxTotalRAMSize'           => Fixnum,
-    'totalCoresUsed'            => Fixnum,
-    'totalRAMUsed'              => Fixnum,
-    'totalInstancesUsed'        => Fixnum,
-    'totalSecurityGroupsUsed'   => Fixnum,
-    'totalFloatingIpsUsed'      => Fixnum
+    'maxServerMeta'           => Fixnum,
+    'maxTotalInstances'       => Fixnum,
+    'maxPersonality'          => Fixnum,
+    'maxImageMeta'            => Fixnum,
+    'maxPersonalitySize'      => Fixnum,
+    'maxSecurityGroupRules'   => Fixnum,
+    'maxTotalKeypairs'        => Fixnum,
+    'maxSecurityGroups'       => Fixnum,
+    'maxTotalCores'           => Fixnum,
+    'maxTotalFloatingIps'     => Fixnum,
+    'maxTotalRAMSize'         => Fixnum,
+    'totalCoresUsed'          => Fixnum,
+    'totalRAMUsed'            => Fixnum,
+    'totalInstancesUsed'      => Fixnum,
+    'totalSecurityGroupsUsed' => Fixnum,
+    'totalFloatingIpsUsed'    => Fixnum
   }
 
   @limits_format = {

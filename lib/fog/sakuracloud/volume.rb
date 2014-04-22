@@ -59,8 +59,8 @@ module Fog
         def self.data
           @data ||= Hash.new do |hash, key|
             hash[key] = {
-              :disks => [],
-              :plans => [],
+              :disks    => [],
+              :plans    => [],
               :archives => []
             }
           end

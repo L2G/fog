@@ -28,9 +28,9 @@ module Fog
 
           vms = datacenters.map do |dc|
             @connection.serviceContent.viewManager.CreateContainerView(
-              :container  => dc.vmFolder,
-              :type       =>  ['VirtualMachine'],
-              :recursive  => true
+              :container => dc.vmFolder,
+              :type      => ['VirtualMachine'],
+              :recursive => true
             ).view
           end.flatten
           # remove all virtual machines that are not templates

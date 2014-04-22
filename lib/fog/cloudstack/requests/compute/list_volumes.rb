@@ -27,7 +27,7 @@ module Fog
 
           {
             'listvolumesresponse' => {
-              'count' => volumes.size,
+              'count'  => volumes.size,
               'volume' => volumes
             }
           }

@@ -8,21 +8,21 @@ for provider, config in dns_providers
   Shindo.tests("Fog::DNS[:#{provider}] | record", [provider.to_s]) do
 
     a_record_attributes = {
-      :name   => 'a.' + domain_name,
-      :type   => 'A',
-      :value  => '1.2.3.4'
+      :name  => 'a.' + domain_name,
+      :type  => 'A',
+      :value => '1.2.3.4'
     }.merge!(config[:record_attributes] || {})
 
     aaaa_record_attributes = {
-      :name   => 'aaaa.' + domain_name,
-      :type   => 'AAAA',
-      :value  => '2001:0db8:0000:0000:0000:ff00:0042:8329'
+      :name  => 'aaaa.' + domain_name,
+      :type  => 'AAAA',
+      :value => '2001:0db8:0000:0000:0000:ff00:0042:8329'
     }.merge!(config[:record_attributes] || {})
 
     cname_record_attributes = {
-      :name   => 'cname.' + domain_name,
-      :type   => 'CNAME',
-      :value  => 'real.' + domain_name
+      :name  => 'cname.' + domain_name,
+      :type  => 'CNAME',
+      :value => 'real.' + domain_name
     }.merge!(config[:record_attributes] || {})
 
     if !Fog.mocking? || config[:mocked]

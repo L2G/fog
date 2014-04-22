@@ -5,19 +5,19 @@ Shindo.tests('Fog::Compute[:voxel] | image requests', ['voxel']) do
       'id'      => Integer,
       'summary' => String
     }],
-    'stat' => String
+    'stat'   => String
   }
 
   @image_format = {
     'images' => [{
-      'description'       => String,
-      'id'                => Integer,
-      'filesystem'        => {
+      'description'      => String,
+      'id'               => Integer,
+      'filesystem'       => {
         'size'  => Integer,
         'type'  => String,
         'units' => String,
       },
-      'operating_system'  => {
+      'operating_system' => {
         'admin_username'  => String,
         'architecture'    => Integer,
         'family'          => String,
@@ -25,9 +25,9 @@ Shindo.tests('Fog::Compute[:voxel] | image requests', ['voxel']) do
         'product_version' => String,
         'version'         => String
       },
-      'summary'           => String
+      'summary'          => String
     }],
-    'stat' => String
+    'stat'   => String
   }
 
   tests('success') do

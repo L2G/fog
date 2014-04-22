@@ -5,9 +5,9 @@ module Fog
         def describe_analytics(force = false)
           @describe_analytics = nil if force
           @describe_analytics ||= request(
-              :path => "#{@joyent_username}/analytics",
-              :method => 'GET',
-              :expects => 200,
+              :path       => "#{@joyent_username}/analytics",
+              :method     => 'GET',
+              :expects    => 200,
               :idempotent => true
           )
         end

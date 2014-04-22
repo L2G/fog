@@ -33,7 +33,7 @@ module Fog
           requires :identity
           requires :secid
           params = { :ticket_id => identity,
-                    :secid => secid }.merge!(options)
+                     :secid     => secid }.merge!(options)
           service.add_transaction_feedback(params).body
         end
 
@@ -61,8 +61,8 @@ module Fog
         def reply(options)
           requires :identity
           requires :secid
-          res = service.reply_ticket({ :id => identity,
-                                      :secid => secid }.merge!(options)).body
+          res = service.reply_ticket({ :id    => identity,
+                                       :secid => secid }.merge!(options)).body
           res['reply'].to_i == 1 ? true : false
         end
 

@@ -21,10 +21,10 @@ module Fog
         # {Amazon API Reference}[http://docs.amazonwebservices.com/AWSEC2/latest/APIReference/ApiReference-query-GetConsoleOutput.html]
         def get_console_output(instance_id)
           request(
-            'Action'      => 'GetConsoleOutput',
-            'InstanceId'  => instance_id,
-            :idempotent   => true,
-            :parser       => Fog::Parsers::Compute::AWS::GetConsoleOutput.new
+            'Action'     => 'GetConsoleOutput',
+            'InstanceId' => instance_id,
+            :idempotent  => true,
+            :parser      => Fog::Parsers::Compute::AWS::GetConsoleOutput.new
           )
         end
 
@@ -37,10 +37,10 @@ module Fog
           if instance = self.data[:instances][instance_id]
             response.status = 200
             response.body = {
-              'instanceId'    => instance_id,
-              'output'        => (Time.now - instance['launchTime'] >= Fog::Mock.delay) ? nil : Fog::AWS::Mock.console_output,
-              'requestId'     => Fog::AWS::Mock.request_id,
-              'timestamp'     => Time.now
+              'instanceId' => instance_id,
+              'output'     => (Time.now - instance['launchTime'] >= Fog::Mock.delay) ? nil : Fog::AWS::Mock.console_output,
+              'requestId'  => Fog::AWS::Mock.request_id,
+              'timestamp'  => Time.now
             }
             response
           else;

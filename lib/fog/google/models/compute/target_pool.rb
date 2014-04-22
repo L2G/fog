@@ -24,13 +24,13 @@ module Fog
           requires :name, :region
 
           options = {
-            'description' => description,
-            'region' => region,
-            'healthChecks' => health_checks,
-            'instances' => instances,
+            'description'     => description,
+            'region'          => region,
+            'healthChecks'    => health_checks,
+            'instances'       => instances,
             'sessionAffinity' => session_affinity,
-            'failoverRatio' => failover_ratio,
-            'backupPool' => backup_pool
+            'failoverRatio'   => failover_ratio,
+            'backupPool'      => backup_pool
           }
 
           service.insert_target_pool(name, region, options).body

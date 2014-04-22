@@ -17,10 +17,10 @@ module Fog
         # @raise [Fog::Storage::Rackspace::ServiceError]
         def head_containers
           request(
-            :expects  => 204,
-            :method   => 'HEAD',
-            :path     => '',
-            :query    => { 'format' => 'json' }
+            :expects => 204,
+            :method  => 'HEAD',
+            :path    => '',
+            :query   => { 'format' => 'json' }
           )
         end
 
@@ -35,9 +35,9 @@ module Fog
           response = Excon::Response.new
           response.status = 204
           response.headers = {
-            'X-Account-Bytes-Used' => bytes_used,
+            'X-Account-Bytes-Used'      => bytes_used,
             'X-Account-Container-Count' => container_count,
-            'X-Account-Object-Count' => object_count
+            'X-Account-Object-Count'    => object_count
           }.merge(account_meta)
           response
         end

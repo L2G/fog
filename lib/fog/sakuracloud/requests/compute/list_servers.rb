@@ -9,8 +9,8 @@ module Fog
             :headers => {
               'Authorization' => "Basic #{@auth_encord}"
             },
-            :method => 'GET',
-            :path => "#{Fog::SakuraCloud::SAKURACLOUD_API_ENDPOINT}/server"
+            :method  => 'GET',
+            :path    => "#{Fog::SakuraCloud::SAKURACLOUD_API_ENDPOINT}/server"
           )
         end
       end
@@ -21,19 +21,19 @@ module Fog
           response.status = 200
           response.body = {
           'Servers' =>
-            [
-            { 'Index' => 0,
-              'ID' => 112600055376,
-              'Name' => 'foober1',
+                       [
+            { 'Index'      => 0,
+              'ID'         => 112600055376,
+              'Name'       => 'foober1',
               'ServerPlan' => {},
-              'Instance' => {},
-              'Disks' => [] },
-            { 'Index' => 1,
-              'ID' => 112600055377,
-              'Name' => 'foober2',
+              'Instance'   => {},
+              'Disks'      => [] },
+            { 'Index'      => 1,
+              'ID'         => 112600055377,
+              'Name'       => 'foober2',
               'ServerPlan' => {},
-              'Instance' => {},
-              'Disks' => [] }
+              'Instance'   => {},
+              'Disks'      => [] }
             ]
           }
           response

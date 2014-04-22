@@ -33,10 +33,10 @@ module Fog
         #     * 'status'<~String> - Status of image
         def list_images_detail(options = {})
           request(
-            :expects  => [200, 203],
-            :method   => 'GET',
-            :path     => 'images/detail',
-            :query    => options
+            :expects => [200, 203],
+            :method  => 'GET',
+            :path    => 'images/detail',
+            :query   => options
           )
         end
 

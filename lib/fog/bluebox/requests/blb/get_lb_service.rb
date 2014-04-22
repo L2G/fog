@@ -21,9 +21,9 @@ module Fog
         #     * created<~DateTime> - when service was created
         def get_lb_service(lb_application_id, lb_service_id)
           request(
-            :expects  => 200,
-            :method   => 'GET',
-            :path     => "api/lb_applications/#{lb_application_id}/lb_services/#{lb_service_id}.json",
+            :expects => 200,
+            :method  => 'GET',
+            :path    => "api/lb_applications/#{lb_application_id}/lb_services/#{lb_service_id}.json",
           )
         end
       end

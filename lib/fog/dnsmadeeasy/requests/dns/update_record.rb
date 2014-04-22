@@ -43,10 +43,10 @@ module Fog
         #   * 'status'<~Integer> - 201 - record successfully created, 400 - record not valid, see errors in response content, 404 - domain not found
         def update_record(domain, record_id, options = {})
           request(
-            :expects  => 200,
-            :method   => 'PUT',
-            :path     => "/V1.2/domains/#{domain}/records/#{record_id}",
-            :body     => Fog::JSON.encode(options)
+            :expects => 200,
+            :method  => 'PUT',
+            :path    => "/V1.2/domains/#{domain}/records/#{record_id}",
+            :body    => Fog::JSON.encode(options)
           )
         end
 

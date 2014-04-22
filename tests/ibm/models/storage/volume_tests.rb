@@ -12,11 +12,11 @@ Shindo.tests('Fog::Storage[:ibm] | volume', ['ibm']) do
 
     tests('Fog::Storage::IBM::Volume.new') do
       @volume = Fog::Storage[:ibm].volumes.new(
-        :name           => @name,
-        :format         => @format,
-        :location_id    => @location_id,
-        :size           => @size,
-        :offering_id    => @offering_id
+        :name        => @name,
+        :format      => @format,
+        :location_id => @location_id,
+        :size        => @size,
+        :offering_id => @offering_id
       )
       returns(@name) { @volume.name }
     end

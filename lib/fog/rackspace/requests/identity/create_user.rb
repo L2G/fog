@@ -6,17 +6,17 @@ module Fog
           data = {
             'user' => {
               'username' => username,
-              'email' => email,
-              'enabled' => enabled
+              'email'    => email,
+              'enabled'  => enabled
             }
           }
           data['user']['OS-KSADM:password'] = options[:password] unless options[:password].nil?
 
           request(
-            :body => Fog::JSON.encode(data),
+            :body    => Fog::JSON.encode(data),
             :expects => [201],
-            :method => 'POST',
-            :path => 'users'
+            :method  => 'POST',
+            :path    => 'users'
           )
         end
       end

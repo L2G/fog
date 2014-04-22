@@ -28,8 +28,8 @@ module Fog
         #     varies based on ReturnValues param, see: http://docs.amazonwebservices.com/amazondynamodb/latest/developerguide/API_UpdateItem.html
         def delete_item(table_name, key, options = {})
           body = {
-            'Key'               => key,
-            'TableName'         => table_name
+            'Key'       => key,
+            'TableName' => table_name
           }.merge(options)
 
           request(

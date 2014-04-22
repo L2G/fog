@@ -39,10 +39,10 @@ module Fog
           end
 
           request({
-            'Action'  => 'ModifyDBInstance',
+            'Action'               => 'ModifyDBInstance',
             'DBInstanceIdentifier' => db_name,
-            'ApplyImmediately' => apply_immediately,
-            :parser   => Fog::Parsers::AWS::RDS::ModifyDBInstance.new,
+            'ApplyImmediately'     => apply_immediately,
+            :parser                => Fog::Parsers::AWS::RDS::ModifyDBInstance.new,
           }.merge(options))
         end
 
@@ -69,7 +69,7 @@ module Fog
               self.data[:servers][db_name]['DBInstanceStatus'] = 'modifying'
               response.status = 200
               response.body = {
-                'ResponseMetadata' => { 'RequestId' => Fog::AWS::Mock.request_id },
+                'ResponseMetadata'       => { 'RequestId' => Fog::AWS::Mock.request_id },
                 'ModifyDBInstanceResult' => { 'DBInstance' => self.data[:servers][db_name] }
               }
               response

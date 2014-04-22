@@ -34,10 +34,10 @@ module Fog
           params.merge!(Fog::AWS.indexed_param('Parameters.member.%d.ApplyMethod', parameter_apply_methods))
 
           request({
-            'Action'  => 'ModifyDBParameterGroup',
+            'Action'               => 'ModifyDBParameterGroup',
             'DBParameterGroupName' => group_name,
 
-            :parser   => Fog::Parsers::AWS::RDS::ModifyDbParameterGroup.new
+            :parser                => Fog::Parsers::AWS::RDS::ModifyDbParameterGroup.new
           }.merge(params))
         end
 

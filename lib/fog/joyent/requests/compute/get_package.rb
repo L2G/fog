@@ -21,9 +21,9 @@ module Fog
         def get_package(name)
           name = URI.escape(name)
           request(
-            :method => 'GET',
-            :path => "/my/packages/#{name}",
-            :expects => 200,
+            :method     => 'GET',
+            :path       => "/my/packages/#{name}",
+            :expects    => 200,
             :idempotent => true
           )
         end

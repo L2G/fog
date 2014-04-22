@@ -22,7 +22,7 @@ module Fog
 
           body = { 'rebuild' => {
             'imageRef' => image_id,
-            'name' => name
+            'name'     => name
           } }
           l_options = ['metadata', 'accessIPv4', 'accessIPv6']
           l_options.select{|o| options[o]}.each do |key|
@@ -32,8 +32,8 @@ module Fog
             body['rebuild']['personality'] = []
             for file in options['personality']
               body['rebuild']['personality'] << {
-                'contents'  => Base64.encode64(file['contents']),
-                'path'      => file['path']
+                'contents' => Base64.encode64(file['contents']),
+                'path'     => file['path']
               }
             end
           end
@@ -61,8 +61,8 @@ module Fog
               if options['personality']
                 for file in options['personality']
                   response.body['server']['personality'] << {
-                    'contents'  => Base64.encode64(file['contents']),
-                    'path'      => file['path']
+                    'contents' => Base64.encode64(file['contents']),
+                    'path'     => file['path']
                   }
                 end
               end

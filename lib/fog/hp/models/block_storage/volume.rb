@@ -85,9 +85,9 @@ module Fog
           raise Fog::Errors::Error.new('Resaving an existing object may create a duplicate') if persisted?
           requires :name, :size
           options = {
-            'metadata'          => metadata,
-            'snapshot_id'       => snapshot_id,
-            'imageRef'          => @image_id
+            'metadata'    => metadata,
+            'snapshot_id' => snapshot_id,
+            'imageRef'    => @image_id
           }
           options = options.reject {|key, value| value.nil?}
           data = service.create_volume(name, description, size, options)

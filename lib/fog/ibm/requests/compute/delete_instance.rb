@@ -14,9 +14,9 @@ module Fog
         #     *'success'<~Bool>: true or false for success
         def delete_instance(instance_id)
           request(
-            :method   => 'DELETE',
-            :expects  => 200,
-            :path     => "/instances/#{instance_id}"
+            :method  => 'DELETE',
+            :expects => 200,
+            :path    => "/instances/#{instance_id}"
           )
         end
 

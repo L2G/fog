@@ -12,15 +12,15 @@ Shindo.tests('Fog::Compute.new', ['brightbox']) do
 
   tests('service options') do
     {
-      :brightbox_api_url => 'https://example.com',
-      :brightbox_auth_url => 'https://example.com',
-      :brightbox_client_id => 'app-12345',
-      :brightbox_secret => '12345abdef6789',
-      :brightbox_username => 'user-12345',
-      :brightbox_password => 'password1234',
-      :brightbox_account => 'acc-12345',
-      :brightbox_access_token => '12345abdef6789',
-      :brightbox_refresh_token => '12345abdef6789',
+      :brightbox_api_url          => 'https://example.com',
+      :brightbox_auth_url         => 'https://example.com',
+      :brightbox_client_id        => 'app-12345',
+      :brightbox_secret           => '12345abdef6789',
+      :brightbox_username         => 'user-12345',
+      :brightbox_password         => 'password1234',
+      :brightbox_account          => 'acc-12345',
+      :brightbox_access_token     => '12345abdef6789',
+      :brightbox_refresh_token    => '12345abdef6789',
       :brightbox_token_management => false
     }.each_pair do |option, sample|
       tests("recognises :#{option}").returns(true) do

@@ -60,9 +60,9 @@ module Fog
         def create_server(name, flavor_id, image_id, options = {})
           data = {
             'server' => {
-              'flavorRef'  => flavor_id,
-              'imageRef'   => image_id,
-              'name'       => name
+              'flavorRef' => flavor_id,
+              'imageRef'  => image_id,
+              'name'      => name
             }
           }
           l_options = ['availability_zone', 'metadata', 'accessIPv4', 'accessIPv6', 'key_name', 'config_drive', 'user_data']
@@ -74,8 +74,8 @@ module Fog
             data['server']['personality'] = []
             for file in options['personality']
               data['server']['personality'] << {
-                'contents'  => Base64.encode64(file['contents']),
-                'path'      => file['path']
+                'contents' => Base64.encode64(file['contents']),
+                'path'     => file['path']
               }
             end
           end
@@ -104,10 +104,10 @@ module Fog
           end
 
           request(
-            :body     => Fog::JSON.encode(data),
-            :expects  => 202,
-            :method   => 'POST',
-            :path     => 'servers'
+            :body    => Fog::JSON.encode(data),
+            :expects => 202,
+            :method  => 'POST',
+            :path    => 'servers'
           )
         end
 
@@ -135,25 +135,25 @@ module Fog
 
           id = Fog::HP::Mock.uuid.to_s
           data = {
-            'addresses' => addresses,
-            'flavor'    => { 'id' => "#{flavor_id}", 'links' => [{ 'href' => "http://nova1:8774/admin/flavors/#{flavor_id}", 'rel' => 'bookmark' }] },
-            'id'        => id,
-            'image'     => { 'id' => "#{image_id}", 'links' => [{ 'href' => "http://nova1:8774/admin/images/#{image_id}", 'rel' => 'bookmark' }] },
-            'links'     => [{ 'href' => "http://nova1:8774/v1.1/admin/servers/#{id}", 'rel' => 'self' }, { 'href' => "http://nova1:8774/admin/servers/#{id}", 'rel' => 'bookmark' }],
-            'hostId'    => '123456789ABCDEF01234567890ABCDEF',
-            'metadata'  => options['metadata'] || {},
-            'name'      => name || "server_#{rand(999)}",
-            'accessIPv4'  => options['accessIPv4'] || '',
-            'accessIPv6'  => options['accessIPv6'] || '',
-            'progress'  => 0,
-            'status'    => 'ACTIVE',
-            'created'   => '2012-01-01T13:32:20Z',
-            'updated'   => '2012-01-01T13:32:20Z',
-            'user_id'   => Fog::HP::Mock.user_id.to_s,
-            'tenant_id' => Fog::Mock.random_numbers(14).to_s,
-            'config_drive' => '',
+            'addresses'       => addresses,
+            'flavor'          => { 'id' => "#{flavor_id}", 'links' => [{ 'href' => "http://nova1:8774/admin/flavors/#{flavor_id}", 'rel' => 'bookmark' }] },
+            'id'              => id,
+            'image'           => { 'id' => "#{image_id}", 'links' => [{ 'href' => "http://nova1:8774/admin/images/#{image_id}", 'rel' => 'bookmark' }] },
+            'links'           => [{ 'href' => "http://nova1:8774/v1.1/admin/servers/#{id}", 'rel' => 'self' }, { 'href' => "http://nova1:8774/admin/servers/#{id}", 'rel' => 'bookmark' }],
+            'hostId'          => '123456789ABCDEF01234567890ABCDEF',
+            'metadata'        => options['metadata'] || {},
+            'name'            => name || "server_#{rand(999)}",
+            'accessIPv4'      => options['accessIPv4'] || '',
+            'accessIPv6'      => options['accessIPv6'] || '',
+            'progress'        => 0,
+            'status'          => 'ACTIVE',
+            'created'         => '2012-01-01T13:32:20Z',
+            'updated'         => '2012-01-01T13:32:20Z',
+            'user_id'         => Fog::HP::Mock.user_id.to_s,
+            'tenant_id'       => Fog::Mock.random_numbers(14).to_s,
+            'config_drive'    => '',
             'security_groups' => [{ 'name' => "#{sec_group_name}" }],
-            'key_name'  => options['key_name'] || ''
+            'key_name'        => options['key_name'] || ''
           }
           self.data[:last_modified][:servers][data['id']] = Time.now
           self.data[:servers][data['id']] = data

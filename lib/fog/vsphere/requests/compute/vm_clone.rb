@@ -126,16 +126,16 @@ module Fog
               #:network => network_obj)
             connectable = RbVmomi::VIM::VirtualDeviceConnectInfo(
               :allowGuestControl => true,
-              :connected => true,
-              :startConnected => true)
+              :connected         => true,
+              :startConnected    => true)
             device = RbVmomi::VIM::VirtualE1000(
-              :backing => nic_backing_info,
-              :deviceInfo => RbVmomi::VIM::Description(:label => 'Network adapter 1', :summary => options['network_label']),
-              :key => options['network_adapter_device_key'],
+              :backing     => nic_backing_info,
+              :deviceInfo  => RbVmomi::VIM::Description(:label => 'Network adapter 1', :summary => options['network_label']),
+              :key         => options['network_adapter_device_key'],
               :connectable => connectable)
             device_spec = RbVmomi::VIM::VirtualDeviceConfigSpec(
               :operation => config_spec_operation,
-              :device => device)
+              :device    => device)
             virtual_machine_config_spec.deviceChange = [device_spec]
           end
           # Options['numCPUs'] or Options['memoryMB']
@@ -177,17 +177,17 @@ module Fog
             # Start Building objects
             # Build the CustomizationLinuxPrep Object
             cust_prep = RbVmomi::VIM::CustomizationLinuxPrep.new(
-              :domain => cust_domain,
-              :hostName => cust_hostname,
+              :domain     => cust_domain,
+              :hostName   => cust_hostname,
               :hwClockUTC => cust_hwclockutc,
-              :timeZone => cust_timezone)
+              :timeZone   => cust_timezone)
             # Build the Custom Adapter Mapping Supports only one eth right now
             cust_adapter_mapping = [RbVmomi::VIM::CustomizationAdapterMapping.new('adapter' => cust_ip_settings)]
             # Build the customization Spec
             customization_spec = RbVmomi::VIM::CustomizationSpec.new(
-              :identity => cust_prep,
+              :identity         => cust_prep,
               :globalIPSettings => cust_global_ip_settings,
-              :nicSettingMap => cust_adapter_mapping)
+              :nicSettingMap    => cust_adapter_mapping)
           end
           customization_spec ||= nil
 
@@ -205,12 +205,12 @@ module Fog
                 :deviceChange => [
                   {
                     :operation => :remove,
-                    :device => disk
+                    :device    => disk
                   },
                   {
-                    :operation => :add,
+                    :operation     => :add,
                     :fileOperation => :create,
-                    :device => disk.dup.tap{|disk_backing|
+                    :device        => disk.dup.tap{|disk_backing|
                       disk_backing.backing = disk_backing.backing.dup;
                       disk_backing.backing.fileName = "[#{disk.backing.datastore.name}]";
                       disk_backing.backing.parent = disk.backing
@@ -221,25 +221,25 @@ module Fog
               vm_mob_ref.ReconfigVM_Task(:spec => disk_spec).wait_for_completion
             end
             # Next, create a Relocation Spec instance
-            relocation_spec = RbVmomi::VIM.VirtualMachineRelocateSpec(:datastore => datastore_obj,
-                                                                      :pool => resource_pool,
+            relocation_spec = RbVmomi::VIM.VirtualMachineRelocateSpec(:datastore    => datastore_obj,
+                                                                      :pool         => resource_pool,
                                                                       :diskMoveType => :moveChildMostDiskBacking)
           else
             relocation_spec = RbVmomi::VIM.VirtualMachineRelocateSpec(:datastore => datastore_obj,
-                                                                      :pool => resource_pool,
+                                                                      :pool      => resource_pool,
                                                                       :transform => options['transform'] || 'sparse')
           end
           # And the clone specification
-          clone_spec = RbVmomi::VIM.VirtualMachineCloneSpec(:location => relocation_spec,
-                                                            :config => virtual_machine_config_spec,
+          clone_spec = RbVmomi::VIM.VirtualMachineCloneSpec(:location      => relocation_spec,
+                                                            :config        => virtual_machine_config_spec,
                                                             :customization => customization_spec,
-                                                            :powerOn  => options.has_key?('power_on') ? options['power_on'] : true,
-                                                            :template => false)
+                                                            :powerOn       => options.has_key?('power_on') ? options['power_on'] : true,
+                                                            :template      => false)
 
           # Perform the actual Clone Task
           task = vm_mob_ref.CloneVM_Task(:folder => dest_folder,
-                                         :name => options['name'],
-                                         :spec => clone_spec)
+                                         :name   => options['name'],
+                                         :spec   => clone_spec)
           # Waiting for the VM to complete allows us to get the VirtulMachine
           # object of the new machine when it's done.  It is HIGHLY recommended
           # to set 'wait' => true if your app wants to wait.  Otherwise, you're
@@ -267,9 +267,9 @@ module Fog
 
           # Return hash
           {
-            'vm_ref'        => new_vm ? new_vm._ref : nil,
-            'new_vm'        => new_vm ? get_virtual_machine("#{options['dest_folder']}/#{options['name']}", options['datacenter']) : nil,
-            'task_ref'      => task._ref
+            'vm_ref'   => new_vm ? new_vm._ref : nil,
+            'new_vm'   => new_vm ? get_virtual_machine("#{options['dest_folder']}/#{options['name']}", options['datacenter']) : nil,
+            'task_ref' => task._ref
           }
         end
 
@@ -288,10 +288,10 @@ module Fog
           # generate a random id
           id = [8,4,4,4,12].map{|i| Fog::Mock.random_hex(i)}.join('-')
           new_vm = template.clone.merge(
-            'name' => options['name'],
-            'id' => id,
+            'name'          => options['name'],
+            'id'            => id,
             'instance_uuid' => id,
-            'path' => "/Datacenters/#{options['datacenter']}/#{options['dest_folder'] ? options['dest_folder'] + "/" : ""}#{options['name']}"
+            'path'          => "/Datacenters/#{options['datacenter']}/#{options['dest_folder'] ? options['dest_folder'] + "/" : ""}#{options['name']}"
           )
           self.data[:servers][id] = new_vm
 

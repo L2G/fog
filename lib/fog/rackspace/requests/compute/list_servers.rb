@@ -13,9 +13,9 @@ module Fog
         #     * 'name<~String> - Name of server
         def list_servers
           request(
-            :expects  => [200, 203],
-            :method   => 'GET',
-            :path     => 'servers.json'
+            :expects => [200, 203],
+            :method  => 'GET',
+            :path    => 'servers.json'
           )
         end
 

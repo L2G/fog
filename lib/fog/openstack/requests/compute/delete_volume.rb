@@ -5,9 +5,9 @@ module Fog
 
         def delete_volume(volume_id)
           request(
-            :expects  => 202,
-            :method   => 'DELETE',
-            :path     => "os-volumes/#{volume_id}"
+            :expects => 202,
+            :method  => 'DELETE',
+            :path    => "os-volumes/#{volume_id}"
           )
         end
 

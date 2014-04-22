@@ -1,11 +1,11 @@
 Shindo.tests('Fog::Storage[:rackspace] | container requests', ['rackspace']) do
 
   @container_format = [{
-    'hash' => String,
+    'hash'          => String,
     'last_modified' => String,
-    'bytes' => Integer,
-    'name' => String,
-    'content_type' => String
+    'bytes'         => Integer,
+    'name'          => String,
+    'content_type'  => String
   }]
 
   @containers_format = [{

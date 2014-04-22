@@ -20,10 +20,10 @@ module Fog
         # {Amazon API Reference}[http://docs.amazonwebservices.com/AWSEC2/latest/APIReference/ApiReference-query-CreatePlacementGroup.html]
         def create_placement_group(name, strategy)
           request(
-            'Action'            => 'CreatePlacementGroup',
-            'GroupName'         => name,
-            'Strategy'          => strategy,
-            :parser             => Fog::Parsers::Compute::AWS::Basic.new
+            'Action'    => 'CreatePlacementGroup',
+            'GroupName' => name,
+            'Strategy'  => strategy,
+            :parser     => Fog::Parsers::Compute::AWS::Basic.new
           )
         end
 

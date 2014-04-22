@@ -15,9 +15,9 @@ module Fog
         def remove_target_pool_instances(target_pool, instances)
           api_method = @compute.target_pools.remove_instance
           parameters = {
-            'project' => @project,
+            'project'    => @project,
             'targetPool' => target_pool.name,
-            'region' => target_pool.region.split('/')[-1]
+            'region'     => target_pool.region.split('/')[-1]
           }
           body = {
             'instances' => instances.collect { |i| { 'instance' => i } }

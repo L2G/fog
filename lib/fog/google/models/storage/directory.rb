@@ -30,7 +30,7 @@ module Fog
         def files
           @files ||= begin
             Fog::Storage::Google::Files.new(
-              :directory    => self,
+              :directory => self,
               :service   => service
             )
           end

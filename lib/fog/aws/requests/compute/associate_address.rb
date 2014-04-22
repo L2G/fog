@@ -28,12 +28,12 @@ module Fog
             params = args.first
           else
             params = {
-                :instance_id => args[0],
-                :public_ip => args[1],
+                :instance_id          => args[0],
+                :public_ip            => args[1],
                 :network_interface_id => args[2],
-                :allocation_id => args[3],
-                :private_ip_address => args[4],
-                :allow_reassociation => args[5],
+                :allocation_id        => args[3],
+                :private_ip_address   => args[4],
+                :allow_reassociation  => args[5],
             }
           end
           # Cannot specify an allocation ip and a public IP at the same time.  If you have an allocation Id presumably you are in a VPC
@@ -61,12 +61,12 @@ module Fog
             params = args.first
           else
             params = {
-                :instance_id => args[0],
-                :public_ip => args[1],
+                :instance_id          => args[0],
+                :public_ip            => args[1],
                 :network_interface_id => args[2],
-                :allocation_id => args[3],
-                :private_ip_address => args[4],
-                :allow_reassociation => args[5],
+                :allocation_id        => args[3],
+                :private_ip_address   => args[4],
+                :allow_reassociation  => args[5],
             }
           end
           params[:public_ip] = params[:allocation_id].nil? ? params[:public_ip] : nil

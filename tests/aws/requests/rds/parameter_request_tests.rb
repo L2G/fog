@@ -6,9 +6,9 @@ Shindo.tests('AWS::RDS | parameter requests', ['aws', 'rds']) do
 
     tests('#modify_db_parameter_group').formats(AWS::RDS::Formats::MODIFY_PARAMETER_GROUP) do
       body = Fog::AWS[:rds].modify_db_parameter_group('fog-group',[
-        { 'ParameterName' => 'query_cache_size',
-        'ParameterValue' => '12345',
-        'ApplyMethod' => 'immediate' }
+        { 'ParameterName'  => 'query_cache_size',
+          'ParameterValue' => '12345',
+          'ApplyMethod'    => 'immediate' }
       ]).body
 
       body

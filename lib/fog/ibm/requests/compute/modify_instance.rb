@@ -26,10 +26,10 @@ module Fog
         #  Host".
         def modify_instance(instance_id, options = {})
           request(
-            :method   => 'PUT',
-            :expects  => 200,
-            :path     => "/instances/#{instance_id}",
-            :body     => options
+            :method  => 'PUT',
+            :expects => 200,
+            :path    => "/instances/#{instance_id}",
+            :body    => options
           )
         end
       end

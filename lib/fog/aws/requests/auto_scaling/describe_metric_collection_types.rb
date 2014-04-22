@@ -38,7 +38,7 @@ module Fog
         def describe_metric_collection_types()
           results = {
             'Granularities' => [],
-            'Metrics' => []
+            'Metrics'       => []
           }
           self.data[:metric_collection_types][:granularities].each do |granularity|
             results['Granularities'] << { 'Granularity' => granularity }
@@ -50,7 +50,7 @@ module Fog
           response.status = 200
           response.body = {
             'DescribeMetricCollectionTypesResult' => results,
-            'ResponseMetadata' => { 'RequestId' => Fog::AWS::Mock.request_id }
+            'ResponseMetadata'                    => { 'RequestId' => Fog::AWS::Mock.request_id }
           }
           response
         end

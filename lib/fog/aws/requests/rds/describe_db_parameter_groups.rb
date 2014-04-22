@@ -26,8 +26,8 @@ module Fog
           end
 
           request({
-            'Action'  => 'DescribeDBParameterGroups',
-            :parser   => Fog::Parsers::AWS::RDS::DescribeDBParameterGroups.new
+            'Action' => 'DescribeDBParameterGroups',
+            :parser  => Fog::Parsers::AWS::RDS::DescribeDBParameterGroups.new
           }.merge(params))
         end
 
@@ -50,7 +50,7 @@ module Fog
 
           response.status = 200
           response.body = {
-            'ResponseMetadata' => { 'RequestId' => Fog::AWS::Mock.request_id },
+            'ResponseMetadata'                => { 'RequestId' => Fog::AWS::Mock.request_id },
             'DescribeDBParameterGroupsResult' => { 'DBParameterGroups' => parameter_set }
           }
           response

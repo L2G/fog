@@ -14,10 +14,10 @@ module Fog
         # @raise [Fog::Storage::Rackspace::ServiceError]
         def put_container(name, options = {})
           request(
-            :expects  => [201, 202],
-            :method   => 'PUT',
+            :expects => [201, 202],
+            :method  => 'PUT',
             :headers => options,
-            :path     => Fog::Rackspace.escape(name)
+            :path    => Fog::Rackspace.escape(name)
           )
         end
 

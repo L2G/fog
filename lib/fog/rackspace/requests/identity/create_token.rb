@@ -7,16 +7,16 @@ module Fog
             'auth' => {
               'RAX-KSKEY:apiKeyCredentials' => {
                 'username' => username,
-                'apiKey' => api_key
+                'apiKey'   => api_key
               }
             }
           }
 
           request_without_retry(
-            :body => Fog::JSON.encode(data),
+            :body    => Fog::JSON.encode(data),
             :expects => [200, 203],
-            :method => 'POST',
-            :path => 'tokens'
+            :method  => 'POST',
+            :path    => 'tokens'
           )
         end
       end
@@ -31,24 +31,24 @@ module Fog
             response.status = 200
             response.body = {
               'access' => {
-                'token' => {
-                  'id' => Fog::Mock.random_hex(32),
+                'token'          => {
+                  'id'      => Fog::Mock.random_hex(32),
                   'expires' => (Time.now.utc + 86400).strftime('%Y-%m-%dT%H:%M:%S.%LZ'),
-                  'tenant' => { 'id' => compute_tenant, 'name' => compute_tenant }
+                  'tenant'  => { 'id' => compute_tenant, 'name' => compute_tenant }
                 },
-                'user' => {
-                  'id' => Fog::Mock.random_numbers(6),
-                  'name' => username,
+                'user'           => {
+                  'id'    => Fog::Mock.random_numbers(6),
+                  'name'  => username,
                   'roles' => [
                     {
-                      'id' => Fog::Mock.random_numbers(1),
+                      'id'          => Fog::Mock.random_numbers(1),
                       'description' => 'Fake Role for an object store',
-                      'name' => 'object-store:default'
+                      'name'        => 'object-store:default'
                     },
                     {
-                      'id' => Fog::Mock.random_numbers(1),
+                      'id'          => Fog::Mock.random_numbers(1),
                       'description' => 'Fake Role for a compute cluster',
-                      'name' => 'compute:default'
+                      'name'        => 'compute:default'
                     }
                   ]
                 },
@@ -61,7 +61,7 @@ module Fog
             response.status = 401
             response.body = {
               'unauthorized' => {
-                'code' => 401,
+                'code'    => 401,
                 'message' => 'Username or API key is invalid.'
               }
             }
@@ -92,7 +92,7 @@ module Fog
 
             service_catalog_entry('cloudFiles', 'object-store', object_tenant,
                                   :internal_url_snet => true,
-                                  :public_url => lambda do |r|
+                                  :public_url        => lambda do |r|
                                     "https://storage101.#{r}#{Fog::Mock.random_numbers(1)}.clouddrive.com/v1/#{object_tenant}"
                                   end),
 
@@ -101,7 +101,7 @@ module Fog
 
             service_catalog_entry('cloudServersOpenStack', 'compute', compute_tenant,
                                   :version_base_url => lambda { |r| "https://#{r}.servers.api.rackspacecloud.com" },
-                                  :version_id => '2'),
+                                  :version_id       => '2'),
 
             service_catalog_entry('cloudBlockStorage', 'volume', compute_tenant,
                                   :rackspace_api_name => 'blockstorage', :rackspace_api_version => '1'),
@@ -132,9 +132,9 @@ module Fog
                                   :rackspace_api_name => 'autoscale'),
 
             service_catalog_entry('cloudServers', 'compute', compute_tenant,
-                                  :single_endpoint => true,
+                                  :single_endpoint  => true,
                                   :version_base_url => lambda { |r| 'https://servers.api.rackspacecloud.com' },
-                                  :version_id => '1.0')
+                                  :version_id       => '1.0')
           ]
         end
 

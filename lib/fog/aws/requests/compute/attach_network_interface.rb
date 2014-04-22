@@ -21,11 +21,11 @@ module Fog
         # {Amazon API Reference}[http://docs.amazonwebservices.com/AWSEC2/2012-03-01/APIReference/index.html?ApiReference-query-AttachNetworkInterface.html]
         def attach_network_interface(nic_id, instance_id, device_index)
           request(
-            'Action' => 'AttachNetworkInterface',
+            'Action'             => 'AttachNetworkInterface',
             'NetworkInterfaceId' => nic_id,
             'InstanceId'         => instance_id,
             'DeviceIndex'        => device_index,
-            :parser => Fog::Parsers::Compute::AWS::AttachNetworkInterface.new
+            :parser              => Fog::Parsers::Compute::AWS::AttachNetworkInterface.new
           )
         end
       end

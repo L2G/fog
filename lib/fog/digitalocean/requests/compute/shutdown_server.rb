@@ -5,9 +5,9 @@ module Fog
 
         def shutdown_server( id )
           request(
-            :expects  => [200],
-            :method   => 'GET',
-            :path     => "droplets/#{id}/shutdown"
+            :expects => [200],
+            :method  => 'GET',
+            :path    => "droplets/#{id}/shutdown"
           )
         end
 
@@ -25,7 +25,7 @@ module Fog
 
           response.body = {
             'event_id' => Fog::Mock.random_numbers(1).to_i,
-            'status' => 'OK'
+            'status'   => 'OK'
           }
           response
         end

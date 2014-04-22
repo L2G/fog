@@ -6,8 +6,8 @@ module Fog
         def delete_group(group_id)
           request(
           :expects => [204],
-          :method => 'DELETE',
-          :path => "groups/#{group_id}"
+          :method  => 'DELETE',
+          :path    => "groups/#{group_id}"
           )
         end
       end

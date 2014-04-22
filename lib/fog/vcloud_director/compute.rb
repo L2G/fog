@@ -382,7 +382,7 @@ module Fog
         # @api private
         def do_request(params)
           headers = {
-            'Accept' => "application/*+xml;version=#{@api_version}",
+            'Accept'                 => "application/*+xml;version=#{@api_version}",
             'x-vcloud-authorization' => vcloud_token
           }
           if params[:path]
@@ -491,178 +491,178 @@ module Fog
             isolated_vdc2_network_uuid = uuid
 
             hash[key] = {
-              :catalogs => {
+              :catalogs            => {
                 uuid => {
                   :name => 'Default Catalog'
                 }
               },
-              :catalog_items => {
+              :catalog_items       => {
                 uuid => {
                   :type => 'vAppTemplate',
                   :name => 'vAppTemplate 1'
                 }
               },
-              :disks => {},
-              :edge_gateways => {
+              :disks               => {},
+              :edge_gateways       => {
                 uuid => {
-                  :name => 'MockEdgeGateway',
-                  :networks => [uplink_network_uuid, default_network_uuid],
-                  :vdc => vdc1_uuid,
+                  :name          => 'MockEdgeGateway',
+                  :networks      => [uplink_network_uuid, default_network_uuid],
+                  :vdc           => vdc1_uuid,
                   :Configuration => {
-                    :GatewayBackingConfig => 'compact',
-                    :GatewayInterfaces => {
+                    :GatewayBackingConfig            => 'compact',
+                    :GatewayInterfaces               => {
                       :GatewayInterface => [] },
                     :EdgeGatewayServiceConfiguration => {
                       :FirewallService => {
-                        :IsEnabled => 'true',
-                        :DefaultAction => 'drop',
+                        :IsEnabled        => 'true',
+                        :DefaultAction    => 'drop',
                         :LogDefaultAction => 'false',
-                        :FirewallRule => []
+                        :FirewallRule     => []
                       },
-                      :NatService => { :IsEnabled => 'true' } },
-                    :HaEnabled => 'false',
-                    :UseDefaultRouteForDnsRelay => 'false'
+                      :NatService      => { :IsEnabled => 'true' } },
+                    :HaEnabled                       => 'false',
+                    :UseDefaultRouteForDnsRelay      => 'false'
                   }
                 }
               },
 
-              :medias => {},
+              :medias              => {},
 
-              :networks => {
+              :networks            => {
 
-                default_network_uuid => {
-                  :IsShared => true,
-                  :vdc => vdc1_uuid,
-                  :FenceMode => 'natRouted',
-                  :ApplyRateLimit => 'false',
-                  :Description => 'Org Network for mocking',
-                  :Dns1 => '8.8.8.8',
-                  :Dns2 => '8.8.4.4',
-                  :DnsSuffix => 'example.com',
-                  :Gateway => '192.168.1.1',
-                  :InterfaceType => 'internal',
-                  :IpRanges => [{
+                default_network_uuid       => {
+                  :IsShared            => true,
+                  :vdc                 => vdc1_uuid,
+                  :FenceMode           => 'natRouted',
+                  :ApplyRateLimit      => 'false',
+                  :Description         => 'Org Network for mocking',
+                  :Dns1                => '8.8.8.8',
+                  :Dns2                => '8.8.4.4',
+                  :DnsSuffix           => 'example.com',
+                  :Gateway             => '192.168.1.1',
+                  :InterfaceType       => 'internal',
+                  :IpRanges            => [{
                     :StartAddress => '192.168.1.2',
-                    :EndAddress => '192.168.1.254'
+                    :EndAddress   => '192.168.1.254'
                   }],
-                  :IsInherited => false,
-                  :Netmask => '255.255.255.0',
-                  :name => 'Default Network',
+                  :IsInherited         => false,
+                  :Netmask             => '255.255.255.0',
+                  :name                => 'Default Network',
                   :SubnetParticipation => {
-                      :Gateway => '192.168.1.0',
-                      :Netmask => '255.255.0.0',
+                      :Gateway   => '192.168.1.0',
+                      :Netmask   => '255.255.0.0',
                       :IpAddress => '192.168.1.0'
                   },
-                  :UseForDefaultRoute => 'false'
+                  :UseForDefaultRoute  => 'false'
                 },
 
                 isolated_vdc1_network_uuid => {
-                  :IsShared => false,
-                  :vdc => vdc1_uuid,
-                  :ApplyRateLimit => 'false',
-                  :FenceMode => 'isolated',
-                  :Description => 'Org Network for mocking',
-                  :Dns1 => '8.8.8.8',
-                  :Dns2 => '8.8.4.4',
-                  :DnsSuffix => 'example.com',
-                  :InterfaceType => 'internal',
-                  :IpRanges => [{
+                  :IsShared            => false,
+                  :vdc                 => vdc1_uuid,
+                  :ApplyRateLimit      => 'false',
+                  :FenceMode           => 'isolated',
+                  :Description         => 'Org Network for mocking',
+                  :Dns1                => '8.8.8.8',
+                  :Dns2                => '8.8.4.4',
+                  :DnsSuffix           => 'example.com',
+                  :InterfaceType       => 'internal',
+                  :IpRanges            => [{
                     :StartAddress => '10.1.0.100',
-                    :EndAddress => '10.1.0.200'
+                    :EndAddress   => '10.1.0.200'
                   }],
-                  :IsInherited => false,
-                  :Netmask => '255.255.255.0',
-                  :name => 'vDC1 backend network',
+                  :IsInherited         => false,
+                  :Netmask             => '255.255.255.0',
+                  :name                => 'vDC1 backend network',
                   :SubnetParticipation => {
-                      :Gateway => '192.168.1.0',
-                      :Netmask => '255.255.0.0',
+                      :Gateway   => '192.168.1.0',
+                      :Netmask   => '255.255.0.0',
                       :IpAddress => '192.168.1.0'
                   },
-                  :UseForDefaultRoute => 'false'
+                  :UseForDefaultRoute  => 'false'
                 },
 
                 isolated_vdc2_network_uuid => {
-                  :IsShared => false,
-                  :vdc => vdc2_uuid,
-                  :ApplyRateLimit => 'false',
-                  :Description => 'Org Network for mocking',
-                  :Dns1 => '8.8.8.8',
-                  :Dns2 => '8.8.4.4',
-                  :DnsSuffix => 'example.com',
-                  :InterfaceType => 'internal',
-                  :IpRanges => [{
+                  :IsShared            => false,
+                  :vdc                 => vdc2_uuid,
+                  :ApplyRateLimit      => 'false',
+                  :Description         => 'Org Network for mocking',
+                  :Dns1                => '8.8.8.8',
+                  :Dns2                => '8.8.4.4',
+                  :DnsSuffix           => 'example.com',
+                  :InterfaceType       => 'internal',
+                  :IpRanges            => [{
                     :StartAddress => '10.2.0.100',
-                    :EndAddress => '10.2.0.200'
+                    :EndAddress   => '10.2.0.200'
                   }],
-                  :IsInherited => false,
-                  :Netmask => '255.255.255.0',
-                  :name => 'vDC2 backend network',
+                  :IsInherited         => false,
+                  :Netmask             => '255.255.255.0',
+                  :name                => 'vDC2 backend network',
                   :SubnetParticipation => {
-                      :Gateway => '192.168.1.0',
-                      :Netmask => '255.255.0.0',
+                      :Gateway   => '192.168.1.0',
+                      :Netmask   => '255.255.0.0',
                       :IpAddress => '192.168.1.0'
                   },
-                  :UseForDefaultRoute => 'false'
+                  :UseForDefaultRoute  => 'false'
                 },
 
-                uplink_network_uuid => {
-                  :IsShared => false,
-                  :vdc => vdc1_uuid,
-                  :ApplyRateLimit => 'false',
-                  :FenceMode => 'bridged',
-                  :Description => 'Uplink Network for mocking',
-                  :Dns1 => '8.8.8.8',
-                  :Dns2 => '8.8.4.4',
-                  :DnsSuffix => 'example.com',
-                  :Gateway => '198.51.100.1',
-                  :InterfaceType => 'uplink',
-                  :IpRanges => [{
+                uplink_network_uuid        => {
+                  :IsShared            => false,
+                  :vdc                 => vdc1_uuid,
+                  :ApplyRateLimit      => 'false',
+                  :FenceMode           => 'bridged',
+                  :Description         => 'Uplink Network for mocking',
+                  :Dns1                => '8.8.8.8',
+                  :Dns2                => '8.8.4.4',
+                  :DnsSuffix           => 'example.com',
+                  :Gateway             => '198.51.100.1',
+                  :InterfaceType       => 'uplink',
+                  :IpRanges            => [{
                     :StartAddress => '198.51.100.2',
-                    :EndAddress => '198.51.100.254'
+                    :EndAddress   => '198.51.100.254'
                   }],
-                  :IsInherited => false,
-                  :Netmask => '255.255.255.0',
-                  :name => 'uplink Network',
+                  :IsInherited         => false,
+                  :Netmask             => '255.255.255.0',
+                  :name                => 'uplink Network',
                   :SubnetParticipation => {
-                    :Gateway => '198.51.100.81',
-                    :Netmask => '255.255.255.248',
+                    :Gateway   => '198.51.100.81',
+                    :Netmask   => '255.255.255.248',
                     :IpAddress => '198.51.100.83',
-                    :IpRanges => {
+                    :IpRanges  => {
                       :IpRange => {
                         :StartAddress => '198.51.100.84',
-                        :EndAddress => '198.51.100.86'
+                        :EndAddress   => '198.51.100.86'
                       }
                     }
                   },
-                  :UseForDefaultRoute => 'true'
+                  :UseForDefaultRoute  => 'true'
                 }
 
               },
-              :org => {
+              :org                 => {
                 :description => 'Organization for mocking',
-                :full_name => 'Mock Organization',
-                :name => org_name,
-                :uuid => uuid
+                :full_name   => 'Mock Organization',
+                :name        => org_name,
+                :uuid        => uuid
               },
-              :tasks => {},
+              :tasks               => {},
               :vdc_storage_classes => {
                 uuid => {
                   :default => true,
                   :enabled => true,
-                  :limit => 2 * 1024 * 1024,
-                  :name => 'DefaultMockStorageClass',
-                  :units => 'MB',
-                  :vdc => vdc1_uuid,
+                  :limit   => 2 * 1024 * 1024,
+                  :name    => 'DefaultMockStorageClass',
+                  :units   => 'MB',
+                  :vdc     => vdc1_uuid,
                 }
               },
-              :vdcs => {
+              :vdcs                => {
                 vdc1_uuid => {
                   :description => 'vDC1 for mocking',
-                  :name => 'MockVDC 1'
+                  :name        => 'MockVDC 1'
                 },
                 vdc2_uuid => {
                   :description => 'vDC2 for mocking',
-                  :name => 'MockVDC 2'
+                  :name        => 'MockVDC 2'
                 },
               }
             }
@@ -728,18 +728,18 @@ module Fog
           now = DateTime.now
 
           data[:tasks][task_id] = {
-            :cancel_requested => false,
-            :details => '',
-            :expiry_time => now + 86400, # in 24 hours
-            :name => 'task',
-            :progress => 1,
+            :cancel_requested  => false,
+            :details           => '',
+            :expiry_time       => now + 86400, # in 24 hours
+            :name              => 'task',
+            :progress          => 1,
             :service_namespace => 'com.vmware.vcloud',
-            :start_time => now,
-            :status => 'running',
+            :start_time        => now,
+            :status            => 'running',
           }.merge(options).merge(
-            :operation => operation,
+            :operation      => operation,
             :operation_name => operation_name,
-            :owner => owner
+            :owner          => owner
           )
 
           task_id

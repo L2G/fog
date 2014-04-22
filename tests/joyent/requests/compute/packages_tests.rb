@@ -1,10 +1,10 @@
 Shindo.tests('Fog::Compute[:joyent] | package requests', ['joyent']) do
   @package_format = {
-    'name' => String,
-    'vcpus' => Integer,
-    'memory' => Integer,
-    'disk' => Integer,
-    'swap' => Integer,
+    'name'    => String,
+    'vcpus'   => Integer,
+    'memory'  => Integer,
+    'disk'    => Integer,
+    'swap'    => Integer,
     'default' => Fog::Boolean
   }
 
@@ -13,27 +13,27 @@ Shindo.tests('Fog::Compute[:joyent] | package requests', ['joyent']) do
 
     @data[:packages] = {
       'regular_128' => {
-        'name' => 'regular_128',
-        'memory' => 128,
-        'disk' => 5120,
-        'vcpus' => 1,
-        'swap' => 256,
+        'name'    => 'regular_128',
+        'memory'  => 128,
+        'disk'    => 5120,
+        'vcpus'   => 1,
+        'swap'    => 256,
         'default' => true
       },
       'regular_256' => {
-        'name' => 'regular_256',
-        'memory' => 256,
-        'disk' => 5120,
-        'vcpus' => 1,
-        'swap' => 512,
+        'name'    => 'regular_256',
+        'memory'  => 256,
+        'disk'    => 5120,
+        'vcpus'   => 1,
+        'swap'    => 512,
         'default' => false
       },
       'regular_512' => {
-        'name' => 'regular_512',
-        'memory' => 512,
-        'disk' => 10240,
-        'vcpus' => 1,
-        'swap' => 1024,
+        'name'    => 'regular_512',
+        'memory'  => 512,
+        'disk'    => 10240,
+        'vcpus'   => 1,
+        'swap'    => 1024,
         'default' => false
       }
     }

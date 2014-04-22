@@ -6,19 +6,19 @@ module Fog
         def create_user(name, password, email, tenantId = nil, enabled = true)
           data = {
             'user' => {
-              'name'      => name,
-              'password'  => password,
-              'tenantId'  => tenantId,
-              'email'     => email,
-              'enabled'   => enabled,
+              'name'     => name,
+              'password' => password,
+              'tenantId' => tenantId,
+              'email'    => email,
+              'enabled'  => enabled,
             }
           }
 
           request(
-            :body     => Fog::JSON.encode(data),
-            :expects  => [200, 202],
-            :method   => 'POST',
-            :path     => '/users'
+            :body    => Fog::JSON.encode(data),
+            :expects => [200, 202],
+            :method  => 'POST',
+            :path    => '/users'
           )
         end
 

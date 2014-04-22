@@ -19,10 +19,10 @@ module Fog
         #     * 'name'<~String> - Name of catalog
         def get_tasks_list(tasks_list_id)
           request(
-            :expects  => 200,
-            :method   => 'GET',
-            :parser   => Fog::Parsers::Terremark::Shared::GetTasksList.new,
-            :path     => "tasksList/#{tasks_list_id}"
+            :expects => 200,
+            :method  => 'GET',
+            :parser  => Fog::Parsers::Terremark::Shared::GetTasksList.new,
+            :path    => "tasksList/#{tasks_list_id}"
           )
         end
 

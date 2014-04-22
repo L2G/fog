@@ -21,10 +21,10 @@ module Fog
         #
         def delete_group_policy(group_name, policy_name)
           request(
-            'Action'          => 'DeleteGroupPolicy',
-            'GroupName'       => group_name,
-            'PolicyName'      => policy_name,
-            :parser           => Fog::Parsers::AWS::IAM::Basic.new
+            'Action'     => 'DeleteGroupPolicy',
+            'GroupName'  => group_name,
+            'PolicyName' => policy_name,
+            :parser      => Fog::Parsers::AWS::IAM::Basic.new
           )
         end
 

@@ -26,11 +26,11 @@ module Fog
           end
           body += %Q{</record>}
           request(
-            :body     => body,
-            :expects  => 202,
-            :method   => 'POST',
-            :parser   => Fog::Parsers::DNS::Bluebox::CreateRecord.new,
-            :path     => "/api/domains/#{zone_id}/records.xml"
+            :body    => body,
+            :expects => 202,
+            :method  => 'POST',
+            :parser  => Fog::Parsers::DNS::Bluebox::CreateRecord.new,
+            :path    => "/api/domains/#{zone_id}/records.xml"
           )
         end
 

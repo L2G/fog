@@ -14,8 +14,8 @@ module Fog
           end
 
           request(
-            :path => "/my/machines/#{machine_id}/metadata",
-            :query => query,
+            :path       => "/my/machines/#{machine_id}/metadata",
+            :query      => query,
             :idempotent => true
           )
         end

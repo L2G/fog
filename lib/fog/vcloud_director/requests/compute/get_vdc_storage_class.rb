@@ -52,29 +52,29 @@ module Fog
           end
 
           body =
-            { :xmlns => xmlns,
-             :xmlns_xsi => xmlns_xsi,
-             :name => vdc_storage_class[:name],
-             :id => "urn:vcloud:vdcstorageProfile:#{id}",
-             :type => 'application/vnd.vmware.vcloud.vdcStorageProfile+xml',
-             :href => make_href("api/vdcStorageProfile/#{id}"),
-             :xsi_schemaLocation => xsi_schema_location,
-             :Link =>
-              [{ :rel => 'up',
-                :type => 'application/vnd.vmware.vcloud.vdc+xml',
-                :href => make_href("vdc/#{vdc_storage_class[:vdc]}") },
-               { :rel => 'down',
-                :type => 'application/vnd.vmware.vcloud.metadata+xml',
-                :href => make_href("vdcStorageProfile/#{id}/metadata") }],
-             :Enabled => vdc_storage_class[:enabled].to_s,
-             :Units => vdc_storage_class[:units],
-             :Limit => vdc_storage_class[:limit].to_s,
-             :Default => vdc_storage_class[:default].to_s }
+            { :xmlns              => xmlns,
+              :xmlns_xsi          => xmlns_xsi,
+              :name               => vdc_storage_class[:name],
+              :id                 => "urn:vcloud:vdcstorageProfile:#{id}",
+              :type               => 'application/vnd.vmware.vcloud.vdcStorageProfile+xml',
+              :href               => make_href("api/vdcStorageProfile/#{id}"),
+              :xsi_schemaLocation => xsi_schema_location,
+              :Link               =>
+                                     [{ :rel  => 'up',
+                                        :type => 'application/vnd.vmware.vcloud.vdc+xml',
+                                        :href => make_href("vdc/#{vdc_storage_class[:vdc]}") },
+               { :rel  => 'down',
+                 :type => 'application/vnd.vmware.vcloud.metadata+xml',
+                 :href => make_href("vdcStorageProfile/#{id}/metadata") }],
+              :Enabled            => vdc_storage_class[:enabled].to_s,
+              :Units              => vdc_storage_class[:units],
+              :Limit              => vdc_storage_class[:limit].to_s,
+              :Default            => vdc_storage_class[:default].to_s }
 
           Excon::Response.new(
-            :status => 200,
+            :status  => 200,
             :headers => { 'Content-Type' => "#{body[:type]};version=#{api_version}" },
-            :body => body
+            :body    => body
           )
         end
       end

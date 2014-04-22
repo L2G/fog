@@ -16,14 +16,14 @@ module Fog
             case name
             when 'err'
               @response['err'] = {
-                'code'  => attr_value('code', attrs),
-                'msg'   => attr_value('msg', attrs)
+                'code' => attr_value('code', attrs),
+                'msg'  => attr_value('msg', attrs)
               }
             when 'size'
               @image['filesystem']['units'] = attr_value('units', attrs)
             when 'image'
               @image = {
-                'id' => attr_value('id', attrs).to_i,
+                'id'      => attr_value('id', attrs).to_i,
                 'summary' => attr_value('summary', attrs)
               }
             when 'filesystem', 'operating_system'

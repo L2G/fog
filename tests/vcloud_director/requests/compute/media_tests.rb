@@ -47,8 +47,8 @@ Shindo.tests('Compute::VcloudDirector | media requests', ['vclouddirector']) do
 
       unless Fog.mocking?
         headers = {
-          'Content-Length' => @size,
-          'Content-Type' => 'application/octet-stream',
+          'Content-Length'         => @size,
+          'Content-Type'           => 'application/octet-stream',
           'x-vcloud-authorization' => @service.vcloud_token
         }
         Excon.put(
@@ -96,10 +96,10 @@ Shindo.tests('Compute::VcloudDirector | media requests', ['vclouddirector']) do
 
         tests("#post_update_media_metadata(#{@media_id})").data_matches_schema(VcloudDirector::Compute::Schema::TASK_TYPE) do
           metadata = {
-            'fog-test-key-update' => 'fog-test-value-update',
-            'fog-test-boolean-update' => false,
+            'fog-test-key-update'      => 'fog-test-value-update',
+            'fog-test-boolean-update'  => false,
             'fog-test-datetime-update' => DateTime.now,
-            'fog-test-number-update' => 222
+            'fog-test-number-update'   => 222
           }
           @task = @service.post_update_media_metadata(@media_id, metadata).body
         end

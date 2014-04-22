@@ -4,20 +4,20 @@ require 'pp'
 Shindo.tests('Compute::VcloudDirector | network requests', ['vclouddirector']) do
 
   GET_NETWORK_FORMAT = {
-    :type => String,
-    :name => String,
-    :href => String,
-    :id => String,
-    :description => Fog::Nullable::String,
+    :type         => String,
+    :name         => String,
+    :href         => String,
+    :id           => String,
+    :description  => Fog::Nullable::String,
     :is_inherited => Fog::Boolean,
-    :gateway => Fog::Nullable::String,
-    :netmask => String,
-    :dns1 => Fog::Nullable::String,
-    :dns2 => Fog::Nullable::String,
-    :dns_suffix => Fog::Nullable::String,
-    :ip_ranges => [{
+    :gateway      => Fog::Nullable::String,
+    :netmask      => String,
+    :dns1         => Fog::Nullable::String,
+    :dns2         => Fog::Nullable::String,
+    :dns_suffix   => Fog::Nullable::String,
+    :ip_ranges    => [{
       :start_address => String,
-      :end_address => String
+      :end_address   => String
     }]
   }
 
@@ -76,17 +76,17 @@ Shindo.tests('Compute::VcloudDirector | network requests', ['vclouddirector']) d
     name = VcloudDirector::Compute::Helper.test_name
 
     options = {
-      :Description => "Testing post_create_org_vdc_network #{name}",
+      :Description   => "Testing post_create_org_vdc_network #{name}",
       :Configuration => {
-        :IpScopes => {
+        :IpScopes  => {
           :IpScope => {
             :IsInherited => 'false',
-            :Gateway => '198.51.100.1',
-            :Netmask => '255.255.255.0',
-            :Dns1    => '198.51.100.2',
-            :Dns2    => '198.51.100.3',
-            :DnsSuffix => 'example.com',
-            :IpRanges => [
+            :Gateway     => '198.51.100.1',
+            :Netmask     => '255.255.255.0',
+            :Dns1        => '198.51.100.2',
+            :Dns2        => '198.51.100.3',
+            :DnsSuffix   => 'example.com',
+            :IpRanges    => [
               { :IpRange => { :StartAddress => '198.51.100.10', :EndAddress => '198.51.100.20' } },
               { :IpRange => { :StartAddress => '198.51.100.30', :EndAddress => '198.51.100.40' } },
             ]

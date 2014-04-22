@@ -31,14 +31,14 @@ module Fog
           end
           data << '</CompleteMultipartUpload>'
           request(
-            :body       => data,
-            :expects    => 200,
-            :headers    => { 'Content-Length' => data.length },
-            :host       => "#{bucket_name}.#{@host}",
-            :method     => 'POST',
-            :parser     => Fog::Parsers::Storage::InternetArchive::CompleteMultipartUpload.new,
-            :path       => CGI.escape(object_name),
-            :query      => { 'uploadId' => upload_id }
+            :body    => data,
+            :expects => 200,
+            :headers => { 'Content-Length' => data.length },
+            :host    => "#{bucket_name}.#{@host}",
+            :method  => 'POST',
+            :parser  => Fog::Parsers::Storage::InternetArchive::CompleteMultipartUpload.new,
+            :path    => CGI.escape(object_name),
+            :query   => { 'uploadId' => upload_id }
           )
         end
 

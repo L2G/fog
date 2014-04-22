@@ -27,9 +27,9 @@ module Fog
         def domain_update(domain_id, options = {})
 
           request(
-            :expects  => 200,
-            :method   => 'GET',
-            :query    => { :api_action => 'domain.update', :domainId => domain_id }.merge!(options)
+            :expects => 200,
+            :method  => 'GET',
+            :query   => { :api_action => 'domain.update', :domainId => domain_id }.merge!(options)
           )
 
         end

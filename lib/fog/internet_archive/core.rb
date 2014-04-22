@@ -79,11 +79,11 @@ module Fog
 
     def self.signed_params(params, options = {})
       params.merge!(
-        'AWSAccessKeyId'    => options[:ia_access_key_id],
-        'SignatureMethod'   => 'HmacSHA256',
-        'SignatureVersion'  => '2',
-        'Timestamp'         => Time.now.utc.strftime('%Y-%m-%dT%H:%M:%SZ'),
-        'Version'           => options[:version]
+        'AWSAccessKeyId'   => options[:ia_access_key_id],
+        'SignatureMethod'  => 'HmacSHA256',
+        'SignatureVersion' => '2',
+        'Timestamp'        => Time.now.utc.strftime('%Y-%m-%dT%H:%M:%SZ'),
+        'Version'          => options[:version]
       )
 
       params.merge!(
@@ -136,19 +136,19 @@ module Fog
           path << Fog::Mock.random_letters(rand(9) + 8)
         end
         {
-          'imageOwnerId'   => Fog::Mock.random_letters(rand(5) + 4),
+          'imageOwnerId'       => Fog::Mock.random_letters(rand(5) + 4),
           'blockDeviceMapping' => [],
-          'productCodes'   => [],
-          'kernelId'       => kernel_id,
-          'ramdiskId'      => ramdisk_id,
-          'imageState'     => 'available',
-          'imageId'        => image_id,
-          'architecture'   => 'i386',
-          'isPublic'       => true,
-          'imageLocation'  => path.join('/'),
-          'imageType'      => 'machine',
-          'rootDeviceType' => ['ebs','instance-store'][rand(2)],
-          'rootDeviceName' => '/dev/sda1'
+          'productCodes'       => [],
+          'kernelId'           => kernel_id,
+          'ramdiskId'          => ramdisk_id,
+          'imageState'         => 'available',
+          'imageId'            => image_id,
+          'architecture'       => 'i386',
+          'isPublic'           => true,
+          'imageLocation'      => path.join('/'),
+          'imageType'          => 'machine',
+          'rootDeviceType'     => ['ebs','instance-store'][rand(2)],
+          'rootDeviceName'     => '/dev/sda1'
         }
       end
 

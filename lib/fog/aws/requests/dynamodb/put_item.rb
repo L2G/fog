@@ -30,8 +30,8 @@ module Fog
           }.merge(options)
 
           request(
-            :body       => Fog::JSON.encode(body),
-            :headers    => { 'x-amz-target' => 'DynamoDB_20111205.PutItem' }
+            :body    => Fog::JSON.encode(body),
+            :headers => { 'x-amz-target' => 'DynamoDB_20111205.PutItem' }
           )
         end
 

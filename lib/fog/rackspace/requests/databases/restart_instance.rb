@@ -8,10 +8,10 @@ module Fog
           }
 
           request(
-            :body => Fog::JSON.encode(data),
+            :body    => Fog::JSON.encode(data),
             :expects => 202,
-            :method => 'POST',
-            :path => "instances/#{instance_id}/action"
+            :method  => 'POST',
+            :path    => "instances/#{instance_id}/action"
           )
         end
       end

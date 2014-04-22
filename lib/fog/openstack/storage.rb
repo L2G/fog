@@ -148,12 +148,12 @@ module Fog
         def request(params, parse_json = true)
           begin
             response = @connection.request(params.merge(
-              :headers  => {
+              :headers => {
                 'Content-Type' => 'application/json',
-                'Accept' => 'application/json',
+                'Accept'       => 'application/json',
                 'X-Auth-Token' => @auth_token
               }.merge!(params[:headers] || {}),
-              :path     => "#{@path}/#{params[:path]}"
+              :path    => "#{@path}/#{params[:path]}"
             ))
           rescue Excon::Errors::Unauthorized => error
             if error.response.body != 'Bad username or password' # token expiration
@@ -182,13 +182,13 @@ module Fog
         def authenticate
           if !@openstack_management_url || @openstack_must_reauthenticate
             options = {
-              :openstack_api_key  => @openstack_api_key,
-              :openstack_username => @openstack_username,
-              :openstack_auth_uri => URI.parse(@openstack_auth_url),
-              :openstack_service_type => @openstack_service_type,
-              :openstack_service_name => @openstack_service_name,
-              :openstack_region => @openstack_region,
-              :openstack_tenant => @openstack_tenant,
+              :openstack_api_key       => @openstack_api_key,
+              :openstack_username      => @openstack_username,
+              :openstack_auth_uri      => URI.parse(@openstack_auth_url),
+              :openstack_service_type  => @openstack_service_type,
+              :openstack_service_name  => @openstack_service_name,
+              :openstack_region        => @openstack_region,
+              :openstack_tenant        => @openstack_tenant,
               :openstack_endpoint_type => 'publicURL'
             }
 

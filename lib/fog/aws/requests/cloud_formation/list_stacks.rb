@@ -26,8 +26,8 @@ module Fog
 
         def list_stacks(options = {})
           request({
-            'Action'    => 'ListStacks',
-            :parser     => Fog::Parsers::AWS::CloudFormation::ListStacks.new
+            'Action' => 'ListStacks',
+            :parser  => Fog::Parsers::AWS::CloudFormation::ListStacks.new
           }.merge!(options))
         end
 

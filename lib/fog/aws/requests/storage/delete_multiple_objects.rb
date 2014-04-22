@@ -52,13 +52,13 @@ module Fog
                                    gsub("\n", '')
 
           request(
-            :body       => data,
-            :expects    => 200,
-            :headers    => headers,
+            :body        => data,
+            :expects     => 200,
+            :headers     => headers,
             :bucket_name => bucket_name,
-            :method     => 'POST',
-            :parser     => Fog::Parsers::Storage::AWS::DeleteMultipleObjects.new,
-            :query      => { 'delete' => nil }
+            :method      => 'POST',
+            :parser      => Fog::Parsers::Storage::AWS::DeleteMultipleObjects.new,
+            :query       => { 'delete' => nil }
           )
         end
 
@@ -102,9 +102,9 @@ module Fog
                 bucket[:objects][object_name].delete(version)
                 bucket[:objects].delete(object_name) if bucket[:objects][object_name].empty?
 
-                response['Deleted'] = { 'Key' => object_name,
-                                        'VersionId' => version_id,
-                                        'DeleteMarker' => 'true',
+                response['Deleted'] = { 'Key'                   => object_name,
+                                        'VersionId'             => version_id,
+                                        'DeleteMarker'          => 'true',
                                         'DeleteMarkerVersionId' => version_id
                                       }
               else
@@ -115,10 +115,10 @@ module Fog
               end
             else
               delete_marker = {
-                :delete_marker    => true,
-                'Key'             => object_name,
-                'VersionId'       => bucket[:versioning] == 'Enabled' ? Fog::Mock.random_base64(32) : 'null',
-                'Last-Modified'   => Fog::Time.now.to_date_header
+                :delete_marker  => true,
+                'Key'           => object_name,
+                'VersionId'     => bucket[:versioning] == 'Enabled' ? Fog::Mock.random_base64(32) : 'null',
+                'Last-Modified' => Fog::Time.now.to_date_header
               }
 
               # When versioning is suspended, a delete marker is placed if the last object ID is not the value 'null',
@@ -129,11 +129,11 @@ module Fog
 
               bucket[:objects][object_name].unshift(delete_marker)
 
-              response['Deleted'] = { 'Key' => object_name,
-                                      'VersionId' => delete_marker['VersionId'],
+              response['Deleted'] = { 'Key'                   => object_name,
+                                      'VersionId'             => delete_marker['VersionId'],
                                       'DeleteMarkerVersionId' =>
-                                          delete_marker['VersionId'],
-                                      'DeleteMarker' => 'true',
+                                                                 delete_marker['VersionId'],
+                                      'DeleteMarker'          => 'true',
                                     }
             end
           else

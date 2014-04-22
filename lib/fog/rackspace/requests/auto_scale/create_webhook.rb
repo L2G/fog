@@ -7,9 +7,9 @@ module Fog
           body = [options]
 
           request(
-            :method => 'POST',
-            :body => Fog::JSON.encode(body),
-            :path => "groups/#{group_id}/policies/#{policy_id}/webhooks",
+            :method  => 'POST',
+            :body    => Fog::JSON.encode(body),
+            :path    => "groups/#{group_id}/policies/#{policy_id}/webhooks",
             :expects => 201
           )
         end
@@ -37,11 +37,11 @@ module Fog
           webhook['links'] = [
             {
               'href' => "https://ord.autoscale.api.rackspacecloud.com/v1.0/829409/groups/#{group_id}/policies/#{policy_id}/webhooks/#{webhook_id}/",
-              'rel' => 'self'
+              'rel'  => 'self'
             },
             {
               'href' => 'https://ord.autoscale.api.rackspacecloud.com/v1.0/829409/execute/1/sadfadsfasdfvcjsdfsjvreaigae5',
-              'rel' => 'capability'
+              'rel'  => 'capability'
             }
           ]
 

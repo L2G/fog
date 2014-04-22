@@ -1,13 +1,13 @@
 Shindo.tests('Fog::Compute::RackspaceV2 | flavor_tests', ['rackspace']) do
 
   flavor_format = {
-    'id' => String,
-    'name' => String,
-    'ram' => Fog::Nullable::Integer,
-    'disk' => Fog::Nullable::Integer,
+    'id'    => String,
+    'name'  => String,
+    'ram'   => Fog::Nullable::Integer,
+    'disk'  => Fog::Nullable::Integer,
     'vcpus' => Fog::Nullable::Integer,
     'links' => [{
-      'rel' => String,
+      'rel'  => String,
       'href' => String
     }]
   }
@@ -19,8 +19,8 @@ Shindo.tests('Fog::Compute::RackspaceV2 | flavor_tests', ['rackspace']) do
   get_flavor_format = {
     'flavor' => flavor_format.merge(
       'OS-FLV-EXT-DATA:ephemeral' => Integer,
-      'rxtx_factor' => Float,
-      'swap' => Integer
+      'rxtx_factor'               => Float,
+      'swap'                      => Integer
     )
   }
 

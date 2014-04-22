@@ -211,22 +211,22 @@ module Fog
           self.add_ssh_key(self.username, self.public_key) if self.public_key
 
           options = {
-              'machineType' => machine_type,
-              'networkInterfaces' => network_interfaces,
-              'network' => network,
-              'externalIp' => external_ip,
-              'disks' => disks,
-              'metadata' => metadata,
-              'serviceAccounts' => service_accounts,
-              'tags' => tags,
-              'auto_restart' => auto_restart,
+              'machineType'         => machine_type,
+              'networkInterfaces'   => network_interfaces,
+              'network'             => network,
+              'externalIp'          => external_ip,
+              'disks'               => disks,
+              'metadata'            => metadata,
+              'serviceAccounts'     => service_accounts,
+              'tags'                => tags,
+              'auto_restart'        => auto_restart,
               'on_host_maintenance' => on_host_maintenance
           }.delete_if {|key, value| value.nil?}
 
           if service_accounts
             options['serviceAccounts'] = [{
-              'kind' => 'compute#serviceAccount',
-              'email' => 'default',
+              'kind'   => 'compute#serviceAccount',
+              'email'  => 'default',
               'scopes' => service_accounts.map {
                 |w| w.start_with?('https://') ? w : "https://www.googleapis.com/auth/#{w}"
               }

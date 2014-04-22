@@ -11,8 +11,8 @@ module Fog
         def release_address(address_id)
           request(
             :expects => 202,
-            :method => 'DELETE',
-            :path   => "os-floating-ips/#{address_id}"
+            :method  => 'DELETE',
+            :path    => "os-floating-ips/#{address_id}"
           )
         end
 

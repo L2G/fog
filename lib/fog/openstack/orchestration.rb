@@ -67,10 +67,10 @@ module Fog
         end
 
         def credentials
-          { :provider                 => 'openstack',
-            :openstack_auth_url       => @openstack_auth_uri.to_s,
-            :openstack_auth_token     => @auth_token,
-            :openstack_management_url => @openstack_management_url,
+          { :provider                    => 'openstack',
+            :openstack_auth_url          => @openstack_auth_uri.to_s,
+            :openstack_auth_token        => @auth_token,
+            :openstack_management_url    => @openstack_management_url,
             :openstack_identity_endpoint => @openstack_identity_public_endpoint }
         end
       end
@@ -118,14 +118,14 @@ module Fog
         end
 
         def credentials
-          { :provider                 => 'openstack',
-            :openstack_auth_url       => @openstack_auth_uri.to_s,
-            :openstack_auth_token     => @auth_token,
-            :openstack_management_url => @openstack_management_url,
+          { :provider                    => 'openstack',
+            :openstack_auth_url          => @openstack_auth_uri.to_s,
+            :openstack_auth_token        => @auth_token,
+            :openstack_management_url    => @openstack_management_url,
             :openstack_identity_endpoint => @openstack_identity_public_endpoint,
-            :openstack_region         => @openstack_region,
-            :current_user             => @current_user,
-            :current_tenant           => @current_tenant }
+            :openstack_region            => @openstack_region,
+            :current_user                => @current_user,
+            :current_tenant              => @current_tenant }
         end
 
         def reload
@@ -135,15 +135,15 @@ module Fog
         def request(params)
           begin
             response = @connection.request(params.merge(
-              :headers  => {
+              :headers => {
                 'Content-Type' => 'application/json',
-                'Accept' => 'application/json',
+                'Accept'       => 'application/json',
                 'X-Auth-Token' => @auth_token,
                 'X-Auth-User'  => @openstack_username,
                 'X-Auth-Key'   => @openstack_api_key
               }.merge!(params[:headers] || {}),
-              :path     => "#{@path}/#{@tenant_id}/#{params[:path]}",
-              :query    => params[:query]
+              :path    => "#{@path}/#{@tenant_id}/#{params[:path]}",
+              :query   => params[:query]
             ))
           rescue Excon::Errors::Unauthorized => error
             if error.response.body != 'Bad username or password' # token expiration
@@ -174,16 +174,16 @@ module Fog
         def authenticate
           if !@openstack_management_url || @openstack_must_reauthenticate
             options = {
-              :openstack_api_key    => @openstack_api_key,
-              :openstack_username   => @openstack_username,
-              :openstack_auth_token => @auth_token,
-              :openstack_auth_uri   => @openstack_auth_uri,
-              :openstack_region     => @openstack_region,
-              :openstack_tenant     => @openstack_tenant,
-              :openstack_service_type => @openstack_service_type,
-              :openstack_service_name => @openstack_service_name,
+              :openstack_api_key               => @openstack_api_key,
+              :openstack_username              => @openstack_username,
+              :openstack_auth_token            => @auth_token,
+              :openstack_auth_uri              => @openstack_auth_uri,
+              :openstack_region                => @openstack_region,
+              :openstack_tenant                => @openstack_tenant,
+              :openstack_service_type          => @openstack_service_type,
+              :openstack_service_name          => @openstack_service_name,
               :openstack_identity_service_type => @openstack_identity_service_type,
-              :openstack_endpoint_type => @openstack_endpoint_type
+              :openstack_endpoint_type         => @openstack_endpoint_type
             }
 
             if @openstack_auth_uri.path =~ /\/v2.0\//

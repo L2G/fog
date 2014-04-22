@@ -84,11 +84,11 @@ module Fog
           end
 
           request({
-            'Action'                            => 'RequestSpotInstances',
-            'LaunchSpecification.ImageId'       => image_id,
-            'LaunchSpecification.InstanceType'  => instance_type,
-            'SpotPrice'                         => spot_price,
-            :parser                             => Fog::Parsers::Compute::AWS::SpotInstanceRequests.new
+            'Action'                           => 'RequestSpotInstances',
+            'LaunchSpecification.ImageId'      => image_id,
+            'LaunchSpecification.InstanceType' => instance_type,
+            'SpotPrice'                        => spot_price,
+            :parser                            => Fog::Parsers::Compute::AWS::SpotInstanceRequests.new
           }.merge!(options))
         end
 

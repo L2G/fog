@@ -12,156 +12,156 @@ class AWS
       )
 
       ADD_INSTANCE_GROUPS = {
-        'JobFlowId' => String,
+        'JobFlowId'        => String,
         'InstanceGroupIds' => Array
       }
 
       SIMPLE_DESCRIBE_JOB_FLOW = {
         'JobFlows' => [{
-          'Name' => String,
-          'BootstrapActions' => {
+          'Name'                  => String,
+          'BootstrapActions'      => {
             'ScriptBootstrapActionConfig' => {
               'Args' => Array
             }
           },
           'ExecutionStatusDetail' => {
-            'CreationDateTime' => String,
-            'State' => String,
+            'CreationDateTime'      => String,
+            'State'                 => String,
             'LastStateChangeReason' => String
           },
-          'Steps' => [{
-            'ActionOnFailure' => String,
-            'Name' => String,
-            'StepConfig' => {
+          'Steps'                 => [{
+            'ActionOnFailure'       => String,
+            'Name'                  => String,
+            'StepConfig'            => {
               'HadoopJarStepConfig' => {
-                'MainClass' => String,
-                'Jar' => String,
-                'Args' => Array,
+                'MainClass'  => String,
+                'Jar'        => String,
+                'Args'       => Array,
                 'Properties' => Array
               }
             },
             'ExecutionStatusDetail' => {
               'CreationDateTime' => String,
-              'State' => String
+              'State'            => String
             }
           }],
-          'JobFlowId' => String,
-          'Instances' => {
-            'InstanceCount' => String,
-            'NormalizedInstanceHours' => String,
+          'JobFlowId'             => String,
+          'Instances'             => {
+            'InstanceCount'               => String,
+            'NormalizedInstanceHours'     => String,
             'KeepJobFlowAliveWhenNoSteps' => String,
-            'Placement' => {
+            'Placement'                   => {
               'AvailabilityZone' => String
             },
-            'MasterInstanceType' => String,
-            'SlaveInstanceType' => String,
-            'InstanceGroups' => Array,
-            'TerminationProtected' => String,
-            'HadoopVersion' => String
+            'MasterInstanceType'          => String,
+            'SlaveInstanceType'           => String,
+            'InstanceGroups'              => Array,
+            'TerminationProtected'        => String,
+            'HadoopVersion'               => String
           }
         }]
       }
 
       JOB_FLOW_WITHOUT_CHANGE = {
         'JobFlows' => [{
-          'Name' => String,
-          'BootstrapActions' => {
+          'Name'                  => String,
+          'BootstrapActions'      => {
             'ScriptBootstrapActionConfig' => {
               'Args' => Array
             }
           },
           'ExecutionStatusDetail' => {
-            'CreationDateTime' => String,
-            'State' => String,
+            'CreationDateTime'      => String,
+            'State'                 => String,
             'LastStateChangeReason' => NilClass
           },
-          'Steps' => [{
-            'ActionOnFailure' => String,
-            'Name' => String,
-            'StepConfig' => {
+          'Steps'                 => [{
+            'ActionOnFailure'       => String,
+            'Name'                  => String,
+            'StepConfig'            => {
               'HadoopJarStepConfig' => {
-                'MainClass' => String,
-                'Jar' => String,
-                'Args' => Array,
+                'MainClass'  => String,
+                'Jar'        => String,
+                'Args'       => Array,
                 'Properties' => Array
               }
             },
             'ExecutionStatusDetail' => {
               'CreationDateTime' => String,
-              'State' => String
+              'State'            => String
             }
           }],
-          'JobFlowId' => String,
-          'Instances' => {
-            'InstanceCount' => String,
-            'NormalizedInstanceHours' => String,
+          'JobFlowId'             => String,
+          'Instances'             => {
+            'InstanceCount'               => String,
+            'NormalizedInstanceHours'     => String,
             'KeepJobFlowAliveWhenNoSteps' => String,
-            'Placement' => {
+            'Placement'                   => {
               'AvailabilityZone' => String
             },
-            'MasterInstanceType' => String,
-            'SlaveInstanceType' => String,
-            'InstanceGroups' => Array,
-            'TerminationProtected' => String,
-            'HadoopVersion' => String
+            'MasterInstanceType'          => String,
+            'SlaveInstanceType'           => String,
+            'InstanceGroups'              => Array,
+            'TerminationProtected'        => String,
+            'HadoopVersion'               => String
           }
         }]
       }
 
       DESCRIBE_JOB_FLOW_WITH_INSTANCE_GROUPS = {
         'JobFlows' => [{
-          'Name' => String,
-          'BootstrapActions' => {
+          'Name'                  => String,
+          'BootstrapActions'      => {
             'ScriptBootstrapActionConfig' => {
               'Args' => Array
             }
           },
           'ExecutionStatusDetail' => {
-            'CreationDateTime' => String,
-            'State' => String,
+            'CreationDateTime'      => String,
+            'State'                 => String,
             'LastStateChangeReason' => NilClass
           },
-          'Steps' => [{
-            'ActionOnFailure' => String,
-            'Name' => String,
-            'StepConfig' => {
+          'Steps'                 => [{
+            'ActionOnFailure'       => String,
+            'Name'                  => String,
+            'StepConfig'            => {
               'HadoopJarStepConfig' => {
-                'MainClass' => String,
-                'Jar' => String,
-                'Args' => Array,
+                'MainClass'  => String,
+                'Jar'        => String,
+                'Args'       => Array,
                 'Properties' => Array
               }
             },
             'ExecutionStatusDetail' => {
               'CreationDateTime' => String,
-              'State' => String
+              'State'            => String
             }
           }],
-          'JobFlowId' => String,
-          'Instances' => {
-            'InstanceCount' => String,
-            'NormalizedInstanceHours' => String,
+          'JobFlowId'             => String,
+          'Instances'             => {
+            'InstanceCount'               => String,
+            'NormalizedInstanceHours'     => String,
             'KeepJobFlowAliveWhenNoSteps' => String,
-            'Placement' => {
+            'Placement'                   => {
               'AvailabilityZone' => String
             },
-            'InstanceGroups' => [{
-              'Name' => String,
-              'InstanceRole' => String,
-              'CreationDateTime' => String,
+            'InstanceGroups'              => [{
+              'Name'                  => String,
+              'InstanceRole'          => String,
+              'CreationDateTime'      => String,
               'LastStateChangeReason' => nil,
-              'InstanceGroupId' => String,
-              'Market' => String,
-              'InstanceType' => String,
-              'State' => String,
-              'InstanceRunningCount' => String,
-              'InstanceRequestCount' => String
+              'InstanceGroupId'       => String,
+              'Market'                => String,
+              'InstanceType'          => String,
+              'State'                 => String,
+              'InstanceRunningCount'  => String,
+              'InstanceRequestCount'  => String
             }],
-            'MasterInstanceType' => String,
-            'SlaveInstanceType' => String,
-            'InstanceGroups' => Array,
-            'TerminationProtected' => String,
-            'HadoopVersion' => String
+            'MasterInstanceType'          => String,
+            'SlaveInstanceType'           => String,
+            'InstanceGroups'              => Array,
+            'TerminationProtected'        => String,
+            'HadoopVersion'               => String
           }
         }]
       }

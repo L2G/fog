@@ -24,8 +24,8 @@ module Fog
           request(
             :expects    => 200,
             :idempotent => true,
-            :method   => 'GET',
-            :parser   => Fog::Parsers::CDN::AWS::GetInvalidation.new,
+            :method     => 'GET',
+            :parser     => Fog::Parsers::CDN::AWS::GetInvalidation.new,
             :path       => "/distribution/#{distribution_id}/invalidation/#{invalidation_id}"
           )
         end

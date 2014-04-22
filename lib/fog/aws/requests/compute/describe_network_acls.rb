@@ -42,9 +42,9 @@ module Fog
         def describe_network_acls(filters = {})
           params = Fog::AWS.indexed_filters(filters)
           request({
-            'Action' => 'DescribeNetworkAcls',
+            'Action'    => 'DescribeNetworkAcls',
             :idempotent => true,
-            :parser => Fog::Parsers::Compute::AWS::DescribeNetworkAcls.new
+            :parser     => Fog::Parsers::Compute::AWS::DescribeNetworkAcls.new
           }.merge!(params))
         end
       end

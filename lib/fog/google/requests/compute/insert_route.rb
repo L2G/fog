@@ -15,10 +15,10 @@ module Fog
             'project' => @project,
           }
           body_object = {
-            'name' => name,
-            'network' => network,
+            'name'      => name,
+            'network'   => network,
             'destRange' => dest_range,
-            'priority' => priority,
+            'priority'  => priority,
           }
           body_object['description'] = options[:description] if options[:description]
           unless options[:tags].nil? || options[:tags].empty?

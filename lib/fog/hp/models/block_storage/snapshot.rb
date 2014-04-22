@@ -41,7 +41,7 @@ module Fog
           requires :name, :volume_id
           options = {
             #'metadata'        => metadata,      # TODO: Add metadata when snapshots support it
-            'force'           => @force
+            'force' => @force
           }
           options = options.reject {|key, value| value.nil?}
           data = service.create_snapshot(name, description, volume_id, options)

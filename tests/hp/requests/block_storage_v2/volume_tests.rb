@@ -19,10 +19,10 @@ Shindo.tests('Fog::HP::BlockStorageV2 | volume requests', ['hp', 'v2', 'block_st
   }
 
   @volume_attach_format = {
-    'device'    => String,
-    'serverId'  => String,
-    'volumeId'  => String,
-    'id'        => String
+    'device'   => String,
+    'serverId' => String,
+    'volumeId' => String,
+    'id'       => String
   }
 
   tests('success') do

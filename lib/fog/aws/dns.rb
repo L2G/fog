@@ -30,10 +30,10 @@ module Fog
             hash[region] = Hash.new do |region_hash, key|
               region_hash[key] = {
                 :buckets => {},
-                :limits => {
+                :limits  => {
                   :duplicate_domains => 5
                 },
-                :zones => {},
+                :zones   => {},
                 :changes => {}
               }
             end

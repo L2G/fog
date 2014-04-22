@@ -6,8 +6,8 @@ Shindo.tests('Fog::Rackspace::Identity | users', ['rackspace']) do
   username = "fog#{Time.now.to_i}"
   options = {
     :username => username,
-    :email => 'email@example.com',
-    :enabled => true
+    :email    => 'email@example.com',
+    :enabled  => true
   }
   collection_tests(service.users, options, false) do
     tests('#get_by_name').succeeds do

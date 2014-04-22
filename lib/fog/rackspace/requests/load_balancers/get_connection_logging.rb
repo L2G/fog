@@ -5,8 +5,8 @@ module Fog
         def get_connection_logging(load_balancer_id)
           request(
             :expects => 200,
-            :path => "loadbalancers/#{load_balancer_id}/connectionlogging",
-            :method => 'GET'
+            :path    => "loadbalancers/#{load_balancer_id}/connectionlogging",
+            :method  => 'GET'
           )
         end
       end

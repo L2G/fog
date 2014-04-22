@@ -9,17 +9,17 @@ class AWS
       }
 
       DB_AVAILABILITY_ZONE_OPTION = {
-          'Name' => String,
+          'Name'                   => String,
           'ProvisionedIopsCapable' => Fog::Boolean
       }
 
       DB_PARAMETER_GROUP = {
           'DBParameterGroupFamily' => String,
-          'DBParameterGroupName' => String,
-          'Description' => String
+          'DBParameterGroupName'   => String,
+          'Description'            => String
       }
       CREATE_DB_PARAMETER_GROUP = {
-        'ResponseMetadata' => { 'RequestId' => String },
+        'ResponseMetadata'             => { 'RequestId' => String },
         'CreateDBParameterGroupResult' => {
           'DBParameterGroup' => DB_PARAMETER_GROUP
         }
@@ -27,10 +27,10 @@ class AWS
 
       DB_SECURITY_GROUP = {
         'DBSecurityGroupDescription' => String,
-        'DBSecurityGroupName' => String,
-        'EC2SecurityGroups' => [Fog::Nullable::Hash],
-        'IPRanges' => [Fog::Nullable::Hash],
-        'OwnerId' => Fog::Nullable::String
+        'DBSecurityGroupName'        => String,
+        'EC2SecurityGroups'          => [Fog::Nullable::Hash],
+        'IPRanges'                   => [Fog::Nullable::Hash],
+        'OwnerId'                    => Fog::Nullable::String
       }
 
       CREATE_DB_SECURITY_GROUP = BASIC.merge(
@@ -58,11 +58,11 @@ class AWS
       )
 
       DB_SUBNET_GROUP = {
-        'DBSubnetGroupName' => String,
+        'DBSubnetGroupName'        => String,
         'DBSubnetGroupDescription' => String,
-        'SubnetGroupStatus' => String,
-        'VpcId' => String,
-        'Subnets' => [String]
+        'SubnetGroupStatus'        => String,
+        'VpcId'                    => String,
+        'Subnets'                  => [String]
       }
 
       CREATE_DB_SUBNET_GROUP = BASIC.merge(
@@ -78,21 +78,21 @@ class AWS
       )
 
       DESCRIBE_DB_PARAMETER_GROUP = {
-        'ResponseMetadata' => { 'RequestId' => String },
+        'ResponseMetadata'                => { 'RequestId' => String },
         'DescribeDBParameterGroupsResult' => {
           'DBParameterGroups' => [DB_PARAMETER_GROUP]
         }
       }
 
       ORDERABLE_DB_INSTANCE_OPTION = {
-          'MultiAZCapable' => Fog::Boolean,
-          'Engine' => String,
-          'LicenseModel' => String,
+          'MultiAZCapable'     => Fog::Boolean,
+          'Engine'             => String,
+          'LicenseModel'       => String,
           'ReadReplicaCapable' => Fog::Boolean,
-          'EngineVersion' => String,
-          'AvailabilityZones' => [DB_AVAILABILITY_ZONE_OPTION],
-          'DBInstanceClass' => String,
-          'Vpc' => Fog::Boolean
+          'EngineVersion'      => String,
+          'AvailabilityZones'  => [DB_AVAILABILITY_ZONE_OPTION],
+          'DBInstanceClass'    => String,
+          'Vpc'                => Fog::Boolean
       }
 
       DESCRIBE_ORDERABLE_DB_INSTANCE_OPTION = BASIC.merge(
@@ -109,18 +109,18 @@ class AWS
 
       DB_PARAMETER = {
         'ParameterValue' => Fog::Nullable::String,
-        'DataType' => String,
-        'AllowedValues' => Fog::Nullable::String,
-        'Source' => String,
-        'IsModifiable' => Fog::Boolean,
-        'Description' => String,
-        'ParameterName' => String,
-        'ApplyType' => String
+        'DataType'       => String,
+        'AllowedValues'  => Fog::Nullable::String,
+        'Source'         => String,
+        'IsModifiable'   => Fog::Boolean,
+        'Description'    => String,
+        'ParameterName'  => String,
+        'ApplyType'      => String
       }
 
       DESCRIBE_DB_PARAMETERS = BASIC.merge(
         'DescribeDBParametersResult' => {
-          'Marker' => Fog::Nullable::String,
+          'Marker'     => Fog::Nullable::String,
           'Parameters' => [DB_PARAMETER]
         }
 
@@ -128,62 +128,62 @@ class AWS
 
       DB_LOG_FILE = {
         'LastWritten' => Time,
-        'Size' => Integer,
+        'Size'        => Integer,
         'LogFileName' => String
       }
 
       DESCRIBE_DB_LOG_FILES = BASIC.merge(
         'DescribeDBLogFilesResult' => {
-          'Marker' => Fog::Nullable::String,
+          'Marker'     => Fog::Nullable::String,
           'DBLogFiles' => [DB_LOG_FILE]
         }
       )
 
       SNAPSHOT = {
-        'AllocatedStorage' => Integer,
-        'AvailabilityZone' => String,
+        'AllocatedStorage'     => Integer,
+        'AvailabilityZone'     => String,
         'DBInstanceIdentifier' => String,
         'DBSnapshotIdentifier' => String,
-        'EngineVersion' => String,
-        'Engine' => String,
-        'InstanceCreateTime' => Time,
-        'MasterUsername' => String,
-        'Port' => Integer,
-        'SnapshotCreateTime' => Fog::Nullable::Time,
-        'Status' => String,
-        'SnapshotType' => String
+        'EngineVersion'        => String,
+        'Engine'               => String,
+        'InstanceCreateTime'   => Time,
+        'MasterUsername'       => String,
+        'Port'                 => Integer,
+        'SnapshotCreateTime'   => Fog::Nullable::Time,
+        'Status'               => String,
+        'SnapshotType'         => String
       }
       INSTANCE = {
-        'AllocatedStorage' => Integer,
-        'AutoMinorVersionUpgrade' => Fog::Boolean,
-        'AvailabilityZone' => Fog::Nullable::String,
-        'BackupRetentionPeriod' => Integer,
-        'DBInstanceClass' => String,
-        'DBInstanceIdentifier' => String,
-        'DBInstanceStatus' => String,
-        'DBName' => Fog::Nullable::String,
-        'DBParameterGroups' => [{
+        'AllocatedStorage'                 => Integer,
+        'AutoMinorVersionUpgrade'          => Fog::Boolean,
+        'AvailabilityZone'                 => Fog::Nullable::String,
+        'BackupRetentionPeriod'            => Integer,
+        'DBInstanceClass'                  => String,
+        'DBInstanceIdentifier'             => String,
+        'DBInstanceStatus'                 => String,
+        'DBName'                           => Fog::Nullable::String,
+        'DBParameterGroups'                => [{
             'ParameterApplyStatus' => String,
             'DBParameterGroupName' => String
           }],
-        'DBSecurityGroups' => [{
-            'Status' => String,
+        'DBSecurityGroups'                 => [{
+            'Status'              => String,
             'DBSecurityGroupName' => String
           }],
-        'DBSubnetGroupName' => Fog::Nullable::String,
-        'PubliclyAccessible' => Fog::Boolean,
-        'Endpoint' => {
+        'DBSubnetGroupName'                => Fog::Nullable::String,
+        'PubliclyAccessible'               => Fog::Boolean,
+        'Endpoint'                         => {
           'Address' => Fog::Nullable::String,
-          'Port' => Fog::Nullable::Integer
+          'Port'    => Fog::Nullable::Integer
         },
-        'Engine' => String,
-        'EngineVersion' => String,
-        'InstanceCreateTime' => Fog::Nullable::Time,
-        'LatestRestorableTime' => Fog::Nullable::Time,
-        'LicenseModel' => String,
-        'MasterUsername' => String,
-        'MultiAZ' => Fog::Boolean,
-        'PendingModifiedValues' => {
+        'Engine'                           => String,
+        'EngineVersion'                    => String,
+        'InstanceCreateTime'               => Fog::Nullable::Time,
+        'LatestRestorableTime'             => Fog::Nullable::Time,
+        'LicenseModel'                     => String,
+        'MasterUsername'                   => String,
+        'MultiAZ'                          => Fog::Boolean,
+        'PendingModifiedValues'            => {
           'BackupRetentionPeriod' => Fog::Nullable::Integer,
           'DBInstanceClass'       => Fog::Nullable::String,
           'EngineVersion'         => Fog::Nullable::String,
@@ -192,14 +192,14 @@ class AWS
           'AllocatedStorage'      => Fog::Nullable::Integer,
           'Port'                  => Fog::Nullable::Integer
         },
-        'PreferredBackupWindow' => String,
-        'PreferredMaintenanceWindow' => String,
+        'PreferredBackupWindow'            => String,
+        'PreferredMaintenanceWindow'       => String,
         'ReadReplicaDBInstanceIdentifiers' => [Fog::Nullable::String]
       }
 
       REPLICA_INSTANCE = INSTANCE.merge(
-        'BackupRetentionPeriod' => Fog::Nullable::String,
-        'PreferredBackupWindow' => Fog::Nullable::String,
+        'BackupRetentionPeriod'                 => Fog::Nullable::String,
+        'PreferredBackupWindow'                 => Fog::Nullable::String,
         'ReadReplicaSourceDBInstanceIdentifier' => String
       )
 
@@ -210,8 +210,8 @@ class AWS
       )
 
       DESCRIBE_DB_INSTANCES = BASIC.merge(
-        'DescribeDBInstancesResult' =>  {
-          'Marker' => Fog::Nullable::String,
+        'DescribeDBInstancesResult' => {
+          'Marker'      => Fog::Nullable::String,
           'DBInstances' => [INSTANCE]
         }
       )
@@ -248,7 +248,7 @@ class AWS
 
       DESCRIBE_DB_SNAPSHOTS = BASIC.merge(
         'DescribeDBSnapshotsResult' => {
-          'Marker' => Fog::Nullable::String,
+          'Marker'      => Fog::Nullable::String,
           'DBSnapshots' => [SNAPSHOT]
         }
       )

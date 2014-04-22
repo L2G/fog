@@ -1,17 +1,17 @@
 Shindo.tests('Fog::Compute[:openstack] | flavor requests', ['openstack']) do
 
   @flavor_format = {
-    'id'          => String,
-    'name'        => String,
-    'disk'        => Integer,
-    'ram'         => Integer,
-    'links'       => Array,
-    'swap'        => Fog::Nullable::String,
-    'rxtx_factor' => Fog::Nullable::Float,
-    'OS-FLV-EXT-DATA:ephemeral'   => Integer,
-    'os-flavor-access:is_public'   => Fog::Nullable::Boolean,
+    'id'                         => String,
+    'name'                       => String,
+    'disk'                       => Integer,
+    'ram'                        => Integer,
+    'links'                      => Array,
+    'swap'                       => Fog::Nullable::String,
+    'rxtx_factor'                => Fog::Nullable::Float,
+    'OS-FLV-EXT-DATA:ephemeral'  => Integer,
+    'os-flavor-access:is_public' => Fog::Nullable::Boolean,
     'OS-FLV-DISABLED:disabled'   => Fog::Nullable::Boolean,
-    'vcpus'       => Integer
+    'vcpus'                      => Integer
   }
 
   tests('success') do

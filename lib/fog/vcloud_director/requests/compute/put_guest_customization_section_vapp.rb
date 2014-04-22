@@ -58,16 +58,16 @@ module Fog
 
           # Mutate options to new format.
           deprecated = {
-            :enabled => :Enabled,
-            :change_sid => :ChangeSid,
-            :join_domain_enabled => :JoinDomainEnabled,
-            :use_org_settings => :UseOrgSettings,
-            :admin_password => :AdminPassword,
-            :admin_password_enabled => :AdminPasswordEnabled,
-            :admin_password_auto => :AdminPasswordAuto,
+            :enabled                 => :Enabled,
+            :change_sid              => :ChangeSid,
+            :join_domain_enabled     => :JoinDomainEnabled,
+            :use_org_settings        => :UseOrgSettings,
+            :admin_password          => :AdminPassword,
+            :admin_password_enabled  => :AdminPasswordEnabled,
+            :admin_password_auto     => :AdminPasswordAuto,
             :reset_password_required => :ResetPasswordRequired,
-            :customization_script => :CustomizationScript,
-            :computer_name => :ComputerName
+            :customization_script    => :CustomizationScript,
+            :computer_name           => :ComputerName
           }
           deprecated.each do |from, to|
             options[to] = options.delete(from) if options.key?(from)
@@ -75,7 +75,7 @@ module Fog
 
           body = Nokogiri::XML::Builder.new do
             attrs = {
-              :xmlns => 'http://www.vmware.com/vcloud/v1.5',
+              :xmlns      => 'http://www.vmware.com/vcloud/v1.5',
               'xmlns:ovf' => 'http://schemas.dmtf.org/ovf/envelope/1'
             }
             GuestCustomizationSection(attrs) {

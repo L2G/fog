@@ -27,9 +27,9 @@ module Fog
         #
         def update_user(user_name, options = {})
           request({
-            'Action'      => 'UpdateUser',
-            'UserName'    => user_name,
-            :parser       => Fog::Parsers::AWS::IAM::UpdateUser.new
+            'Action'   => 'UpdateUser',
+            'UserName' => user_name,
+            :parser    => Fog::Parsers::AWS::IAM::UpdateUser.new
           }.merge!(options))
         end
 

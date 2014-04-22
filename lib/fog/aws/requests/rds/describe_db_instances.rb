@@ -23,8 +23,8 @@ module Fog
           end
 
           request({
-            'Action'  => 'DescribeDBInstances',
-            :parser   => Fog::Parsers::AWS::RDS::DescribeDBInstances.new
+            'Action' => 'DescribeDBInstances',
+            :parser  => Fog::Parsers::AWS::RDS::DescribeDBInstances.new
           }.merge(params))
         end
 
@@ -52,8 +52,8 @@ module Fog
                  region = 'us-east-1'
                  server['DBInstanceStatus'] = 'available'
                  server['AvailabilityZone'] ||= region + 'a'
-                 server['Endpoint'] = { 'Port' => 3306,
-                                       'Address' => Fog::AWS::Mock.rds_address(server['DBInstanceIdentifier'],region) }
+                 server['Endpoint'] = { 'Port'    => 3306,
+                                        'Address' => Fog::AWS::Mock.rds_address(server['DBInstanceIdentifier'],region) }
                  server['PendingModifiedValues'] = {}
                end
               when 'rebooting'
@@ -81,7 +81,7 @@ module Fog
 
           response.status = 200
           response.body = {
-            'ResponseMetadata' => { 'RequestId' => Fog::AWS::Mock.request_id },
+            'ResponseMetadata'          => { 'RequestId' => Fog::AWS::Mock.request_id },
             'DescribeDBInstancesResult' => { 'DBInstances' => server_set }
           }
           response

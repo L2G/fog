@@ -57,7 +57,7 @@ module Fog
           :instance_store_volumes  => 4
         },
         {
-          :id                      =>  'c1.medium',
+          :id                      => 'c1.medium',
           :bits                    => 32,
           :cores                   => 5,
           :disk                    => 350,
@@ -157,7 +157,7 @@ module Fog
           :instance_store_volumes  => 1
         },
         {
-          :id                      =>  'm2.2xlarge',
+          :id                      => 'm2.2xlarge',
           :name                    => 'High Memory Double Extra Large',
           :bits                    => 64,
           :cores                   => 13,
@@ -230,7 +230,7 @@ module Fog
           :id                      => 'hi1.4xlarge',
           :name                    => 'High I/O Quadruple Extra Large Instance',
           :bits                    => 64,
-          :cores                   =>   35,
+          :cores                   => 35,
           :disk                    => 2048,
           :ram                     => 61952,
           :ebs_optimized_available => false,

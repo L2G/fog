@@ -5,8 +5,8 @@ module Fog
         def get_connection_throttling(load_balancer_id)
           request(
             :expects => 200,
-            :path => "loadbalancers/#{load_balancer_id}/connectionthrottle",
-            :method => 'GET'
+            :path    => "loadbalancers/#{load_balancer_id}/connectionthrottle",
+            :method  => 'GET'
           )
         end
       end

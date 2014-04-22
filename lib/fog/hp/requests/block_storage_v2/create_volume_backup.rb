@@ -32,10 +32,10 @@ module Fog
           end
 
           request(
-            :body     => Fog::JSON.encode(data),
-            :expects  => 202,
-            :method   => 'POST',
-            :path     => 'backups'
+            :body    => Fog::JSON.encode(data),
+            :expects => 202,
+            :method  => 'POST',
+            :path    => 'backups'
           )
         end
 
@@ -50,23 +50,23 @@ module Fog
 
           if volume = self.data[:volumes][volume_id]
             data = {
-              'id'                  => id,
-              'status'              => 'available',
-              'name'                => options['name'] || '',
-              'description'         => options['description'] || '',
-              'container'           => options['container'] || 'volumebackups',
-              'availability_zone'   => volume['availability_zone'],
-              'created_at'          => Time.now.to_s,
-              'volume_id'           => volume_id,
-              'size'                => volume['size'],
-              'links'               => [{ 'href' => "http://cinder:8776/v1/#{tenant_id}/backups/#{id}", 'rel' => 'self' }, { 'href' => "http://cinder:8776/v1/#{tenant_id}/backups/#{id}", 'rel' => 'bookmark' }],
-              'fail_reason'         => '',
-              'object_count'        => 1
+              'id'                => id,
+              'status'            => 'available',
+              'name'              => options['name'] || '',
+              'description'       => options['description'] || '',
+              'container'         => options['container'] || 'volumebackups',
+              'availability_zone' => volume['availability_zone'],
+              'created_at'        => Time.now.to_s,
+              'volume_id'         => volume_id,
+              'size'              => volume['size'],
+              'links'             => [{ 'href' => "http://cinder:8776/v1/#{tenant_id}/backups/#{id}", 'rel' => 'self' }, { 'href' => "http://cinder:8776/v1/#{tenant_id}/backups/#{id}", 'rel' => 'bookmark' }],
+              'fail_reason'       => '',
+              'object_count'      => 1
             }
             resp_data = {
-              'id'                  => id,
-              'name'                => options['name'] || '',
-              'links'               => [{ 'href' => "http://cinder:8776/v1/#{tenant_id}/backups/#{id}", 'rel' => 'self' }, { 'href' => "http://cinder:8776/v1/#{tenant_id}/backups/#{id}", 'rel' => 'bookmark' }]
+              'id'    => id,
+              'name'  => options['name'] || '',
+              'links' => [{ 'href' => "http://cinder:8776/v1/#{tenant_id}/backups/#{id}", 'rel' => 'self' }, { 'href' => "http://cinder:8776/v1/#{tenant_id}/backups/#{id}", 'rel' => 'bookmark' }]
             }
             self.data[:volume_backups][data['id']] = data
             response.status = 202

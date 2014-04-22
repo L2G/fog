@@ -64,11 +64,11 @@ module Fog
           mode = writable ? 'READ_WRITE' : 'READ_ONLY'
           value = {
             'autoDelete' => auto_delete,
-            'boot' => boot,
-            'source' => self_link,
-            'mode' => mode,
+            'boot'       => boot,
+            'source'     => self_link,
+            'mode'       => mode,
             'deviceName' => device_name,
-            'type' => 'PERSISTENT'
+            'type'       => 'PERSISTENT'
           }.select { |k, v| !v.nil? }
           return Hash[value]
         end

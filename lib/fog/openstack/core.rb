@@ -68,18 +68,18 @@ module Fog
       @openstack_username = options[:openstack_username]
 
       response = connection.request(
-        :expects  => [200, 204],
-        :headers  => {
+        :expects => [200, 204],
+        :headers => {
           'X-Auth-Key'  => @openstack_api_key,
           'X-Auth-User' => @openstack_username
         },
-        :method   => 'GET',
-        :path     =>  (uri.path and not uri.path.empty?) ? uri.path : 'v1.0'
+        :method  => 'GET',
+        :path    => (uri.path and not uri.path.empty?) ? uri.path : 'v1.0'
       )
 
       return {
-        :token => response.headers['X-Auth-Token'],
-        :server_management_url => response.headers['X-Server-Management-Url'] || response.headers['X-Storage-Url'],
+        :token                    => response.headers['X-Auth-Token'],
+        :server_management_url    => response.headers['X-Server-Management-Url'] || response.headers['X-Storage-Url'],
         :identity_public_endpoint => response.headers['X-Keystone']
       }
     end
@@ -105,7 +105,7 @@ module Fog
             "#{uri.scheme}://#{uri.host}:#{uri.port}/v2.0/tenants", false, connection_options).request(
             :expects => [200, 204],
             :headers => { 'Content-Type' => 'application/json',
-                          'Accept' => 'application/json',
+                          'Accept'       => 'application/json',
                           'X-Auth-Token' => body['access']['token']['id'] },
             :method  => 'GET'
           )
@@ -201,11 +201,11 @@ module Fog
       request_body[:auth][:tenantName] = tenant_name if tenant_name
 
       response = connection.request(
-        :expects  => [200, 204],
-        :headers  => { 'Content-Type' => 'application/json' },
-        :body     => Fog::JSON.encode(request_body),
-        :method   => 'POST',
-        :path     => (uri.path and not uri.path.empty?) ? uri.path : 'v2.0'
+        :expects => [200, 204],
+        :headers => { 'Content-Type' => 'application/json' },
+        :body    => Fog::JSON.encode(request_body),
+        :method  => 'POST',
+        :path    => (uri.path and not uri.path.empty?) ? uri.path : 'v2.0'
       )
 
       Fog::JSON.decode(response.body)
@@ -216,7 +216,7 @@ module Fog
       response = connection.request(
         :expects => [200, 204, 300],
         :headers => { 'Content-Type' => 'application/json',
-                      'Accept' => 'application/json',
+                      'Accept'       => 'application/json',
                       'X-Auth-Token' => auth_token },
         :method  => 'GET'
       )

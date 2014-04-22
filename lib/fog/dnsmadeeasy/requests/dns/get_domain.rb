@@ -17,9 +17,9 @@ module Fog
         #   * status<~Integer> 200 - OK, 404 - specified domain name is not found
         def get_domain(domain)
           request(
-            :expects  => 200,
-            :method   => 'GET',
-            :path     => "/V1.2/domains/#{domain}"
+            :expects => 200,
+            :method  => 'GET',
+            :path    => "/V1.2/domains/#{domain}"
           )
         end
 

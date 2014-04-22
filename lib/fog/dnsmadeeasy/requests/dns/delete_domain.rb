@@ -13,9 +13,9 @@ module Fog
         #   * status<~Integer> 200 - OK, 404 - specified domain name is not found
         def delete_domain(domain)
           request(
-            :expects  => 200,
-            :method   => 'DELETE',
-            :path     => "/V1.2/domains/#{domain}"
+            :expects => 200,
+            :method  => 'DELETE',
+            :path    => "/V1.2/domains/#{domain}"
           )
         end
 

@@ -17,9 +17,9 @@ module Fog
         #       * 'subnet_mask'<~Integer>
         def list_domains
           request(
-                  :expects  => 200,
-                  :method   => 'GET',
-                  :path     => '/rapi/getdomains'
+                  :expects => 200,
+                  :method  => 'GET',
+                  :path    => '/rapi/getdomains'
                   )
         end
 

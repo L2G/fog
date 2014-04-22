@@ -42,7 +42,7 @@ module Fog
             name = Fog.respond_to?(:credential) && Fog.credential || :default
             unless spot_request.key_pair = service.key_pairs.get("fog_#{name}")
               spot_request.key_pair = service.key_pairs.create(
-                :name => "fog_#{name}",
+                :name       => "fog_#{name}",
                 :public_key => spot_request.public_key
               )
             end
@@ -66,9 +66,9 @@ module Fog
           if spot_request.tags
             for key, value in spot_request.tags
               service.tags.create(
-                :key          => key,
-                :resource_id  => spot_request.instance_id,
-                :value        => value
+                :key         => key,
+                :resource_id => spot_request.instance_id,
+                :value       => value
               )
             end
           end

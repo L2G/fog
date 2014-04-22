@@ -7,9 +7,9 @@ module Fog
 
         def delete_account_alias(account_alias)
           request(
-            'Action'    => 'DeleteAccountAlias',
+            'Action'       => 'DeleteAccountAlias',
             'AccountAlias' => account_alias,
-            :parser     => Fog::Parsers::AWS::IAM::Basic.new
+            :parser        => Fog::Parsers::AWS::IAM::Basic.new
           )
         end
 

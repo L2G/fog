@@ -13,10 +13,10 @@ module Fog
         def get_all_records(zone, options = {})
           requested_fqdn = options['fqdn'] || options[:fqdn]
           request(
-            :expects  => 200,
+            :expects    => 200,
             :idempotent => true,
-            :method   => :get,
-            :path     => ['AllRecord', zone, requested_fqdn].compact.join('/')
+            :method     => :get,
+            :path       => ['AllRecord', zone, requested_fqdn].compact.join('/')
           )
         end
       end
@@ -38,13 +38,13 @@ module Fog
 
           response.body = {
             'status' => 'success',
-            'data' => data,
+            'data'   => data,
             'job_id' => Fog::Dynect::Mock.job_id,
-            'msgs' => [{
-              'INFO' => 'get_tree: Here is your zone tree',
+            'msgs'   => [{
+              'INFO'   => 'get_tree: Here is your zone tree',
               'SOURCE' => 'BLL',
               'ERR_CD' => nil,
-              'LVL' => 'INFO'
+              'LVL'    => 'INFO'
             }]
           }
 

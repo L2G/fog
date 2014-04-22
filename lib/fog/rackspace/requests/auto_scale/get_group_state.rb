@@ -7,8 +7,8 @@ module Fog
         def get_group_state(group_id)
           request(
             :expects => [200],
-            :method => 'GET',
-            :path => "groups/#{group_id}/state"
+            :method  => 'GET',
+            :path    => "groups/#{group_id}/state"
           )
         end
       end
@@ -20,37 +20,37 @@ module Fog
           instance_id_2 = Fog::Rackspace::AutoScale::MockData.uuid
 
           state = {
-            'id' => group_id,
-            'links' => [
+            'id'              => group_id,
+            'links'           => [
               {
                 'href' => "https://dfw.autoscale.api.rackspacecloud.com/v1.0/010101/groups/#{group_id}",
-                'rel' => 'self'
+                'rel'  => 'self'
               }
             ],
-            'active' => [
+            'active'          => [
               {
-                'id' => "#{instance_id_1}",
+                'id'    => "#{instance_id_1}",
                 'links' => [
                   {
                     'href' => "https://dfw.servers.api.rackspacecloud.com/v2/010101/servers/#{instance_id_1}",
-                    'rel' => 'self'
+                    'rel'  => 'self'
                   }
                 ]
               },
               {
-                'id' => "#{instance_id_2}",
+                'id'    => "#{instance_id_2}",
                 'links' => [
                   {
                     'href' => "https://dfw.servers.api.rackspacecloud.com/v2/010101/servers/#{instance_id_2}",
-                    'rel' => 'self'
+                    'rel'  => 'self'
                   }
                 ]
               }
             ],
-            'activeCapacity' => 2,
+            'activeCapacity'  => 2,
             'pendingCapacity' => 2,
             'desiredCapacity' => 4,
-            'paused' => false
+            'paused'          => false
           }
 
           response(:body => { 'group' => state })

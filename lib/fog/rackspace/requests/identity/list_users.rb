@@ -5,8 +5,8 @@ module Fog
         def list_users()
           response = request(
             :expects => [200, 203],
-            :method => 'GET',
-            :path => 'users'
+            :method  => 'GET',
+            :path    => 'users'
           )
 
           unless response.body['users'].is_a?(Array)

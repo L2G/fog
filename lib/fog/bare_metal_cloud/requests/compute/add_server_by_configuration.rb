@@ -19,11 +19,11 @@ module Fog
         #
         def add_server_by_configuration(config, options = {})
           request(
-            :expects  => 200,
-            :method   => 'GET',
-            :parser   => Fog::ToHashDocument.new,
-            :path     => 'api/addServerByConfiguration',
-            :query    => { 'configuration' => config }.merge!(options)
+            :expects => 200,
+            :method  => 'GET',
+            :parser  => Fog::ToHashDocument.new,
+            :path    => 'api/addServerByConfiguration',
+            :query   => { 'configuration' => config }.merge!(options)
           )
         end
 

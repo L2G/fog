@@ -27,11 +27,11 @@ module Fog
         #
         def get_server(server_id)
           request(
-            :expects  => 200,
-            :method   => 'GET',
-            :parser   => Fog::ToHashDocument.new,
-            :path     => 'api/getServer',
-            :query    => { 'serverId' => server_id }
+            :expects => 200,
+            :method  => 'GET',
+            :parser  => Fog::ToHashDocument.new,
+            :path    => 'api/getServer',
+            :query   => { 'serverId' => server_id }
           )
         end
 

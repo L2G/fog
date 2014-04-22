@@ -9,9 +9,9 @@ module Fog
             options.merge!(:diskId => disk_id)
           end
           request(
-            :expects  => 200,
-            :method   => 'GET',
-            :query    => { :api_action => 'linode.disk.list', :linodeId => linode_id }.merge!(options)
+            :expects => 200,
+            :method  => 'GET',
+            :query   => { :api_action => 'linode.disk.list', :linodeId => linode_id }.merge!(options)
           )
         end
 
@@ -23,7 +23,7 @@ module Fog
           response.status = 200
           body = {
             'ERRORARRAY' => [],
-            'ACTION' => 'linode.disk.list'
+            'ACTION'     => 'linode.disk.list'
           }
           if disk_id
             mock_disk = create_mock_disk(linode_id, disk_id)

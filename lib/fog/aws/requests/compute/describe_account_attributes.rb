@@ -37,7 +37,7 @@ module Fog
 
           Excon::Response.new(
             :status => 200,
-            :body => {
+            :body   => {
               'requestId'           => Fog::AWS::Mock.request_id,
               'accountAttributeSet' => account_attributes
             }

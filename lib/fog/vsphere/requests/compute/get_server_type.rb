@@ -20,10 +20,10 @@ module Fog
       end
       class Mock
         def get_server_type(id)
-          { :id => 'rhel6Guest',
-            :name => 'rhel6Guest',
-            :family => 'linuxGuest',
-            :fullname => 'Red Hat Enterprise Linux 6 (32-Bit)',
+          { :id         => 'rhel6Guest',
+            :name       => 'rhel6Guest',
+            :family     => 'linuxGuest',
+            :fullname   => 'Red Hat Enterprise Linux 6 (32-Bit)',
             :datacenter => 'Solutions' }
         end
       end

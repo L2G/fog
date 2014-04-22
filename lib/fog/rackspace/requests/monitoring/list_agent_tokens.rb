@@ -5,10 +5,10 @@ module Fog
 
         def list_agent_tokens(options = {})
           request(
-            :expects  => [200, 203],
-            :method   => 'GET',
-            :path     => 'agent_tokens',
-            :query    => options
+            :expects => [200, 203],
+            :method  => 'GET',
+            :path    => 'agent_tokens',
+            :query   => options
           )
         end
       end
@@ -21,11 +21,11 @@ module Fog
           response = Excon::Response.new
           response.status = 200
           response.body = {
-            'values' => [
+            'values'   => [
               {
-                'id'      => token,
-                'token'   => token,
-                'label'   => 'mock_token'
+                'id'    => token,
+                'token' => token,
+                'label' => 'mock_token'
               }
             ],
             'metadata' => {

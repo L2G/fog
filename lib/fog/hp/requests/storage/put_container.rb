@@ -10,10 +10,10 @@ module Fog
         #
         def put_container(name, options = {})
           response = request(
-            :expects  => [201, 202],
-            :headers  => options,
-            :method   => 'PUT',
-            :path     => Fog::HP.escape(name)
+            :expects => [201, 202],
+            :headers => options,
+            :method  => 'PUT',
+            :path    => Fog::HP.escape(name)
           )
           response
         end
@@ -31,7 +31,7 @@ module Fog
 
           response = Excon::Response.new
           container = {
-            :objects  => {}
+            :objects => {}
           }
           if self.data[:containers][container_name]
             response.status = 202

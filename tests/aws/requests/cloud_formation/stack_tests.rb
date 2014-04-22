@@ -4,10 +4,10 @@ Shindo.tests('AWS::CloudFormation | stack requests', ['aws', 'cloudformation']) 
     'Description' => String,
     'Parameters'  => [
       {
-        'DefaultValue'  => Fog::Nullable::String,
-        'Description'   => String,
-        'NoEcho'        => Fog::Boolean,
-        'ParameterKey'  => String,
+        'DefaultValue' => Fog::Nullable::String,
+        'Description'  => String,
+        'NoEcho'       => Fog::Boolean,
+        'ParameterKey' => String,
       }
     ],
     'RequestId'   => String
@@ -24,8 +24,8 @@ Shindo.tests('AWS::CloudFormation | stack requests', ['aws', 'cloudformation']) 
   }
 
   @get_template_format = {
-    'RequestId'     => String,
-    'TemplateBody'  => String
+    'RequestId'    => String,
+    'TemplateBody' => String
   }
 
   @describe_stacks_format = {
@@ -42,8 +42,8 @@ Shindo.tests('AWS::CloudFormation | stack requests', ['aws', 'cloudformation']) 
         ],
         'Parameters'      => [
           {
-            'ParameterKey'    => String,
-            'ParameterValue'  => String,
+            'ParameterKey'   => String,
+            'ParameterValue' => String,
           }
         ],
         'StackId'         => String,
@@ -57,31 +57,31 @@ Shindo.tests('AWS::CloudFormation | stack requests', ['aws', 'cloudformation']) 
     'RequestId'   => String,
     'StackEvents' => [
       {
-        'EventId'               => String,
-        'LogicalResourceId'     => String,
-        'PhysicalResourceId'    => String,
-        'ResourceProperties'    => String,
-        'ResourceStatus'        => String,
-        'ResourceStatusReason'  => Fog::Nullable::String,
-        'ResourceType'          => String,
-        'StackId'               => String,
-        'StackName'             => String,
-        'Timestamp'             => Time
+        'EventId'              => String,
+        'LogicalResourceId'    => String,
+        'PhysicalResourceId'   => String,
+        'ResourceProperties'   => String,
+        'ResourceStatus'       => String,
+        'ResourceStatusReason' => Fog::Nullable::String,
+        'ResourceType'         => String,
+        'StackId'              => String,
+        'StackName'            => String,
+        'Timestamp'            => Time
       }
     ]
   }
 
   @describe_stack_resources_format = {
-    'RequestId'       => String,
-    'StackResources'  => [
+    'RequestId'      => String,
+    'StackResources' => [
       {
-        'LogicalResourceId'     => String,
-        'PhysicalResourceId'    => String,
-        'ResourceStatus'        => String,
-        'ResourceType'          => String,
-        'StackId'               => String,
-        'StackName'             => String,
-        'Timestamp'             => Time
+        'LogicalResourceId'  => String,
+        'PhysicalResourceId' => String,
+        'ResourceStatus'     => String,
+        'ResourceType'       => String,
+        'StackId'            => String,
+        'StackName'          => String,
+        'Timestamp'          => Time
       }
     ]
   }

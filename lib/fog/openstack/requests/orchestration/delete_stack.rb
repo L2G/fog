@@ -14,9 +14,9 @@ module Fog
 
         def delete_stack(stack_name, stack_id)
           request(
-            :expects  => 204,
-            :path => "stacks/#{stack_name}/#{stack_id}",
-            :method => 'DELETE'
+            :expects => 204,
+            :path    => "stacks/#{stack_name}/#{stack_id}",
+            :method  => 'DELETE'
           )
         end
 

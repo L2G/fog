@@ -67,7 +67,7 @@ module Fog
           requires :identity
 
           options = {
-            'name' => name,
+            'name'     => name,
             'metadata' => metadata
           }
 

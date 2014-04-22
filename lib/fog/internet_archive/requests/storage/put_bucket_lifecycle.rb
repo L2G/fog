@@ -62,13 +62,13 @@ module Fog
           body = builder.to_xml
           body.gsub! /<([^<>]+)\/>/, '<\1></\1>'
           request(
-                    :body     => body,
-                    :expects  => 200,
-                    :headers  => { 'Content-MD5' => Base64.encode64(Digest::MD5.digest(body)).chomp!,
-                      'Content-Type' => 'application/xml' },
-                    :host     => "#{bucket_name}.#{@host}",
-                    :method   => 'PUT',
-                    :query    => { 'lifecycle' => nil }
+                    :body    => body,
+                    :expects => 200,
+                    :headers => { 'Content-MD5'  => Base64.encode64(Digest::MD5.digest(body)).chomp!,
+                                  'Content-Type' => 'application/xml' },
+                    :host    => "#{bucket_name}.#{@host}",
+                    :method  => 'PUT',
+                    :query   => { 'lifecycle' => nil }
                   )
         end
       end

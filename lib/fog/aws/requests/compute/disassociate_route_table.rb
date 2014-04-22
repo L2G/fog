@@ -41,8 +41,8 @@ module Fog
             response = Excon::Response.new
             response.status = 200
             response.body = {
-                'requestId'     => Fog::AWS::Mock.request_id,
-                'return'        => true
+                'requestId' => Fog::AWS::Mock.request_id,
+                'return'    => true
             }
             response
           elsif assoc_array.nil?

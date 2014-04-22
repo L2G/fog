@@ -23,16 +23,16 @@ module Fog
           path = "/#{account_id}/vaults/#{Fog::AWS.escape(vault_name)}/multipart-uploads/#{upload_id}"
 
           headers = {
-            'x-amz-archive-size' => total_size.to_s,
+            'x-amz-archive-size'     => total_size.to_s,
             'x-amz-sha256-tree-hash' => tree_hash
           }
 
           request(
-            :expects  => 201,
+            :expects    => 201,
             :idempotent => true,
-            :headers => headers,
-            :method   => :post,
-            :path     => path
+            :headers    => headers,
+            :method     => :post,
+            :path       => path
           )
         end
       end

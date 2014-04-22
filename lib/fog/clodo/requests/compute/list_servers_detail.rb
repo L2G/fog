@@ -17,9 +17,9 @@ module Fog
         #       * 'public'<~Array> - public address strings
         def list_servers_detail
           request(
-            :expects  => [200, 203],
-            :method   => 'GET',
-            :path     => 'servers/detail'
+            :expects => [200, 203],
+            :method  => 'GET',
+            :path    => 'servers/detail'
           )
         end
 

@@ -23,8 +23,8 @@ module Fog
           end
 
           request({
-            'Action'  => 'DescribeReservedCacheNodes',
-            :parser   => Fog::Parsers::AWS::Elasticache::DescribeReservedCacheNodes.new
+            'Action' => 'DescribeReservedCacheNodes',
+            :parser  => Fog::Parsers::AWS::Elasticache::DescribeReservedCacheNodes.new
           }.merge(params))
         end
 

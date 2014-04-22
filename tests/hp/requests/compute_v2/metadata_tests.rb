@@ -3,10 +3,10 @@ Shindo.tests('Fog::Compute::HPV2 | metadata requests', ['hp', 'v2', 'compute']) 
   service = Fog::Compute.new(:provider => 'HP', :version => :v2)
 
   @metadata_format = {
-    'metadata'  => Fog::Nullable::Hash
+    'metadata' => Fog::Nullable::Hash
   }
   @metaitem_format = {
-    'meta'  => Fog::Nullable::Hash
+    'meta' => Fog::Nullable::Hash
   }
 
   @base_image_id = ENV['BASE_IMAGE_ID'] || '7f60b54c-cd15-433f-8bed-00acbcd25a17'

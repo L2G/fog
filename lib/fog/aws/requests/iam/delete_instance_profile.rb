@@ -20,9 +20,9 @@ module Fog
         #
         def delete_instance_profile(instance_profile_name)
           request(
-            'Action'    => 'DeleteInstanceProfile',
-            'InstanceProfileName'  => instance_profile_name,
-            :parser     => Fog::Parsers::AWS::IAM::Basic.new
+            'Action'              => 'DeleteInstanceProfile',
+            'InstanceProfileName' => instance_profile_name,
+            :parser               => Fog::Parsers::AWS::IAM::Basic.new
           )
         end
 

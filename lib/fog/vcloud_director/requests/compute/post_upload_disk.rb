@@ -105,26 +105,26 @@ module Fog
           )
 
           disk = {
-            :description => options[:Description],
-            :name => name,
-            :size => size.to_i,
-            :status => 0,
-            :tasks => [task_id],
-            :vdc_id => id,
+            :description       => options[:Description],
+            :name              => name,
+            :size              => size.to_i,
+            :status            => 0,
+            :tasks             => [task_id],
+            :vdc_id            => id,
             :vdc_storage_class => data[:vdc_storage_classes].detect {|k,v| v[:default]}.first
           }
           data[:disks][disk_id] = disk
 
           body = {
-            :xmlns => xmlns,
-            :xmlns_xsi => xmlns_xsi,
+            :xmlns              => xmlns,
+            :xmlns_xsi          => xmlns_xsi,
             :xsi_schemaLocation => xsi_schema_location
           }.merge(disk_body(disk_id))
 
           Excon::Response.new(
-            :status => 201,
+            :status  => 201,
             :headers => { 'Content-Type' => "#{body[:type]};version=#{api_version}" },
-            :body => body
+            :body    => body
           )
         end
       end

@@ -7,9 +7,9 @@ module Fog
           data = [options]
 
           request(
-            :method => 'POST',
-            :body => Fog::JSON.encode(data),
-            :path => "groups/#{group_id}/policies",
+            :method  => 'POST',
+            :body    => Fog::JSON.encode(data),
+            :path    => "groups/#{group_id}/policies",
             :expects => 201
           )
         end
@@ -25,11 +25,11 @@ module Fog
           end
 
           policy = {
-            'id' => Fog::Rackspace::MockData.uuid,
-            'name' => 'set group to 5 servers',
+            'id'              => Fog::Rackspace::MockData.uuid,
+            'name'            => 'set group to 5 servers',
             'desiredCapacity' => 5,
-            'cooldown' => 1800,
-            'type' => 'webhook'
+            'cooldown'        => 1800,
+            'type'            => 'webhook'
           }
 
           group['scalingPolicies'] << policy

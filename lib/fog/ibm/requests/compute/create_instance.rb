@@ -41,7 +41,7 @@ module Fog
             'ip'                      => options[:ip],
             'volumeID'                => options[:volume_id],
             'vlanID'                  => options[:vlan_id],
-            'isMiniEphemeral'        => options[:is_mini_ephemeral],
+            'isMiniEphemeral'         => options[:is_mini_ephemeral],
             'Configuration Data'      => options[:configuration_data],
             'antiCollocationInstance' => options[:anti_collocation_instance]
           }
@@ -51,10 +51,10 @@ module Fog
             end
           end
           request(
-            :method   => 'POST',
-            :expects  => 200,
-            :path     => '/instances',
-            :body     => body_data
+            :method  => 'POST',
+            :expects => 200,
+            :path    => '/instances',
+            :body    => body_data
           )
         end
 

@@ -15,11 +15,11 @@ Shindo.tests('Fog::Compute[:ibm] | server', ['ibm']) do
 
     tests('Fog::Compute::IBM::Server.new') do
       @server = Fog::Compute[:ibm].servers.new(
-        :name           => @name,
-        :image_id       => @image_id,
-        :instance_type  => @instance_type,
-        :location_id    => @location,
-        :key_name       => @key_name
+        :name          => @name,
+        :image_id      => @image_id,
+        :instance_type => @instance_type,
+        :location_id   => @location,
+        :key_name      => @key_name
       )
       returns(@name) { @server.name }
     end

@@ -61,12 +61,12 @@ module Fog
           if (bucket = self.data[:buckets][bucket_name])
             response.status = 200
             object = {
-              :body             => data[:body],
-              'Content-Type'    => options['Content-Type'] || data[:headers]['Content-Type'],
-              'ETag'            => Digest::MD5.hexdigest(data[:body]),
-              'Key'             => object_name,
-              'Last-Modified'   => Fog::Time.now.to_date_header,
-              'Content-Length'  => options['Content-Length'] || data[:headers]['Content-Length'],
+              :body            => data[:body],
+              'Content-Type'   => options['Content-Type'] || data[:headers]['Content-Type'],
+              'ETag'           => Digest::MD5.hexdigest(data[:body]),
+              'Key'            => object_name,
+              'Last-Modified'  => Fog::Time.now.to_date_header,
+              'Content-Length' => options['Content-Length'] || data[:headers]['Content-Length'],
             }
 
             for key, value in options
@@ -79,10 +79,10 @@ module Fog
             bucket[:objects][object_name] = [object]
 
             response.headers = {
-              'Content-Length'   => object['Content-Length'],
-              'Content-Type'     => object['Content-Type'],
-              'ETag'             => object['ETag'],
-              'Last-Modified'    => object['Last-Modified'],
+              'Content-Length' => object['Content-Length'],
+              'Content-Type'   => object['Content-Type'],
+              'ETag'           => object['ETag'],
+              'Last-Modified'  => object['Last-Modified'],
             }
 
           else

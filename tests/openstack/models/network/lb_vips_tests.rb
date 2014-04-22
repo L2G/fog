@@ -1,7 +1,7 @@
 Shindo.tests('Fog::Network[:openstack] | lb_vips', ['openstack']) do
-  @lb_vip = Fog::Network[:openstack].lb_vips.create(:subnet_id => 'subnet_id',
-                                                    :pool_id => 'pool_id',
-                                                    :protocol => 'HTTP',
+  @lb_vip = Fog::Network[:openstack].lb_vips.create(:subnet_id     => 'subnet_id',
+                                                    :pool_id       => 'pool_id',
+                                                    :protocol      => 'HTTP',
                                                     :protocol_port => 80)
   @lb_vips = Fog::Network[:openstack].lb_vips
 

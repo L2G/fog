@@ -25,10 +25,10 @@ module Fog
         #     * 'Timestamp' - last update time for metadata.
         def domain_metadata(domain_name)
           request(
-            'Action'      => 'DomainMetadata',
-            'DomainName'  => domain_name,
-            :idempotent   => true,
-            :parser       => Fog::Parsers::AWS::SimpleDB::DomainMetadata.new(@nil_string)
+            'Action'     => 'DomainMetadata',
+            'DomainName' => domain_name,
+            :idempotent  => true,
+            :parser      => Fog::Parsers::AWS::SimpleDB::DomainMetadata.new(@nil_string)
           )
         end
 
@@ -53,15 +53,15 @@ module Fog
             end
 
             response.body = {
-              'AttributeNameCount'        => attribute_names.length,
-              'AttributeNamesSizeBytes'   => attribute_names.join('').length,
-              'AttributeValueCount'       => attribute_values.length,
-              'AttributeValuesSizeBytes'  => attribute_values.join('').length,
-              'BoxUsage'                  => Fog::AWS::Mock.box_usage,
-              'ItemCount'                 => domain.keys.length,
-              'ItemNamesSizeBytes'        => domain.keys.join('').length,
-              'RequestId'                 => Fog::AWS::Mock.request_id,
-              'Timestamp'                 => Time.now
+              'AttributeNameCount'       => attribute_names.length,
+              'AttributeNamesSizeBytes'  => attribute_names.join('').length,
+              'AttributeValueCount'      => attribute_values.length,
+              'AttributeValuesSizeBytes' => attribute_values.join('').length,
+              'BoxUsage'                 => Fog::AWS::Mock.box_usage,
+              'ItemCount'                => domain.keys.length,
+              'ItemNamesSizeBytes'       => domain.keys.join('').length,
+              'RequestId'                => Fog::AWS::Mock.request_id,
+              'Timestamp'                => Time.now
             }
           else
             response.status = 400

@@ -2,11 +2,11 @@ Shindo.tests('Fog::Compute[:aws] | internet_gateway requests', ['aws']) do
 
   @internet_gateways_format = {
     'internetGatewaySet' => [{
-      'internetGatewayId'        => String,
-      'attachmentSet'            => Hash,
-      'tagSet'                   => Fog::Nullable::Hash,
+      'internetGatewayId' => String,
+      'attachmentSet'     => Hash,
+      'tagSet'            => Fog::Nullable::Hash,
     }],
-    'requestId' => String
+    'requestId'          => String
   }
 
   tests('success') do

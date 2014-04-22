@@ -17,9 +17,9 @@ module Fog
         # {Openstack API Reference}[http://docs.openstack.org]
         def list_key_pairs
           request(
-            :expects  => [200, 203],
-            :method   => 'GET',
-            :path     => 'os-keypairs.json'
+            :expects => [200, 203],
+            :method  => 'GET',
+            :path    => 'os-keypairs.json'
           )
         end
 

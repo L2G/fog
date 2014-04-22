@@ -24,9 +24,9 @@ module Fog
         #     * 'state'<~String>: state of datacenter
         def get_location(location_id)
           request(
-            :method   => 'GET',
-            :expects  => 200,
-            :path     => "/locations/#{location_id}"
+            :method  => 'GET',
+            :expects => 200,
+            :path    => "/locations/#{location_id}"
           )
         end
 

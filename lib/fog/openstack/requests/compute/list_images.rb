@@ -5,9 +5,9 @@ module Fog
 
         def list_images
           request(
-            :expects  => [200, 203],
-            :method   => 'GET',
-            :path     => 'images.json'
+            :expects => [200, 203],
+            :method  => 'GET',
+            :path    => 'images.json'
           )
         end
 

@@ -19,9 +19,9 @@ module Fog
         #
         def delete_login_profile(user_name)
           request(
-            'Action'    => 'DeleteLoginProfile',
-            'UserName'  => user_name,
-            :parser     => Fog::Parsers::AWS::IAM::Basic.new
+            'Action'   => 'DeleteLoginProfile',
+            'UserName' => user_name,
+            :parser    => Fog::Parsers::AWS::IAM::Basic.new
           )
         end
 

@@ -14,9 +14,9 @@ module Fog
         #
         def delete_domain(domain)
           request(
-            :expects  => 200,
-            :method   => 'DELETE',
-            :path     => "/domains/#{domain}"
+            :expects => 200,
+            :method  => 'DELETE',
+            :path    => "/domains/#{domain}"
           )
         end
 

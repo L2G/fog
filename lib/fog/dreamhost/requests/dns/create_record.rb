@@ -13,15 +13,15 @@ module Fog
       class Real
 
         def create_record(record, type, value, comment = '')
-          request( :expects  => 200,
-                   :method   => 'GET',
-                   :path     => '/',
-                   :query    => {
-                     :record    => record,
-                     :type      => type,
-                     :value     => value,
-                     :cmd       => 'dns-add_record',
-                     :comment   => comment
+          request( :expects => 200,
+                   :method  => 'GET',
+                   :path    => '/',
+                   :query   => {
+                     :record  => record,
+                     :type    => type,
+                     :value   => value,
+                     :cmd     => 'dns-add_record',
+                     :comment => comment
                    }
                  )
         end

@@ -10,7 +10,7 @@ module Fog
           domains.each do |domain|
             domain_data =
               {
-                'name' => domain[:name],
+                'name'         => domain[:name],
                 'emailAddress' => domain[:email]
               }
 
@@ -18,7 +18,7 @@ module Fog
               domain_data['recordsList'] = {
                 'records' => domain[:records].collect do |record|
                   record_data = {
-                    'ttl' => record[:ttl],
+                    'ttl'  => record[:ttl],
                     'data' => record[:data],
                     'name' => record[:name],
                     'type' => record[:type],
@@ -36,10 +36,10 @@ module Fog
           end
 
           request(
-            :expects  => 202,
-            :method   => 'POST',
-            :path     => 'domains',
-            :body     => Fog::JSON.encode(data)
+            :expects => 202,
+            :method  => 'POST',
+            :path    => 'domains',
+            :body    => Fog::JSON.encode(data)
           )
         end
       end

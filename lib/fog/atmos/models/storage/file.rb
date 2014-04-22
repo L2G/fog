@@ -32,7 +32,7 @@ module Fog
         def copy(target_directory_key, target_file_key, options = {})
           target_directory = service.directories.new(:key => target_directory_key)
           target_directory.files.create(
-            :key => target_file_key,
+            :key  => target_file_key,
             :body => body
           )
         end

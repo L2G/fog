@@ -17,12 +17,12 @@ module Fog
 </GuestCustomizationSection>
 EOF
           request(
-            :body     => body,
-            :expects  => 202,
-            :headers  => { 'Content-Type' => vmdata[:type] },
-            :method   => 'PUT',
-            :uri      => "#{edit_uri}",
-            :parse    => true
+            :body    => body,
+            :expects => 202,
+            :headers => { 'Content-Type' => vmdata[:type] },
+            :method  => 'PUT',
+            :uri     => "#{edit_uri}",
+            :parse   => true
           )
         end
 

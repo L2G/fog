@@ -5,9 +5,9 @@ module Fog
 
         def delete_agent_token(token_id)
           request(
-            :expects  => [204],
-            :method   => 'DELETE',
-            :path     => "agent_tokens/#{token_id}"
+            :expects => [204],
+            :method  => 'DELETE',
+            :path    => "agent_tokens/#{token_id}"
           )
         end
       end

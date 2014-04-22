@@ -39,10 +39,10 @@ module Fog
           }
 
           request(
-            :body     => %Q{<?xml version="1.0" encoding="UTF-8"?><host>#{optional_tags}</host>},
-            :expects  => 200,
-            :method   => 'PUT',
-            :path     => "/api/1.1/hosts/#{host_id}.xml"
+            :body    => %Q{<?xml version="1.0" encoding="UTF-8"?><host>#{optional_tags}</host>},
+            :expects => 200,
+            :method  => 'PUT',
+            :path    => "/api/1.1/hosts/#{host_id}.xml"
           )
         end
 

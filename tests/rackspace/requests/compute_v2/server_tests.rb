@@ -3,21 +3,21 @@ Shindo.tests('Fog::Compute::RackspaceV2 | server_tests', ['rackspace']) do
 
   link_format = {
     'href' => String,
-    'rel' => String
+    'rel'  => String
   }
 
   server_format = {
-    'id' => String,
-    'name' => String,
-    'hostId' => Fog::Nullable::String,
-    'created' => Fog::Nullable::String,
-    'updated' => Fog::Nullable::String,
-    'status' => Fog::Nullable::String,
-    'progress' => Fog::Nullable::Integer,
-    'user_id' => Fog::Nullable::String,
+    'id'        => String,
+    'name'      => String,
+    'hostId'    => Fog::Nullable::String,
+    'created'   => Fog::Nullable::String,
+    'updated'   => Fog::Nullable::String,
+    'status'    => Fog::Nullable::String,
+    'progress'  => Fog::Nullable::Integer,
+    'user_id'   => Fog::Nullable::String,
     'tenant_id' => Fog::Nullable::String,
-    'links' => [link_format],
-    'metadata' => Fog::Nullable::Hash
+    'links'     => [link_format],
+    'metadata'  => Fog::Nullable::Hash
   }
 
   list_servers_format = {
@@ -26,17 +26,17 @@ Shindo.tests('Fog::Compute::RackspaceV2 | server_tests', ['rackspace']) do
 
   get_server_format = {
     'server' => server_format.merge(
-      'accessIPv4' => String,
-      'accessIPv6' => String,
-      'OS-DCF:diskConfig' => String,
+      'accessIPv4'              => String,
+      'accessIPv6'              => String,
+      'OS-DCF:diskConfig'       => String,
       'rax-bandwidth:bandwidth' => Fog::Nullable::Array,
-      'addresses' => Fog::Nullable::Hash,
-      'flavor' => {
-        'id' => String,
+      'addresses'               => Fog::Nullable::Hash,
+      'flavor'                  => {
+        'id'    => String,
         'links' => [link_format]
       },
-      'image' => {
-        'id' => String,
+      'image'                   => {
+        'id'    => String,
         'links' => [link_format]
       }
     )
@@ -44,9 +44,9 @@ Shindo.tests('Fog::Compute::RackspaceV2 | server_tests', ['rackspace']) do
 
   create_server_format = {
     'server' => {
-      'id' => String,
-      'adminPass' => String,
-      'links' => [link_format],
+      'id'                => String,
+      'adminPass'         => String,
+      'links'             => [link_format],
       'OS-DCF:diskConfig' => String
     }
   }

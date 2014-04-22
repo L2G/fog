@@ -4,9 +4,9 @@ module Fog
       class Real
         def list_protocols
           request(
-            :expects  => 200,
-            :method   => 'GET',
-            :path     => 'loadbalancers/protocols'
+            :expects => 200,
+            :method  => 'GET',
+            :path    => 'loadbalancers/protocols'
           )
         end
       end

@@ -4,29 +4,29 @@ Shindo.tests('Fog::Storage[:google] | bucket requests', ['google']) do
 
     @bucket_format = {
       'CommonPrefixes' => [],
-      'IsTruncated'     => Fog::Boolean,
-      'Marker'          => NilClass,
-      'Name'            => String,
-      'Prefix'          => NilClass,
-      'Contents'        => [{
-        'ETag'          => String,
-        'Key'           => String,
-        'LastModified'  => Time,
-        'Owner' => {
+      'IsTruncated'    => Fog::Boolean,
+      'Marker'         => NilClass,
+      'Name'           => String,
+      'Prefix'         => NilClass,
+      'Contents'       => [{
+        'ETag'         => String,
+        'Key'          => String,
+        'LastModified' => Time,
+        'Owner'        => {
           'DisplayName' => String,
           'ID'          => String
         },
-        'Size' => Integer
+        'Size'         => Integer
       }]
     }
 
     @service_format = {
       'Buckets' => [{
-        'CreationDate'  => Time,
-        'Name'          => String,
+        'CreationDate' => Time,
+        'Name'         => String,
       }],
       'Owner'   => {
-        'ID'          => String
+        'ID' => String
       }
     }
 

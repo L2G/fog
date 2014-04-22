@@ -10,9 +10,9 @@ module Fog
         #
         def delete_snapshot(snapshot_id)
           response = request(
-            :expects  => 202,
-            :method   => 'DELETE',
-            :path     => "os-snapshots/#{snapshot_id}"
+            :expects => 202,
+            :method  => 'DELETE',
+            :path    => "os-snapshots/#{snapshot_id}"
           )
           response
         end

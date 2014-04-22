@@ -1,8 +1,8 @@
 Shindo.tests('Fog::Rackspace::BlockStorage | volume_type_tests', ['rackspace']) do
   volume_type_format = {
-    'name' => String,
+    'name'        => String,
     'extra_specs' => Hash,
-    'id' => String
+    'id'          => String
   }
 
   service = Fog::Rackspace::BlockStorage.new

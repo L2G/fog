@@ -192,9 +192,9 @@ module Fog
               description           = device.fetch('Description', 'mock_network_interface')
               security_group_id     = device.fetch('SecurityGroupId', self.data[:security_groups]['default']['groupId'])
               interface_options     = {
-                  'PrivateIpAddress'   => private_ip_address,
-                  'GroupSet'           => device.fetch('GroupSet', [security_group_id]),
-                  'Description'        => description
+                  'PrivateIpAddress' => private_ip_address,
+                  'GroupSet'         => device.fetch('GroupSet', [security_group_id]),
+                  'Description'      => description
               }
 
               interface_id = device.fetch('NetworkInterfaceId', create_network_interface(subnet_id, interface_options))
@@ -209,40 +209,40 @@ module Fog
             end
 
             instance = {
-              'amiLaunchIndex'      => i,
-              'associatePublicIP'   => options['associatePublicIP'] || false,
-              'architecture'        => 'i386',
-              'blockDeviceMapping'  => block_device_mapping,
-              'networkInterfaces'   => network_interfaces,
-              'clientToken'         => options['clientToken'],
-              'dnsName'             => nil,
-              'ebsOptimized'        => options['EbsOptimized'] || false,
-              'hypervisor'          => 'xen',
-              'imageId'             => image_id,
-              'instanceId'          => instance_id,
-              'instanceState'       => { 'code' => 0, 'name' => 'pending' },
-              'instanceType'        => options['InstanceType'] || 'm1.small',
-              'kernelId'            => options['KernelId'] || Fog::AWS::Mock.kernel_id,
-              'keyName'             => options['KeyName'],
-              'launchTime'          => Time.now,
-              'monitoring'          => { 'state' => options['Monitoring.Enabled'] || false },
-              'placement'           => { 'availabilityZone' => availability_zone, 'groupName' => nil, 'tenancy' => options['Placement.Tenancy'] || 'default' },
-              'privateDnsName'      => nil,
-              'productCodes'        => [],
-              'reason'              => nil,
-              'rootDeviceType'      => 'instance-store',
-              'virtualizationType'  => 'paravirtual'
+              'amiLaunchIndex'     => i,
+              'associatePublicIP'  => options['associatePublicIP'] || false,
+              'architecture'       => 'i386',
+              'blockDeviceMapping' => block_device_mapping,
+              'networkInterfaces'  => network_interfaces,
+              'clientToken'        => options['clientToken'],
+              'dnsName'            => nil,
+              'ebsOptimized'       => options['EbsOptimized'] || false,
+              'hypervisor'         => 'xen',
+              'imageId'            => image_id,
+              'instanceId'         => instance_id,
+              'instanceState'      => { 'code' => 0, 'name' => 'pending' },
+              'instanceType'       => options['InstanceType'] || 'm1.small',
+              'kernelId'           => options['KernelId'] || Fog::AWS::Mock.kernel_id,
+              'keyName'            => options['KeyName'],
+              'launchTime'         => Time.now,
+              'monitoring'         => { 'state' => options['Monitoring.Enabled'] || false },
+              'placement'          => { 'availabilityZone' => availability_zone, 'groupName' => nil, 'tenancy' => options['Placement.Tenancy'] || 'default' },
+              'privateDnsName'     => nil,
+              'productCodes'       => [],
+              'reason'             => nil,
+              'rootDeviceType'     => 'instance-store',
+              'virtualizationType' => 'paravirtual'
             }
             instances_set << instance
             self.data[:instances][instance_id] = instance.merge(
-              'groupIds'            => [],
-              'groupSet'            => group_set,
-              'iamInstanceProfile'  => {},
-              'networkInterfaces'   => [],
-              'ownerId'             => self.data[:owner_id],
-              'privateIpAddress'    => nil,
-              'reservationId'       => reservation_id,
-              'stateReason'         => {}
+              'groupIds'           => [],
+              'groupSet'           => group_set,
+              'iamInstanceProfile' => {},
+              'networkInterfaces'  => [],
+              'ownerId'            => self.data[:owner_id],
+              'privateIpAddress'   => nil,
+              'reservationId'      => reservation_id,
+              'stateReason'        => {}
             )
           end
           response.body = {

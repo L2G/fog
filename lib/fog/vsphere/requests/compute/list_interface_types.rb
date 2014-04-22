@@ -12,8 +12,8 @@ module Fog
         end
         def interface_type_attributes(nic, servertype, datacenter)
           {
-            :id => nic,
-            :name => nic,
+            :id         => nic,
+            :name       => nic,
             :datacenter => datacenter,
             :servertype => servertype
           }

@@ -5,9 +5,9 @@ module Fog
 
         def list_regions(options = {})
           request(
-            :expects  => [200],
-            :method   => 'GET',
-            :path     => 'regions'
+            :expects => [200],
+            :method  => 'GET',
+            :path    => 'regions'
           )
         end
 
@@ -19,8 +19,8 @@ module Fog
           response = Excon::Response.new
           response.status = 200
           response.body = {
-            'status' => 'OK',
-            'regions'  => [
+            'status'  => 'OK',
+            'regions' => [
               { 'id' => 1,'name' => 'New York 1' },
               { 'id' => 2,'name' => 'Amsterdam 1' }
             ]

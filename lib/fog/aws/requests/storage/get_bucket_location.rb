@@ -17,13 +17,13 @@ module Fog
 
         def get_bucket_location(bucket_name)
           request(
-            :expects  => 200,
-            :headers  => {},
+            :expects     => 200,
+            :headers     => {},
             :bucket_name => bucket_name,
-            :idempotent => true,
-            :method   => 'GET',
-            :parser   => Fog::Parsers::Storage::AWS::GetBucketLocation.new,
-            :query    => { 'location' => nil }
+            :idempotent  => true,
+            :method      => 'GET',
+            :parser      => Fog::Parsers::Storage::AWS::GetBucketLocation.new,
+            :query       => { 'location' => nil }
           )
         end
 

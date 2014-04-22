@@ -5,9 +5,9 @@ module Fog
 
         def get_system_info(agent_id)
           request(
-            :expects  => [200, 203],
-            :method   => 'GET',
-            :path     => "agents/#{agent_id}/host_info/system"
+            :expects => [200, 203],
+            :method  => 'GET',
+            :path    => "agents/#{agent_id}/host_info/system"
           )
         end
       end
@@ -22,13 +22,13 @@ module Fog
           response = Excon::Response.new
           response.status = 200
           response.body = {
-            'info'  => [
+            'info' => [
               {
-                'name'            => 'Linux',
-                'arch'            => 'x86_64',
-                'version'         => '2.6.18-308.el5xen',
-                'vendor'          => 'CentOS',
-                'vendor_version'  => '5.10'
+                'name'           => 'Linux',
+                'arch'           => 'x86_64',
+                'version'        => '2.6.18-308.el5xen',
+                'vendor'         => 'CentOS',
+                'vendor_version' => '5.10'
               }
             ]
           }

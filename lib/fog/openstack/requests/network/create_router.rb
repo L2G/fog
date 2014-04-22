@@ -36,10 +36,10 @@ module Fog
           end
 
           request(
-            :body     => Fog::JSON.encode(data),
-            :expects  => [201],
-            :method   => 'POST',
-            :path     => 'routers'
+            :body    => Fog::JSON.encode(data),
+            :expects => [201],
+            :method  => 'POST',
+            :path    => 'routers'
           )
         end
       end
@@ -59,12 +59,12 @@ module Fog
 
           data = {
             'router' => {
-              :id     => Fog::Mock.random_numbers(6).to_s,
-              :status => options[:status] || 'ACTIVE',
+              :id                    => Fog::Mock.random_numbers(6).to_s,
+              :status                => options[:status] || 'ACTIVE',
               :external_gateway_info => egi,
-              :name => name,
-              :admin_state_up => options[:admin_state_up],
-              :tenant_id => '6b96ff0cb17a4b859e1e575d221683d3'
+              :name                  => name,
+              :admin_state_up        => options[:admin_state_up],
+              :tenant_id             => '6b96ff0cb17a4b859e1e575d221683d3'
             }
           }
           self.data[:routers][data['router'][:id]] = data['router']

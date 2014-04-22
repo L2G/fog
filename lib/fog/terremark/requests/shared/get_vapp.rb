@@ -29,10 +29,10 @@ module Fog
         #       * 'type'<~String> - type of result
         def get_vapp(vapp_id)
           request(
-            :expects  => 200,
-            :method   => 'GET',
-            :parser   => Fog::Parsers::Terremark::Shared::Vapp.new,
-            :path     => "vapp/#{vapp_id}"
+            :expects => 200,
+            :method  => 'GET',
+            :parser  => Fog::Parsers::Terremark::Shared::Vapp.new,
+            :path    => "vapp/#{vapp_id}"
           )
         end
 

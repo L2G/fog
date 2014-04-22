@@ -15,9 +15,9 @@ module Fog
 
         def list_geo_regions
           request(
-                  :expects  => 200,
-                  :method   => 'GET',
-                  :path     => '/rapi/listgeoregions'
+                  :expects => 200,
+                  :method  => 'GET',
+                  :path    => '/rapi/listgeoregions'
                   )
         end
 

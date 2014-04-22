@@ -7,10 +7,10 @@ module Fog
           options ||= {}
           data = { :values => options.dup }
           request(
-            :body     => JSON.encode(data),
-            :expects  => [200],
-            :method   => 'POST',
-            :path     => "alarm_examples/#{id}"
+            :body    => JSON.encode(data),
+            :expects => [200],
+            :method  => 'POST',
+            :path    => "alarm_examples/#{id}"
           )
         end
       end

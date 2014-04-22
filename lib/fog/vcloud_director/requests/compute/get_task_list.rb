@@ -109,19 +109,19 @@ module Fog
           end
 
           body = {
-            :xmlns => xmlns,
-            :xmlns_xsi => xmlns_xsi,
+            :xmlns              => xmlns,
+            :xmlns_xsi          => xmlns_xsi,
             :xsi_schemaLocation => xsi_schema_location,
-            :href => make_href("tasksList/#{id}"),
-            :type => 'application/vnd.vmware.vcloud.tasksList+xml',
-            :name => 'Tasks Lists',
-            :Task => data[:tasks].keys.map {|task_id| task_body(task_id)}
+            :href               => make_href("tasksList/#{id}"),
+            :type               => 'application/vnd.vmware.vcloud.tasksList+xml',
+            :name               => 'Tasks Lists',
+            :Task               => data[:tasks].keys.map {|task_id| task_body(task_id)}
           }
 
           Excon::Response.new(
-            :status => 200,
+            :status  => 200,
             :headers => { 'Content-Type' => "#{body[:type]};version=#{api_version}" },
-            :body => body
+            :body    => body
           )
         end
       end

@@ -3,10 +3,10 @@ module Fog
     class CloudSigma
       class Real
         def clone_libvolume(vol_id, clone_params = {})
-          request(:path => "libdrives/#{vol_id}/action/",
-                  :method => 'POST',
-                  :query => { :do => :clone },
-                  :body => clone_params,
+          request(:path    => "libdrives/#{vol_id}/action/",
+                  :method  => 'POST',
+                  :query   => { :do => :clone },
+                  :body    => clone_params,
                   :expects => [200, 202])
         end
       end

@@ -22,7 +22,7 @@ Shindo.tests('Storage[:aws] | directory', ['aws']) do
   end
 
   directory_attributes = {
-    :key => uniq_id('different-region'),
+    :key      => uniq_id('different-region'),
     :location => 'eu-west-1',
   }
 

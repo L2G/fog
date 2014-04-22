@@ -11,9 +11,9 @@ module Fog
             :headers => {
               'Authorization' => "Basic #{@auth_encord}"
             },
-            :expects  => [200],
-            :method => 'PUT',
-            :path => "#{Fog::SakuraCloud::SAKURACLOUD_API_ENDPOINT}/disk/#{disk_id}/to/server/#{server_id}"
+            :expects => [200],
+            :method  => 'PUT',
+            :path    => "#{Fog::SakuraCloud::SAKURACLOUD_API_ENDPOINT}/disk/#{disk_id}/to/server/#{server_id}"
           )
         end
       end # Real

@@ -6,21 +6,21 @@ Shindo.tests('Fog::Compute[:aws] | security group requests', ['aws']) do
   }
 
   @security_groups_format = {
-    'requestId'           => String,
+    'requestId'         => String,
     'securityGroupInfo' => [{
-      'groupDescription'  => String,
-      'groupId'           => Fog::Nullable::String,
-      'groupName'         => String,
-      'ipPermissions'     => [{
-        'fromPort'    => Fog::Nullable::Integer,
-        'groups'      => [{ 'groupName' => Fog::Nullable::String, 'userId' => String, 'groupId' => String }],
-        'ipProtocol'  => String,
-        'ipRanges'    => [Fog::Nullable::Hash],
-        'toPort'      => Fog::Nullable::Integer,
+      'groupDescription'    => String,
+      'groupId'             => Fog::Nullable::String,
+      'groupName'           => String,
+      'ipPermissions'       => [{
+        'fromPort'   => Fog::Nullable::Integer,
+        'groups'     => [{ 'groupName' => Fog::Nullable::String, 'userId' => String, 'groupId' => String }],
+        'ipProtocol' => String,
+        'ipRanges'   => [Fog::Nullable::Hash],
+        'toPort'     => Fog::Nullable::Integer,
       }],
       'ipPermissionsEgress' => [],
-      'ownerId'           => String,
-      'vpcId'             => Fog::Nullable::String
+      'ownerId'             => String,
+      'vpcId'               => Fog::Nullable::String
     }]
   }
 
@@ -48,21 +48,21 @@ Shindo.tests('Fog::Compute[:aws] | security group requests', ['aws']) do
     to_be_revoked.push([permission, expected_permissions.dup])
 
     expected_permissions = [
-      { 'groups' => [{ 'groupName' => 'default', 'userId' => @owner_id, 'groupId' => @group_id_default }],
-        'fromPort' => 1,
-        'ipRanges' => [],
+      { 'groups'     => [{ 'groupName' => 'default', 'userId' => @owner_id, 'groupId' => @group_id_default }],
+        'fromPort'   => 1,
+        'ipRanges'   => [],
         'ipProtocol' => 'tcp',
-        'toPort' => 65535 },
-      { 'groups' => [{ 'groupName' => 'default', 'userId' => @owner_id, 'groupId' => @group_id_default }],
-        'fromPort' => 1,
-        'ipRanges' => [],
+        'toPort'     => 65535 },
+      { 'groups'     => [{ 'groupName' => 'default', 'userId' => @owner_id, 'groupId' => @group_id_default }],
+        'fromPort'   => 1,
+        'ipRanges'   => [],
         'ipProtocol' => 'udp',
-        'toPort' => 65535 },
-      { 'groups' => [{ 'groupName' => 'default', 'userId' => @owner_id, 'groupId' => @group_id_default }],
-        'fromPort' => -1,
-        'ipRanges' => [],
+        'toPort'     => 65535 },
+      { 'groups'     => [{ 'groupName' => 'default', 'userId' => @owner_id, 'groupId' => @group_id_default }],
+        'fromPort'   => -1,
+        'ipRanges'   => [],
         'ipProtocol' => 'icmp',
-        'toPort' => -1 }
+        'toPort'     => -1 }
     ]
 
     tests("#describe_security_groups('group-name' => 'fog_security_group')").returns([]) do
@@ -81,27 +81,27 @@ Shindo.tests('Fog::Compute[:aws] | security group requests', ['aws']) do
     to_be_revoked.push([permission, expected_permissions.dup])
 
     expected_permissions = [
-      { 'groups' =>
-        [{ 'userId' => @owner_id, 'groupName' => 'default', 'groupId' => @group_id_default },
+      { 'groups'     =>
+                        [{ 'userId' => @owner_id, 'groupName' => 'default', 'groupId' => @group_id_default },
           { 'userId' => @owner_id, 'groupName' => 'fog_security_group_two', 'groupId' => @group_id_two }],
-        'ipRanges' => [],
+        'ipRanges'   => [],
         'ipProtocol' => 'tcp',
-        'fromPort' => 1,
-        'toPort' => 65535 },
-      { 'groups' =>
-        [{ 'userId' => @owner_id, 'groupName' => 'default', 'groupId' => @group_id_default },
+        'fromPort'   => 1,
+        'toPort'     => 65535 },
+      { 'groups'     =>
+                        [{ 'userId' => @owner_id, 'groupName' => 'default', 'groupId' => @group_id_default },
           { 'userId' => @owner_id, 'groupName' => 'fog_security_group_two', 'groupId' => @group_id_two }],
-        'ipRanges' => [],
+        'ipRanges'   => [],
         'ipProtocol' => 'udp',
-        'fromPort' => 1,
-        'toPort' => 65535 },
-      { 'groups' =>
-        [{ 'userId' => @owner_id, 'groupName' => 'default', 'groupId' => @group_id_default },
+        'fromPort'   => 1,
+        'toPort'     => 65535 },
+      { 'groups'     =>
+                        [{ 'userId' => @owner_id, 'groupName' => 'default', 'groupId' => @group_id_default },
           { 'userId' => @owner_id, 'groupName' => 'fog_security_group_two', 'groupId' => @group_id_two }],
-        'ipRanges' => [],
+        'ipRanges'   => [],
         'ipProtocol' => 'icmp',
-        'fromPort' => -1,
-        'toPort' => -1 }
+        'fromPort'   => -1,
+        'toPort'     => -1 }
     ]
 
     tests("#describe_security_groups('group-name' => 'fog_security_group')").returns([]) do
@@ -128,11 +128,11 @@ Shindo.tests('Fog::Compute[:aws] | security group requests', ['aws']) do
     to_be_revoked.push([permission, expected_permissions.dup])
 
     expected_permissions += [
-      { 'groups' => [],
-        'ipRanges' => [{ 'cidrIp' => '10.0.0.0/8' }],
+      { 'groups'     => [],
+        'ipRanges'   => [{ 'cidrIp' => '10.0.0.0/8' }],
         'ipProtocol' => 'tcp',
-        'fromPort' => 22,
-        'toPort' => 22 }
+        'fromPort'   => 22,
+        'toPort'     => 22 }
     ]
 
     tests("#describe_security_groups('group-name' => 'fog_security_group')").returns([]) do
@@ -172,11 +172,11 @@ Shindo.tests('Fog::Compute[:aws] | security group requests', ['aws']) do
     to_be_revoked.push([permissions, expected_permissions.dup])
 
     expected_permissions += [
-      { 'groups' => [],
-        'ipRanges' => [{ 'cidrIp' => '192.168.0.0/24' }],
+      { 'groups'     => [],
+        'ipRanges'   => [{ 'cidrIp' => '192.168.0.0/24' }],
         'ipProtocol' => 'tcp',
-        'fromPort' => 80,
-        'toPort' => 80 }
+        'fromPort'   => 80,
+        'toPort'     => 80 }
     ]
 
     tests("#describe_security_groups('group-name' => 'fog_security_group')").returns([]) do
@@ -199,11 +199,11 @@ Shindo.tests('Fog::Compute[:aws] | security group requests', ['aws']) do
     to_be_revoked.push([permissions, expected_permissions.dup])
 
     expected_permissions += [
-      { 'groups' => [{ 'userId' => @owner_id, 'groupName' => 'fog_security_group_two', 'groupId' => @group_id_two }],
-        'ipRanges' => [],
+      { 'groups'     => [{ 'userId' => @owner_id, 'groupName' => 'fog_security_group_two', 'groupId' => @group_id_two }],
+        'ipRanges'   => [],
         'ipProtocol' => 'tcp',
-        'fromPort' => 8000,
-        'toPort' => 8000 }
+        'fromPort'   => 8000,
+        'toPort'     => 8000 }
     ]
     tests("#describe_security_groups('group-name' => 'fog_security_group')").returns([]) do
       array_differences(expected_permissions, Fog::Compute[:aws].describe_security_groups('group-name' => 'fog_security_group').body['securityGroupInfo'].first['ipPermissions'])
@@ -227,12 +227,12 @@ Shindo.tests('Fog::Compute[:aws] | security group requests', ['aws']) do
     to_be_revoked.push([permissions, expected_permissions.dup])
 
     expected_permissions += [
-      { 'groups' =>
-        [{ 'userId' => @owner_id, 'groupName' => 'fog_security_group_two', 'groupId' => @group_id_two }],
-        'ipRanges' => [{ 'cidrIp' => '172.16.0.0/24' }],
+      { 'groups'     =>
+                        [{ 'userId' => @owner_id, 'groupName' => 'fog_security_group_two', 'groupId' => @group_id_two }],
+        'ipRanges'   => [{ 'cidrIp' => '172.16.0.0/24' }],
         'ipProtocol' => 'tcp',
-        'fromPort' => 9000,
-        'toPort' => 9000 }
+        'fromPort'   => 9000,
+        'toPort'     => 9000 }
     ]
 
     tests("#describe_security_groups('group-name' => 'fog_security_group')").returns([]) do
@@ -278,14 +278,14 @@ Shindo.tests('Fog::Compute[:aws] | security group requests', ['aws']) do
       'IpPermissions' => [
         {
           'IpProtocol' => '42',
-          'IpRanges' => [{ 'CidrIp' => '10.0.0.0/8' }],
+          'IpRanges'   => [{ 'CidrIp' => '10.0.0.0/8' }],
         }
       ]
     }
 
     expected_permissions = [
-      { 'groups' => [],
-        'ipRanges' => [{ 'cidrIp' => '10.0.0.0/8' }],
+      { 'groups'     => [],
+        'ipRanges'   => [{ 'cidrIp' => '10.0.0.0/8' }],
         'ipProtocol' => '42' }
     ]
 
@@ -323,9 +323,9 @@ Shindo.tests('Fog::Compute[:aws] | security group requests', ['aws']) do
       Fog::Compute[:aws].authorize_security_group_ingress(
         'not_a_group_name',
 
-        'FromPort' => 80,
+        'FromPort'   => 80,
         'IpProtocol' => 'tcp',
-        'ToPort' => 80
+        'ToPort'     => 80
 
       )
     end
@@ -334,8 +334,8 @@ Shindo.tests('Fog::Compute[:aws] | security group requests', ['aws']) do
       Fog::Compute[:aws].authorize_security_group_ingress(
         'not_a_group_name',
 
-        'SourceSecurityGroupName'     => 'not_a_group_name',
-        'SourceSecurityGroupOwnerId'  => @owner_id
+        'SourceSecurityGroupName'    => 'not_a_group_name',
+        'SourceSecurityGroupOwnerId' => @owner_id
 
       )
     end
@@ -384,9 +384,9 @@ Shindo.tests('Fog::Compute[:aws] | security group requests', ['aws']) do
       Fog::Compute[:aws].revoke_security_group_ingress(
         'not_a_group_name',
 
-        'FromPort' => 80,
+        'FromPort'   => 80,
         'IpProtocol' => 'tcp',
-        'ToPort' => 80
+        'ToPort'     => 80
 
       )
     end
@@ -395,8 +395,8 @@ Shindo.tests('Fog::Compute[:aws] | security group requests', ['aws']) do
       Fog::Compute[:aws].revoke_security_group_ingress(
         'not_a_group_name',
 
-        'SourceSecurityGroupName'     => 'not_a_group_name',
-        'SourceSecurityGroupOwnerId'  => @owner_id
+        'SourceSecurityGroupName'    => 'not_a_group_name',
+        'SourceSecurityGroupOwnerId' => @owner_id
 
       )
     end

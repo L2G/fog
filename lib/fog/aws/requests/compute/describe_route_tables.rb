@@ -45,8 +45,8 @@ module Fog
           end
           params = Fog::AWS.indexed_filters(filters)
           request({
-            'Action'    => 'DescribeRouteTables',
-            :parser     => Fog::Parsers::Compute::AWS::DescribeRouteTables.new
+            'Action' => 'DescribeRouteTables',
+            :parser  => Fog::Parsers::Compute::AWS::DescribeRouteTables.new
           }.merge!(params))
         end
       end
@@ -61,8 +61,8 @@ module Fog
           display_routes = self.data[:route_tables].dup
 
           aliases = {
-            'route-table-id'  => 'routeTableId',
-            'vpc-id'          => 'vpcId'
+            'route-table-id' => 'routeTableId',
+            'vpc-id'         => 'vpcId'
           }
 
           for filter_key, filter_value in filters
@@ -76,8 +76,8 @@ module Fog
           Excon::Response.new(
             :status => 200,
             :body   => {
-              'requestId' => Fog::AWS::Mock.request_id,
-              'routeTableSet'    => display_routes
+              'requestId'     => Fog::AWS::Mock.request_id,
+              'routeTableSet' => display_routes
             }
           )
         end

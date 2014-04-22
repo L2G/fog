@@ -15,19 +15,19 @@ LIST_QUEUES_FORMAT = {
       'href' => String
     )
   ],
-  'links' => LINKS_FORMAT
+  'links'  => LINKS_FORMAT
 }
 
 MESSAGE_FORMAT = {
   'href' => String,
-  'ttl' => Integer,
-  'age' => Integer,
+  'ttl'  => Integer,
+  'age'  => Integer,
   'body' => Hash
 }
 
 LIST_MESSAGES_FORMAT = {
  'messages' => [MESSAGE_FORMAT],
- 'links' => LINKS_FORMAT
+ 'links'    => LINKS_FORMAT
 }
 
 CREATE_CLAIM_FORMAT = [
@@ -35,8 +35,8 @@ CREATE_CLAIM_FORMAT = [
 ]
 
 CLAIM_FORMAT = {
-  'ttl' => Integer,
-  'age' => Integer,
+  'ttl'      => Integer,
+  'age'      => Integer,
   'messages' => [
     MESSAGE_FORMAT
   ]
@@ -44,7 +44,7 @@ CLAIM_FORMAT = {
 
 QUEUE_STATS_FORMAT = {
   'messages' => {
-    'free' => Integer,
+    'free'    => Integer,
     'claimed' => Integer
   }
 }

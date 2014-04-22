@@ -6,14 +6,14 @@ module Fog
           # build up vm configuration
 
           vm_cfg        = {
-            :name         => attributes[:name],
-            :guestId      => attributes[:guest_id],
-            :files        => { :vmPathName => vm_path_name(attributes) },
-            :numCPUs      => attributes[:cpus],
+            :name              => attributes[:name],
+            :guestId           => attributes[:guest_id],
+            :files             => { :vmPathName => vm_path_name(attributes) },
+            :numCPUs           => attributes[:cpus],
             :numCoresPerSocket => attributes[:corespersocket],
-            :memoryMB     => attributes[:memory_mb],
-            :deviceChange => device_change(attributes),
-            :extraConfig  => extra_config(attributes),
+            :memoryMB          => attributes[:memory_mb],
+            :deviceChange      => device_change(attributes),
+            :extraConfig       => extra_config(attributes),
           }
           resource_pool = if attributes[:resource_pool]
                             get_raw_resource_pool(attributes[:resource_pool], attributes[:cluster], attributes[:datacenter])
@@ -71,7 +71,7 @@ module Fog
             :device    => nic.type.new(
               :key         => index,
               :deviceInfo  =>
-                {
+                              {
                   :label   => nic.name,
                   :summary => nic.summary,
                 },

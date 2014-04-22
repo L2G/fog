@@ -3,17 +3,17 @@ require 'fog/openstack'
 Shindo.tests('Fog::Compute[:openstack] | volume requests', ['openstack']) do
 
   @volume_format = {
-    'id'                  => String,
-    'displayName'         => String,
-    'size'                => Integer,
-    'displayDescription'  => String,
-    'status'              => String,
-    'snapshotId'          => Fog::Nullable::String,
-    'availabilityZone'    => String,
-    'attachments'         => Array,
-    'volumeType'          => Fog::Nullable::String,
-    'createdAt'           => String,
-    'metadata'            => Hash
+    'id'                 => String,
+    'displayName'        => String,
+    'size'               => Integer,
+    'displayDescription' => String,
+    'status'             => String,
+    'snapshotId'         => Fog::Nullable::String,
+    'availabilityZone'   => String,
+    'attachments'        => Array,
+    'volumeType'         => Fog::Nullable::String,
+    'createdAt'          => String,
+    'metadata'           => Hash
   }
 
   tests('success') do

@@ -12,9 +12,9 @@ Shindo.tests('Fog::Compute[:ninefold] | nat requests', ['ninefold']) do
       # Create a VM to work with
       networks = Fog::Compute[:ninefold].list_networks
       vm_job = Fog::Compute[:ninefold].deploy_virtual_machine(:serviceofferingid => Ninefold::Compute::TestSupport::SERVICE_OFFERING,
-                                                         :templateid => Ninefold::Compute::TestSupport::TEMPLATE_ID,
-                                                         :zoneid => Ninefold::Compute::TestSupport::ZONE_ID,
-                                                         :networkids => networks[0]['id'])
+                                                              :templateid        => Ninefold::Compute::TestSupport::TEMPLATE_ID,
+                                                              :zoneid            => Ninefold::Compute::TestSupport::ZONE_ID,
+                                                              :networkids        => networks[0]['id'])
       @vm = Ninefold::Compute::TestSupport.wait_for_job(vm_job)['jobresult']['virtualmachine']
       @vmid = @vm['id']
 
@@ -38,8 +38,8 @@ Shindo.tests('Fog::Compute[:ninefold] | nat requests', ['ninefold']) do
     tests('#create_ip_forwarding_rule()').formats(Ninefold::Compute::Formats::Nat::FORWARDING_RULE) do
       pending if Fog.mocking?
       job = Fog::Compute[:ninefold].create_ip_forwarding_rule(:ipaddressid => @ipid,
-                                                         :protocol => 'TCP',
-                                                         :startport => 22)
+                                                              :protocol    => 'TCP',
+                                                              :startport   => 22)
       result = Ninefold::Compute::TestSupport.wait_for_job(job)['jobresult']['ipforwardingrule']
       @fwd_rule_id = result['id']
       result

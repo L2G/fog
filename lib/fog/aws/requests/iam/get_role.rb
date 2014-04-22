@@ -26,9 +26,9 @@ module Fog
         #
         def get_role(role_name)
           request(
-            'Action'    => 'GetRole',
-            'RoleName'  => role_name,
-            :parser     => Fog::Parsers::AWS::IAM::SingleRole.new
+            'Action'   => 'GetRole',
+            'RoleName' => role_name,
+            :parser    => Fog::Parsers::AWS::IAM::SingleRole.new
           )
         end
 

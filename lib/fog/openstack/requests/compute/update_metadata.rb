@@ -6,10 +6,10 @@ module Fog
 
         def update_metadata(collection_name, parent_id, metadata = {})
           request(
-            :body     => Fog::JSON.encode( 'metadata' => metadata ),
-            :expects  => 200,
-            :method   => 'POST',
-            :path     => "#{collection_name}/#{parent_id}/metadata.json"
+            :body    => Fog::JSON.encode( 'metadata' => metadata ),
+            :expects => 200,
+            :method  => 'POST',
+            :path    => "#{collection_name}/#{parent_id}/metadata.json"
           )
         end
 

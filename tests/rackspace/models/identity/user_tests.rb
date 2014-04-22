@@ -5,8 +5,8 @@ Shindo.tests('Fog::Rackspace::Identity | user', ['rackspace']) do
   service = Fog::Rackspace::Identity.new
   options = {
     :username => "fog#{Time.now.to_i}",
-    :email => 'email@example.com',
-    :enabled => true
+    :email    => 'email@example.com',
+    :enabled  => true
   }
 
   model_tests(service.users, options, false) do

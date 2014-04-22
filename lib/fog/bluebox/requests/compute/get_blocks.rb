@@ -16,9 +16,9 @@ module Fog
         #     * 'hostname'<~String> - The hostname for the block
         def get_blocks
           request(
-            :expects  => 200,
-            :method   => 'GET',
-            :path     => 'api/blocks.json'
+            :expects => 200,
+            :method  => 'GET',
+            :path    => 'api/blocks.json'
           )
         end
 

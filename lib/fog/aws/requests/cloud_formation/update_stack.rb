@@ -47,8 +47,8 @@ module Fog
           end
 
           request({
-            'Action'    => 'UpdateStack',
-            :parser     => Fog::Parsers::AWS::CloudFormation::UpdateStack.new
+            'Action' => 'UpdateStack',
+            :parser  => Fog::Parsers::AWS::CloudFormation::UpdateStack.new
           }.merge!(params))
         end
 

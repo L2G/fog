@@ -10,9 +10,9 @@ module Fog
           end
 
           request(
-            :expects  => 200,
-            :method   => 'GET',
-            :path     => "loadbalancers.json?#{query_string}"
+            :expects => 200,
+            :method  => 'GET',
+            :path    => "loadbalancers.json?#{query_string}"
           )
         end
       end

@@ -42,8 +42,8 @@ module Fog
           instance_id = [*instance_id]
           if (self.data[:instances].keys & instance_id).length == instance_id.length
             response.body = {
-              'requestId'     => Fog::AWS::Mock.request_id,
-              'instancesSet'  => []
+              'requestId'    => Fog::AWS::Mock.request_id,
+              'instancesSet' => []
             }
             response.status = 200
             for id in instance_id

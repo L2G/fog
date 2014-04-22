@@ -15,9 +15,9 @@ module Fog
         #      * 'error'<~String>
         def set_record_failover(id, active, failover)
           request(
-                  :expects  => 200,
-                  :method   => 'GET',
-                  :path     => "/rapi/setrecordfailover/#{id}&active=#{active}&failover=#{failover}"
+                  :expects => 200,
+                  :method  => 'GET',
+                  :path    => "/rapi/setrecordfailover/#{id}&active=#{active}&failover=#{failover}"
             )
 
         end

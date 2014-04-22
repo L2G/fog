@@ -27,8 +27,8 @@ module Fog
         def create_route_table(vpc_id)
           request(
             'Action' => 'CreateRouteTable',
-            'VpcId' => vpc_id,
-            :parser => Fog::Parsers::Compute::AWS::CreateRouteTable.new
+            'VpcId'  => vpc_id,
+            :parser  => Fog::Parsers::Compute::AWS::CreateRouteTable.new
           )
         end
       end
@@ -40,23 +40,23 @@ module Fog
           unless vpc.nil?
             response.status = 200
             route_table = {
-              'routeTableId' => "rtb-#{Fog::Mock.random_hex(8)}",
-              'vpcId' => vpc['vpcId'],
-              'routeSet' => [{
+              'routeTableId'   => "rtb-#{Fog::Mock.random_hex(8)}",
+              'vpcId'          => vpc['vpcId'],
+              'routeSet'       => [{
                 'destinationCidrBlock' => vpc['cidrBlock'],
-                'gatewayId' => 'local',
-                'instanceId' => nil,
-                'instanceOwnerId' => nil,
-                'networkInterfaceId' => nil,
-                'state' => 'pending',
-                'origin' => 'CreateRouteTable'
+                'gatewayId'            => 'local',
+                'instanceId'           => nil,
+                'instanceOwnerId'      => nil,
+                'networkInterfaceId'   => nil,
+                'state'                => 'pending',
+                'origin'               => 'CreateRouteTable'
               }],
               'associationSet' => [],
-              'tagSet' => {}
+              'tagSet'         => {}
             }
             self.data[:route_tables].push(route_table)
             response.body = {
-              'requestId' => Fog::AWS::Mock.request_id,
+              'requestId'  => Fog::AWS::Mock.request_id,
               'routeTable' => [route_table]
             }
             response

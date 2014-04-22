@@ -6,7 +6,7 @@ module Fog
         def disassociate_floating_ip(floating_ip_id, options = {})
           data = {
             'floatingip' => {
-              'port_id'    => nil,
+              'port_id' => nil,
             }
           }
 
@@ -16,10 +16,10 @@ module Fog
           end
 
           request(
-            :body     => Fog::JSON.encode(data),
-            :expects  => [200],
-            :method   => 'PUT',
-            :path     => "floatingips/#{floating_ip_id}"
+            :body    => Fog::JSON.encode(data),
+            :expects => [200],
+            :method  => 'PUT',
+            :path    => "floatingips/#{floating_ip_id}"
           )
         end
       end

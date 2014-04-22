@@ -21,19 +21,19 @@ module Fog
         def create_record(domain, name, type, content, options = {})
           body = {
             'record' => {
-              'name' => name,
+              'name'        => name,
               'record_type' => type,
-              'content' => content
+              'content'     => content
             }
           }
 
           body['record'].merge!(options)
 
           request(
-            :body     => Fog::JSON.encode(body),
-            :expects  => 201,
-            :method   => 'POST',
-            :path     => "/domains/#{domain}/records"
+            :body    => Fog::JSON.encode(body),
+            :expects => 201,
+            :method  => 'POST',
+            :path    => "/domains/#{domain}/records"
           )
         end
 
@@ -44,16 +44,16 @@ module Fog
         def create_record(domain, name, type, content, options = {})
           body = {
             'record' => {
-              'id' => Fog::Mock.random_numbers(1).to_i,
-              'domain_id' => domain,
-              'name' => name,
-              'content' => content,
-              'ttl' => 3600,
-              'prio' => nil,
-              'record_type' => type,
+              'id'            => Fog::Mock.random_numbers(1).to_i,
+              'domain_id'     => domain,
+              'name'          => name,
+              'content'       => content,
+              'ttl'           => 3600,
+              'prio'          => nil,
+              'record_type'   => type,
               'system_record' => nil,
-              'created_at' => Time.now.iso8601,
-              'updated_at' => Time.now.iso8601,
+              'created_at'    => Time.now.iso8601,
+              'updated_at'    => Time.now.iso8601,
             }.merge(options)
           }
           self.data[:records][domain] ||= []

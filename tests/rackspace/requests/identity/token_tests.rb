@@ -1,39 +1,39 @@
 Shindo.tests('Fog::Rackspace::Identity | tokens', ['rackspace']) do
   ROLE_FORMAT = {
-    'id' => String,
-    'name' => String,
+    'id'          => String,
+    'name'        => String,
     'description' => String
   }
 
   ENDPOINT_FORMAT = {
-    'tenantId' => String,
-    'publicURL' => Fog::Nullable::String,
+    'tenantId'    => String,
+    'publicURL'   => Fog::Nullable::String,
     'internalURL' => Fog::Nullable::String,
-    'region' => Fog::Nullable::String,
-    'versionId' => Fog::Nullable::String,
+    'region'      => Fog::Nullable::String,
+    'versionId'   => Fog::Nullable::String,
     'versionInfo' => Fog::Nullable::String,
     'versionList' => Fog::Nullable::String
   }
 
   SERVICE_FORMAT = {
-    'name' => String,
-    'type' => String,
+    'name'      => String,
+    'type'      => String,
     'endpoints' => [ENDPOINT_FORMAT]
   }
 
   ACCESS_FORMAT = {
     'access' => {
-      'token' => {
-        'id' => String,
+      'token'          => {
+        'id'      => String,
         'expires' => String,
-        'tenant' => {
-          'id' => String,
+        'tenant'  => {
+          'id'   => String,
           'name' => String
         }
       },
-      'user' => {
-        'id' => String,
-        'name' => String,
+      'user'           => {
+        'id'    => String,
+        'name'  => String,
         'roles' => [ROLE_FORMAT]
       },
       'serviceCatalog' => [SERVICE_FORMAT]

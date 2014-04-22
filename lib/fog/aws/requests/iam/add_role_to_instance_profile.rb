@@ -21,10 +21,10 @@ module Fog
         #
         def add_role_to_instance_profile(role_name, instance_profile_name)
           request(
-            'Action'    => 'AddRoleToInstanceProfile',
+            'Action'              => 'AddRoleToInstanceProfile',
             'InstanceProfileName' => instance_profile_name,
-            'RoleName'  => role_name,
-            :parser     => Fog::Parsers::AWS::IAM::Basic.new
+            'RoleName'            => role_name,
+            :parser               => Fog::Parsers::AWS::IAM::Basic.new
           )
         end
 

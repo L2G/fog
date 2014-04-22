@@ -6,9 +6,9 @@ module Fog
         def get_volume_details(volume_id)
 
           request(
-            :expects  => 200,
-            :method   => 'GET',
-            :path     => "os-volumes/#{volume_id}"
+            :expects => 200,
+            :method  => 'GET',
+            :path    => "os-volumes/#{volume_id}"
           )
         end
 

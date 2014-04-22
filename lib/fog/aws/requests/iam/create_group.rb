@@ -43,7 +43,7 @@ module Fog
           else
             data[:groups][group_name][:path] = path
             Excon::Response.new.tap do |response|
-              response.body = { 'Group' => {
+              response.body = { 'Group'     => {
                                              'GroupId'   => (data[:groups][group_name][:group_id]).strip,
                                              'GroupName' => group_name,
                                              'Path'      => path,

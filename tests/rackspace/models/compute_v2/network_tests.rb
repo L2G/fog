@@ -3,7 +3,7 @@ Shindo.tests('Fog::Compute::RackspaceV2 | network', ['rackspace']) do
 
   options = {
     :label => "fog_network_#{Time.now.to_i}",
-    :cidr => '192.168.0.0/24'
+    :cidr  => '192.168.0.0/24'
   }
 
   model_tests(service.networks, options, true)

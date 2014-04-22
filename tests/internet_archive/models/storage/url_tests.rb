@@ -5,10 +5,10 @@ Shindo.tests('InternetArchive | url', ['internetarchive']) do
   @expires = Time.utc(2013,1,1).utc.to_i
 
   @storage = Fog::Storage.new(
-    :provider => 'InternetArchive',
-    :ia_access_key_id => '123',
+    :provider             => 'InternetArchive',
+    :ia_access_key_id     => '123',
     :ia_secret_access_key => 'abc',
-    :region => 'us-east-1'
+    :region               => 'us-east-1'
   )
 
   @file = @storage.directories.new(:key => 'fognonbucket').files.new(:key => 'test.txt')

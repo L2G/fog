@@ -6,15 +6,15 @@ Shindo.tests('AWS::EMR | job flows', ['aws', 'emr']) do
 
   @job_flow_options = {
     'Instances' => {
-      'MasterInstanceType' => 'm1.small',
-      'SlaveInstanceType' => 'm1.small',
-      'InstanceCount' => 2,
-      'Placement' => {
+      'MasterInstanceType'          => 'm1.small',
+      'SlaveInstanceType'           => 'm1.small',
+      'InstanceCount'               => 2,
+      'Placement'                   => {
         'AvailabilityZone' => 'us-east-1a'
       },
       'KeepJobFlowAliveWhenNoSteps' => false,
-      'TerminationProtected' => false,
-      'HadoopVersion' => '0.20'
+      'TerminationProtected'        => false,
+      'HadoopVersion'               => '0.20'
     }
   }
 
@@ -22,12 +22,12 @@ Shindo.tests('AWS::EMR | job flows', ['aws', 'emr']) do
 
   @job_flow_steps = {
     'Steps' => [{
-      'Name' => @step_name,
+      'Name'            => @step_name,
       'ActionOnFailure' => 'CONTINUE',
-      'HadoopJarStep' => {
-        'Jar' => 'FakeJar',
+      'HadoopJarStep'   => {
+        'Jar'       => 'FakeJar',
         'MainClass' => 'FakeMainClass',
-        'Args' => ['arg1', 'arg2']
+        'Args'      => ['arg1', 'arg2']
       }
     }]
   }

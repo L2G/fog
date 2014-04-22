@@ -6,14 +6,14 @@ module Fog
           data = {
             'network' => {
               'label' => label,
-              'cidr' => cidr
+              'cidr'  => cidr
             }
           }
 
           request(
-            :method => 'POST',
-            :body => Fog::JSON.encode(data),
-            :path => 'os-networksv2',
+            :method  => 'POST',
+            :body    => Fog::JSON.encode(data),
+            :path    => 'os-networksv2',
             :expects => 200
           )
         end
@@ -24,9 +24,9 @@ module Fog
           network_id = Fog::Rackspace::MockData.uuid
 
           self.data[:networks][network_id] = {
-            'id' => network_id,
+            'id'    => network_id,
             'label' => label,
-            'cidr' => cidr
+            'cidr'  => cidr
           }
           response(:body => { 'network' => self.data[:networks][network_id] })
         end

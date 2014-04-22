@@ -19,9 +19,9 @@ module Fog
         def allocate_address(domain = 'standard')
           domain = domain == 'vpc' ? 'vpc' : 'standard'
           request(
-            'Action'  => 'AllocateAddress',
-            'Domain'  => domain,
-            :parser   => Fog::Parsers::Compute::AWS::AllocateAddress.new
+            'Action' => 'AllocateAddress',
+            'Domain' => domain,
+            :parser  => Fog::Parsers::Compute::AWS::AllocateAddress.new
           )
         end
 

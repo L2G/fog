@@ -34,11 +34,11 @@ module Fog
           body = build_request_body_edit(options)
           request(
             :expects => [202,204],
-            :method => 'PUT',
+            :method  => 'PUT',
             :headers => {},
-            :body => body,
-            :uri => vm_uri,
-            :parse => true
+            :body    => body,
+            :uri     => vm_uri,
+            :parse   => true
           )
         end
       end

@@ -27,9 +27,9 @@ module Fog
         #
         def update_group(group_name, options = {})
           request({
-            'Action'      => 'UpdateGroup',
-            'GroupName'    => group_name,
-            :parser       => Fog::Parsers::AWS::IAM::UpdateGroup.new
+            'Action'    => 'UpdateGroup',
+            'GroupName' => group_name,
+            :parser     => Fog::Parsers::AWS::IAM::UpdateGroup.new
           }.merge!(options))
         end
 

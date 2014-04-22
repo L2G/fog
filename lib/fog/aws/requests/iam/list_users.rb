@@ -31,8 +31,8 @@ module Fog
         #
         def list_users(options = {})
           request({
-            'Action'  => 'ListUsers',
-            :parser   => Fog::Parsers::AWS::IAM::ListUsers.new
+            'Action' => 'ListUsers',
+            :parser  => Fog::Parsers::AWS::IAM::ListUsers.new
           }.merge!(options))
         end
 
@@ -42,15 +42,15 @@ module Fog
         def list_users(options = {})
           #FIXME: none of the options are currently supported
           Excon::Response.new.tap do |response|
-            response.body = { 'Users' => data[:users].map do |user, data|
+            response.body = { 'Users'       => data[:users].map do |user, data|
                                           { 'UserId'     => data[:user_id],
                                             'Path'       => data[:path],
                                             'UserName'   => user,
                                             'Arn'        => (data[:arn]).strip,
                                             'CreateDate' => data[:created_at] }
                                         end,
-                             'IsTruncated' => false,
-                             'RequestId'   => Fog::AWS::Mock.request_id }
+                              'IsTruncated' => false,
+                              'RequestId'   => Fog::AWS::Mock.request_id }
             response.status = 200
           end
         end

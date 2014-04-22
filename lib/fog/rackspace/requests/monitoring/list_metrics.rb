@@ -5,9 +5,9 @@ module Fog
 
         def list_metrics(entity_id, check_id)
           request(
-            :expects  => [200, 203],
-            :method   => 'GET',
-            :path     => "entities/#{entity_id}/checks/#{check_id}/metrics"
+            :expects => [200, 203],
+            :method  => 'GET',
+            :path    => "entities/#{entity_id}/checks/#{check_id}/metrics"
           )
         end
       end
@@ -17,7 +17,7 @@ module Fog
           response = Excon::Response.new
           response.status = 200
           response.body = {
-            'values' => [
+            'values'   => [
               {
                 'name' => 'idle_percent_average',
                 'unit' => 'percent'

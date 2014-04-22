@@ -14,9 +14,9 @@ module Fog
         #   * body <~Hash>
         def delete_cache_subnet_group(name)
           request(
-            'Action' => 'DeleteCacheSubnetGroup',
+            'Action'               => 'DeleteCacheSubnetGroup',
             'CacheSubnetGroupName' => name,
-            :parser => Fog::Parsers::AWS::Elasticache::Base.new
+            :parser                => Fog::Parsers::AWS::Elasticache::Base.new
           )
         end
       end
@@ -27,7 +27,7 @@ module Fog
             Excon::Response.new(
 
                     :status => 200,
-                    :body =>   { 'ResponseMetadata' => { 'RequestId' => Fog::AWS::Mock.request_id } }
+                    :body   => { 'ResponseMetadata' => { 'RequestId' => Fog::AWS::Mock.request_id } }
 
             )
           else

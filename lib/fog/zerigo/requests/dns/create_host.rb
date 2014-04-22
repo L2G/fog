@@ -48,11 +48,11 @@ module Fog
           }
 
           request(
-            :body     => %Q{<?xml version="1.0" encoding="UTF-8"?><host><host-type>#{host_type}</host-type><data>#{data}</data>#{optional_tags}</host>},
-            :expects  => 201,
-            :method   => 'POST',
-            :parser   => Fog::Parsers::DNS::Zerigo::CreateHost.new,
-            :path     => "/api/1.1/zones/#{zone_id}/hosts.xml"
+            :body    => %Q{<?xml version="1.0" encoding="UTF-8"?><host><host-type>#{host_type}</host-type><data>#{data}</data>#{optional_tags}</host>},
+            :expects => 201,
+            :method  => 'POST',
+            :parser  => Fog::Parsers::DNS::Zerigo::CreateHost.new,
+            :path    => "/api/1.1/zones/#{zone_id}/hosts.xml"
           )
         end
 
@@ -103,17 +103,17 @@ module Fog
           # Successful case.
           now = Time.now
           host = {
-            'id'            => rand(10000000),
-            'fqdn'          => options[:hostname] ? "#{options[:hostname]}.#{zone['domain']}" : zone['domain'],
-            'data'          => data,
-            'hostname'      => options[:hostname],
-            'ttl'           => options[:ttl].to_i,
-            'host-type'     => host_type,
-            'created-at'    => now,
-            'updated-at'    => now,
-            'notes'         => options[:notes],
-            'priority'      => options[:priority].to_i,
-            'zone-id'       => zone_id
+            'id'         => rand(10000000),
+            'fqdn'       => options[:hostname] ? "#{options[:hostname]}.#{zone['domain']}" : zone['domain'],
+            'data'       => data,
+            'hostname'   => options[:hostname],
+            'ttl'        => options[:ttl].to_i,
+            'host-type'  => host_type,
+            'created-at' => now,
+            'updated-at' => now,
+            'notes'      => options[:notes],
+            'priority'   => options[:priority].to_i,
+            'zone-id'    => zone_id
           }
 
           zone['hosts'] << host

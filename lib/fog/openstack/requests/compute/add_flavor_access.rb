@@ -4,14 +4,14 @@ module Fog
       class Real
         def add_flavor_access(flavor_ref, tenant_id)
           request(
-            :body => Fog::JSON.encode(
+            :body    => Fog::JSON.encode(
               'addTenantAccess' => {
                 'tenant' => tenant_id
               }
             ),
-            :expects  => [200, 203],
-            :method   => 'POST',
-            :path     => "flavors/#{flavor_ref}/action.json"
+            :expects => [200, 203],
+            :method  => 'POST',
+            :path    => "flavors/#{flavor_ref}/action.json"
           )
         end
       end

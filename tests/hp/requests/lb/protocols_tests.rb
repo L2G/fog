@@ -1,7 +1,7 @@
 Shindo.tests('HP::LB | protocols requests', ['hp', 'lb', 'protocols']) do
   @protocol_format = {
-    'name'    => String,
-    'port'    => Integer
+    'name' => String,
+    'port' => Integer
   }
 
   tests('success') do

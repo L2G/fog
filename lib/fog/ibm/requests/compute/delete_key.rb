@@ -14,9 +14,9 @@ module Fog
         #     *'success'<~Bool>: true or false for success
         def delete_key(key_name)
           request(
-            :method   => 'DELETE',
-            :expects  => 200,
-            :path     => "/keys/#{key_name}"
+            :method  => 'DELETE',
+            :expects => 200,
+            :path    => "/keys/#{key_name}"
           )
         end
 

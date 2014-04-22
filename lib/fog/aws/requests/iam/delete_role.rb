@@ -20,9 +20,9 @@ module Fog
         #
         def delete_role(role_name)
           request(
-            'Action'    => 'DeleteRole',
-            'RoleName'  => role_name,
-            :parser     => Fog::Parsers::AWS::IAM::Basic.new
+            'Action'   => 'DeleteRole',
+            'RoleName' => role_name,
+            :parser    => Fog::Parsers::AWS::IAM::Basic.new
           )
         end
 

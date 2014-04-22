@@ -24,14 +24,14 @@ module Fog
           headers = options
           headers['Content-Length'] = data[:headers]['Content-Length']
           request(
-            :body       => data[:body],
-            :expects    => 200,
-            :idempotent => true,
-            :headers    => headers,
+            :body        => data[:body],
+            :expects     => 200,
+            :idempotent  => true,
+            :headers     => headers,
             :bucket_name => bucket_name,
             :object_name => object_name,
-            :method     => 'PUT',
-            :query      => { 'uploadId' => upload_id, 'partNumber' => part_number }
+            :method      => 'PUT',
+            :query       => { 'uploadId' => upload_id, 'partNumber' => part_number }
           )
         end
 

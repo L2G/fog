@@ -1,9 +1,9 @@
 Shindo.tests('HP::LB | versions requests', ['hp', 'lb', 'versions']) do
   @version_format = {
-    'id'        => String,
-    'links'     => [Hash],
-    'status'    => String,
-    'updated'   => String
+    'id'      => String,
+    'links'   => [Hash],
+    'status'  => String,
+    'updated' => String
   }
 
   tests('success') do

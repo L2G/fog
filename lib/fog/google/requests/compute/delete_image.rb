@@ -16,7 +16,7 @@ module Fog
           api_method = @compute.images.delete
           parameters = {
             'project' => @project,
-            'image' => image_name
+            'image'   => image_name
           }
 
           result = self.build_result(api_method, parameters)

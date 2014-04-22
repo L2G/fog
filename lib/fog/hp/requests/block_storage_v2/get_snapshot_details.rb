@@ -22,9 +22,9 @@ module Fog
         #       * metadata<~Hash>: Hash of metadata for the snapshot
         def get_snapshot_details(snapshot_id)
           response = request(
-            :expects  => 200,
-            :method   => 'GET',
-            :path     => "snapshots/#{snapshot_id}"
+            :expects => 200,
+            :method  => 'GET',
+            :path    => "snapshots/#{snapshot_id}"
           )
           response
         end

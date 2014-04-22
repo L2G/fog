@@ -19,8 +19,8 @@ module Fog
         def list_groups
           request(
             :expects => [200],
-            :method => 'GET',
-            :path => 'groups'
+            :method  => 'GET',
+            :path    => 'groups'
           )
         end
       end

@@ -12,9 +12,9 @@ module Fog
         def delete_server_access_config(identity, zone, nic, options = {})
           api_method = @compute.instances.delete_access_config
           parameters = {
-            'project'  => @project,
-            'instance' => identity,
-            'zone'     => zone.split('/')[-1],
+            'project'          => @project,
+            'instance'         => identity,
+            'zone'             => zone.split('/')[-1],
             'networkInterface' => nic,
             'accessConfig'     => options[:access_config].nil? ? 'External NAT' : options[:access_config],
           }

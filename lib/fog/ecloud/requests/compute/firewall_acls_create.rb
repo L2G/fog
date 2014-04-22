@@ -11,12 +11,12 @@ module Fog
           raise ArgumentError.new('Required data missing: destination[:type] is required') unless data[:destination][:type]
 
           request(
-            :body => generate_create_firewall_acls_request(data),
+            :body    => generate_create_firewall_acls_request(data),
             :expects => 201,
-            :method => 'POST',
+            :method  => 'POST',
             :headers => {},
-            :uri => data[:uri],
-            :parse => true
+            :uri     => data[:uri],
+            :parse   => true
           )
         end
 

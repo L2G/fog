@@ -16,7 +16,7 @@ module Fog
           api_method = @compute.addresses.insert
           parameters = {
             'project' => @project,
-            'region' => region_name,
+            'region'  => region_name,
           }
           body_object = { 'name' => address_name }
           body_object['description'] = options[:description] if options[:description]

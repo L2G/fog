@@ -11,10 +11,10 @@ module Fog
 
         def get_zone(options = {})
           request(
-            :expects  => 200,
+            :expects    => 200,
             :idempotent => true,
-            :method   => :get,
-            :path     => ['Zone', options['zone']].compact.join('/')
+            :method     => :get,
+            :path       => ['Zone', options['zone']].compact.join('/')
           )
         end
       end
@@ -24,10 +24,10 @@ module Fog
           if options['zone']
             raise Fog::DNS::Dynect::NotFound unless zone = self.data[:zones][options['zone']]
             data = {
-              'zone_type' => zone[:zone_type],
+              'zone_type'    => zone[:zone_type],
               'serial_style' => zone[:serial_style],
-              'serial' => zone[:serial],
-              'zone' => zone[:zone]
+              'serial'       => zone[:serial],
+              'zone'         => zone[:zone]
             }
             info = "get: Your zone, #{zone[:zone]}"
           else
@@ -40,13 +40,13 @@ module Fog
 
           response.body = {
             'status' => 'success',
-            'data' => data,
+            'data'   => data,
             'job_id' => Fog::Dynect::Mock.job_id,
-            'msgs' => [{
-              'INFO' => info,
+            'msgs'   => [{
+              'INFO'   => info,
               'SOURCE' => 'BLL',
               'ERR_CD' => nil,
-              'LVL' => 'INFO'
+              'LVL'    => 'INFO'
             }]
           }
 

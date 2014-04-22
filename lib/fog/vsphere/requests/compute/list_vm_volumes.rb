@@ -30,14 +30,14 @@ module Fog
         def list_vm_volumes(vm_id)
           get_vm_ref(vm_id).disks.map do |vol|
             {
-              :id => vol.backing.uuid,
-              :thin => (vol.backing.thinProvisioned rescue(nil)),
-              :mode => vol.backing.diskMode,
-              :filename => vol.backing.fileName,
-              :datastore => (vol.backing.datastore.name rescue(nil)),
-              :size => vol.capacityInKB,
-              :name => vol.deviceInfo.label,
-              :key => vol.key,
+              :id          => vol.backing.uuid,
+              :thin        => (vol.backing.thinProvisioned rescue(nil)),
+              :mode        => vol.backing.diskMode,
+              :filename    => vol.backing.fileName,
+              :datastore   => (vol.backing.datastore.name rescue(nil)),
+              :size        => vol.capacityInKB,
+              :name        => vol.deviceInfo.label,
+              :key         => vol.key,
               :unit_number => vol.unitNumber
             }
           end

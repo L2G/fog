@@ -26,9 +26,9 @@ module Fog
           end
           # Merge the CacheNodeIdsToReboot parameters with the normal options
           request(node_id_params.merge(
-            'Action'          => 'RebootCacheCluster',
-            'CacheClusterId'  => id,
-            :parser => Fog::Parsers::AWS::Elasticache::SingleCacheCluster.new
+            'Action'         => 'RebootCacheCluster',
+            'CacheClusterId' => id,
+            :parser          => Fog::Parsers::AWS::Elasticache::SingleCacheCluster.new
           ))
         end
 
@@ -38,10 +38,10 @@ module Fog
         def reboot_cache_cluster(id, nodes_to_reboot)
           response        = Excon::Response.new
           response.body   = {
-            'CacheCluster' => self.data[:clusters][id].merge(
+            'CacheCluster'     => self.data[:clusters][id].merge(
               'CacheClusterStatus' => 'rebooting cache cluster nodes'
             ),
-            'ResponseMetadata'  => { 'RequestId' => Fog::AWS::Mock.request_id }
+            'ResponseMetadata' => { 'RequestId' => Fog::AWS::Mock.request_id }
           }
           response
         end

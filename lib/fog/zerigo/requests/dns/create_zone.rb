@@ -75,11 +75,11 @@ module Fog
           }
 
           request(
-            :body     => %Q{<?xml version="1.0" encoding="UTF-8"?><zone><domain>#{domain}</domain><default-ttl type="integer">#{default_ttl}</default-ttl><ns-type>#{ns_type}</ns-type>#{optional_tags}</zone>},
-            :expects  => 201,
-            :method   => 'POST',
-            :parser   => Fog::Parsers::DNS::Zerigo::CreateZone.new,
-            :path     => '/api/1.1/zones.xml'
+            :body    => %Q{<?xml version="1.0" encoding="UTF-8"?><zone><domain>#{domain}</domain><default-ttl type="integer">#{default_ttl}</default-ttl><ns-type>#{ns_type}</ns-type>#{optional_tags}</zone>},
+            :expects => 201,
+            :method  => 'POST',
+            :parser  => Fog::Parsers::DNS::Zerigo::CreateZone.new,
+            :path    => '/api/1.1/zones.xml'
           )
         end
 
@@ -89,19 +89,19 @@ module Fog
         def create_zone(domain, default_ttl, ns_type, options = {})
           now = Time.now
           zone = {
-            'id'                    => rand(10000000),
-            'domain'                => domain,
-            'created-at'            => now,
-            'updated-at'            => now,
-            'ns1'                   => options[:ns1],
-            'nx-ttl'                => options[:nx_ttl].to_i,
-            'default-ttl'           => default_ttl.to_i,
-            'ns-type'               => ns_type,
-            'hosts'                 => options[:hosts] || [],
-            'hosts-count'           => (options[:hosts] || []).size,
-            'notes'                 => options[:notes],
-            'slave-nameservers'     => options[:slave_nameservers],
-            'tag-list'              => options[:tag_list]
+            'id'                => rand(10000000),
+            'domain'            => domain,
+            'created-at'        => now,
+            'updated-at'        => now,
+            'ns1'               => options[:ns1],
+            'nx-ttl'            => options[:nx_ttl].to_i,
+            'default-ttl'       => default_ttl.to_i,
+            'ns-type'           => ns_type,
+            'hosts'             => options[:hosts] || [],
+            'hosts-count'       => (options[:hosts] || []).size,
+            'notes'             => options[:notes],
+            'slave-nameservers' => options[:slave_nameservers],
+            'tag-list'          => options[:tag_list]
           }
 
           response = Excon::Response.new

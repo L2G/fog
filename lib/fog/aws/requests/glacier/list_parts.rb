@@ -22,12 +22,12 @@ module Fog
           path = "/#{account_id}/vaults/#{Fog::AWS.escape(vault_name)}/multipart-uploads/#{Fog::AWS.escape(upload_id)}"
 
           request(
-            :expects  => 200,
+            :expects    => 200,
             :idempotent => true,
-            :headers => {},
-            :method   => :get,
-            :path     => path,
-            :query    => options
+            :headers    => {},
+            :method     => :get,
+            :path       => path,
+            :query      => options
           )
         end
       end

@@ -5,10 +5,10 @@ module Fog
 
         def update_check(entity_id, check_id, options)
           request(
-            :body     => JSON.encode(options),
-            :expects  => [204],
-            :method   => 'PUT',
-            :path     => "entities/#{entity_id}/checks/#{check_id}"
+            :body    => JSON.encode(options),
+            :expects => [204],
+            :method  => 'PUT',
+            :path    => "entities/#{entity_id}/checks/#{check_id}"
           )
         end
       end

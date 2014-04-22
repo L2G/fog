@@ -28,9 +28,9 @@ module Fog
           end
           # Merge the Cache Security Group parameters with the normal options
           request(parameter_changes.merge(
-            'Action'                      => 'ResetCacheParameterGroup',
-            'CacheParameterGroupName'     => id,
-            :parser => Fog::Parsers::AWS::Elasticache::ResetParameterGroup.new
+            'Action'                  => 'ResetCacheParameterGroup',
+            'CacheParameterGroupName' => id,
+            :parser                   => Fog::Parsers::AWS::Elasticache::ResetParameterGroup.new
           ))
         end
 

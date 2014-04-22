@@ -90,8 +90,8 @@ module Fog
           end
 
           request({
-            'Action'  => 'DescribeJobFlows',
-            :parser   => Fog::Parsers::AWS::EMR::DescribeJobFlows.new,
+            'Action' => 'DescribeJobFlows',
+            :parser  => Fog::Parsers::AWS::EMR::DescribeJobFlows.new,
           }.merge(options))
         end
       end

@@ -5,9 +5,9 @@ module Fog
       class Real
         def list_datacenters
           request(
-            :expects => 200,
-            :method => :'GET',
-            :path => '/my/datacenters',
+            :expects    => 200,
+            :method     => :'GET',
+            :path       => '/my/datacenters',
             :idempotent => true
           )
         end

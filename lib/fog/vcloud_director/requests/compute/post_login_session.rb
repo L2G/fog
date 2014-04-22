@@ -21,7 +21,7 @@ module Fog
         # @since vCloud API version 1.5
         def post_login_session
           headers = {
-            'Accept' => "application/*+xml;version=#{@api_version}",
+            'Accept'        => "application/*+xml;version=#{@api_version}",
             'Authorization' => "Basic #{Base64.encode64("#{@vcloud_director_username}:#{@vcloud_director_password}").delete("\r\n")}"
           }
 

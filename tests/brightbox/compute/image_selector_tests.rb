@@ -2,45 +2,45 @@ Shindo.tests('Fog::Brightbox::Compute::ImageSelector.new', ['brightbox']) do
 
   sample_images = [
     {
-      'id' => 'img-00000',
-      'name' => 'Ubuntu Lucid 10.04 LTS',
-      'official' => true,
-      'arch' => 'i686',
+      'id'         => 'img-00000',
+      'name'       => 'Ubuntu Lucid 10.04 LTS',
+      'official'   => true,
+      'arch'       => 'i686',
       'created_at' => '2013-04-30T12:34:56'
     },
     {
-      'id' => 'img-11111',
-      'name' => 'ubuntu-precise-12.04-amd64-server',
-      'official' => false,
-      'arch' => 'i686',
+      'id'         => 'img-11111',
+      'name'       => 'ubuntu-precise-12.04-amd64-server',
+      'official'   => false,
+      'arch'       => 'i686',
       'created_at' => '2013-05-01T12:34:56'
     },
     {
-      'id' => 'img-22222',
-      'name' => 'ubuntu-quantal-12.10-i386-server',
-      'official' => true,
-      'arch' => 'i686',
+      'id'         => 'img-22222',
+      'name'       => 'ubuntu-quantal-12.10-i386-server',
+      'official'   => true,
+      'arch'       => 'i686',
       'created_at' => '2013-05-01T12:34:56'
     },
     {
-      'id' => 'img-33333',
-      'name' => 'ubuntu-raring-13.04-amd64-server',
-      'official' => true,
-      'arch' => 'amd64',
+      'id'         => 'img-33333',
+      'name'       => 'ubuntu-raring-13.04-amd64-server',
+      'official'   => true,
+      'arch'       => 'amd64',
       'created_at' => '2013-05-01T12:34:56'
     },
     {
-      'id' => 'img-44444',
-      'name' => 'Fedora 17 server',
-      'official' => true,
-      'arch' => 'i686',
+      'id'         => 'img-44444',
+      'name'       => 'Fedora 17 server',
+      'official'   => true,
+      'arch'       => 'i686',
       'created_at' => '2013-05-01T12:34:56'
     },
     {
-      'id' => 'img-ubuntu',
-      'name' => 'ubuntu-raring-13.04-i386-server',
-      'official' => true,
-      'arch' => 'i686',
+      'id'         => 'img-ubuntu',
+      'name'       => 'ubuntu-raring-13.04-i386-server',
+      'official'   => true,
+      'arch'       => 'i686',
       'created_at' => '2013-05-01T12:34:56'
     },
   ]
@@ -61,31 +61,31 @@ Shindo.tests('Fog::Brightbox::Compute::ImageSelector.new', ['brightbox']) do
     tests('#latest_ubuntu').returns('img-ubuntu') do
       sample_images = [
         {
-          'id' => 'img-11111',
-          'name' => 'Ubuntu Lucid 10.04 LTS server',
-          'official' => true,
-          'arch' => 'i686',
+          'id'         => 'img-11111',
+          'name'       => 'Ubuntu Lucid 10.04 LTS server',
+          'official'   => true,
+          'arch'       => 'i686',
           'created_at' => '2013-05-01T12:34:56'
         },
         {
-          'id' => 'img-22222',
-          'name' => 'Ubuntu Quantal 12.10 server',
-          'official' => false,
-          'arch' => 'x86_64',
+          'id'         => 'img-22222',
+          'name'       => 'Ubuntu Quantal 12.10 server',
+          'official'   => false,
+          'arch'       => 'x86_64',
           'created_at' => '2013-05-01T12:34:56'
         },
         {
-          'id' => 'img-ubuntu',
-          'name' => 'Ubuntu Quantal 12.10 server',
-          'official' => true,
-          'arch' => 'i686',
+          'id'         => 'img-ubuntu',
+          'name'       => 'Ubuntu Quantal 12.10 server',
+          'official'   => true,
+          'arch'       => 'i686',
           'created_at' => '2013-05-01T12:34:56'
         },
         {
-          'id' => 'img-33333',
-          'name' => 'Blank disk image',
-          'official' => true,
-          'arch' => 'i686',
+          'id'         => 'img-33333',
+          'name'       => 'Blank disk image',
+          'official'   => true,
+          'arch'       => 'i686',
           'created_at' => '2013-05-01T12:34:56'
         }
       ]

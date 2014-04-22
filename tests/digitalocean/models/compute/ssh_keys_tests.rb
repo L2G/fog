@@ -3,7 +3,7 @@ Shindo.tests('Fog::Compute[:digitalocean] | ssh_keys collection', ['digitalocean
   service =  Fog::Compute[:digitalocean]
 
   tests('The ssh_keys collection') do
-    key = service.ssh_keys.create :name => 'fookey',
+    key = service.ssh_keys.create :name        => 'fookey',
                                   :ssh_pub_key => 'fookey'
     [:all, :get].each do |method|
       test("should respond to #{method}") do

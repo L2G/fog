@@ -5,9 +5,9 @@ module Fog
         def list_customfields()
           @connection.serviceContent.customFieldsManager.field.map do |customfield|
             {
-              :key   => customfield.key.to_i,
-              :name  => customfield.name,
-              :type  => customfield.type
+              :key  => customfield.key.to_i,
+              :name => customfield.name,
+              :type => customfield.type
             }
           end
         end

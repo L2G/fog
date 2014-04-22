@@ -5,8 +5,8 @@ module Fog
         def get_instance(instance_id)
           request(
             :expects => 200,
-            :method => 'GET',
-            :path => "instances/#{instance_id}"
+            :method  => 'GET',
+            :path    => "instances/#{instance_id}"
           )
         end
       end

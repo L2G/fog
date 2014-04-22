@@ -17,8 +17,8 @@ Shindo.tests('Fog::Compute[:aws] | snapshot requests', ['aws']) do
   }
 
   @snapshot_copy_result = {
-    'requestId'   => String,
-    'snapshotId'  => String
+    'requestId'  => String,
+    'snapshotId' => String
   }
 
   @volume = Fog::Compute[:aws].volumes.create(:availability_zone => 'us-east-1a', :size => 1)

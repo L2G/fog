@@ -16,7 +16,7 @@ module Fog
           api_method = @compute.forwarding_rules.insert
           parameters = {
             'project' => @project,
-            'region' => region_name
+            'region'  => region_name
           }
           body_object = { 'name' => forwarding_rule_name }
           body_object.merge!(opts)

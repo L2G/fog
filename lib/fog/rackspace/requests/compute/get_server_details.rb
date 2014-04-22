@@ -25,9 +25,9 @@ module Fog
         #     * 'status'<~String> - Current server status
         def get_server_details(server_id)
           request(
-            :expects  => [200, 203],
-            :method   => 'GET',
-            :path     => "servers/#{server_id}.json"
+            :expects => [200, 203],
+            :method  => 'GET',
+            :path    => "servers/#{server_id}.json"
           )
         end
 

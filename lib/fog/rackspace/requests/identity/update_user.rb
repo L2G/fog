@@ -6,16 +6,16 @@ module Fog
           data = {
             'user' => {
               'username' => username,
-              'email' => email,
-              'enabled' => enabled
+              'email'    => email,
+              'enabled'  => enabled
             }
           }
 
           request(
-            :body => Fog::JSON.encode(data),
+            :body    => Fog::JSON.encode(data),
             :expects => [200, 203],
-            :method => 'POST',
-            :path => "users/#{user_id}"
+            :method  => 'POST',
+            :path    => "users/#{user_id}"
           )
         end
       end

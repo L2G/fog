@@ -11,12 +11,12 @@ module Fog
           end
 
           request(
-            :body => generate_backup_internet_service_request(data),
+            :body    => generate_backup_internet_service_request(data),
             :expects => 201,
-            :method => 'POST',
+            :method  => 'POST',
             :headers => {},
-            :uri => data[:uri],
-            :parse => true
+            :uri     => data[:uri],
+            :parse   => true
           )
         end
 

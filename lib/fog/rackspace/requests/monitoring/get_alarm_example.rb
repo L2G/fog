@@ -5,9 +5,9 @@ module Fog
 
         def get_alarm_example(id)
           request(
-            :expects  => [200, 203],
-            :method   => 'GET',
-            :path     => "alarm_examples/#{id}"
+            :expects => [200, 203],
+            :method  => 'GET',
+            :path    => "alarm_examples/#{id}"
           )
         end
 

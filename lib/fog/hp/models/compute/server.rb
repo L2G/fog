@@ -51,7 +51,7 @@ module Fog
           @metadata ||= begin
             Fog::Compute::HP::Metadata.new(
               :service => service,
-              :parent => self
+              :parent  => self
             )
           end
         end

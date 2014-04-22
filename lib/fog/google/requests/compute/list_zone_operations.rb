@@ -16,7 +16,7 @@ module Fog
         def list_zone_operations(zone)
           api_method = @compute.zone_operations.list
           parameters = {
-            'zone' => zone,
+            'zone'    => zone,
             'project' => @project,
           }
 

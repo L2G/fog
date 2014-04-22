@@ -13,9 +13,9 @@ module Fog
         #     * 'cost'<~Decimal> - Hourly cost of the product
         def get_products
           request(
-            :expects  => 200,
-            :method   => 'GET',
-            :path     => 'api/block_products.json'
+            :expects => 200,
+            :method  => 'GET',
+            :path    => 'api/block_products.json'
           )
         end
 

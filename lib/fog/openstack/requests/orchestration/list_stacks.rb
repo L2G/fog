@@ -25,10 +25,10 @@ module Fog
 
         def list_stacks(options = {})
           request(
-            :expects  => 200,
-            :path => 'stacks',
-            :method => 'GET',
-            :query => options
+            :expects => 200,
+            :path    => 'stacks',
+            :method  => 'GET',
+            :query   => options
           )
         end
 

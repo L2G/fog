@@ -24,10 +24,10 @@ module Fog
           }
 
           request(
-            :body     => Fog::JSON.encode(body),
-            :expects  => 200,
-            :method   => 'PUT',
-            :path     => "/domains/#{domain}/records/#{record_id}"
+            :body    => Fog::JSON.encode(body),
+            :expects => 200,
+            :method  => 'PUT',
+            :path    => "/domains/#{domain}/records/#{record_id}"
           )
         end
 

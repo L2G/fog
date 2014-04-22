@@ -6,8 +6,8 @@ module Fog
         def list_webhooks(group_id, policy_id)
           request(
             :expects => [200],
-            :method => 'GET',
-            :path => "groups/#{group_id}/policies/#{policy_id}/webhooks"
+            :method  => 'GET',
+            :path    => "groups/#{group_id}/policies/#{policy_id}/webhooks"
           )
         end
       end

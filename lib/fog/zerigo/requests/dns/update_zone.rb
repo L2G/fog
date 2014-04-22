@@ -57,10 +57,10 @@ module Fog
           }
 
           request(
-            :body     => %Q{<?xml version="1.0" encoding="UTF-8"?><zone>#{optional_tags}</zone>},
-            :expects  => 200,
-            :method   => 'PUT',
-            :path     => "/api/1.1/zones/#{zone_id}.xml"
+            :body    => %Q{<?xml version="1.0" encoding="UTF-8"?><zone>#{optional_tags}</zone>},
+            :expects => 200,
+            :method  => 'PUT',
+            :path    => "/api/1.1/zones/#{zone_id}.xml"
           )
         end
 

@@ -22,7 +22,7 @@ module Fog
           requires :label, :application_name
           service.events.all(
                                     'ApplicationName' => application_name,
-                                    'VersionLabel' => label
+                                    'VersionLabel'    => label
                                 )
         end
 
@@ -31,7 +31,7 @@ module Fog
           requires :label, :application_name
           service.environments.all(
                                     'ApplicationName' => application_name,
-                                    'VersionLabel' => label
+                                    'VersionLabel'    => label
                                 )
         end
 
@@ -45,11 +45,11 @@ module Fog
           requires :label, :application_name
 
           options = {
-              'ApplicationName' => application_name,
+              'ApplicationName'       => application_name,
               'AutoCreateApplication' => auto_create_application,
-              'Description' => description,
-              'SourceBundle' => source_bundle,
-              'VersionLabel' => label
+              'Description'           => description,
+              'SourceBundle'          => source_bundle,
+              'VersionLabel'          => label
           }
           options.delete_if {|key, value| value.nil?}
 
@@ -64,8 +64,8 @@ module Fog
 
           options = {
               'ApplicationName' => application_name,
-              'Description' => description,
-              'VersionLabel' => label
+              'Description'     => description,
+              'VersionLabel'    => label
           }
           options.delete_if {|key, value| value.nil?}
 

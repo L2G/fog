@@ -80,7 +80,7 @@ module Fog
             name = Fog.respond_to?(:credential) && Fog.credential || :default
             unless server.key_pair = service.key_pairs.get("fog_#{name}")
               server.key_pair = service.key_pairs.create(
-                :name => "fog_#{name}",
+                :name       => "fog_#{name}",
                 :public_key => server.public_key
               )
             end

@@ -5,10 +5,10 @@ module Fog
 
         def update_alarm(entity_id, alarm_id, options)
           request(
-            :body     => JSON.encode(options),
-            :expects  => [204],
-            :method   => 'PUT',
-            :path     => "entities/#{entity_id}/alarms/#{alarm_id}"
+            :body    => JSON.encode(options),
+            :expects => [204],
+            :method  => 'PUT',
+            :path    => "entities/#{entity_id}/alarms/#{alarm_id}"
           )
         end
       end

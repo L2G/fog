@@ -24,10 +24,10 @@ module Fog
         def get_containers(options = {})
           options = options.reject {|key, value| value.nil?}
           request(
-            :expects  => [200, 204],
-            :method   => 'GET',
-            :path     => '',
-            :query    => { 'format' => 'json' }.merge!(options)
+            :expects => [200, 204],
+            :method  => 'GET',
+            :path    => '',
+            :query   => { 'format' => 'json' }.merge!(options)
           )
         end
 
@@ -37,7 +37,7 @@ module Fog
         def get_containers(options = {})
           results = data.map do |name, container|
             {
-              'name' => name,
+              'name'  => name,
               'count' => container.objects.size,
               'bytes' => container.bytes_used
             }

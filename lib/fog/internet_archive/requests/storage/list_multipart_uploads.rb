@@ -38,13 +38,13 @@ module Fog
         #
         def list_multipart_uploads(bucket_name, options = {})
           request(
-            :expects  => 200,
-            :headers  => {},
-            :host     => "#{bucket_name}.#{@host}",
+            :expects    => 200,
+            :headers    => {},
+            :host       => "#{bucket_name}.#{@host}",
             :idempotent => true,
-            :method   => 'GET',
-            :parser   => Fog::Parsers::Storage::InternetArchive::ListMultipartUploads.new,
-            :query    => options.merge!('uploads' => nil)
+            :method     => 'GET',
+            :parser     => Fog::Parsers::Storage::InternetArchive::ListMultipartUploads.new,
+            :query      => options.merge!('uploads' => nil)
           )
         end
 

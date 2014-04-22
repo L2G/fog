@@ -19,10 +19,10 @@ module Fog
           data = options.is_a?(Hash) ? options : { 'name' => options } #LEGACY - second parameter was previously server name
 
           request(
-            :body => Fog::JSON.encode('server' => data),
+            :body    => Fog::JSON.encode('server' => data),
             :expects => [200],
-            :method => 'PUT',
-            :path => "servers/#{server_id}"
+            :method  => 'PUT',
+            :path    => "servers/#{server_id}"
           )
         end
       end

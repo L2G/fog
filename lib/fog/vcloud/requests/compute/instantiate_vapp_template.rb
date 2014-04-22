@@ -73,12 +73,12 @@ module Fog
         def instantiate_vapp_template(options = {})
           validate_instantiate_vapp_template_options options
           request(
-            :body     => generate_instantiate_vapp_template_request(options),
-            :expects  => 201,
-            :headers  => { 'Content-Type' => 'application/vnd.vmware.vcloud.instantiateVAppTemplateParams+xml' },
-            :method   => 'POST',
-            :uri      => options[:vdc_uri] + '/action/instantiateVAppTemplate',
-            :parse    => true
+            :body    => generate_instantiate_vapp_template_request(options),
+            :expects => 201,
+            :headers => { 'Content-Type' => 'application/vnd.vmware.vcloud.instantiateVAppTemplateParams+xml' },
+            :method  => 'POST',
+            :uri     => options[:vdc_uri] + '/action/instantiateVAppTemplate',
+            :parse   => true
           )
         end
       end

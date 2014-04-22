@@ -99,8 +99,8 @@ module Fog
           # IsShared
 
           network_body = {
-            :name           => name,
-            :vdc            => vdc_id,
+            :name => name,
+            :vdc  => vdc_id,
           }
 
           [:Description, :IsShared].each do |key|
@@ -145,14 +145,14 @@ module Fog
           )
 
           body = {
-            :xmlns => xmlns,
-            :xmlns_xsi => xmlns_xsi,
+            :xmlns              => xmlns,
+            :xmlns_xsi          => xmlns_xsi,
             :xsi_schemaLocation => xsi_schema_location,
-            :href => make_href("admin/network/#{id}"),
-            :name => name,
-            :id => "urn:vcloud:network:#{id}",
-            :type => 'application/vnd.vmware.vcloud.orgVdcNetwork+xml',
-            :Link => [
+            :href               => make_href("admin/network/#{id}"),
+            :name               => name,
+            :id                 => "urn:vcloud:network:#{id}",
+            :type               => 'application/vnd.vmware.vcloud.orgVdcNetwork+xml',
+            :Link               => [
               { :rel => 'up', :type => 'application/vnd.vmware.vcloud.vdc+xml', :href => make_href("vdc/#{vdc_id}") },
               { :rel => 'down', :type => 'application/vnd.vmware.vcloud.metadata+xml', :href => make_href("admin/network/#{id}/metadata") },
               { :rel => 'down', :type => 'application/vnd.vmware.vcloud.allocatedNetworkAddress+xml', :href => make_href("admin/network/#{id}/allocatedAddresses/") },
@@ -164,9 +164,9 @@ module Fog
           }
 
           Excon::Response.new(
-            :status => 201,
+            :status  => 201,
             :headers => { 'Content-Type' => "#{body[:type]};version=#{api_version}" },
-            :body => body
+            :body    => body
           )
 
         end

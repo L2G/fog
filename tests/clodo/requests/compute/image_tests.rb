@@ -5,17 +5,17 @@ Shindo.tests('Fog::Compute[:clodo] | image requests', ['clodo']) do
   clodo = Fog::Compute[:clodo]
 
   @image_format = {
-    'id' => String,
-    'name' => String,
-    'status' => String,
+    'id'       => String,
+    'name'     => String,
+    'status'   => String,
     'vps_type' => String
   }
 
   @image_details_format = {
     'os_type' => String,
     'os_bits' => String,
-    'os_hvm' => String,
-    '_attr' => @image_format
+    'os_hvm'  => String,
+    '_attr'   => @image_format
   }
 
   tests('success') do

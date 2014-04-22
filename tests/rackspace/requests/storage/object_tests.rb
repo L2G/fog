@@ -103,11 +103,11 @@ Shindo.tests('Fog::Storage[:rackspace] | object requests', ['rackspace']) do
       Fog::Storage[:rackspace].put_object('fogobjecttests2', 'fog_object', lorem_file)
 
       expected = {
-        'Number Not Found'  => 0,
-        'Response Status'   => '200 OK',
-        'Errors'            => [],
-        'Number Deleted'    => 2,
-        'Response Body'     => ''
+        'Number Not Found' => 0,
+        'Response Status'  => '200 OK',
+        'Errors'           => [],
+        'Number Deleted'   => 2,
+        'Response Body'    => ''
       }
 
       returns(expected, 'deletes multiple objects') do
@@ -149,11 +149,11 @@ Shindo.tests('Fog::Storage[:rackspace] | object requests', ['rackspace']) do
 
     tests('#delete_multiple_objects') do
       expected = {
-        'Number Not Found'  => 2,
-        'Response Status'   => '200 OK',
-        'Errors'            => [],
-        'Number Deleted'    => 0,
-        'Response Body'     => ''
+        'Number Not Found' => 2,
+        'Response Status'  => '200 OK',
+        'Errors'           => [],
+        'Number Deleted'   => 0,
+        'Response Body'    => ''
       }
 
       returns(expected, 'reports missing objects') do
@@ -168,11 +168,11 @@ Shindo.tests('Fog::Storage[:rackspace] | object requests', ['rackspace']) do
         Fog::Storage[:rackspace].put_object('fogobjecttests', 'fog_object', lorem_file)
 
         expected = {
-          'Number Not Found'  => 0,
-          'Response Status'   => '400 Bad Request',
-          'Errors'            => [['fogobjecttests', '409 Conflict']],
-          'Number Deleted'    => 1,
-          'Response Body'     => ''
+          'Number Not Found' => 0,
+          'Response Status'  => '400 Bad Request',
+          'Errors'           => [['fogobjecttests', '409 Conflict']],
+          'Number Deleted'   => 1,
+          'Response Body'    => ''
         }
 
         body = Fog::Storage[:rackspace].delete_multiple_objects(nil, ['fogobjecttests', 'fogobjecttests/fog_object']).body

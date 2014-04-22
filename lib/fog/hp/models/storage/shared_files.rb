@@ -44,7 +44,7 @@ module Fog
           data = service.head_shared_object(shared_object_url)
           file_data = data.headers.merge(
             :body => '',
-            :key => key
+            :key  => key
           )
           new(file_data)
         # throws exception Fog::HP::Errors::Forbidden if insufficient access

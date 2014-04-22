@@ -1,14 +1,14 @@
 Shindo.tests('Fog::Compute[:clodo] | server requests', ['clodo']) do
 
   @ip_format = {
-    'primary_ip'  => Fog::Boolean,
-    'isp'         => Fog::Boolean,
-    'ip'          => String
+    'primary_ip' => Fog::Boolean,
+    'isp'        => Fog::Boolean,
+    'ip'         => String
   }
 
   @server_format = {
     'addresses' => {
-      'public'  => [@ip_format]
+      'public' => [@ip_format]
     },
     'id'        => String,
     'imageId'   => String,
@@ -18,34 +18,34 @@ Shindo.tests('Fog::Compute[:clodo] | server requests', ['clodo']) do
   }
 
   @server_details_format = @server_format.merge(
-                                                  'id' => Integer,
-                                                  'vps_createdate' => String,
-                                                  'vps_hdd_max' => String,
-                                                  'vps_traff' => NilClass,
-                                                  'vps_mem_1h_max' => String,
-                                                  'vps_mem_load' => String,
-                                                  'vps_user_pass' => String,
-                                                  'vps_vnc_pass' => String,
-                                                  'vps_adddate' => String,
-                                                  'vps_os_title' => String,
-                                                  'vps_update' => String,
-                                                  'vps_mem_1h_min' => String,
-                                                  'vps_mem_1h_avg' => NilClass,
-                                                  'vps_memory_max' => String,
-                                                  'vps_os_version' => String,
-                                                  'vps_cpu_1h_max' => String,
-                                                  'vps_hdd_load' => String,
-                                                  'vps_disk_load' => String,
-                                                  'vps_os_type' => String,
-                                                  'vps_memory' => String,
-                                                  'vps_cpu_load' => String,
+                                                  'id'              => Integer,
+                                                  'vps_createdate'  => String,
+                                                  'vps_hdd_max'     => String,
+                                                  'vps_traff'       => NilClass,
+                                                  'vps_mem_1h_max'  => String,
+                                                  'vps_mem_load'    => String,
+                                                  'vps_user_pass'   => String,
+                                                  'vps_vnc_pass'    => String,
+                                                  'vps_adddate'     => String,
+                                                  'vps_os_title'    => String,
+                                                  'vps_update'      => String,
+                                                  'vps_mem_1h_min'  => String,
+                                                  'vps_mem_1h_avg'  => NilClass,
+                                                  'vps_memory_max'  => String,
+                                                  'vps_os_version'  => String,
+                                                  'vps_cpu_1h_max'  => String,
+                                                  'vps_hdd_load'    => String,
+                                                  'vps_disk_load'   => String,
+                                                  'vps_os_type'     => String,
+                                                  'vps_memory'      => String,
+                                                  'vps_cpu_load'    => String,
                                                   'vps_update_days' => String,
-                                                  'vps_os_bits' => String,
-                                                  'vps_vnc' => String,
-                                                  'vps_cpu_max' => String,
-                                                  'vps_cpu_1h_min' => String,
-                                                  'vps_cpu_1h_avg' => NilClass,
-                                                  'vps_root_pass' => String
+                                                  'vps_os_bits'     => String,
+                                                  'vps_vnc'         => String,
+                                                  'vps_cpu_max'     => String,
+                                                  'vps_cpu_1h_min'  => String,
+                                                  'vps_cpu_1h_avg'  => NilClass,
+                                                  'vps_root_pass'   => String
   )
 
   @server_create_format = {

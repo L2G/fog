@@ -24,10 +24,10 @@ Shindo.tests('Fog::AWS[:dynamodb] | item requests', ['aws']) do
     end
 
     @batch_get_item_format = {
-      'Responses' => {
+      'Responses'       => {
         @table_name => {
           'ConsumedCapacityUnits' => Float,
-          'Items' => [{
+          'Items'                 => [{
             'key'   => { 'S' => String },
             'value' => { 'S' => String }
           }]
@@ -44,7 +44,7 @@ Shindo.tests('Fog::AWS[:dynamodb] | item requests', ['aws']) do
     end
 
     @batch_put_item_format = {
-      'Responses' => {
+      'Responses'        => {
         @table_name => {
           'ConsumedCapacityUnits' => Float }
       },
@@ -57,15 +57,15 @@ Shindo.tests('Fog::AWS[:dynamodb] | item requests', ['aws']) do
             pending if Fog.mocking?
             Fog::AWS[:dynamodb].batch_put_item(
               @table_name => [{ 'PutRequest' => { 'Item' =>
-                { 'HashKeyElement' => { 'S' => 'key' },
-                 'RangeKeyElement' => { 'S' => 'key' }
+                                                            { 'HashKeyElement'  => { 'S' => 'key' },
+                                                              'RangeKeyElement' => { 'S' => 'key' }
                 } } }]
             ).body
          end
 
     @get_item_format = {
       'ConsumedCapacityUnits' => Float,
-      'Item' => {
+      'Item'                  => {
         'key'   => { 'S' => String },
         'value' => { 'S' => String }
       }

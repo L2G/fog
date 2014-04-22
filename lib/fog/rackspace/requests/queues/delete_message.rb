@@ -22,9 +22,9 @@ module Fog
           query[:claim_id] = options[:claim_id] if options.has_key? :claim_id
           request(
             :expects => 204,
-            :method => 'DELETE',
-            :path => "queues/#{queue_name}/messages/#{message_id}",
-            :query => query
+            :method  => 'DELETE',
+            :path    => "queues/#{queue_name}/messages/#{message_id}",
+            :query   => query
           )
         end
 

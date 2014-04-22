@@ -25,11 +25,11 @@ end
 
 # create Next Generation Cloud Server service
 service = Fog::Compute.new(
-  :provider             => 'rackspace',
-  :rackspace_username   => rackspace_username,
-  :rackspace_api_key    => rackspace_api_key,
-  :version => :v2,  # Use Next Gen Cloud Servers
-  :rackspace_region => :ord #Use Chicago Region
+  :provider           => 'rackspace',
+  :rackspace_username => rackspace_username,
+  :rackspace_api_key  => rackspace_api_key,
+  :version            => :v2,  # Use Next Gen Cloud Servers
+  :rackspace_region   => :ord #Use Chicago Region
 )
 
 # pick the first flavor
@@ -42,12 +42,12 @@ image = service.images.find {|image| image.name =~ /Ubuntu/}
 server_name = get_user_input "\nEnter Server Name"
 
 # create server
-server = service.servers.create :name => server_name,
-                                :flavor_id => flavor.id,
-                                :image_id => image.id,
-                                :metadata => { 'fog_sample' => 'true' },
+server = service.servers.create :name        => server_name,
+                                :flavor_id   => flavor.id,
+                                :image_id    => image.id,
+                                :metadata    => { 'fog_sample' => 'true' },
                                 :personality => [{
-                                  :path => '/root/fog.txt',
+                                  :path     => '/root/fog.txt',
                                   :contents => Base64.encode64('Fog was here!')
                                 }]
 

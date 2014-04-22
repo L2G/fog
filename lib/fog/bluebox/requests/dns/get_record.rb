@@ -19,10 +19,10 @@ module Fog
         #     * 'content'<~String> - data for the DNS record (ie for an A record, the IP address)
         def get_record(zone_id, record_id)
           request(
-            :expects  => 200,
-            :method   => 'GET',
-            :parser   => Fog::Parsers::DNS::Bluebox::GetRecord.new,
-            :path     => "/api/domains/#{zone_id}/records/#{record_id}.xml"
+            :expects => 200,
+            :method  => 'GET',
+            :parser  => Fog::Parsers::DNS::Bluebox::GetRecord.new,
+            :path    => "/api/domains/#{zone_id}/records/#{record_id}.xml"
           )
         end
 

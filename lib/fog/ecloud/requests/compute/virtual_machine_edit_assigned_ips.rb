@@ -27,11 +27,11 @@ module Fog
           body = build_request_body_edit_assigned_ips(options)
           request(
             :expects => 202,
-            :method => 'PUT',
+            :method  => 'PUT',
             :headers => {},
-            :body => body,
-            :uri => href,
-            :parse => true
+            :body    => body,
+            :uri     => href,
+            :parse   => true
           )
         end
       end

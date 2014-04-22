@@ -14,9 +14,9 @@ module Fog
         #     *'success'<~Bool>: true or false for success
         def delete_volume(volume_id)
           request(
-            :method   => 'DELETE',
-            :expects  => 200,
-            :path     => "/storage/#{volume_id}"
+            :method  => 'DELETE',
+            :expects => 200,
+            :path    => "/storage/#{volume_id}"
           )
         end
 

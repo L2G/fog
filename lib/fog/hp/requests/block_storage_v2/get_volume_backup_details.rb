@@ -26,9 +26,9 @@ module Fog
         #       * 'links'<~Array> - array of volume backup links
         def get_volume_backup_details(backup_id)
           response = request(
-            :expects  => 200,
-            :method   => 'GET',
-            :path     => "backups/#{backup_id}"
+            :expects => 200,
+            :method  => 'GET',
+            :path    => "backups/#{backup_id}"
           )
           response
         end

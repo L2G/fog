@@ -15,7 +15,7 @@ Shindo.tests('Fog::Compute[:openstack] | server', ['openstack']) do
 
       ip1 = net.floating_ips.create(:floating_network_id => 'f0000000-0000-0000-0000\
 -000000000000',
-                                                         :fixed_ip_address => '192.168.11.3')
+                                    :fixed_ip_address    => '192.168.11.3')
 
       server.associate_address(ip1.fixed_ip_address)
       server.reload
@@ -27,7 +27,7 @@ Shindo.tests('Fog::Compute[:openstack] | server', ['openstack']) do
       fog = Fog::Compute[:openstack]
 
       begin
-        my_group = fog.security_groups.create(:name => 'my_group',
+        my_group = fog.security_groups.create(:name        => 'my_group',
                                               :description => 'my group')
 
         flavor = fog.flavors.first.id
@@ -95,7 +95,7 @@ Shindo.tests('Fog::Compute[:openstack] | server', ['openstack']) do
         image  = fog.images.first.id
 
         server = fog.servers.new(:name       => 'test server',
-                                 :metadata => { 'foo' => 'bar' },
+                                 :metadata   => { 'foo' => 'bar' },
                                  :flavor_ref => flavor,
                                  :image_ref  => image)
 
@@ -162,9 +162,9 @@ Shindo.tests('Fog::Compute[:openstack] | server', ['openstack']) do
       fog = Fog::Compute[:openstack]
 
       begin
-        volume = fog.volumes.new(:name => 'test volume',
+        volume = fog.volumes.new(:name        => 'test volume',
                                  :description => 'test volume',
-                                 :size => 1)
+                                 :size        => 1)
         volume.save
         volume.wait_for { volume.status == 'available' } unless Fog.mocking?
 

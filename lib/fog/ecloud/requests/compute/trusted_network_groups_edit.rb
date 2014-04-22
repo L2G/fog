@@ -12,12 +12,12 @@ module Fog
           end
 
           request(
-            :body => generate_edit_trusted_network_groups_request(data),
+            :body    => generate_edit_trusted_network_groups_request(data),
             :expects => 202,
-            :method => 'PUT',
+            :method  => 'PUT',
             :headers => {},
-            :uri => data[:uri],
-            :parse => true
+            :uri     => data[:uri],
+            :parse   => true
           )
         end
 

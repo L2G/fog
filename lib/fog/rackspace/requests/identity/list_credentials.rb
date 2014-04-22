@@ -5,8 +5,8 @@ module Fog
         def list_credentials(user_id)
           response = request(
             :expects => [200, 203],
-            :method => 'GET',
-            :path => "users/#{user_id}/OS-KSADM/credentials"
+            :method  => 'GET',
+            :path    => "users/#{user_id}/OS-KSADM/credentials"
           )
 
           unless response.body['credentials'].is_a?(Array)

@@ -19,9 +19,9 @@ module Fog
           email = options[:email] || @rage4_email
           nsprefix = options[:nsprefix] || 'ns'
           request(
-                  :expects  => 200,
-                  :method   => 'GET',
-                  :path     => "/rapi/createregulardomainext/?name=#{name}&email=#{email}" +
+                  :expects => 200,
+                  :method  => 'GET',
+                  :path    => "/rapi/createregulardomainext/?name=#{name}&email=#{email}" +
                     "&nsname=#{nsname}&nsprefix=#{nsprefix}"
           )
         end

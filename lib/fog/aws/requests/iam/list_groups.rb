@@ -31,8 +31,8 @@ module Fog
         #
         def list_groups(options = {})
           request({
-            'Action'  => 'ListGroups',
-            :parser   => Fog::Parsers::AWS::IAM::ListGroups.new
+            'Action' => 'ListGroups',
+            :parser  => Fog::Parsers::AWS::IAM::ListGroups.new
           }.merge!(options))
         end
 
@@ -44,14 +44,14 @@ module Fog
           #FIXME: Doesn't observe options
           Excon::Response.new.tap do |response|
             response.status = 200
-            response.body = { 'Groups' => data[:groups].map do |name, group|
+            response.body = { 'Groups'      => data[:groups].map do |name, group|
                                             { 'GroupId'   => group[:group_id],
                                               'GroupName' => name,
                                               'Path'      => group[:path],
                                               'Arn'       => (group[:arn]).strip }
                                           end,
                               'IsTruncated' => false,
-                              'RequestId' => Fog::AWS::Mock.request_id }
+                              'RequestId'   => Fog::AWS::Mock.request_id }
           end
         end
       end

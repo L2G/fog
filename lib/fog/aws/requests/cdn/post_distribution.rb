@@ -102,23 +102,23 @@ module Fog
           dist_id = Fog::CDN::AWS::Mock.distribution_id
 
           distribution = {
-            'DomainName' => Fog::CDN::AWS::Mock.domain_name,
-            'Id' => dist_id,
-            'Status' => 'InProgress',
-            'LastModifiedTime' => Time.now.utc.iso8601,
+            'DomainName'                    => Fog::CDN::AWS::Mock.domain_name,
+            'Id'                            => dist_id,
+            'Status'                        => 'InProgress',
+            'LastModifiedTime'              => Time.now.utc.iso8601,
             'InProgressInvalidationBatches' => 0,
-            'DistributionConfig' => {
+            'DistributionConfig'            => {
               'CallerReference' => options['CallerReference'],
-              'CNAME' => options['CNAME'] || [],
-              'Comment' => options['Comment'],
-              'Enabled' => options['Enabled'],
-              'Logging' => {
+              'CNAME'           => options['CNAME'] || [],
+              'Comment'         => options['Comment'],
+              'Enabled'         => options['Enabled'],
+              'Logging'         => {
                 'Bucket' => options['Bucket'],
                 'Prefix' => options['Prefix']
               },
-              'S3Origin' => options['S3Origin'],
-              'CustomOrigin' => options['CustomOrigin'],
-              'TrustedSigners' => options['TrustedSigners'] || []
+              'S3Origin'        => options['S3Origin'],
+              'CustomOrigin'    => options['CustomOrigin'],
+              'TrustedSigners'  => options['TrustedSigners'] || []
             }
           }
 

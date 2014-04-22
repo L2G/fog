@@ -23,10 +23,10 @@ module Fog
         # {Amazon API Reference}[http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-CreateRoute.html]
         def create_route(route_table_id, destination_cidr_block, internet_gateway_id = nil, instance_id = nil, network_interface_id = nil)
           request_vars = {
-            'Action'                => 'CreateRoute',
-            'RouteTableId'          => route_table_id,
-            'DestinationCidrBlock'  => destination_cidr_block,
-            :parser                 => Fog::Parsers::Compute::AWS::Basic.new
+            'Action'               => 'CreateRoute',
+            'RouteTableId'         => route_table_id,
+            'DestinationCidrBlock' => destination_cidr_block,
+            :parser                => Fog::Parsers::Compute::AWS::Basic.new
           }
           if internet_gateway_id
             request_vars['GatewayId'] = internet_gateway_id
@@ -58,17 +58,17 @@ module Fog
                 response = Excon::Response.new
                 route_table['routeSet'].push(
                   'destinationCidrBlock' => destination_cidr_block,
-                  'gatewayId' => internet_gateway_id,
-                  'instanceId' => instance_id,
-                  'instanceOwnerId' => instance_owner_id,
-                  'networkInterfaceId' => network_interface_id,
-                  'state' => 'pending',
-                  'origin' => 'CreateRoute'
+                  'gatewayId'            => internet_gateway_id,
+                  'instanceId'           => instance_id,
+                  'instanceOwnerId'      => instance_owner_id,
+                  'networkInterfaceId'   => network_interface_id,
+                  'state'                => 'pending',
+                  'origin'               => 'CreateRoute'
                 )
                 response.status = 200
                 response.body = {
                   'requestId' => Fog::AWS::Mock.request_id,
-                  'return' => true
+                  'return'    => true
                 }
                 response
               end

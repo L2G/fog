@@ -17,7 +17,7 @@ module Fog
           parameters = {
             'project' => @project,
             'address' => address_name,
-            'region' => region_name
+            'region'  => region_name
           }
 
           result = self.build_result(api_method, parameters)

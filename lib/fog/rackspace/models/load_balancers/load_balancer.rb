@@ -39,7 +39,7 @@ module Fog
         def access_rules
           @access_rules ||= begin
             Fog::Rackspace::LoadBalancers::AccessRules.new(
-              :service => service,
+              :service       => service,
               :load_balancer => self)
           end
         end
@@ -51,7 +51,7 @@ module Fog
         def nodes
           @nodes ||= begin
             Fog::Rackspace::LoadBalancers::Nodes.new(
-              :service => service,
+              :service       => service,
               :load_balancer => self)
           end
         end
@@ -80,7 +80,7 @@ module Fog
         def virtual_ips
           @virtual_ips ||= begin
             Fog::Rackspace::LoadBalancers::VirtualIps.new(
-              :service => service,
+              :service       => service,
               :load_balancer => self)
           end
         end
@@ -231,11 +231,11 @@ module Fog
         def update
           requires :name, :protocol, :port, :algorithm, :timeout
           options = {
-            :name => name,
+            :name      => name,
             :algorithm => algorithm,
-            :protocol => protocol,
-            :port => port,
-            :timeout => timeout }
+            :protocol  => protocol,
+            :port      => port,
+            :timeout   => timeout }
           service.update_load_balancer(identity, options)
 
           #TODO - Should this bubble down to nodes? Without tracking changes this would be very inefficient.

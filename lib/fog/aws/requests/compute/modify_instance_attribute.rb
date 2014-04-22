@@ -26,10 +26,10 @@ module Fog
           params.merge!(Fog::AWS.indexed_param('GroupId', attributes.delete('GroupId') || []))
           params.merge!(attributes)
           request({
-            'Action'        => 'ModifyInstanceAttribute',
-            'InstanceId'    => instance_id,
-            :idempotent     => true,
-            :parser         => Fog::Parsers::Compute::AWS::Basic.new
+            'Action'     => 'ModifyInstanceAttribute',
+            'InstanceId' => instance_id,
+            :idempotent  => true,
+            :parser      => Fog::Parsers::Compute::AWS::Basic.new
           }.merge!(params))
         end
 

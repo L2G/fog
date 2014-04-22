@@ -7,7 +7,7 @@ module Fog
 
           body = { 'rebuild' => {
             'imageRef' => image_ref,
-            'name' => name
+            'name'     => name
           } }
           body['rebuild']['adminPass'] = admin_pass if admin_pass
           body['rebuild']['metadata'] = metadata if metadata
@@ -15,8 +15,8 @@ module Fog
             body['rebuild']['personality'] = []
             for file in personality
               body['rebuild']['personality'] << {
-                'contents'  => Base64.encode64(file['contents']),
-                'path'      => file['path']
+                'contents' => Base64.encode64(file['contents']),
+                'path'     => file['path']
               }
             end
           end

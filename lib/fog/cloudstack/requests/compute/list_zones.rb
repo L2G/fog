@@ -22,9 +22,9 @@ module Fog
 
           {
             'listzonesresponse' =>
-            {
+                                   {
               'count' => zones.size,
-              'zone' => zones
+              'zone'  => zones
             }
           }
         end

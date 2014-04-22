@@ -5,8 +5,8 @@ module Fog
         def remove_connection_throttling(load_balancer_id)
           request(
             :expects => [200, 202],
-            :path => "loadbalancers/#{load_balancer_id}/connectionthrottle",
-            :method => 'DELETE'
+            :path    => "loadbalancers/#{load_balancer_id}/connectionthrottle",
+            :method  => 'DELETE'
           )
         end
       end

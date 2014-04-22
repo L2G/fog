@@ -50,9 +50,9 @@ module Fog
           path << "&udplimit=#{options[:udplimit]}" if options[:udplimit]
 
           request(
-                  :expects  => 200,
-                  :method   => 'GET',
-                  :path     => path
+                  :expects => 200,
+                  :method  => 'GET',
+                  :path    => path
           )
         end
 

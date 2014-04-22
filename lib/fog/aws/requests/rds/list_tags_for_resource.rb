@@ -14,9 +14,9 @@ module Fog
         #   * body<~Hash>:
         def list_tags_for_resource(rds_id)
           request(
-            'Action'        => 'ListTagsForResource',
-            'ResourceName'  => "arn:aws:rds:#{@region}:#{owner_id}:db:#{rds_id}",
-            :parser         => Fog::Parsers::AWS::RDS::TagListParser.new
+            'Action'       => 'ListTagsForResource',
+            'ResourceName' => "arn:aws:rds:#{@region}:#{owner_id}:db:#{rds_id}",
+            :parser        => Fog::Parsers::AWS::RDS::TagListParser.new
           )
         end
 
@@ -30,7 +30,7 @@ module Fog
             response.status = 200
             response.body = {
               'ListTagsForResourceResult' =>
-                { 'TagList' =>  self.data[:tags][rds_id] }
+                                             { 'TagList' =>  self.data[:tags][rds_id] }
             }
             response
           else

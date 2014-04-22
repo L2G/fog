@@ -110,8 +110,8 @@ module Fog
             'type' => launch_config.type
           }
           group_config_hash = {
-            'name' => group_config.name,
-            'cooldown' => group_config.cooldown,
+            'name'        => group_config.name,
+            'cooldown'    => group_config.cooldown,
             'maxEntities' => group_config.max_entities,
             'minEntities' => group_config.min_entities
           }

@@ -26,10 +26,10 @@ module Fog
           end
 
           request(
-            :body     => Fog::JSON.encode(data),
-            :expects  => 202,
-            :method   => 'POST',
-            :path     => "backups/#{backup_id}/restore"
+            :body    => Fog::JSON.encode(data),
+            :expects => 202,
+            :method  => 'POST',
+            :path    => "backups/#{backup_id}/restore"
           )
         end
 

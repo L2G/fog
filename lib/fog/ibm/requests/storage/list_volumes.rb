@@ -24,9 +24,9 @@ module Fog
         #       * 'state'<~Integer>: known so far: 4 provisioned, unattached; 5 provisioned, attached
         def list_volumes
           request(
-            :method   => 'GET',
-            :expects  => 200,
-            :path     => '/storage'
+            :method  => 'GET',
+            :expects => 200,
+            :path    => '/storage'
           )
         end
 

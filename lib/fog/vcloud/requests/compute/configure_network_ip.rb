@@ -19,12 +19,12 @@ module Fog
           validate_network_ip_data(network_ip_data)
 
           request(
-            :body     => generate_configure_network_ip_request(network_ip_data),
-            :expects  => 200,
-            :headers  => { 'Content-Type' => 'application/vnd.vmware.vcloud.ip+xml' },
-            :method   => 'PUT',
-            :uri      => network_ip_uri,
-            :parse    => true
+            :body    => generate_configure_network_ip_request(network_ip_data),
+            :expects => 200,
+            :headers => { 'Content-Type' => 'application/vnd.vmware.vcloud.ip+xml' },
+            :method  => 'PUT',
+            :uri     => network_ip_uri,
+            :parse   => true
           )
         end
 

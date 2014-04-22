@@ -145,7 +145,7 @@ Shindo.tests('Fog::Storage[:aws] | versioning', ['aws']) do
       file_count.times do |id|
         file_names << "file_#{id}"
         files[file_names.last] = bucket.files.create(:body => 'a',
-                                                     :key => file_names.last)
+                                                     :key  => file_names.last)
       end
 
       tests('deleting an object just stores a delete marker').returns(true) do

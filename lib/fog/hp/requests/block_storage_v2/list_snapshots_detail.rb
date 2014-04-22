@@ -26,10 +26,10 @@ module Fog
         #       * metadata<~Hash>: Hash of metadata for the snapshot
         def list_snapshots_detail(options = {})
           response = request(
-            :expects  => 200,
-            :method   => 'GET',
-            :path     => 'snapshots/detail',
-            :query    => options
+            :expects => 200,
+            :method  => 'GET',
+            :path    => 'snapshots/detail',
+            :query   => options
           )
           response
         end

@@ -23,8 +23,8 @@ module Fog
 
           {
               'registertemplateresponse' =>
-              {
-                  'count' => 1,
+                                            {
+                  'count'    => 1,
                   'template' => [registered_template]
               }
           }

@@ -19,10 +19,10 @@ module Fog
           }.merge(options)
 
           request(
-            :expects  => 202,
-            :path => "stacks/#{stack_name}/#{stack_id}",
-            :method => 'PUT',
-            :body => Fog::JSON.encode(params)
+            :expects => 202,
+            :path    => "stacks/#{stack_name}/#{stack_id}",
+            :method  => 'PUT',
+            :body    => Fog::JSON.encode(params)
           )
         end
 

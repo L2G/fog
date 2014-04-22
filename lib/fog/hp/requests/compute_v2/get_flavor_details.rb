@@ -20,9 +20,9 @@ module Fog
         #     * 'links'<~Array> - array of flavor links
         def get_flavor_details(flavor_id)
           request(
-            :expects  => [200, 203],
-            :method   => 'GET',
-            :path     => "flavors/#{flavor_id}"
+            :expects => [200, 203],
+            :method  => 'GET',
+            :path    => "flavors/#{flavor_id}"
           )
         end
 

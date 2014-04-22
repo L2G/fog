@@ -3,7 +3,7 @@ Shindo.tests('Fog::Network[:openstack] | lb_health_monitor', ['openstack']) do
   tests('success') do
     before do
       @lb_pool = Fog::Network[:openstack].lb_pools.create(:subnet_id => 'subnet_id',
-                                                          :protocol => 'HTTP',
+                                                          :protocol  => 'HTTP',
                                                           :lb_method => 'ROUND_ROBIN')
     end
 
@@ -12,15 +12,15 @@ Shindo.tests('Fog::Network[:openstack] | lb_health_monitor', ['openstack']) do
     end
 
     tests('#create').succeeds do
-      @instance = Fog::Network[:openstack].lb_health_monitors.create(:type => 'PING',
-                                                                     :delay => 1,
-                                                                     :timeout => 5,
-                                                                     :max_retries => 10,
-                                                                     :http_method => 'GET',
-                                                                     :url_path => '/',
+      @instance = Fog::Network[:openstack].lb_health_monitors.create(:type           => 'PING',
+                                                                     :delay          => 1,
+                                                                     :timeout        => 5,
+                                                                     :max_retries    => 10,
+                                                                     :http_method    => 'GET',
+                                                                     :url_path       => '/',
                                                                      :expected_codes => '200, 201',
                                                                      :admin_state_up => true,
-                                                                     :tenant_id => 'tenant_id')
+                                                                     :tenant_id      => 'tenant_id')
       !@instance.id.nil?
     end
 

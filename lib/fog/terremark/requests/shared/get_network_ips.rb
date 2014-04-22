@@ -14,10 +14,10 @@ module Fog
         #   FIXME
         def get_network_ips(network_id)
           opts =  {
-            :expects  => 200,
-            :method   => 'GET',
-            :parser   => Fog::Parsers::Terremark::Shared::GetNetworkIps.new,
-            :path     => "network/#{network_id}/ipAddresses"
+            :expects => 200,
+            :method  => 'GET',
+            :parser  => Fog::Parsers::Terremark::Shared::GetNetworkIps.new,
+            :path    => "network/#{network_id}/ipAddresses"
           }
           if self.is_a?(Fog::Terremark::Ecloud::Real)
             opts[:path] = "/extensions/network/#{network_id}/ips"

@@ -29,7 +29,7 @@ module Fog
         def records
           @records ||= begin
             Fog::DNS::Bluebox::Records.new(
-              :zone       => self,
+              :zone    => self,
               :service => service
             )
           end

@@ -46,8 +46,8 @@ module Fog
           end
 
           request({
-              'Action'    => 'PutMetricAlarm',
-              :parser     => Fog::Parsers::AWS::CloudWatch::PutMetricAlarm.new
+              'Action' => 'PutMetricAlarm',
+              :parser  => Fog::Parsers::AWS::CloudWatch::PutMetricAlarm.new
             }.merge(options))
         end
       end
@@ -72,12 +72,12 @@ module Fog
           end
 
           data[:metric_alarms][options['AlarmName']] = {
-            'AlarmARN' => "arn:aws:cloudwatch:eu-west-1:000000000000:metricAlarm:00000000-0000-0000-0000-000000000000:alarmName/#{options['AlarmName']}",
-            'ActionsEnabled' => false,
-            'AlarmActions' => [],
+            'AlarmARN'                           => "arn:aws:cloudwatch:eu-west-1:000000000000:metricAlarm:00000000-0000-0000-0000-000000000000:alarmName/#{options['AlarmName']}",
+            'ActionsEnabled'                     => false,
+            'AlarmActions'                       => [],
             'AlarmConfigurationUpdatedTimestamp' => Time.now.utc.strftime('%Y-%m-%dT%H:%M:%SZ'),
-            'Dimensions' => [],
-            'OKActions' => [],
+            'Dimensions'                         => [],
+            'OKActions'                          => [],
           }.merge!(options)
 
           response = Excon::Response.new

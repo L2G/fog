@@ -9,7 +9,7 @@ Shindo.tests('Fog::Compute[:brightbox] | firewall rule requests', ['brightbox'])
 
     create_options = {
       :firewall_policy => policy.id,
-      :destination => '127.0.0.1'
+      :destination     => '127.0.0.1'
     }
 
     tests("#create_firewall_rule(#{create_options.inspect})") do

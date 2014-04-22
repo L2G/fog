@@ -9,7 +9,7 @@ module Fog
         def delete_ssh_key_pair(name,options = {})
           options.merge!(
             'command' => 'deleteSSHKeyPair',
-            'name' => name
+            'name'    => name
           )
 
           request(options)

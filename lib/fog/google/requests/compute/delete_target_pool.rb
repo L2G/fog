@@ -20,9 +20,9 @@ module Fog
 
           api_method = @compute.target_pools.delete
           parameters = {
-            'project' => @project,
+            'project'    => @project,
             'targetPool' => target_pool_name,
-            'region' => region_name
+            'region'     => region_name
           }
 
           result = self.build_result(api_method, parameters)

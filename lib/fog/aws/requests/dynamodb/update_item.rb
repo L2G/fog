@@ -32,14 +32,14 @@ module Fog
         #     varies based on ReturnValues param, see: http://docs.amazonwebservices.com/amazondynamodb/latest/developerguide/API_UpdateItem.html
         def update_item(table_name, key, attribute_updates, options = {})
           body = {
-            'AttributeUpdates'  => attribute_updates,
-            'Key'               => key,
-            'TableName'         => table_name
+            'AttributeUpdates' => attribute_updates,
+            'Key'              => key,
+            'TableName'        => table_name
           }.merge(options)
 
           request(
-            :body     => Fog::JSON.encode(body),
-            :headers  => { 'x-amz-target' => 'DynamoDB_20111205.UpdateItem' }
+            :body    => Fog::JSON.encode(body),
+            :headers => { 'x-amz-target' => 'DynamoDB_20111205.UpdateItem' }
           )
         end
 

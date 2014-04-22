@@ -18,7 +18,7 @@ module Fog
       class Mock
         def list_virtual_machines(options = {})
           { 'listvirtualmachinesresponse' =>
-            { 'count' => self.data[:servers].values.size, 'virtualmachine' => self.data[:servers].values } }
+                                             { 'count' => self.data[:servers].values.size, 'virtualmachine' => self.data[:servers].values } }
         end
       end # Mock
     end # Cloudstack

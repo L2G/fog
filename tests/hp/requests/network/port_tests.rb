@@ -1,18 +1,18 @@
 Shindo.tests('HP::Network | networking port requests', ['hp', 'networking', 'port']) do
 
   @port_format = {
-    'id'                => String,
-    'name'              => Fog::Nullable::String,
-    'network_id'        => String,
-    'fixed_ips'         => Array,
-    'mac_address'       => String,
-    'status'            => String,
-    'admin_state_up'    => Fog::Boolean,
-    'binding:vif_type'  => String,
-    'device_owner'      => String,
-    'device_id'         => String,
-    'security_groups'   => Array,
-    'tenant_id'         => String
+    'id'               => String,
+    'name'             => Fog::Nullable::String,
+    'network_id'       => String,
+    'fixed_ips'        => Array,
+    'mac_address'      => String,
+    'status'           => String,
+    'admin_state_up'   => Fog::Boolean,
+    'binding:vif_type' => String,
+    'device_owner'     => String,
+    'device_id'        => String,
+    'security_groups'  => Array,
+    'tenant_id'        => String
   }
 
   n_data = HP[:network].create_network(:name => 'fog_network').body['network']

@@ -19,12 +19,12 @@ module Fog
 DATA
 
           request(
-            :body     => data,
-            :expects  => 200,
-            :headers  => {},
+            :body        => data,
+            :expects     => 200,
+            :headers     => {},
             :bucket_name => bucket_name,
-            :method   => 'PUT',
-            :query    => { 'versioning' => nil }
+            :method      => 'PUT',
+            :query       => { 'versioning' => nil }
           )
         end
       end
@@ -43,10 +43,10 @@ DATA
               response.status = 400
               response.body = {
                 'Error' => {
-                  'Code' => 'MalformedXML',
-                  'Message' => 'The XML you provided was not well-formed or did not validate against our published schema',
+                  'Code'      => 'MalformedXML',
+                  'Message'   => 'The XML you provided was not well-formed or did not validate against our published schema',
                   'RequestId' => Fog::Mock.random_hex(16),
-                  'HostId' => Fog::Mock.random_base64(65)
+                  'HostId'    => Fog::Mock.random_base64(65)
                 }
               }
 
@@ -56,11 +56,11 @@ DATA
             response.status = 404
             response.body = {
               'Error' => {
-                'Code' => 'NoSuchBucket',
-                'Message' => 'The specified bucket does not exist',
+                'Code'       => 'NoSuchBucket',
+                'Message'    => 'The specified bucket does not exist',
                 'BucketName' => bucket_name,
-                'RequestId' => Fog::Mock.random_hex(16),
-                'HostId' => Fog::Mock.random_base64(65)
+                'RequestId'  => Fog::Mock.random_hex(16),
+                'HostId'     => Fog::Mock.random_base64(65)
               }
             }
 

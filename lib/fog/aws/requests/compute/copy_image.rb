@@ -23,13 +23,13 @@ module Fog
         # {Amazon API Reference}[http://docs.aws.amazon.com/AWSEC2/latest/CommandLineReference/ApiReference-cmd-CopyImage.html]
         def copy_image(source_image_id, source_region, name = nil, description = nil, client_token = nil)
           request(
-            'Action'          => 'CopyImage',
-            'SourceImageId'   => source_image_id,
-            'SourceRegion'    => source_region,
-            'Name'            => name,
-            'Description'     => description,
-            'ClientToken'     => client_token,
-            :parser           => Fog::Parsers::Compute::AWS::CopyImage.new
+            'Action'        => 'CopyImage',
+            'SourceImageId' => source_image_id,
+            'SourceRegion'  => source_region,
+            'Name'          => name,
+            'Description'   => description,
+            'ClientToken'   => client_token,
+            :parser         => Fog::Parsers::Compute::AWS::CopyImage.new
           )
         end
 
@@ -48,7 +48,7 @@ module Fog
           response.status = 200
           image_id = Fog::AWS::Mock.image_id
           data = {
-            'imageId'  => image_id,
+            'imageId' => image_id,
           }
           self.data[:images][image_id] = data
           response.body = {

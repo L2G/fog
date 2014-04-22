@@ -25,14 +25,14 @@ module Fog
           end
 
           snapshot = {
-             'id'                      => snapshot_id,
-             'name'                    => 'ROOT-6',
-             'created'                 => '2013-05-22T14:52:55-0500',
-             'state'                   => 'BackedUp',
-             'account'                 => 'accountname',
-             'domainid'                => '6023b6fe-5bef-4358-bc76-9f4e75afa52f',
-             'domain'                  => 'ROOT',
-             'intervaltype'            => 'weekly'
+             'id'           => snapshot_id,
+             'name'         => 'ROOT-6',
+             'created'      => '2013-05-22T14:52:55-0500',
+             'state'        => 'BackedUp',
+             'account'      => 'accountname',
+             'domainid'     => '6023b6fe-5bef-4358-bc76-9f4e75afa52f',
+             'domain'       => 'ROOT',
+             'intervaltype' => 'weekly'
           }
 
           self.data[:snapshots][snapshot_id] = snapshot

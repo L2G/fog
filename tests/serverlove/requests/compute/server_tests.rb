@@ -1,19 +1,19 @@
 Shindo.tests('Fog::Compute[:serverlove] | server requests', ['serverlove']) do
 
   @server_format = {
-    'server'            => String,
-    'name'              => String,
-    'user'              => String,
-    'status'            => String,
-    'started'           => Fog::Nullable::String,
-    'cpu'               => Integer,
-    'mem'               => Integer,
-    'smp'               => Fog::Nullable::String,
-    'persistent'        => Fog::Nullable::String,
-    'vnc'               => Fog::Nullable::String,
-    'vnc:password'      => Fog::Nullable::String,
-    'nic:0:dhcp'        => String,
-    'nic:0:model'       => String
+    'server'       => String,
+    'name'         => String,
+    'user'         => String,
+    'status'       => String,
+    'started'      => Fog::Nullable::String,
+    'cpu'          => Integer,
+    'mem'          => Integer,
+    'smp'          => Fog::Nullable::String,
+    'persistent'   => Fog::Nullable::String,
+    'vnc'          => Fog::Nullable::String,
+    'vnc:password' => Fog::Nullable::String,
+    'nic:0:dhcp'   => String,
+    'nic:0:model'  => String
   }
 
   tests('success') do

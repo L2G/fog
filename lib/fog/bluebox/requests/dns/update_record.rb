@@ -13,10 +13,10 @@ module Fog
           options.each {|k,v| body += "<#{k}>#{v}</#{k}>"}
           body += '</record>'
           request(
-            :body     => body,
-            :expects  => 202,
-            :method   => 'PUT',
-            :path     => "/api/domains/#{zone_id}/records/#{record_id}.xml"
+            :body    => body,
+            :expects => 202,
+            :method  => 'PUT',
+            :path    => "/api/domains/#{zone_id}/records/#{record_id}.xml"
           )
         end
 

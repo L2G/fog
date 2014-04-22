@@ -11,16 +11,16 @@ module Fog
         def create_server(data)
           uuid = self.class.random_uuid
 
-          defaults = { 'uuid' => uuid,
-                      'status' => 'stopped',
-                      'smp' => 1,
-                      'hv_relaxed' => false,
-                      'hv_tsc' => false,
-                      'enable_numa' => false,
-                      'cpus_instead_of_cores' => false,
-                      'drives' => [],
-                      'nics' => [],
-                      'tags' => []
+          defaults = { 'uuid'                  => uuid,
+                       'status'                => 'stopped',
+                       'smp'                   => 1,
+                       'hv_relaxed'            => false,
+                       'hv_tsc'                => false,
+                       'enable_numa'           => false,
+                       'cpus_instead_of_cores' => false,
+                       'drives'                => [],
+                       'nics'                  => [],
+                       'tags'                  => []
           }
 
           mock_create(:servers, 202, data, uuid, defaults)

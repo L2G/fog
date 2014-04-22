@@ -13,18 +13,18 @@ module Fog
         def attach_disk(instance, zone, source, options = {})
           api_method = @compute.instances.attach_disk
           parameters = {
-            'project' => @project,
+            'project'  => @project,
             'instance' => instance,
-            'zone' => zone.split('/')[-1],
+            'zone'     => zone.split('/')[-1],
           }
 
           writable = options.delete(:writable)
           body_object = {
-            'type' =>       'PERSISTENT',
-            'source' =>     source,
-            'mode' =>       writable ? 'READ_WRITE' : 'READ_ONLY',
+            'type'       => 'PERSISTENT',
+            'source'     => source,
+            'mode'       => writable ? 'READ_WRITE' : 'READ_ONLY',
             'deviceName' => options.delete(:deviceName),
-            'boot' =>       options.delete(:boot),
+            'boot'       => options.delete(:boot),
             'autoDelete' => options.delete(:autoDelete),
           }
 

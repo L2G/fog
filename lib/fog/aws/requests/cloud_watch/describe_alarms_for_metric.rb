@@ -29,8 +29,8 @@ module Fog
             options.merge!(AWS.indexed_param('Dimensions.member.%d.Value', dimensions.collect {|dimension| dimension['Value']}))
           end
           request({
-              'Action'    => 'DescribeAlarmsForMetric',
-              :parser     => Fog::Parsers::AWS::CloudWatch::DescribeAlarmsForMetric.new
+              'Action' => 'DescribeAlarmsForMetric',
+              :parser  => Fog::Parsers::AWS::CloudWatch::DescribeAlarmsForMetric.new
             }.merge(options))
         end
       end

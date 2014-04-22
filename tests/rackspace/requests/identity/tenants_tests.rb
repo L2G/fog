@@ -4,10 +4,10 @@ Shindo.tests('Fog::Rackspace::Identity | tenants', ['rackspace']) do
 
   TENANTS_FORMATS = {
     'tenants' => [{
-      'id' => String,
-      'name' => String,
+      'id'          => String,
+      'name'        => String,
       'description' => Fog::Nullable::String,
-      'enabled' => Fog::Nullable::Boolean
+      'enabled'     => Fog::Nullable::Boolean
     }]
   }
 

@@ -21,10 +21,10 @@ module Fog
         # {Amazon API Reference}[http://docs.amazonwebservices.com/AWSEC2/latest/APIReference/ApiReference-query-ImportKeyPair.html]
         def import_key_pair(key_name, public_key_material)
           request(
-            'Action'  => 'ImportKeyPair',
-            'KeyName' => key_name,
+            'Action'            => 'ImportKeyPair',
+            'KeyName'           => key_name,
             'PublicKeyMaterial' => Base64::encode64(public_key_material),
-            :parser   => Fog::Parsers::Compute::AWS::ImportKeyPair.new
+            :parser             => Fog::Parsers::Compute::AWS::ImportKeyPair.new
           )
         end
 
@@ -37,8 +37,8 @@ module Fog
           unless self.data[:key_pairs][key_name]
             response.status = 200
             data = {
-              'keyFingerprint'  => Fog::AWS::Mock.key_fingerprint,
-              'keyName'         => key_name
+              'keyFingerprint' => Fog::AWS::Mock.key_fingerprint,
+              'keyName'        => key_name
             }
             self.data[:key_pairs][key_name] = data
             response.body = {

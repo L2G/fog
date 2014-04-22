@@ -5,11 +5,11 @@ module Fog
         def create_load_balancer(name, protocol, port, virtual_ips, nodes, options = {})
           data = {
             'loadBalancer' => {
-              'name' => name,
-              'port' => port,
-              'protocol' => protocol,
+              'name'       => name,
+              'port'       => port,
+              'protocol'   => protocol,
               'virtualIps' => virtual_ips,
-              'nodes' => nodes
+              'nodes'      => nodes
             }
           }
 
@@ -17,10 +17,10 @@ module Fog
           data['loadBalancer']['timeout'] = options[:timeout] if options.has_key? :timeout
 
           request(
-            :body     => Fog::JSON.encode(data),
-            :expects  => 202,
-            :method   => 'POST',
-            :path     => 'loadbalancers.json'
+            :body    => Fog::JSON.encode(data),
+            :expects => 202,
+            :method  => 'POST',
+            :path    => 'loadbalancers.json'
           )
         end
       end

@@ -6,9 +6,9 @@ module Fog
         def list_datacenters(filters = {})
           raw_datacenters.map do |dc|
             {
-              :id => managed_obj_id(dc),
-              :name => dc.name,
-              :path => raw_getpathmo(dc),
+              :id     => managed_obj_id(dc),
+              :name   => dc.name,
+              :path   => raw_getpathmo(dc),
               :status => dc.overallStatus
             }
           end

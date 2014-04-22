@@ -34,9 +34,9 @@ module Fog
         #     * 'state'<~Integer>: state of availability of image
         def get_image(image_id)
           request(
-            :method   => 'GET',
-            :expects  => 200,
-            :path     => "/offerings/image/#{image_id}"
+            :method  => 'GET',
+            :expects => 200,
+            :path    => "/offerings/image/#{image_id}"
           )
         end
 

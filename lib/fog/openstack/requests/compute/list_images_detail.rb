@@ -5,10 +5,10 @@ module Fog
 
         def list_images_detail(filters = {})
           request(
-            :expects  => [200, 203],
-            :method   => 'GET',
-            :path     => 'images/detail.json',
-            :query    => filters
+            :expects => [200, 203],
+            :method  => 'GET',
+            :path    => 'images/detail.json',
+            :query   => filters
           )
         end
 

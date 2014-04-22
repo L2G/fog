@@ -1,27 +1,27 @@
 Shindo.tests('Fog::Storage[:ibm] | volume requests', ['ibm']) do
 
   @volume_format = {
-    'id'            => String,
-    'instanceId'    => Fog::Nullable::String,
-    'name'          => String,
-    'format'        => String,
-    'state'         => Integer,
-    'size'          => String,
-    'offeringId'    => String,
-    'owner'         => String,
-    'createdTime'   => Integer,
-    'location'      => String,
-    'productCodes'  => Array,
+    'id'           => String,
+    'instanceId'   => Fog::Nullable::String,
+    'name'         => String,
+    'format'       => String,
+    'state'        => Integer,
+    'size'         => String,
+    'offeringId'   => String,
+    'owner'        => String,
+    'createdTime'  => Integer,
+    'location'     => String,
+    'productCodes' => Array,
   }
 
   @full_volume_format = @volume_format.merge(
-    'ioPrice'       => {
-      'rate'          => Float,
-      'unitOfMeasure' => String,
-      'countryCode'   => String,
-      'effectiveDate' => Integer,
-      'currencyCode'  => String,
-      'pricePerQuantity'  => Integer,
+    'ioPrice' => {
+      'rate'             => Float,
+      'unitOfMeasure'    => String,
+      'countryCode'      => String,
+      'effectiveDate'    => Integer,
+      'currencyCode'     => String,
+      'pricePerQuantity' => Integer,
     }
   )
 

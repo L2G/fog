@@ -6,7 +6,7 @@ Shindo.tests('Fog::Compute[:aws] | spot datafeed subscription requests', ['aws']
       'prefix'  => String,
       'state'   => String
     },
-    'requestId' => String
+    'requestId'                => String
   }
 
   @directory = Fog::Storage[:aws].directories.create(:key => 'fogspotdatafeedsubscriptiontests')

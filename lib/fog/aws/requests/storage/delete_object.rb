@@ -22,12 +22,12 @@ module Fog
 
           headers = options
           request(
-            :expects    => 204,
-            :headers    => headers,
+            :expects     => 204,
+            :headers     => headers,
             :bucket_name => bucket_name,
-            :idempotent => true,
-            :method     => 'DELETE',
-            :path       => path
+            :idempotent  => true,
+            :method      => 'DELETE',
+            :path        => path
           )
         end
 
@@ -62,10 +62,10 @@ module Fog
                 end
               else
                 delete_marker = {
-                  :delete_marker    => true,
-                  'Key'             => object_name,
-                  'VersionId'       => bucket[:versioning] == 'Enabled' ? Fog::Mock.random_base64(32) : 'null',
-                  'Last-Modified'   => Fog::Time.now.to_date_header
+                  :delete_marker  => true,
+                  'Key'           => object_name,
+                  'VersionId'     => bucket[:versioning] == 'Enabled' ? Fog::Mock.random_base64(32) : 'null',
+                  'Last-Modified' => Fog::Time.now.to_date_header
                 }
 
                 # When versioning is suspended, a delete marker is placed if the last object ID is not the value 'null',
@@ -102,12 +102,12 @@ module Fog
         def invalid_version_id_payload(version_id)
           {
             'Error' => {
-              'Code' => 'InvalidArgument',
-              'Message' => 'Invalid version id specified',
+              'Code'          => 'InvalidArgument',
+              'Message'       => 'Invalid version id specified',
               'ArgumentValue' => version_id,
-              'ArgumentName' => 'versionId',
-              'RequestId' => Fog::Mock.random_hex(16),
-              'HostId' => Fog::Mock.random_base64(65)
+              'ArgumentName'  => 'versionId',
+              'RequestId'     => Fog::Mock.random_hex(16),
+              'HostId'        => Fog::Mock.random_base64(65)
             }
           }
         end

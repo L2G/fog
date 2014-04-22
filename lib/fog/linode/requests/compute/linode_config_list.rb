@@ -8,9 +8,9 @@ module Fog
             options.merge!(:configid => config_id)
           end
           request(
-            :expects  => 200,
-            :method   => 'GET',
-            :query    => { :api_action => 'linode.config.list', :linodeId => linode_id }.merge!(options)
+            :expects => 200,
+            :method  => 'GET',
+            :query   => { :api_action => 'linode.config.list', :linodeId => linode_id }.merge!(options)
           )
         end
 
@@ -23,7 +23,7 @@ module Fog
 
           body = {
             'ERRORARRAY' => [],
-            'ACTION' => 'linode.config.list'
+            'ACTION'     => 'linode.config.list'
           }
           if config_id
             mock_config = create_mock_config(linode_id, config_id)

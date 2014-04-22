@@ -213,12 +213,12 @@ module Fog
                   ni_conf['attachment']['instanceId'] == instance['instanceId']
                 }.map{|ni,ni_conf|
                   {
-                    'ownerId' => ni_conf['ownerId'],
-                    'subnetId' => ni_conf['subnetId'],
-                    'vpcId' => ni_conf['vpcId'],
+                    'ownerId'            => ni_conf['ownerId'],
+                    'subnetId'           => ni_conf['subnetId'],
+                    'vpcId'              => ni_conf['vpcId'],
                     'networkInterfaceId' => ni_conf['networkInterfaceId'],
-                    'groupSet' => ni_conf['groupSet'],
-                    'attachmentId' => ni_conf['attachment']['attachmentId']
+                    'groupSet'           => ni_conf['groupSet'],
+                    'attachmentId'       => ni_conf['attachment']['attachmentId']
                   }
                 }
 
@@ -234,7 +234,7 @@ module Fog
           end
 
           response.body = {
-            'requestId'       => Fog::AWS::Mock.request_id,
+            'requestId'      => Fog::AWS::Mock.request_id,
             'reservationSet' => reservation_set.values
           }
           response

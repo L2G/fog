@@ -5,14 +5,14 @@ module Fog
 
         def post_session
           request(
-            :expects  => 200,
+            :expects    => 200,
             :idempotent => true,
-            :method   => :post,
-            :path     => 'Session',
-            :body     => Fog::JSON.encode(
-              :customer_name  => @dynect_customer,
-              :user_name      => @dynect_username,
-              :password       => @dynect_password
+            :method     => :post,
+            :path       => 'Session',
+            :body       => Fog::JSON.encode(
+              :customer_name => @dynect_customer,
+              :user_name     => @dynect_username,
+              :password      => @dynect_password
             )
           )
         end
@@ -24,16 +24,16 @@ module Fog
           response.status = 200
           response.body = {
             'status' => 'success',
-            'data' => {
-              'token' => auth_token,
+            'data'   => {
+              'token'   => auth_token,
               'version' => Fog::Dynect::Mock.version
             },
             'job_id' => Fog::Dynect::Mock.job_id,
-            'msgs' => [{
-              'INFO' => 'login: Login successful',
+            'msgs'   => [{
+              'INFO'   => 'login: Login successful',
               'SOURCE' => 'BLL',
               'ERR_CD' => nil,
-              'LVL' => 'INFO'
+              'LVL'    => 'INFO'
             }]
           }
           response

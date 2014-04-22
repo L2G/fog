@@ -23,11 +23,11 @@ module Fog
           path = '/'
           params = {
             :expects => 200,
-            :headers    => {},
-            :path       => path,
-            :method     => :put,
-            :query      => {},
-            :parser     => Fog::Parsers::Redshift::AWS::ClusterSnapshot.new
+            :headers => {},
+            :path    => path,
+            :method  => :put,
+            :query   => {},
+            :parser  => Fog::Parsers::Redshift::AWS::ClusterSnapshot.new
           }
 
           params[:query]['Action']                    = 'RevokeSnapshotAccess'

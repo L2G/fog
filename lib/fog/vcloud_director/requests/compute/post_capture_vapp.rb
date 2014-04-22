@@ -21,7 +21,7 @@ module Fog
           body = Nokogiri::XML::Builder.new do
             attrs = {
               :xmlns => 'http://www.vmware.com/vcloud/v1.5',
-              :name => name
+              :name  => name
             }
             CaptureVAppParams(attrs) {
               if options.key?(:Description)

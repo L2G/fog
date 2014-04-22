@@ -229,9 +229,9 @@ module Fog
         def issue_request(params = {},headers = {},method = 'GET',expects = 200)
           begin
             @connection.request(
-              :query => params,
+              :query   => params,
               :headers => headers,
-              :method => method,
+              :method  => method,
               :expects => expects
             )
 
@@ -292,8 +292,8 @@ module Fog
               'secretkey'   => Fog::Cloudstack.uuid
             }
             {
-              :users    => { user_id    => user },
-              :networks => { network_id => {
+              :users           => { user_id    => user },
+              :networks        => { network_id => {
                 'id'                          => network_id,
                 'name'                        => '10.56.23.0/26',
                 'displaytext'                 => '10.56.23.0/26',
@@ -319,7 +319,7 @@ module Fog
                 'subdomainaccess'             => true,
                 'domainid'                    => domain_id,
                 'domain'                      => 'ROOT',
-                'service' => [
+                'service'                     => [
                   { 'name' => 'UserData' },
                   { 'name' => 'Dhcp' },
                   {
@@ -332,12 +332,12 @@ module Fog
                       }
                     ]
                 }],
-                'networkdomain'     => 'cs1cloud.internal',
-                'physicalnetworkid' => '8f4627c5-1fdd-4504-8a92-f61b4e9cb3e3',
-                'restartrequired'   => false,
-                'specifyipranges'   => true }
+                'networkdomain'               => 'cs1cloud.internal',
+                'physicalnetworkid'           => '8f4627c5-1fdd-4504-8a92-f61b4e9cb3e3',
+                'restartrequired'             => false,
+                'specifyipranges'             => true }
               },
-              :zones => { zone_id => {
+              :zones           => { zone_id => {
                 'id'                    => zone_id,
                 'name'                  => 'zone-00',
                 'domainid'              => 1,
@@ -347,7 +347,7 @@ module Fog
                 'allocationstate'       => 'Enabled',
                 'zonetoken'             => Fog::Cloudstack.uuid,
                 'dhcpprovider'          => 'VirtualRouter' } },
-              :images => { image_id => {
+              :images          => { image_id => {
                 'id'              => image_id,
                 'name'            => 'CentOS 5.6(64-bit) no GUI (XenServer)',
                 'displaytext'     => 'CentOS 5.6(64-bit) no GUI (XenServer)',
@@ -372,7 +372,7 @@ module Fog
                 'checksum'        => '905cec879afd9c9d22ecc8036131a180',
                 'hypervisor'      => 'Xen'
               } },
-              :flavors => { flavor_id => {
+              :flavors         => { flavor_id => {
                 'id'          => flavor_id,
                 'name'        => 'Medium Instance',
                 'displaytext' => 'Medium Instance',
@@ -385,7 +385,7 @@ module Fog
                 'limitcpuuse' => false,
                 'issystem'    => false,
                 'defaultuse'  => false } },
-              :accounts => { account_id => {
+              :accounts        => { account_id => {
                 'id'                => account_id,
                 'name'              => 'accountname',
                 'accounttype'       => 2,
@@ -424,31 +424,31 @@ module Fog
               :jobs            => {},
               :volumes         => {
                 '89198f7c-0245-aa1d-136a-c5f479ef9db7' => {
-                  'id' => '89198f7c-0245-aa1d-136a-c5f479ef9db7',
-                  'name' => 'test volume',
-                  'zoneid' => zone_id,
-                  'zonename' => 'zone-00',
-                  'type' => 'DATADISK',
-                  'deviceid' => 1,
-                  'virtualmachineid' => '51dcffee-5f9f-29a4-acee-2717e1a3656b',
-                  'vmname' => 'i-2824-11621-VM',
-                  'vmdisplayname' => 'test vm',
-                  'vmstate' => 'Running',
-                  'size' => 17179869184,
-                  'created' => '2013-04-16T12:33:41+0000',
-                  'state' => 'Ready',
-                  'account' => 'accountname',
-                  'domainid' => domain_id,
-                  'domain' => domain_name,
-                  'storagetype' => 'shared',
-                  'hypervisor' => 'KVM',
-                  'diskofferingid' => 'cc4de87d-672d-4353-abb5-6a8a4c0abf59',
-                  'diskofferingname' => 'Small Disk',
+                  'id'                      => '89198f7c-0245-aa1d-136a-c5f479ef9db7',
+                  'name'                    => 'test volume',
+                  'zoneid'                  => zone_id,
+                  'zonename'                => 'zone-00',
+                  'type'                    => 'DATADISK',
+                  'deviceid'                => 1,
+                  'virtualmachineid'        => '51dcffee-5f9f-29a4-acee-2717e1a3656b',
+                  'vmname'                  => 'i-2824-11621-VM',
+                  'vmdisplayname'           => 'test vm',
+                  'vmstate'                 => 'Running',
+                  'size'                    => 17179869184,
+                  'created'                 => '2013-04-16T12:33:41+0000',
+                  'state'                   => 'Ready',
+                  'account'                 => 'accountname',
+                  'domainid'                => domain_id,
+                  'domain'                  => domain_name,
+                  'storagetype'             => 'shared',
+                  'hypervisor'              => 'KVM',
+                  'diskofferingid'          => 'cc4de87d-672d-4353-abb5-6a8a4c0abf59',
+                  'diskofferingname'        => 'Small Disk',
                   'diskofferingdisplaytext' => 'Small Disk [16GB Disk]',
-                  'storage' => 'ps1',
-                  'attached' => '2013-04-16T12:34:07+0000',
-                  'destroyed' => false,
-                  'isextractable' => false
+                  'storage'                 => 'ps1',
+                  'attached'                => '2013-04-16T12:34:07+0000',
+                  'destroyed'               => false,
+                  'isextractable'           => false
                   },
                 },
               :security_groups => {},
@@ -463,7 +463,7 @@ module Fog
                   'disksize'     => 16,
                   'created'      => '2013-02-21T03:12:520300',
                   'iscustomized' => false,
-                  'storagetype'  =>  'shared'
+                  'storagetype'  => 'shared'
                 },
                 'd5deeb0c-de03-4ebf-820a-dc74221bcaeb' => {
                   'id'           => 'd5deeb0c-de03-4ebf-820a-dc74221bcaeb',
@@ -477,7 +477,7 @@ module Fog
                   'storagetype'  => 'shared'
                 }
               },
-              :os_types  => {
+              :os_types        => {
                 '51ef854d-279e-4e68-9059-74980fd7b29b' => {
                   'id'           => '51ef854d-279e-4e68-9059-74980fd7b29b',
                   'oscategoryid' => '56f67279-e082-45c3-a01c-d290d6cd4ce2',

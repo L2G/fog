@@ -5,18 +5,18 @@ module Fog
         def update_load_balancer(load_balancer_id, options = {})
           data = {
             'loadBalancer' => {
-              'name' => options[:name],
-              'port' => options[:port],
-              'protocol' => options[:protocol],
+              'name'      => options[:name],
+              'port'      => options[:port],
+              'protocol'  => options[:protocol],
               'algorithm' => options[:algorithm],
-              'timeout' => options[:timeout]
+              'timeout'   => options[:timeout]
             }
           }
           request(
-            :body     => Fog::JSON.encode(data),
-            :expects  => 202,
-            :method   => 'PUT',
-            :path     => "loadbalancers/#{load_balancer_id}.json"
+            :body    => Fog::JSON.encode(data),
+            :expects => 202,
+            :method  => 'PUT',
+            :path    => "loadbalancers/#{load_balancer_id}.json"
           )
         end
       end

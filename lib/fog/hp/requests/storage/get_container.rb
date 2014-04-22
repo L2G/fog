@@ -31,10 +31,10 @@ module Fog
         def get_container(container, options = {})
           options = options.reject {|key, value| value.nil?}
           response = request(
-            :expects  => 200,
-            :method   => 'GET',
-            :path     => Fog::HP.escape(container),
-            :query    => { 'format' => 'json' }.merge!(options)
+            :expects => 200,
+            :method  => 'GET',
+            :path    => Fog::HP.escape(container),
+            :query   => { 'format' => 'json' }.merge!(options)
           )
           response
         end

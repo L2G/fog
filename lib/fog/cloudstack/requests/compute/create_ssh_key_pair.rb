@@ -9,7 +9,7 @@ module Fog
         def create_ssh_key_pair(name,options = {})
           options.merge!(
             'command' => 'createSSHKeyPair',
-            'name' => name
+            'name'    => name
           )
 
           request(options)

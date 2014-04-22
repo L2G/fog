@@ -39,9 +39,9 @@ module Fog
         #
         def list_instance_profiles_for_role(role_name,options = {})
           request({
-            'Action'    => 'ListInstanceProfilesForRole',
-            'RoleName'  => role_name,
-            :parser     => Fog::Parsers::AWS::IAM::ListInstanceProfiles.new
+            'Action'   => 'ListInstanceProfilesForRole',
+            'RoleName' => role_name,
+            :parser    => Fog::Parsers::AWS::IAM::ListInstanceProfiles.new
           }.merge!(options))
         end
 

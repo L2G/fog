@@ -14,9 +14,9 @@ module Fog
 
         def params
           options = {
-            'label'     => label,
-            'details'   => details,
-            'type'      => type,
+            'label'   => label,
+            'details' => details,
+            'type'    => type,
           }
           options.reject {|key, value| value.nil?}
         end

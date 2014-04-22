@@ -17,10 +17,10 @@ module Fog
         #     * 'X-Log-Retention'<~Boolean> - ?
         def head_container(name)
           response = request(
-            :expects  => 204,
-            :method   => 'HEAD',
-            :path     => Fog::HP.escape(name),
-            :query    => { 'format' => 'json' }
+            :expects => 204,
+            :method  => 'HEAD',
+            :path    => Fog::HP.escape(name),
+            :query   => { 'format' => 'json' }
           )
           response
         end

@@ -30,11 +30,11 @@ end
 
 # create Next Generation Cloud Server service
 service = Fog::Compute.new(
-  :provider             => 'rackspace',
-  :rackspace_username   => rackspace_username,
-  :rackspace_api_key    => rackspace_api_key,
-  :version => :v2,  # Use Next Gen Cloud Servers
-  :rackspace_region => :ord #Use Chicago Region
+  :provider           => 'rackspace',
+  :rackspace_username => rackspace_username,
+  :rackspace_api_key  => rackspace_api_key,
+  :version            => :v2,  # Use Next Gen Cloud Servers
+  :rackspace_region   => :ord #Use Chicago Region
 )
 
 #create private network called my_private_net with an ip range between 192.168.0.1 - 192.168.0.255 (Note this will accept IPv6 CIDRs as well)
@@ -49,10 +49,10 @@ flavor = service.flavors.first
 image = service.images.find {|image| image.name =~ /Ubuntu/}
 
 # Create a server called alphabits connected our private network as well as the internet
-server = service.servers.create :name => 'alphabits',
+server = service.servers.create :name      => 'alphabits',
                                 :flavor_id => flavor.id,
-                                :image_id => image.id,
-                                :networks => [net.id, INTERNET]
+                                :image_id  => image.id,
+                                :networks  => [net.id, INTERNET]
 
 puts "\nNow creating server '#{server.name}' connected the the Internet and '#{net.label}'\n"
 

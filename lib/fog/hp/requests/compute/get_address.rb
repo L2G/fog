@@ -18,9 +18,9 @@ module Fog
         #       * 'fixed_ip'<~String> - Fixed IP of the address
         def get_address(address_id)
           request(
-            :expects  => [200],
-            :method   => 'GET',
-            :path     => "os-floating-ips/#{address_id}"
+            :expects => [200],
+            :method  => 'GET',
+            :path    => "os-floating-ips/#{address_id}"
           )
         end
 

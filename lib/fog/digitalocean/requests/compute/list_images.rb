@@ -5,9 +5,9 @@ module Fog
 
         def list_images(options = {})
           request(
-            :expects  => [200],
-            :method   => 'GET',
-            :path     => 'images'
+            :expects => [200],
+            :method  => 'GET',
+            :path    => 'images'
           )
         end
 
@@ -23,18 +23,18 @@ module Fog
             'images' => [
               # Sample image
               {
-                'id' => 1601,
-                'name' => 'CentOS 5.8 x64',
+                'id'           => 1601,
+                'name'         => 'CentOS 5.8 x64',
                 'distribution' => 'CentOS'
               },
               {
-                'id' => 1602,
-                'name' => 'CentOS 5.8 x32',
+                'id'           => 1602,
+                'name'         => 'CentOS 5.8 x32',
                 'distribution' => 'CentOS'
               },
               {
-                'id' => 2676,
-                'name' => 'Ubuntu 12.04 x64',
+                'id'           => 2676,
+                'name'         => 'Ubuntu 12.04 x64',
                 'distribution' => 'Ubuntu'
               },
 

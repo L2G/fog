@@ -19,8 +19,8 @@ module Fog
           end
           api_method = @compute.region_operations.delete
           parameters = {
-            'project' => @project,
-            'region' => region_name,
+            'project'   => @project,
+            'region'    => region_name,
             'operation' => operation
           }
 

@@ -21,8 +21,8 @@ Shindo.tests('AWS::IAM | user policy requests', ['aws']) do
     end
 
     @user_policy_format = {
-      'UserName' => String,
-      'PolicyName' => String,
+      'UserName'       => String,
+      'PolicyName'     => String,
       'PolicyDocument' => Hash,
     }
 

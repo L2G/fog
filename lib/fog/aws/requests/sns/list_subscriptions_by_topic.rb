@@ -18,9 +18,9 @@ module Fog
 
         def list_subscriptions_by_topic(arn, options = {})
           request({
-            'Action'    => 'ListSubscriptionsByTopic',
-            'TopicArn'  => arn.strip,
-            :parser     => Fog::Parsers::AWS::SNS::ListSubscriptions.new
+            'Action'   => 'ListSubscriptionsByTopic',
+            'TopicArn' => arn.strip,
+            :parser    => Fog::Parsers::AWS::SNS::ListSubscriptions.new
           }.merge!(options))
         end
 

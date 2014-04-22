@@ -35,10 +35,10 @@ module Fog
           end
 
           request(
-            :body     => Fog::JSON.encode(data),
-            :expects  => 200,
-            :method   => 'POST',
-            :path     => 'os-keypairs'
+            :body    => Fog::JSON.encode(data),
+            :expects => 200,
+            :method  => 'POST',
+            :path    => 'os-keypairs'
           )
         end
 
@@ -52,9 +52,9 @@ module Fog
           private_key, new_public_key = Fog::HP::Mock.key_material
           new_public_key = public_key if public_key  # if public key was passed in
           data = {
-            'public_key'   => new_public_key,
-            'fingerprint'  => Fog::HP::Mock.key_fingerprint,
-            'name'         => key_name
+            'public_key'  => new_public_key,
+            'fingerprint' => Fog::HP::Mock.key_fingerprint,
+            'name'        => key_name
           }
           self.data[:last_modified][:key_pairs][key_name] = Time.now
           self.data[:key_pairs][key_name] = { 'keypair' => data }

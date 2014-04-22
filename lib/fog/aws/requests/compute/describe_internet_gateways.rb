@@ -31,9 +31,9 @@ module Fog
           end
           params = Fog::AWS.indexed_filters(filters)
           request({
-            'Action' => 'DescribeInternetGateways',
+            'Action'    => 'DescribeInternetGateways',
             :idempotent => true,
-            :parser => Fog::Parsers::Compute::AWS::DescribeInternetGateways.new
+            :parser     => Fog::Parsers::Compute::AWS::DescribeInternetGateways.new
           }.merge!(params))
         end
       end
@@ -49,8 +49,8 @@ module Fog
           Excon::Response.new(
             :status => 200,
             :body   => {
-              'requestId'           => Fog::AWS::Mock.request_id,
-              'internetGatewaySet'  => internet_gateways
+              'requestId'          => Fog::AWS::Mock.request_id,
+              'internetGatewaySet' => internet_gateways
             }
           )
         end

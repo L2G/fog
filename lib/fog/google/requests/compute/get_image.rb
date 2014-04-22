@@ -7,14 +7,14 @@ module Fog
         def get_image(image_name, project = @project)
           image = data(project)[:images][image_name] || {
             'error' => {
-              'errors' => [
+              'errors'  => [
                 {
-                  'domain' => 'global',
-                  'reason' => 'notFound',
+                  'domain'  => 'global',
+                  'reason'  => 'notFound',
                   'message' => "The resource 'projects/#{project}/global/images/#{image_name}' was not found"
                 }
               ],
-              'code' => 404,
+              'code'    => 404,
               'message' => "The resource 'projects/#{project}/global/images/#{image_name}' was not found"
             }
           }
@@ -28,7 +28,7 @@ module Fog
         def get_image(image_name, project = @project)
           api_method = @compute.images.get
           parameters = {
-            'image' => image_name,
+            'image'   => image_name,
             'project' => project,
           }
 

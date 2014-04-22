@@ -3,7 +3,7 @@ Shindo.tests('Fog::AWS[:beanstalk] | application', ['aws', 'beanstalk']) do
   pending if Fog.mocking?
 
   @application_opts = {
-      :name => uniq_id('fog-test-app'),
+      :name        => uniq_id('fog-test-app'),
       :description => 'A nice description.'
   }
 
@@ -22,7 +22,7 @@ Shindo.tests('Fog::AWS[:beanstalk] | application', ['aws', 'beanstalk']) do
     version_name = uniq_id('fog-test-ver')
     @instance.versions.create(
         :application_name => @instance.name,
-        :label => version_name
+        :label            => version_name
     )
 
     test('#versions') do
@@ -32,8 +32,8 @@ Shindo.tests('Fog::AWS[:beanstalk] | application', ['aws', 'beanstalk']) do
 
     template_name = uniq_id('fog-test-template')
     @instance.templates.create(
-        :application_name => @instance.name,
-        :name => template_name,
+        :application_name    => @instance.name,
+        :name                => template_name,
         :solution_stack_name => '32bit Amazon Linux running Tomcat 7'
     )
 
@@ -44,9 +44,9 @@ Shindo.tests('Fog::AWS[:beanstalk] | application', ['aws', 'beanstalk']) do
 
     environment_name = uniq_id('fog-test-env')
     environment = @instance.environments.create(
-        :application_name => @instance.name,
-        :name => environment_name,
-        :version_label => version_name,
+        :application_name    => @instance.name,
+        :name                => environment_name,
+        :version_label       => version_name,
         :solution_stack_name => '32bit Amazon Linux running Tomcat 7'
     )
 

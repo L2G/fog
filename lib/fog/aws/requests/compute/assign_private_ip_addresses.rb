@@ -30,9 +30,9 @@ module Fog
           end
 
           request({
-            'Action'  => 'AssignPrivateIpAddresses',
+            'Action'             => 'AssignPrivateIpAddresses',
             'NetworkInterfaceId' => network_interface_id,
-            :parser   => Fog::Parsers::Compute::AWS::AssignPrivateIpAddresses.new
+            :parser              => Fog::Parsers::Compute::AWS::AssignPrivateIpAddresses.new
           }.merge(options))
         end
 
@@ -49,7 +49,7 @@ module Fog
           response.status = 200
           response.body = {
             'requestId' => Fog::AWS::Mock.request_id,
-            'return' => true
+            'return'    => true
           }
           response
         end

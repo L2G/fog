@@ -30,11 +30,11 @@ module Fog
 
           query = {}
           request(
-            :expects  => 200,
-            :method   => 'GET',
-            :query    => {
-              :api_action   => 'domain.resource.update',
-              :domainID => domain_id,
+            :expects => 200,
+            :method  => 'GET',
+            :query   => {
+              :api_action => 'domain.resource.update',
+              :domainID   => domain_id,
               :resourceID => resource_id,
             }.merge!( options)
           )

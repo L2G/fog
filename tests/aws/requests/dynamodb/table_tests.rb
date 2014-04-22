@@ -1,7 +1,7 @@
 Shindo.tests('Fog::AWS[:dynamodb] | table requests', ['aws']) do
 
   @table_format = {
-    'CreationDateTime'  => Float,
+    'CreationDateTime'      => Float,
     'KeySchema'             => {
       'HashKeyElement' => {
         'AttributeName' => String,
@@ -9,8 +9,8 @@ Shindo.tests('Fog::AWS[:dynamodb] | table requests', ['aws']) do
       }
     },
     'ProvisionedThroughput' => {
-      'ReadCapacityUnits'   => Integer,
-      'WriteCapacityUnits'  => Integer
+      'ReadCapacityUnits'  => Integer,
+      'WriteCapacityUnits' => Integer
     },
     'TableName'             => String,
     'TableStatus'           => String
@@ -43,9 +43,9 @@ Shindo.tests('Fog::AWS[:dynamodb] | table requests', ['aws']) do
       'TableDescription' => @table_format.merge(
         'ItemCount'             => Integer,
         'ProvisionedThroughput' => {
-          'LastIncreaseDateTime'  => Float,
-          'ReadCapacityUnits'     => Integer,
-          'WriteCapacityUnits'    => Integer
+          'LastIncreaseDateTime' => Float,
+          'ReadCapacityUnits'    => Integer,
+          'WriteCapacityUnits'   => Integer
         },
         'TableSizeBytes'        => Integer
       )
@@ -63,11 +63,11 @@ Shindo.tests('Fog::AWS[:dynamodb] | table requests', ['aws']) do
     @delete_table_format = {
       'TableDescription' => {
         'ProvisionedThroughput' => {
-          'ReadCapacityUnits'   => Integer,
-          'WriteCapacityUnits'  => Integer
+          'ReadCapacityUnits'  => Integer,
+          'WriteCapacityUnits' => Integer
         },
-        'TableName'      => String,
-        'TableStatus'    => String
+        'TableName'             => String,
+        'TableStatus'           => String
       }
     }
 

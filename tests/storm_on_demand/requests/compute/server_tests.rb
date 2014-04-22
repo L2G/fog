@@ -1,25 +1,25 @@
 Shindo.tests('Fog::Compute[:stormondemand] | server requests', ['stormondemand']) do
 
   @server_format = {
-      'uniq_id'     => String,
-      'accnt'       => String,
-      'backup_enabled'     => String,
-      'backup_plan'     => String,
-      'backup_size'     => String,
-      'backup_quota'     => String,
-      'bandwidth_quota' => Integer,
-      'config_description'     => String,
-      'config_id'     => String,
-      'domain'     => String,
-      'ip'     => String,
-      'ip_count'     => String,
-      'subaccnt'     => String,
-      'template'     => String,
-      'template_description'     => String,
-      'manage_level'     => String,
-      'zone'     => Hash,
-      'active' => Integer,
-      'create_date' => String
+      'uniq_id'              => String,
+      'accnt'                => String,
+      'backup_enabled'       => String,
+      'backup_plan'          => String,
+      'backup_size'          => String,
+      'backup_quota'         => String,
+      'bandwidth_quota'      => Integer,
+      'config_description'   => String,
+      'config_id'            => String,
+      'domain'               => String,
+      'ip'                   => String,
+      'ip_count'             => String,
+      'subaccnt'             => String,
+      'template'             => String,
+      'template_description' => String,
+      'manage_level'         => String,
+      'zone'                 => Hash,
+      'active'               => Integer,
+      'create_date'          => String
   }
 
   @servers_format = {

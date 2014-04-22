@@ -6,8 +6,8 @@ module Fog
         def execute_anonymous_webhook(capability_version, capability_hash)
           request(
             :expects => [202],
-            :method => 'POST',
-            :path => "execute/#{capability_version}/#{capability_hash}"
+            :method  => 'POST',
+            :path    => "execute/#{capability_version}/#{capability_hash}"
           )
         end
       end

@@ -5,8 +5,8 @@ class Linode
     module Formats
 
       BASIC = {
-        'ERRORARRAY'  => [],
-        'ACTION'      => String
+        'ERRORARRAY' => [],
+        'ACTION'     => String
       }
 
     end

@@ -20,12 +20,12 @@ module Fog
         # TODO: docs
         def grid_server_add(image, ip, name, server_ram, options = {})
           request(
-            :path     => 'grid/server/add',
-            :query    => {
-              'image'       => image,
-              'ip'          => ip,
-              'name'        => name,
-              'server.ram'  => server_ram
+            :path  => 'grid/server/add',
+            :query => {
+              'image'      => image,
+              'ip'         => ip,
+              'name'       => name,
+              'server.ram' => server_ram
             }.merge!(options)
           )
         end

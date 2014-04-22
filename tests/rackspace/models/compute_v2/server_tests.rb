@@ -7,11 +7,11 @@ Shindo.tests('Fog::Compute::RackspaceV2 | server', ['rackspace']) do
   end
 
   options = {
-    :name => "fog_server_#{Time.now.to_i}",
+    :name      => "fog_server_#{Time.now.to_i}",
     :flavor_id => rackspace_test_flavor_id(service),
-    :image_id => rackspace_test_image_id(service),
-    :metadata => { 'fog_test' => 'true' },
-    :networks => [@network.id]
+    :image_id  => rackspace_test_image_id(service),
+    :metadata  => { 'fog_test' => 'true' },
+    :networks  => [@network.id]
   }
 
   tests('ready?') do
@@ -199,8 +199,8 @@ Shindo.tests('Fog::Compute::RackspaceV2 | server', ['rackspace']) do
 
   tests('#setup') do
     ATTRIBUTES = {
-      :name => 'foo',
-      :image_id => 42,
+      :name      => 'foo',
+      :image_id  => 42,
       :flavor_id => 42
     }
 

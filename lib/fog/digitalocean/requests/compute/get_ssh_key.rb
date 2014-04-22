@@ -11,9 +11,9 @@ module Fog
         #
         def get_ssh_key(id)
           request(
-            :expects  => [200],
-            :method   => 'GET',
-            :path     => "ssh_keys/#{id}"
+            :expects => [200],
+            :method  => 'GET',
+            :path    => "ssh_keys/#{id}"
           )
         end
 
@@ -25,10 +25,10 @@ module Fog
           response = Excon::Response.new
           response.status = 200
           response.body = {
-            'status' => 'OK',
+            'status'  => 'OK',
             # key listing does not return ssh_pub_key
             # https://www.digitalocean.com/api#ssh_keys
-            'ssh_key'  => self.data[:ssh_keys].find { |k| k['id'] == id }
+            'ssh_key' => self.data[:ssh_keys].find { |k| k['id'] == id }
           }
           response
         end

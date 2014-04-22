@@ -84,10 +84,10 @@ Shindo.tests('Compute::VcloudDirector | disk requests', ['vclouddirector']) do
 
       tests("#post_update_disk_metadata(#{@disk_id})").data_matches_schema(VcloudDirector::Compute::Schema::TASK_TYPE) do
         metadata = {
-          'fog-test-key-update' => 'fog-test-value-update',
-          'fog-test-boolean-update' => false,
+          'fog-test-key-update'      => 'fog-test-value-update',
+          'fog-test-boolean-update'  => false,
           'fog-test-datetime-update' => DateTime.now,
-          'fog-test-number-update' => 222
+          'fog-test-number-update'   => 222
         }
         @task = @service.post_update_disk_metadata(@disk_id, metadata).body
       end

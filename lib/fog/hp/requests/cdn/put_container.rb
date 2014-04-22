@@ -14,10 +14,10 @@ module Fog
         #   * 'X-Log-Retention'<~Boolean> - ?
         def put_container(name, options = {})
           response = request(
-            :expects  => [201, 202],
-            :headers  => options,
-            :method   => 'PUT',
-            :path     => Fog::HP.escape(name)
+            :expects => [201, 202],
+            :headers => options,
+            :method  => 'PUT',
+            :path    => Fog::HP.escape(name)
           )
           response
         end

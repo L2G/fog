@@ -1,10 +1,10 @@
 Shindo.tests('Fog::Compute[:hp] | metadata requests', ['hp']) do
 
   @metadata_format = {
-    'metadata'  => Fog::Nullable::Hash
+    'metadata' => Fog::Nullable::Hash
   }
   @metaitem_format = {
-    'meta'  => Fog::Nullable::Hash
+    'meta' => Fog::Nullable::Hash
   }
 
   @base_image_id = ENV['BASE_IMAGE_ID'] || 1242

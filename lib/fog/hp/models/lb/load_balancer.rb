@@ -36,8 +36,8 @@ module Fog
         def nodes
           @nodes ||= begin
             Fog::HP::LB::Nodes.new(
-              :service  => service,
-              :load_balancer   => self
+              :service       => service,
+              :load_balancer => self
             )
           end
         end

@@ -26,7 +26,7 @@ module Fog
 
           {
             'listsecuritygroupsresponse' =>
-            {
+                                            {
               'count'         => security_groups.size,
               'securitygroup' => security_groups
             }

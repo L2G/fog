@@ -44,10 +44,10 @@ module Fog
           end
 
           request(
-            :body     => Fog::JSON.encode(data),
-            :expects  => 200,
-            :method   => 'POST',
-            :path     => 'os-volumes'
+            :body    => Fog::JSON.encode(data),
+            :expects => 200,
+            :method  => 'POST',
+            :path    => 'os-volumes'
           )
         end
 

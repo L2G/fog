@@ -20,11 +20,11 @@ module Fog
           account_id = options['account_id'] || '-'
           path = "/#{account_id}/vaults/#{Fog::AWS.escape(name)}/notification-configuration"
           request(
-            :expects  => 200,
+            :expects    => 200,
             :idempotent => true,
-            :headers => {},
-            :method   => :get,
-            :path     => path
+            :headers    => {},
+            :method     => :get,
+            :path       => path
           )
         end
       end

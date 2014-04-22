@@ -73,10 +73,10 @@ module Fog
           #HACK - Models require a collection, but I don't really want to expose
           # the messages collection to users here.
           message_collection = Fog::Rackspace::Queues::Messages.new(
-              :service => service,
-              :queue => queue,
+              :service   => service,
+              :queue     => queue,
               :client_id => service.client_id,
-              :echo => true
+              :echo      => true
             )
           attributes[:messages] = messages.collect do |message|
             if message.instance_of? Fog::Rackspace::Queues::Message
@@ -85,9 +85,9 @@ module Fog
             else
               Fog::Rackspace::Queues::Message.new(
                 message.merge({
-                  :service => service,
+                  :service    => service,
                   :collection => message_collection,
-                  :claim_id => self.id
+                  :claim_id   => self.id
                 }.merge(message))
               )
             end

@@ -5,10 +5,10 @@ module Fog
 
         def list_flavors_detail(options = {})
           request(
-            :expects  => [200, 203],
-            :method   => 'GET',
-            :path     => 'flavors/detail.json',
-            :query    => options
+            :expects => [200, 203],
+            :method  => 'GET',
+            :path    => 'flavors/detail.json',
+            :query   => options
           )
         end
 

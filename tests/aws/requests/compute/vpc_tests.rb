@@ -1,7 +1,7 @@
 Shindo.tests('Fog::Compute[:aws] | vpc requests', ['aws']) do
 
   @vpcs_format = {
-    'vpcSet' => [{
+    'vpcSet'    => [{
       'vpcId'           => String,
       'state'           => String,
       'cidrBlock'       => String,

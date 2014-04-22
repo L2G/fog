@@ -15,9 +15,9 @@ module Fog
         #     * 'status'<~String> - Status of image
         def list_images_detail
           request(
-            :expects  => [200, 203],
-            :method   => 'GET',
-            :path     => 'images/detail.json'
+            :expects => [200, 203],
+            :method  => 'GET',
+            :path    => 'images/detail.json'
           )
         end
 

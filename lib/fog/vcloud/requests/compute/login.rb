@@ -12,11 +12,11 @@ module Fog
                   "#{base_path_url}/sessions"
                 end
           unauthenticated_request(
-            :expects  => 200,
-            :headers  => headers,
-            :method   => 'POST',
-            :parse    => true,
-            :uri      => uri
+            :expects => 200,
+            :headers => headers,
+            :method  => 'POST',
+            :parse   => true,
+            :uri     => uri
           )
         end
 

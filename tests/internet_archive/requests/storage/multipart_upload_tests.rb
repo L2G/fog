@@ -5,9 +5,9 @@ Shindo.tests('Fog::Storage[:internetarchive] | multipart upload requests', ['int
   tests('success') do
 
     @initiate_multipart_upload_format = {
-      'Bucket'    => String,
-      'Key'       => String,
-      'UploadId'  => String
+      'Bucket'   => String,
+      'Key'      => String,
+      'UploadId' => String
     }
 
     tests("#initiate_multipart_upload('#{@directory.identity}')", 'fog_multipart_upload').formats(@initiate_multipart_upload_format) do
@@ -18,27 +18,27 @@ Shindo.tests('Fog::Storage[:internetarchive] | multipart upload requests', ['int
     end
 
     @list_multipart_uploads_format = {
-      'Bucket'              => String,
-      'IsTruncated'         => Fog::Boolean,
-      'MaxUploads'          => Integer,
-      'KeyMarker'           => NilClass,
-      'NextKeyMarker'       => String,
-      'NextUploadIdMarker'  => Fog::Nullable::String,
-      'Upload' => [{
-        'Initiated'     => Time,
-        'Initiator' => {
+      'Bucket'             => String,
+      'IsTruncated'        => Fog::Boolean,
+      'MaxUploads'         => Integer,
+      'KeyMarker'          => NilClass,
+      'NextKeyMarker'      => String,
+      'NextUploadIdMarker' => Fog::Nullable::String,
+      'Upload'             => [{
+        'Initiated'    => Time,
+        'Initiator'    => {
           'DisplayName' => String,
           'ID'          => String
         },
-        'Key'           => String,
-        'Owner' => {
+        'Key'          => String,
+        'Owner'        => {
           'DisplayName' => String,
           'ID'          => String
         },
-        'StorageClass'      => String,
-        'UploadId'          => String
+        'StorageClass' => String,
+        'UploadId'     => String
       }],
-      'UploadIdMarker'      => NilClass,
+      'UploadIdMarker'     => NilClass,
     }
 
     tests("#list_multipart_uploads('#{@directory.identity})").formats(@list_multipart_uploads_format) do
@@ -55,24 +55,24 @@ Shindo.tests('Fog::Storage[:internetarchive] | multipart upload requests', ['int
     end
 
     @list_parts_format = {
-      'Bucket'            => String,
-      'Initiator' => {
-        'DisplayName'     => String,
-        'ID'              => String
+      'Bucket'               => String,
+      'Initiator'            => {
+        'DisplayName' => String,
+        'ID'          => String
       },
-      'IsTruncated'       => Fog::Boolean,
-      'Key'               => String,
-      'MaxParts'          => Integer,
+      'IsTruncated'          => Fog::Boolean,
+      'Key'                  => String,
+      'MaxParts'             => Integer,
       'NextPartNumberMarker' => String,
-      'Part' => [{
-        'ETag'            => String,
-        'LastModified'    => Time,
-        'PartNumber'      => Integer,
-        'Size'            => Integer
+      'Part'                 => [{
+        'ETag'         => String,
+        'LastModified' => Time,
+        'PartNumber'   => Integer,
+        'Size'         => Integer
       }],
-      'PartNumberMarker'  => String,
-      'StorageClass'      => String,
-      'UploadId'          => String
+      'PartNumberMarker'     => String,
+      'StorageClass'         => String,
+      'UploadId'             => String
     }
 
     tests("#list_parts('#{@directory.identity}', 'fog_multipart_upload', '#{@upload_id}')").formats(@list_parts_format) do
@@ -85,10 +85,10 @@ Shindo.tests('Fog::Storage[:internetarchive] | multipart upload requests', ['int
     end
 
     @complete_multipart_upload_format = {
-      'Bucket'    => String,
-      'ETag'      => String,
-      'Key'       => String,
-      'Location'  => String
+      'Bucket'   => String,
+      'ETag'     => String,
+      'Key'      => String,
+      'Location' => String
     }
 
     tests("#complete_multipart_upload('#{@directory.identity}', 'fog_multipart_upload', '#{@upload_id}', #{@parts.inspect})").formats(@complete_multipart_upload_format) do

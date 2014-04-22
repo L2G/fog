@@ -1,7 +1,7 @@
 Shindo.tests('Fog::Storage[:hp] | files', ['hp', 'storage']) do
 
   file_attributes = {
-    :key => 'fog_files_tests',
+    :key  => 'fog_files_tests',
     :body => lorem_file
   }
 

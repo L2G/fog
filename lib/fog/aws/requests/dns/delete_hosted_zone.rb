@@ -44,16 +44,16 @@ module Fog
           key = [zone_id, "/hostedzone/#{zone_id}"].find{|k| !self.data[:zones][k].nil?}
           if key
             change = {
-              :id => Fog::AWS::Mock.change_id,
-              :status => 'INSYNC',
+              :id           => Fog::AWS::Mock.change_id,
+              :status       => 'INSYNC',
               :submitted_at => Time.now.utc.iso8601
             }
             self.data[:changes][change[:id]] = change
             response.status = 200
             response.body = {
               'ChangeInfo' => {
-                'Id' => change[:id],
-                'Status' => change[:status],
+                'Id'          => change[:id],
+                'Status'      => change[:status],
                 'SubmittedAt' => change[:submitted_at]
               }
             }

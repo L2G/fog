@@ -20,7 +20,7 @@ module Fog
             'Marker'                  => options[:marker],
             'MaxRecords'              => options[:max_records],
             'Source'                  => options[:source],
-            :parser => Fog::Parsers::AWS::Elasticache::DescribeCacheParameters.new
+            :parser                   => Fog::Parsers::AWS::Elasticache::DescribeCacheParameters.new
           )
         end
 

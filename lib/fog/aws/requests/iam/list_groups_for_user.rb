@@ -31,9 +31,9 @@ module Fog
         #
         def list_groups_for_user(user_name, options = {})
           request({
-            'Action'    => 'ListGroupsForUser',
-            'UserName'  => user_name,
-            :parser     => Fog::Parsers::AWS::IAM::ListGroupsForUser.new
+            'Action'   => 'ListGroupsForUser',
+            'UserName' => user_name,
+            :parser    => Fog::Parsers::AWS::IAM::ListGroupsForUser.new
           }.merge!(options))
         end
 
@@ -53,8 +53,8 @@ module Fog
                                                        'Path'      => group[:path],
                                                        'Arn'       => (group[:arn]).strip }
                                                    end,
-                                'IsTruncated' => false,
-                                'RequestId' => Fog::AWS::Mock.request_id
+                                'IsTruncated'   => false,
+                                'RequestId'     => Fog::AWS::Mock.request_id
                               }
             end
           else

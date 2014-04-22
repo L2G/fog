@@ -27,16 +27,16 @@ module Fog
 
         def params(options = {})
           h = {
-            'label'       => label,
-            'metadata'    => metadata,
-            'target_alias' => target_alias,
-            'target_resolver' => target_resolver,
-            'target_hostname' => target_hostname,
-            'period' => period,
-            'timeout' => timeout,
-            'details' => details,
+            'label'                 => label,
+            'metadata'              => metadata,
+            'target_alias'          => target_alias,
+            'target_resolver'       => target_resolver,
+            'target_hostname'       => target_hostname,
+            'period'                => period,
+            'timeout'               => timeout,
+            'details'               => details,
             'monitoring_zones_poll' => monitoring_zones_poll,
-            'disabled' => disabled
+            'disabled'              => disabled
           }.merge(options)
 
           h.reject {|key, value| value.nil?}
@@ -62,7 +62,7 @@ module Fog
         def metrics
           @metrics ||= begin
             Fog::Rackspace::Monitoring::Metrics.new(
-              :check      => self,
+              :check   => self,
               :service => service
             )
           end

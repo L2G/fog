@@ -14,9 +14,9 @@ module Fog
             @instance = { 'InstanceGroups' => [], 'Placement' => {} }
             @step = {
               'ExecutionStatusDetail' => {},
-              'StepConfig' => {
-                'HadoopJarStepConfig' =>  {
-                  'Args' => [],
+              'StepConfig'            => {
+                'HadoopJarStepConfig' => {
+                  'Args'       => [],
                   'Properties' => []
                 }
               }
@@ -108,9 +108,9 @@ module Fog
                 @flow['Steps'] << @step
                 @step = {
                   'ExecutionStatusDetail' => {},
-                  'StepConfig' => {
-                    'HadoopJarStepConfig' =>  {
-                      'Args' => [],
+                  'StepConfig'            => {
+                    'HadoopJarStepConfig' => {
+                      'Args'       => [],
                       'Properties' => []
                     }
                   }

@@ -5,8 +5,8 @@ class Rackspace
     module Formats
 
       SUMMARY = {
-        'id'    => Integer,
-        'name'  => String
+        'id'   => Integer,
+        'name' => String
       }
 
     end

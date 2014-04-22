@@ -19,10 +19,10 @@ module Fog
         #     * 'name'<~String> - Name of catalog
         def get_catalog(vdc_id)
           request(
-            :expects  => 200,
-            :method   => 'GET',
-            :parser   => Fog::Parsers::Terremark::Shared::GetCatalog.new,
-            :path     => "vdc/#{vdc_id}/catalog"
+            :expects => 200,
+            :method  => 'GET',
+            :parser  => Fog::Parsers::Terremark::Shared::GetCatalog.new,
+            :path    => "vdc/#{vdc_id}/catalog"
           )
         end
 

@@ -7,10 +7,10 @@ module Fog
         def list_disks(zone_name)
           disks = self.data[:disks].values.select{|d| d['zone'].split('/')[-1] == zone_name}
           build_response(:body => {
-            'kind' => 'compute#diskList',
+            'kind'     => 'compute#diskList',
             'selfLink' => "https://www.googleapis.com/compute/#{api_version}/projects/#{@project}/zones/#{zone_name}/disks",
-            'id' => "projects/#{@project}/zones/#{zone_name}/disks",
-            'items' => disks
+            'id'       => "projects/#{@project}/zones/#{zone_name}/disks",
+            'items'    => disks
           })
         end
 
@@ -22,7 +22,7 @@ module Fog
           api_method = @compute.disks.list
           parameters = {
             'project' => @project,
-            'zone' => zone_name
+            'zone'    => zone_name
           }
 
           result = self.build_result(api_method, parameters)

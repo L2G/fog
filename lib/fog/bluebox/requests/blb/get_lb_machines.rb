@@ -20,9 +20,9 @@ module Fog
         #       * maxconn<~Integer> - maximum concurrent connections for this member (BLBv2 only)
         def get_lb_machines(lb_backend_id)
           request(
-            :expects  => 200,
-            :method   => 'GET',
-            :path     => "api/lb_backends/#{lb_backend_id}/lb_machines.json"
+            :expects => 200,
+            :method  => 'GET',
+            :path    => "api/lb_backends/#{lb_backend_id}/lb_machines.json"
           )
         end
       end

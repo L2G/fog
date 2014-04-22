@@ -5,9 +5,9 @@ module Fog
 
         def get_quota(tenant_id)
           request(
-            :expects  => 200,
-            :method   => 'GET',
-            :path     => "/quotas/#{tenant_id}"
+            :expects => 200,
+            :method  => 'GET',
+            :path    => "/quotas/#{tenant_id}"
           )
         end
 

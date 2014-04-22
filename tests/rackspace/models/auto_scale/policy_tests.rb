@@ -6,17 +6,17 @@ Shindo.tests('Fog::Rackspace::AutoScale | policy', ['rackspace', 'rackspace_auto
 
   begin
     group = service.groups.create(
-      :policies => POLICIES_OPTIONS,
-      :group_config => GROUP_CONFIG_OPTIONS,
+      :policies      => POLICIES_OPTIONS,
+      :group_config  => GROUP_CONFIG_OPTIONS,
       :launch_config => LAUNCH_CONFIG_OPTIONS
     )
 
     options = {
-      :name => 'policy 2',
-      :change => 1,
+      :name     => 'policy 2',
+      :change   => 1,
       :cooldown => 100,
-      :type => 'webhook',
-      :group => group
+      :type     => 'webhook',
+      :group    => group
     }
 
     model_tests(group.policies, options, false) do

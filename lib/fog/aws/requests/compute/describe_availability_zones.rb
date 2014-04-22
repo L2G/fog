@@ -86,8 +86,8 @@ module Fog
 
           response.status = 200
           response.body = {
-            'availabilityZoneInfo'  => availability_zone_info,
-            'requestId'             => Fog::AWS::Mock.request_id
+            'availabilityZoneInfo' => availability_zone_info,
+            'requestId'            => Fog::AWS::Mock.request_id
           }
           response
         end

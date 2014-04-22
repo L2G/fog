@@ -16,17 +16,17 @@ module Fog
 
         def save
           options = {
-            'dns1'                  => dns1,
-            'internaldns1'          => internaldns1,
-            'name'                  => name,
-            'networktype'           => network_type,
-            'allocationstate'       => allocation_state,
-            'dns2'                  => dns2,
-            'domain'                => domain_name,
-            'domainid'              => domain_id,
-            'guestcidraddress'      => guest_cidr_address,
-            'internaldns2'          => internaldns2,
-            'securitygroupenabled'  => security_groups_enabled,
+            'dns1'                 => dns1,
+            'internaldns1'         => internaldns1,
+            'name'                 => name,
+            'networktype'          => network_type,
+            'allocationstate'      => allocation_state,
+            'dns2'                 => dns2,
+            'domain'               => domain_name,
+            'domainid'             => domain_id,
+            'guestcidraddress'     => guest_cidr_address,
+            'internaldns2'         => internaldns2,
+            'securitygroupenabled' => security_groups_enabled,
           }
           data = service.create_zone(options)
           merge_attributes(data['createzoneresponse'])

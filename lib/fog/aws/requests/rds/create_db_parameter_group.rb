@@ -18,12 +18,12 @@ module Fog
         def create_db_parameter_group(group_name, group_family, description)
 
           request(
-            'Action'  => 'CreateDBParameterGroup',
-            'DBParameterGroupName' => group_name,
+            'Action'                 => 'CreateDBParameterGroup',
+            'DBParameterGroupName'   => group_name,
             'DBParameterGroupFamily' => group_family,
-            'Description' => description,
+            'Description'            => description,
 
-            :parser   => Fog::Parsers::AWS::RDS::CreateDbParameterGroup.new
+            :parser                  => Fog::Parsers::AWS::RDS::CreateDbParameterGroup.new
           )
         end
 
@@ -38,14 +38,14 @@ module Fog
           end
 
           data = {
-            'DBParameterGroupName' => group_name,
+            'DBParameterGroupName'   => group_name,
             'DBParameterGroupFamily' => group_family.downcase,
-            'Description' => description
+            'Description'            => description
           }
           self.data[:parameter_groups][group_name] = data
 
           response.body = {
-            'ResponseMetadata' => { 'RequestId' => Fog::AWS::Mock.request_id },
+            'ResponseMetadata'             => { 'RequestId' => Fog::AWS::Mock.request_id },
             'CreateDBParameterGroupResult' => { 'DBParameterGroup' => data }
           }
           response.status = 200

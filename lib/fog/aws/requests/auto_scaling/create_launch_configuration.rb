@@ -84,19 +84,19 @@ module Fog
           end
           self.data[:launch_configurations][launch_configuration_name] = {
             'AssociatePublicIpAddress' => nil,
-            'BlockDeviceMappings'     => [],
-            'CreatedTime'             => Time.now.utc,
-            'IamInstanceProfile'      => nil,
-            'ImageId'                 => image_id,
-            'InstanceMonitoring'      => { 'Enabled' => true },
-            'InstanceType'            => instance_type,
-            'KernelId'                => nil,
-            'KeyName'                 => nil,
-            'LaunchConfigurationARN'  => Fog::AWS::Mock.arn('autoscaling', self.data[:owner_id], "launchConfiguration:00000000-0000-0000-0000-000000000000:launchConfigurationName/#{launch_configuration_name}", @region),
-            'LaunchConfigurationName' => launch_configuration_name,
-            'RamdiskId'               => nil,
-            'SecurityGroups'          => [],
-            'UserData'                => nil
+            'BlockDeviceMappings'      => [],
+            'CreatedTime'              => Time.now.utc,
+            'IamInstanceProfile'       => nil,
+            'ImageId'                  => image_id,
+            'InstanceMonitoring'       => { 'Enabled' => true },
+            'InstanceType'             => instance_type,
+            'KernelId'                 => nil,
+            'KeyName'                  => nil,
+            'LaunchConfigurationARN'   => Fog::AWS::Mock.arn('autoscaling', self.data[:owner_id], "launchConfiguration:00000000-0000-0000-0000-000000000000:launchConfigurationName/#{launch_configuration_name}", @region),
+            'LaunchConfigurationName'  => launch_configuration_name,
+            'RamdiskId'                => nil,
+            'SecurityGroups'           => [],
+            'UserData'                 => nil
           }.merge!(options)
 
           response = Excon::Response.new

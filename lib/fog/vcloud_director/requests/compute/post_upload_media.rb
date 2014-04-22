@@ -26,10 +26,10 @@ module Fog
         def post_upload_media(vdc_id, name, image_type, size, options = {})
           body = Nokogiri::XML::Builder.new do
             attrs = {
-              :xmlns => 'http://www.vmware.com/vcloud/v1.5',
-              :name => name,
+              :xmlns     => 'http://www.vmware.com/vcloud/v1.5',
+              :name      => name,
               :imageType => image_type,
-              :size => size
+              :size      => size
             }
             attrs[:operationKey] = options[:operationKey] if options.key?(:operationKey)
             Media(attrs) {
@@ -87,31 +87,31 @@ module Fog
           )
 
           media = {
-            :description => options[:Description],
-            :file => {
+            :description       => options[:Description],
+            :file              => {
               :bytes_transferred => 0,
-              :uuid => file_id
+              :uuid              => file_id
             },
-            :image_type => image_type,
-            :name => name,
-            :size => size.to_i,
-            :status => 0,
-            :tasks => [task_id],
-            :vdc_id => vdc_id,
+            :image_type        => image_type,
+            :name              => name,
+            :size              => size.to_i,
+            :status            => 0,
+            :tasks             => [task_id],
+            :vdc_id            => vdc_id,
             :vdc_storage_class => data[:vdc_storage_classes].detect {|k,v| v[:default]}.first
           }
           data[:medias][media_id] = media
 
           body = {
-            :xmlns => xmlns,
-            :xmlns_xsi => xmlns_xsi,
+            :xmlns              => xmlns,
+            :xmlns_xsi          => xmlns_xsi,
             :xsi_schemaLocation => xsi_schema_location
           }.merge(media_body(media_id))
 
           Excon::Response.new(
-            :status => 201,
+            :status  => 201,
             :headers => { 'Content-Type' => "#{body[:type]};version=#{api_version}" },
-            :body => body
+            :body    => body
           )
         end
       end

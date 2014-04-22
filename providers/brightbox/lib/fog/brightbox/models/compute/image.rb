@@ -42,10 +42,10 @@ module Fog
           raise Fog::Errors::Error.new('Resaving an existing object may create a duplicate') if persisted?
           requires :source, :arch
           options = {
-            :source => source,
-            :arch => arch,
-            :name => name,
-            :username => username,
+            :source      => source,
+            :arch        => arch,
+            :name        => name,
+            :username    => username,
             :description => description
           }.delete_if { |k, v| v.nil? || v == '' }
           data = service.create_image(options)

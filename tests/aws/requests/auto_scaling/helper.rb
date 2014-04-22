@@ -11,57 +11,57 @@ class AWS
       }
 
       ACTIVITY = {
-        'ActivityId' => String,
+        'ActivityId'           => String,
         'AutoScalingGroupName' => String,
-        'Cause' => Fog::Nullable::String,
-        'Description' => String,
-        'EndTime' => Time,
-        'Progress' => Integer,
-        'StartTime' => Time,
-        'StatusCode' => String,
-        'StatusMessage' => Fog::Nullable::String
+        'Cause'                => Fog::Nullable::String,
+        'Description'          => String,
+        'EndTime'              => Time,
+        'Progress'             => Integer,
+        'StartTime'            => Time,
+        'StatusCode'           => String,
+        'StatusMessage'        => Fog::Nullable::String
       }
 
       ALARM = {
-        'AlarmARN' => String,
+        'AlarmARN'  => String,
         'AlarmName' => String
       }
 
       BLOCK_DEVICE_MAPPING = {
-        'DeviceName' => String,
-        'Ebs' => { 'SnapshotId' => String, 'VolumeSize' => Integer },
+        'DeviceName'  => String,
+        'Ebs'         => { 'SnapshotId' => String, 'VolumeSize' => Integer },
         'VirtualName' => String
       }
 
       ENABLED_METRIC = {
         'Granularity' => Array,
-        'Metric' => Array
+        'Metric'      => Array
       }
 
       INSTANCE = {
-        'AvailabilityZone' => String,
-        'HealthStatus' => String,
-        'InstanceId' => String,
+        'AvailabilityZone'        => String,
+        'HealthStatus'            => String,
+        'InstanceId'              => String,
         'LaunchConfigurationName' => String,
-        'LifecycleState' => String
+        'LifecycleState'          => String
       }
 
       NOTIFICATION_CONFIGURATION = {
         'AutoScalingGroupName' => String,
-        'NotificationType' => String,
-        'TopicARN' => String
+        'NotificationType'     => String,
+        'TopicARN'             => String
       }
 
       SCHEDULED_UPDATE_GROUP_ACTION = {
         'AutoScalingGroupName' => String,
-        'DesiredCapacity' => Integer,
-        'EndTime' => Time,
-        'MaxSize' => Integer,
-        'MinSize' => Integer,
-        'Recurrence' => String,
-        'ScheduledActionARN' => String,
-        'ScheduledActionName' => String,
-        'StartTime' => Time,
+        'DesiredCapacity'      => Integer,
+        'EndTime'              => Time,
+        'MaxSize'              => Integer,
+        'MinSize'              => Integer,
+        'Recurrence'           => String,
+        'ScheduledActionARN'   => String,
+        'ScheduledActionName'  => String,
+        'StartTime'            => Time,
       }
 
       PROCESS_TYPE = {
@@ -73,34 +73,34 @@ class AWS
       )
 
       TAG_DESCRIPTION = {
-        'Key' => String,
+        'Key'               => String,
         'PropagateAtLaunch' => Fog::Boolean,
-        'ResourceId' => String,
-        'ResourceType' => String,
-        'Value' => Fog::Nullable::String
+        'ResourceId'        => String,
+        'ResourceType'      => String,
+        'Value'             => Fog::Nullable::String
       }
 
       AUTO_SCALING_GROUP = {
-        'AutoScalingGroupARN' => String,
-        'AutoScalingGroupName' => String,
-        'AvailabilityZones' => Array,
-        'CreatedTime' => Time,
-        'DefaultCooldown' => Integer,
-        'DesiredCapacity' => Integer,
-        'EnabledMetrics' => [ENABLED_METRIC],
-        'HealthCheckGracePeriod' => Integer,
-        'HealthCheckType' => String,
-        'Instances' => [INSTANCE],
+        'AutoScalingGroupARN'     => String,
+        'AutoScalingGroupName'    => String,
+        'AvailabilityZones'       => Array,
+        'CreatedTime'             => Time,
+        'DefaultCooldown'         => Integer,
+        'DesiredCapacity'         => Integer,
+        'EnabledMetrics'          => [ENABLED_METRIC],
+        'HealthCheckGracePeriod'  => Integer,
+        'HealthCheckType'         => String,
+        'Instances'               => [INSTANCE],
         'LaunchConfigurationName' => String,
-        'LoadBalancerNames' => Array,
-        'MaxSize' => Integer,
-        'MinSize' => Integer,
-        'PlacementGroup' => Fog::Nullable::String,
-        'Status' => Fog::Nullable::String,
-        'SuspendedProcesses' => [SUSPENDED_PROCESS],
-        'Tags' => [TAG_DESCRIPTION],
-        'TerminationPolicies' => [String],
-        'VPCZoneIdentifier' => Fog::Nullable::String
+        'LoadBalancerNames'       => Array,
+        'MaxSize'                 => Integer,
+        'MinSize'                 => Integer,
+        'PlacementGroup'          => Fog::Nullable::String,
+        'Status'                  => Fog::Nullable::String,
+        'SuspendedProcesses'      => [SUSPENDED_PROCESS],
+        'Tags'                    => [TAG_DESCRIPTION],
+        'TerminationPolicies'     => [String],
+        'VPCZoneIdentifier'       => Fog::Nullable::String
       }
 
       AUTO_SCALING_INSTANCE_DETAILS = INSTANCE.merge(
@@ -108,30 +108,30 @@ class AWS
       )
 
       LAUNCH_CONFIGURATION = {
-        'BlockDeviceMappings' => [BLOCK_DEVICE_MAPPING],
-        'CreatedTime' => Time,
-        'ImageId' => String,
-        'InstanceMonitoring' => { 'Enabled' => Fog::Boolean },
-        'InstanceType' => String,
-        'KernelId' => Fog::Nullable::String,
-        'KeyName' => Fog::Nullable::String,
-        'LaunchConfigurationARN' => String,
+        'BlockDeviceMappings'     => [BLOCK_DEVICE_MAPPING],
+        'CreatedTime'             => Time,
+        'ImageId'                 => String,
+        'InstanceMonitoring'      => { 'Enabled' => Fog::Boolean },
+        'InstanceType'            => String,
+        'KernelId'                => Fog::Nullable::String,
+        'KeyName'                 => Fog::Nullable::String,
+        'LaunchConfigurationARN'  => String,
         'LaunchConfigurationName' => String,
-        'RamdiskId' => Fog::Nullable::String,
-        'SpotPrice' => Fog::Nullable::String,
-        'SecurityGroups' => Array,
-        'UserData' => Fog::Nullable::String
+        'RamdiskId'               => Fog::Nullable::String,
+        'SpotPrice'               => Fog::Nullable::String,
+        'SecurityGroups'          => Array,
+        'UserData'                => Fog::Nullable::String
       }
 
       SCALING_POLICY = {
-        'AdjustmentType' => String,
-        'Alarms' => [ALARM],
+        'AdjustmentType'       => String,
+        'Alarms'               => [ALARM],
         'AutoScalingGroupName' => String,
-        'Cooldown' => Integer,
-        'MinAdjustmentStep' => Integer,
-        'PolicyARN' => String,
-        'PolicyName' => String,
-        'ScalingAdjustment' => Integer
+        'Cooldown'             => Integer,
+        'MinAdjustmentStep'    => Integer,
+        'PolicyARN'            => String,
+        'PolicyName'           => String,
+        'ScalingAdjustment'    => Integer
       }
 
       DESCRIBE_ADJUSTMENT_TYPES = BASIC.merge(
@@ -167,7 +167,7 @@ class AWS
       DESCRIBE_METRIC_COLLECTION_TYPES = BASIC.merge(
         'DescribeMetricCollectionTypesResult' => {
           'Granularities' => [{ 'Granularity' => String }],
-          'Metrics' => [{ 'Metric' => String }]
+          'Metrics'       => [{ 'Metric' => String }]
         }
       )
 

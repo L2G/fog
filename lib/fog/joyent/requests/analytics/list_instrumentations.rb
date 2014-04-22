@@ -4,9 +4,9 @@ module Fog
       class Real
         def list_instrumentations
           request(
-              :path => "#{@joyent_username}/analytics/instrumentations",
-              :method => 'GET',
-              :expects => 200,
+              :path       => "#{@joyent_username}/analytics/instrumentations",
+              :method     => 'GET',
+              :expects    => 200,
               :idempotent => true
           )
         end

@@ -48,14 +48,14 @@ module Fog
 
         def store_mock_object(bucket, object_name, body, options)
           object = {
-            :body             => body,
-            'Content-Type'    => options['Content-Type'],
-            'ETag'            => Digest::MD5.hexdigest(body),
-            'Key'             => object_name,
-            'Last-Modified'   => Fog::Time.now.to_date_header,
-            'Content-Length'  => options['Content-Length'],
-            'StorageClass'    => options['x-amz-storage-class'] || 'STANDARD',
-            'VersionId'       => bucket[:versioning] == 'Enabled' ? Fog::Mock.random_base64(32) : 'null'
+            :body            => body,
+            'Content-Type'   => options['Content-Type'],
+            'ETag'           => Digest::MD5.hexdigest(body),
+            'Key'            => object_name,
+            'Last-Modified'  => Fog::Time.now.to_date_header,
+            'Content-Length' => options['Content-Length'],
+            'StorageClass'   => options['x-amz-storage-class'] || 'STANDARD',
+            'VersionId'      => bucket[:versioning] == 'Enabled' ? Fog::Mock.random_base64(32) : 'null'
           }
 
           for key, value in options

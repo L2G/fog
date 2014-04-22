@@ -2,20 +2,20 @@ Shindo.tests('Fog::Compute[:openstack] | quota requests', ['openstack']) do
 
   @tenant_id = Fog::Compute[:openstack].list_tenants.body['tenants'].first['id']
   @quota_set_format = {
-    'key_pairs' => Fixnum,
-    'metadata_items' => Fixnum,
+    'key_pairs'                   => Fixnum,
+    'metadata_items'              => Fixnum,
     'injected_file_content_bytes' => Fixnum,
-    'injected_file_path_bytes' => Fixnum,
-    'injected_files' => Fixnum,
-    'ram' => Fixnum,
-    'floating_ips' => Fixnum,
-    'instances' => Fixnum,
-    'cores' => Fixnum,
-    'security_groups' => Fog::Nullable::Integer,
-    'security_group_rules' => Fog::Nullable::Integer,
-    'volumes' => Fog::Nullable::Integer,
-    'gigabytes' => Fog::Nullable::Integer,
-    'id' => String
+    'injected_file_path_bytes'    => Fixnum,
+    'injected_files'              => Fixnum,
+    'ram'                         => Fixnum,
+    'floating_ips'                => Fixnum,
+    'instances'                   => Fixnum,
+    'cores'                       => Fixnum,
+    'security_groups'             => Fog::Nullable::Integer,
+    'security_group_rules'        => Fog::Nullable::Integer,
+    'volumes'                     => Fog::Nullable::Integer,
+    'gigabytes'                   => Fog::Nullable::Integer,
+    'id'                          => String
   }
 
   tests('success') do
@@ -33,7 +33,7 @@ Shindo.tests('Fog::Compute[:openstack] | quota requests', ['openstack']) do
 
       new_values = @quota.merge(
         'floating_ips' => @quota['floating_ips'] / 2,
-        'cores' => @quota['cores'] / 2
+        'cores'        => @quota['cores'] / 2
       )
 
       succeeds do

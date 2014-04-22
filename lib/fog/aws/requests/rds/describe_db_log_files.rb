@@ -28,8 +28,8 @@ module Fog
           params['FileLastWritten'] = opts[:file_last_written] if opts[:file_last_written]
 
           request({
-            'Action'  => 'DescribeDBLogFiles',
-            :parser   => Fog::Parsers::AWS::RDS::DescribeDBLogFiles.new(rds_id)
+            'Action' => 'DescribeDBLogFiles',
+            :parser  => Fog::Parsers::AWS::RDS::DescribeDBLogFiles.new(rds_id)
           }.merge(params))
         end
       end
@@ -55,7 +55,7 @@ module Fog
 
           response.status = 200
           response.body = {
-              'ResponseMetadata' => { 'RequestId' => Fog::AWS::Mock.request_id },
+              'ResponseMetadata'         => { 'RequestId' => Fog::AWS::Mock.request_id },
               'DescribeDBLogFilesResult' => { 'DBLogFiles' => log_file_set }
           }
           response

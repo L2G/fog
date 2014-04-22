@@ -11,7 +11,7 @@ module Fog
 
       DEFAULT_SCHEME = 'https'
       DEFAULT_SCHEME_PORT = {
-        'http' => 80,
+        'http'  => 80,
         'https' => 443
       }
 
@@ -113,9 +113,9 @@ module Fog
 
         def cdn
           @cdn ||= Fog::AWS::CDN.new(
-            :aws_access_key_id => @aws_access_key_id,
+            :aws_access_key_id     => @aws_access_key_id,
             :aws_secret_access_key => @aws_secret_access_key,
-            :use_iam_profile => @use_iam_profile
+            :use_iam_profile       => @use_iam_profile
           )
         end
 
@@ -148,8 +148,8 @@ module Fog
 
           params[:query] = (params[:query] || {}).merge(
             'AWSAccessKeyId' => @aws_access_key_id,
-            'Signature' => signature,
-            'Expires' => expires
+            'Signature'      => signature,
+            'Expires'        => expires
           )
           params[:query]['x-amz-security-token'] = @aws_session_token if @aws_session_token
 
@@ -227,11 +227,11 @@ module Fog
           end
 
           ret = params.merge(
-            :scheme       => scheme,
-            :host         => host,
-            :port         => port,
-            :path         => path,
-            :headers      => headers
+            :scheme  => scheme,
+            :host    => host,
+            :port    => port,
+            :path    => path,
+            :headers => headers
           )
 
           #
@@ -273,56 +273,56 @@ module Fog
               'AccessControlList' => [
                 {
                   'Permission' => 'FULL_CONTROL',
-                  'Grantee' => { 'DisplayName' => 'me', 'ID' => '2744ccd10c7533bd736ad890f9dd5cab2adb27b07d500b9493f29cdc420cb2e0' }
+                  'Grantee'    => { 'DisplayName' => 'me', 'ID' => '2744ccd10c7533bd736ad890f9dd5cab2adb27b07d500b9493f29cdc420cb2e0' }
                 }
               ],
-              'Owner' => { 'DisplayName' => 'me', 'ID' => '2744ccd10c7533bd736ad890f9dd5cab2adb27b07d500b9493f29cdc420cb2e0' }
+              'Owner'             => { 'DisplayName' => 'me', 'ID' => '2744ccd10c7533bd736ad890f9dd5cab2adb27b07d500b9493f29cdc420cb2e0' }
             }
           when 'public-read'
             {
               'AccessControlList' => [
                 {
                   'Permission' => 'FULL_CONTROL',
-                  'Grantee' => { 'DisplayName' => 'me', 'ID' => '2744ccd10c7533bd736ad890f9dd5cab2adb27b07d500b9493f29cdc420cb2e0' }
+                  'Grantee'    => { 'DisplayName' => 'me', 'ID' => '2744ccd10c7533bd736ad890f9dd5cab2adb27b07d500b9493f29cdc420cb2e0' }
                 },
                 {
                   'Permission' => 'READ',
-                  'Grantee' => { 'URI' => 'http://acs.amazonaws.com/groups/global/AllUsers' }
+                  'Grantee'    => { 'URI' => 'http://acs.amazonaws.com/groups/global/AllUsers' }
                 }
               ],
-              'Owner' => { 'DisplayName' => 'me', 'ID' => '2744ccd10c7533bd736ad890f9dd5cab2adb27b07d500b9493f29cdc420cb2e0' }
+              'Owner'             => { 'DisplayName' => 'me', 'ID' => '2744ccd10c7533bd736ad890f9dd5cab2adb27b07d500b9493f29cdc420cb2e0' }
             }
           when 'public-read-write'
             {
               'AccessControlList' => [
                 {
                   'Permission' => 'FULL_CONTROL',
-                  'Grantee' => { 'DisplayName' => 'me', 'ID' => '2744ccd10c7533bd736ad890f9dd5cab2adb27b07d500b9493f29cdc420cb2e0' }
+                  'Grantee'    => { 'DisplayName' => 'me', 'ID' => '2744ccd10c7533bd736ad890f9dd5cab2adb27b07d500b9493f29cdc420cb2e0' }
                 },
                 {
                   'Permission' => 'READ',
-                  'Grantee' => { 'URI' => 'http://acs.amazonaws.com/groups/global/AllUsers' }
+                  'Grantee'    => { 'URI' => 'http://acs.amazonaws.com/groups/global/AllUsers' }
                 },
                 {
                   'Permission' => 'WRITE',
-                  'Grantee' => { 'URI' => 'http://acs.amazonaws.com/groups/global/AllUsers' }
+                  'Grantee'    => { 'URI' => 'http://acs.amazonaws.com/groups/global/AllUsers' }
                 }
               ],
-              'Owner' => { 'DisplayName' => 'me', 'ID' => '2744ccd10c7533bd736ad890f9dd5cab2adb27b07d500b9493f29cdc420cb2e0' }
+              'Owner'             => { 'DisplayName' => 'me', 'ID' => '2744ccd10c7533bd736ad890f9dd5cab2adb27b07d500b9493f29cdc420cb2e0' }
             }
           when 'authenticated-read'
             {
               'AccessControlList' => [
                 {
                   'Permission' => 'FULL_CONTROL',
-                  'Grantee' => { 'DisplayName' => 'me', 'ID' => '2744ccd10c7533bd736ad890f9dd5cab2adb27b07d500b9493f29cdc420cb2e0' }
+                  'Grantee'    => { 'DisplayName' => 'me', 'ID' => '2744ccd10c7533bd736ad890f9dd5cab2adb27b07d500b9493f29cdc420cb2e0' }
                 },
                 {
                   'Permission' => 'READ',
-                  'Grantee' => { 'URI' => 'http://acs.amazonaws.com/groups/global/AuthenticatedUsers' }
+                  'Grantee'    => { 'URI' => 'http://acs.amazonaws.com/groups/global/AuthenticatedUsers' }
                 }
               ],
-              'Owner' => { 'DisplayName' => 'me', 'ID' => '2744ccd10c7533bd736ad890f9dd5cab2adb27b07d500b9493f29cdc420cb2e0' }
+              'Owner'             => { 'DisplayName' => 'me', 'ID' => '2744ccd10c7533bd736ad890f9dd5cab2adb27b07d500b9493f29cdc420cb2e0' }
             }
           end
         end
@@ -331,15 +331,15 @@ module Fog
           @data ||= Hash.new do |hash, region|
             hash[region] = Hash.new do |region_hash, key|
               region_hash[key] = {
-                :acls => {
+                :acls              => {
                   :bucket => {},
                   :object => {}
                 },
-                :buckets => {},
-                :cors => {
+                :buckets           => {},
+                :cors              => {
                   :bucket => {}
                 },
-                :bucket_tagging => {},
+                :bucket_tagging    => {},
                 :multipart_uploads => {}
               }
             end

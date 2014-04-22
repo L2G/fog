@@ -43,15 +43,15 @@ module Fog
           end
 
           body = {
-            :xmlns => xmlns,
-            :xmlns_xsi => xmlns_xsi,
+            :xmlns              => xmlns,
+            :xmlns_xsi          => xmlns_xsi,
             :xsi_schemaLocation => xsi_schema_location,
-            :Link => {
+            :Link               => {
               :href => make_href("media/#{id}"),
               :type => 'application/vnd.vmware.vcloud.media+xml',
-              :rel => 'up'
+              :rel  => 'up'
             },
-            :User => {
+            :User               => {
               :href => make_href("admin/user/#{user_uuid}"),
               :name => user_name,
               :type => 'application/vnd.vmware.admin.user+xml',
@@ -59,9 +59,9 @@ module Fog
           }
 
           Excon::Response.new(
-            :status => 200,
+            :status  => 200,
             :headers => { 'Content-Type' => "#{body[:type]};version=#{@version}" },
-            :body => body
+            :body    => body
           )
         end
       end

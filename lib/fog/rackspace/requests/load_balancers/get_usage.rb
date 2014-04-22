@@ -10,8 +10,8 @@ module Fog
           end
           request(
             :expects => 200,
-            :path => "loadbalancers/usage#{query}",
-            :method => 'GET'
+            :path    => "loadbalancers/usage#{query}",
+            :method  => 'GET'
           )
         end
       end

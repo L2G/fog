@@ -26,7 +26,7 @@ module Fog
           requires :name, :application_name
           data = service.describe_configuration_options(
               'ApplicationName' => application_name,
-              'TemplateName' => name
+              'TemplateName'    => name
                                                     )
           data.body['DescribeConfigurationOptionsResult']['Options']
         end
@@ -41,13 +41,13 @@ module Fog
           requires :name, :application_name
 
           options = {
-              'ApplicationName' => application_name,
-              'Description' => description,
-              'EnvironmentId' => environment_id,
-              'OptionSettings' => option_settings,
-              'SolutionStackName' => solution_stack_name,
+              'ApplicationName'     => application_name,
+              'Description'         => description,
+              'EnvironmentId'       => environment_id,
+              'OptionSettings'      => option_settings,
+              'SolutionStackName'   => solution_stack_name,
               'SourceConfiguration' => source_configuration,
-              'TemplateName' => name
+              'TemplateName'        => name
           }
           options.delete_if {|key, value| value.nil?}
 
@@ -61,9 +61,9 @@ module Fog
 
           options = {
               'ApplicationName' => application_name,
-              'Description' => new_attributes[:description],
-              'OptionSettings' => new_attributes[:option_settings],
-              'TemplateName' => name
+              'Description'     => new_attributes[:description],
+              'OptionSettings'  => new_attributes[:option_settings],
+              'TemplateName'    => name
           }
           options.delete_if {|key, value| value.nil?}
 

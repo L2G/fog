@@ -27,9 +27,9 @@ module Fog
         #
         def list_user_policies(user_name, options = {})
           request({
-            'Action'    => 'ListUserPolicies',
-            'UserName'  => user_name,
-            :parser     => Fog::Parsers::AWS::IAM::ListPolicies.new
+            'Action'   => 'ListUserPolicies',
+            'UserName' => user_name,
+            :parser    => Fog::Parsers::AWS::IAM::ListPolicies.new
           }.merge!(options))
         end
 

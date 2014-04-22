@@ -22,9 +22,9 @@ module Fog
         #     * 'status'<~String> - Server's status
         def list_servers
           request(
-            :expects  => [200, 203],
-            :method   => 'GET',
-            :path     => 'servers'
+            :expects => [200, 203],
+            :method  => 'GET',
+            :path    => 'servers'
           )
         end
 

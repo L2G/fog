@@ -98,43 +98,43 @@ module Fog
                            end
 
           self.data[:load_balancers][lb_name] = {
-            'AvailabilityZones' => availability_zones,
-            'BackendServerDescriptions' => [],
+            'AvailabilityZones'               => availability_zones,
+            'BackendServerDescriptions'       => [],
             # Hack to facilitate not updating the local data structure
             # (BackendServerDescriptions) until we do a subsequent
             # describe as that is how AWS behaves.
             'BackendServerDescriptionsRemote' => [],
-            'Subnets' => options[:subnet_ids] || [],
-            'Scheme' => options[:scheme].nil? ? 'internet-facing' : options[:scheme],
-            'SecurityGroups' => options[:security_groups].nil? ? [] : options[:security_groups],
-            'CanonicalHostedZoneName' => '',
-            'CanonicalHostedZoneNameID' => '',
-            'CreatedTime' => Time.now,
-            'DNSName' => dns_name,
-            'HealthCheck' => {
-              'HealthyThreshold' => 10,
-              'Timeout' => 5,
+            'Subnets'                         => options[:subnet_ids] || [],
+            'Scheme'                          => options[:scheme].nil? ? 'internet-facing' : options[:scheme],
+            'SecurityGroups'                  => options[:security_groups].nil? ? [] : options[:security_groups],
+            'CanonicalHostedZoneName'         => '',
+            'CanonicalHostedZoneNameID'       => '',
+            'CreatedTime'                     => Time.now,
+            'DNSName'                         => dns_name,
+            'HealthCheck'                     => {
+              'HealthyThreshold'   => 10,
+              'Timeout'            => 5,
               'UnhealthyThreshold' => 2,
-              'Interval' => 30,
-              'Target' => 'TCP:80'
+              'Interval'           => 30,
+              'Target'             => 'TCP:80'
             },
-            'Instances' => [],
-            'ListenerDescriptions' => listeners,
-            'LoadBalancerAttributes' => { 'CrossZoneLoadBalancing' => { 'Enabled' => false } },
-            'LoadBalancerName' => lb_name,
-            'Policies' => {
+            'Instances'                       => [],
+            'ListenerDescriptions'            => listeners,
+            'LoadBalancerAttributes'          => { 'CrossZoneLoadBalancing' => { 'Enabled' => false } },
+            'LoadBalancerName'                => lb_name,
+            'Policies'                        => {
               'AppCookieStickinessPolicies' => [],
-              'LBCookieStickinessPolicies' => [],
-              'OtherPolicies' => [],
-              'Proper' => []
+              'LBCookieStickinessPolicies'  => [],
+              'OtherPolicies'               => [],
+              'Proper'                      => []
             },
-            'SourceSecurityGroup' => {
-              'GroupName' => security_group['groupName'],
+            'SourceSecurityGroup'             => {
+              'GroupName'  => security_group['groupName'],
               'OwnerAlias' => ''
             }
           }
           response.body = {
-            'ResponseMetadata' => {
+            'ResponseMetadata'         => {
               'RequestId' => Fog::AWS::Mock.request_id
             },
             'CreateLoadBalancerResult' => {

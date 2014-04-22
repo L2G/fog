@@ -21,14 +21,14 @@ Shindo.tests('AWS::ElasticBeanstalk | application_tests', ['aws', 'beanstalk']) 
     @describe_applications_format = {
         'DescribeApplicationsResult' => {
             'Applications' => [
-                'ApplicationName' => String,
+                'ApplicationName'        => String,
                 'ConfigurationTemplates' => [String],
-                'Description' => Fog::Nullable::String,
-                'DateCreated' => Time,
-                'DateUpdated' => Time,
-                'Versions' => [String]
+                'Description'            => Fog::Nullable::String,
+                'DateCreated'            => Time,
+                'DateUpdated'            => Time,
+                'Versions'               => [String]
             ] },
-        'ResponseMetadata' => { 'RequestId' => String },
+        'ResponseMetadata'           => { 'RequestId' => String },
     }
 
     tests('#describe_applications format').formats(@describe_applications_format) do
@@ -38,7 +38,7 @@ Shindo.tests('AWS::ElasticBeanstalk | application_tests', ['aws', 'beanstalk']) 
     test('#create_application') {
       response = @beanstalk.create_application(
                                                    'ApplicationName' => @test_app_name,
-                                                   'Description' => @test_description
+                                                   'Description'     => @test_description
                                                )
 
       result = false
@@ -106,7 +106,7 @@ Shindo.tests('AWS::ElasticBeanstalk | application_tests', ['aws', 'beanstalk']) 
 
       response = @beanstalk.update_application(
                                                    'ApplicationName' => @test_app_name,
-                                                   'Description' => @test_description
+                                                   'Description'     => @test_description
                                                )
 
       result = false

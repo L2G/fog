@@ -3,13 +3,13 @@ Shindo.tests('Fog::Rackspace::Identity | users', ['rackspace']) do
   pending if Fog.mock?
 
   USER_INFO = {
-    'id' => String,
-    'username' => String,
-    'email' => Fog::Nullable::String,
-    'enabled' => Fog::Boolean,
+    'id'                => String,
+    'username'          => String,
+    'email'             => Fog::Nullable::String,
+    'enabled'           => Fog::Boolean,
     'OS-KSADM:password' => Fog::Nullable::String,
-    'created' => Fog::Nullable::String,
-    'updated' => Fog::Nullable::String
+    'created'           => Fog::Nullable::String,
+    'updated'           => Fog::Nullable::String
   }
 
   USER_FORMAT = {
@@ -23,7 +23,7 @@ Shindo.tests('Fog::Rackspace::Identity | users', ['rackspace']) do
   CREDENTIAL_FORMAT = {
     'RAX-KSKEY:apiKeyCredentials' => {
       'username' => String,
-      'apiKey' => String
+      'apiKey'   => String
     }
   }
 
@@ -33,8 +33,8 @@ Shindo.tests('Fog::Rackspace::Identity | users', ['rackspace']) do
 
   ROLES_FORMAT = {
     'roles' => [{
-      'id' => String,
-      'name' => String,
+      'id'          => String,
+      'name'        => String,
       'description' => String
     }]
   }

@@ -4,8 +4,8 @@ module Fog
       class Real
         def get_machine_snapshot(machine_id, snapshot_name)
           request(
-            :path => "/my/machines/#{machine_id}/snapshots/#{snapshot_name}",
-            :method => 'GET',
+            :path       => "/my/machines/#{machine_id}/snapshots/#{snapshot_name}",
+            :method     => 'GET',
             :idempotent => true
           )
         end

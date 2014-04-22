@@ -2,15 +2,15 @@ Shindo.tests('AWS::IAM | role requests', ['aws']) do
   tests('success') do
 
     @role = {
-        'Arn'       => String,
+        'Arn'                      => String,
         'AssumeRolePolicyDocument' => String,
-        'CreateDate' => Time,
-        'Path'      => String,
-        'RoleId'    => String,
-        'RoleName'  => String
+        'CreateDate'               => Time,
+        'Path'                     => String,
+        'RoleId'                   => String,
+        'RoleName'                 => String
       }
     @role_format = {
-      'Role' => @role,
+      'Role'      => @role,
       'RequestId' => String
     }
     tests("#create_role('fogrole')").formats(@role_format) do
@@ -24,15 +24,15 @@ Shindo.tests('AWS::IAM | role requests', ['aws']) do
     end
 
     @list_roles_format = {
-      'Roles' => [{
-        'Arn'       => String,
+      'Roles'       => [{
+        'Arn'                      => String,
         'AssumeRolePolicyDocument' => String,
-        'CreateDate' => Time,
-        'Path'      => String,
-        'RoleId'    => String,
-        'RoleName'  => String
+        'CreateDate'               => Time,
+        'Path'                     => String,
+        'RoleId'                   => String,
+        'RoleName'                 => String
       }],
-      'RequestId' => String,
+      'RequestId'   => String,
       'IsTruncated' => Fog::Boolean,
     }
 
@@ -45,14 +45,14 @@ Shindo.tests('AWS::IAM | role requests', ['aws']) do
 
     @profile_format = {
       'InstanceProfile' => {
-        'Arn'       => String,
-        'CreateDate' => Time,
-        'Path'      => String,
-        'InstanceProfileId'    => String,
-        'InstanceProfileName'  => String,
-        'Roles' => [@role]
+        'Arn'                 => String,
+        'CreateDate'          => Time,
+        'Path'                => String,
+        'InstanceProfileId'   => String,
+        'InstanceProfileName' => String,
+        'Roles'               => [@role]
       },
-      'RequestId' => String
+      'RequestId'       => String
 
     }
     tests("#create_instance_profile('fogprofile')").formats(@profile_format) do
@@ -72,15 +72,15 @@ Shindo.tests('AWS::IAM | role requests', ['aws']) do
 
     @profiles_format = {
       'InstanceProfiles' => [{
-        'Arn'       => String,
-        'CreateDate' => Time,
-        'Path'      => String,
-        'InstanceProfileId'    => String,
-        'InstanceProfileName'  => String,
-        'Roles' => [@role]
+        'Arn'                 => String,
+        'CreateDate'          => Time,
+        'Path'                => String,
+        'InstanceProfileId'   => String,
+        'InstanceProfileName' => String,
+        'Roles'               => [@role]
       }],
-      'IsTruncated' => Fog::Boolean,
-      'RequestId' => String
+      'IsTruncated'      => Fog::Boolean,
+      'RequestId'        => String
 
     }
     tests("list_instance_profiles_for_role('fogrole')").formats(@profiles_format) do
@@ -103,9 +103,9 @@ Shindo.tests('AWS::IAM | role requests', ['aws']) do
     end
 
     @get_role_policy_format = {
-      'Policy' => {
-        'RoleName' => String,
-        'PolicyName' => String,
+      'Policy'    => {
+        'RoleName'       => String,
+        'PolicyName'     => String,
         'PolicyDocument' => Hash,
       },
       'RequestId' => String
@@ -122,7 +122,7 @@ Shindo.tests('AWS::IAM | role requests', ['aws']) do
     @list_role_policies_format = {
       'PolicyNames' => [String],
       'IsTruncated' => Fog::Boolean,
-      'RequestId' => String
+      'RequestId'   => String
     }
 
     tests('list_role_policies').formats(@list_role_policies_format) do

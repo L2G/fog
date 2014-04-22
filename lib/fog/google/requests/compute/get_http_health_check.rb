@@ -15,7 +15,7 @@ module Fog
         def get_http_health_check(name)
           api_method = @compute.http_health_checks.get
           parameters = {
-            'project' => @project,
+            'project'         => @project,
             'httpHealthCheck' => name
           }
 

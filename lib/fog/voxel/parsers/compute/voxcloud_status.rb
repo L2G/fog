@@ -16,8 +16,8 @@ module Fog
               @response['stat'] = attr_value('stat', attrs)
             when 'err'
               @response['err'] = {
-                'code'  => attr_value('code', attrs),
-                'msg'   => attr_value('msg', attrs)
+                'code' => attr_value('code', attrs),
+                'msg'  => attr_value('msg', attrs)
               }
             when 'device'
               @device = {}

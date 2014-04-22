@@ -38,27 +38,27 @@ module Fog
           end
 
           body =
-            { :name => network[:name],
-             :href => make_href("network/#{id}"),
-             :type => 'application/vnd.vmware.vcloud.orgNetwork+xml',
-             :id => id,
-             :description => nil,
-             :is_inherited => network[:IsInherited],
-             :gateway => network[:Gateway],
-             :netmask => network[:Netmask],
-             :dns1 => network[:Dns1],
-             :dns2 => network[:Dns2],
-             :dns_suffix => network[:DnsSuffix] }
+            { :name         => network[:name],
+              :href         => make_href("network/#{id}"),
+              :type         => 'application/vnd.vmware.vcloud.orgNetwork+xml',
+              :id           => id,
+              :description  => nil,
+              :is_inherited => network[:IsInherited],
+              :gateway      => network[:Gateway],
+              :netmask      => network[:Netmask],
+              :dns1         => network[:Dns1],
+              :dns2         => network[:Dns2],
+              :dns_suffix   => network[:DnsSuffix] }
 
           body[:ip_ranges] = network[:IpRanges].map do |ip_range|
             { :start_address => ip_range[:StartAddress],
-             :end_address => ip_range[:EndAddress] }
+              :end_address   => ip_range[:EndAddress] }
           end
 
           Excon::Response.new(
-            :status => 200,
+            :status  => 200,
             :headers => { 'Content-Type' => "#{body[:type]};version=#{api_version}" },
-            :body => body
+            :body    => body
           )
         end
       end

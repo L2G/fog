@@ -25,8 +25,8 @@ module Fog
           params['Marker'] = opts[:marker] if opts[:marker]
           params['MaxRecords'] = opts[:max_records] if opts[:max_records]
           request({
-            'Action'  => 'DescribeDBSnapshots',
-            :parser   => Fog::Parsers::AWS::RDS::DescribeDBSnapshots.new
+            'Action' => 'DescribeDBSnapshots',
+            :parser  => Fog::Parsers::AWS::RDS::DescribeDBSnapshots.new
           }.merge(params))
         end
 
@@ -58,7 +58,7 @@ module Fog
           # Build response
           response.status = 200
           response.body = {
-            'ResponseMetadata' => { 'RequestId' => Fog::AWS::Mock.request_id },
+            'ResponseMetadata'          => { 'RequestId' => Fog::AWS::Mock.request_id },
             'DescribeDBSnapshotsResult' => { 'DBSnapshots' => snapshots }
           }
           response

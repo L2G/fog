@@ -32,9 +32,9 @@ module Fog
           end
           params = Fog::AWS.indexed_filters(filters)
           request({
-            'Action' => 'DescribeVpcs',
+            'Action'    => 'DescribeVpcs',
             :idempotent => true,
-            :parser => Fog::Parsers::Compute::AWS::DescribeVpcs.new
+            :parser     => Fog::Parsers::Compute::AWS::DescribeVpcs.new
           }.merge!(params))
         end
       end

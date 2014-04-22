@@ -24,10 +24,10 @@ module Fog
         #     * 'links'<~Array> - array of server links
         def list_servers(options = {})
           request(
-            :expects  => [200, 203],
-            :method   => 'GET',
-            :path     => 'servers',
-            :query    => options
+            :expects => [200, 203],
+            :method  => 'GET',
+            :path    => 'servers',
+            :query   => options
           )
         end
 

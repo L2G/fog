@@ -29,8 +29,8 @@ module Fog
         def get_volume(volume_id)
           request(
             :expects => [200],
-            :method => 'GET',
-            :path => "volumes/#{volume_id}"
+            :method  => 'GET',
+            :path    => "volumes/#{volume_id}"
           )
         end
       end

@@ -5,10 +5,10 @@ module Fog
 
         def list_notifications(options = {})
           request(
-            :expects  => [200],
-            :method   => 'GET',
-            :path     => 'notifications',
-            :query    => options
+            :expects => [200],
+            :method  => 'GET',
+            :path    => 'notifications',
+            :query   => options
           )
         end
 
@@ -24,15 +24,15 @@ module Fog
           response = Excon::Response.new
           response.status = 200
           response.body = {
-            'values' => [
+            'values'   => [
               {
                   'created_at' => 1378783452067,
-                  'details' => {
+                  'details'    => {
                       'address' => 'test@test.com'
                   },
-                  'id' => 'ntnJN3MQrA',
-                  'label' => 'my email update test',
-                  'type' => 'email',
+                  'id'         => 'ntnJN3MQrA',
+                  'label'      => 'my email update test',
+                  'type'       => 'email',
                   'updated_at' => 1378784136307
               }
           ],

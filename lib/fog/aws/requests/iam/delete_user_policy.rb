@@ -21,10 +21,10 @@ module Fog
         #
         def delete_user_policy(user_name, policy_name)
           request(
-            'Action'          => 'DeleteUserPolicy',
-            'PolicyName'      => policy_name,
-            'UserName'        => user_name,
-            :parser           => Fog::Parsers::AWS::IAM::Basic.new
+            'Action'     => 'DeleteUserPolicy',
+            'PolicyName' => policy_name,
+            'UserName'   => user_name,
+            :parser      => Fog::Parsers::AWS::IAM::Basic.new
           )
         end
 

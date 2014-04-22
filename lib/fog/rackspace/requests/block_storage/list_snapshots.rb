@@ -22,8 +22,8 @@ module Fog
         def list_snapshots
           request(
             :expects => [200],
-            :method => 'GET',
-            :path => 'snapshots'
+            :method  => 'GET',
+            :path    => 'snapshots'
           )
         end
       end

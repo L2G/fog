@@ -74,28 +74,28 @@ module Fog
             end
             zone_id = "/hostedzone/#{Fog::AWS::Mock.zone_id}"
             self.data[:zones][zone_id] = {
-              :id => zone_id,
-              :name => name,
+              :id        => zone_id,
+              :name      => name,
               :reference => caller_ref,
-              :comment => options[:comment],
-              :records => {}
+              :comment   => options[:comment],
+              :records   => {}
             }
             change = {
-              :id => Fog::AWS::Mock.change_id,
-              :status => 'PENDING',
+              :id           => Fog::AWS::Mock.change_id,
+              :status       => 'PENDING',
               :submitted_at => Time.now.utc.iso8601
             }
             self.data[:changes][change[:id]] = change
             response.body = {
-              'HostedZone' => {
-                'Id' => zone_id,
-                'Name' => name,
+              'HostedZone'  => {
+                'Id'              => zone_id,
+                'Name'            => name,
                 'CallerReference' => caller_ref,
-                'Comment' => options[:comment]
+                'Comment'         => options[:comment]
               },
-              'ChangeInfo' => {
-                'Id' => change[:id],
-                'Status' => change[:status],
+              'ChangeInfo'  => {
+                'Id'          => change[:id],
+                'Status'      => change[:status],
                 'SubmittedAt' => change[:submitted_at]
               },
               'NameServers' => Fog::AWS::Mock.nameservers

@@ -5,9 +5,9 @@ module Fog
 
         def get_alarm(entity_id, alarm_id)
           request(
-            :expects  => [200, 203],
-            :method   => 'GET',
-            :path     => "entities/#{entity_id}/alarms/#{alarm_id}"
+            :expects => [200, 203],
+            :method  => 'GET',
+            :path    => "entities/#{entity_id}/alarms/#{alarm_id}"
           )
         end
 
@@ -24,15 +24,15 @@ module Fog
           response = Excon::Response.new
           response.status = 200
           response.body = {
-            'id'                    => alarm_id,
-            'label'                 => nil,
-            'check_id'              => Fog::Mock.random_letters(10),
-            'criteria'              => nil,
-            'disabled'              => false,
-            'notification_plan_id'  => 'npTechnicalContactsEmail',
-            'metadata'              => nil,
-            'created_at'            => Time.now.to_i - 1,
-            'updated_at'            => Time.now.to_i
+            'id'                   => alarm_id,
+            'label'                => nil,
+            'check_id'             => Fog::Mock.random_letters(10),
+            'criteria'             => nil,
+            'disabled'             => false,
+            'notification_plan_id' => 'npTechnicalContactsEmail',
+            'metadata'             => nil,
+            'created_at'           => Time.now.to_i - 1,
+            'updated_at'           => Time.now.to_i
           }
           response.headers = {
             'Date'                  => Time.now.utc.to_s,

@@ -43,10 +43,10 @@ module Fog
         def all(options = {})
           requires :directory
           options = {
-            'limit'   => limit,
-            'marker'  => marker,
-            'path'    => path,
-            'prefix'  => prefix
+            'limit'  => limit,
+            'marker' => marker,
+            'path'   => path,
+            'prefix' => prefix
           }.merge!(options)
           merge_attributes(options)
           parent = directory.collection.get(
@@ -112,8 +112,8 @@ module Fog
           data = service.get_object(directory.key, key, &block)
           metadata = Metadata.from_headers(self, data.headers)
           file_data = data.headers.merge(
-            :body => data.body,
-            :key  => key,
+            :body     => data.body,
+            :key      => key,
             :metadata => metadata
           )
 

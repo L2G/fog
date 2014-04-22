@@ -5,8 +5,8 @@ module Fog
         def list_user_roles(user_id)
           response = request(
             :expects => [200, 203],
-            :method => 'GET',
-            :path => "users/#{user_id}/roles"
+            :method  => 'GET',
+            :path    => "users/#{user_id}/roles"
           )
 
           unless response.body['roles'].is_a?(Array)

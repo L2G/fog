@@ -26,8 +26,8 @@ module Fog
           end
 
           request({
-            'Action'  => 'DescribeCacheSubnetGroups',
-            :parser   => Fog::Parsers::AWS::Elasticache::DescribeCacheSubnetGroups.new
+            'Action' => 'DescribeCacheSubnetGroups',
+            :parser  => Fog::Parsers::AWS::Elasticache::DescribeCacheSubnetGroups.new
           }.merge(params))
         end
 
@@ -51,7 +51,7 @@ module Fog
 
           response.status = 200
           response.body = {
-            'ResponseMetadata' => { 'RequestId' => Fog::AWS::Mock.request_id },
+            'ResponseMetadata'                => { 'RequestId' => Fog::AWS::Mock.request_id },
             'DescribeCacheSubnetGroupsResult' => { 'CacheSubnetGroups' => subnet_group_set }
           }
           response

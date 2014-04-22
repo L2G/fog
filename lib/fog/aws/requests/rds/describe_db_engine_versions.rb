@@ -15,8 +15,8 @@ module Fog
           params['MaxRecords'] = opts[:max_records] if opts[:max_records]
 
           request({
-            'Action'  => 'DescribeDBEngineVersions',
-            :parser   => Fog::Parsers::AWS::RDS::DescribeDBEngineVersions.new
+            'Action' => 'DescribeDBEngineVersions',
+            :parser  => Fog::Parsers::AWS::RDS::DescribeDBEngineVersions.new
           }.merge(params))
         end
 

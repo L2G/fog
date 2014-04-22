@@ -32,8 +32,8 @@ module Fog
         #
         def list_roles(options = {})
           request({
-            'Action'    => 'ListRoles',
-            :parser     => Fog::Parsers::AWS::IAM::ListRoles.new
+            'Action' => 'ListRoles',
+            :parser  => Fog::Parsers::AWS::IAM::ListRoles.new
           }.merge!(options))
         end
 

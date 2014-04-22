@@ -29,7 +29,7 @@ module Fog
           body = Nokogiri::XML::Builder.new do
             attrs = {
               :xmlns => 'http://www.vmware.com/vcloud/v1.5',
-              :name => name
+              :name  => name
             }
             attrs[:deploy] = options[:deploy] if options.key?(:deploy)
             attrs[:powerOn] = options[:powerOn] if options.key?(:powerOn)

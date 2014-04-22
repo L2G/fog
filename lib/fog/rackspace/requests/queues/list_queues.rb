@@ -19,9 +19,9 @@ module Fog
         def list_queues(options = {})
           request(
             :expects => [200, 204],
-            :method => 'GET',
-            :path => 'queues',
-            :query => options
+            :method  => 'GET',
+            :path    => 'queues',
+            :query   => options
           )
         end
       end
@@ -52,7 +52,7 @@ module Fog
             response.status = 200
             response.body = {
               'queues' => queue_data,
-              'links' => [{ 'href' => "#{PATH_BASE}?marker=#{queue_names.last}", 'rel' => 'next' }]
+              'links'  => [{ 'href' => "#{PATH_BASE}?marker=#{queue_names.last}", 'rel' => 'next' }]
             }
           end
           response

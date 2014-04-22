@@ -8,11 +8,11 @@ module Fog
           body = build_login_banner_edit(data)
           request(
             :expects => 200,
-            :method => 'PUT',
+            :method  => 'PUT',
             :headers => {},
-            :body => body,
-            :uri => data[:uri],
-            :parse => true
+            :body    => body,
+            :uri     => data[:uri],
+            :parse   => true
           )
         end
 

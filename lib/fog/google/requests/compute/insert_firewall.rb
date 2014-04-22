@@ -21,7 +21,7 @@ module Fog
             'project' => @project,
           }
           body_object = {
-            'name' => firewall_name,
+            'name'    => firewall_name,
             'network' => network,
             'allowed' => allowed,
           }

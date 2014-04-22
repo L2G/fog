@@ -1,11 +1,11 @@
 Shindo.tests('Storage[:internetarchive] | files', ['internetarchive']) do
 
   file_attributes = {
-      :key => 'fog_file_tests',
-      :body => lorem_file,
-      :public => true,
+      :key              => 'fog_file_tests',
+      :body             => lorem_file,
+      :public           => true,
       :auto_make_bucket => 1,
-      :collections => ['test_collection']
+      :collections      => ['test_collection']
   }
 
   directory_attributes = {

@@ -22,11 +22,11 @@ module Fog
         # {Amazon API Reference}[http://docs.amazonwebservices.com/AWSEC2/latest/APIReference/ApiReference-query-CreateSecurityGroup.html]
         def create_security_group(name, description, vpc_id = nil)
           request(
-            'Action'            => 'CreateSecurityGroup',
-            'GroupName'         => name,
-            'GroupDescription'  => description,
-            'VpcId'             => vpc_id,
-            :parser             => Fog::Parsers::Compute::AWS::CreateSecurityGroup.new
+            'Action'           => 'CreateSecurityGroup',
+            'GroupName'        => name,
+            'GroupDescription' => description,
+            'VpcId'            => vpc_id,
+            :parser            => Fog::Parsers::Compute::AWS::CreateSecurityGroup.new
           )
         end
 

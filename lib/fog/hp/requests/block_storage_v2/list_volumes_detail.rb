@@ -31,10 +31,10 @@ module Fog
         #       * volume_image_metadata<~Hash>: Hash of image metadata for the volume, only if the volume was created from an image.
         def list_volumes_detail(options = {})
           response = request(
-            :expects  => 200,
-            :method   => 'GET',
-            :path     => 'volumes/detail',
-            :query    => options
+            :expects => 200,
+            :method  => 'GET',
+            :path    => 'volumes/detail',
+            :query   => options
           )
           response
         end

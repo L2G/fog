@@ -1,13 +1,13 @@
 Shindo.tests('Fog::Compute[:rackspace] | image requests', ['rackspace']) do
 
   @image_format = {
-    'created'   => Fog::Nullable::String,
-    'id'        => Integer,
-    'name'      => String,
-    'progress'  => Fog::Nullable::Integer,
-    'serverId'  => Fog::Nullable::Integer,
-    'status'    => String,
-    'updated'   => String
+    'created'  => Fog::Nullable::String,
+    'id'       => Integer,
+    'name'     => String,
+    'progress' => Fog::Nullable::Integer,
+    'serverId' => Fog::Nullable::Integer,
+    'status'   => String,
+    'updated'  => String
   }
 
   @service = Fog::Compute.new(:provider => :rackspace, :version => :v1)

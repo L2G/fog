@@ -14,9 +14,9 @@ module Fog
           path   = uri.path
 
           response = shared_request({
-            :expects  => 200,
-            :method   => 'HEAD',
-            :path     => path
+            :expects => 200,
+            :method  => 'HEAD',
+            :path    => path
           }, false)
           response
         end

@@ -51,12 +51,12 @@ module Fog
 
           # Mutate options to new format.
           deprecated = {
-            :needs_customization => :needsCustomization,
-            :network => :network,
-            :network_connection_index => :NetworkConnectionIndex,
-            :ip_address => :IpAddress,
-            :is_connected => :IsConnected,
-            :mac_address => :MACAddress,
+            :needs_customization        => :needsCustomization,
+            :network                    => :network,
+            :network_connection_index   => :NetworkConnectionIndex,
+            :ip_address                 => :IpAddress,
+            :is_connected               => :IsConnected,
+            :mac_address                => :MACAddress,
             :ip_address_allocation_mode => :IpAddressAllocationMode
           }
           option = options.delete(:primary_network_connection_index)
@@ -74,7 +74,7 @@ module Fog
 
           body = Nokogiri::XML::Builder.new do
             attrs = {
-              :xmlns => 'http://www.vmware.com/vcloud/v1.5',
+              :xmlns      => 'http://www.vmware.com/vcloud/v1.5',
               'xmlns:ovf' => 'http://schemas.dmtf.org/ovf/envelope/1'
             }
             NetworkConnectionSection(attrs) {

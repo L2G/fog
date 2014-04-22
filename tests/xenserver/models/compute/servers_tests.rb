@@ -12,7 +12,7 @@ Shindo.tests('Fog::Compute[:xenserver] | servers collection', ['xenserver']) do
       servers.empty?
     end
 
-    server = conn.servers.create(:name => test_ephemeral_vm_name,
+    server = conn.servers.create(:name          => test_ephemeral_vm_name,
                                  :template_name => test_template_name)
     test('should NOT be empty') do
       servers.reload
@@ -73,7 +73,7 @@ Shindo.tests('Fog::Compute[:xenserver] | servers collection', ['xenserver']) do
     tests('should be able to reload itself').succeeds { servers.reload }
 
     tests('should be able to get a model') do
-      server = conn.servers.create(:name => test_ephemeral_vm_name,
+      server = conn.servers.create(:name          => test_ephemeral_vm_name,
                                    :template_name => test_template_name)
       test('by name') { servers.get_by_name(test_ephemeral_vm_name).kind_of? Fog::Compute::XenServer::Server }
       test('by instance uuid') { servers.get_by_uuid(server.uuid).kind_of? Fog::Compute::XenServer::Server }

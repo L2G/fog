@@ -1,21 +1,21 @@
 Shindo.tests('Fog::Compute[:openstack] | server requests', ['openstack']) do
 
   @detailed_server_format = {
-    'id'         => String,
-    'addresses'  => Hash,
-    'flavor'     => Hash,
-    'hostId'     => String,
-    'image'      => Hash,
-    'metadata'   => Hash,
-    'name'       => String,
-    'progress'   => Integer,
-    'status'     => String,
-    'accessIPv4' => Fog::Nullable::String,
-    'accessIPv6' => Fog::Nullable::String,
-    'links'      => Array,
-    'created'    => String,
-    'updated'    => String,
-    'user_id'    => String,
+    'id'           => String,
+    'addresses'    => Hash,
+    'flavor'       => Hash,
+    'hostId'       => String,
+    'image'        => Hash,
+    'metadata'     => Hash,
+    'name'         => String,
+    'progress'     => Integer,
+    'status'       => String,
+    'accessIPv4'   => Fog::Nullable::String,
+    'accessIPv6'   => Fog::Nullable::String,
+    'links'        => Array,
+    'created'      => String,
+    'updated'      => String,
+    'user_id'      => String,
     'config_drive' => String,
   }
 
@@ -31,17 +31,17 @@ Shindo.tests('Fog::Compute[:openstack] | server requests', ['openstack']) do
   }
 
   @image_format = {
-    'created'   => Fog::Nullable::String,
-    'id'        => String,
-    'name'      => String,
-    'progress'  => Fog::Nullable::Integer,
-    'status'    => String,
-    'updated'   => String,
-    'minRam'    => Integer,
-    'minDisk'   => Integer,
-    'server'    => Hash,
-    'metadata'  => Hash,
-    'links'     => Array
+    'created'  => Fog::Nullable::String,
+    'id'       => String,
+    'name'     => String,
+    'progress' => Fog::Nullable::Integer,
+    'status'   => String,
+    'updated'  => String,
+    'minRam'   => Integer,
+    'minDisk'  => Integer,
+    'server'   => Hash,
+    'metadata' => Hash,
+    'links'    => Array
   }
 
   tests('success') do

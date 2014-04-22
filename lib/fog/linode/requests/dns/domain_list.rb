@@ -30,9 +30,9 @@ module Fog
           end
 
           request(
-            :expects  => 200,
-            :method   => 'GET',
-            :query    => { :api_action => 'domain.list' }.merge!(options)
+            :expects => 200,
+            :method  => 'GET',
+            :query   => { :api_action => 'domain.list' }.merge!(options)
           )
         end
 

@@ -20,12 +20,12 @@ module Fog
             </NetworkConnectionSection>
 EOF
           request(
-            :body     => body,
-            :expects  => 202,
-            :headers  => { 'Content-Type' => network_info[:"type"] },
-            :method   => 'PUT',
-            :uri      => "#{edit_uri}",
-            :parse    => true
+            :body    => body,
+            :expects => 202,
+            :headers => { 'Content-Type' => network_info[:"type"] },
+            :method  => 'PUT',
+            :uri     => "#{edit_uri}",
+            :parse   => true
           )
         end
 

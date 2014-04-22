@@ -22,8 +22,8 @@ module Fog
             policy_attribute_descriptions = e['PolicyAttributeDescriptions']
 
             policy = {
-              :id => e['PolicyName'],
-              :type_name => e['PolicyTypeName'],
+              :id                => e['PolicyName'],
+              :type_name         => e['PolicyTypeName'],
               :policy_attributes => policy_attributes(policy_attribute_descriptions)
             }
 

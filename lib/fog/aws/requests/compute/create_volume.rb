@@ -35,10 +35,10 @@ module Fog
           end
 
           request({
-            'Action'            => 'CreateVolume',
-            'AvailabilityZone'  => availability_zone,
-            'Size'              => size,
-            :parser             => Fog::Parsers::Compute::AWS::CreateVolume.new
+            'Action'           => 'CreateVolume',
+            'AvailabilityZone' => availability_zone,
+            'Size'             => size,
+            :parser            => Fog::Parsers::Compute::AWS::CreateVolume.new
           }.merge(options))
         end
 
@@ -91,15 +91,15 @@ module Fog
             response.status = 200
             volume_id = Fog::AWS::Mock.volume_id
             data = {
-              'availabilityZone'  => availability_zone,
-              'attachmentSet'     => [],
-              'createTime'        => Time.now,
-              'iops'              => options['Iops'],
-              'size'              => size,
-              'snapshotId'        => options['SnapshotId'],
-              'status'            => 'creating',
-              'volumeId'          => volume_id,
-              'volumeType'        => options['VolumeType'] || 'standard'
+              'availabilityZone' => availability_zone,
+              'attachmentSet'    => [],
+              'createTime'       => Time.now,
+              'iops'             => options['Iops'],
+              'size'             => size,
+              'snapshotId'       => options['SnapshotId'],
+              'status'           => 'creating',
+              'volumeId'         => volume_id,
+              'volumeType'       => options['VolumeType'] || 'standard'
             }
             self.data[:volumes][volume_id] = data
             response.body = {

@@ -15,19 +15,19 @@ module Fog
           end
 
           id = Fog::Mock.random_numbers(3).to_i
-          defaults = { 'id' => id,
-                      'start_time' => DateTime.now,
-                      'end_time' => DateTime.now + 30 * 24 * 60 * 60,
-                      'auto_renew' => false,
-                      'amount' => 1.0 }
+          defaults = { 'id'         => id,
+                       'start_time' => DateTime.now,
+                       'end_time'   => DateTime.now + 30 * 24 * 60 * 60,
+                       'auto_renew' => false,
+                       'amount'     => 1.0 }
 
           if data[:resource] == 'vlan'
             vlan_uuid = self.class.random_uuid
-            self.data[:vlans][vlan_uuid] = { 'uuid' => vlan_uuid,
-                                            'subscription' => { 'id' => id },
-                                            'servers' => [],
-                                            'meta' => {},
-                                            'tags' => [] }
+            self.data[:vlans][vlan_uuid] = { 'uuid'         => vlan_uuid,
+                                             'subscription' => { 'id' => id },
+                                             'servers'      => [],
+                                             'meta'         => {},
+                                             'tags'         => [] }
             defaults['subscribed_object'] = vlan_uuid
           end
 

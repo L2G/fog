@@ -19,9 +19,9 @@ module Fog
         # {Amazon API Reference}[http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DeleteRouteTable.html]
         def delete_route_table(route_table_id)
           request(
-            'Action'    => 'DeleteRouteTable',
-            'RouteTableId'  => route_table_id,
-            :parser     => Fog::Parsers::Compute::AWS::Basic.new
+            'Action'       => 'DeleteRouteTable',
+            'RouteTableId' => route_table_id,
+            :parser        => Fog::Parsers::Compute::AWS::Basic.new
           )
         end
 
@@ -36,7 +36,7 @@ module Fog
               response.status = 200
               response.body = {
                 'requestId' => Fog::AWS::Mock.request_id,
-                'return' => true
+                'return'    => true
               }
               response
           elsif route_table.nil?

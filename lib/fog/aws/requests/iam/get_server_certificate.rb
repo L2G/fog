@@ -36,7 +36,7 @@ module Fog
           response.status = 200
           response.body = {
             'Certificate' => certificate,
-            'RequestId' => Fog::AWS::Mock.request_id
+            'RequestId'   => Fog::AWS::Mock.request_id
           }
 
           response

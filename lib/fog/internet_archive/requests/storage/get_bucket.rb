@@ -42,13 +42,13 @@ module Fog
             raise ArgumentError.new('bucket_name is required')
           end
           request(
-            :expects  => 200,
-            :headers  => {},
-            :host     => "#{bucket_name}.#{@host}",
+            :expects    => 200,
+            :headers    => {},
+            :host       => "#{bucket_name}.#{@host}",
             :idempotent => true,
-            :method   => 'GET',
-            :parser   => Fog::Parsers::Storage::InternetArchive::GetBucket.new,
-            :query    => options
+            :method     => 'GET',
+            :parser     => Fog::Parsers::Storage::InternetArchive::GetBucket.new,
+            :query      => options
           )
         end
 
@@ -87,13 +87,13 @@ module Fog
 
             response.status = 200
             response.body = {
-              'CommonPrefixes'  => common_prefixes.uniq,
-              'Contents'        => truncated_contents,
-              'IsTruncated'     => truncated_contents.size != contents.size,
-              'Marker'          => marker,
-              'MaxKeys'         => max_keys,
-              'Name'            => bucket['Name'],
-              'Prefix'          => prefix
+              'CommonPrefixes' => common_prefixes.uniq,
+              'Contents'       => truncated_contents,
+              'IsTruncated'    => truncated_contents.size != contents.size,
+              'Marker'         => marker,
+              'MaxKeys'        => max_keys,
+              'Name'           => bucket['Name'],
+              'Prefix'         => prefix
             }
             if max_keys && max_keys < response.body['Contents'].length
                 response.body['IsTruncated'] = true

@@ -4,49 +4,49 @@ Shindo.tests('Fog::Compute[:google] | network requests', ['google']) do
   @google = Fog::Compute[:google]
 
   @insert_network_format = {
-      'kind' => String,
-      'id' => String,
-      'selfLink' => String,
-      'name' => String,
-      'targetLink' => String,
-      'status' => String,
-      'user' => String,
-      'progress' => Integer,
-      'insertTime' => String,
-      'startTime' => String,
+      'kind'          => String,
+      'id'            => String,
+      'selfLink'      => String,
+      'name'          => String,
+      'targetLink'    => String,
+      'status'        => String,
+      'user'          => String,
+      'progress'      => Integer,
+      'insertTime'    => String,
+      'startTime'     => String,
       'operationType' => String
   }
 
   @get_network_format = {
-      'kind' => String,
-      'id' => String,
-      'selfLink' => String,
+      'kind'              => String,
+      'id'                => String,
+      'selfLink'          => String,
       'creationTimestamp' => String,
-      'name' => String,
-      'IPv4Range' => String,
-      'gatewayIPv4' => String
+      'name'              => String,
+      'IPv4Range'         => String,
+      'gatewayIPv4'       => String
   }
 
   @delete_network_format = {
-      'kind' => String,
-      'id' => String,
-      'selfLink' => String,
-      'name' => String,
-      'targetLink' => String,
-      'targetId' => String,
-      'status' => String,
-      'user' => String,
-      'progress' => Integer,
-      'insertTime' => String,
-      'startTime' => String,
+      'kind'          => String,
+      'id'            => String,
+      'selfLink'      => String,
+      'name'          => String,
+      'targetLink'    => String,
+      'targetId'      => String,
+      'status'        => String,
+      'user'          => String,
+      'progress'      => Integer,
+      'insertTime'    => String,
+      'startTime'     => String,
       'operationType' => String
   }
 
   @list_networks_format = {
-      'kind' => String,
-      'id' => String,
+      'kind'     => String,
+      'id'       => String,
       'selfLink' => String,
-      'items' => [@get_network_format]
+      'items'    => [@get_network_format]
   }
 
   tests('success') do

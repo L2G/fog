@@ -17,7 +17,7 @@ module Fog
           }
           body_object = {
             :fingerprint => current_fingerprint,
-            :items => Array(metadata).map { |pair| { :key => pair[0], :value => pair[1] } },
+            :items       => Array(metadata).map { |pair| { :key => pair[0], :value => pair[1] } },
           }
 
           result = self.build_result(api_method, parameters, body_object)

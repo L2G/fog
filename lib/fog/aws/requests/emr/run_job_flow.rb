@@ -62,18 +62,18 @@ module Fog
           end
 
           request({
-            'Action'  => 'RunJobFlow',
-            'Name' => name,
-            :parser   => Fog::Parsers::AWS::EMR::RunJobFlow.new,
+            'Action' => 'RunJobFlow',
+            'Name'   => name,
+            :parser  => Fog::Parsers::AWS::EMR::RunJobFlow.new,
           }.merge(options))
         end
 
         def run_hive(name, options = {})
           steps = []
           steps << {
-            'Name' => 'Setup Hive',
-            'HadoopJarStep' => {
-              'Jar' => 's3://us-east-1.elasticmapreduce/libs/script-runner/script-runner.jar',
+            'Name'            => 'Setup Hive',
+            'HadoopJarStep'   => {
+              'Jar'  => 's3://us-east-1.elasticmapreduce/libs/script-runner/script-runner.jar',
               'Args' => ['s3://us-east-1.elasticmapreduce/libs/hive/hive-script', '--base-path', 's3://us-east-1.elasticmapreduce/libs/hive/', '--install-hive'] },
             'ActionOnFailure' => 'TERMINATE_JOB_FLOW'
           }

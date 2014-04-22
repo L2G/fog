@@ -30,8 +30,8 @@ module Fog
           health_check.each {|key, value| params["HealthCheck.#{key}"] = value }
 
           request({
-            'Action'           => 'ConfigureHealthCheck',
-            :parser            => Fog::Parsers::AWS::ELB::ConfigureHealthCheck.new
+            'Action' => 'ConfigureHealthCheck',
+            :parser  => Fog::Parsers::AWS::ELB::ConfigureHealthCheck.new
           }.merge!(params))
         end
 
@@ -46,7 +46,7 @@ module Fog
             load_balancer['HealthCheck'] = health_check
 
             response.body = {
-              'ResponseMetadata' => {
+              'ResponseMetadata'           => {
                 'RequestId' => Fog::AWS::Mock.request_id
               },
               'ConfigureHealthCheckResult' => {

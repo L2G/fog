@@ -14,11 +14,11 @@ module Fog
         # *  :max_records <~Integer> - the maximum number of records to include
         def describe_cache_security_groups(name = nil, options = {})
           request({
-            'Action'                  => 'DescribeCacheSecurityGroups',
-            'CacheSecurityGroupName'  => name,
-            'Marker'                  => options[:marker],
-            'MaxRecords'              => options[:max_records],
-            :parser => Fog::Parsers::AWS::Elasticache::DescribeSecurityGroups.new
+            'Action'                 => 'DescribeCacheSecurityGroups',
+            'CacheSecurityGroupName' => name,
+            'Marker'                 => options[:marker],
+            'MaxRecords'             => options[:max_records],
+            :parser                  => Fog::Parsers::AWS::Elasticache::DescribeSecurityGroups.new
           }.merge(options))
         end
 
@@ -54,8 +54,8 @@ module Fog
           Excon::Response.new(
 
                   :status => 200,
-                  :body => {
-                      'ResponseMetadata' => { 'RequestId' => Fog::AWS::Mock.request_id },
+                  :body   => {
+                      'ResponseMetadata'    => { 'RequestId' => Fog::AWS::Mock.request_id },
                       'CacheSecurityGroups' => sec_group_set
                   }
 

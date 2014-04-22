@@ -104,11 +104,11 @@ Shindo.tests('Fog::Storage[:openstack] | object requests', ['openstack']) do
       Fog::Storage[:openstack].put_object('fogobjecttests2', 'fog_object', lorem_file)
 
       expected = {
-        'Number Not Found'  => 0,
-        'Response Status'   => '200 OK',
-        'Errors'            => [],
-        'Number Deleted'    => 2,
-        'Response Body'     => ''
+        'Number Not Found' => 0,
+        'Response Status'  => '200 OK',
+        'Errors'           => [],
+        'Number Deleted'   => 2,
+        'Response Body'    => ''
       }
 
       returns(expected, 'deletes multiple objects') do
@@ -158,11 +158,11 @@ Shindo.tests('Fog::Storage[:openstack] | object requests', ['openstack']) do
       pending if Fog.mocking?
 
       expected = {
-        'Number Not Found'  => 2,
-        'Response Status'   => '200 OK',
-        'Errors'            => [],
-        'Number Deleted'    => 0,
-        'Response Body'     => ''
+        'Number Not Found' => 2,
+        'Response Status'  => '200 OK',
+        'Errors'           => [],
+        'Number Deleted'   => 0,
+        'Response Body'    => ''
       }
 
       returns(expected, 'reports missing objects') do
@@ -177,11 +177,11 @@ Shindo.tests('Fog::Storage[:openstack] | object requests', ['openstack']) do
         Fog::Storage[:openstack].put_object('fogobjecttests', 'fog_object', lorem_file)
 
         expected = {
-          'Number Not Found'  => 0,
-          'Response Status'   => '400 Bad Request',
-          'Errors'            => [['fogobjecttests', '409 Conflict']],
-          'Number Deleted'    => 1,
-          'Response Body'     => ''
+          'Number Not Found' => 0,
+          'Response Status'  => '400 Bad Request',
+          'Errors'           => [['fogobjecttests', '409 Conflict']],
+          'Number Deleted'   => 1,
+          'Response Body'    => ''
         }
 
         returns(expected, 'deletes object but not container') do

@@ -3,13 +3,13 @@ Shindo.tests('Fog::Compute::RackspaceV2 | virtual_interface', ['rackspace']) do
 
   net_options = {
     :label => "fog_network_#{Time.now.to_i}",
-    :cidr => '192.168.0.0/24'
+    :cidr  => '192.168.0.0/24'
   }
 
   server_options = {
-    :name => "fog_server_#{Time.now.to_i}",
+    :name      => "fog_server_#{Time.now.to_i}",
     :flavor_id => rackspace_test_flavor_id(service),
-    :image_id => rackspace_test_image_id(service)
+    :image_id  => rackspace_test_image_id(service)
   }
 
   tests('virtual_interface') do

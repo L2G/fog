@@ -104,7 +104,7 @@ module Fog
                 record = {
                   'AliasTarget' => {
                     'HostedZoneId' => r[:alias_target][:hosted_zone_id],
-                    'DNSName' => r[:alias_target][:dns_name]
+                    'DNSName'      => r[:alias_target][:dns_name]
                   }
                 }
               else
@@ -114,12 +114,12 @@ module Fog
               end
               {
                 'ResourceRecords' => r[:resource_records],
-                'Name' => r[:name],
-                'Type' => r[:type]
+                'Name'            => r[:name],
+                'Type'            => r[:type]
               }.merge(record)
             end,
-            'MaxItems' => maxitems,
-            'IsTruncated' => truncated
+            'MaxItems'           => maxitems,
+            'IsTruncated'        => truncated
           }
 
           if truncated

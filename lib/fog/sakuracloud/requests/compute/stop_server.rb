@@ -15,10 +15,10 @@ module Fog
             :headers => {
               'Authorization' => "Basic #{@auth_encord}"
             },
-            :expects  => [200,202],
-            :method => 'DELETE',
-            :path => "#{Fog::SakuraCloud::SAKURACLOUD_API_ENDPOINT}/server/#{id}/power",
-            :body => Fog::JSON.encode(body)
+            :expects => [200,202],
+            :method  => 'DELETE',
+            :path    => "#{Fog::SakuraCloud::SAKURACLOUD_API_ENDPOINT}/server/#{id}/power",
+            :body    => Fog::JSON.encode(body)
           )
           true
         end

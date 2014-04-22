@@ -59,12 +59,12 @@ module Fog
           end.join("\n")
 
           response = request({
-            :expects  => 200,
-            :method   => 'DELETE',
-            :headers  => options.merge('Content-Type' => 'text/plain',
-                                       'Accept' => 'application/json'),
-            :body     => body,
-            :query    => { 'bulk-delete' => true }
+            :expects => 200,
+            :method  => 'DELETE',
+            :headers => options.merge('Content-Type' => 'text/plain',
+                                      'Accept'       => 'application/json'),
+            :body    => body,
+            :query   => { 'bulk-delete' => true }
           }, false)
           response.body = Fog::JSON.decode(response.body)
           response
@@ -76,10 +76,10 @@ module Fog
         def delete_multiple_objects(container, object_names, options = {})
           results = {
             'Number Not Found' => 0,
-            'Response Status' => '200 OK',
-            'Response Body' => '',
-            'Errors' => [],
-            'Number Deleted' => 0
+            'Response Status'  => '200 OK',
+            'Response Body'    => '',
+            'Errors'           => [],
+            'Number Deleted'   => 0
           }
 
           object_names.each do |name|

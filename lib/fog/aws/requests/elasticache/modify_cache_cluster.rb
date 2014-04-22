@@ -44,17 +44,17 @@ module Fog
           end
           # Merge the Cache Security Group parameters with the normal options
           request(node_id_params.merge(sec_group_params.merge(
-            'Action'                      => 'ModifyCacheCluster',
-            'CacheClusterId'              => id.strip,
-            'ApplyImmediately'            => options[:apply_immediately],
-            'NumCacheNodes'               => options[:num_nodes],
-            'AutoMinorVersionUpgrade'     => options[:auto_minor_version_upgrade],
-            'CacheParameterGroupName'     => options[:parameter_group_name],
-            'EngineVersion'               => options[:engine_version],
-            'NotificationTopicArn'        => options[:notification_topic_arn],
-            'NotificationTopicStatus'     => options[:notification_topic_status],
-            'PreferredMaintenanceWindow'  => options[:preferred_maintenance_window],
-            :parser => Fog::Parsers::AWS::Elasticache::SingleCacheCluster.new
+            'Action'                     => 'ModifyCacheCluster',
+            'CacheClusterId'             => id.strip,
+            'ApplyImmediately'           => options[:apply_immediately],
+            'NumCacheNodes'              => options[:num_nodes],
+            'AutoMinorVersionUpgrade'    => options[:auto_minor_version_upgrade],
+            'CacheParameterGroupName'    => options[:parameter_group_name],
+            'EngineVersion'              => options[:engine_version],
+            'NotificationTopicArn'       => options[:notification_topic_arn],
+            'NotificationTopicStatus'    => options[:notification_topic_status],
+            'PreferredMaintenanceWindow' => options[:preferred_maintenance_window],
+            :parser                      => Fog::Parsers::AWS::Elasticache::SingleCacheCluster.new
           )))
         end
 
@@ -88,7 +88,7 @@ module Fog
             pending_values['CacheNodeId'] = options[:nodes_to_remove].join(',')
           end
           response.body = {
-            'CacheCluster' => cluster.merge(
+            'CacheCluster'     => cluster.merge(
               'PendingModifiedValues' => pending_values
             ),
             'ResponseMetadata' => { 'RequestId' => Fog::AWS::Mock.request_id }

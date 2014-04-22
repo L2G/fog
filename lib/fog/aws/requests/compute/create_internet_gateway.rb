@@ -25,8 +25,8 @@ module Fog
         # {Amazon API Reference}[http://docs.amazonwebservices.com/AWSEC2/latest/APIReference/ApiReference-ItemType-InternetGatewayAttachmentType.html]
         def create_internet_gateway()
           request(
-            'Action'     => 'CreateInternetGateway',
-            :parser      => Fog::Parsers::Compute::AWS::CreateInternetGateway.new
+            'Action' => 'CreateInternetGateway',
+            :parser  => Fog::Parsers::Compute::AWS::CreateInternetGateway.new
           )
         end
       end
@@ -42,7 +42,7 @@ module Fog
          Excon::Response.new(
             :status => 200,
             :body   => {
-              'requestId' => Fog::AWS::Mock.request_id,
+              'requestId'          => Fog::AWS::Mock.request_id,
               'internetGatewaySet' => [self.data[:internet_gateways][gateway_id]]
             }
           )

@@ -4,21 +4,21 @@ Shindo.tests('Fog::Storage[:aws] | bucket requests', ['aws']) do
   tests('success') do
 
     @bucket_format = {
-      'CommonPrefixes'  => [],
-      'IsTruncated'     => Fog::Boolean,
-      'Marker'          => NilClass,
-      'MaxKeys'         => Integer,
-      'Name'            => String,
-      'Prefix'          => NilClass,
-      'Contents'    => [{
-        'ETag'          => String,
-        'Key'           => String,
-        'LastModified'  => Time,
-        'Owner' => {
+      'CommonPrefixes' => [],
+      'IsTruncated'    => Fog::Boolean,
+      'Marker'         => NilClass,
+      'MaxKeys'        => Integer,
+      'Name'           => String,
+      'Prefix'         => NilClass,
+      'Contents'       => [{
+        'ETag'         => String,
+        'Key'          => String,
+        'LastModified' => Time,
+        'Owner'        => {
           'DisplayName' => String,
           'ID'          => String
         },
-        'Size' => Integer,
+        'Size'         => Integer,
         'StorageClass' => String
       }]
     }
@@ -34,8 +34,8 @@ Shindo.tests('Fog::Storage[:aws] | bucket requests', ['aws']) do
 
     @service_format = {
       'Buckets' => [{
-        'CreationDate'  => Time,
-        'Name'          => String,
+        'CreationDate' => Time,
+        'Name'         => String,
       }],
       'Owner'   => {
         'DisplayName' => String,
@@ -142,10 +142,10 @@ Shindo.tests('Fog::Storage[:aws] | bucket requests', ['aws']) do
     end
 
     acl = {
-      'Owner' => @aws_owner,
+      'Owner'             => @aws_owner,
       'AccessControlList' => [
         {
-          'Grantee' => @aws_owner,
+          'Grantee'    => @aws_owner,
           'Permission' => 'FULL_CONTROL'
         }
       ]
@@ -156,20 +156,20 @@ Shindo.tests('Fog::Storage[:aws] | bucket requests', ['aws']) do
     end
 
     tests("#put_bucket_acl('#{@aws_bucket_name}', hash with email)").returns(
-        'Owner' => @aws_owner,
+        'Owner'             => @aws_owner,
         'AccessControlList' => [
           {
-            'Grantee' => { 'ID' => 'f62f0218873cfa5d56ae9429ae75a592fec4fd22a5f24a20b1038a7db9a8f150', 'DisplayName' => 'mtd' },
+            'Grantee'    => { 'ID' => 'f62f0218873cfa5d56ae9429ae75a592fec4fd22a5f24a20b1038a7db9a8f150', 'DisplayName' => 'mtd' },
             'Permission' => 'FULL_CONTROL'
           }
         ]
     ) do
       pending if Fog.mocking?
       Fog::Storage[:aws].put_bucket_acl(@aws_bucket_name,
-                                        'Owner' => @aws_owner,
+                                        'Owner'             => @aws_owner,
                                         'AccessControlList' => [
                                           {
-                                            'Grantee' => { 'EmailAddress' => 'mtd@amazon.com' },
+                                            'Grantee'    => { 'EmailAddress' => 'mtd@amazon.com' },
                                             'Permission' => 'FULL_CONTROL'
                                           }
                                         ]
@@ -178,10 +178,10 @@ Shindo.tests('Fog::Storage[:aws] | bucket requests', ['aws']) do
     end
 
     acl = {
-      'Owner' => @aws_owner,
+      'Owner'             => @aws_owner,
       'AccessControlList' => [
         {
-          'Grantee' => { 'URI' => 'http://acs.amazonaws.com/groups/global/AllUsers' },
+          'Grantee'    => { 'URI' => 'http://acs.amazonaws.com/groups/global/AllUsers' },
           'Permission' => 'FULL_CONTROL'
         }
       ]
@@ -271,7 +271,7 @@ Shindo.tests('Fog::Storage[:aws] | bucket requests', ['aws']) do
 
     tests("put_bucket_cors('#{@aws_bucket_name}', cors)").succeeds do
       cors =  { 'CORSConfiguration' =>
-                  [
+                                       [
                     {
                       'AllowedOrigin' => 'http://localhost:3000',
                       'AllowedMethod' => ['POST', 'GET'],

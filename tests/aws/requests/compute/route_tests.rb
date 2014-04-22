@@ -2,17 +2,17 @@ Shindo.tests('Fog::Compute[:aws] | route table requests', ['aws']) do
 
   @route_table_format = {
     'routeTable' => [{
-      'routeSet'        => [{
-        'destinationCidrBlock'  => String,
-        'gatewayId'             => String,
-        'state'                 => String,
+      'routeSet'       => [{
+        'destinationCidrBlock' => String,
+        'gatewayId'            => String,
+        'state'                => String,
       }],
-      'tagSet'          => Hash,
-      'associationSet'  => Array,
-      'routeTableId'    => String,
-      'vpcId'           => String,
+      'tagSet'         => Hash,
+      'associationSet' => Array,
+      'routeTableId'   => String,
+      'vpcId'          => String,
     }],
-    'requestId'   => String
+    'requestId'  => String
   }
 
   @route_tables_format = {
@@ -36,7 +36,7 @@ Shindo.tests('Fog::Compute[:aws] | route table requests', ['aws']) do
       'routeTableId'   => String,
       'vpcId'          => String,
     }],
-    'requestId'    => String
+    'requestId'     => String
   }
 
   vpc = Fog::Compute[:aws].vpcs.create('cidr_block' => '10.0.10.0/24')

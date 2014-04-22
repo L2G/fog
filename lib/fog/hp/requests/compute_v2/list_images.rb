@@ -23,10 +23,10 @@ module Fog
         #     * 'links'<~Array> - array of image links
         def list_images(options = {})
           request(
-            :expects  => [200, 203],
-            :method   => 'GET',
-            :path     => 'images',
-            :query    => options
+            :expects => [200, 203],
+            :method  => 'GET',
+            :path    => 'images',
+            :query   => options
           )
         end
 

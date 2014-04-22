@@ -1,24 +1,24 @@
 Shindo.tests('Fog::Compute[:cloudsigma] | server requests', ['cloudsigma']) do
 
   @server_format = {
-      'uuid' => String,
-      'status' => String,
-      'vnc_password' => String,
-      'name' => String,
+      'uuid'                  => String,
+      'status'                => String,
+      'vnc_password'          => String,
+      'name'                  => String,
       'cpus_instead_of_cores' => Fog::Boolean,
-      'tags' => Array,
-      'mem' => Integer,
-      'enable_numa' => Fog::Boolean,
-      'smp' => Integer,
-      'hv_relaxed'  => Fog::Boolean,
-      'hv_tsc' => Fog::Boolean,
-      'meta' => Fog::Nullable::Hash,
-      'owner' => Fog::Nullable::Hash,
-      'runtime' => Fog::Nullable::Hash,
-      'cpu' => Integer,
-      'resource_uri' => Fog::Nullable::String,
-      'drives' => Array,
-      'nics' => Array
+      'tags'                  => Array,
+      'mem'                   => Integer,
+      'enable_numa'           => Fog::Boolean,
+      'smp'                   => Integer,
+      'hv_relaxed'            => Fog::Boolean,
+      'hv_tsc'                => Fog::Boolean,
+      'meta'                  => Fog::Nullable::Hash,
+      'owner'                 => Fog::Nullable::Hash,
+      'runtime'               => Fog::Nullable::Hash,
+      'cpu'                   => Integer,
+      'resource_uri'          => Fog::Nullable::String,
+      'drives'                => Array,
+      'nics'                  => Array
   }
 
   @server_create_args = { :name => 'fogtest', :cpu => 2000, :mem => 512 * 1024**2, :vnc_password => 'myrandompass' }

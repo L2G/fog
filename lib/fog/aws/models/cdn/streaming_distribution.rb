@@ -55,11 +55,11 @@ module Fog
         def attributes_to_options
           options = {
             'CallerReference' => caller_reference,
-            'S3Origin' => s3_origin,
-            'CNAME' => cname,
-            'Comment' => comment,
-            'Enabled' => enabled,
-            'Logging' => logging,
+            'S3Origin'        => s3_origin,
+            'CNAME'           => cname,
+            'Comment'         => comment,
+            'Enabled'         => enabled,
+            'Logging'         => logging,
           }
           options.reject! { |k,v| v.nil? }
           options.reject! { |k,v| v.respond_to?(:empty?) && v.empty? }

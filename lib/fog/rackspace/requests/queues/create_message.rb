@@ -20,14 +20,14 @@ module Fog
         # @see http://docs.rackspace.com/queues/api/v1.0/cq-devguide/content/POST_postMessage__version__queues__queue_name__messages_message-operations-dle001.html
         def create_message(client_id, queue_name, body, ttl)
           data = [{
-            :ttl => ttl,
+            :ttl  => ttl,
             :body => body
           }]
           request(
-            :body => Fog::JSON.encode(data),
+            :body    => Fog::JSON.encode(data),
             :expects => 201,
-            :method => 'POST',
-            :path => "queues/#{queue_name}/messages",
+            :method  => 'POST',
+            :path    => "queues/#{queue_name}/messages",
             :headers => { 'Client-ID' => client_id }
           )
         end
@@ -47,7 +47,7 @@ module Fog
           response = Excon::Response.new
           response.status = 201
           response.body = {
-            'partial' => false,
+            'partial'   => false,
             'resources' => ["#{PATH_BASE}/#{queue_name}/messages/#{message.id}"]
           }
           response

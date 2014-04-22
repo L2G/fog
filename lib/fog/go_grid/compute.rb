@@ -77,8 +77,8 @@ module Fog
 
         def request(params)
           params = {
-            :expects  => 200,
-            :method   => 'GET'
+            :expects => 200,
+            :method  => 'GET'
           }.merge!(params)
 
           params[:query] ||= {}

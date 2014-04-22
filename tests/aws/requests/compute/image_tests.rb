@@ -1,48 +1,48 @@
 Shindo.tests('Fog::Compute[:aws] | image requests', ['aws']) do
   @describe_images_format = {
-    'imagesSet'    => [{
-      'architecture'        => String,
-      'blockDeviceMapping'  => [Fog::Nullable::Hash],
-      'description'         => Fog::Nullable::String,
-      'hypervisor'          => String,
-      'imageId'             => String,
-      'imageLocation'       => String,
-      'imageOwnerAlias'     => Fog::Nullable::String,
-      'imageOwnerId'        => String,
-      'imageState'          => String,
-      'imageType'           => String,
-      'isPublic'            => Fog::Boolean,
-      'kernelId'            => String,
-      'name'                => String,
-      'platform'            => Fog::Nullable::String,
-      'productCodes'        => [],
-      'ramdiskId'           => Fog::Nullable::String,
-      'rootDeviceName'      => String,
-      'rootDeviceType'      => String,
-      'stateReason'         => {},
-      'tagSet'              => {},
-      'virtualizationType'  => String
+    'imagesSet' => [{
+      'architecture'       => String,
+      'blockDeviceMapping' => [Fog::Nullable::Hash],
+      'description'        => Fog::Nullable::String,
+      'hypervisor'         => String,
+      'imageId'            => String,
+      'imageLocation'      => String,
+      'imageOwnerAlias'    => Fog::Nullable::String,
+      'imageOwnerId'       => String,
+      'imageState'         => String,
+      'imageType'          => String,
+      'isPublic'           => Fog::Boolean,
+      'kernelId'           => String,
+      'name'               => String,
+      'platform'           => Fog::Nullable::String,
+      'productCodes'       => [],
+      'ramdiskId'          => Fog::Nullable::String,
+      'rootDeviceName'     => String,
+      'rootDeviceType'     => String,
+      'stateReason'        => {},
+      'tagSet'             => {},
+      'virtualizationType' => String
     }],
-    'requestId'     => String,
+    'requestId' => String,
   }
 
   @register_image_format = {
-    'imageId'               => String,
-    'requestId'             => String
+    'imageId'   => String,
+    'requestId' => String
   }
 
   @modify_image_attribute_format = {
-    'return'                => Fog::Boolean,
-    'requestId'             => String
+    'return'    => Fog::Boolean,
+    'requestId' => String
   }
   @create_image_format = {
-    'requestId'             => String,
-    'imageId'               => String
+    'requestId' => String,
+    'imageId'   => String
   }
 
   @image_copy_result = {
-    'requestId'   => String,
-    'imageId'  => String
+    'requestId' => String,
+    'imageId'   => String
   }
 
   tests('success') do

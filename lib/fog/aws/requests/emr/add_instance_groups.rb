@@ -27,9 +27,9 @@ module Fog
           end
 
           request({
-            'Action'  => 'AddInstanceGroups',
+            'Action'    => 'AddInstanceGroups',
             'JobFlowId' => job_flow_id,
-            :parser   => Fog::Parsers::AWS::EMR::AddInstanceGroups.new,
+            :parser     => Fog::Parsers::AWS::EMR::AddInstanceGroups.new,
           }.merge(options))
         end
 

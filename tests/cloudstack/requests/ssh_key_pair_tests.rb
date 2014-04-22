@@ -1,12 +1,12 @@
 Shindo.tests('Fog::Compute[:cloudstack] | ssh key pairs requests', ['cloudstack']) do
 
   @ssh_keys_format = {
-    'listsshkeypairsresponse'  => {
-      'count' => Integer,
+    'listsshkeypairsresponse' => {
+      'count'      => Integer,
       'sshkeypair' => [
         'fingerprint' => String,
-        'name' => String,
-        'privatekey' => Fog::Nullable::String
+        'name'        => String,
+        'privatekey'  => Fog::Nullable::String
       ]
     }
   }

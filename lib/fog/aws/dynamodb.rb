@@ -111,17 +111,17 @@ module Fog
 
           # defaults for all dynamodb requests
           params.merge!(
-            :expects  => 200,
-            :method   => :post,
-            :path     => '/'
+            :expects => 200,
+            :method  => :post,
+            :path    => '/'
           )
 
           # setup headers and sign with signature v4
           date = Fog::Time.now
           params[:headers] = {
-            'Content-Type'  => 'application/x-amz-json-1.0',
-            'Date'          => date.to_iso8601_basic,
-            'Host'          => @host,
+            'Content-Type' => 'application/x-amz-json-1.0',
+            'Date'         => date.to_iso8601_basic,
+            'Host'         => @host,
           }.merge!(params[:headers])
           params[:headers]['x-amz-security-token'] = @aws_session_token if @aws_session_token
           params[:headers]['Authorization'] = @signer.sign(params, date)

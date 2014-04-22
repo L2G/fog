@@ -4,34 +4,34 @@ Shindo.tests('Fog::Redshift[:aws] | cluster requests', ['aws']) do
 
   @cluster_format = {
     'Cluster' => {
-      'ClusterParameterGroups'  => [{
+      'ClusterParameterGroups'           => [{
         'ClusterParameterGroup' => {
-          'ParameterApplyStatus'  => String,
-          'ParameterGroupName'    => String
+          'ParameterApplyStatus' => String,
+          'ParameterGroupName'   => String
         }
       }],
-      'ClusterSecurityGroups'  => [{
+      'ClusterSecurityGroups'            => [{
         'ClusterSecurityGroup' => {
           'Status'                   => String,
           'ClusterSecurityGroupName' => String
         }
       }],
-      'VpcSecurityGroups'     => Fog::Nullable::Array,
-      'EndPoint'              => Fog::Nullable::Hash,
-      'PendingModifiedValues' => Fog::Nullable::Hash,
-      'RestoreStatus'         => Fog::Nullable::Hash,
-      'ClusterVersion'        => String,
-      'ClusterStatus'         => String,
-      'Encrypted'             => Fog::Boolean,
-      'NumberOfNodes'         => Integer,
-      'PubliclyAccessible'    => Fog::Boolean,
+      'VpcSecurityGroups'                => Fog::Nullable::Array,
+      'EndPoint'                         => Fog::Nullable::Hash,
+      'PendingModifiedValues'            => Fog::Nullable::Hash,
+      'RestoreStatus'                    => Fog::Nullable::Hash,
+      'ClusterVersion'                   => String,
+      'ClusterStatus'                    => String,
+      'Encrypted'                        => Fog::Boolean,
+      'NumberOfNodes'                    => Integer,
+      'PubliclyAccessible'               => Fog::Boolean,
       'AutomatedSnapshotRetentionPeriod' => Integer,
-      'DBName'                => String,
-      'PreferredMaintenanceWindow' => String,
-      'NodeType'              => String,
-      'ClusterIdentifier'     => String,
-      'AllowVersionUpgrade'   => Fog::Boolean,
-      'MasterUsername'        => String
+      'DBName'                           => String,
+      'PreferredMaintenanceWindow'       => String,
+      'NodeType'                         => String,
+      'ClusterIdentifier'                => String,
+      'AllowVersionUpgrade'              => Fog::Boolean,
+      'MasterUsername'                   => String
     }
   }
   @describe_clusters_format = {

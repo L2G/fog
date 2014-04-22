@@ -15,10 +15,10 @@ module Fog
         def delete_db_snapshot(name)
 
           request(
-            'Action'  => 'DeleteDBSnapshot',
+            'Action'               => 'DeleteDBSnapshot',
             'DBSnapshotIdentifier' => name,
 
-            :parser   => Fog::Parsers::AWS::RDS::DeleteDBSnapshot.new
+            :parser                => Fog::Parsers::AWS::RDS::DeleteDBSnapshot.new
           )
         end
 
@@ -35,7 +35,7 @@ module Fog
 
           response.status = 200
           response.body = {
-            'ResponseMetadata' => { 'RequestId' => Fog::AWS::Mock.request_id },
+            'ResponseMetadata'       => { 'RequestId' => Fog::AWS::Mock.request_id },
             'DeleteDBSnapshotResult' => { 'DBSnapshot' => snapshot_data }
           }
           response

@@ -92,16 +92,16 @@ module Fog
           # Params for all DataPipeline requests
           params.merge!(
             :expects => 200,
-            :method => :post,
-            :path => '/'
+            :method  => :post,
+            :path    => '/'
           )
 
           date = Fog::Time.now
           params[:headers] = {
-            'Date' => date.to_date_header,
-            'Host' => @host,
-            'X-Amz-Date' => date.to_iso8601_basic,
-            'Content-Type' => 'application/x-amz-json-1.1',
+            'Date'           => date.to_date_header,
+            'Host'           => @host,
+            'X-Amz-Date'     => date.to_iso8601_basic,
+            'Content-Type'   => 'application/x-amz-json-1.1',
             'Content-Length' => params[:body].bytesize.to_s,
           }.merge!(params[:headers] || {})
           params[:headers]['x-amz-security-token'] = @aws_session_token if @aws_session_token

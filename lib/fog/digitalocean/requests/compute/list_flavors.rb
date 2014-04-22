@@ -5,9 +5,9 @@ module Fog
 
         def list_flavors(options = {})
           request(
-            :expects  => [200],
-            :method   => 'GET',
-            :path     => 'sizes'
+            :expects => [200],
+            :method  => 'GET',
+            :path    => 'sizes'
           )
         end
 

@@ -13,9 +13,9 @@ module Fog
         #   * status<~Integer> 200 - OK, 404 - specified secondary entry name is not found
         def delete_secondary(secondary_name)
           request(
-            :expects  => 200,
-            :method   => 'DELETE',
-            :path     => "/V1.2/secondary/#{secondary_name}"
+            :expects => 200,
+            :method  => 'DELETE',
+            :path    => "/V1.2/secondary/#{secondary_name}"
           )
         end
 

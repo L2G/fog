@@ -38,7 +38,7 @@ vlans.each do |vlan|
 
   puts "Craeting Network #{vlan['name']}, VLAN ID #{vlan['vlanid']}"
   network = xenserver.networks.create :name => vlan['name']
-  xenserver.vlans.create :tag => vlan['vlanid'],
+  xenserver.vlans.create :tag     => vlan['vlanid'],
                          :network => network,
-                         :pif => bondmaster_pif
+                         :pif     => bondmaster_pif
 end

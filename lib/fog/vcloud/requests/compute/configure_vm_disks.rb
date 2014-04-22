@@ -36,7 +36,7 @@ module Fog
         def generate_configure_vm_disks_request(href, disk_data)
           xmlns = {
             'xmlns:rasd' => 'http://schemas.dmtf.org/wbem/wscim/1/cim-schema/2/CIM_ResourceAllocationSettingData',
-            'xmlns' => 'http://www.vmware.com/vcloud/v1'
+            'xmlns'      => 'http://www.vmware.com/vcloud/v1'
           }
           # Get the XML from the API, parse it.
           xml = Nokogiri::XML(request( :uri => href).body)
@@ -80,12 +80,12 @@ module Fog
           body = generate_configure_vm_disks_request(disk_href, disk_data)
 
           request(
-            :body     => body,
-            :expects  => 202,
-            :headers  => { 'Content-Type' => 'application/vnd.vmware.vcloud.rasdItem+xml' },
-            :method   => 'PUT',
-            :uri      => disk_href,
-            :parse    => true
+            :body    => body,
+            :expects => 202,
+            :headers => { 'Content-Type' => 'application/vnd.vmware.vcloud.rasdItem+xml' },
+            :method  => 'PUT',
+            :uri     => disk_href,
+            :parse   => true
           )
         end
 

@@ -13,9 +13,9 @@ module Fog
         #   * body<~Hash>:
         def get_volume(volume_id)
           request(
-            :method   => 'GET',
-            :expects  => 200,
-            :path     => "/storage/#{volume_id}"
+            :method  => 'GET',
+            :expects => 200,
+            :path    => "/storage/#{volume_id}"
           )
         end
 

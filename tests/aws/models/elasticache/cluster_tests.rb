@@ -1,10 +1,10 @@
 Shindo.tests('AWS::Elasticache | cache clusters', ['aws', 'elasticache']) do
   cluster_params = {
-    :id               => "fog-test-cluster-#{rand(999)}",
-    :node_type        => 'cache.m1.large',
-    :security_groups  => ['default'],
-    :engine           => 'memcached',
-    :num_nodes        => 1
+    :id              => "fog-test-cluster-#{rand(999)}",
+    :node_type       => 'cache.m1.large',
+    :security_groups => ['default'],
+    :engine          => 'memcached',
+    :num_nodes       => 1
   }
 
   pending if Fog.mocking?

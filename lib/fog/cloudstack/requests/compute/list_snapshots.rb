@@ -28,7 +28,7 @@ module Fog
 
           {
             'listsnapshotsresponse' => {
-              'count' => snapshots.size,
+              'count'    => snapshots.size,
               'snapshot' => snapshots
             }
           }

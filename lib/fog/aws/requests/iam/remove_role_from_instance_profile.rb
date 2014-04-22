@@ -22,10 +22,10 @@ module Fog
         #
         def remove_role_from_instance_profile(role_name, instance_profile_name)
           request(
-            'Action'    => 'RemoveRoleFromInstanceProfile',
+            'Action'              => 'RemoveRoleFromInstanceProfile',
             'InstanceProfileName' => instance_profile_name,
-            'RoleName'  => role_name,
-            :parser     => Fog::Parsers::AWS::IAM::Basic.new
+            'RoleName'            => role_name,
+            :parser               => Fog::Parsers::AWS::IAM::Basic.new
           )
         end
 

@@ -1,26 +1,26 @@
 Shindo.tests('Fog::Compute[:hp] | server requests', ['hp']) do
 
   @server_format = {
-    'addresses'   => Fog::Nullable::Hash,
-    'flavor'      => Hash,
-    'id'          => Integer,
-    'image'       => Hash,
-    'links'       => [Hash],
-    'hostId'      => String,
-    'metadata'    => Fog::Nullable::Hash,
-    'name'        => String,
-    'accessIPv4'  => Fog::Nullable::String,
-    'accessIPv6'  => Fog::Nullable::String,
-    'progress'    => Fog::Nullable::Integer,
-    'status'      => String,
-    'created'     => String,
-    'updated'     => String,
-    'user_id'     => String,
-    'tenant_id'   => String,
-    'uuid'        => String,
-    'config_drive' => Fog::Nullable::String,
+    'addresses'       => Fog::Nullable::Hash,
+    'flavor'          => Hash,
+    'id'              => Integer,
+    'image'           => Hash,
+    'links'           => [Hash],
+    'hostId'          => String,
+    'metadata'        => Fog::Nullable::Hash,
+    'name'            => String,
+    'accessIPv4'      => Fog::Nullable::String,
+    'accessIPv6'      => Fog::Nullable::String,
+    'progress'        => Fog::Nullable::Integer,
+    'status'          => String,
+    'created'         => String,
+    'updated'         => String,
+    'user_id'         => String,
+    'tenant_id'       => String,
+    'uuid'            => String,
+    'config_drive'    => Fog::Nullable::String,
     'security_groups' => [Hash],
-    'key_name'    => Fog::Nullable::String
+    'key_name'        => Fog::Nullable::String
   }
 
   @list_servers_format = {

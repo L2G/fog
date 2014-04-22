@@ -22,11 +22,11 @@ module Fog
 
           path = '/'
           params = {
-            :headers    => {},
-            :path       => path,
-            :method     => :put,
-            :query      => {},
-            :parser     => Fog::Parsers::Redshift::AWS::CreateClusterSecurityGroup.new
+            :headers => {},
+            :path    => path,
+            :method  => :put,
+            :query   => {},
+            :parser  => Fog::Parsers::Redshift::AWS::CreateClusterSecurityGroup.new
           }
 
           params[:query]['Action']                   = 'CreateClusterSecurityGroup'

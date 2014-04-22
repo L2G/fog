@@ -12,9 +12,9 @@ module Fog
         #     * 'name'<~String> - Name of the flavor
         def list_flavors
           request(
-            :expects  => [200, 203],
-            :method   => 'GET',
-            :path     => 'flavors.json'
+            :expects => [200, 203],
+            :method  => 'GET',
+            :path    => 'flavors.json'
           )
         end
 

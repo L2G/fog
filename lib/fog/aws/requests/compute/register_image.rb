@@ -67,27 +67,27 @@ module Fog
         def register_image(name, description, location, block_devices = [], options = {})
           unless name.empty?
             image = {
-              'imageId' => Fog::AWS::Mock.image_id,
-              'imageLocation' => '',
-              'imageState' => 'pending',
-              'imageOwnerId' => self.data[:owner_id],
-              'isPublic' => false,
-              'productCodes' => [],
-              'architecture' => options['Architecture'] || 'i386',
-              'imageType' => 'machine',
-              'kernelId' => options['KernelId'] || Fog::AWS::Mock.kernel_id,
-              'ramdiskId' => options['RamdiskId'] || Fog::AWS::Mock.ramdisk_id,
-              'platform' => 'Linux',
-              'stateReason' => {},
-              'imageOwnerAlias' => self.data[:owner_id],
-              'name' => name,
-              'description' => description,
-              'rootDeviceType' => '',
-              'rootDeviceName' => '',
+              'imageId'            => Fog::AWS::Mock.image_id,
+              'imageLocation'      => '',
+              'imageState'         => 'pending',
+              'imageOwnerId'       => self.data[:owner_id],
+              'isPublic'           => false,
+              'productCodes'       => [],
+              'architecture'       => options['Architecture'] || 'i386',
+              'imageType'          => 'machine',
+              'kernelId'           => options['KernelId'] || Fog::AWS::Mock.kernel_id,
+              'ramdiskId'          => options['RamdiskId'] || Fog::AWS::Mock.ramdisk_id,
+              'platform'           => 'Linux',
+              'stateReason'        => {},
+              'imageOwnerAlias'    => self.data[:owner_id],
+              'name'               => name,
+              'description'        => description,
+              'rootDeviceType'     => '',
+              'rootDeviceName'     => '',
               'blockDeviceMapping' => [],
               'virtualizationType' => 'paravirtual',
-              'hypervisor' => 'xen',
-              'registered' => Time.now
+              'hypervisor'         => 'xen',
+              'registered'         => Time.now
             }
 
             if location[/^\/dev\/sd[a-p]\d{0,2}$/]
@@ -116,7 +116,7 @@ module Fog
             response.status = 200
             response.body = {
               'requestId' => Fog::AWS::Mock.request_id,
-              'imageId' => image['imageId']
+              'imageId'   => image['imageId']
             }
             response
           else

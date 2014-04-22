@@ -10,9 +10,9 @@ module Fog
         #
         def delete_key_pair(key_name)
           request(
-            :expects  => 202,
-            :method   => 'DELETE',
-            :path     => "os-keypairs/#{key_name}"
+            :expects => 202,
+            :method  => 'DELETE',
+            :path    => "os-keypairs/#{key_name}"
           )
         end
 

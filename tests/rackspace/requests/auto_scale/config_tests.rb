@@ -15,9 +15,9 @@ Shindo.tests('Fog::Rackspace::AutoScale | config_tests', ['rackspace', 'rackspac
         data = service.update_group_config(@group_id,
                                            'maxEntities' => 0,
                                            'minEntities' => 0,
-                                           'metadata' => {},
-                                           'name' => 'foo',
-                                           'cooldown' => 20)
+                                           'metadata'    => {},
+                                           'name'        => 'foo',
+                                           'cooldown'    => 20)
         data.status
       end
 
@@ -29,21 +29,21 @@ Shindo.tests('Fog::Rackspace::AutoScale | config_tests', ['rackspace', 'rackspac
                                             'args' => {
                                               'loadBalancers' => [
                                                 {
-                                                  'port' => 8000,
+                                                  'port'           => 8000,
                                                   'loadBalancerId' => 9099
                                                 }
                                               ],
-                                              'server' => {
-                                                'name' => 'autoscale_server',
-                                                'imageRef' => '0d589460-f177-4b0f-81c1-8ab8903ac7d8',
-                                                'flavorRef' => '2',
+                                              'server'        => {
+                                                'name'                => 'autoscale_server',
+                                                'imageRef'            => '0d589460-f177-4b0f-81c1-8ab8903ac7d8',
+                                                'flavorRef'           => '2',
                                                 'OS-DCF =>diskConfig' => 'AUTO',
-                                                'metadata' => {
+                                                'metadata'            => {
                                                   'build_config' => 'core',
-                                                  'meta_key_1' => 'meta_value_1',
-                                                  'meta_key_2' => 'meta_value_2'
+                                                  'meta_key_1'   => 'meta_value_1',
+                                                  'meta_key_2'   => 'meta_value_2'
                                                 },
-                                                'networks' => [
+                                                'networks'            => [
                                                   {
                                                     'uuid' => '11111111-1111-1111-1111-111111111111'
                                                   },
@@ -51,9 +51,9 @@ Shindo.tests('Fog::Rackspace::AutoScale | config_tests', ['rackspace', 'rackspac
                                                     'uuid' => '00000000-0000-0000-0000-000000000000'
                                                   }
                                                 ],
-                                                'personality' => [
+                                                'personality'         => [
                                                   {
-                                                    'path' => '/root/.csivh',
+                                                    'path'     => '/root/.csivh',
                                                     'contents' => 'VGhpcyBpcyBhIHRlc3QgZmlsZS4='
                                                   }
                                                 ]

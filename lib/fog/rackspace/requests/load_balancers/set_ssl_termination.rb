@@ -4,8 +4,8 @@ module Fog
       class Real
         def set_ssl_termination(load_balancer_id, securePort, privatekey, certificate, options = {})
           data = {
-            :securePort => securePort,
-            :privatekey => privatekey,
+            :securePort  => securePort,
+            :privatekey  => privatekey,
             :certificate => certificate
           }
 
@@ -19,10 +19,10 @@ module Fog
             data['secureTrafficOnly'] = options[:secure_traffic_only]
           end
           request(
-            :body     => Fog::JSON.encode(data),
+            :body    => Fog::JSON.encode(data),
             :expects => [200, 202],
-            :path => "loadbalancers/#{load_balancer_id}/ssltermination",
-            :method => 'PUT'
+            :path    => "loadbalancers/#{load_balancer_id}/ssltermination",
+            :method  => 'PUT'
           )
         end
       end

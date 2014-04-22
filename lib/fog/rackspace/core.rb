@@ -108,13 +108,13 @@ module Fog
       @rackspace_api_key  = options[:rackspace_api_key]
       @rackspace_username = options[:rackspace_username]
       response = connection.request(
-        :expects  => [200, 204],
-        :headers  => {
+        :expects => [200, 204],
+        :headers => {
           'X-Auth-Key'  => @rackspace_api_key,
           'X-Auth-User' => @rackspace_username
         },
-        :method   => 'GET',
-        :path     =>  (uri.path and not uri.path.empty?) ? uri.path : 'v1.0'
+        :method  => 'GET',
+        :path    => (uri.path and not uri.path.empty?) ? uri.path : 'v1.0'
       )
       response.headers.reject do |key, value|
         !['X-Server-Management-Url', 'X-Storage-Url', 'X-CDN-Management-Url', 'X-Auth-Token'].include?(key)

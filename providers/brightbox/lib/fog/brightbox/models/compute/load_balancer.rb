@@ -45,12 +45,12 @@ module Fog
           raise Fog::Errors::Error.new('Resaving an existing object may create a duplicate') if persisted?
           requires :nodes, :listeners, :healthcheck
           options = {
-            :nodes => nodes,
-            :listeners => listeners,
-            :healthcheck => healthcheck,
-            :policy => policy,
-            :name => name,
-            :certificate_pem => certificate_pem,
+            :nodes                   => nodes,
+            :listeners               => listeners,
+            :healthcheck             => healthcheck,
+            :policy                  => policy,
+            :name                    => name,
+            :certificate_pem         => certificate_pem,
             :certificate_private_key => certificate_private_key
           }.delete_if { |k, v| v.nil? || v == '' }
           data = service.create_load_balancer(options)

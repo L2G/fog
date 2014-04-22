@@ -72,7 +72,7 @@ module Fog
           @metadata ||= begin
             Fog::Compute::OpenStack::Metadata.new(
               :service => service,
-              :parent => self
+              :parent  => self
             )
           end
         end
@@ -304,18 +304,18 @@ module Fog
           requires :flavor_ref, :name
           requires_one :image_ref, :block_device_mapping
           options = {
-            'personality' => personality,
-            'accessIPv4' => accessIPv4,
-            'accessIPv6' => accessIPv6,
-            'availability_zone' => availability_zone,
-            'user_data' => user_data_encoded,
-            'key_name'    => key_name,
-            'config_drive' => config_drive,
-            'security_groups' => @security_groups,
-            'min_count'   => @min_count,
-            'max_count'   => @max_count,
-            'nics' => @nics,
-            'os:scheduler_hints' => @os_scheduler_hints,
+            'personality'          => personality,
+            'accessIPv4'           => accessIPv4,
+            'accessIPv6'           => accessIPv6,
+            'availability_zone'    => availability_zone,
+            'user_data'            => user_data_encoded,
+            'key_name'             => key_name,
+            'config_drive'         => config_drive,
+            'security_groups'      => @security_groups,
+            'min_count'            => @min_count,
+            'max_count'            => @max_count,
+            'nics'                 => @nics,
+            'os:scheduler_hints'   => @os_scheduler_hints,
             'block_device_mapping' => @block_device_mapping
           }
           options['metadata'] = metadata.to_hash unless @metadata.nil?

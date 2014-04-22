@@ -33,7 +33,7 @@ module Fog
 
           response.body = {
             'volumeStatusSet' => [],
-            'requestId' => Fog::AWS::Mock.request_id
+            'requestId'       => Fog::AWS::Mock.request_id
           }
 
           response

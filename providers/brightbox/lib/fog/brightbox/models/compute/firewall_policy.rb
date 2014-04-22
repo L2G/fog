@@ -24,8 +24,8 @@ module Fog
           raise Fog::Errors::Error.new('Resaving an existing object may create a duplicate') if persisted?
           options = {
             :server_group => server_group_id,
-            :name => name,
-            :description => description
+            :name         => name,
+            :description  => description
           }.delete_if { |k, v| v.nil? || v == '' }
           data = service.create_firewall_policy(options)
           merge_attributes(data)

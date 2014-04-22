@@ -15,13 +15,13 @@ Shindo.tests('AWS::RDS | instance requests', ['aws', 'rds']) do
   tests('success') do
 
     tests('#create_db_instance').formats(AWS::RDS::Formats::CREATE_DB_INSTANCE) do
-      result = Fog::AWS[:rds].create_db_instance(@db_instance_id, 'AllocatedStorage' => 5,
-                                            'DBInstanceClass' => 'db.m1.small',
-                                            'Engine' => 'mysql',
-                                            'EngineVersion' => '5.1.50',
-                                            'MasterUsername' => 'foguser',
-                                            'BackupRetentionPeriod' => 1,
-                                            'MasterUserPassword' => 'fogpassword').body
+      result = Fog::AWS[:rds].create_db_instance(@db_instance_id, 'AllocatedStorage'      => 5,
+                                                                  'DBInstanceClass'       => 'db.m1.small',
+                                                                  'Engine'                => 'mysql',
+                                                                  'EngineVersion'         => '5.1.50',
+                                                                  'MasterUsername'        => 'foguser',
+                                                                  'BackupRetentionPeriod' => 1,
+                                                                  'MasterUserPassword'    => 'fogpassword').body
 
       instance = result['CreateDBInstanceResult']['DBInstance']
       returns('creating'){ instance['DBInstanceStatus']}

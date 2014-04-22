@@ -18,9 +18,9 @@ module Fog
         #     * 'source_ip_v4'<~String> - address that application connects to pool members from (v1 only)
         def get_lb_application(lb_application_id)
           request(
-            :expects  => 200,
-            :method   => 'GET',
-            :path     => "api/lb_applications/#{lb_application_id}.json"
+            :expects => 200,
+            :method  => 'GET',
+            :path    => "api/lb_applications/#{lb_application_id}.json"
           )
         end
       end

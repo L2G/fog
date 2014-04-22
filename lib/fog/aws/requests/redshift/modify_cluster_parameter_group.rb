@@ -18,11 +18,11 @@ module Fog
 
           path = '/'
           params = {
-            :headers    => {},
-            :path       => path,
-            :method     => :put,
-            :query      => {},
-            :parser     => Fog::Parsers::Redshift::AWS::UpdateClusterParameterGroupParser.new
+            :headers => {},
+            :path    => path,
+            :method  => :put,
+            :query   => {},
+            :parser  => Fog::Parsers::Redshift::AWS::UpdateClusterParameterGroupParser.new
           }
 
           params[:query]['Action']             = 'ModifyClusterParameterGroup'

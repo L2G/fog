@@ -15,7 +15,7 @@ module Fog
         def get_firewall(firewall_name)
           api_method = @compute.firewalls.get
           parameters = {
-            'project' => @project,
+            'project'  => @project,
             'firewall' => firewall_name
           }
 

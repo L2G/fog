@@ -19,8 +19,8 @@ module Fog
         # TODO: docs
         def grid_ip_list(options = {})
           request(
-            :path     => 'grid/ip/list',
-            :query    => options
+            :path  => 'grid/ip/list',
+            :query => options
           )
         end
 

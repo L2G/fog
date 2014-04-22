@@ -22,12 +22,12 @@ module Fog
           account_id = options['account_id'] || '-'
           path = "/#{account_id}/vaults/#{Fog::AWS.escape(name)}/notification-configuration"
           request(
-            :expects  => 204,
+            :expects    => 204,
             :idempotent => true,
-            :headers => {},
-            :method   => :put,
-            :path     => path,
-            :body     => Fog::JSON.encode('SNSTopic' => sns_topic, 'Events' => events)
+            :headers    => {},
+            :method     => :put,
+            :path       => path,
+            :body       => Fog::JSON.encode('SNSTopic' => sns_topic, 'Events' => events)
           )
         end
       end

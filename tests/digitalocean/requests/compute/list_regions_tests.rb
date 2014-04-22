@@ -2,8 +2,8 @@ Shindo.tests('Fog::Compute[:digitalocean] | list_regions request', ['digitalocea
 
   # {"id":2,"name":"Amsterdam 1"}
   @region_format = {
-    'id'           => Integer,
-    'name'         => String,
+    'id'   => Integer,
+    'name' => String,
   }
 
   tests('success') do

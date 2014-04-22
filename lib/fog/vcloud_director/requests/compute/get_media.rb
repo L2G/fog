@@ -34,15 +34,15 @@ module Fog
           end
 
           body = {
-            :xmlns => xmlns,
-            :xmlns_xsi => xmlns_xsi,
+            :xmlns              => xmlns,
+            :xmlns_xsi          => xmlns_xsi,
             :xsi_schemaLocation => xsi_schema_location
           }.merge(media_body(id))
 
           Excon::Response.new(
-            :status => 200,
+            :status  => 200,
             :headers => { 'Content-Type' => "#{body[:type]};version=>#{@api_version}" },
-            :body => body
+            :body    => body
           )
         end
 
@@ -52,27 +52,27 @@ module Fog
           media = data[:medias][id]
 
           body = {
-            :size => media[:size].to_s,
-            :imageType => media[:image_type],
-            :status => media[:status].to_s,
-            :name => media[:name],
-            :id => "urn:vcloud:media:#{id}",
-            :type => 'application/vnd.vmware.vcloud.media+xml',
-            :href => make_href("media/#{id}"),
-            :Link => {
+            :size        => media[:size].to_s,
+            :imageType   => media[:image_type],
+            :status      => media[:status].to_s,
+            :name        => media[:name],
+            :id          => "urn:vcloud:media:#{id}",
+            :type        => 'application/vnd.vmware.vcloud.media+xml',
+            :href        => make_href("media/#{id}"),
+            :Link        => {
               :href => make_href("vdc/#{media[:vdc_id]}"),
               :type => 'application/vnd.vmware.vcloud.vdc+xml',
-              :rel => 'up'
+              :rel  => 'up'
             },
             :Description => media[:description] || '',
-            :Tasks => {
+            :Tasks       => {
               # FIXME: there's only one for now
               :Task => media[:tasks].map {|task_id| task_body(task_id)}.first
             },
-            :Files => {
+            :Files       => {
               :File => []
             },
-            :Owner => {
+            :Owner       => {
               :type => 'application/vnd.vmware.vcloud.owner+xml',
               :User => {
                 :href => make_href("admin/user/#{user_uuid}"),
@@ -84,12 +84,12 @@ module Fog
 
           if media[:status] == 0
             body[:Files][:File] << {
-              :size => media[:size].to_s,
+              :size             => media[:size].to_s,
               :bytesTransferred => media[:file][:bytes_transferred].to_s,
-              :name => 'file',
-              :Link => {
+              :name             => 'file',
+              :Link             => {
                 :href => make_href("transfer/#{media[:file][:uuid]}/file"),
-                :rel => 'upload:default'
+                :rel  => 'upload:default'
               }
             }
           end

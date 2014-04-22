@@ -9,7 +9,7 @@ module Fog
         def get_vm_password(id)
           options = {
             'command' => 'getVMPassword',
-            'id' => id
+            'id'      => id
           }
 
           request(options)

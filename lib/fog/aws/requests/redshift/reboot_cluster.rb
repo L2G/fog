@@ -19,11 +19,11 @@ module Fog
 
           path = '/'
           params = {
-            :headers    => {},
-            :path       => path,
-            :method     => :put,
-            :query      => {},
-            :parser     => Fog::Parsers::Redshift::AWS::Cluster.new
+            :headers => {},
+            :path    => path,
+            :method  => :put,
+            :query   => {},
+            :parser  => Fog::Parsers::Redshift::AWS::Cluster.new
           }
 
           params[:query]['Action']                           = 'RebootCluster'

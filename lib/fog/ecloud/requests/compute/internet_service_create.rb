@@ -23,12 +23,12 @@ module Fog
           validate_internet_service_data(service_data)
 
           request(
-            :body => generate_internet_service_request(service_data),
+            :body    => generate_internet_service_request(service_data),
             :expects => 201,
-            :method => 'POST',
+            :method  => 'POST',
             :headers => {},
-            :uri => service_data[:uri],
-            :parse => true
+            :uri     => service_data[:uri],
+            :parse   => true
           )
         end
 
@@ -70,10 +70,10 @@ module Fog
           public_ip    = self.data[:public_ips][public_ip_id.to_i].dup
           service_id   = Fog::Mock.random_numbers(6).to_i
           service = {
-            :href => "/cloudapi/ecloud/internetServices/#{service_id}",
-            :name => service_data[:name],
-            :type => 'application/vnd.tmrk.cloud.internetService',
-            :Links => {
+            :href        => "/cloudapi/ecloud/internetServices/#{service_id}",
+            :name        => service_data[:name],
+            :type        => 'application/vnd.tmrk.cloud.internetService',
+            :Links       => {
               :Link => [
                 Fog::Ecloud.keep(public_ip, :href, :name, :type),
               ],

@@ -11,9 +11,9 @@ module Fog
         #
         def delete_object(container, object)
           response = request(
-            :expects  => 204,
-            :method   => 'DELETE',
-            :path     => "#{Fog::HP.escape(container)}/#{Fog::HP.escape(object)}"
+            :expects => 204,
+            :method  => 'DELETE',
+            :path    => "#{Fog::HP.escape(container)}/#{Fog::HP.escape(object)}"
           )
           response
         end

@@ -244,12 +244,12 @@ module Fog
 
         def xmlns
           if version == '1.0'
-            { 'xmlns' => 'http://www.vmware.com/vcloud/v1',
+            { 'xmlns'     => 'http://www.vmware.com/vcloud/v1',
               'xmlns:ovf' => 'http://schemas.dmtf.org/ovf/envelope/1',
               'xmlns:xsi' => 'http://www.w3.org/2001/XMLSchema-instance',
               'xmlns:xsd' => 'http://www.w3.org/2001/XMLSchema' }
           else
-            { 'xmlns' => 'http://www.vmware.com/vcloud/v1.5',
+            { 'xmlns'     => 'http://www.vmware.com/vcloud/v1.5',
               'xmlns:ovf' => 'http://schemas.dmtf.org/ovf/envelope/1',
               'xmlns:xsi' => 'http://www.w3.org/2001/XMLSchema-instance',
               'xmlns:xsd' => 'http://www.w3.org/2001/XMLSchema' }
@@ -276,8 +276,8 @@ module Fog
             :expects => args[0] || 200,
             :method  => args[1] || 'GET',
             :headers => args[2] ? args[2].inspect : {},
-            :body => args[3] ? args[3] : '',
-            :parse => true,
+            :body    => args[3] ? args[3] : '',
+            :parse   => true,
             :uri     => uri
           }
         end
@@ -332,11 +332,11 @@ module Fog
 
           # Make the request
           response = @connections[host_url].request(
-            :body     => params[:body] || '',
-            :expects  => params[:expects] || 200,
-            :headers  => headers,
-            :method   => params[:method] || 'GET',
-            :path     => params[:uri].path
+            :body    => params[:body] || '',
+            :expects => params[:expects] || 200,
+            :headers => headers,
+            :method  => params[:method] || 'GET',
+            :path    => params[:uri].path
           )
 
           # Parse the response body into a hash

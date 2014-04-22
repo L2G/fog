@@ -19,10 +19,10 @@ module Fog
           params = {}
           params['FinalDBSnapshotIdentifier'] = snapshot_identifier if snapshot_identifier
           request({
-            'Action'  => 'DeleteDBInstance',
+            'Action'               => 'DeleteDBInstance',
             'DBInstanceIdentifier' => identifier,
-            'SkipFinalSnapshot' => skip_snapshot,
-            :parser   => Fog::Parsers::AWS::RDS::DeleteDBInstance.new
+            'SkipFinalSnapshot'    => skip_snapshot,
+            :parser                => Fog::Parsers::AWS::RDS::DeleteDBInstance.new
           }.merge(params))
         end
 
@@ -40,7 +40,7 @@ module Fog
           if server_set = self.data[:servers].delete(identifier)
             response.status = 200
             response.body = {
-              'ResponseMetadata' => { 'RequestId' => Fog::AWS::Mock.request_id },
+              'ResponseMetadata'       => { 'RequestId' => Fog::AWS::Mock.request_id },
               'DeleteDBInstanceResult' => { 'DBInstance' => server_set }
             }
             response

@@ -1,21 +1,21 @@
 Shindo.tests('Fog::Compute[:joyent] | network requests', ['joyent']) do
   @provider = Fog::Compute[:joyent]
   @network_format = {
-    'id' => String,
-    'name' => String,
+    'id'     => String,
+    'name'   => String,
     'public' => Fog::Boolean
   }
 
   if Fog.mock?
     @networks = Fog::Compute[:joyent].data[:networks] = {
       '193d6804-256c-4e89-a4cd-46f045959993' => {
-        'id' => '193d6804-256c-4e89-a4cd-46f045959993',
-        'name' => 'Joyent-SDC-Private',
+        'id'     => '193d6804-256c-4e89-a4cd-46f045959993',
+        'name'   => 'Joyent-SDC-Private',
         'public' => false
       },
       '1e7bb0e1-25a9-43b6-bb19-f79ae9540b39' => {
-        'id' => '1e7bb0e1-25a9-43b6-bb19-f79ae9540b39',
-        'name' => 'Joyent-SDC-Public',
+        'id'     => '1e7bb0e1-25a9-43b6-bb19-f79ae9540b39',
+        'name'   => 'Joyent-SDC-Public',
         'public' => true
       }
     }

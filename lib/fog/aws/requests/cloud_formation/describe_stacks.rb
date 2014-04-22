@@ -28,8 +28,8 @@ module Fog
 
         def describe_stacks(options = {})
           request({
-            'Action'    => 'DescribeStacks',
-            :parser     => Fog::Parsers::AWS::CloudFormation::DescribeStacks.new
+            'Action' => 'DescribeStacks',
+            :parser  => Fog::Parsers::AWS::CloudFormation::DescribeStacks.new
           }.merge!(options))
         end
 

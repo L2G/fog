@@ -17,7 +17,7 @@ module Fog
           api_method = @compute.regions.get
           parameters = {
             'project' => @project,
-            'region' => identity.split('/')[-1],
+            'region'  => identity.split('/')[-1],
           }
 
           result = self.build_result(api_method, parameters)

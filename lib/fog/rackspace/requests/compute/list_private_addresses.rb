@@ -14,9 +14,9 @@ module Fog
         #     * 'private'<~Array> - Public ip addresses
         def list_private_addresses(server_id)
           request(
-            :expects  => [200, 203],
-            :method   => 'GET',
-            :path     => "servers/#{server_id}/ips/private.json"
+            :expects => [200, 203],
+            :method  => 'GET',
+            :path    => "servers/#{server_id}/ips/private.json"
           )
         end
 

@@ -7,8 +7,8 @@ Shindo.tests('Fog::Image[:openstack] | image requests', ['openstack']) do
     :copy_from        => 'http://website.com/image.iso',
     :disk_format      => 'iso',
     :properties       =>
-      { :user_id       => openstack.current_user['id'],
-       :owner_id      => openstack.current_tenant['id'] },
+                         { :user_id  => openstack.current_user['id'],
+                           :owner_id => openstack.current_tenant['id'] },
     :container_format => 'bare' }
 
   @image_format = {
@@ -21,48 +21,48 @@ Shindo.tests('Fog::Image[:openstack] | image requests', ['openstack']) do
   }
 
   @detailed_image_format = {
-    'id' => String,
-    'name' => String,
-    'size' => Integer,
-    'disk_format' => String,
+    'id'               => String,
+    'name'             => String,
+    'size'             => Integer,
+    'disk_format'      => String,
     'container_format' => String,
-    'checksum' => String,
-    'min_disk'  => Integer,
-    'created_at' => String,
-    'deleted_at' => Fog::Nullable::String,
-    'updated_at' => String,
-    'deleted' => Fog::Boolean,
-    'protected' => Fog::Boolean,
-    'is_public' => Fog::Boolean,
-    'status' => String,
-    'min_ram' => Integer,
-    'owner' => Fog::Nullable::String,
-    'properties' => Hash
+    'checksum'         => String,
+    'min_disk'         => Integer,
+    'created_at'       => String,
+    'deleted_at'       => Fog::Nullable::String,
+    'updated_at'       => String,
+    'deleted'          => Fog::Boolean,
+    'protected'        => Fog::Boolean,
+    'is_public'        => Fog::Boolean,
+    'status'           => String,
+    'min_ram'          => Integer,
+    'owner'            => Fog::Nullable::String,
+    'properties'       => Hash
   }
 
   @image_meta_format = {
-    'X-Image-Meta-Is_public' => String,
-    'X-Image-Meta-Min_disk' => Fog::Nullable::String,
+    'X-Image-Meta-Is_public'           => String,
+    'X-Image-Meta-Min_disk'            => Fog::Nullable::String,
     'X-Image-Meta-Property-Ramdisk_id' => Fog::Nullable::String,
-    'X-Image-Meta-Disk_format' => Fog::Nullable::String,
-    'X-Image-Meta-Created_at' => String,
-    'X-Image-Meta-Container_format' => Fog::Nullable::String,
-    'Etag' => String,
-    'Location' => String,
-    'X-Image-Meta-Protected' => String,
-    'Date' => String,
-    'X-Image-Meta-Name' => String,
-    'X-Image-Meta-Min_ram' => String,
-    'Content-Type' => String,
-    'X-Image-Meta-Updated_at' => String,
-    'X-Image-Meta-Property-Kernel_id' => Fog::Nullable::String,
-    'X-Image-Meta-Size' => String,
-    'X-Image-Meta-Checksum' => Fog::Nullable::String,
-    'X-Image-Meta-Deleted' => String,
-    'Content-Length' => String,
-    'X-Image-Meta-Status' => String,
-    'X-Image-Meta-Owner' => String,
-    'X-Image-Meta-Id' => String
+    'X-Image-Meta-Disk_format'         => Fog::Nullable::String,
+    'X-Image-Meta-Created_at'          => String,
+    'X-Image-Meta-Container_format'    => Fog::Nullable::String,
+    'Etag'                             => String,
+    'Location'                         => String,
+    'X-Image-Meta-Protected'           => String,
+    'Date'                             => String,
+    'X-Image-Meta-Name'                => String,
+    'X-Image-Meta-Min_ram'             => String,
+    'Content-Type'                     => String,
+    'X-Image-Meta-Updated_at'          => String,
+    'X-Image-Meta-Property-Kernel_id'  => Fog::Nullable::String,
+    'X-Image-Meta-Size'                => String,
+    'X-Image-Meta-Checksum'            => Fog::Nullable::String,
+    'X-Image-Meta-Deleted'             => String,
+    'Content-Length'                   => String,
+    'X-Image-Meta-Status'              => String,
+    'X-Image-Meta-Owner'               => String,
+    'X-Image-Meta-Id'                  => String
   }
 
   @image_members_format = [
@@ -104,8 +104,8 @@ Shindo.tests('Fog::Image[:openstack] | image requests', ['openstack']) do
     end
 
     tests('#update_image').data_matches_schema(@detailed_image_format) do
-       Fog::Image[:openstack].update_image(:id => @instance['image']['id'],
-                                            :name => 'edit image').body['image']
+       Fog::Image[:openstack].update_image(:id   => @instance['image']['id'],
+                                           :name => 'edit image').body['image']
     end
 
     tests('#add_member_to_image').succeeds do

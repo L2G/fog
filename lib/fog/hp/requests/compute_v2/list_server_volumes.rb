@@ -19,9 +19,9 @@ module Fog
         #       *  'volumeId':<~String>  - UUId of the volume
         def list_server_volumes(server_id)
           response = request(
-            :expects  => 200,
-            :method   => 'GET',
-            :path     => "servers/#{server_id}/os-volume_attachments"
+            :expects => 200,
+            :method  => 'GET',
+            :path    => "servers/#{server_id}/os-volume_attachments"
           )
           response
         end

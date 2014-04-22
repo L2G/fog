@@ -54,16 +54,16 @@ module Fog
           if list_domains.body['domains'].detect {|_| _['id'] == domain_id}
             response.status = 200
             data = {
-                'id'           => Fog::HP::Mock.uuid.to_s,
-                'domain_id'    => domain_id,
-                'name'         => name || 'www.example.com.',
-                'type'         => type || 'A',
-                'data'         => data || '15.185.172.152',
-                'ttl'          => options['ttl'] || 3600,
-                'description'  => options['description'] || 'desc for www.example.com.',
-                'priority'     => options['priority'] || nil,
-                'created_at'   => '2012-11-02T19:56:26.366792',
-                'updated_at'   => '2012-11-02T19:56:26.366792'
+                'id'          => Fog::HP::Mock.uuid.to_s,
+                'domain_id'   => domain_id,
+                'name'        => name || 'www.example.com.',
+                'type'        => type || 'A',
+                'data'        => data || '15.185.172.152',
+                'ttl'         => options['ttl'] || 3600,
+                'description' => options['description'] || 'desc for www.example.com.',
+                'priority'    => options['priority'] || nil,
+                'created_at'  => '2012-11-02T19:56:26.366792',
+                'updated_at'  => '2012-11-02T19:56:26.366792'
             }
             self.data[:records][data['id']] = data
             response.body = data

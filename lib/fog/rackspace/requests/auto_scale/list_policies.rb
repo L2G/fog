@@ -6,8 +6,8 @@ module Fog
         def list_policies(group_id)
           request(
             :expects => [200],
-            :method => 'GET',
-            :path => "groups/#{group_id}/policies"
+            :method  => 'GET',
+            :path    => "groups/#{group_id}/policies"
           )
         end
       end

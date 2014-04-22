@@ -17,10 +17,10 @@ module Fog
         #     * container<~String>: Name of container
         def get_containers(options = {})
           response = request(
-            :expects  => [200, 204],
-            :method   => 'GET',
-            :path     => '',
-            :query    => { 'format' => 'json' }.merge!(options)
+            :expects => [200, 204],
+            :method  => 'GET',
+            :path    => '',
+            :query   => { 'format' => 'json' }.merge!(options)
           )
           response
         end

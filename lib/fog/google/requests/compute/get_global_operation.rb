@@ -16,7 +16,7 @@ module Fog
         def get_global_operation(operation)
           api_method = @compute.global_operations.get
           parameters = {
-            'project' => @project,
+            'project'   => @project,
             'operation' => operation
           }
 

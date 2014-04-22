@@ -61,18 +61,18 @@ module Fog
 
           aliases = {
             'availability-zone' => 'availabilityZone',
-            'create-time' => 'createTime',
-            'size' => 'size',
-            'snapshot-id' => 'snapshotId',
-            'status' => 'status',
-            'volume-id' => 'volumeId'
+            'create-time'       => 'createTime',
+            'size'              => 'size',
+            'snapshot-id'       => 'snapshotId',
+            'status'            => 'status',
+            'volume-id'         => 'volumeId'
           }
           attachment_aliases = {
-            'attach-time' => 'attachTime',
+            'attach-time'           => 'attachTime',
             'delete-on-termination' => 'deleteOnTermination',
-            'device'      => 'device',
-            'instance-id' => 'instanceId',
-            'status'      => 'status'
+            'device'                => 'device',
+            'instance-id'           => 'instanceId',
+            'status'                => 'status'
           }
 
           for filter_key, filter_value in filters

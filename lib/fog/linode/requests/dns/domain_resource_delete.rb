@@ -16,9 +16,9 @@ module Fog
         #       * resource_id<~Integer>:  resource id that was deleted
         def domain_resource_delete(domain_id, resource_id)
           request(
-            :expects  => 200,
-            :method   => 'GET',
-            :query    => { :api_action => 'domain.resource.delete', :domainId => domain_id, :resourceID => resource_id }
+            :expects => 200,
+            :method  => 'GET',
+            :query   => { :api_action => 'domain.resource.delete', :domainId => domain_id, :resourceID => resource_id }
           )
         end
 

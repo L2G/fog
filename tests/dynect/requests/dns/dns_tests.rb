@@ -2,11 +2,11 @@ Shindo.tests('Dynect::dns | DNS requests', ['dynect', 'dns']) do
 
   shared_format = {
     'job_id' => Integer,
-    'msgs' => [{
-      'ERR_CD'  => Fog::Nullable::String,
-      'INFO'    => String,
-      'LVL'     => String,
-      'SOURCE'  => String
+    'msgs'   => [{
+      'ERR_CD' => Fog::Nullable::String,
+      'INFO'   => String,
+      'LVL'    => String,
+      'SOURCE' => String
     }],
     'status' => String
   }
@@ -30,10 +30,10 @@ Shindo.tests('Dynect::dns | DNS requests', ['dynect', 'dns']) do
 
     post_zone_format = shared_format.merge(
       'data' => {
-        'serial'        => Integer,
-        'zone'          => String,
-        'zone_type'     => String,
-        'serial_style'  => String
+        'serial'       => Integer,
+        'zone'         => String,
+        'zone_type'    => String,
+        'serial_style' => String
       }
     )
 
@@ -51,10 +51,10 @@ Shindo.tests('Dynect::dns | DNS requests', ['dynect', 'dns']) do
 
     get_zone_format = shared_format.merge(
       'data' => {
-        'serial'        => Integer,
-        'serial_style'  => String,
-        'zone'          => String,
-        'zone_type'     => String
+        'serial'       => Integer,
+        'serial_style' => String,
+        'zone'         => String,
+        'zone_type'    => String
       }
     )
 
@@ -84,8 +84,8 @@ Shindo.tests('Dynect::dns | DNS requests', ['dynect', 'dns']) do
         'fqdn'        => String,
         'ARecords'    => [
           {
-            'rdata'      => {
-              'address'   => String
+            'rdata' => {
+              'address' => String
             }
           }
         ],
@@ -102,10 +102,10 @@ Shindo.tests('Dynect::dns | DNS requests', ['dynect', 'dns']) do
 
     publish_zone_format = shared_format.merge(
       'data' => {
-        'serial'        => Integer,
-        'serial_style'  => String,
-        'zone'          => String,
-        'zone_type'     => String
+        'serial'       => Integer,
+        'serial_style' => String,
+        'zone'         => String,
+        'zone_type'    => String
       }
     )
 
@@ -165,14 +165,14 @@ Shindo.tests('Dynect::dns | DNS requests', ['dynect', 'dns']) do
 
     get_record_format = shared_format.merge(
       'data' => {
-        'zone' => String,
-        'ttl' => Integer,
-        'fqdn' => String,
+        'zone'        => String,
+        'ttl'         => Integer,
+        'fqdn'        => String,
         'record_type' => String,
-        'rdata' => {
+        'rdata'       => {
           'address' => String
         },
-        'record_id' => Integer
+        'record_id'   => Integer
       }
     )
 

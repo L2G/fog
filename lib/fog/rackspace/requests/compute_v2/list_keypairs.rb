@@ -18,9 +18,9 @@ module Fog
         # @see   http://docs.rackspace.com/servers/api/v2/cs-devguide/content/ListKeyPairs.html
         def list_keypairs
           request(
-            :method   => 'GET',
-            :expects  => 200,
-            :path     => '/os-keypairs'
+            :method  => 'GET',
+            :expects => 200,
+            :path    => '/os-keypairs'
           )
         end
       end

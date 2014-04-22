@@ -91,13 +91,13 @@ module Fog
           body = Fog::AWS.signed_params(
             params,
 
-            :aws_access_key_id  => @aws_access_key_id,
-            :aws_session_token  => @aws_session_token,
-            :hmac               => @hmac,
-            :host               => @host,
-            :path               => @path,
-            :port               => @port,
-            :version            => '2013-06-15'
+            :aws_access_key_id => @aws_access_key_id,
+            :aws_session_token => @aws_session_token,
+            :hmac              => @hmac,
+            :host              => @host,
+            :path              => @path,
+            :port              => @port,
+            :version           => '2013-06-15'
 
           )
 
@@ -136,16 +136,16 @@ module Fog
           @data ||= Hash.new do |hash, region|
             hash[region] = Hash.new do |region_hash, key|
               region_hash[key] = {
-                :clusters  => {}, # cache cluster data, indexed by cluster ID
-                :security_groups => {}, # security groups
-                :subnet_groups => {},
+                :clusters         => {}, # cache cluster data, indexed by cluster ID
+                :security_groups  => {}, # security groups
+                :subnet_groups    => {},
                 :parameter_groups => { 'default.memcached1.4' => { 'CacheParameterGroupFamily' => 'memcached1.4',
-                                                                  'Description' => 'Default parameter group for memcached1.4',
-                                                                  'CacheParameterGroupName' => 'default.memcached1.4'
+                                                                   'Description'               => 'Default parameter group for memcached1.4',
+                                                                   'CacheParameterGroupName'   => 'default.memcached1.4'
                                                                 },
-                                      'default.redis2.6' =>     { 'CacheParameterGroupFamily' => 'redis2.6',
-                                                                 'Description' => 'Default parameter group for redis2.6',
-                                                                 'CacheParameterGroupName' => 'default.redis2.6'
+                                       'default.redis2.6'     => { 'CacheParameterGroupFamily' => 'redis2.6',
+                                                                   'Description'               => 'Default parameter group for redis2.6',
+                                                                   'CacheParameterGroupName'   => 'default.redis2.6'
                                                                 }
                                       }
                                   }
@@ -188,13 +188,13 @@ module Fog
           (1..num_nodes).map do |node_number|
             node_id = '%04d' % node_number
             { # each hash represents a cache cluster node
-              'CacheNodeId'           => node_id,
-              'Port'                  => port,
-              'ParameterGroupStatus'  => 'in-sync',
-              'CacheNodeStatus'       => 'available',
-              'CacheNodeCreateTime'   => Time.now.utc.to_s,
-              'Address' =>
-                "#{cluster_id}.#{node_id}.use1.cache.amazonaws.com"
+              'CacheNodeId'          => node_id,
+              'Port'                 => port,
+              'ParameterGroupStatus' => 'in-sync',
+              'CacheNodeStatus'      => 'available',
+              'CacheNodeCreateTime'  => Time.now.utc.to_s,
+              'Address'              =>
+                                        "#{cluster_id}.#{node_id}.use1.cache.amazonaws.com"
             }
           end
         end

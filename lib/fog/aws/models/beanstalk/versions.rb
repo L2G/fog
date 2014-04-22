@@ -16,7 +16,7 @@ module Fog
         def get(application_name, version_label)
           if data = service.describe_application_versions(
                                                                  'ApplicationName' => application_name,
-                                                                 'VersionLabels' => [version_label]
+                                                                 'VersionLabels'   => [version_label]
                                                              ).body['DescribeApplicationVersionsResult']['ApplicationVersions']
             if data.length == 1
               new(data.first)

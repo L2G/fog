@@ -16,7 +16,7 @@ module Fog
             attrs = @attrs
             Nokogiri::XML::Builder.new do
               VApp('xmlns' => 'http://www.vmware.com/vcloud/v1.5',
-                   'name' => name
+                   'name'  => name
                   ) {
                 Description options[:Description] if options.key?(:Description)
               }

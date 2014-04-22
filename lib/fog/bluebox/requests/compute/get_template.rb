@@ -14,9 +14,9 @@ module Fog
         # TODO
         def get_template(template_id)
           request(
-            :expects  => 200,
-            :method   => 'GET',
-            :path     => "api/block_templates/#{template_id}.json"
+            :expects => 200,
+            :method  => 'GET',
+            :path    => "api/block_templates/#{template_id}.json"
           )
         end
 

@@ -21,13 +21,13 @@ module Fog
 
         def get_bucket_lifecycle(bucket_name)
           request(
-                    :expects  => 200,
-                    :headers  => {},
-                    :host     => "#{bucket_name}.#{@host}",
+                    :expects    => 200,
+                    :headers    => {},
+                    :host       => "#{bucket_name}.#{@host}",
                     :idempotent => true,
-                    :method   => 'GET',
-                    :parser   => Fog::Parsers::Storage::InternetArchive::GetBucketLifecycle.new,
-                    :query    => { 'lifecycle' => nil }
+                    :method     => 'GET',
+                    :parser     => Fog::Parsers::Storage::InternetArchive::GetBucketLifecycle.new,
+                    :query      => { 'lifecycle' => nil }
                   )
         end
 

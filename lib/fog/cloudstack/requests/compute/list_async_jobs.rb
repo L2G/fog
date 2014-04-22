@@ -21,7 +21,7 @@ module Fog
           jobs = self.data[:jobs]
           {
             'listasyncjobsresponse' => {
-              'count' => jobs.size,
+              'count'     => jobs.size,
               'asyncjobs' => jobs
             }
           }

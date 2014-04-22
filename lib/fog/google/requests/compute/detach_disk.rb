@@ -13,9 +13,9 @@ module Fog
         def detach_disk(instance, zone, deviceName)
           api_method = @compute.instances.detach_disk
           parameters = {
-            'project' => @project,
-            'instance' => instance,
-            'zone' => zone.split('/')[-1],
+            'project'    => @project,
+            'instance'   => instance,
+            'zone'       => zone.split('/')[-1],
             'deviceName' => deviceName
           }
 

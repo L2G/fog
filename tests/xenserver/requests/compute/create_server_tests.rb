@@ -41,7 +41,7 @@ Shindo.tests('Fog::Compute[:xenserver] | create_server request', ['xenserver']) 
       ref = compute.create_server_raw(
 
           :name_label => test_ephemeral_vm_name,
-          :affinity => compute.hosts.first
+          :affinity   => compute.hosts.first
 
       )
       valid_ref? ref
@@ -50,7 +50,7 @@ Shindo.tests('Fog::Compute[:xenserver] | create_server request', ['xenserver']) 
       ref = compute.create_server_raw(
 
           :name_label => test_ephemeral_vm_name,
-          :affinity => compute.hosts.first
+          :affinity   => compute.hosts.first
 
       )
       (compute.servers.get ref).name == test_ephemeral_vm_name
@@ -58,8 +58,8 @@ Shindo.tests('Fog::Compute[:xenserver] | create_server request', ['xenserver']) 
     test('set the PV_bootloader attribute to eliloader') do
       ref = compute.create_server_raw(
 
-          :name_label => test_ephemeral_vm_name,
-          :affinity => compute.hosts.first,
+          :name_label    => test_ephemeral_vm_name,
+          :affinity      => compute.hosts.first,
           :PV_bootloader => 'eliloader'
 
       )
@@ -68,8 +68,8 @@ Shindo.tests('Fog::Compute[:xenserver] | create_server request', ['xenserver']) 
     test('set the :pv_bootloader attribute to eliloader') do
       ref = compute.create_server_raw(
 
-          :name_label => test_ephemeral_vm_name,
-          :affinity => compute.hosts.first,
+          :name_label    => test_ephemeral_vm_name,
+          :affinity      => compute.hosts.first,
           :pv_bootloader => 'eliloader'
 
       )
@@ -79,7 +79,7 @@ Shindo.tests('Fog::Compute[:xenserver] | create_server request', ['xenserver']) 
       ref = compute.create_server_raw(
 
           :name_label => test_ephemeral_vm_name,
-          :affinity => compute.hosts.first,
+          :affinity   => compute.hosts.first,
           'vcpus_max' => '1'
 
       )
@@ -93,8 +93,8 @@ Shindo.tests('Fog::Compute[:xenserver] | create_server request', ['xenserver']) 
         test("set the :#{a} to { :foo => 'bar' }") do
           ref = compute.create_server_raw(
 
-              :name_label => test_ephemeral_vm_name,
-              :affinity => compute.hosts.first,
+              :name_label       => test_ephemeral_vm_name,
+              :affinity         => compute.hosts.first,
               a.downcase.to_sym => { :foo => :bar }
 
           )
@@ -112,8 +112,8 @@ Shindo.tests('Fog::Compute[:xenserver] | create_server request', ['xenserver']) 
         test("set the :#{a} to 1") do
           ref = compute.create_server_raw(
 
-              :name_label => test_ephemeral_vm_name,
-              :affinity => compute.hosts.first,
+              :name_label       => test_ephemeral_vm_name,
+              :affinity         => compute.hosts.first,
               a.downcase.to_sym => '1'
 
           )

@@ -3,17 +3,17 @@ require 'fog/openstack'
 Shindo.tests('Fog::Compute[:openstack] | image requests', ['openstack']) do
 
   @image_format = {
-    'created'   => Fog::Nullable::String,
-    'id'        => String,
-    'name'      => String,
-    'progress'  => Fog::Nullable::Integer,
-    'status'    => String,
-    'updated'   => String,
-    'minRam'    => Integer,
-    'minDisk'   => Integer,
-    'server'    => Fog::Nullable::Hash,
-    'metadata'  => Hash,
-    'links'  => Array
+    'created'  => Fog::Nullable::String,
+    'id'       => String,
+    'name'     => String,
+    'progress' => Fog::Nullable::Integer,
+    'status'   => String,
+    'updated'  => String,
+    'minRam'   => Integer,
+    'minDisk'  => Integer,
+    'server'   => Fog::Nullable::Hash,
+    'metadata' => Hash,
+    'links'    => Array
   }
 
   tests('success') do

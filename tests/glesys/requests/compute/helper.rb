@@ -4,16 +4,16 @@ class Glesys
       module Servers
 
         LIST = {
-          'debug' => {
+          'debug'   => {
             'input' => Array
           },
           'servers' => [{
-            'serverid' => String,
-            'hostname' => String,
+            'serverid'   => String,
+            'hostname'   => String,
             'datacenter' => String,
-            'platform' => String
+            'platform'   => String
           }],
-          'status' => {
+          'status'  => {
             'timestamp' => String,
             'code'      => Integer,
             'text'      => String
@@ -21,35 +21,35 @@ class Glesys
         }
 
         DETAILS = {
-          'debug' => {
-            'input' =>  {
-              'serverid'  =>  Fog::Nullable::String
+          'debug'  => {
+            'input' => {
+              'serverid' => Fog::Nullable::String
             }
           },
           'server' => {
-            'managedhosting'  => String,
-            'cost'            => {
-              'amount'      =>  Float,
-              'timeperiod'  => String,
-              'currency'    => String
+            'managedhosting' => String,
+            'cost'           => {
+              'amount'     => Float,
+              'timeperiod' => String,
+              'currency'   => String
             },
-            'serverid'      => String,
-            'datacenter'    => String,
-            'memorysize'    => Integer,
-            'cpucores'      => Integer,
-            'transfer'      => Integer,
-            'templatename'  => String,
-            'iplist'        =>  [{
+            'serverid'       => String,
+            'datacenter'     => String,
+            'memorysize'     => Integer,
+            'cpucores'       => Integer,
+            'transfer'       => Integer,
+            'templatename'   => String,
+            'iplist'         => [{
               'cost'      => Integer,
               'version'   => Fog::Nullable::Integer,
               'ipaddress' => Fog::Nullable::String,
               'currency'  => String
             }],
-            'description' => String,
-            'hostname'    => String,
-            'disksize'    => Integer,
-            'platform'    => String,
-            'state'       => Fog::Nullable::String
+            'description'    => String,
+            'hostname'       => String,
+            'disksize'       => Integer,
+            'platform'       => String,
+            'state'          => Fog::Nullable::String
           },
           'status' => {
             'timestamp' => String,
@@ -60,69 +60,69 @@ class Glesys
 
         STOP = DETAILS.merge(
           'debug' => {
-            'input' =>  {
-              'serverid'  => Fog::Nullable::String,
-              'type'      => String
+            'input' => {
+              'serverid' => Fog::Nullable::String,
+              'type'     => String
             }
           }
         )
 
         CREATE = DETAILS.merge(
           'debug' => {
-            'input' =>  {
-              'serverid'      => Fog::Nullable::String,
-              'hostname'      => String,
-              'rootpassword'  => String,
-              'datacenter'    => String,
-              'platform'      => String,
-              'templatename'  => String,
-              'disksize'      => String,
-              'memorysize'    => String,
-              'cpucores'      => String,
-              'transfer'      => String,
-              'description'   => String
+            'input' => {
+              'serverid'     => Fog::Nullable::String,
+              'hostname'     => String,
+              'rootpassword' => String,
+              'datacenter'   => String,
+              'platform'     => String,
+              'templatename' => String,
+              'disksize'     => String,
+              'memorysize'   => String,
+              'cpucores'     => String,
+              'transfer'     => String,
+              'description'  => String
             }
           }
         )
 
         STATUS = {
-          'debug' => {
+          'debug'  => {
             'input' => {
               'serverid' => String
             }
           },
           'server' => {
-            'memory'    => {
+            'memory'   => {
               'usage' => Fog::Nullable::Integer,
               'max'   => Fog::Nullable::Integer,
               'unit'  => Fog::Nullable::String
             },
-            'transfer'  => {
+            'transfer' => {
               'usage' => Fog::Nullable::Integer,
               'max'   => Fog::Nullable::Integer,
               'unit'  => Fog::Nullable::String
             },
-            'disk'      => {
+            'disk'     => {
               'usage' => Fog::Nullable::Integer,
               'max'   => Fog::Nullable::Integer,
               'unit'  => Fog::Nullable::String
             },
-            'state'     => String,
-            'transfer'  => {
+            'state'    => String,
+            'transfer' => {
               'usage' => Fog::Nullable::Integer,
               'max'   => Fog::Nullable::Integer,
               'unit'  => Fog::Nullable::String
             },
-            'cpu'       => {
+            'cpu'      => {
               'usage' => Fog::Nullable::Integer,
               'max'   => Fog::Nullable::Integer,
               'unit'  => Fog::Nullable::String
             },
-            'uptime'    => {
+            'uptime'   => {
               'current' => Fog::Nullable::Integer,
               'unit'    => String
             },
-            'warnings'  => Array
+            'warnings' => Array
           },
           'status' => {
             'timestamp' => String,
@@ -132,7 +132,7 @@ class Glesys
        }
 
         DESTROY = {
-          'debug' => {
+          'debug'  => {
             'input' => {
               'serverid' => String,
               'keepip'   => String
@@ -149,14 +149,14 @@ class Glesys
       module Ips
 
         IPLIST = {
-          'debug' => {
+          'debug'  => {
             'input' => []
           },
           'iplist' => [{
-            'cost' => {
-              'amount'      => Integer,
-              'timeperiod'  => String,
-              'currency'    => String
+            'cost'        => {
+              'amount'     => Integer,
+              'timeperiod' => String,
+              'currency'   => String
             },
             'netmask'     => Fog::Nullable::String,
             'broadcast'   => Fog::Nullable::String,
@@ -178,11 +178,11 @@ class Glesys
         }
 
         IPLIST_ALL = {
-          'debug' => {
+          'debug'  => {
             'input' => {
-              'datacenter'  => String,
-              'ipversion'   => String,
-              'platform'    => String
+              'datacenter' => String,
+              'ipversion'  => String,
+              'platform'   => String
             }
           },
           'iplist' => {
@@ -199,16 +199,16 @@ class Glesys
         }
 
         IPLIST_CATCH_RELEASE = {
-          'debug' => {
+          'debug'   => {
             'input' => {
               'ipaddress' => String,
             }
           },
           'details' => {
-            'cost' => {
-              'amount'      => Integer,
-              'timeperiod'  => String,
-              'currency'    => String
+            'cost'        => {
+              'amount'     => Integer,
+              'timeperiod' => String,
+              'currency'   => String
             },
             'ipaddress'   => String,
             'netmask'     => String,
@@ -223,7 +223,7 @@ class Glesys
             'ptr'         => String,
             'reserved'    => String
           },
-          'status' => {
+          'status'  => {
             'timestamp' => String,
             'code'      => Integer,
             'text'      => String
@@ -234,11 +234,11 @@ class Glesys
       module Templates
 
         LIST = {
-          'debug' => {
+          'debug'     => {
             'input' => []
           },
-          'templates' =>  {
-            'Xen' => [{
+          'templates' => {
+            'Xen'    => [{
               'name'              => String,
               'operatingsystem'   => String,
               'minimummemorysize' => Integer,
@@ -253,7 +253,7 @@ class Glesys
               'platform'          => String
             }]
           },
-          'status' => {
+          'status'    => {
             'timestamp' => String,
             'code'      => Integer,
             'text'      => String

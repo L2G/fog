@@ -5,9 +5,9 @@ module Fog
 
         def get_flavor_details(flavor_ref)
           request(
-            :expects  => [200, 203],
-            :method   => 'GET',
-            :path     => "flavors/#{flavor_ref}.json"
+            :expects => [200, 203],
+            :method  => 'GET',
+            :path    => "flavors/#{flavor_ref}.json"
           )
         end
 

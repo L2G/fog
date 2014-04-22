@@ -55,7 +55,7 @@ module Fog
           @metadata ||= begin
             Fog::Compute::HPV2::Metadata.new(
               :service => service,
-              :parent => self
+              :parent  => self
             )
           end
         end
@@ -240,7 +240,7 @@ module Fog
           @volume_attachments ||= begin
             Fog::Compute::HPV2::VolumeAttachments.new(
               :service => service,
-              :server => self
+              :server  => self
             )
           end
         end
@@ -269,18 +269,18 @@ module Fog
           meta_hash = {}
           metadata.each { |meta| meta_hash.store(meta.key, meta.value) }
           options = {
-            'metadata'        => meta_hash,
-            'personality'     => personality,
-            'accessIPv4'      => accessIPv4,
-            'accessIPv6'      => accessIPv6,
-            'min_count'       => @min_count,
-            'max_count'       => @max_count,
-            'key_name'        => key_name,
-            'security_groups' => security_groups,
-            'config_drive'    => config_drive,
-            'user_data'       => user_data_encoded,
-            'availability_zone'  => availability_zone,
-            'networks'        => @networks
+            'metadata'          => meta_hash,
+            'personality'       => personality,
+            'accessIPv4'        => accessIPv4,
+            'accessIPv6'        => accessIPv6,
+            'min_count'         => @min_count,
+            'max_count'         => @max_count,
+            'key_name'          => key_name,
+            'security_groups'   => security_groups,
+            'config_drive'      => config_drive,
+            'user_data'         => user_data_encoded,
+            'availability_zone' => availability_zone,
+            'networks'          => @networks
           }
           options = options.reject {|key, value| value.nil?}
           # either create a regular server or a persistent server based on input

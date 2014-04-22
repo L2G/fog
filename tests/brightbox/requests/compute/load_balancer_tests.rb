@@ -8,10 +8,10 @@ Shindo.tests('Fog::Compute[:brightbox] | load balancer requests', ['brightbox'])
     end
 
     create_options = {
-      :nodes => [{
+      :nodes       => [{
         :node => node_id
       }],
-      :listeners => [{
+      :listeners   => [{
         :in       => 80,
         :out      => 8080,
         :protocol => 'http'

@@ -2,10 +2,10 @@
 Shindo.tests('Fog::Compute[:sakuracloud] | list_ssh_keys request', ['sakuracloud', 'compute']) do
 
   @sshkey_format = {
-    'Index'        => Integer,
-    'ID'           => String,
-    'Name'           => String,
-    'PublicKey'    => String
+    'Index'     => Integer,
+    'ID'        => String,
+    'Name'      => String,
+    'PublicKey' => String
   }
 
   tests('success') do

@@ -31,10 +31,10 @@ module Fog
         # {Amazon API Reference}[http://docs.amazonwebservices.com/AWSEC2/2011-07-15/APIReference/ApiReference-query-CreateSubnet.html]
         def create_subnet(vpcId, cidrBlock, options = {})
           request({
-            'Action'     => 'CreateSubnet',
-            'VpcId'      => vpcId,
-            'CidrBlock'  => cidrBlock,
-            :parser      => Fog::Parsers::Compute::AWS::CreateSubnet.new
+            'Action'    => 'CreateSubnet',
+            'VpcId'     => vpcId,
+            'CidrBlock' => cidrBlock,
+            :parser     => Fog::Parsers::Compute::AWS::CreateSubnet.new
           }.merge!(options))
 
         end
@@ -47,13 +47,13 @@ module Fog
             if cidrBlock  && vpcId
               response.status = 200
               data = {
-                'subnetId'                 => Fog::AWS::Mock.subnet_id,
-                'state'                    => 'pending',
-                'vpcId'                    => vpcId,
-                'cidrBlock'                => cidrBlock,
-                'availableIpAddressCount'  => '255',
-                'availabilityZone'         => av_zone,
-                'tagSet'                   => {}
+                'subnetId'                => Fog::AWS::Mock.subnet_id,
+                'state'                   => 'pending',
+                'vpcId'                   => vpcId,
+                'cidrBlock'               => cidrBlock,
+                'availableIpAddressCount' => '255',
+                'availabilityZone'        => av_zone,
+                'tagSet'                  => {}
               }
 
               # Add this subnet to the default network ACL
@@ -67,8 +67,8 @@ module Fog
 
               self.data[:subnets].push(data)
               response.body = {
-                'requestId'    => Fog::AWS::Mock.request_id,
-                'subnet'       => data,
+                'requestId' => Fog::AWS::Mock.request_id,
+                'subnet'    => data,
               }
             else
               response.status = 400

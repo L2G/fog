@@ -47,7 +47,7 @@ module Fog
           load_balancer['Instances'] = load_balancer['Instances'] | instances.dup
 
           response.body = {
-            'ResponseMetadata' => {
+            'ResponseMetadata'                        => {
               'RequestId' => Fog::AWS::Mock.request_id
             },
             'RegisterInstancesWithLoadBalancerResult' => {

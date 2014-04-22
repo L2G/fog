@@ -19,8 +19,8 @@ module Fog
             options.merge!(Fog::AWS.serialize_keys('JobFlowIds', job_ids))
           end
           request({
-            'Action'  => 'TerminateJobFlows',
-            :parser   => Fog::Parsers::AWS::EMR::TerminateJobFlows.new,
+            'Action' => 'TerminateJobFlows',
+            :parser  => Fog::Parsers::AWS::EMR::TerminateJobFlows.new,
           }.merge(options))
         end
       end

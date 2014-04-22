@@ -21,7 +21,7 @@ module Fog
 
         def save
           options = {
-            :name => name,
+            :name        => name,
             :description => description
           }.delete_if { |k, v| v.nil? || v == '' }
           data = service.create_server_group(options)
@@ -70,7 +70,7 @@ module Fog
         def move_servers(identifiers, destination_group_id)
           requires :identity
           options = {
-            :servers => server_references(identifiers),
+            :servers     => server_references(identifiers),
             :destination => destination_group_id
           }
           data = service.move_servers_server_group identity, options

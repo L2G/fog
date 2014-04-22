@@ -5,9 +5,9 @@ module Fog
 
         def list_servers(options = {})
           request(
-            :expects  => [200],
-            :method   => 'GET',
-            :path     => 'droplets'
+            :expects => [200],
+            :method  => 'GET',
+            :path    => 'droplets'
           )
         end
 
@@ -19,8 +19,8 @@ module Fog
           response = Excon::Response.new
           response.status = 200
           response.body = {
-            'status' => 'OK',
-            'droplets'  => self.data[:servers]
+            'status'   => 'OK',
+            'droplets' => self.data[:servers]
           }
           response
         end

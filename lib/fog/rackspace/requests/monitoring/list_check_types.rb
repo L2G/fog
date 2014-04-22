@@ -5,9 +5,9 @@ module Fog
 
         def list_check_types
           request(
-            :expects  => [200, 203],
-            :method   => 'GET',
-            :path     => 'check_types'
+            :expects => [200, 203],
+            :method  => 'GET',
+            :path    => 'check_types'
           )
         end
       end
@@ -18,21 +18,21 @@ module Fog
           response.status = 200
           response.body = {
 
-            'values' => [
+            'values'   => [
               {
-                'type'   => 'remote',
-                'id'     => 'remote.dns',
-                'channel' => 'stable',
-                'fields' => [
+                'type'     => 'remote',
+                'id'       => 'remote.dns',
+                'channel'  => 'stable',
+                'fields'   => [
                   {
-                    'name'       => 'port',
+                    'name'        => 'port',
                     'description' => 'Port number (default: 53)',
-                    'optional'   => true
+                    'optional'    => true
                   },
                   {
-                    'name'       => 'query',
+                    'name'        => 'query',
                     'description' => 'DNS Query',
-                    'optional'   => false
+                    'optional'    => false
                   },
                   {
                     'name'        => 'record_type',
@@ -44,15 +44,15 @@ module Fog
               },
 
               {
-                'type'    => 'agent',
-                'id'      => 'agent.memory',
-                'channel' => 'stable',
-                'fields'  => [],
+                'type'                => 'agent',
+                'id'                  => 'agent.memory',
+                'channel'             => 'stable',
+                'fields'              => [],
                 'supported_platforms' => [
                   'Linux',
                   'Windows'
                 ],
-                'category' => 'agent_system'
+                'category'            => 'agent_system'
               }
             ],
 

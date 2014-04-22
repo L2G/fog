@@ -30,8 +30,8 @@ module Fog
           params['Vpc'] = opts[:vpc] if opts[:vpc]
 
           request({
-            'Action'  => 'DescribeOrderableDBInstanceOptions',
-            :parser   => Fog::Parsers::AWS::RDS::DescribeOrderableDBInstanceOptions.new
+            'Action' => 'DescribeOrderableDBInstanceOptions',
+            :parser  => Fog::Parsers::AWS::RDS::DescribeOrderableDBInstanceOptions.new
           }.merge(params))
         end
 
@@ -44,18 +44,18 @@ module Fog
           response = Excon::Response.new
           if engine
             (opts[:db_instance_class] || %w(db.m2.xlarge db.m1.large)).each do |size|
-              instance_options << { 'MultiAZCapable' => true,
-                                   'Engine' => engine,
-                                   'LicenseModel' => opts[:license_model] || 'general-public-license',
-                                   'ReadReplicaCapable' => true,
-                                   'EngineVersion' => opts[:engine_version] || '5.6.12',
-                                   'AvailabilityZones' => [
+              instance_options << { 'MultiAZCapable'     => true,
+                                    'Engine'             => engine,
+                                    'LicenseModel'       => opts[:license_model] || 'general-public-license',
+                                    'ReadReplicaCapable' => true,
+                                    'EngineVersion'      => opts[:engine_version] || '5.6.12',
+                                    'AvailabilityZones'  => [
                                       { 'Name' => 'us-east-1b', 'ProvisionedIopsCapable' => true },
                                       { 'Name' => 'us-east-1c', 'ProvisionedIopsCapable' => true },
                                       { 'Name' => 'us-east-1d', 'ProvisionedIopsCapable' => false },
                                       { 'Name' => 'us-east-1e', 'ProvisionedIopsCapable' => true }],
-                                   'DBInstanceClass' => size,
-                                   'Vpc' => opts[:vpc].nil? ? true : opts[:vpc] }
+                                    'DBInstanceClass'    => size,
+                                    'Vpc'                => opts[:vpc].nil? ? true : opts[:vpc] }
 
             end
           else
@@ -64,7 +64,7 @@ module Fog
 
           response.status = 200
           response.body = {
-              'ResponseMetadata' => { 'RequestId' => Fog::AWS::Mock.request_id },
+              'ResponseMetadata'                         => { 'RequestId' => Fog::AWS::Mock.request_id },
               'DescribeOrderableDBInstanceOptionsResult' => { 'OrderableDBInstanceOptions' => instance_options }
           }
           response

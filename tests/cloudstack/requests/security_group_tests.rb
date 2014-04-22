@@ -1,17 +1,17 @@
 Shindo.tests('Fog::Compute[:cloudstack] | security group requests', ['cloudstack']) do
 
   @security_groups_format = {
-    'listsecuritygroupsresponse'  => {
-      'count' => Integer,
+    'listsecuritygroupsresponse' => {
+      'count'         => Integer,
       'securitygroup' => [
-        'id' => Integer,
-        'account' => String,
+        'id'          => Integer,
+        'account'     => String,
         'description' => Fog::Nullable::String,
-        'domain' => String,
-        'domainid' => Integer,
-        'jobid' => Fog::Nullable::Integer,
-        'jobstatus' => Fog::Nullable::String,
-        'name' => String,
+        'domain'      => String,
+        'domainid'    => Integer,
+        'jobid'       => Fog::Nullable::Integer,
+        'jobstatus'   => Fog::Nullable::String,
+        'name'        => String,
         'ingressrule' => Fog::Nullable::Array
       ]
     }

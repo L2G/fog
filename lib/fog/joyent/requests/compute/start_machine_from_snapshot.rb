@@ -4,8 +4,8 @@ module Fog
       class Real
         def start_machine_from_snapshot(machine_id, snapshot_name)
           request(
-            :method => 'POST',
-            :path => "/my/machines/#{machine_id}/snapshots/#{snapshot_name}",
+            :method  => 'POST',
+            :path    => "/my/machines/#{machine_id}/snapshots/#{snapshot_name}",
             :expects => 202
           )
         end

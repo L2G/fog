@@ -43,8 +43,8 @@ Shindo.tests('Fog::Compute[:aws] | network_acl', ['aws']) do
       (@new_nacl.entries - default_rules) == [{
         'icmpTypeCode' => {},
         'portRange'    => {
-          'from'       => 22,
-          'to'         => 22
+          'from' => 22,
+          'to'   => 22
         },
         'ruleNumber'   => 100,
         'protocol'     => 6,
@@ -66,8 +66,8 @@ Shindo.tests('Fog::Compute[:aws] | network_acl', ['aws']) do
       (@new_nacl.entries - default_rules) == [{
         'icmpTypeCode' => {},
         'portRange'    => {
-          'from'       => 22,
-          'to'         => 22
+          'from' => 22,
+          'to'   => 22
         },
         'ruleNumber'   => 100,
         'protocol'     => 6,
@@ -90,8 +90,8 @@ Shindo.tests('Fog::Compute[:aws] | network_acl', ['aws']) do
       (@new_nacl.entries - default_rules) == [{
         'icmpTypeCode' => {},
         'portRange'    => {
-          'from'       => 22,
-          'to'         => 22
+          'from' => 22,
+          'to'   => 22
         },
         'ruleNumber'   => 100,
         'protocol'     => 6,

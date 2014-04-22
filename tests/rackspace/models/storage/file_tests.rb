@@ -45,7 +45,7 @@ Shindo.tests('Fog::Rackspace::Storage | file', ['rackspace']) do
   end
 
   file_attributes = {
-    :key => 'fog_file_tests',
+    :key  => 'fog_file_tests',
     :body => lorem_file
   }
 

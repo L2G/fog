@@ -37,14 +37,14 @@ module Fog
           requires :threshold
 
           alarm_definition = {
-              'AlarmName' => alarm_name,
+              'AlarmName'          => alarm_name,
               'ComparisonOperator' => comparison_operator,
-              'EvaluationPeriods' => evaluation_periods,
-              'MetricName' => metric_name,
-              'Namespace' => namespace,
-              'Period' => period,
-              'Statistic' => statistic,
-              'Threshold' => threshold
+              'EvaluationPeriods'  => evaluation_periods,
+              'MetricName'         => metric_name,
+              'Namespace'          => namespace,
+              'Period'             => period,
+              'Statistic'          => statistic,
+              'Threshold'          => threshold
               }
 
           alarm_definition.merge!('ActionsEnabled' => action_enabled) if action_enabled

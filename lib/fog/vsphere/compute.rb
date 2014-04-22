@@ -93,24 +93,24 @@ module Fog
         protected
 
         ATTR_TO_PROP = {
-          :id => 'config.instanceUuid',
-          :name => 'name',
-          :uuid => 'config.uuid',
-          :template => 'config.template',
-          :parent => 'parent',
-          :hostname => 'summary.guest.hostName',
-          :operatingsystem => 'summary.guest.guestFullName',
-          :ipaddress => 'guest.ipAddress',
-          :power_state => 'runtime.powerState',
+          :id               => 'config.instanceUuid',
+          :name             => 'name',
+          :uuid             => 'config.uuid',
+          :template         => 'config.template',
+          :parent           => 'parent',
+          :hostname         => 'summary.guest.hostName',
+          :operatingsystem  => 'summary.guest.guestFullName',
+          :ipaddress        => 'guest.ipAddress',
+          :power_state      => 'runtime.powerState',
           :connection_state => 'runtime.connectionState',
-          :hypervisor => 'runtime.host',
-          :tools_state => 'guest.toolsStatus',
-          :tools_version => 'guest.toolsVersionStatus',
-          :memory_mb => 'config.hardware.memoryMB',
-          :cpus   => 'config.hardware.numCPU',
+          :hypervisor       => 'runtime.host',
+          :tools_state      => 'guest.toolsStatus',
+          :tools_version    => 'guest.toolsVersionStatus',
+          :memory_mb        => 'config.hardware.memoryMB',
+          :cpus             => 'config.hardware.numCPU',
           :corespersocket   => 'config.hardware.numCoresPerSocket',
-          :overall_status => 'overallStatus',
-          :guest_id => 'config.guestId',
+          :overall_status   => 'overallStatus',
+          :guest_id         => 'config.guestId',
         }
 
         def convert_vm_view_to_attr_hash(vms)
@@ -196,7 +196,7 @@ module Fog
         def self.data
           @data ||= Hash.new do |hash, key|
             hash[key] = {
-              :servers => {
+              :servers     => {
                 '5032c8a5-9c5e-ba7a-3804-832a03e16381' => {
                  'resource_pool'    => 'Resources',
                  'memory_mb'        => 2196,
@@ -209,7 +209,7 @@ module Fog
                  'overall_status'   => 'green',
                  'datacenter'       => 'Solutions',
                  'volumes'          =>
-                    [{
+                                       [{
                       'id'        => '6000C29c-a47d-4cd9-5249-c371de775f06',
                       'datastore' => 'Storage1',
                       'mode'      => 'persistent',
@@ -220,11 +220,11 @@ module Fog
                       'size_gb'   => 8
                      }],
                  'interfaces'       =>
-                    [{ 'mac'     => '00:50:56:a9:00:28',
-                      'network' => 'VM Network',
-                      'name'    => 'Network adapter 1',
-                      'status'  => 'ok',
-                      'summary' => 'VM Network',
+                                       [{ 'mac'     => '00:50:56:a9:00:28',
+                                          'network' => 'VM Network',
+                                          'name'    => 'Network adapter 1',
+                                          'status'  => 'ok',
+                                          'summary' => 'VM Network',
                      }],
                  'hypervisor'       => 'gunab.puppetlabs.lan',
                  'guest_id'         => 'rhel6_64Guest',
@@ -252,20 +252,20 @@ module Fog
                  'overall_status'   => 'green',
                  'datacenter'       => 'Solutions',
                  'volumes'          =>
-                    [{ 'thin'      => false,
-                      'size_gb'   => 10,
-                      'datastore' => 'datastore1',
-                      'filename'  => '[datastore1] i-1342439683/i-1342439683.vmdk',
-                      'size'      => 10485762,
-                      'name'      => 'Hard disk 1',
-                      'mode'      => 'persistent',
-                      'id'        => '6000C29b-f364-d073-8316-8e98ac0a0eae' }],
+                                       [{ 'thin'      => false,
+                                          'size_gb'   => 10,
+                                          'datastore' => 'datastore1',
+                                          'filename'  => '[datastore1] i-1342439683/i-1342439683.vmdk',
+                                          'size'      => 10485762,
+                                          'name'      => 'Hard disk 1',
+                                          'mode'      => 'persistent',
+                                          'id'        => '6000C29b-f364-d073-8316-8e98ac0a0eae' }],
                  'interfaces'       =>
-                    [{ 'summary' => 'VM Network',
-                      'mac'     => '00:50:56:a9:00:00',
-                      'status'  => 'ok',
-                      'network' => 'VM Network',
-                      'name'    => 'Network adapter 1' }],
+                                       [{ 'summary' => 'VM Network',
+                                          'mac'     => '00:50:56:a9:00:00',
+                                          'status'  => 'ok',
+                                          'network' => 'VM Network',
+                                          'name'    => 'Network adapter 1' }],
                  'hypervisor'       => 'gunab.puppetlabs.lan',
                  'guest_id'         => nil,
                  'cluster'          => 'Solutionscluster',
@@ -381,12 +381,12 @@ module Fog
           bad_cert = false
           loop do
             begin
-              @connection = RbVmomi::VIM.new :host => @vsphere_server,
-                                             :port => @vsphere_port,
-                                             :path => @vsphere_path,
-                                             :ns   => @vsphere_ns,
-                                             :rev  => @vsphere_rev,
-                                             :ssl  => @vsphere_ssl,
+              @connection = RbVmomi::VIM.new :host     => @vsphere_server,
+                                             :port     => @vsphere_port,
+                                             :path     => @vsphere_path,
+                                             :ns       => @vsphere_ns,
+                                             :rev      => @vsphere_rev,
+                                             :ssl      => @vsphere_ssl,
                                              :insecure => bad_cert
               break
             rescue OpenSSL::SSL::SSLError

@@ -12,10 +12,10 @@ module Fog
         #   * body<~Hash>:
         def restore_db_instance_to_point_in_time(source_db_name, target_db_name, opts = {})
           request({
-            'Action'  => 'RestoreDBInstanceToPointInTime',
+            'Action'                     => 'RestoreDBInstanceToPointInTime',
             'SourceDBInstanceIdentifier' => source_db_name,
             'TargetDBInstanceIdentifier' => target_db_name,
-            :parser   => Fog::Parsers::AWS::RDS::RestoreDBInstanceToPointInTime.new,
+            :parser                      => Fog::Parsers::AWS::RDS::RestoreDBInstanceToPointInTime.new,
           }.merge(opts))
         end
 

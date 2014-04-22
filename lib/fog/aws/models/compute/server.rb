@@ -144,26 +144,26 @@ module Fog
           requires :image_id
 
           options = {
-            'BlockDeviceMapping'          => block_device_mapping,
-            'NetworkInterfaces'           => network_interfaces,
-            'ClientToken'                 => client_token,
-            'EbsOptimized'                => ebs_optimized,
-            'IamInstanceProfile.Arn'      => @iam_instance_profile_arn,
-            'IamInstanceProfile.Name'     => @iam_instance_profile_name,
+            'BlockDeviceMapping'                => block_device_mapping,
+            'NetworkInterfaces'                 => network_interfaces,
+            'ClientToken'                       => client_token,
+            'EbsOptimized'                      => ebs_optimized,
+            'IamInstanceProfile.Arn'            => @iam_instance_profile_arn,
+            'IamInstanceProfile.Name'           => @iam_instance_profile_name,
             'InstanceInitiatedShutdownBehavior' => instance_initiated_shutdown_behavior,
-            'InstanceType'                => flavor_id,
-            'KernelId'                    => kernel_id,
-            'KeyName'                     => key_name,
-            'Monitoring.Enabled'          => monitoring,
-            'Placement.AvailabilityZone'  => availability_zone,
-            'Placement.GroupName'         => placement_group,
-            'Placement.Tenancy'           => tenancy,
-            'PrivateIpAddress'            => private_ip_address,
-            'RamdiskId'                   => ramdisk_id,
-            'SecurityGroup'               => groups,
-            'SecurityGroupId'             => security_group_ids,
-            'SubnetId'                    => subnet_id,
-            'UserData'                    => user_data,
+            'InstanceType'                      => flavor_id,
+            'KernelId'                          => kernel_id,
+            'KeyName'                           => key_name,
+            'Monitoring.Enabled'                => monitoring,
+            'Placement.AvailabilityZone'        => availability_zone,
+            'Placement.GroupName'               => placement_group,
+            'Placement.Tenancy'                 => tenancy,
+            'PrivateIpAddress'                  => private_ip_address,
+            'RamdiskId'                         => ramdisk_id,
+            'SecurityGroup'                     => groups,
+            'SecurityGroupId'                   => security_group_ids,
+            'SubnetId'                          => subnet_id,
+            'UserData'                          => user_data,
           }
           options.delete_if {|key, value| value.nil?}
 
@@ -199,9 +199,9 @@ module Fog
             Fog.wait_for { self.reload rescue nil }
             for key, value in (self.tags = tags)
               service.tags.create(
-                :key          => key,
-                :resource_id  => self.identity,
-                :value        => value
+                :key         => key,
+                :resource_id => self.identity,
+                :value       => value
               )
             end
           end

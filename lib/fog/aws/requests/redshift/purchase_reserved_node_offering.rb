@@ -20,11 +20,11 @@ module Fog
 
           path = '/'
           params = {
-            :headers    => {},
-            :path       => path,
-            :method     => :put,
-            :query      => {},
-            :parser     => Fog::Parsers::Redshift::AWS::PurchaseReservedNodeOffering.new
+            :headers => {},
+            :path    => path,
+            :method  => :put,
+            :query   => {},
+            :parser  => Fog::Parsers::Redshift::AWS::PurchaseReservedNodeOffering.new
           }
 
           params[:query]['Action']                   = 'PurchaseReservedNodeOffering'

@@ -14,10 +14,10 @@ module Fog
         #
         def list_images
           request(
-            :expects  => 200,
-            :method   => 'GET',
-            :parser   => Fog::ToHashDocument.new,
-            :path     => 'api/listImages'
+            :expects => 200,
+            :method  => 'GET',
+            :parser  => Fog::ToHashDocument.new,
+            :path    => 'api/listImages'
           )
         end
 

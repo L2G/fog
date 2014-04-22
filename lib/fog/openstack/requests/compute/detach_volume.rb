@@ -5,9 +5,9 @@ module Fog
 
         def detach_volume(server_id, attachment_id)
           request(
-            :expects  => 202,
-            :method   => 'DELETE',
-            :path     => 'servers/%s/os-volume_attachments/%s' % [server_id, attachment_id]
+            :expects => 202,
+            :method  => 'DELETE',
+            :path    => 'servers/%s/os-volume_attachments/%s' % [server_id, attachment_id]
           )
         end
 

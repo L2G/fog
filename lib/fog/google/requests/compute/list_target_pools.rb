@@ -16,7 +16,7 @@ module Fog
           api_method = @compute.target_pools.list
           parameters = {
             'project' => @project,
-            'region' => region_name
+            'region'  => region_name
           }
 
           result = self.build_result(api_method, parameters)

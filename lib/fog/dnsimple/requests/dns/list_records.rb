@@ -15,9 +15,9 @@ module Fog
         #       * 'record'<~Hash> The representation of the record.
         def list_records(domain)
           request(
-            :expects  => 200,
-            :method   => 'GET',
-            :path     => "/domains/#{domain}/records"
+            :expects => 200,
+            :method  => 'GET',
+            :path    => "/domains/#{domain}/records"
           )
         end
 

@@ -5,8 +5,8 @@ module Fog
         def delete_database(instance_id, name)
           request(
             :expects => 202,
-            :method => 'DELETE',
-            :path => "instances/#{instance_id}/databases/#{name}"
+            :method  => 'DELETE',
+            :path    => "instances/#{instance_id}/databases/#{name}"
           )
         end
       end

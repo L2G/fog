@@ -17,9 +17,9 @@ module Fog
         def create_reverse_domain_4(name, subnet, options = {})
           email = options[:email] || @rage4_email
           request(
-                  :expects  => 200,
-                  :method   => 'GET',
-                  :path     => "/rapi/createreversedomain4/?name=#{name}&email=#{email}" +
+                  :expects => 200,
+                  :method  => 'GET',
+                  :path    => "/rapi/createreversedomain4/?name=#{name}&email=#{email}" +
                     "&subnet=#{subnet}"
           )
         end

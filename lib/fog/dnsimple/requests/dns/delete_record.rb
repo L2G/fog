@@ -10,9 +10,9 @@ module Fog
         # * record_id<~String>
         def delete_record(domain, record_id)
           request(
-            :expects  => 200,
-            :method   => 'DELETE',
-            :path     => "/domains/#{domain}/records/#{record_id}"
+            :expects => 200,
+            :method  => 'DELETE',
+            :path    => "/domains/#{domain}/records/#{record_id}"
           )
         end
 

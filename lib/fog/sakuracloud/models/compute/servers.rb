@@ -39,9 +39,9 @@ module Fog
             sakuracloud_api_token        = options[:sakuracloud_api_token] || Fog.credentials[:sakuracloud_api_token]
             sakuracloud_api_token_secret = options[:sakuracloud_api_token_secret] || Fog.credentials[:sakuracloud_api_token_secret]
             volume = Fog::Volume::SakuraCloud.new(:sakuracloud_api_token => sakuracloud_api_token, :sakuracloud_api_token_secret => sakuracloud_api_token_secret)
-            disk = volume.disks.create :name => Fog::UUID.uuid,
-                                :plan  => options[:volume][:diskplan].to_i,
-                                :source_archive => options[:volume][:sourcearchive].to_s
+            disk = volume.disks.create :name           => Fog::UUID.uuid,
+                                       :plan           => options[:volume][:diskplan].to_i,
+                                       :source_archive => options[:volume][:sourcearchive].to_s
             Fog::Logger.warning('Waiting disk until available')
             disk.wait_for { availability == 'available' }
             volume.attach_disk(disk.id, server.id)

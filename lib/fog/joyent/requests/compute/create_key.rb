@@ -10,8 +10,8 @@ module Fog
           key = params[:key]
 
           record = {
-            'name' => name,
-            'key' => key,
+            'name'    => name,
+            'key'     => key,
             'created' => Time.now.utc,
             'updated' => Time.now.utc
           }
@@ -43,9 +43,9 @@ module Fog
           raise ArgumentError, 'error creating key: [key] is required' unless params[:key]
 
           request(
-            :method => 'POST',
-            :path => '/my/keys',
-            :body => { 'name' => params[:name], 'key' => params[:key] },
+            :method  => 'POST',
+            :path    => '/my/keys',
+            :body    => { 'name' => params[:name], 'key' => params[:key] },
             :expects => 201
           )
         end

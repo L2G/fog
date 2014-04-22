@@ -28,9 +28,9 @@ module Fog
         private
         def _compose_network_ip_data
           {
-            :id => id,
-            :href => href,
-            :name => name,
+            :id     => id,
+            :href   => href,
+            :name   => name,
             :status => status,
             :server => server
           }

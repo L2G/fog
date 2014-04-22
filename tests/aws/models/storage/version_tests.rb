@@ -1,8 +1,8 @@
 Shindo.tests('Storage[:aws] | version', ['aws']) do
 
   file_attributes = {
-      :key => 'fog_file_tests',
-      :body => lorem_file,
+      :key    => 'fog_file_tests',
+      :body   => lorem_file,
       :public => true
   }
 

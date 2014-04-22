@@ -17,11 +17,11 @@ module Fog
         #   * body <~Hash>
         def create_cache_parameter_group(name, description = name, family = 'memcached1.4')
           request(
-            'Action' => 'CreateCacheParameterGroup',
-            'CacheParameterGroupName' => name,
-            'Description' => description,
+            'Action'                    => 'CreateCacheParameterGroup',
+            'CacheParameterGroupName'   => name,
+            'Description'               => description,
             'CacheParameterGroupFamily' => family,
-            :parser => Fog::Parsers::AWS::Elasticache::SingleParameterGroup.new
+            :parser                     => Fog::Parsers::AWS::Elasticache::SingleParameterGroup.new
           )
         end
       end
@@ -34,14 +34,14 @@ module Fog
           end
 
           data = {
-            'CacheParameterGroupName' => name,
+            'CacheParameterGroupName'   => name,
             'CacheParameterGroupFamily' => family.downcase,
-            'Description' => description
+            'Description'               => description
           }
           self.data[:parameter_groups][name] = data
 
           response.body = {
-            'ResponseMetadata' => { 'RequestId' => Fog::AWS::Mock.request_id },
+            'ResponseMetadata'                => { 'RequestId' => Fog::AWS::Mock.request_id },
             'CreateCacheParameterGroupResult' => { 'CacheParameterGroup' => data }
           }
           response.status = 200

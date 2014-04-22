@@ -14,9 +14,9 @@ module Fog
         #     * 'created'<~Datetime> - Timestamp of when the image was created
         def get_templates
           request(
-            :expects  => 200,
-            :method   => 'GET',
-            :path     => 'api/block_templates.json'
+            :expects => 200,
+            :method  => 'GET',
+            :path    => 'api/block_templates.json'
           )
         end
 

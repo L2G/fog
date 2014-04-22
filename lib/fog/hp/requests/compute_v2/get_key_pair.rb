@@ -17,9 +17,9 @@ module Fog
         #     * 'fingerprint'<~String> - Fingerprint of the key
         def get_key_pair(key_name)
           request(
-            :expects  => 200,
-            :method   => 'GET',
-            :path     => "os-keypairs/#{key_name}"
+            :expects => 200,
+            :method  => 'GET',
+            :path    => "os-keypairs/#{key_name}"
           )
         end
 

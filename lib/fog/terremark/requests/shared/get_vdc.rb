@@ -22,10 +22,10 @@ module Fog
         #     * 'name'<~String> - Name of catalog
         def get_vdc(vdc_id)
           request(
-            :expects  => 200,
-            :method   => 'GET',
-            :parser   => Fog::Parsers::Terremark::Shared::GetVdc.new,
-            :path     => "vdc/#{vdc_id}"
+            :expects => 200,
+            :method  => 'GET',
+            :parser  => Fog::Parsers::Terremark::Shared::GetVdc.new,
+            :path    => "vdc/#{vdc_id}"
           )
         end
 
@@ -39,16 +39,16 @@ module Fog
 
           if vdc = self.data[:organizations].map { |org| org[:vdcs] }.flatten.detect { |vdc| vdc[:id] == vdc_id }
 
-            body = { 'name' => vdc[:name],
-                     'href' => "#{@base_url}/vdc/#{vdc[:id]}",
-                     'StorageCapacity' => {},
-                     'ComputeCapacity' => { 'InstantiatedVmsQuota' => {},
-                                            'DeployedVmsQuota' => {},
-                                            'Cpu' => {},
-                                            'Memory' => {} },
-                     'ResourceEntities' => [],
+            body = { 'name'              => vdc[:name],
+                     'href'              => "#{@base_url}/vdc/#{vdc[:id]}",
+                     'StorageCapacity'   => {},
+                     'ComputeCapacity'   => { 'InstantiatedVmsQuota' => {},
+                                              'DeployedVmsQuota'     => {},
+                                              'Cpu'                  => {},
+                                              'Memory'               => {} },
+                     'ResourceEntities'  => [],
                      'AvailableNetworks' => [],
-                     'links' => [] }
+                     'links'             => [] }
 
             case self
             when Fog::Terremark::Ecloud::Mock
@@ -56,9 +56,9 @@ module Fog
               vdc[:storage].each { |k,v| body['StorageCapacity'][k.to_s.capitalize] = v.to_s }
 
               body['ComputeCapacity'] = { 'InstantiatedVmsQuota' => { 'Limit' => '-1', 'Used' => '-1' },
-                                           'DeployedVmsQuota' => { 'Limit' => '-1', 'Used' => '-1' },
-                                           'Cpu' => { 'Units' => 'hz * 10^6' },
-                                           'Memory' => { 'Units' => 'bytes * 2^20' } }
+                                          'DeployedVmsQuota'     => { 'Limit' => '-1', 'Used' => '-1' },
+                                          'Cpu'                  => { 'Units' => 'hz * 10^6' },
+                                          'Memory'               => { 'Units' => 'bytes * 2^20' } }
 
               [:cpu, :memory].each do |key|
                 vdc[key].each { |k,v| body['ComputeCapacity'][key.to_s.capitalize][k.to_s.capitalize] = v.to_s }

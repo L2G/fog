@@ -20,8 +20,8 @@ module Fog
 
           api_method = @compute.region_operations.get
           parameters = {
-            'project' => @project,
-            'region' => region_name,
+            'project'   => @project,
+            'region'    => region_name,
             'operation' => operation
           }
 

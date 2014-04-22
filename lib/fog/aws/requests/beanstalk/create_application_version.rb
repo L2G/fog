@@ -27,11 +27,11 @@ module Fog
             # flatten hash
             options.merge!(
                                'SourceBundle.S3Bucket' => source_bundle['S3Bucket'],
-                               'SourceBundle.S3Key' => source_bundle['S3Key']
+                               'SourceBundle.S3Key'    => source_bundle['S3Key']
                            )
           end
           request({
-                      'Operation'    => 'CreateApplicationVersion',
+                      'Operation' => 'CreateApplicationVersion',
                       :parser     => Fog::Parsers::AWS::ElasticBeanstalk::CreateApplicationVersion.new
                   }.merge(options))
         end

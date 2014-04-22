@@ -1,16 +1,16 @@
 Shindo.tests('Fog::Compute[:ibm] | location requests', ['ibm']) do
 
   @location_format  = {
-    'state'         => Integer,
-    'location'      => String,
-    'capabilities'  => Array,
-    'name'          => String,
-    'id'            => String,
-    'description'   => String
+    'state'        => Integer,
+    'location'     => String,
+    'capabilities' => Array,
+    'name'         => String,
+    'id'           => String,
+    'description'  => String
   }
 
   @locations_format = {
-    'locations'     => [ @location_format ]
+    'locations' => [ @location_format ]
   }
 
   tests('success') do

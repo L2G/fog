@@ -28,10 +28,10 @@ module Fog
         #     * state<~Integer> - state of newly requested storage
         def create_volume(name, offering_id, format, location_id, size)
           request(
-            :method   => 'POST',
-            :expects  => 200,
-            :path     => '/storage',
-            :body     => {
+            :method  => 'POST',
+            :expects => 200,
+            :path    => '/storage',
+            :body    => {
               'name'       => name,
               'offeringID' => offering_id,
               'format'     => format,

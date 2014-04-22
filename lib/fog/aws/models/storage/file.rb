@@ -226,8 +226,8 @@ module Fog
         def versions
           @versions ||= begin
             Fog::Storage::AWS::Versions.new(
-              :file         => self,
-              :service   => service
+              :file    => self,
+              :service => service
             )
           end
         end

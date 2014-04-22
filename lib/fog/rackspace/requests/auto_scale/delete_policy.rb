@@ -6,8 +6,8 @@ module Fog
         def delete_policy(group_id, policy_id)
           request(
             :expects => [204],
-            :method => 'DELETE',
-            :path => "groups/#{group_id}/policies/#{policy_id}"
+            :method  => 'DELETE',
+            :path    => "groups/#{group_id}/policies/#{policy_id}"
           )
         end
       end

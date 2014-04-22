@@ -20,10 +20,10 @@ module Fog
         def create_db_instance_read_replica(instance_identifier, source_identifier, options = {})
 
           request({
-            'Action'  => 'CreateDBInstanceReadReplica',
-            'DBInstanceIdentifier' => instance_identifier,
+            'Action'                     => 'CreateDBInstanceReadReplica',
+            'DBInstanceIdentifier'       => instance_identifier,
             'SourceDBInstanceIdentifier' => source_identifier,
-            :parser   => Fog::Parsers::AWS::RDS::CreateDBInstanceReadReplica.new,
+            :parser                      => Fog::Parsers::AWS::RDS::CreateDBInstanceReadReplica.new,
           }.merge(options))
         end
 
@@ -37,28 +37,28 @@ module Fog
 
           source = self.data[:servers][source_identifier]
           data = {
-            'AllocatedStorage' => source['AllocatedStorage'],
-            'AutoMinorVersionUpgrade' => options.key?('AutoMinorVersionUpgrade') ? options['AutoMinorVersionUpgrade'] : true,
-            'AvailabilityZone' => options['AvailabilityZone'],
-            'DBInstanceClass' => options['DBInstanceClass'] || 'db.m1.small',
-            'DBInstanceIdentifier' => instance_identifier,
-            'DBInstanceStatus' => 'creating',
-            'DBName' => source['DBName'],
-            'DBParameterGroups' => source['DBParameterGroups'],
-            'DBSecurityGroups' => source['DBSecurityGroups'],
-            'Endpoint' => {},
-            'Engine' => source['Engine'],
-            'EngineVersion' => options['EngineVersion'] || '5.5.12',
-            'InstanceCreateTime' => nil,
-            'Iops' => source['Iops'],
-            'LatestRestorableTime' => nil,
-            'LicenseModel' => 'general-public-license',
-            'MasterUsername' => source['MasterUsername'],
-            'MultiAZ' => false,
-            'PendingModifiedValues' => {},
-            'PreferredBackupWindow' => '08:00-08:30',
-            'PreferredMaintenanceWindow' => 'mon:04:30-mon:05:00',
-            'ReadReplicaDBInstanceIdentifiers' => [],
+            'AllocatedStorage'                      => source['AllocatedStorage'],
+            'AutoMinorVersionUpgrade'               => options.key?('AutoMinorVersionUpgrade') ? options['AutoMinorVersionUpgrade'] : true,
+            'AvailabilityZone'                      => options['AvailabilityZone'],
+            'DBInstanceClass'                       => options['DBInstanceClass'] || 'db.m1.small',
+            'DBInstanceIdentifier'                  => instance_identifier,
+            'DBInstanceStatus'                      => 'creating',
+            'DBName'                                => source['DBName'],
+            'DBParameterGroups'                     => source['DBParameterGroups'],
+            'DBSecurityGroups'                      => source['DBSecurityGroups'],
+            'Endpoint'                              => {},
+            'Engine'                                => source['Engine'],
+            'EngineVersion'                         => options['EngineVersion'] || '5.5.12',
+            'InstanceCreateTime'                    => nil,
+            'Iops'                                  => source['Iops'],
+            'LatestRestorableTime'                  => nil,
+            'LicenseModel'                          => 'general-public-license',
+            'MasterUsername'                        => source['MasterUsername'],
+            'MultiAZ'                               => false,
+            'PendingModifiedValues'                 => {},
+            'PreferredBackupWindow'                 => '08:00-08:30',
+            'PreferredMaintenanceWindow'            => 'mon:04:30-mon:05:00',
+            'ReadReplicaDBInstanceIdentifiers'      => [],
             'ReadReplicaSourceDBInstanceIdentifier' => source_identifier
           }
           self.data[:servers][instance_identifier] = data
@@ -66,7 +66,7 @@ module Fog
 
           response = Excon::Response.new
           response.body = {
-            'ResponseMetadata' => { 'RequestId' => Fog::AWS::Mock.request_id },
+            'ResponseMetadata'                  => { 'RequestId' => Fog::AWS::Mock.request_id },
             'CreateDBInstanceReadReplicaResult' => { 'DBInstance' => data }
           }
           response.status = 200

@@ -28,8 +28,8 @@ module Fog
             options.merge!(AWS.indexed_param('AlarmNames.member.%d', [*alarm_names]))
           end
           request({
-              'Action'    => 'DescribeAlarms',
-              :parser     => Fog::Parsers::AWS::CloudWatch::DescribeAlarms.new
+              'Action' => 'DescribeAlarms',
+              :parser  => Fog::Parsers::AWS::CloudWatch::DescribeAlarms.new
             }.merge(options))
         end
       end
@@ -46,7 +46,7 @@ module Fog
           response.status = 200
           response.body = {
             'DescribeAlarmsResult' => results,
-            'ResponseMetadata' => { 'RequestId' => Fog::AWS::Mock.request_id }
+            'ResponseMetadata'     => { 'RequestId' => Fog::AWS::Mock.request_id }
           }
           response
         end

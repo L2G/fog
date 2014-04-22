@@ -14,9 +14,9 @@ module Fog
         #   * body<~Hash>:
         def delete_db_security_group(name)
           request(
-            'Action'  => 'DeleteDBSecurityGroup',
+            'Action'              => 'DeleteDBSecurityGroup',
             'DBSecurityGroupName' => name,
-            :parser   => Fog::Parsers::AWS::RDS::DeleteDBSecurityGroup.new
+            :parser               => Fog::Parsers::AWS::RDS::DeleteDBSecurityGroup.new
           )
         end
 

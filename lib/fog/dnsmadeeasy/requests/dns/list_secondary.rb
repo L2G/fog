@@ -12,9 +12,9 @@ module Fog
         #   * status<~Integer> 200 - OK
         def list_secondary
           request(
-            :expects  => 200,
-            :method   => 'GET',
-            :path     => '/V1.2/secondary'
+            :expects => 200,
+            :method  => 'GET',
+            :path    => '/V1.2/secondary'
           )
         end
 

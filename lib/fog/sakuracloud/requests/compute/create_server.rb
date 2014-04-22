@@ -8,8 +8,8 @@ module Fog
         def create_server( name, serverplan )
           body = {
             'Server' => {
-              'Name' => name,
-              'ServerPlan' => {
+              'Name'              => name,
+              'ServerPlan'        => {
                 'ID' => serverplan.to_i
               },
               'ConnectedSwitches' => [{ 'Scope' => 'shared', 'BandWidthMbps' => 100 }]
@@ -20,10 +20,10 @@ module Fog
             :headers => {
               'Authorization' => "Basic #{@auth_encord}"
             },
-            :expects  => [201],
-            :method => 'POST',
-            :path => "#{Fog::SakuraCloud::SAKURACLOUD_API_ENDPOINT}/server",
-            :body => Fog::JSON.encode(body)
+            :expects => [201],
+            :method  => 'POST',
+            :path    => "#{Fog::SakuraCloud::SAKURACLOUD_API_ENDPOINT}/server",
+            :body    => Fog::JSON.encode(body)
           )
         end
       end # Real

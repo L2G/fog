@@ -1,6 +1,6 @@
 LINKS_FORMAT = [{
   'href' => String,
-  'rel' => String
+  'rel'  => String
 }]
 
 module Shindo
@@ -12,11 +12,11 @@ module Shindo
 
     def given_a_load_balancer(&block)
         @lb = @service.load_balancers.create(
-            :name => ('fog' + Time.now.to_i.to_s),
-            :protocol => 'HTTP',
-            :port => 80,
+            :name        => ('fog' + Time.now.to_i.to_s),
+            :protocol    => 'HTTP',
+            :port        => 80,
             :virtual_ips => [{ :type => 'PUBLIC' }],
-            :nodes => [{ :address => '1.1.1.1', :port => 80, :condition => 'ENABLED' }]
+            :nodes       => [{ :address => '1.1.1.1', :port => 80, :condition => 'ENABLED' }]
           )
         @lb.wait_for { ready? }
       begin

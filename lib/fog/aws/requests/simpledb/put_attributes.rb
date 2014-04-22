@@ -28,10 +28,10 @@ module Fog
           options[:expect] = {} unless options[:expect]
           options[:replace] = [] unless options[:replace]
           request({
-            'Action'      => 'PutAttributes',
-            'DomainName'  => domain_name,
-            'ItemName'    => item_name,
-            :parser       => Fog::Parsers::AWS::SimpleDB::Basic.new(@nil_string)
+            'Action'     => 'PutAttributes',
+            'DomainName' => domain_name,
+            'ItemName'   => item_name,
+            :parser      => Fog::Parsers::AWS::SimpleDB::Basic.new(@nil_string)
           }.merge!(encode_attributes(attributes, options[:replace], options[:expect])))
         end
 

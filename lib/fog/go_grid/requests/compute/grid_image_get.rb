@@ -17,8 +17,8 @@ module Fog
         # TODO: docs
         def grid_image_get(options = {})
           request(
-            :path     => 'grid/image/get',
-            :query    => options
+            :path  => 'grid/image/get',
+            :query => options
           )
         end
 

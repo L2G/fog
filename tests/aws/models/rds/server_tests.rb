@@ -38,7 +38,7 @@ Shindo.tests('AWS::RDS | server', ['aws', 'rds']) do
 
       modify_options = {
         'DBParameterGroupName' => parameter_group.id,
-        'DBSecurityGroups' => orig_security_groups + [security_group.id]
+        'DBSecurityGroups'     => orig_security_groups + [security_group.id]
       }
 
       @instance.modify(true, modify_options)

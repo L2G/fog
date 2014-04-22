@@ -33,8 +33,8 @@ module Fog
           end
 
           request({
-            'Action'            => 'DeleteTags',
-            :parser             => Fog::Parsers::Compute::AWS::Basic.new
+            'Action' => 'DeleteTags',
+            :parser  => Fog::Parsers::Compute::AWS::Basic.new
           }.merge!(params))
         end
 

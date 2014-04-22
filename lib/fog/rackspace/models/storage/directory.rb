@@ -82,7 +82,7 @@ module Fog
         def files
           @files ||= begin
             Fog::Storage::Rackspace::Files.new(
-              :directory    => self,
+              :directory => self,
               :service   => service
             )
           end

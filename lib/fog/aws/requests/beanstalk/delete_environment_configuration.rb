@@ -24,7 +24,7 @@ module Fog
           }
 
           request({
-                      'Operation'    => 'DeleteEnvironmentConfiguration',
+                      'Operation' => 'DeleteEnvironmentConfiguration',
                       :parser     => Fog::Parsers::AWS::ElasticBeanstalk::Empty.new
                   }.merge(options))
         end

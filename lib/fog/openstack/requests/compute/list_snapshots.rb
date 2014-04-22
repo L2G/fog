@@ -7,9 +7,9 @@ module Fog
 
           path = detailed ? 'os-snapshots/detail' : 'os-snapshots'
           request(
-            :expects  => 200,
-            :method   => 'GET',
-            :path     => path
+            :expects => 200,
+            :method  => 'GET',
+            :path    => path
           )
         end
 

@@ -15,16 +15,16 @@ module Fog
 
           if block_given?
             response = shared_request(
-              :response_block  => block,
-              :expects  => 200,
-              :method   => 'GET',
-              :path     => path
+              :response_block => block,
+              :expects        => 200,
+              :method         => 'GET',
+              :path           => path
             )
           else
             response = shared_request({
-              :expects  => 200,
-              :method   => 'GET',
-              :path     => path
+              :expects => 200,
+              :method  => 'GET',
+              :path    => path
             }, false, &block)
           end
           response
@@ -38,12 +38,12 @@ module Fog
           response = Excon::Response.new
           response.status = 200
           response.headers = {
-            'Last-Modified'            => Date.today.rfc822,
-            'Etag'                     => Fog::HP::Mock.etag,
-            'Accept-Ranges'            => 'bytes',
-            'Content-Type'             => 'text/plain',
-            'Content-Length'           => 11,
-            'X-Trans-Id'               => "tx#{Fog::Mock.random_hex(32)}"
+            'Last-Modified'  => Date.today.rfc822,
+            'Etag'           => Fog::HP::Mock.etag,
+            'Accept-Ranges'  => 'bytes',
+            'Content-Type'   => 'text/plain',
+            'Content-Length' => 11,
+            'X-Trans-Id'     => "tx#{Fog::Mock.random_hex(32)}"
           }
           unless block_given?
             response.body = "This is a sample text.\n"

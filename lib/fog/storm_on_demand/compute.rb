@@ -70,8 +70,8 @@ module Fog
                 :images  => {},
                 :servers => {}
               },
-              :images  => {},
-              :servers => {}
+              :images        => {},
+              :servers       => {}
             }
           end
         end

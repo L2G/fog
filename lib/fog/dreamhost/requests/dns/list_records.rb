@@ -13,10 +13,10 @@ module Fog
       class Real
 
         def list_records
-          request( :expects  => 200,
-                   :method   => 'GET',
-                   :path     => '/',
-                   :query    => { :cmd => 'dns-list_records' } )
+          request( :expects => 200,
+                   :method  => 'GET',
+                   :path    => '/',
+                   :query   => { :cmd => 'dns-list_records' } )
         end
 
       end

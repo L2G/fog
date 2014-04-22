@@ -37,11 +37,11 @@ module Fog
         #   * 'status'<~Integer> - 200 indicates success
         def list_zones(options = {})
           request(
-            :query => options,
-            :expects  => 200,
-            :method   => 'GET',
-            :parser   => Fog::Parsers::DNS::Zerigo::ListZones.new,
-            :path     => '/api/1.1/zones.xml'
+            :query   => options,
+            :expects => 200,
+            :method  => 'GET',
+            :parser  => Fog::Parsers::DNS::Zerigo::ListZones.new,
+            :path    => '/api/1.1/zones.xml'
           )
         end
 

@@ -15,7 +15,7 @@ module Fog
         def delete_snapshot(snapshot_name)
           api_method = @compute.snapshots.delete
           parameters = {
-            'project' => @project,
+            'project'  => @project,
             'snapshot' => snapshot_name,
           }
 

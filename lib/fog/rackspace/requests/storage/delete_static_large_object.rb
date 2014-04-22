@@ -33,12 +33,12 @@ module Fog
         # @see http://docs.rackspace.com/files/api/v1/cf-devguide/content/Deleting_a_Large_Object-d1e2228.html
         def delete_static_large_object(container, object, options = {})
           response = request({
-            :expects  => 200,
-            :method   => 'DELETE',
-            :headers  => options.merge('Content-Type' => 'text/plain',
-                                       'Accept' => 'application/json'),
-            :path     => "#{Fog::Rackspace.escape(container)}/#{Fog::Rackspace.escape(object)}",
-            :query    => { 'multipart-manifest' => 'delete' }
+            :expects => 200,
+            :method  => 'DELETE',
+            :headers => options.merge('Content-Type' => 'text/plain',
+                                      'Accept'       => 'application/json'),
+            :path    => "#{Fog::Rackspace.escape(container)}/#{Fog::Rackspace.escape(object)}",
+            :query   => { 'multipart-manifest' => 'delete' }
           }, false)
           response.body = Fog::JSON.decode(response.body)
           response
@@ -68,10 +68,10 @@ module Fog
           response.status = 200
           response.body = {
             'Number Not Found' => 1,
-            'Response Status' => '200 OK',
-            'Response Body' => '',
-            'Errors' => [[path, '404 Not Found']],
-            'Number Deleted' => 0
+            'Response Status'  => '200 OK',
+            'Response Body'    => '',
+            'Errors'           => [[path, '404 Not Found']],
+            'Number Deleted'   => 0
           }
           response
         end

@@ -12,9 +12,9 @@ module Fog
         #     * 'description'<~String> - Description of the location
         def get_locations
           request(
-            :expects  => 200,
-            :method   => 'GET',
-            :path     => 'api/locations.json'
+            :expects => 200,
+            :method  => 'GET',
+            :path    => 'api/locations.json'
           )
         end
 

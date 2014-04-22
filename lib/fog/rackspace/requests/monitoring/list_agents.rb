@@ -4,9 +4,9 @@ module Fog
       class Real
         def list_agents
           request(
-            :expects  => [200, 203],
-            :method   => 'GET',
-            :path     => 'agents'
+            :expects => [200, 203],
+            :method  => 'GET',
+            :path    => 'agents'
           )
         end
       end
@@ -17,22 +17,22 @@ module Fog
           response = Excon::Response.new
           response.status = 200
           response.body = {
-          'values' => [
+          'values'   => [
           {
-            'id' => Fog::Rackspace::MockData.uuid,
-            'last_connected'  => Time.now.to_i - 100
+            'id'             => Fog::Rackspace::MockData.uuid,
+            'last_connected' => Time.now.to_i - 100
           },
           {
-            'id' => Fog::Rackspace::MockData.uuid,
-            'last_connected'  => Time.now.to_i - 110
+            'id'             => Fog::Rackspace::MockData.uuid,
+            'last_connected' => Time.now.to_i - 110
           },
           {
-            'id' => Fog::Rackspace::MockData.uuid,
-            'last_connected'  => Time.now.to_i - 120
+            'id'             => Fog::Rackspace::MockData.uuid,
+            'last_connected' => Time.now.to_i - 120
           }
         ],
 
-           'metadata' => {
+          'metadata' => {
              'count'       => 1,
              'limit'       => 100,
              'marker'      => nil,

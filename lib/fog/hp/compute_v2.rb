@@ -130,19 +130,19 @@ module Fog
         def self.data
           @data ||= Hash.new do |hash, key|
             hash[key] = {
-              :last_modified => {
-                :images  => {},
-                :key_pairs => {},
-                :servers => {},
-                :addresses => {},
+              :last_modified      => {
+                :images             => {},
+                :key_pairs          => {},
+                :servers            => {},
+                :addresses          => {},
                 :volume_attachments => {},
               },
-              :images  => {},
-              :key_pairs => {},
-              :servers => {},
-              :addresses => {},
+              :images             => {},
+              :key_pairs          => {},
+              :servers            => {},
+              :addresses          => {},
               :volume_attachments => {},
-              :limits => {
+              :limits             => {
                   'absolute' => {
                     'maxImageMeta'            => 50,
                     'maxPersonality'          => 5,
@@ -161,40 +161,40 @@ module Fog
                     'totalSecurityGroupsUsed' => 0,
                     'totalCoresUsed'          => 8,
                   },
-                  'rate' => [
+                  'rate'     => [
                     {
                       'limit' => [
                         {
                           'next-available' => '2012-10-05T03 =>47 =>15Z',
-                          'remaining' => 199,
-                          'unit' => 'MINUTE',
-                          'value' => 200,
-                          'verb' => 'GET'
+                          'remaining'      => 199,
+                          'unit'           => 'MINUTE',
+                          'value'          => 200,
+                          'verb'           => 'GET'
                         },
                         {
                           'next-available' => '2012-10-05T03 =>47 =>15Z',
-                          'remaining' => 9,
-                          'unit' => 'MINUTE',
-                          'value' => 10,
-                          'verb' => 'PUT'
+                          'remaining'      => 9,
+                          'unit'           => 'MINUTE',
+                          'value'          => 10,
+                          'verb'           => 'PUT'
                         },
                         {
                           'next-available' => '2012-10-05T03 =>47 =>15Z',
-                          'remaining' => 9,
-                          'unit' => 'MINUTE',
-                          'value' => 10,
-                          'verb' => 'POST'
+                          'remaining'      => 9,
+                          'unit'           => 'MINUTE',
+                          'value'          => 10,
+                          'verb'           => 'POST'
                         },
                         {
                           'next-available' => '2012-10-05T03 =>47 =>15Z',
-                          'remaining' => 99,
-                          'unit' => 'MINUTE',
-                          'value' => 100,
-                          'verb' => 'DELETE'
+                          'remaining'      => 99,
+                          'unit'           => 'MINUTE',
+                          'value'          => 100,
+                          'verb'           => 'DELETE'
                         }
                       ],
                       'regex' => '.*',
-                      'uri' => '*'
+                      'uri'   => '*'
                     }
                   ]
               }
@@ -284,12 +284,12 @@ module Fog
         def request(params, parse_json = true, &block)
           begin
             response = @connection.request(params.merge!(
-              :headers  => {
+              :headers => {
                 'Content-Type' => 'application/json',
                 'Accept'       => 'application/json',
                 'X-Auth-Token' => @auth_token
               }.merge!(params[:headers] || {}),
-              :path     => "#{@path}/#{params[:path]}"
+              :path    => "#{@path}/#{params[:path]}"
             ), &block)
           rescue Excon::Errors::HTTPStatusError => error
             raise case error

@@ -8,19 +8,19 @@ class AWS
 
       # Cache Security Groups
       SECURITY_GROUP = {
-        'EC2SecurityGroups'       => Array,
-        'CacheSecurityGroupName'  => String,
-        'Description'             => String,
-        'OwnerId'                 => String,
+        'EC2SecurityGroups'      => Array,
+        'CacheSecurityGroupName' => String,
+        'Description'            => String,
+        'OwnerId'                => String,
       }
       SINGLE_SECURITY_GROUP = BASIC.merge('CacheSecurityGroup' => SECURITY_GROUP)
       DESCRIBE_SECURITY_GROUPS = { 'CacheSecurityGroups' => [SECURITY_GROUP] }
 
       CACHE_SUBNET_GROUP = {
-        'CacheSubnetGroupName' => String,
+        'CacheSubnetGroupName'        => String,
         'CacheSubnetGroupDescription' => String,
-        'VpcId' => String,
-        'Subnets' => [String]
+        'VpcId'                       => String,
+        'Subnets'                     => [String]
       }
 
       CREATE_CACHE_SUBNET_GROUP = BASIC.merge(
@@ -51,51 +51,51 @@ class AWS
       ENGINE_DEFAULTS = PARAMETER_SET.merge('CacheParameterGroupFamily' => String)
       # Cache Clusters - more parameters get added as the lifecycle progresses
       CACHE_CLUSTER = {
-        'AutoMinorVersionUpgrade'     => String,  # actually TrueClass or FalseClass
-        'CacheSecurityGroups'         => Array,
-        'CacheClusterId'              => String,
-        'CacheClusterStatus'          => String,
-        'CacheNodeType'               => String,
-        'Engine'                      => String,
-        'EngineVersion'               => String,
-        'CacheParameterGroup'         => Hash,
-        'NumCacheNodes'               => Integer,
-        'PreferredMaintenanceWindow'  => String,
-        'CacheNodes'                  => Array,
-        'PendingModifiedValues'       => Hash,
+        'AutoMinorVersionUpgrade'    => String,  # actually TrueClass or FalseClass
+        'CacheSecurityGroups'        => Array,
+        'CacheClusterId'             => String,
+        'CacheClusterStatus'         => String,
+        'CacheNodeType'              => String,
+        'Engine'                     => String,
+        'EngineVersion'              => String,
+        'CacheParameterGroup'        => Hash,
+        'NumCacheNodes'              => Integer,
+        'PreferredMaintenanceWindow' => String,
+        'CacheNodes'                 => Array,
+        'PendingModifiedValues'      => Hash,
       }
       CACHE_CLUSTER_RUNNING   = CACHE_CLUSTER.merge(
-        'CacheClusterCreateTime'      => DateTime,
-        'PreferredAvailabilityZone'   => String
+        'CacheClusterCreateTime'    => DateTime,
+        'PreferredAvailabilityZone' => String
       )
       CACHE_CLUSTER_MODIFIED  = CACHE_CLUSTER_RUNNING.merge(
-        'NotificationConfiguration'   => Hash,
-        'PendingModifiedValues'       => Hash
+        'NotificationConfiguration' => Hash,
+        'PendingModifiedValues'     => Hash
       )
       SINGLE_CACHE_CLUSTER    = BASIC.merge('CacheCluster' => CACHE_CLUSTER)
       DESCRIBE_CACHE_CLUSTERS = BASIC.merge('CacheClusters' => [CACHE_CLUSTER])
 
       EVENT = {
-        'Date'                        => DateTime,
-        'Message'                     => String,
-        'SourceIdentifier'            => String,
-        'SourceType'                  => String,
+        'Date'             => DateTime,
+        'Message'          => String,
+        'SourceIdentifier' => String,
+        'SourceType'       => String,
       }
       EVENT_LIST = [EVENT]
 
       RESERVED_CACHE_CLUSTER = {
-        'CacheNodeCount'                => Integer,
-        'CacheNodeType'                 => String,
-        'Duration'                      => Integer,
-        'FixedPrice'                    => Float,
-        'OfferingType'                  => String,
-        'ProductDescription'            => String,
-        'RecurringCharges'              => Array,
-        'ReservedCacheNodeId'           => String,
-        'ReservedCacheNodesOfferingId'  => String,
-        'StartTime'                     => DateTime,
-        'State'                         => String,
-        'UsagePrice'                    => Float
+        'CacheNodeCount'               => Integer,
+        'CacheNodeType'                => String,
+        'Duration'                     => Integer,
+        'FixedPrice'                   => Float,
+        'OfferingType'                 => String,
+        'ProductDescription'           => String,
+        'RecurringCharges'             => Array,
+        'ReservedCacheNodeId'          => String,
+        'ReservedCacheNodesOfferingId' => String,
+        'StartTime'                    => DateTime,
+        'State'                        => String,
+        'UsagePrice'                   => Float
       }
       RESERVED_CACHE_CLUSTER_LIST = [RESERVED_CACHE_CLUSTER]
 

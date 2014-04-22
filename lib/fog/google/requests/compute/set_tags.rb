@@ -15,9 +15,9 @@ module Fog
         def set_tags(instance, zone, fingerprint, tags = [])
           api_method = @compute.instances.set_tags
           parameters = {
-            'project' => @project,
+            'project'  => @project,
             'instance' => instance,
-            'zone' => zone
+            'zone'     => zone
           }
           body_object = { 'fingerprint' => fingerprint, 'items' => tags }
           result = self.build_result(

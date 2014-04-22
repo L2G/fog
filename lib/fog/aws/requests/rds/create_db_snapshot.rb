@@ -15,10 +15,10 @@ module Fog
         #   * body<~Hash>:
         def create_db_snapshot(identifier, name)
           request(
-            'Action'  => 'CreateDBSnapshot',
+            'Action'               => 'CreateDBSnapshot',
             'DBInstanceIdentifier' => identifier,
             'DBSnapshotIdentifier' => name,
-            :parser   => Fog::Parsers::AWS::RDS::CreateDBSnapshot.new
+            :parser                => Fog::Parsers::AWS::RDS::CreateDBSnapshot.new
           )
         end
 
@@ -57,7 +57,7 @@ module Fog
           # TODO: put the server in 'modifying' state
 
           response.body = {
-            'ResponseMetadata' => { 'RequestId' => Fog::AWS::Mock.request_id },
+            'ResponseMetadata'       => { 'RequestId' => Fog::AWS::Mock.request_id },
             'CreateDBSnapshotResult' => { 'DBSnapshot' => snapshot_data.dup }
           }
           response.status = 200

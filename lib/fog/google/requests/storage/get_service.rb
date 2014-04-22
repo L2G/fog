@@ -18,13 +18,13 @@ module Fog
         #       * 'ID'<~String> - Id of bucket owner
         def get_service
           request(
-            :expects  => 200,
-            :headers  => {},
-            :host     => @host,
+            :expects    => 200,
+            :headers    => {},
+            :host       => @host,
             :idempotent => true,
-            :method   => 'GET',
-            :parser   => Fog::Parsers::Storage::Google::GetService.new,
-            :url      => @host
+            :method     => 'GET',
+            :parser     => Fog::Parsers::Storage::Google::GetService.new,
+            :url        => @host
           )
         end
 

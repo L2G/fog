@@ -28,12 +28,12 @@ module Fog
         def domain_resource_create(domain_id, type, options = {})
           query = {}
           request(
-            :expects  => 200,
-            :method   => 'GET',
-            :query    => {
-              :api_action   => 'domain.resource.create',
-              :domainID => domain_id,
-              :type  => type
+            :expects => 200,
+            :method  => 'GET',
+            :query   => {
+              :api_action => 'domain.resource.create',
+              :domainID   => domain_id,
+              :type       => type
             }.merge!( options)
           )
         end

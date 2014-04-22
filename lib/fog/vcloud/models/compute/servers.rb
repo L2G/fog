@@ -40,8 +40,8 @@ module Fog
 
         def init_vapp
           Fog::Vcloud::Compute::Vapp.new(
-            :service => service,
-            :href => self.href,
+            :service    => service,
+            :href       => self.href,
             :collection => Fog::Vcloud::Compute::Vapps.new(:service => service)
           )
         end

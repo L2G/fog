@@ -17,8 +17,8 @@ module Fog
 
         def list_topics(options = {})
           request({
-            'Action'  => 'ListTopics',
-            :parser   => Fog::Parsers::AWS::SNS::ListTopics.new
+            'Action' => 'ListTopics',
+            :parser  => Fog::Parsers::AWS::SNS::ListTopics.new
           }.merge!(options))
         end
 

@@ -18,9 +18,9 @@ module Fog
         def set_metadata(collection, obj_id, metadata = {})
           request(
             :expects => [200, 203],
-            :method => 'PUT',
-            :path => "/#{collection}/#{obj_id}/metadata",
-            :body => Fog::JSON.encode('metadata' => metadata)
+            :method  => 'PUT',
+            :path    => "/#{collection}/#{obj_id}/metadata",
+            :body    => Fog::JSON.encode('metadata' => metadata)
           )
         end
       end

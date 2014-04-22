@@ -15,10 +15,10 @@ module Fog
         #   * 'status'<~Integer> - 200 indicates success
         def count_zones
           request(
-            :expects  => 200,
-            :method   => 'GET',
-            :parser   => Fog::Parsers::DNS::Zerigo::CountZones.new,
-            :path     => '/api/1.1/zones/count.xml'
+            :expects => 200,
+            :method  => 'GET',
+            :parser  => Fog::Parsers::DNS::Zerigo::CountZones.new,
+            :path    => '/api/1.1/zones/count.xml'
           )
         end
 

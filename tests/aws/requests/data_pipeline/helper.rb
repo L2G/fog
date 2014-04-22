@@ -8,18 +8,18 @@ class AWS
 
       FIELDS = [
         {
-          'key' => String,
-          'refValue' => Fog::Nullable::String,
+          'key'         => String,
+          'refValue'    => Fog::Nullable::String,
           'stringValue' => Fog::Nullable::String,
         }
       ]
 
       LIST_PIPELINES = {
         'hasMoreResults' => Fog::Nullable::Boolean,
-        'marker' => Fog::Nullable::String,
+        'marker'         => Fog::Nullable::String,
         'pipelineIdList' => [
           {
-            'id' => String,
+            'id'   => String,
             'name' => String,
           }
         ]
@@ -27,17 +27,17 @@ class AWS
 
       QUERY_OBJECTS = {
         'hasMoreResults' => Fog::Nullable::Boolean,
-        'marker' => Fog::Nullable::String,
-        'ids' => Fog::Nullable::Array,
+        'marker'         => Fog::Nullable::String,
+        'ids'            => Fog::Nullable::Array,
       }
 
       DESCRIBE_OBJECTS = {
-        'hasMoreResults' => Fog::Nullable::Boolean,
-        'marker' => Fog::Nullable::String,
+        'hasMoreResults'  => Fog::Nullable::Boolean,
+        'marker'          => Fog::Nullable::String,
         'pipelineObjects' => [
           {
-            'id' => String,
-            'name' => String,
+            'id'     => String,
+            'name'   => String,
             'fields' => FIELDS,
           }
         ]
@@ -47,23 +47,23 @@ class AWS
         'pipelineDescriptionList' => [
           {
             'description' => Fog::Nullable::String,
-            'name' => String,
-            'pipelineId' => String,
-            'fields' => FIELDS,
+            'name'        => String,
+            'pipelineId'  => String,
+            'fields'      => FIELDS,
           }
         ]
       }
 
       PUT_PIPELINE_DEFINITION = {
-        'errored' => Fog::Boolean,
+        'errored'          => Fog::Boolean,
         'validationErrors' => Fog::Nullable::Array,
       }
 
       GET_PIPELINE_DEFINITION = {
         'pipelineObjects' => [
           {
-            'id' => String,
-            'name' => String,
+            'id'     => String,
+            'name'   => String,
             'fields' => FIELDS,
           }
         ]

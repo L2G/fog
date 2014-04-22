@@ -96,7 +96,7 @@ module Fog
             raise ArgumentError.new('Insufficient credentials to properly authenticate!')
           end
           params[:headers].merge!(
-            'Accept' => 'application/json',
+            'Accept'       => 'application/json',
             'Content-Type' => 'application/json'
           )
 

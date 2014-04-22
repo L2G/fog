@@ -39,8 +39,8 @@ module Fog
         #
         def get_account_summary
           request(
-            'Action'    => 'GetAccountSummary',
-            :parser     => Fog::Parsers::AWS::IAM::GetAccountSummary.new
+            'Action' => 'GetAccountSummary',
+            :parser  => Fog::Parsers::AWS::IAM::GetAccountSummary.new
             )
         end
 
@@ -52,21 +52,21 @@ module Fog
           Excon::Response.new.tap do |response|
             response.status = 200
             response.body = {
-              'Summary' => {
-                'AccessKeysPerUserQuota' => 2,
-                'AccountMFAEnabled' => 0,
-                'GroupPolicySizeQuota' => 10240,
-                'Groups' => 31,
-                'GroupsPerUserQuota' => 10,
-                'GroupsQuota' => 50,
-                'MFADevices' => 20,
-                'MFADevicesInUse' => 10,
-                'ServerCertificates' => 5,
-                'ServerCertificatesQuota' => 10,
+              'Summary'   => {
+                'AccessKeysPerUserQuota'          => 2,
+                'AccountMFAEnabled'               => 0,
+                'GroupPolicySizeQuota'            => 10240,
+                'Groups'                          => 31,
+                'GroupsPerUserQuota'              => 10,
+                'GroupsQuota'                     => 50,
+                'MFADevices'                      => 20,
+                'MFADevicesInUse'                 => 10,
+                'ServerCertificates'              => 5,
+                'ServerCertificatesQuota'         => 10,
                 'SigningCertificatesPerUserQuota' => 2,
-                'UserPolicySizeQuota' => 10240,
-                'Users' => 35,
-                'UsersQuota' => 150,
+                'UserPolicySizeQuota'             => 10240,
+                'Users'                           => 35,
+                'UsersQuota'                      => 150,
               },
               'RequestId' => Fog::AWS::Mock.request_id
             }

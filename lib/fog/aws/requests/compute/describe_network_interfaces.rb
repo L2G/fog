@@ -56,9 +56,9 @@ module Fog
         def describe_network_interfaces(filters = {})
           params = Fog::AWS.indexed_filters(filters)
           request({
-            'Action' => 'DescribeNetworkInterfaces',
+            'Action'    => 'DescribeNetworkInterfaces',
             :idempotent => true,
-            :parser => Fog::Parsers::Compute::AWS::DescribeNetworkInterfaces.new
+            :parser     => Fog::Parsers::Compute::AWS::DescribeNetworkInterfaces.new
           }.merge!(params))
         end
       end

@@ -5,9 +5,9 @@ module Fog
       class Real
         def get_vm_disks(href)
           request(
-                  :expects  => 200,
-                  :uri      => href,
-                  :parse    => true#false#true
+                  :expects => 200,
+                  :uri     => href,
+                  :parse   => true#false#true
                   )
         end
       end

@@ -27,10 +27,10 @@ module Fog
           }
           data['createImage'].merge!(options)
           request(
-            :body     => Fog::JSON.encode(data),
-            :expects  => 202,
-            :method   => 'POST',
-            :path     => "servers/#{server_id}/action"
+            :body    => Fog::JSON.encode(data),
+            :expects => 202,
+            :method  => 'POST',
+            :path    => "servers/#{server_id}/action"
           )
         end
       end
@@ -44,20 +44,20 @@ module Fog
             'id'                => image_id,
             'links'             => [
               {
-                'href'              => "https://dfw.servers.api.rackspacecloud.com/v2/010101/images/#{image_id}",
-                'rel'               => 'self'
+                'href' => "https://dfw.servers.api.rackspacecloud.com/v2/010101/images/#{image_id}",
+                'rel'  => 'self'
               },
               {
-                'href'              => "https://dfw.servers.api.rackspacecloud.com/010101/images/#{image_id}",
-                'rel'               => 'bookmark'
+                'href' => "https://dfw.servers.api.rackspacecloud.com/010101/images/#{image_id}",
+                'rel'  => 'bookmark'
               },
               {
-                'href'              => "https://dfw.servers.api.rackspacecloud.com/010101/images/#{image_id}",
-                'rel'               => 'alternate',
-                'type'              => 'application/vnd.openstack.image'
+                'href' => "https://dfw.servers.api.rackspacecloud.com/010101/images/#{image_id}",
+                'rel'  => 'alternate',
+                'type' => 'application/vnd.openstack.image'
               }
             ],
-            'metadata'                              => {
+            'metadata'          => {
               'arch'                                  => 'x86-64',
               'auto_disk_config'                      => 'True',
               'com.rackspace__1__build_core'          => '1',
@@ -77,18 +77,18 @@ module Fog
               'rax_managed'                           => 'false',
               'rax_options'                           => '0'
             },
-            'minDisk'  => 10,
-            'minRam'   => 256,
-            'name'     => 'Ubuntu 11.10',
-            'progress' => 100,
-            'status'   => 'SAVING',
-            'updated'  => '2012-02-28T19:39:05Z'
+            'minDisk'           => 10,
+            'minRam'            => 256,
+            'name'              => 'Ubuntu 11.10',
+            'progress'          => 100,
+            'status'            => 'SAVING',
+            'updated'           => '2012-02-28T19:39:05Z'
           }
 
           self.data[:images][image_id] = image
 
           response(
-            :status => 202,
+            :status  => 202,
             :headers => { 'Location' => "/#{image_id}" }
           )
         end

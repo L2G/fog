@@ -44,10 +44,10 @@ module Fog
           data['volume']['snapshot_id'] = options[:snapshot_id] unless options[:snapshot_id].nil?
 
           request(
-            :body => Fog::JSON.encode(data),
+            :body    => Fog::JSON.encode(data),
             :expects => [200],
-            :method => 'POST',
-            :path => 'volumes'
+            :method  => 'POST',
+            :path    => 'volumes'
           )
         end
       end

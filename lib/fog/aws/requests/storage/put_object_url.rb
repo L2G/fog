@@ -13,8 +13,8 @@ module Fog
           signed_url(options.merge(
             :bucket_name => bucket_name,
             :object_name => object_name,
-            :method   => 'PUT',
-            :headers  => headers
+            :method      => 'PUT',
+            :headers     => headers
           ), expires)
         end
       end

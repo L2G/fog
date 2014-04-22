@@ -13,9 +13,9 @@ module Fog
       class Real
         def list_keys
           request(
-            :expects => 200,
-            :method => :'GET',
-            :path => '/my/keys',
+            :expects    => 200,
+            :method     => :'GET',
+            :path       => '/my/keys',
             :idempotent => true
           )
         end

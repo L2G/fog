@@ -15,7 +15,7 @@ Shindo.tests('Fog::Compute::RackspaceV2 | address requests', ['rackspace']) do
 
     address_format =  { 'addresses' => {
       'private' => [{ 'addr' => String, 'version' => Integer }],
-      'public' => [{ 'addr' => String, 'version' => Integer }, { 'addr' => String, 'version' => Integer }] }
+      'public'  => [{ 'addr' => String, 'version' => Integer }, { 'addr' => String, 'version' => Integer }] }
     }
 
     begin

@@ -22,10 +22,10 @@ module Fog
         #     * 'name'<~String> - Name of catalog
         def get_catalog_item(catalog_item_id)
           request(
-            :expects  => 200,
-            :method   => 'GET',
-            :parser   => Fog::Parsers::Terremark::Shared::GetCatalogItem.new,
-            :path     => "catalogItem/#{catalog_item_id}"
+            :expects => 200,
+            :method  => 'GET',
+            :parser  => Fog::Parsers::Terremark::Shared::GetCatalogItem.new,
+            :path    => "catalogItem/#{catalog_item_id}"
           )
         end
 

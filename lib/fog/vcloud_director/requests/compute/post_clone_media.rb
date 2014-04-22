@@ -78,22 +78,22 @@ module Fog
           )
 
           media = source_media.dup.merge(
-            :name => media_name,
+            :name   => media_name,
             :status => 0,
-            :tasks => [task_id]
+            :tasks  => [task_id]
           )
           data[:medias][media_id] = media
 
           body = {
-            :xmlns => xmlns,
-            :xmlns_xsi => xmlns_xsi,
+            :xmlns              => xmlns,
+            :xmlns_xsi          => xmlns_xsi,
             :xsi_schemaLocation => xsi_schema_location
           }.merge(media_body(media_id))
 
           Excon::Response.new(
-            :status => 201,
+            :status  => 201,
             :headers => { 'Content-Type' => "#{body[:type]};version=#{api_version}" },
-            :body => body
+            :body    => body
           )
         end
       end

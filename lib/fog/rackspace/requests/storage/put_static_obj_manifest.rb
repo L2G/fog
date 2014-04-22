@@ -44,12 +44,12 @@ module Fog
         # @see http://docs.rackspace.com/files/api/v1/cf-devguide/content/Uploading_the_Manifext-d1e2227.html
         def put_static_obj_manifest(container, object, segments, options = {})
           request(
-            :expects  => 201,
-            :method   => 'PUT',
-            :headers  => options,
-            :body     => Fog::JSON.encode(segments),
-            :path     => "#{Fog::Rackspace.escape(container)}/#{Fog::Rackspace.escape(object)}",
-            :query    => { 'multipart-manifest' => 'put' }
+            :expects => 201,
+            :method  => 'PUT',
+            :headers => options,
+            :body    => Fog::JSON.encode(segments),
+            :path    => "#{Fog::Rackspace.escape(container)}/#{Fog::Rackspace.escape(object)}",
+            :query   => { 'multipart-manifest' => 'put' }
           )
         end
 

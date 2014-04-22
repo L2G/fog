@@ -23,8 +23,8 @@ module Fog
 
           {
             'listtemplatesresponse' =>
-              {
-                'count' => templates.size,
+                                       {
+                'count'    => templates.size,
                 'template' => templates
               }
           }

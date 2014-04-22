@@ -4,8 +4,8 @@ Shindo.tests('Fog::Rackspace::Databases | instances', ['rackspace']) do
 
   service = Fog::Rackspace::Databases.new
   options = {
-    :name => "fog_instance_#{Time.now.to_i}",
-    :flavor_id => 1,
+    :name        => "fog_instance_#{Time.now.to_i}",
+    :flavor_id   => 1,
     :volume_size => 1
   }
   collection_tests(service.instances, options, false) do

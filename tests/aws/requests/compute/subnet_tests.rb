@@ -1,13 +1,13 @@
 Shindo.tests('Fog::Compute[:aws] | subnet requests', ['aws']) do
 
   @subnet_format = {
-    'subnetId'                 => String,
-    'state'                    => String,
-    'vpcId'                    => String,
-    'cidrBlock'                => String,
-    'availableIpAddressCount'  => String,
-    'availabilityZone'         => String,
-    'tagSet'                   => Hash,
+    'subnetId'                => String,
+    'state'                   => String,
+    'vpcId'                   => String,
+    'cidrBlock'               => String,
+    'availableIpAddressCount' => String,
+    'availabilityZone'        => String,
+    'tagSet'                  => Hash,
   }
 
   @single_subnet_format = {

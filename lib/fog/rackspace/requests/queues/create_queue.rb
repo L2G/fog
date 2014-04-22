@@ -15,10 +15,10 @@ module Fog
         # @see http://docs.rackspace.com/queues/api/v1.0/cq-devguide/content/PUT_createQueue__version__queues__queue_name__queue-operations-dle001.html
         def create_queue(queue_name)
           request(
-            :body => Fog::JSON.encode({}),
+            :body    => Fog::JSON.encode({}),
             :expects => 201,
-            :method => 'PUT',
-            :path => "queues/#{queue_name}"
+            :method  => 'PUT',
+            :path    => "queues/#{queue_name}"
           )
         end
       end

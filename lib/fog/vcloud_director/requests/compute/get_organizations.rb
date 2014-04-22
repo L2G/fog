@@ -34,16 +34,16 @@ module Fog
         def get_organizations
           body =
             { :href => make_href('org/'),
-             :type => 'application/vnd.vmware.vcloud.orgList+xml',
-             :Org =>
-              [{ :href => make_href("org/#{data[:org][:uuid]}"),
-                :name => data[:org][:name],
-                :type => 'application/vnd.vmware.vcloud.org+xml' }] }
+              :type => 'application/vnd.vmware.vcloud.orgList+xml',
+              :Org  =>
+                       [{ :href => make_href("org/#{data[:org][:uuid]}"),
+                          :name => data[:org][:name],
+                          :type => 'application/vnd.vmware.vcloud.org+xml' }] }
 
           Excon::Response.new(
-            :body => body,
+            :body    => body,
             :headers => { 'Content-Type' => "#{body[:type]};version=#{api_version}" },
-            :status => 200
+            :status  => 200
           )
         end
       end

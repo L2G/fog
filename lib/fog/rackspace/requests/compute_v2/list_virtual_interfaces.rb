@@ -13,8 +13,8 @@ module Fog
         def list_virtual_interfaces(server_id)
           request(
             :expects => [200],
-            :method => 'GET',
-            :path => "/servers/#{server_id}/os-virtual-interfacesv2"
+            :method  => 'GET',
+            :path    => "/servers/#{server_id}/os-virtual-interfacesv2"
           )
         end
       end

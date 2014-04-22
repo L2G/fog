@@ -3,7 +3,7 @@ Shindo.tests('AWS::IAM | group requests', ['aws']) do
   tests('success') do
 
     @group_format = {
-      'Group' => {
+      'Group'     => {
         'Arn'       => String,
         'GroupId'   => String,
         'GroupName' => String,
@@ -17,7 +17,7 @@ Shindo.tests('AWS::IAM | group requests', ['aws']) do
     end
 
     @groups_format = {
-      'Groups' => [{
+      'Groups'      => [{
         'Arn'       => String,
         'GroupId'   => String,
         'GroupName' => String,

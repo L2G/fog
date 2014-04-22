@@ -75,10 +75,10 @@ module Fog
         def self.data
           @data ||= Hash.new do |hash, key|
             hash[key] = {
-              :floating_ips => {},
-              :networks => {
+              :floating_ips         => {},
+              :networks             => {
                 'X0X0X0ExtNetX0X0X0' =>
-                  {
+                                        {
                     'id'              => 'X0X0X0ExtNetX0X0X0',
                     'name'            => 'Mock-Ext-Net',
                     'tenant_id'       => Fog::Mock.random_numbers(14).to_s,
@@ -89,11 +89,11 @@ module Fog
                     'shared'          => true
                   }
               },
-              :ports => {},
-              :routers => {},
-              :security_groups => {},
+              :ports                => {},
+              :routers              => {},
+              :security_groups      => {},
               :security_group_rules => {},
-              :subnets => {}
+              :subnets              => {}
             }
           end
         end
@@ -165,12 +165,12 @@ module Fog
         def request(params, parse_json = true, &block)
           begin
             response = @connection.request(params.merge!(
-              :headers  => {
+              :headers => {
                 'Content-Type' => 'application/json',
                 'Accept'       => 'application/json',
                 'X-Auth-Token' => @auth_token
               }.merge!(params[:headers] || {}),
-              :path     => "#{@path}/v2.0/#{params[:path]}"
+              :path    => "#{@path}/v2.0/#{params[:path]}"
             ), &block)
           rescue Excon::Errors::HTTPStatusError => error
             raise case error

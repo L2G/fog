@@ -66,12 +66,12 @@ DATA
           end
 
           request(
-            :body     => data,
-            :expects  => 200,
-            :headers  => {},
-            :host     => "#{bucket_name}.#{@host}",
-            :method   => 'PUT',
-            :query    => { 'logging' => nil }
+            :body    => data,
+            :expects => 200,
+            :headers => {},
+            :host    => "#{bucket_name}.#{@host}",
+            :method  => 'PUT',
+            :query   => { 'logging' => nil }
           )
         end
 

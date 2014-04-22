@@ -23,10 +23,10 @@ module Fog
         #
         def create_login_profile(user_name, password)
           request(
-            'Action'    => 'CreateLoginProfile',
-            'UserName'  => user_name,
-            'Password'  => password,
-            :parser     => Fog::Parsers::AWS::IAM::LoginProfile.new
+            'Action'   => 'CreateLoginProfile',
+            'UserName' => user_name,
+            'Password' => password,
+            :parser    => Fog::Parsers::AWS::IAM::LoginProfile.new
           )
         end
 

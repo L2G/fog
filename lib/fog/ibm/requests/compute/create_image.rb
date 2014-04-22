@@ -22,10 +22,10 @@ module Fog
         #     * 'state'<~Integer>: status of image
         def create_image(instance_id, name, description)
           request(
-            :method   => 'PUT',
-            :expects  => 200,
-            :path     => "/instances/#{instance_id}",
-            :body     => {
+            :method  => 'PUT',
+            :expects => 200,
+            :path    => "/instances/#{instance_id}",
+            :body    => {
               'state'       => 'save',
               'name'        => name,
               'description' => description

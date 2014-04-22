@@ -35,12 +35,12 @@ module Fog
                 <CreateNodeServiceRequest xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="urn:tmrk:vCloudExpressExtensions-1.6"><IpAddress>#{ip}</IpAddress><Name>#{name}</Name><Port>#{port}</Port><Enabled>#{options['Enabled']}</Enabled><Description>#{options['Description']}</Description></CreateNodeServiceRequest>
           DATA
           response = request(
-            :body     => data,
-            :expects  => 200,
-            :headers  => { 'Content-Type' => 'application/vnd.tmrk.vCloud.nodeService+xml' },
-            :method   => 'POST',
-            :parser   => Fog::Parsers::Terremark::Shared::NodeService.new,
-            :path     => "api/extensions/v1.6/internetService/#{service_id}/nodeServices",
+            :body          => data,
+            :expects       => 200,
+            :headers       => { 'Content-Type' => 'application/vnd.tmrk.vCloud.nodeService+xml' },
+            :method        => 'POST',
+            :parser        => Fog::Parsers::Terremark::Shared::NodeService.new,
+            :path          => "api/extensions/v1.6/internetService/#{service_id}/nodeServices",
             :override_path => true
           )
 

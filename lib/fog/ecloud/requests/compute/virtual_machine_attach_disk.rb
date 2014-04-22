@@ -18,11 +18,11 @@ module Fog
           body = build_request_body_attach_disk(options)
           request(
             :expects => 202,
-            :method => 'POST',
+            :method  => 'POST',
             :headers => {},
-            :body => body,
-            :uri => href,
-            :parse => true
+            :body    => body,
+            :uri     => href,
+            :parse   => true
           )
         end
       end

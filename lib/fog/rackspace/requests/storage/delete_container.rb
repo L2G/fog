@@ -14,9 +14,9 @@ module Fog
         # @raise [Fog::Storage::Rackspace::ServiceError]
         def delete_container(name)
           request(
-            :expects  => 204,
-            :method   => 'DELETE',
-            :path     => Fog::Rackspace.escape(name)
+            :expects => 204,
+            :method  => 'DELETE',
+            :path    => Fog::Rackspace.escape(name)
           )
         end
 

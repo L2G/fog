@@ -61,8 +61,8 @@ module Fog
           raise Fog::Errors::Error.new('Resaving an existing object may create a duplicate') if persisted?
           requires :name, :image_id, :memory, :public_ip_address
           options = {
-            'isSandbox'   => sandbox,
-            'image'       => image_id
+            'isSandbox' => sandbox,
+            'image'     => image_id
           }
           options = options.reject {|key, value| value.nil?}
           data = service.grid_server_add(image, public_ip_address, name, memory, options)

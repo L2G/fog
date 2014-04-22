@@ -13,8 +13,8 @@ Shindo.tests('Fog::AWS[:beanstalk] | versions', ['aws', 'beanstalk']) do
 
   params = {
       :application_name => @application_name,
-      :label => @version_name,
-      :description => @version_description
+      :label            => @version_name,
+      :description      => @version_description
   }
 
   collection = @beanstalk.versions

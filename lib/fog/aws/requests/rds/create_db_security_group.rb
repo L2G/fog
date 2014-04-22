@@ -15,10 +15,10 @@ module Fog
         #   * body<~Hash>:
         def create_db_security_group(name, description = name)
           request(
-            'Action'  => 'CreateDBSecurityGroup',
-            'DBSecurityGroupName' => name,
+            'Action'                     => 'CreateDBSecurityGroup',
+            'DBSecurityGroupName'        => name,
             'DBSecurityGroupDescription' => description,
-            :parser   => Fog::Parsers::AWS::RDS::CreateDBSecurityGroup.new
+            :parser                      => Fog::Parsers::AWS::RDS::CreateDBSecurityGroup.new
           )
         end
 
@@ -33,15 +33,15 @@ module Fog
           end
 
           data = {
-            'DBSecurityGroupName' => name,
+            'DBSecurityGroupName'        => name,
             'DBSecurityGroupDescription' => description,
-            'EC2SecurityGroups' => [],
-            'IPRanges' => [],
-            'OwnerId' => '0123456789'
+            'EC2SecurityGroups'          => [],
+            'IPRanges'                   => [],
+            'OwnerId'                    => '0123456789'
           }
           self.data[:security_groups][name] = data
           response.body = {
-            'ResponseMetadata' => { 'RequestId' => Fog::AWS::Mock.request_id },
+            'ResponseMetadata'            => { 'RequestId' => Fog::AWS::Mock.request_id },
             'CreateDBSecurityGroupResult' => { 'DBSecurityGroup' => data }
           }
           response

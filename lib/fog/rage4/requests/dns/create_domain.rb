@@ -19,9 +19,9 @@ module Fog
         def create_domain(name, options = {})
           email = options[:email] || @rage4_email
           request(
-                  :expects  => 200,
-                  :method   => 'GET',
-                  :path     => "/rapi/createregulardomain/?name=#{name}&email=#{email}"
+                  :expects => 200,
+                  :method  => 'GET',
+                  :path    => "/rapi/createregulardomain/?name=#{name}&email=#{email}"
           )
         end
 

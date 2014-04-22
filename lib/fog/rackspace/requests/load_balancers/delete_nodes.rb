@@ -6,8 +6,8 @@ module Fog
           query_string = node_ids.collect { |node_id| "id=#{node_id}" }.join('&')
           request(
             :expects => [200, 202],
-            :path => "loadbalancers/#{load_balancer_id}/nodes?#{query_string}",
-            :method => 'DELETE'
+            :path    => "loadbalancers/#{load_balancer_id}/nodes?#{query_string}",
+            :method  => 'DELETE'
           )
         end
       end

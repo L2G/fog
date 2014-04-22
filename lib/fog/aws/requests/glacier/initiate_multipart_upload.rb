@@ -25,10 +25,10 @@ module Fog
           headers = { 'x-amz-part-size' => part_size.to_s }
           headers['x-amz-archive-description'] = Fog::AWS.escape(options['description']) if options['description']
           request(
-            :expects  => 201,
+            :expects => 201,
             :headers => headers,
-            :method   => 'POST',
-            :path     => path
+            :method  => 'POST',
+            :path    => path
           )
         end
       end

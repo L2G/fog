@@ -148,20 +148,20 @@ module Fog
 
           options = {
             :serviceofferingid => flavor_id,
-            :templateid => image_id,
-            :name => name,
-            :zoneid => zoneid,
-            :networkids => networkids,
-            :account => account,
-            :diskofferingid => diskofferingid,
-            :displayname => displayname,
-            :domainid => domainid,
-            :group => group,
-            :hypervisor => hypervisor,
-            :keypair => keypair,
-            :securitygroupids => securitygroupids,
-            :size => size,
-            :userdata => userdata
+            :templateid        => image_id,
+            :name              => name,
+            :zoneid            => zoneid,
+            :networkids        => networkids,
+            :account           => account,
+            :diskofferingid    => diskofferingid,
+            :displayname       => displayname,
+            :domainid          => domainid,
+            :group             => group,
+            :hypervisor        => hypervisor,
+            :keypair           => keypair,
+            :securitygroupids  => securitygroupids,
+            :size              => size,
+            :userdata          => userdata
           }.delete_if {|k,v| v.nil? || v == '' }
           data = service.deploy_virtual_machine(options)
           merge_attributes(data)

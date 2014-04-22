@@ -15,10 +15,10 @@ module Fog
         #     * 'X-Container-Bytes-Used'<~String>   - Bytes used
         def head_container(container)
           response = request(
-            :expects  => 204,
-            :method   => 'HEAD',
-            :path     => Fog::HP.escape(container),
-            :query    => { 'format' => 'json' }
+            :expects => 204,
+            :method  => 'HEAD',
+            :path    => Fog::HP.escape(container),
+            :query   => { 'format' => 'json' }
           )
           response
         end

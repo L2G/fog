@@ -1,15 +1,15 @@
 Shindo.tests('Fog::Compute[:ibm] | key requests', ['ibm']) do
 
   @key_format  = {
-    'default'           => Fog::Boolean,
-    'instanceIds'       => Array,
-    'keyMaterial'       => String,
-    'keyName'           => String,
-    'lastModifiedTime'  => Integer
+    'default'          => Fog::Boolean,
+    'instanceIds'      => Array,
+    'keyMaterial'      => String,
+    'keyName'          => String,
+    'lastModifiedTime' => Integer
   }
 
   @keys_format = {
-    'keys'     => [ @key_format ]
+    'keys' => [ @key_format ]
   }
 
   tests('success') do

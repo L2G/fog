@@ -23,10 +23,10 @@ module Fog
           }
           data['image'].merge!(options)
           request(
-            :body     => Fog::JSON.encode(data),
-            :expects  => 202,
-            :method   => 'POST',
-            :path     => 'images'
+            :body    => Fog::JSON.encode(data),
+            :expects => 202,
+            :method  => 'POST',
+            :path    => 'images'
           )
         end
 
@@ -40,12 +40,12 @@ module Fog
 
           now = Time.now
           data = {
-            'created'   => now,
-            'id'        => Fog::Mock.random_numbers(6).to_i,
-            'name'      => options['name'] || '',
-            'serverId'  => server_id,
-            'status'    => 'SAVING',
-            'updated'   => now.to_s,
+            'created'  => now,
+            'id'       => Fog::Mock.random_numbers(6).to_i,
+            'name'     => options['name'] || '',
+            'serverId' => server_id,
+            'status'   => 'SAVING',
+            'updated'  => now.to_s,
           }
 
           self.data[:last_modified][:images][data['id']] = now

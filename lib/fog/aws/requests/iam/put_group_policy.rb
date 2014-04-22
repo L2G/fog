@@ -22,11 +22,11 @@ module Fog
         #
         def put_group_policy(group_name, policy_name, policy_document)
           request(
-            'Action'          => 'PutGroupPolicy',
-            'GroupName'       => group_name,
-            'PolicyName'      => policy_name,
-            'PolicyDocument'  => Fog::JSON.encode(policy_document),
-            :parser           => Fog::Parsers::AWS::IAM::Basic.new
+            'Action'         => 'PutGroupPolicy',
+            'GroupName'      => group_name,
+            'PolicyName'     => policy_name,
+            'PolicyDocument' => Fog::JSON.encode(policy_document),
+            :parser          => Fog::Parsers::AWS::IAM::Basic.new
           )
         end
 

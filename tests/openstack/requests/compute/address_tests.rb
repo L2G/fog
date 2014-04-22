@@ -6,10 +6,10 @@ Shindo.tests('Fog::Compute[:openstack] | address requests', ['openstack']) do
 
   @address_format = {
     'instance_id' => NilClass,
-    'ip' => String,
-    'fixed_ip' => NilClass,
-    'id' => Integer,
-    'pool' => String
+    'ip'          => String,
+    'fixed_ip'    => NilClass,
+    'id'          => Integer,
+    'pool'        => String
   }
 
   @address_pools_format = {

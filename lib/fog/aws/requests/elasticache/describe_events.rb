@@ -25,15 +25,15 @@ module Fog
         #   * body <~Hash>
         def describe_events(options = {})
           request(
-            'Action'            => 'DescribeEvents',
-            'StartTime'         => options[:start_time],
-            'EndTime'           => options[:end_time],
-            'Duration'          => options[:duration],
-            'Marker'            => options[:marker],
-            'MaxRecords'        => options[:max_records],
-            'SourceIdentifier'  => options[:source_identifier],
-            'SourceType'        => options[:source_type],
-            :parser => Fog::Parsers::AWS::Elasticache::EventListParser.new
+            'Action'           => 'DescribeEvents',
+            'StartTime'        => options[:start_time],
+            'EndTime'          => options[:end_time],
+            'Duration'         => options[:duration],
+            'Marker'           => options[:marker],
+            'MaxRecords'       => options[:max_records],
+            'SourceIdentifier' => options[:source_identifier],
+            'SourceType'       => options[:source_type],
+            :parser            => Fog::Parsers::AWS::Elasticache::EventListParser.new
           )
         end
 

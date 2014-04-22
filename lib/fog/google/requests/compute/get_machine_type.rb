@@ -9,14 +9,14 @@ module Fog
           get_zone(zone_name)
           machine_type = self.data[:machine_types][zone_name][machine_type_name] || {
             'error' => {
-             'errors' => [
+             'errors'  => [
               {
-               'domain' => 'global',
-               'reason' => 'notFound',
+               'domain'  => 'global',
+               'reason'  => 'notFound',
                'message' => "The resource 'projects/google/zones/#{zone_name}/machineTypes/#{machine_type_name}' was not found"
               }
              ],
-             'code' => 404,
+             'code'    => 404,
              'message' => "The resource 'projects/google/zones/#{zone_name}/machineTypes/#{machine_type_name}' was not found"
             }
           }
@@ -34,8 +34,8 @@ module Fog
           end
           api_method = @compute.machine_types.get
           parameters = {
-            'zone' => zone_name,
-            'project' => 'google',
+            'zone'        => zone_name,
+            'project'     => 'google',
             'machineType' => machine_type_name
           }
 

@@ -32,11 +32,11 @@ module Fog
           body = build_request_body_identical(options)
           request(
             :expects => 201,
-            :method => 'POST',
+            :method  => 'POST',
             :headers => {},
-            :body => body,
-            :uri => template_uri,
-            :parse => true
+            :body    => body,
+            :uri     => template_uri,
+            :parse   => true
           )
         end
       end

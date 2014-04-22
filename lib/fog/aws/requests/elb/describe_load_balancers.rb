@@ -60,8 +60,8 @@ module Fog
           end
 
           request({
-            'Action'  => 'DescribeLoadBalancers',
-            :parser   => Fog::Parsers::AWS::ELB::DescribeLoadBalancers.new
+            'Action' => 'DescribeLoadBalancers',
+            :parser  => Fog::Parsers::AWS::ELB::DescribeLoadBalancers.new
           }.merge!(options))
         end
 
@@ -100,7 +100,7 @@ module Fog
           response.status = 200
 
           response.body = {
-            'ResponseMetadata' => {
+            'ResponseMetadata'            => {
               'RequestId' => Fog::AWS::Mock.request_id
             },
             'DescribeLoadBalancersResult' => {

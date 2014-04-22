@@ -1,17 +1,17 @@
 Shindo.tests('Fog::Rackspace::BlockStorage | volume_tests', ['rackspace']) do
 
   volume_format = {
-    'id' => String,
-    'status' => String,
-    'display_name' => Fog::Nullable::String,
+    'id'                  => String,
+    'status'              => String,
+    'display_name'        => Fog::Nullable::String,
     'display_description' => Fog::Nullable::String,
-    'size' => Integer,
-    'created_at' => String,
-    'volume_type' => String,
-    'availability_zone' => String,
-    'snapshot_id' => Fog::Nullable::String,
-    'attachments' => Array,
-    'metadata' => Hash
+    'size'                => Integer,
+    'created_at'          => String,
+    'volume_type'         => String,
+    'availability_zone'   => String,
+    'snapshot_id'         => Fog::Nullable::String,
+    'attachments'         => Array,
+    'metadata'            => Hash
   }
 
   get_volume_format = {

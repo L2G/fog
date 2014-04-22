@@ -22,9 +22,9 @@ module Fog
         #     * 'metadata'<~Hash> - metadata
         def list_servers_detail
           request(
-            :expects  => [200, 203],
-            :method   => 'GET',
-            :path     => 'servers/detail.json'
+            :expects => [200, 203],
+            :method  => 'GET',
+            :path    => 'servers/detail.json'
           )
         end
 

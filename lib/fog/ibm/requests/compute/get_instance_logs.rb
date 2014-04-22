@@ -12,9 +12,9 @@ module Fog
         # TODO: docs
         def get_instance_logs(instance_id, start_index = nil)
           request(
-            :method   => 'GET',
-            :expects  => 200,
-            :path     => "/instances/#{instance_id}/logs" +
+            :method  => 'GET',
+            :expects => 200,
+            :path    => "/instances/#{instance_id}/logs" +
                          (start_index ? "?startIndex=#{start_index}" : '')
           )
         end

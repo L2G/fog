@@ -12,16 +12,16 @@ module Fog
         def get_object(container, object, &block)
           if block_given?
             response = request(
-              :response_block  => block,
-              :expects  => 200,
-              :method   => 'GET',
-              :path     => "#{Fog::HP.escape(container)}/#{Fog::HP.escape(object)}"
+              :response_block => block,
+              :expects        => 200,
+              :method         => 'GET',
+              :path           => "#{Fog::HP.escape(container)}/#{Fog::HP.escape(object)}"
             )
           else
             response = request({
-              :expects  => 200,
-              :method   => 'GET',
-              :path     => "#{Fog::HP.escape(container)}/#{Fog::HP.escape(object)}"
+              :expects => 200,
+              :method  => 'GET',
+              :path    => "#{Fog::HP.escape(container)}/#{Fog::HP.escape(object)}"
             }, false, &block)
           end
           response

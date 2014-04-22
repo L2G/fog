@@ -18,11 +18,11 @@ module Fog
         #     * 'keyMaterial'<~String>: private key contents
         def create_key(name, public_key = nil)
           request(
-            :method   => 'POST',
-            :expects  => 200,
-            :path     => '/keys',
-            :body => {
-              'name' => name,
+            :method  => 'POST',
+            :expects => 200,
+            :path    => '/keys',
+            :body    => {
+              'name'      => name,
               'publicKey' => public_key
             }
           )
@@ -38,10 +38,10 @@ module Fog
           response = Excon::Response.new
           response.status = 200
           attributes  = {
-            'keyName'           => name,
-            'lastModifiedTime'  => Fog::IBM::Mock.launch_time,
-            'default'           => false,
-            'instanceIds'       => [],
+            'keyName'          => name,
+            'lastModifiedTime' => Fog::IBM::Mock.launch_time,
+            'default'          => false,
+            'instanceIds'      => [],
           }
           if public_key.nil?
             private_key   = Fog::IBM::Mock.key_material

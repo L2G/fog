@@ -14,9 +14,9 @@ module Fog
         # TODO
         def destroy_block(block_id)
           request(
-            :expects  => 200,
-            :method   => 'DELETE',
-            :path     => "api/blocks/#{block_id}.json"
+            :expects => 200,
+            :method  => 'DELETE',
+            :path    => "api/blocks/#{block_id}.json"
           )
         end
 

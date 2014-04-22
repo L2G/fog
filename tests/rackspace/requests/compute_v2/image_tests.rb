@@ -2,20 +2,20 @@ Shindo.tests('Fog::Compute::RackspaceV2 | image_tests', ['rackspace']) do
   service   = Fog::Compute.new(:provider => 'Rackspace', :version => 'V2')
 
   image_format = {
-    'id' => String,
-    'name' => String,
-    'created' => Fog::Nullable::String,
-    'updated' => Fog::Nullable::String,
-    'status' => Fog::Nullable::String,
-    'user_id' => Fog::Nullable::String,
-    'tenant_id' => Fog::Nullable::String,
-    'progress' => Fog::Nullable::Integer,
-    'minDisk' => Fog::Nullable::Integer,
-    'minRam' => Fog::Nullable::Integer,
-    'metadata' => Fog::Nullable::Hash,
+    'id'                => String,
+    'name'              => String,
+    'created'           => Fog::Nullable::String,
+    'updated'           => Fog::Nullable::String,
+    'status'            => Fog::Nullable::String,
+    'user_id'           => Fog::Nullable::String,
+    'tenant_id'         => Fog::Nullable::String,
+    'progress'          => Fog::Nullable::Integer,
+    'minDisk'           => Fog::Nullable::Integer,
+    'minRam'            => Fog::Nullable::Integer,
+    'metadata'          => Fog::Nullable::Hash,
     'OS-DCF:diskConfig' => Fog::Nullable::String,
-    'links' => [{
-      'rel' => String,
+    'links'             => [{
+      'rel'  => String,
       'href' => String,
       'type' => Fog::Nullable::String
     }]
@@ -31,9 +31,9 @@ Shindo.tests('Fog::Compute::RackspaceV2 | image_tests', ['rackspace']) do
 
   begin
     test_time = Time.now.to_i.to_s
-    @server = service.servers.create(:name => "fog-image-tests_#{test_time}",
-     :flavor_id => rackspace_test_flavor_id(service),
-     :image_id => rackspace_test_image_id(service))
+    @server = service.servers.create(:name      => "fog-image-tests_#{test_time}",
+                                     :flavor_id => rackspace_test_flavor_id(service),
+                                     :image_id  => rackspace_test_image_id(service))
     @server.wait_for { ready? }
     @image_id = nil
 

@@ -5,9 +5,9 @@ module Fog
 
         def list_notification_plans
           request(
-            :expects  => [200],
-            :method   => 'GET',
-            :path     => 'notification_plans'
+            :expects => [200],
+            :method  => 'GET',
+            :path    => 'notification_plans'
           )
         end
       end
@@ -19,13 +19,13 @@ module Fog
           response = Excon::Response.new
           response.status = 200
           response.body = {
-            'values' => [
+            'values'   => [
               {
-                'id'    => 'npTechnicalContactsEmail',
-                'label' => 'Technical Contacts - Email',
+                'id'             => 'npTechnicalContactsEmail',
+                'label'          => 'Technical Contacts - Email',
                 'critical_state' => [],
                 'warning_state'  => [],
-                'ok_state' => []
+                'ok_state'       => []
               },
 
               {

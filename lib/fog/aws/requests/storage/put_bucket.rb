@@ -27,12 +27,12 @@ DATA
             data = nil
           end
           request(
-            :expects    => 200,
-            :body       => data,
-            :headers    => options,
-            :idempotent => true,
+            :expects     => 200,
+            :body        => data,
+            :headers     => options,
+            :idempotent  => true,
             :bucket_name => bucket_name,
-            :method     => 'PUT'
+            :method      => 'PUT'
           )
         end
 
@@ -51,11 +51,11 @@ DATA
           response = Excon::Response.new
           response.status = 200
           bucket = {
-            :objects        => {},
-            'Name'          => bucket_name,
-            'CreationDate'  => Time.now,
-            'Owner'         => { 'DisplayName' => 'owner', 'ID' => 'some_id' },
-            'Payer'         => 'BucketOwner'
+            :objects       => {},
+            'Name'         => bucket_name,
+            'CreationDate' => Time.now,
+            'Owner'        => { 'DisplayName' => 'owner', 'ID' => 'some_id' },
+            'Payer'        => 'BucketOwner'
           }
           if options['LocationConstraint']
             bucket['LocationConstraint'] = options['LocationConstraint']

@@ -60,8 +60,8 @@ module Fog
         def save
           requires :name, :image_id, :instance_type, :location_id
           data = service.create_instance(name, image_id, instance_type, location_id,
-                                         :key_name => key_name,
-                                         :vlan_id => vlan_id,
+                                         :key_name     => key_name,
+                                         :vlan_id      => vlan_id,
                                          :secondary_ip => secondary_ip)
           data.body['instances'].each do |iattrs|
             if iattrs['name'] == name
@@ -113,9 +113,9 @@ module Fog
           addys = secondary_ip.map {|ip| Fog::Compute[:ibm].addresses.new(ip) }
           # Set an ID, in case someone tries to save
           addys << service.addresses.new(attributes[:primary_ip].merge(
-            :id => '0',
+            :id       => '0',
             :location => location_id,
-            :state => 3
+            :state    => 3
           ))
           addys
         end
@@ -179,7 +179,7 @@ module Fog
         # if name isn't passed then we'll take the current name and timestamp it
         def to_image(opts = {})
          options = {
-           :name => name + ' as of ' + Time.now.strftime('%Y-%m-%d %H:%M'),
+           :name        => name + ' as of ' + Time.now.strftime('%Y-%m-%d %H:%M'),
            :description => ''
          }.merge(opts)
          service.create_image(id, options[:name], options[:description]).body

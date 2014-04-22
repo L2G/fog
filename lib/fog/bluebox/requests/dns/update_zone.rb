@@ -9,10 +9,10 @@ module Fog
           options.each {|k,v| body += "<#{k}>#{v}</#{k}>"}
           body += '</domain>'
           request(
-            :body     => body,
-            :expects  => 202,
-            :method   => 'PUT',
-            :path     => "/api/domains/#{zone_id}.xml"
+            :body    => body,
+            :expects => 202,
+            :method  => 'PUT',
+            :path    => "/api/domains/#{zone_id}.xml"
           )
         end
 

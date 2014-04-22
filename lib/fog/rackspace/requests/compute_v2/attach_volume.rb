@@ -29,10 +29,10 @@ module Fog
           data['volumeAttachment']['device'] = device if device
 
           request(
-            :body => Fog::JSON.encode(data),
+            :body    => Fog::JSON.encode(data),
             :expects => [200],
-            :method => 'POST',
-            :path => "servers/#{server_id}/os-volume_attachments"
+            :method  => 'POST',
+            :path    => "servers/#{server_id}/os-volume_attachments"
           )
         end
       end

@@ -3,18 +3,18 @@ Shindo.tests('AWS::CloudWatch | metric requests', ['aws', 'cloudwatch']) do
 
     @metrics_statistic_format = {
       'GetMetricStatisticsResult' => {
-        'Label' => String,
+        'Label'      => String,
         'Datapoints' => [{
-          'Timestamp' => Time,
-          'Unit' => String,
-          'Minimum' => Float,
-          'Maximum' => Float,
-          'Average' => Float,
-          'Sum' => Float,
+          'Timestamp'   => Time,
+          'Unit'        => String,
+          'Minimum'     => Float,
+          'Maximum'     => Float,
+          'Average'     => Float,
+          'Sum'         => Float,
           'SampleCount' => Float
         }],
       },
-      'ResponseMetadata' => {
+      'ResponseMetadata'          => {
         'RequestId' => String
       }
     }

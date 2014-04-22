@@ -46,9 +46,9 @@ module Fog
 
             {
               'Description' => '',
-              'InstanceId' => id,
-              'ReasonCode' => '',
-              'State' => 'OutOfService'
+              'InstanceId'  => id,
+              'ReasonCode'  => '',
+              'State'       => 'OutOfService'
             }
           end
 
@@ -56,7 +56,7 @@ module Fog
           response.status = 200
 
           response.body = {
-            'ResponseMetadata' => {
+            'ResponseMetadata'             => {
               'RequestId' => Fog::AWS::Mock.request_id
             },
             'DescribeInstanceHealthResult' => {

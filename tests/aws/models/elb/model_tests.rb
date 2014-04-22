@@ -89,12 +89,12 @@ Shindo.tests('AWS::ELB | models', ['aws', 'elb']) do
         @certificate = Fog::AWS[:iam].upload_server_certificate(AWS::IAM::SERVER_CERT, AWS::IAM::SERVER_CERT_PRIVATE_KEY, @key_name).body['Certificate']
         sleep(10) unless Fog.mocking?
         listeners = [{
-            'Listener' => {
+            'Listener'    => {
               'LoadBalancerPort' => 2030, 'InstancePort' => 2030, 'Protocol' => 'HTTP'
             },
             'PolicyNames' => []
           }, {
-            'Listener' => {
+            'Listener'    => {
               'LoadBalancerPort' => 443, 'InstancePort' => 443, 'Protocol' => 'HTTPS', 'InstanceProtocol' => 'HTTPS',
               'SSLCertificateId' => @certificate['Arn']
             },
@@ -199,22 +199,22 @@ Shindo.tests('AWS::ELB | models', ['aws', 'elb']) do
 
     tests('default health check') do
       default_health_check = {
-        'HealthyThreshold' => 10,
-        'Timeout' => 5,
+        'HealthyThreshold'   => 10,
+        'Timeout'            => 5,
         'UnhealthyThreshold' => 2,
-        'Interval' => 30,
-        'Target' => 'TCP:80'
+        'Interval'           => 30,
+        'Target'             => 'TCP:80'
       }
       returns(default_health_check) { elb.health_check }
     end
 
     tests('configure_health_check') do
       new_health_check = {
-        'HealthyThreshold' => 5,
-        'Timeout' => 10,
+        'HealthyThreshold'   => 5,
+        'Timeout'            => 10,
         'UnhealthyThreshold' => 3,
-        'Interval' => 15,
-        'Target' => 'HTTP:80/index.html'
+        'Interval'           => 15,
+        'Target'             => 'HTTP:80/index.html'
       }
       elb.configure_health_check(new_health_check)
       returns(new_health_check) { elb.health_check }

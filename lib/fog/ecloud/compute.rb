@@ -368,7 +368,7 @@ module Fog
             signature = cloud_api_signature(params)
             params[:headers].merge!(
               'x-tmrk-authorization' => %{CloudApi AccessKey="#{@access_key}" SignatureType="HmacSha256" Signature="#{signature}"},
-              'Authorization' => %{CloudApi AccessKey="#{@access_key}" SignatureType="HmacSha256" Signature="#{signature}"}
+              'Authorization'        => %{CloudApi AccessKey="#{@access_key}" SignatureType="HmacSha256" Signature="#{signature}"}
             )
           end
           params[:headers]
@@ -443,10 +443,10 @@ module Fog
                           }
 
                           organization = {
-                            :href => "/cloudapi/ecloud/organizations/#{organization_id}",
-                            :type => 'application/vnd.tmrk.cloud.organization',
-                            :name => organization_name,
-                            :Links => {
+                            :href      => "/cloudapi/ecloud/organizations/#{organization_id}",
+                            :type      => 'application/vnd.tmrk.cloud.organization',
+                            :name      => organization_name,
+                            :Links     => {
                               :Link => [
                                 Fog::Ecloud.keep(environment, :href, :name, :type),
                                 {
@@ -470,11 +470,11 @@ module Fog
                             :Locations => {
                               :Location => [
                                 {
-                                  :href => "/cloudapi/ecloud/locations/#{location_id}",
-                                  :name => organization_name,
-                                  :Catalog => {
+                                  :href         => "/cloudapi/ecloud/locations/#{location_id}",
+                                  :name         => organization_name,
+                                  :Catalog      => {
                                     :href => "/cloudapi/ecloud/admin/catalog/organizations/#{organization_id}/locations/#{location_id}",
-                                  :type => 'application/vnd.tmrk.cloud.admin.catalogEntry; type=collection'
+                                    :type => 'application/vnd.tmrk.cloud.admin.catalogEntry; type=collection'
                                   },
                                   :Environments => { :Environment => [environment] }
                                 }
@@ -488,11 +488,11 @@ module Fog
                           )
 
                           admin_organization = {
-                            :id    => organization_id,
-                            :href  => "/cloudapi/ecloud/admin/organizations/#{organization_id}",
-                            :type  => 'application/vnd.tmrk.cloud.admin.organization',
-                            :name  => organization_name,
-                            :Links => {
+                            :id              => organization_id,
+                            :href            => "/cloudapi/ecloud/admin/organizations/#{organization_id}",
+                            :type            => 'application/vnd.tmrk.cloud.admin.organization',
+                            :name            => organization_name,
+                            :Links           => {
                               :Link => [
                                 Fog::Ecloud.keep(organization, :href, :type, :name)
                               ],
@@ -515,13 +515,13 @@ module Fog
                           }
 
                           public_ip = {
-                            :id             => public_ip_id,
-                            :href           => "/cloudapi/ecloud/publicips/#{public_ip_id}",
-                            :name           => public_ip,
-                            :type           => 'application/vnd.tmrk.cloud.publicIp',
-                            :IpType         => 'none',
-                            :environment_id => environment_id,
-                            :Links          => {
+                            :id               => public_ip_id,
+                            :href             => "/cloudapi/ecloud/publicips/#{public_ip_id}",
+                            :name             => public_ip,
+                            :type             => 'application/vnd.tmrk.cloud.publicIp',
+                            :IpType           => 'none',
+                            :environment_id   => environment_id,
+                            :Links            => {
                               :Link => [
                                 Fog::Ecloud.keep(environment, :href, :name, :type),
                               ],
@@ -538,7 +538,7 @@ module Fog
                             :name         => Fog::Mock.random_letters(6),
                             :type         => 'application/vnd.tmrk.cloud.internetService',
                             :public_ip_id => public_ip_id,
-                            :Links => {
+                            :Links        => {
                               :Link => [
                                 Fog::Ecloud.keep(public_ip, :href, :name, :type),
                               ],
@@ -575,12 +575,12 @@ module Fog
                             :BroadcastAddress => network_ip,
                             :GatewayAddress   => network_ip,
                             :environment_id   => environment_id,
-                            :Links => {
+                            :Links            => {
                               :Link => [
                                 Fog::Ecloud.keep(environment, :href, :name, :type),
                               ]
                             },
-                            :IpAddresses => {
+                            :IpAddresses      => {
                               :IpAddress => [],
                             },
                           }
@@ -592,7 +592,7 @@ module Fog
                               :type       => 'application/vnd.tmrk.cloud.ipAddress',
                               :network_id => network_id,
                               :Links      => {
-                                :Link     => [ Fog::Ecloud.keep(network, :href, :name, :type), ],
+                                :Link => [ Fog::Ecloud.keep(network, :href, :name, :type), ],
                               },
                               :Reserved   => 'false',
                               :Host       => nil,
@@ -605,22 +605,22 @@ module Fog
 
                           short_name = 'solaris10_64guest'
                           operating_system = {
-                            :short_name      => short_name,
-                            :compute_pool_id => compute_pool_id,
-                            :href            => "/cloudapi/ecloud/operatingsystems/#{short_name}/computepools/#{compute_pool_id}",
-                            :name            => 'Sun Solaris 10 (64-bit)',
-                            :type            => 'application/vnd.tmrk.cloud.operatingSystem',
-                            :FamilyName      => 'Solaris',
-                            :Links           => {
+                            :short_name           => short_name,
+                            :compute_pool_id      => compute_pool_id,
+                            :href                 => "/cloudapi/ecloud/operatingsystems/#{short_name}/computepools/#{compute_pool_id}",
+                            :name                 => 'Sun Solaris 10 (64-bit)',
+                            :type                 => 'application/vnd.tmrk.cloud.operatingSystem',
+                            :FamilyName           => 'Solaris',
+                            :Links                => {
                               :Link => Fog::Ecloud.keep(compute_pool, :href, :name, :type),
                             },
                             :ConfigurationOptions => {
-                              :Processor => {
+                              :Processor      => {
                                 :Minimum    => '1',
                                 :Maximum    => '8',
                                 :StepFactor => '1'
                               },
-                              :Memory => {
+                              :Memory         => {
                                 :MinimumSize => {
                                   :Unit  => 'MB',
                                   :Value => '800'
@@ -629,46 +629,46 @@ module Fog
                                   :Unit  => 'MB',
                                   :Value => '16384'
                                 },
-                                :StepFactor => {
+                                :StepFactor  => {
                                   :Unit  => 'MB',
                                   :Value => '4'
                                 }
                               },
-                              :Disk => {
-                                :Minimum => '1',
-                                :Maximum => '15',
+                              :Disk           => {
+                                :Minimum    => '1',
+                                :Maximum    => '15',
                                 :SystemDisk => {
                                   :ResourceCapacityRange => {
                                     :MinimumSize => {
-                                      :Unit => 'GB',
+                                      :Unit  => 'GB',
                                       :Value => '1'
                                     },
                                     :MaximumSize => {
-                                      :Unit => 'GB',
+                                      :Unit  => 'GB',
                                       :Value => '512'
                                     },
-                                    :StepFactor => {
-                                      :Unit => 'GB',
+                                    :StepFactor  => {
+                                      :Unit  => 'GB',
                                       :Value => '1' }
                                   },
-                                  :MonthlyCost => '0'
+                                  :MonthlyCost           => '0'
                                 },
-                                :DataDisk => {
+                                :DataDisk   => {
                                   :ResourceCapacityRange => {
                                     :MinimumSize => {
-                                      :Unit => 'GB',
+                                      :Unit  => 'GB',
                                       :Value => '1'
                                     },
                                     :MaximumSize => {
-                                      :Unit => 'GB',
+                                      :Unit  => 'GB',
                                       :Value => '512'
                                     },
-                                    :StepFactor => {
+                                    :StepFactor  => {
                                       :Unit  => 'GB',
                                       :Value => '1'
                                     }
                                   },
-                                  :MonthlyCost => '0'
+                                  :MonthlyCost           => '0'
                                 }
                               },
                               :NetworkAdapter => {
@@ -686,7 +686,7 @@ module Fog
                             :name            => 'Sun Solaris 10 (x64)',
                             :compute_pool_id => compute_pool_id,
                             :OperatingSystem => Fog::Ecloud.keep(operating_system, :href, :name, :type),
-                            :Memory => {
+                            :Memory          => {
                               :MinimumSize => {
                                 :Unit  => 'MB',
                                 :Value => '800'
@@ -695,12 +695,12 @@ module Fog
                                 :Unit  => 'MB',
                                 :Value => '16384'
                               },
-                              :StepFactor => {
+                              :StepFactor  => {
                                 :Unit  => 'MB',
                                 :Value => '4'
                               }
                             },
-                            :Storage => {
+                            :Storage         => {
                               :Size => {
                                 :Unit  => 'GB',
                                 :Value => '7'
@@ -723,7 +723,7 @@ module Fog
                                 :OperatingSystem => [Fog::Ecloud.keep(operating_system, :href, :name, :type)],
                               }
                             },
-                            :Links => {
+                            :Links                 => {
                               :Link => [
                                 Fog::Ecloud.keep(compute_pool, :href, :name, :type),
                               ]
@@ -735,26 +735,26 @@ module Fog
                             :href                  => "/cloudapi/ecloud/admin/sshKeys/#{ssh_key_id}",
                             :name                  => ssh_key_name,
                             :admin_organization_id => organization_id,
-                            :Links => {
+                            :Links                 => {
                               :Link => [
                                 Fog::Ecloud.keep(admin_organization, :href, :name, :type),
                                 Fog::Ecloud.keep(organization, :href, :name, :type),
                               ]
                             },
-                            :Default => 'true',
-                            :FingerPrint => Fog::Ecloud.mac_address
+                            :Default               => 'true',
+                            :FingerPrint           => Fog::Ecloud.mac_address
                           }
 
                           layout = {
-                            :id => environment_id,
-                            :href => "/cloudapi/ecloud/layout/environments/#{environment_id}",
-                            :type => 'application/vnd.tmrk.cloud.deviceLayout',
-                            :Links => {
+                            :id             => environment_id,
+                            :href           => "/cloudapi/ecloud/layout/environments/#{environment_id}",
+                            :type           => 'application/vnd.tmrk.cloud.deviceLayout',
+                            :Links          => {
                               :Link => [
                                 Fog::Ecloud.keep(environment, :name, :href, :type),
                               ],
                             },
-                            :Rows => {
+                            :Rows           => {
                               :Row => [
                               ],
                             },

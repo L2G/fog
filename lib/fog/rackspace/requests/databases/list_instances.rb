@@ -5,8 +5,8 @@ module Fog
         def list_instances()
           request(
             :expects => 200,
-            :method => 'GET',
-            :path => 'instances'
+            :method  => 'GET',
+            :path    => 'instances'
           )
         end
       end

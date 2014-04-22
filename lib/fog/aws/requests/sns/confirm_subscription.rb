@@ -19,10 +19,10 @@ module Fog
 
         def confirm_subscription(arn, token, options = {})
           request({
-            'Action'    => 'ConfirmSubscription',
-            'Token'     => token,
-            'TopicArn'  => arn.strip,
-            :parser     => Fog::Parsers::AWS::SNS::ConfirmSubscription.new
+            'Action'   => 'ConfirmSubscription',
+            'Token'    => token,
+            'TopicArn' => arn.strip,
+            :parser    => Fog::Parsers::AWS::SNS::ConfirmSubscription.new
           }.merge!(options))
         end
 

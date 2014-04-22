@@ -33,10 +33,10 @@ module Fog
           path   = uri.path
 
           response = shared_request(
-            :expects  => 200,
-            :method   => 'GET',
-            :path     => path,
-            :query    => { 'format' => 'json' }.merge!(options)
+            :expects => 200,
+            :method  => 'GET',
+            :path    => path,
+            :query   => { 'format' => 'json' }.merge!(options)
           )
           response
         end

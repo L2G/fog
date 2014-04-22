@@ -26,8 +26,8 @@ module Fog
           params['NumberOfLines'] = opts[:number_of_lines] if opts[:number_of_lines]
 
           request({
-            'Action'  => 'DownloadDBLogFilePortion',
-            :parser   => Fog::Parsers::AWS::RDS::DownloadDBLogFilePortion.new
+            'Action' => 'DownloadDBLogFilePortion',
+            :parser  => Fog::Parsers::AWS::RDS::DownloadDBLogFilePortion.new
           }.merge(params))
         end
 
@@ -50,7 +50,7 @@ module Fog
 
           response.status = 200
           response.body = {
-              'ResponseMetadata' => { 'RequestId' => Fog::AWS::Mock.request_id },
+              'ResponseMetadata'          => { 'RequestId' => Fog::AWS::Mock.request_id },
               'DescribeDBInstancesResult' => { 'DBInstances' => server_set }
           }
           response

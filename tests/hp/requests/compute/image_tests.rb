@@ -1,21 +1,21 @@
 Shindo.tests('Fog::Compute[:hp] | image requests', ['hp']) do
 
   @image_format = {
-    'id'        => String,
-    'links'     => [Hash],
-    'metadata'  => Fog::Nullable::Hash,
-    'server'    => Fog::Nullable::Hash,
-    'name'      => String,
-    'progress'  => Fog::Nullable::Integer,
-    'status'    => String,
-    'created'   => Fog::Nullable::String,
-    'updated'   => Fog::Nullable::String
+    'id'       => String,
+    'links'    => [Hash],
+    'metadata' => Fog::Nullable::Hash,
+    'server'   => Fog::Nullable::Hash,
+    'name'     => String,
+    'progress' => Fog::Nullable::Integer,
+    'status'   => String,
+    'created'  => Fog::Nullable::String,
+    'updated'  => Fog::Nullable::String
   }
 
   @list_images_format = {
-    'id'        => String,
-    'links'     => Fog::Nullable::Array,
-    'name'      => String
+    'id'    => String,
+    'links' => Fog::Nullable::Array,
+    'name'  => String
   }
 
   @base_image_id = ENV['BASE_IMAGE_ID'] || 1242

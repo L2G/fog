@@ -37,7 +37,7 @@ module Fog
                 'ResponseMetadata' => {
                   'RequestId' => Fog::AWS::Mock.request_id
                 },
-                'Attributes' => queue['Attributes']
+                'Attributes'       => queue['Attributes']
               }
             else
               response.status = 404

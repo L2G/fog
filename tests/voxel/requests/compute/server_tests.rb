@@ -1,20 +1,20 @@
 Shindo.tests('Fog::Compute[:voxel] | server requests', ['voxel']) do
 
   @server_format = {
-    'device'  => {
-      'id'                => String,
-      'last_update'       => Time
+    'device' => {
+      'id'          => String,
+      'last_update' => Time
     },
-    'stat'    => String
+    'stat'   => String
   }
 
   @devices_format = {
-    'devices'   => [{
+    'devices' => [{
       'access_methods'    => [],
       'description'       => String,
       'drives'            => [{
-        'position'  => Fog::Nullable::String,
-        'size'      => Integer
+        'position' => Fog::Nullable::String,
+        'size'     => Integer
       }],
       'id'                => String,
       'ipassignments'     => [{
@@ -25,25 +25,25 @@ Shindo.tests('Fog::Compute[:voxel] | server requests', ['voxel']) do
       }],
       'label'             => String,
       'location'          => {
-        'cage'      => {
+        'cage'     => {
           'id'    => String,
           'value' => String
         },
-        'facility'  => {
+        'facility' => {
           'code'  => String,
           'id'    => String,
           'value' => String
         },
-        'position'  => Fog::Nullable::String,
-        'rack'      => {
+        'position' => Fog::Nullable::String,
+        'rack'     => {
           'id'    => String,
           'value' => String
         },
-        'row'       => {
+        'row'      => {
           'id'    => String,
           'value' => String
         },
-        'zone'      => {
+        'zone'     => {
           'id'    => String,
           'value' => String
         }
@@ -54,12 +54,12 @@ Shindo.tests('Fog::Compute[:voxel] | server requests', ['voxel']) do
         'value' => String
       },
       'operating_system'  => {
-        'architecture'      => Integer,
-        'name'              => String
+        'architecture' => Integer,
+        'name'         => String
       },
       'power_consumption' => String,
       'processor'         => {
-        'cores'   => Integer
+        'cores' => Integer
       },
       'status'            => String,
       'type'              => {
@@ -67,7 +67,7 @@ Shindo.tests('Fog::Compute[:voxel] | server requests', ['voxel']) do
         'value' => String
       },
     }],
-    'stat'  => String,
+    'stat'    => String,
   }
 
   tests('success') do

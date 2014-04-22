@@ -19,8 +19,8 @@ module Fog
         # TODO: docs
         def support_password_list(options = {})
           request(
-            :path     => 'support/password/list',
-            :query    => options
+            :path  => 'support/password/list',
+            :query => options
           )
         end
 

@@ -21,13 +21,13 @@ Shindo.tests('AWS::SES | topic lifecycle tests', ['aws', 'sns']) do
 
     get_topic_attributes_format = AWS::SNS::Formats::BASIC.merge(
       'Attributes' => {
-        'DisplayName'             => String,
-        'Owner'                   => String,
-        'Policy'                  => String,
-        'SubscriptionsConfirmed'  => Integer,
-        'SubscriptionsDeleted'    => Integer,
-        'SubscriptionsPending'    => Integer,
-        'TopicArn'                => String
+        'DisplayName'            => String,
+        'Owner'                  => String,
+        'Policy'                 => String,
+        'SubscriptionsConfirmed' => Integer,
+        'SubscriptionsDeleted'   => Integer,
+        'SubscriptionsPending'   => Integer,
+        'TopicArn'               => String
       }
     )
 

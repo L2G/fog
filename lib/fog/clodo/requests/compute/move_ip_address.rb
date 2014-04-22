@@ -14,10 +14,10 @@ module Fog
 
         def move_ip_address(server_id, ip)
           request(
-                  :expects  => [204],
-                  :method   => 'GET',
-                  :path     => "servers/#{server_id}/ips/moveip",
-                  :body     => Fog::JSON.encode('ip' => "#{ip}")
+                  :expects => [204],
+                  :method  => 'GET',
+                  :path    => "servers/#{server_id}/ips/moveip",
+                  :body    => Fog::JSON.encode('ip' => "#{ip}")
                   )
         end
       end

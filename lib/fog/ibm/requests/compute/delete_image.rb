@@ -14,9 +14,9 @@ module Fog
         #     *'success'<~Bool>: true or false for success
         def delete_image(image_id)
           request(
-            :method   => 'DELETE',
-            :expects  => 200,
-            :path     => "/offerings/image/#{image_id}"
+            :method  => 'DELETE',
+            :expects => 200,
+            :path    => "/offerings/image/#{image_id}"
           )
         end
 

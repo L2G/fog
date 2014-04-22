@@ -4,9 +4,9 @@ module Fog
       class Real
         def list_monitoring_zones
           request(
-            :expects  => [200],
-            :method   => 'GET',
-            :path     => 'monitoring_zones'
+            :expects => [200],
+            :method  => 'GET',
+            :path    => 'monitoring_zones'
           )
         end
       end

@@ -15,22 +15,22 @@ module Fog
             headers['Transfer-Encoding'] = 'chunked'
             headers.delete('Content-Length')
             return request(
-              :request_block     => block,
-              :expects  => 201,
-              :headers  => headers,
-              :method   => 'PUT',
-              :path     => "#{Fog::HP.escape(container)}/#{Fog::HP.escape(object)}"
+              :request_block => block,
+              :expects       => 201,
+              :headers       => headers,
+              :method        => 'PUT',
+              :path          => "#{Fog::HP.escape(container)}/#{Fog::HP.escape(object)}"
             )
           end
           if headers.has_key?('Transfer-Encoding')
             headers.delete('Content-Length')
           end
           response = request(
-            :body     => data[:body],
-            :expects  => 201,
-            :headers  => headers,
-            :method   => 'PUT',
-            :path     => "#{Fog::HP.escape(container)}/#{Fog::HP.escape(object)}"
+            :body    => data[:body],
+            :expects => 201,
+            :headers => headers,
+            :method  => 'PUT',
+            :path    => "#{Fog::HP.escape(container)}/#{Fog::HP.escape(object)}"
           )
           response
         end
@@ -54,8 +54,8 @@ module Fog
               source_object = source_container[:objects][source_object_name]
               target_object = source_object.dup
               target_object.merge!(
-                'Key'    => object_name,
-                'Date'   => Fog::Time.now.to_date_header
+                'Key'  => object_name,
+                'Date' => Fog::Time.now.to_date_header
               )
               container[:objects][object_name] = target_object
             else
@@ -69,12 +69,12 @@ module Fog
             if (container = self.data[:containers][container_name])
               response.status = 201
               object = {
-                :body             => data[:body],
-                'Content-Type'    => options['Content-Type'] || data[:headers]['Content-Type'],
-                'ETag'            => Fog::HP::Mock.etag,
-                'Key'             => object_name,
-                'Date'            => Fog::Time.now.to_date_header,
-                'Content-Length'  => options['Content-Length'] || data[:headers]['Content-Length'],
+                :body            => data[:body],
+                'Content-Type'   => options['Content-Type'] || data[:headers]['Content-Type'],
+                'ETag'           => Fog::HP::Mock.etag,
+                'Key'            => object_name,
+                'Date'           => Fog::Time.now.to_date_header,
+                'Content-Length' => options['Content-Length'] || data[:headers]['Content-Length'],
               }
 
               for key, value in options
@@ -86,10 +86,10 @@ module Fog
 
               container[:objects][object_name] = object
               response.headers = {
-                'Content-Length'  => object['Content-Length'],
-                'Content-Type'    => object['Content-Type'],
-                'ETag'            => object['ETag'],
-                'Date'            => object['Date']
+                'Content-Length' => object['Content-Length'],
+                'Content-Type'   => object['Content-Type'],
+                'ETag'           => object['ETag'],
+                'Date'           => object['Date']
               }
             else
               raise Fog::Storage::HP::NotFound

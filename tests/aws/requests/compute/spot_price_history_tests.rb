@@ -1,14 +1,14 @@
 Shindo.tests('Fog::Compute[:aws] | spot price history requests', ['aws']) do
 
   @spot_price_history_format = {
-    'spotPriceHistorySet'   => [{
-      'availabilityZone'    => String,
-      'instanceType'        => String,
-      'spotPrice'           => Float,
-      'productDescription'  => String,
-      'timestamp'           => Time
+    'spotPriceHistorySet' => [{
+      'availabilityZone'   => String,
+      'instanceType'       => String,
+      'spotPrice'          => Float,
+      'productDescription' => String,
+      'timestamp'          => Time
     }],
-    'requestId' => String
+    'requestId'           => String
   }
 
   tests('success') do

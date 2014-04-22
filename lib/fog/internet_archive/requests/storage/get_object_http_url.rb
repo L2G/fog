@@ -17,12 +17,12 @@ module Fog
                          [@host, "#{bucket_name}/#{object_name}"]
                        end
           http_url({
-            :headers  => {},
-            :host     => host,
-            :port     => @port,
-            :method   => 'GET',
-            :path     => path,
-            :query    => options[:query]
+            :headers => {},
+            :host    => host,
+            :port    => @port,
+            :method  => 'GET',
+            :path    => path,
+            :query   => options[:query]
           }, expires)
         end
 

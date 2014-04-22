@@ -7,8 +7,8 @@ module Fog
 
         def images_list(image_id = nil)
           options = {
-            :parser     => Fog::Parsers::Compute::Voxel::ImagesList.new,
-            :verbosity  => 'compact'
+            :parser    => Fog::Parsers::Compute::Voxel::ImagesList.new,
+            :verbosity => 'compact'
           }
 
           unless image_id.nil?

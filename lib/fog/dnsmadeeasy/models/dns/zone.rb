@@ -21,7 +21,7 @@ module Fog
         def records
           @records ||= begin
             Fog::DNS::DNSMadeEasy::Records.new(
-              :zone       => self,
+              :zone    => self,
               :service => service
             )
           end

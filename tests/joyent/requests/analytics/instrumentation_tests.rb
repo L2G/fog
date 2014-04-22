@@ -3,23 +3,23 @@ Shindo.tests('Fog::Joyent[:analytics] | instrumentation requests', %w{joyent}) d
   @analytics = Fog::Joyent[:analytics]
 
   @instrumentation_schema = {
-      'id' => String,
-      'module' => String,
-      'stat' => String,
-      'predicate' => Hash,
-      'decomposition' => [String],
+      'id'              => String,
+      'module'          => String,
+      'stat'            => String,
+      'predicate'       => Hash,
+      'decomposition'   => [String],
       'value-dimension' => Integer,
-      'value-arity' => String,
-      'retention-time' => Integer,
-      'granularity' => Integer,
-      'idle-max' => Integer,
+      'value-arity'     => String,
+      'retention-time'  => Integer,
+      'granularity'     => Integer,
+      'idle-max'        => Integer,
       'transformations' => [String],
-      'persist-data' => Fog::Boolean,
-      'crtime' => Integer,
-      'value-scope' => String,
-      'uris' => [
+      'persist-data'    => Fog::Boolean,
+      'crtime'          => Integer,
+      'value-scope'     => String,
+      'uris'            => [
           {
-              'uri' => String,
+              'uri'  => String,
               'name' => String
           }
       ]

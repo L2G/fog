@@ -27,8 +27,8 @@ module Fog
           end
 
           request({
-              'Action'    => 'ListMetrics',
-              :parser     => Fog::Parsers::AWS::CloudWatch::ListMetrics.new
+              'Action' => 'ListMetrics',
+              :parser  => Fog::Parsers::AWS::CloudWatch::ListMetrics.new
             }.merge(options))
         end
 
@@ -39,12 +39,12 @@ module Fog
           body = case options['NextToken']
                  when nil
                    { 'ListMetricsResult' => {
-                      'Metrics' => (0...500).map{ {} },
+                      'Metrics'   => (0...500).map{ {} },
                       'NextToken' => '1'
                    } }
                  when '1'
                    { 'ListMetricsResult' => {
-                      'Metrics' => (0...500).map{ {} },
+                      'Metrics'   => (0...500).map{ {} },
                       'NextToken' => '2'
                    } }
                  when '2'

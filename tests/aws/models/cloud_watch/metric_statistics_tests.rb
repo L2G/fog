@@ -20,10 +20,10 @@ Shindo.tests('AWS::CloudWatch | metric_statistics', ['aws', 'cloudwatch']) do
     end
 
     new_attributes = {
-      :namespace => 'Custom/Test',
+      :namespace   => 'Custom/Test',
       :metric_name => 'ModelTest',
-      :value => 9,
-      :unit => 'None'
+      :value       => 9,
+      :unit        => 'None'
     }
     tests('#new').returns(new_attributes) do
       Fog::AWS[:cloud_watch].metric_statistics.new(new_attributes).attributes
@@ -34,14 +34,14 @@ Shindo.tests('AWS::CloudWatch | metric_statistics', ['aws', 'cloudwatch']) do
     end
 
     stats_set_attributes = {
-      :namespace => 'Custom/Test',
-      :metric_name => 'ModelTest',
-      :minimum => 0,
-      :maximum => 4,
-      :sum => 10,
+      :namespace    => 'Custom/Test',
+      :metric_name  => 'ModelTest',
+      :minimum      => 0,
+      :maximum      => 4,
+      :sum          => 10,
       :sample_count => 5,
-      :average => 2,
-      :unit => 'None'
+      :average      => 2,
+      :unit         => 'None'
     }
     tests('#create_stats_set').returns(stats_set_attributes) do
       Fog::AWS[:cloud_watch].metric_statistics.create(stats_set_attributes).attributes

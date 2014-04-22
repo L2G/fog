@@ -5,10 +5,10 @@ module Fog
 
         def list_entities(options = {})
           request(
-            :expects  => [200, 203],
-            :method   => 'GET',
-            :path     => 'entities',
-            :query    => options
+            :expects => [200, 203],
+            :method  => 'GET',
+            :path    => 'entities',
+            :query   => options
           )
         end
       end
@@ -23,7 +23,7 @@ module Fog
           response = Excon::Response.new
           response.status = 200
           response.body = {
-            'values' => [
+            'values'   => [
               {
                 'id'           => entity_id,
                 'label'        => entity_label,

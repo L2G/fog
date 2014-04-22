@@ -9,9 +9,9 @@ module Fog
         # * subnet_id<~String> - UUId for the subnet to delete
         def delete_subnet(subnet_id)
           request(
-            :expects  => 204,
-            :method   => 'DELETE',
-            :path     => "subnets/#{subnet_id}"
+            :expects => 204,
+            :method  => 'DELETE',
+            :path    => "subnets/#{subnet_id}"
           )
         end
       end

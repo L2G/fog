@@ -27,8 +27,8 @@ module Fog
         def get_image(image_id)
           request(
             :expects => [200, 203],
-            :method => 'GET',
-            :path => "images/#{image_id}"
+            :method  => 'GET',
+            :path    => "images/#{image_id}"
           )
         end
       end

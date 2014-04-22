@@ -45,8 +45,8 @@ Shindo.tests('Fog::Storage::AWS | ACL utils', ['aws']) do
     acl = {
       'AccessControlList' => [
         {
-          'Grantee' => {
-            'ID' => 'abcdef0123456789',
+          'Grantee'    => {
+            'ID'          => 'abcdef0123456789',
             'DisplayName' => 'bob'
           },
           'Permission' => 'READ'
@@ -77,7 +77,7 @@ Shindo.tests('Fog::Storage::AWS | ACL utils', ['aws']) do
     acl = {
       'AccessControlList' => [
         {
-          'Grantee' => {
+          'Grantee'    => {
             'EmailAddress' => 'user@example.com'
           },
           'Permission' => 'FULL_CONTROL'
@@ -103,7 +103,7 @@ Shindo.tests('Fog::Storage::AWS | ACL utils', ['aws']) do
     acl = {
       'AccessControlList' => [
         {
-          'Grantee' => {
+          'Grantee'    => {
             'URI' => 'http://acs.amazonaws.com/groups/global/AllUsers'
           },
           'Permission' => 'WRITE'
@@ -129,20 +129,20 @@ Shindo.tests('Fog::Storage::AWS | ACL utils', ['aws']) do
     acl = {
       'AccessControlList' => [
         {
-          'Grantee' => {
-            'ID' => 'abcdef0123456789',
+          'Grantee'    => {
+            'ID'          => 'abcdef0123456789',
             'DisplayName' => 'bob'
           },
           'Permission' => 'READ'
         },
         {
-          'Grantee' => {
+          'Grantee'    => {
             'EmailAddress' => 'user@example.com'
           },
           'Permission' => 'FULL_CONTROL'
         },
         {
-          'Grantee' => {
+          'Grantee'    => {
             'URI' => 'http://acs.amazonaws.com/groups/global/AllUsers'
           },
           'Permission' => 'WRITE'
@@ -191,14 +191,14 @@ Shindo.tests('Fog::Storage::AWS | ACL utils', ['aws']) do
 XML
 
     tests(".acl_to_hash(#{acl_xml.inspect})").returns({
-      'Owner' => {
+      'Owner'             => {
         'DisplayName' => 'me',
-        'ID' => '2744ccd10c7533bd736ad890f9dd5cab2adb27b07d500b9493f29cdc420cb2e0'
+        'ID'          => '2744ccd10c7533bd736ad890f9dd5cab2adb27b07d500b9493f29cdc420cb2e0'
       },
       'AccessControlList' => [{
-        'Grantee' => {
+        'Grantee'    => {
           'DisplayName' => 'me',
-          'ID' => '2744ccd10c7533bd736ad890f9dd5cab2adb27b07d500b9493f29cdc420cb2e0'
+          'ID'          => '2744ccd10c7533bd736ad890f9dd5cab2adb27b07d500b9493f29cdc420cb2e0'
         },
         'Permission' => 'FULL_CONTROL'
       }]

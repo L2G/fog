@@ -26,16 +26,16 @@ Shindo.tests('AWS::DataPipeline | pipeline_tests', ['aws', 'data_pipeline']) do
     tests('#put_pipeline_definition').formats(AWS::DataPipeline::Formats::PUT_PIPELINE_DEFINITION) do
       objects = [
         {
-          'id' => 'Nightly',
-          'type' => 'Schedule',
+          'id'            => 'Nightly',
+          'type'          => 'Schedule',
           'startDateTime' => Time.now.strftime('%Y-%m-%dT%H:%M:%S'),
-          'period' => '24 hours',
+          'period'        => '24 hours',
         },
         {
-          'id' => 'Default',
-          'role' => 'role-dumps',
+          'id'           => 'Default',
+          'role'         => 'role-dumps',
           'resourceRole' => 'role-dumps-inst',
-          'schedule' => { 'ref' => 'Nightly' },
+          'schedule'     => { 'ref' => 'Nightly' },
         },
       ]
 

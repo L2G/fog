@@ -14,12 +14,12 @@ module Fog
           validate_network_data(network_data)
 
           request(
-            :body     => generate_configure_network_request(network_data),
-            :expects  => 200,
-            :headers  => { 'Content-Type' => 'application/vnd.vmware.vcloud.networkService+xml' },
-            :method   => 'PUT',
-            :uri      => network_uri,
-            :parse    => true
+            :body    => generate_configure_network_request(network_data),
+            :expects => 200,
+            :headers => { 'Content-Type' => 'application/vnd.vmware.vcloud.networkService+xml' },
+            :method  => 'PUT',
+            :uri     => network_uri,
+            :parse   => true
           )
         end
 

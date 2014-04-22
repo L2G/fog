@@ -8,7 +8,7 @@ Shindo.tests('Fog::Compute[:brightbox] | server group requests', ['brightbox']) 
     end
 
     create_options = {
-      :name => "Fog@#{Time.now.iso8601}",
+      :name    => "Fog@#{Time.now.iso8601}",
       :servers => [{
         :server => server_id
       }]

@@ -2,11 +2,11 @@ Shindo.tests('Fog::Compute[:aws] | dhcp_options requests', ['aws']) do
 
   @dhcp_options_format = {
     'dhcpOptionsSet' => [{
-      'dhcpOptionsId'            => String,
-      'dhcpConfigurationSet'     => Hash,
-      'tagSet'                   => Fog::Nullable::Hash,
+      'dhcpOptionsId'        => String,
+      'dhcpConfigurationSet' => Hash,
+      'tagSet'               => Fog::Nullable::Hash,
     }],
-    'requestId' => String
+    'requestId'      => String
   }
 
   tests('success') do

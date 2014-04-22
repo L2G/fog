@@ -16,9 +16,9 @@ module Fog
         #     * 'domain'<~Hash> The representation of the domain.
         def get_domain(domain)
           request(
-            :expects  => 200,
-            :method   => 'GET',
-            :path     => "/domains/#{domain}"
+            :expects => 200,
+            :method  => 'GET',
+            :path    => "/domains/#{domain}"
           )
         end
 

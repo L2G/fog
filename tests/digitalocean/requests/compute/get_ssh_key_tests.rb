@@ -1,9 +1,9 @@
 Shindo.tests('Fog::Compute[:digitalocean] | get_ssh_keys request', ['digitalocean', 'compute']) do
 
   @ssh_key_format = {
-    'id'             => Integer,
-    'name'           => String,
-    'ssh_pub_key'    => String,
+    'id'          => Integer,
+    'name'        => String,
+    'ssh_pub_key' => String,
   }
 
   service = Fog::Compute[:digitalocean]

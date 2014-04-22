@@ -20,10 +20,10 @@ module Fog
         # {Amazon API Reference}[http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DeleteRoute.html]
         def delete_route(route_table_id, destination_cidr_block)
           request(
-            'Action'                => 'DeleteRoute',
-            'RouteTableId'          => route_table_id,
-            'DestinationCidrBlock'  => destination_cidr_block,
-            :parser                 => Fog::Parsers::Compute::AWS::Basic.new
+            'Action'               => 'DeleteRoute',
+            'RouteTableId'         => route_table_id,
+            'DestinationCidrBlock' => destination_cidr_block,
+            :parser                => Fog::Parsers::Compute::AWS::Basic.new
           )
         end
 
@@ -41,7 +41,7 @@ module Fog
               response.status = 200
               response.body = {
                 'requestId' => Fog::AWS::Mock.request_id,
-                'return' => true
+                'return'    => true
               }
               response
             elsif route['gatewayId'] == 'local'

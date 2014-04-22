@@ -1,9 +1,9 @@
 Shindo.tests('Fog::Compute[:openstack] | tenant requests', ['openstack']) do
 
   @tenant_format = {
-    'id'    => String,
-    'name'  => String,
-    'enabled'    => Fog::Boolean,
+    'id'          => String,
+    'name'        => String,
+    'enabled'     => Fog::Boolean,
     'description' => Fog::Nullable::String
   }
 

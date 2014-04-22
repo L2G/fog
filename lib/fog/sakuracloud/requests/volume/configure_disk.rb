@@ -14,10 +14,10 @@ module Fog
             :headers => {
               'Authorization' => "Basic #{@auth_encord}"
             },
-            :expects  => [200],
-            :method => 'PUT',
-            :path => "#{Fog::SakuraCloud::SAKURACLOUD_API_ENDPOINT}/disk/#{disk_id}/config",
-            :body => Fog::JSON.encode(body)
+            :expects => [200],
+            :method  => 'PUT',
+            :path    => "#{Fog::SakuraCloud::SAKURACLOUD_API_ENDPOINT}/disk/#{disk_id}/config",
+            :body    => Fog::JSON.encode(body)
           )
         end
       end # Real

@@ -3,12 +3,12 @@ Shindo.tests('Fog::Network[:openstack] | lb_member', ['openstack']) do
   tests('success') do
 
     tests('#create').succeeds do
-      @instance = Fog::Network[:openstack].lb_members.create(:pool_id => 'pool_id',
-                                                             :address => '10.0.0.1',
-                                                             :protocol_port => '80',
-                                                             :weight => 100,
+      @instance = Fog::Network[:openstack].lb_members.create(:pool_id        => 'pool_id',
+                                                             :address        => '10.0.0.1',
+                                                             :protocol_port  => '80',
+                                                             :weight         => 100,
                                                              :admin_state_up => true,
-                                                             :tenant_id => 'tenant_id')
+                                                             :tenant_id      => 'tenant_id')
       !@instance.id.nil?
     end
 

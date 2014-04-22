@@ -20,9 +20,9 @@ module Fog
         # {Amazon API Reference}[http://docs.amazonwebservices.com/AWSEC2/latest/APIReference/ApiReference-query-DeleteDhcpOptions.html]
         def delete_dhcp_options(dhcp_options_id)
           request(
-            'Action' => 'DeleteDhcpOptions',
+            'Action'        => 'DeleteDhcpOptions',
             'DhcpOptionsId' => dhcp_options_id,
-            :parser => Fog::Parsers::Compute::AWS::Basic.new
+            :parser         => Fog::Parsers::Compute::AWS::Basic.new
           )
         end
       end
@@ -36,7 +36,7 @@ module Fog
 
               response.body = {
                 'requestId' => Fog::AWS::Mock.request_id,
-                'return' => true
+                'return'    => true
               }
             else
               message = 'MissingParameter => '

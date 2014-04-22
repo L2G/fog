@@ -25,10 +25,10 @@ module Fog
         # {Amazon API Reference}[http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-ModifyVpcAttribute.html]
         def modify_vpc_attribute(vpc_id, options = {})
           request({
-            'Action'             => 'ModifyVpcAttribute',
-            'VpcId'              => vpc_id,
-            :idempotent          => true,
-            :parser              => Fog::Parsers::Compute::AWS::Basic.new
+            'Action'    => 'ModifyVpcAttribute',
+            'VpcId'     => vpc_id,
+            :idempotent => true,
+            :parser     => Fog::Parsers::Compute::AWS::Basic.new
           }.merge!(options))
         end
 

@@ -3,9 +3,9 @@ module Fog
     class CloudSigma
       class Real
         def open_vnc(server_id)
-          request(:path => "servers/#{server_id}/action/",
-                  :method => 'POST',
-                  :query => { :do => :open_vnc },
+          request(:path    => "servers/#{server_id}/action/",
+                  :method  => 'POST',
+                  :query   => { :do => :open_vnc },
                   :expects => [200, 202])
         end
       end
@@ -19,9 +19,9 @@ module Fog
           vnc_url = "vnc://#{host}:#{port}"
 
           response.body = {
-              'action' => 'open_vnc',
-              'result' => 'success',
-              'uuid' => server_id,
+              'action'  => 'open_vnc',
+              'result'  => 'success',
+              'uuid'    => server_id,
               'vnc_url' => vnc_url
           }
 

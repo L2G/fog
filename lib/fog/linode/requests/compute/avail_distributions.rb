@@ -18,9 +18,9 @@ module Fog
             options.merge!(:distributionId => distribution_id)
           end
           request(
-            :expects  => 200,
-            :method   => 'GET',
-            :query    => { :api_action => 'avail.distributions' }.merge!(options)
+            :expects => 200,
+            :method  => 'GET',
+            :query   => { :api_action => 'avail.distributions' }.merge!(options)
           )
         end
 
@@ -33,7 +33,7 @@ module Fog
 
           body = {
             'ERRORARRAY' => [],
-            'ACTION' => 'avail.distributions'
+            'ACTION'     => 'avail.distributions'
           }
           if distribution_id
             mock_distribution = create_mock_distribution(distribution_id)

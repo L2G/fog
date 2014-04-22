@@ -1,51 +1,51 @@
 Shindo.tests('Fog::Compute[:ibm] | image requests', ['ibm']) do
 
   @image_format  = {
-    'state'         => Integer,
-    'visibility'    => String,
-    'platform'      => String,
-    'owner'         => String,
-    'architecture'  => Fog::Nullable::String,
-    'createdTime'   => Integer,
-    'location'      => String,
-    'productCodes'  => Array,
-    'name'          => String,
-    'id'            => String,
-    'description'   => String,
-    'supportedInstanceTypes'  => Array,
-    'manifest'      => Fog::Nullable::String,
-    'documentation' => Fog::Nullable::String,
+    'state'                  => Integer,
+    'visibility'             => String,
+    'platform'               => String,
+    'owner'                  => String,
+    'architecture'           => Fog::Nullable::String,
+    'createdTime'            => Integer,
+    'location'               => String,
+    'productCodes'           => Array,
+    'name'                   => String,
+    'id'                     => String,
+    'description'            => String,
+    'supportedInstanceTypes' => Array,
+    'manifest'               => Fog::Nullable::String,
+    'documentation'          => Fog::Nullable::String,
   }
 
   # TODO: Actually check this format
   @product_code_format = {
-    'detail'        => String,
-    'label'         => String,
-    'price'         => @price_format,
-    'id'            => String
+    'detail' => String,
+    'label'  => String,
+    'price'  => @price_format,
+    'id'     => String
   }
 
   # TODO: Actually check this format
   @price_format = {
-    'rate'          => Float,
-    'unitOfMeasure' => String,
-    'effectiveDate' => Integer,
-    'currencyCode'  => String,
-    'pricePerQuantity'  => Integer
+    'rate'             => Float,
+    'unitOfMeasure'    => String,
+    'effectiveDate'    => Integer,
+    'currencyCode'     => String,
+    'pricePerQuantity' => Integer
   }
 
   @images_format = {
-    'images'     => [ @image_format ]
+    'images' => [ @image_format ]
   }
 
   @create_image_format = {
-    'name'        => String,
-    'createdTime' => Integer,
+    'name'         => String,
+    'createdTime'  => Integer,
     'productCodes' => Array,
-    'id'          => String,
-    'description' => String,
-    'visibility'  => String,
-    'state'       => Integer
+    'id'           => String,
+    'description'  => String,
+    'visibility'   => String,
+    'state'        => Integer
   }
 
   @instance_id    = nil

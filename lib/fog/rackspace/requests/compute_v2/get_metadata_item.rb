@@ -18,8 +18,8 @@ module Fog
         def get_metadata_item(collection, obj_id, key)
           request(
             :expects => 200,
-            :method => 'GET',
-            :path => "/#{collection}/#{obj_id}/metadata/#{key}"
+            :method  => 'GET',
+            :path    => "/#{collection}/#{obj_id}/metadata/#{key}"
           )
         end
       end

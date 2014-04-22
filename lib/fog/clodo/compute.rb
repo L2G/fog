@@ -48,8 +48,8 @@ module Fog
                 :images  => {},
                 :servers => {}
               },
-              :images  => {},
-              :servers => {}
+              :images        => {},
+              :servers       => {}
             }
           end
         end
@@ -94,13 +94,13 @@ module Fog
         def request(params)
           begin
             response = @connection.request(params.merge(
-              :headers  => {
+              :headers => {
                 'Content-Type' => 'application/json',
-                'Accept' => 'application/json',
+                'Accept'       => 'application/json',
                 'X-Auth-Token' => @auth_token
               }.merge!(params[:headers] || {}),
-              :host     => @host,
-              :path     => "#{@path}/#{params[:path]}"
+              :host    => @host,
+              :path    => "#{@path}/#{params[:path]}"
             ))
           rescue Excon::Errors::Unauthorized => error
             if error.response.body != 'Bad username or password' # token expiration

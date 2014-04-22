@@ -72,10 +72,10 @@ module Fog
           requires :zoneid
 
           options = {
-            :zoneid => zoneid,
+            :zoneid    => zoneid,
             :networkid => networkid,
-            :account => account,
-            :domainid => domainid
+            :account   => account,
+            :domainid  => domainid
           }.delete_if {|k,v| v.nil? || v == '' }
           data = service.associate_ip_address(options)
           merge_attributes(data)

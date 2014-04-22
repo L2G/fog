@@ -17,9 +17,9 @@ module Fog
         #       * 'addr'<~String> - IP address
         def list_server_addresses_by_network(server_id, network_name)
           request(
-            :expects  => [200,203],
-            :method   => 'GET',
-            :path     => "servers/#{server_id}/ips/#{Fog::HP.escape(network_name)}"
+            :expects => [200,203],
+            :method  => 'GET',
+            :path    => "servers/#{server_id}/ips/#{Fog::HP.escape(network_name)}"
           )
         end
 

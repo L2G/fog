@@ -23,7 +23,7 @@ module Fog
             'Marker'            => options[:marker],
             'MaxRecords'        => options[:max_records],
             'ShowCacheNodeInfo' => options[:show_node_info],
-            :parser => Fog::Parsers::AWS::Elasticache::DescribeCacheClusters.new
+            :parser             => Fog::Parsers::AWS::Elasticache::DescribeCacheClusters.new
           )
         end
 
@@ -42,8 +42,8 @@ module Fog
             raise Fog::AWS::Elasticache::NotFound
           end
           response.body = {
-            'CacheClusters'     => all_clusters,
-            'ResponseMetadata'  => { 'RequestId' => Fog::AWS::Mock.request_id }
+            'CacheClusters'    => all_clusters,
+            'ResponseMetadata' => { 'RequestId' => Fog::AWS::Mock.request_id }
           }
           response
         end

@@ -43,15 +43,15 @@ module Fog
           )
 
           body = {
-            :xmlns => xmlns,
-            :xmlns_xsi => xmlns_xsi,
+            :xmlns              => xmlns,
+            :xmlns_xsi          => xmlns_xsi,
             :xsi_schemaLocation => xsi_schema_location,
           }.merge(task_body(task_id))
 
           Excon::Response.new(
-            :status => 202,
+            :status  => 202,
             :headers => { 'Content-Type' => "#{body[:type]};version=#{api_version}" },
-            :body => body
+            :body    => body
           )
         end
       end

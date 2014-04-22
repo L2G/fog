@@ -13,9 +13,9 @@ module Fog
 
         def add_ip_address(server_id)
           request(
-                  :expects  => [204],
-                  :method   => 'PUT',
-                  :path     => "servers/#{server_id}/ips"
+                  :expects => [204],
+                  :method  => 'PUT',
+                  :path    => "servers/#{server_id}/ips"
                   )
         end
       end
@@ -29,8 +29,8 @@ module Fog
 
           data = {
             'primary_ip' => false,
-            'isp' => false,
-            'ip' => "66.6.#{rand(255)}.#{rand(255)}"
+            'isp'        => false,
+            'ip'         => "66.6.#{rand(255)}.#{rand(255)}"
           }
 
           raise Excon::Errors::BadRequest unless self.data[:servers][server_id]

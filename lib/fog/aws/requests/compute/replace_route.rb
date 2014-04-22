@@ -26,10 +26,10 @@ module Fog
           options['DestinationCidrBlock'] ||= destination_cidr_block
 
           request({
-            'Action' => 'ReplaceRoute',
+            'Action'       => 'ReplaceRoute',
             'RouteTableId' => route_table_id,
-            :idempotent => true,
-            :parser => Fog::Parsers::Compute::AWS::Basic.new
+            :idempotent    => true,
+            :parser        => Fog::Parsers::Compute::AWS::Basic.new
           }.merge!(options))
 
         end
@@ -62,7 +62,7 @@ module Fog
                 response.status = 200
                 response.body = {
                   'requestId' => Fog::AWS::Mock.request_id,
-                  'return' => true
+                  'return'    => true
                 }
                 response
               end

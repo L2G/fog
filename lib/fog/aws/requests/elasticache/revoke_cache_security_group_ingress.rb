@@ -17,11 +17,11 @@ module Fog
         #   * body <~Hash>
         def revoke_cache_security_group_ingress(name, ec2_name, ec2_owner_id)
           request(
-            'Action' => 'RevokeCacheSecurityGroupIngress',
-            'CacheSecurityGroupName' => name,
-            'EC2SecurityGroupName' => ec2_name,
+            'Action'                  => 'RevokeCacheSecurityGroupIngress',
+            'CacheSecurityGroupName'  => name,
+            'EC2SecurityGroupName'    => ec2_name,
             'EC2SecurityGroupOwnerId' => ec2_owner_id,
-            :parser => Fog::Parsers::AWS::Elasticache::SingleSecurityGroup.new
+            :parser                   => Fog::Parsers::AWS::Elasticache::SingleSecurityGroup.new
           )
         end
 

@@ -60,8 +60,8 @@ module Fog
 
             load_balancer['Policies']['Proper'] << {
               'PolicyAttributeDescriptions' => attributes,
-              'PolicyName' => name,
-              'PolicyTypeName' => type_name
+              'PolicyName'                  => name,
+              'PolicyTypeName'              => type_name
             }
 
             response.status = 200

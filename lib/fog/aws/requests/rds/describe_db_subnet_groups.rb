@@ -26,8 +26,8 @@ module Fog
           end
 
           request({
-            'Action'  => 'DescribeDBSubnetGroups',
-            :parser   => Fog::Parsers::AWS::RDS::DescribeDBSubnetGroups.new
+            'Action' => 'DescribeDBSubnetGroups',
+            :parser  => Fog::Parsers::AWS::RDS::DescribeDBSubnetGroups.new
           }.merge(params))
         end
 
@@ -51,7 +51,7 @@ module Fog
 
           response.status = 200
           response.body = {
-            'ResponseMetadata' => { 'RequestId' => Fog::AWS::Mock.request_id },
+            'ResponseMetadata'             => { 'RequestId' => Fog::AWS::Mock.request_id },
             'DescribeDBSubnetGroupsResult' => { 'DBSubnetGroups' => subnet_group_set }
           }
           response

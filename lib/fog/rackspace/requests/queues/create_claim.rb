@@ -20,18 +20,18 @@ module Fog
         # @see http://docs.rackspace.com/queues/api/v1.0/cq-devguide/content/POST_claimMessages__version__queues__queue_name__claims_claims-operations-dle001.html
         def create_claim(queue_name, ttl, grace, options = {})
           body = {
-            :ttl => ttl,
+            :ttl   => ttl,
             :grace => grace
           }
 
           query = {}
           query[:limit] = options[:limit] if options.has_key? :limit
           request(
-            :body => Fog::JSON.encode(body),
+            :body    => Fog::JSON.encode(body),
             :expects => [200, 201, 204],
-            :method => 'POST',
-            :path => "queues/#{queue_name}/claims",
-            :query => query
+            :method  => 'POST',
+            :path    => "queues/#{queue_name}/claims",
+            :query   => query
           )
         end
 

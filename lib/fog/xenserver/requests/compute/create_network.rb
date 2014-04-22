@@ -12,11 +12,11 @@ module Fog
           config.reject! { |k,v| v.nil? }
 
           default_config = {
-            :name_label => name,
+            :name_label       => name,
             # Description is mandatory in XenAPI but we default to empty
             :name_description => config[:description] || '',
             # Mandatory, but can be empty
-            :other_config => {}
+            :other_config     => {}
           }.merge config
 
           @connection.request(

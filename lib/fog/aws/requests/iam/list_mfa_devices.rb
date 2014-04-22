@@ -29,8 +29,8 @@ module Fog
         #
         def list_mfa_devices(options = {})
           request({
-            'Action'  => 'ListMFADevices',
-            :parser   => Fog::Parsers::AWS::IAM::ListMFADevices.new
+            'Action' => 'ListMFADevices',
+            :parser  => Fog::Parsers::AWS::IAM::ListMFADevices.new
           }.merge!(options))
         end
       end
@@ -40,13 +40,13 @@ module Fog
           #FIXME: Doesn't observe options
           Excon::Response.new.tap do |response|
             response.status = 200
-            response.body = { 'MFADevices' => data[:devices].map do |device|
+            response.body = { 'MFADevices'  => data[:devices].map do |device|
                                             { 'EnableDate'   => device[:enable_date],
                                               'SerialNumber' => device[:serial_number],
                                               'UserName'     => device[:user_name] }
                                           end,
                               'IsTruncated' => false,
-                              'RequestId' => Fog::AWS::Mock.request_id }
+                              'RequestId'   => Fog::AWS::Mock.request_id }
           end
         end
       end

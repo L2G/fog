@@ -7,8 +7,8 @@ module Fog
         def get_group(group_id)
           request(
             :expects => [200],
-            :method => 'GET',
-            :path => "groups/#{group_id}"
+            :method  => 'GET',
+            :path    => "groups/#{group_id}"
           )
         end
       end

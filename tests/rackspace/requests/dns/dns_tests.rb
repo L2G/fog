@@ -28,21 +28,21 @@ Shindo.tests('Fog::DNS[:rackspace] | DNS requests', ['rackspace', 'dns']) do
   tests('success for domain with multiple records') do
     domain_tests(Fog::DNS[:rackspace],
 
-                 :name => domain_name,
-                 :email => 'hostmaster@' + domain_name,
+                 :name    => domain_name,
+                 :email   => 'hostmaster@' + domain_name,
                  :records =>
-                   [
+                             [
                      {
-                       :ttl => 300,
+                       :ttl  => 300,
                        :name => domain_name,
                        :type => 'A',
                        :data => '192.168.1.1'
                      },
                      {
-                       :ttl => 3600,
-                       :name => domain_name,
-                       :type => 'MX',
-                       :data => 'mx.' + domain_name,
+                       :ttl      => 3600,
+                       :name     => domain_name,
+                       :type     => 'MX',
+                       :data     => 'mx.' + domain_name,
                        :priority => 10
                      }
                    ]

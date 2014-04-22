@@ -22,18 +22,18 @@ module Fog
           path = "/#{account_id}/vaults/#{Fog::AWS.escape(vault_name)}/archives"
 
           headers = {
-            'Content-Length' => body.bytesize.to_s,
-            'x-amz-content-sha256' => Digest::SHA256.hexdigest(body),
+            'Content-Length'         => body.bytesize.to_s,
+            'x-amz-content-sha256'   => Digest::SHA256.hexdigest(body),
             'x-amz-sha256-tree-hash' => Fog::AWS::Glacier::TreeHash.digest(body)
           }
           headers['x-amz-archive-description'] = Fog::AWS.escape(options['description']) if options['description']
 
           request(
-            :expects  => 201,
+            :expects => 201,
             :headers => headers,
-            :method   => :post,
-            :path     => path,
-            :body     => body
+            :method  => :post,
+            :path    => path,
+            :body    => body
           )
         end
       end

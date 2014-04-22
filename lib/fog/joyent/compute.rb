@@ -131,7 +131,7 @@ module Fog
             @joyent_keyname = options[:joyent_keyname]
             @joyent_keyphrase = options[:joyent_keyphrase]
             @key_manager = Net::SSH::Authentication::KeyManager.new(nil,
-                                                                    :keys_only => true,
+                                                                    :keys_only  => true,
                                                                     :passphrase => @joyent_keyphrase
             )
             @header_method = method(:header_for_signature_auth)
@@ -168,8 +168,8 @@ module Fog
         def request(opts = {})
           opts[:headers] = {
             'X-Api-Version' => @joyent_version,
-            'Content-Type' => 'application/json',
-            'Accept' => 'application/json'
+            'Content-Type'  => 'application/json',
+            'Accept'        => 'application/json'
           }.merge(opts[:headers] || {}).merge(@header_method.call)
 
           if opts[:body]
@@ -227,7 +227,7 @@ module Fog
           signature = Base64.encode64(sig).delete("\r\n")
 
           {
-            'Date' => date,
+            'Date'          => date,
             'Authorization' => "Signature keyId=\"#{key_id}\",algorithm=\"#{key_type}-sha1\" #{signature}"
           }
         rescue Net::SSH::Authentication::KeyManagerError => e

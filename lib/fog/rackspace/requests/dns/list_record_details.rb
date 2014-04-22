@@ -10,9 +10,9 @@ module Fog
           path = "domains/#{domain_id}/records/#{record_id}"
 
           request(
-            :expects  => 200,
-            :method   => 'GET',
-            :path     => path
+            :expects => 200,
+            :method  => 'GET',
+            :path    => path
           )
         end
       end

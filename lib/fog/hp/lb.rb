@@ -45,14 +45,14 @@ module Fog
         def self.data
           @data ||= Hash.new do |hash, key|
             hash[key] = {
-                :versions => {
-                  'v1.1' => { 'id' => 'v1.1',
-                              'links' => [{ 'href' => 'http://api-docs.hpcloud.com', 'rel' => 'self' }],
-                              'status' => 'CURRENT',
+                :versions   => {
+                  'v1.1' => { 'id'      => 'v1.1',
+                              'links'   => [{ 'href' => 'http://api-docs.hpcloud.com', 'rel' => 'self' }],
+                              'status'  => 'CURRENT',
                               'updated' => '2012-12-18T18:30:02.25Z'
                   }
                 },
-                :limits => {
+                :limits     => {
                   'absolute' => {
                     'values' => {
                       'maxLoadBalancerNameLength' => 128,
@@ -62,8 +62,8 @@ module Fog
                     }
                   }
                 },
-                :lbs => {},
-                :protocols => {
+                :lbs        => {},
+                :protocols  => {
                   'HTTP' => { 'name' => 'HTTP', 'port' => 80 },
                   'TCP'  => { 'name' => 'TCP', 'port'  => 443 }
                 },

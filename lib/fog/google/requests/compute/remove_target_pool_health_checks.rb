@@ -15,9 +15,9 @@ module Fog
         def remove_target_pool_health_checks(target_pool, health_checks)
           api_method = @compute.target_pools.remove_health_check
           parameters = {
-            'project' => @project,
+            'project'    => @project,
             'targetPool' => target_pool.name,
-            'region' => target_pool.region.split('/')[-1]
+            'region'     => target_pool.region.split('/')[-1]
           }
           body = {
             'healthChecks' => health_checks.collect { |i| { 'healthCheck' => i } }

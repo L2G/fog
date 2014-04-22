@@ -14,10 +14,10 @@ module Fog
         #
         def list_configurations
           request(
-            :expects  => 200,
-            :method   => 'GET',
-            :parser   => Fog::ToHashDocument.new,
-            :path     => 'api/listConfigurations'
+            :expects => 200,
+            :method  => 'GET',
+            :parser  => Fog::ToHashDocument.new,
+            :path    => 'api/listConfigurations'
           )
         end
 

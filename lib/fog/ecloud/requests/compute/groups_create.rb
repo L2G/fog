@@ -8,12 +8,12 @@ module Fog
           validate_data([:name], data)
 
           request(
-            :body => generate_groups_create_request(data),
+            :body    => generate_groups_create_request(data),
             :expects => 201,
-            :method => 'POST',
+            :method  => 'POST',
             :headers => {},
-            :uri => data[:uri],
-            :parse => true
+            :uri     => data[:uri],
+            :parse   => true
           )
         end
 

@@ -14,8 +14,8 @@ module Fog
         # TODO: docs
         def grid_server_delete(server)
           request(
-            :path     => 'grid/server/delete',
-            :query    => { 'server' => server }
+            :path  => 'grid/server/delete',
+            :query => { 'server' => server }
           )
         end
 

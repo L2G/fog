@@ -1,9 +1,9 @@
 Shindo.tests('Fog::Compute[:bluebox] | product requests', ['bluebox']) do
 
   @product_format = {
-    'id' => String,
+    'id'          => String,
     'description' => String,
-    'cost' => String
+    'cost'        => String
   }
 
   tests('success') do

@@ -7,8 +7,8 @@ module Fog
 
         def list_account_aliases(options = {})
           request({
-            'Action'  => 'ListAccountAliases',
-            :parser   => Fog::Parsers::AWS::IAM::ListAccountAliases.new
+            'Action' => 'ListAccountAliases',
+            :parser  => Fog::Parsers::AWS::IAM::ListAccountAliases.new
           }.merge!(options))
         end
 

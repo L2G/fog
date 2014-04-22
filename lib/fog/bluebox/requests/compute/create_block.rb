@@ -33,11 +33,11 @@ module Fog
           query['ipv6_only'] = options.delete('ipv6_only') if options['ipv6_only']
 
           request(
-            :expects  => 200,
-            :method   => 'POST',
-            :path     => '/api/blocks.json',
-            :query    => query,
-            :body     => options.map {|k,v| "#{CGI.escape(k)}=#{CGI.escape(v)}"}.join('&')
+            :expects => 200,
+            :method  => 'POST',
+            :path    => '/api/blocks.json',
+            :query   => query,
+            :body    => options.map {|k,v| "#{CGI.escape(k)}=#{CGI.escape(v)}"}.join('&')
           )
         end
 

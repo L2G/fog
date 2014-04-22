@@ -1,8 +1,8 @@
 Shindo.tests('Fog::Compute[:digitalocean] | list_ssh_keys request', ['digitalocean', 'compute']) do
 
   @ssh_key_format = {
-    'id'           => Integer,
-    'name'         => String
+    'id'   => Integer,
+    'name' => String
   }
 
   tests('success') do

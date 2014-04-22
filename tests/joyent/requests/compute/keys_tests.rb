@@ -1,8 +1,8 @@
 Shindo.tests('Fog::Compute[:joyent] | key requests', ['joyent']) do
 
   @key_format = {
-    'name' => String,
-    'key' => String,
+    'name'    => String,
+    'key'     => String,
     'created' => Time,
     'updated' => Time
   }
@@ -21,7 +21,7 @@ Shindo.tests('Fog::Compute[:joyent] | key requests', ['joyent']) do
 
     Fog::Compute[:joyent].create_key(
       :name => @test_key_name,
-      :key => 'ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDWxSNYngOTeu0pYd+2tpfYGISuMfMUNGyAIh4yRprAbacVddRq4Nyr12vDklzaRTzgd9PgX/82JMb4RARbVTtUKXJXmaBLvg2epGM+ScanZIitzL53whJrlGx+7nT+TnRdkB1XG7uIf2EpTQBaKrT4iG0magCXh5bmOqCyWte2gV8fArMg5bZclUT1p2E7qEW0htaLOiMSyGkjBlxb6vYQCA/Pa8VWETHehIF46S942gCj0aaL81gTocfyTm5/F+AgvUAsjHzRVkB/Dlhwq7Q7sK+4iAhlKPYMflkKC8r+nF0/LL9S3lllLZvbkEWJfEqlMCAbgmjTpYlBzQEqf/eN'
+      :key  => 'ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDWxSNYngOTeu0pYd+2tpfYGISuMfMUNGyAIh4yRprAbacVddRq4Nyr12vDklzaRTzgd9PgX/82JMb4RARbVTtUKXJXmaBLvg2epGM+ScanZIitzL53whJrlGx+7nT+TnRdkB1XG7uIf2EpTQBaKrT4iG0magCXh5bmOqCyWte2gV8fArMg5bZclUT1p2E7qEW0htaLOiMSyGkjBlxb6vYQCA/Pa8VWETHehIF46S942gCj0aaL81gTocfyTm5/F+AgvUAsjHzRVkB/Dlhwq7Q7sK+4iAhlKPYMflkKC8r+nF0/LL9S3lllLZvbkEWJfEqlMCAbgmjTpYlBzQEqf/eN'
     )
   end
 

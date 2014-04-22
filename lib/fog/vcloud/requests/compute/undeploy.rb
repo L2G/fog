@@ -17,12 +17,12 @@ module Fog
 EOF
                     end
           request(
-                  :body     => builder,
-                  :expects  => 202,
-                  :headers  => { 'Content-Type' => 'application/vnd.vmware.vcloud.undeployVAppParams+xml' },
-                  :method   => 'POST',
-                  :uri      => vapp_uri + '/action/undeploy',
-                  :parse    => true
+                  :body    => builder,
+                  :expects => 202,
+                  :headers => { 'Content-Type' => 'application/vnd.vmware.vcloud.undeployVAppParams+xml' },
+                  :method  => 'POST',
+                  :uri     => vapp_uri + '/action/undeploy',
+                  :parse   => true
                   )
         end
       end

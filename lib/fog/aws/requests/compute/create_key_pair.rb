@@ -36,9 +36,9 @@ module Fog
           unless self.data[:key_pairs][key_name]
             response.status = 200
             data = {
-              'keyFingerprint'  => Fog::AWS::Mock.key_fingerprint,
-              'keyMaterial'     => Fog::AWS::Mock.key_material,
-              'keyName'         => key_name
+              'keyFingerprint' => Fog::AWS::Mock.key_fingerprint,
+              'keyMaterial'    => Fog::AWS::Mock.key_material,
+              'keyName'        => key_name
             }
             self.data[:key_pairs][key_name] = data
             response.body = {

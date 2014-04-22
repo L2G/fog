@@ -15,10 +15,10 @@ module Fog
         def post_record(type, zone, fqdn, rdata, options = {})
           options.merge!('rdata' => rdata)
           request(
-            :body     => Fog::JSON.encode(options),
-            :expects  => 200,
-            :method   => :post,
-            :path     => ["#{type.to_s.upcase}Record", zone, fqdn].join('/')
+            :body    => Fog::JSON.encode(options),
+            :expects => 200,
+            :method  => :post,
+            :path    => ["#{type.to_s.upcase}Record", zone, fqdn].join('/')
           )
         end
       end
@@ -32,11 +32,11 @@ module Fog
           zone[:next_record_id] += 1
 
           record = {
-            :type => type,
-            :zone => zone,
-            :fqdn => fqdn,
-            :rdata => rdata,
-            :ttl => options[:ttl] || zone[:ttl],
+            :type      => type,
+            :zone      => zone,
+            :fqdn      => fqdn,
+            :rdata     => rdata,
+            :ttl       => options[:ttl] || zone[:ttl],
             :record_id => record_id
           }
 
@@ -47,20 +47,20 @@ module Fog
 
           response.body = {
             'status' => 'success',
-            'data' => {
-              'zone' => record[:zone][:zone],
-              'ttl' => record[:ttl],
-              'fqdn' => record[:fqdn],
+            'data'   => {
+              'zone'        => record[:zone][:zone],
+              'ttl'         => record[:ttl],
+              'fqdn'        => record[:fqdn],
               'record_type' => record[:type],
-              'rdata' => record[:rdata],
-              'record_id' => record[:record_id]
+              'rdata'       => record[:rdata],
+              'record_id'   => record[:record_id]
            },
-           'job_id' => Fog::Dynect::Mock.job_id,
-           'msgs' => [{
-             'INFO' => 'add: Record added',
+            'job_id' => Fog::Dynect::Mock.job_id,
+            'msgs'   => [{
+             'INFO'   => 'add: Record added',
              'SOURCE' => 'BLL',
              'ERR_CD' => nil,
-             'LVL' => 'INFO'
+             'LVL'    => 'INFO'
            }]
           }
 

@@ -30,9 +30,9 @@ module Fog
         # {Amazon API Reference}[http://docs.amazonwebservices.com/AWSEC2/2011-07-15/APIReference/index.html?ApiReference-query-CreateVpc.html]
         def create_vpc(cidrBlock, options = {})
           request({
-            'Action' => 'CreateVpc',
+            'Action'    => 'CreateVpc',
             'CidrBlock' => cidrBlock,
-            :parser => Fog::Parsers::Compute::AWS::CreateVpc.new
+            :parser     => Fog::Parsers::Compute::AWS::CreateVpc.new
           }.merge!(options))
 
         end

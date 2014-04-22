@@ -33,10 +33,10 @@ module Fog
           end
 
           request(
-            :body     => Fog::JSON.encode(data),
-            :expects  => 200,
-            :method   => 'PUT',
-            :path     => "networks/#{network_id}"
+            :body    => Fog::JSON.encode(data),
+            :expects => 200,
+            :method  => 'PUT',
+            :path    => "networks/#{network_id}"
           )
         end
       end

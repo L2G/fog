@@ -26,10 +26,10 @@ module Fog
         #
         def create_user(user_name, path = '/')
           request(
-            'Action'    => 'CreateUser',
-            'UserName'  => user_name,
-            'Path'      => path,
-            :parser     => Fog::Parsers::AWS::IAM::CreateUser.new
+            'Action'   => 'CreateUser',
+            'UserName' => user_name,
+            'Path'     => path,
+            :parser    => Fog::Parsers::AWS::IAM::CreateUser.new
           )
         end
 
@@ -43,7 +43,7 @@ module Fog
             data[:users][user_name][:path] = path
             Excon::Response.new.tap do |response|
               response.status = 200
-              response.body = { 'User' => {
+              response.body = { 'User'      => {
                                            'UserId'     => data[:users][user_name][:user_id],
                                            'Path'       => path,
                                            'UserName'   => user_name,

@@ -25,9 +25,9 @@ module Fog
         #       * 'id'<~String>: id of offering
         def list_address_offerings
           request(
-            :expects  => 200,
-            :method   => 'GET',
-            :path     => '/offerings/address'
+            :expects => 200,
+            :method  => 'GET',
+            :path    => '/offerings/address'
           )
         end
 
@@ -39,16 +39,16 @@ module Fog
           response = Excon::Response.new
           response.status = 200
           response.body = { 'addresses' =>
-              [{ 'price' =>
-                 { 'pricePerQuantity' => 1,
-                  'effectiveDate' => 1302566400000,
-                  'rate' => 0.01,
-                  'countryCode' => '897',
-                  'unitOfMeasure' => 'UHR',
-                  'currencyCode' => 'USD' },
-                'location' => '101',
-                'ipType' => 0,
-                'id' => '20001223' }] }
+                                           [{ 'price'    =>
+                                                            { 'pricePerQuantity' => 1,
+                                                              'effectiveDate'    => 1302566400000,
+                                                              'rate'             => 0.01,
+                                                              'countryCode'      => '897',
+                                                              'unitOfMeasure'    => 'UHR',
+                                                              'currencyCode'     => 'USD' },
+                                              'location' => '101',
+                                              'ipType'   => 0,
+                                              'id'       => '20001223' }] }
           response
         end
 

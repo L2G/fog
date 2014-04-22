@@ -1,13 +1,13 @@
 Shindo.tests('Fog::Compute[:aws] | availability zone requests', ['aws']) do
 
   @availability_zones_format = {
-    'availabilityZoneInfo'  => [{
-      'messageSet'  => [],
-      'regionName'  => String,
-      'zoneName'    => String,
-      'zoneState'   => String
+    'availabilityZoneInfo' => [{
+      'messageSet' => [],
+      'regionName' => String,
+      'zoneName'   => String,
+      'zoneState'  => String
     }],
-    'requestId'             => String
+    'requestId'            => String
   }
 
   tests('success') do

@@ -10,9 +10,9 @@ module Fog
         #
         def delete_image(image_id)
           request(
-            :expects  => 204,
-            :method   => 'DELETE',
-            :path     => "images/#{image_id}"
+            :expects => 204,
+            :method  => 'DELETE',
+            :path    => "images/#{image_id}"
           )
         end
 

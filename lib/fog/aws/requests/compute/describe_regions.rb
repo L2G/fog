@@ -56,8 +56,8 @@ module Fog
 
           response.status = 200
           response.body = {
-            'requestId'   => Fog::AWS::Mock.request_id,
-            'regionInfo'  => region_info
+            'requestId'  => Fog::AWS::Mock.request_id,
+            'regionInfo' => region_info
           }
           response
         end

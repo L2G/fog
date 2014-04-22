@@ -23,10 +23,10 @@ module Fog
         #     * 'minimum'<~Integer> - Minimum refresh interval for the zone
         def get_zone(zone_id)
           request(
-            :expects  => 200,
-            :method   => 'GET',
-            :parser   => Fog::Parsers::DNS::Bluebox::GetZone.new,
-            :path     => "/api/domains/#{zone_id}.xml"
+            :expects => 200,
+            :method  => 'GET',
+            :parser  => Fog::Parsers::DNS::Bluebox::GetZone.new,
+            :path    => "/api/domains/#{zone_id}.xml"
           )
         end
 

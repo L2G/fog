@@ -10,8 +10,8 @@ module Fog
           virtualmachineids = [*virtualmachineids]
 
           options = {
-            'command' => 'removeFromLoadBalancerRule',
-            'id' => id,
+            'command'           => 'removeFromLoadBalancerRule',
+            'id'                => id,
             'virtualmachineids' => virtualmachineids.join(',')
           }
 

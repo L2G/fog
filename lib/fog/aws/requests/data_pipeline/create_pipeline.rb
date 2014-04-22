@@ -16,12 +16,12 @@ module Fog
         def create_pipeline(unique_id, name, description = nil)
           params = {
             'uniqueId' => unique_id,
-            'name' => name,
+            'name'     => name,
           }
           params['Description'] = description if description
 
           response = request(
-            :body => Fog::JSON.encode(params),
+            :body    => Fog::JSON.encode(params),
             :headers => { 'X-Amz-Target' => 'DataPipeline.CreatePipeline' }
           )
 

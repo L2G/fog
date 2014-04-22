@@ -6,26 +6,26 @@ Shindo.tests('AWS::EMR | instance groups', ['aws', 'emr']) do
 
   @job_flow_options = {
     'Instances' => {
-      'MasterInstanceType' => 'm1.small',
-      'SlaveInstanceType' => 'm1.small',
-      'InstanceCount' => 2,
-      'Placement' => {
+      'MasterInstanceType'          => 'm1.small',
+      'SlaveInstanceType'           => 'm1.small',
+      'InstanceCount'               => 2,
+      'Placement'                   => {
         'AvailabilityZone' => 'us-east-1a'
       },
       'KeepJobFlowAliveWhenNoSteps' => false,
-      'TerminationProtected' => false,
-      'HadoopVersion' => '0.20'
+      'TerminationProtected'        => false,
+      'HadoopVersion'               => '0.20'
     }
   }
 
   @job_flow_steps = {
     'Steps' => [{
-      'Name' => 'Dummy streaming job',
+      'Name'            => 'Dummy streaming job',
       'ActionOnFailure' => 'CONTINUE',
-      'HadoopJarStep' => {
-        'Jar' => '/home/hadoop/contrib/streaming/hadoop-streaming.jar',
+      'HadoopJarStep'   => {
+        'Jar'       => '/home/hadoop/contrib/streaming/hadoop-streaming.jar',
         'MainClass' => nil,
-        'Args' => %w(-input s3n://elasticmapreduce/samples/wordcount/input -output hdfs:///examples/output/2011-11-03T090856 -mapper s3n://elasticmapreduce/samples/wordcount/wordSplitter.py -reducer aggregate)
+        'Args'      => %w(-input s3n://elasticmapreduce/samples/wordcount/input -output hdfs:///examples/output/2011-11-03T090856 -mapper s3n://elasticmapreduce/samples/wordcount/wordSplitter.py -reducer aggregate)
       }
     }]
   }
@@ -33,9 +33,9 @@ Shindo.tests('AWS::EMR | instance groups', ['aws', 'emr']) do
   @instance_group_name = "fog_instance_group_#{Time.now.to_f.to_s.gsub('.','')}"
   @instance_groups = {
     'InstanceGroups' => [{
-      'Name' => @instance_group_name,
-      'InstanceRole' => 'TASK',
-      'InstanceType' => 'm1.small',
+      'Name'          => @instance_group_name,
+      'InstanceRole'  => 'TASK',
+      'InstanceType'  => 'm1.small',
       'InstanceCount' => 2
     }]
   }

@@ -3,9 +3,9 @@ module Fog
     class CloudSigma
       class Real
         def stop_server(server_id)
-          request(:path => "servers/#{server_id}/action/",
-                  :method => 'POST',
-                  :query => { :do => :stop },
+          request(:path    => "servers/#{server_id}/action/",
+                  :method  => 'POST',
+                  :query   => { :do => :stop },
                   :expects => [200, 202])
         end
       end
@@ -20,7 +20,7 @@ module Fog
           response.body = {
               'action' => 'stop',
               'result' => 'success',
-              'uuid' => server_id
+              'uuid'   => server_id
           }
 
           response

@@ -11,9 +11,9 @@ module Fog
         # * response<~Excon::Response>: - HTTP status code will be result
         def delete_record(zone_id, record_id)
           request(
-            :expects  => 200,
-            :method   => 'DELETE',
-            :path     => "/api/domains/#{zone_id}/records/#{record_id}.xml"
+            :expects => 200,
+            :method  => 'DELETE',
+            :path    => "/api/domains/#{zone_id}/records/#{record_id}.xml"
           )
         end
 

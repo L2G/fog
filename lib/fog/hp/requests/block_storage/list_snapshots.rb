@@ -21,9 +21,9 @@ module Fog
         #       * 'createdAt'<~String>: - Timestamp in UTC when volume was created
         def list_snapshots
           response = request(
-            :expects  => 200,
-            :method   => 'GET',
-            :path     => 'os-snapshots'
+            :expects => 200,
+            :method  => 'GET',
+            :path    => 'os-snapshots'
           )
           response
         end

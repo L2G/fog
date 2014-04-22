@@ -5,9 +5,9 @@ module Fog
 
         def get_entity(entity_id)
           request(
-            :expects  => [200, 203],
-            :method   => 'GET',
-            :path     => "entities/#{entity_id}"
+            :expects => [200, 203],
+            :method  => 'GET',
+            :path    => "entities/#{entity_id}"
           )
         end
 
@@ -28,14 +28,14 @@ module Fog
           response = Excon::Response.new
           response.status = 200
           response.body = {
-            'id'            => entity_id,
-            'label'         => entity_label,
-             'metadata'     => nil,
-             'managed'      => false,
-             'uri'          => 'https://ord.servers.api.rackspacecloud.com/' + account_id + '/servers/' + server_id,
-             'agent_id'     => nil,
-             'created_at'   => Time.now.to_i - 1,
-             'updated_at'   => Time.now.to_i
+            'id'         => entity_id,
+            'label'      => entity_label,
+            'metadata'   => nil,
+            'managed'    => false,
+            'uri'        => 'https://ord.servers.api.rackspacecloud.com/' + account_id + '/servers/' + server_id,
+            'agent_id'   => nil,
+            'created_at' => Time.now.to_i - 1,
+            'updated_at' => Time.now.to_i
 
           }
           response.headers = {

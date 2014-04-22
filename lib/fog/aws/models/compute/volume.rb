@@ -56,9 +56,9 @@ module Fog
             Fog.wait_for { self.reload rescue nil }
             for key, value in (self.tags = tags)
               service.tags.create(
-                :key          => key,
-                :resource_id  => self.identity,
-                :value        => value
+                :key         => key,
+                :resource_id => self.identity,
+                :value       => value
               )
             end
           end

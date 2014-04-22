@@ -20,7 +20,7 @@ module Fog
         def self.data
           @data ||= Hash.new do |hash, key|
             hash[key] = {
-              :owner_id => Fog::AWS::Mock.owner_id,
+              :owner_id            => Fog::AWS::Mock.owner_id,
               :server_certificates => {}
             }
           end
@@ -107,13 +107,13 @@ module Fog
           body = Fog::AWS.signed_params(
             params,
 
-            :aws_access_key_id  => @aws_access_key_id,
-            :aws_session_token  => @aws_session_token,
-            :hmac               => @hmac,
-            :host               => @host,
-            :path               => @path,
-            :port               => @port,
-            :version            => '2011-06-15'
+            :aws_access_key_id => @aws_access_key_id,
+            :aws_session_token => @aws_session_token,
+            :hmac              => @hmac,
+            :host              => @host,
+            :path              => @path,
+            :port              => @port,
+            :version           => '2011-06-15'
 
           )
 

@@ -5,8 +5,8 @@ module Fog
       class Real
         def get_virtual_machine_assigned_ips(virtual_machine_id)
           request(
-            :uri => "#{base_path}/virtualmachines/#{virtual_machine_id}/assignedips",
-            :parse   => true
+            :uri   => "#{base_path}/virtualmachines/#{virtual_machine_id}/assignedips",
+            :parse => true
           )
         end
       end
@@ -27,9 +27,9 @@ module Fog
           end
 
           body = {
-            :href  => "/cloudapi/ecloud/virtualMachines/#{virtual_machine_id}/assignedIps",
-            :type  => 'application/vnd.tmrk.cloud.network',
-            :Links => {
+            :href     => "/cloudapi/ecloud/virtualMachines/#{virtual_machine_id}/assignedIps",
+            :type     => 'application/vnd.tmrk.cloud.network',
+            :Links    => {
               :Link => Fog::Ecloud.keep(environment, :name, :href, :type)
             },
             :Networks => { :Network => (networks.size > 1 ? networks : networks.first) },

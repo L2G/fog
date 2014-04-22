@@ -51,72 +51,72 @@ module Fog
           @data ||= Hash.new do |hash, key|
             hash[key] = case key
                        when :instrumentation
-                         { 'module' => 'cpu',
-                           'stat' => 'usage',
-                           'predicate' => {},
-                           'decomposition' => ['zonename'],
+                         { 'module'          => 'cpu',
+                           'stat'            => 'usage',
+                           'predicate'       => {},
+                           'decomposition'   => ['zonename'],
                            'value-dimension' => 2,
-                           'value-arity' => 'discrete-decomposition',
-                           'enabled' => true,
-                           'retention-time' => 86400,
-                           'idle-max' => 86400,
+                           'value-arity'     => 'discrete-decomposition',
+                           'enabled'         => true,
+                           'retention-time'  => 86400,
+                           'idle-max'        => 86400,
                            'transformations' => [],
-                           'nsources' => 3,
-                           'granularity' => 30,
-                           'persist-data' => false,
-                           'crtime' => 1388690982000,
-                           'value-scope' => 'point',
-                           'id' => '63',
-                           'uris' =>
-                               [{ 'uri' => "/#{@joyent_username}/analytics/instrumentations/63/value/raw",
-                                  'name' => 'value_raw' }] }
+                           'nsources'        => 3,
+                           'granularity'     => 30,
+                           'persist-data'    => false,
+                           'crtime'          => 1388690982000,
+                           'value-scope'     => 'point',
+                           'id'              => '63',
+                           'uris'            =>
+                                                [{ 'uri'  => "/#{@joyent_username}/analytics/instrumentations/63/value/raw",
+                                                   'name' => 'value_raw' }] }
                        when :values
                          {
-                             'value' => { 'zoneid' => 0 },
-                             'transformations' => {},
-                             'start_time' => Time.now.utc - 600,
-                             'duration' => 30,
-                             'end_time' => Time.now.utc - 570,
-                             'nsources' => 1,
-                             'minreporting' => 1,
+                             'value'                => { 'zoneid' => 0 },
+                             'transformations'      => {},
+                             'start_time'           => Time.now.utc - 600,
+                             'duration'             => 30,
+                             'end_time'             => Time.now.utc - 570,
+                             'nsources'             => 1,
+                             'minreporting'         => 1,
                              'requested_start_time' => Time.now.utc - 600,
-                             'requested_duration' => 30,
-                             'requested_end_time' => Time.now.utc - 570
+                             'requested_duration'   => 30,
+                             'requested_end_time'   => Time.now.utc - 570
                          }
                        when :describe_analytics
                          {
-                             'fields' => {
+                             'fields'          => {
                                  'zonename' => {
                                      'label' => 'zone name',
-                                     'type' => 'string'
+                                     'type'  => 'string'
                                  },
-                                 'pid' => {
+                                 'pid'      => {
                                      'label' => 'process identifier',
-                                     'type' => 'string'
+                                     'type'  => 'string'
                                  }
                              },
-                             'modules' => {
+                             'modules'         => {
                                  'cpu' => {
                                      'label' => 'CPU'
                                  }
                              },
                              'transformations' => {
                                  'geolocate' => {
-                                     'label' => 'geolocate IP addresses',
+                                     'label'  => 'geolocate IP addresses',
                                      'fields' => ['raddr'] }
                              },
-                             'metrics' => [{
-                                               'module' => 'cpu',
-                                               'stat' => 'thread_executions',
-                                               'label' => 'thread executions',
+                             'metrics'         => [{
+                                               'module'   => 'cpu',
+                                               'stat'     => 'thread_executions',
+                                               'label'    => 'thread executions',
                                                'interval' => 'interval',
-                                               'fields' => ['hostname', 'zonename', 'runtime'],
-                                               'unit' => 'operations'
+                                               'fields'   => ['hostname', 'zonename', 'runtime'],
+                                               'unit'     => 'operations'
                                            }],
-                             'types' => {
+                             'types'           => {
                                  'string' => {
                                      'arity' => 'discrete',
-                                     'unit' => ''
+                                     'unit'  => ''
                                  }
                              }
                          }
@@ -160,7 +160,7 @@ module Fog
             @joyent_keyname = options[:joyent_keyname]
             @joyent_keyphrase = options[:joyent_keyphrase]
             @key_manager = Net::SSH::Authentication::KeyManager.new(nil,
-                                                                    :keys_only => true,
+                                                                    :keys_only  => true,
                                                                     :passphrase => @joyent_keyphrase
             )
             @header_method = method(:header_for_signature_auth)
@@ -197,8 +197,8 @@ module Fog
         def request(opts = {})
           opts[:headers] = {
               'X-Api-Version' => @joyent_version,
-              'Content-Type' => 'application/json',
-              'Accept' => 'application/json'
+              'Content-Type'  => 'application/json',
+              'Accept'        => 'application/json'
           }.merge(opts[:headers] || {}).merge(@header_method.call)
 
           if opts[:body]
@@ -258,7 +258,7 @@ module Fog
           signature = Base64.encode64(sig).delete("\r\n")
 
           {
-              'Date' => date,
+              'Date'          => date,
               'Authorization' => "Signature keyId=\"#{key_id}\",algorithm=\"#{key_type}-sha1\" #{signature}"
           }
         rescue Net::SSH::Authentication::KeyManagerError => e

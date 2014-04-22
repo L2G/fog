@@ -4,8 +4,8 @@ module Fog
       class Real
         def delete_instrumentation(id)
           request(
-              :path => "#{@joyent_username}/analytics/instrumentations/#{id}",
-              :method => 'DELETE',
+              :path    => "#{@joyent_username}/analytics/instrumentations/#{id}",
+              :method  => 'DELETE',
               :expects => 204
           )
         end

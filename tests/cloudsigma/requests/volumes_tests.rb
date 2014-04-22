@@ -1,19 +1,19 @@
 Shindo.tests('Fog::Compute[:cloudsigma] | volume requests', ['cloudsigma']) do
 
   @volume_format = {
-      'uuid' => String,
-      'size' => Integer,
-      'status' => String,
-      'name' => String,
-      'tags' => Array,
-      'meta' => Fog::Nullable::Hash,
-      'owner' => Fog::Nullable::Hash,
-      'resource_uri' => Fog::Nullable::String,
-      'licenses' => Array,
-      'jobs' => Array,
-      'affinities' => Array,
-      'mounted_on' => Array,
-      'media' => String,
+      'uuid'             => String,
+      'size'             => Integer,
+      'status'           => String,
+      'name'             => String,
+      'tags'             => Array,
+      'meta'             => Fog::Nullable::Hash,
+      'owner'            => Fog::Nullable::Hash,
+      'resource_uri'     => Fog::Nullable::String,
+      'licenses'         => Array,
+      'jobs'             => Array,
+      'affinities'       => Array,
+      'mounted_on'       => Array,
+      'media'            => String,
       'allow_multimount' => Fog::Boolean
   }
 

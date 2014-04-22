@@ -3,27 +3,27 @@ Shindo.tests('Fog::CDN[:rackspace] | CDN requests', ['rackspace']) do
   @container_format = [String]
 
   @containers_format = [{
-    'cdn_ios_uri' => String,
-    'log_retention' => Fog::Boolean,
-    'ttl' => Fixnum,
+    'cdn_ios_uri'       => String,
+    'log_retention'     => Fog::Boolean,
+    'ttl'               => Fixnum,
     'cdn_streaming_uri' => String,
-    'cdn_enabled' => Fog::Boolean,
-    'name' => String,
-    'cdn_ssl_uri' => String,
-    'cdn_uri' => String
+    'cdn_enabled'       => Fog::Boolean,
+    'name'              => String,
+    'cdn_ssl_uri'       => String,
+    'cdn_uri'           => String
   }]
 
   @container_headers = {
-    'Content-Length' => String,
-    'X-Cdn-Enabled' => String,
-    'X-Log-Retention' => String,
-    'X-Cdn-Ios-Uri' => String,
-    'X-Ttl' => String,
-    'X-Cdn-Uri' => String,
-    'X-Cdn-Ssl-Uri' => String,
+    'Content-Length'      => String,
+    'X-Cdn-Enabled'       => String,
+    'X-Log-Retention'     => String,
+    'X-Cdn-Ios-Uri'       => String,
+    'X-Ttl'               => String,
+    'X-Cdn-Uri'           => String,
+    'X-Cdn-Ssl-Uri'       => String,
     'X-Cdn-Streaming-Uri' => String,
-    'X-Trans-Id' => String,
-    'Date' => String
+    'X-Trans-Id'          => String,
+    'Date'                => String
   }
 
   begin

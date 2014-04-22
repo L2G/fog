@@ -29,12 +29,12 @@ module Fog
         #     * 'ScannedCount'<~Integer> - number of items scanned before applying filters
         def scan(table_name, options = {})
           body = {
-            'TableName'     => table_name
+            'TableName' => table_name
           }.merge(options)
 
           request(
-            :body     => Fog::JSON.encode(body),
-            :headers  => { 'x-amz-target' => 'DynamoDB_20111205.Scan' },
+            :body       => Fog::JSON.encode(body),
+            :headers    => { 'x-amz-target' => 'DynamoDB_20111205.Scan' },
             :idempotent => true
           )
         end

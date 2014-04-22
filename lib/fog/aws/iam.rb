@@ -88,18 +88,18 @@ module Fog
         def self.data
           @data ||= Hash.new do |hash, key|
             hash[key] = {
-              :owner_id => Fog::AWS::Mock.owner_id,
+              :owner_id            => Fog::AWS::Mock.owner_id,
               :server_certificates => {},
-              :access_keys => [{
-                'Status' => 'Active',
+              :access_keys         => [{
+                'Status'      => 'Active',
                 'AccessKeyId' => key
               }],
-              :devices => [{
+              :devices             => [{
                 :enable_date   => Time.now,
                 :serial_number => 'R1234',
                 :user_name     => 'Bob'
               }],
-              :users => Hash.new do |uhash, ukey|
+              :users               => Hash.new do |uhash, ukey|
                 uhash[ukey] = {
                   :user_id     => Fog::AWS::Mock.key_id,
                   :path        => '/',
@@ -109,13 +109,13 @@ module Fog
                   :policies    => {}
                 }
               end,
-              :groups => Hash.new do |ghash, gkey|
+              :groups              => Hash.new do |ghash, gkey|
                 ghash[gkey] = {
                   :group_id   => Fog::AWS::Mock.key_id,
                   :arn        => "arn:aws:iam::#{Fog::AWS::Mock.owner_id}:group/#{gkey}",
                   :members    => [],
-                  :created_at  => Time.now,
-                  :policies    => {}
+                  :created_at => Time.now,
+                  :policies   => {}
                 }
               end
             }
@@ -208,13 +208,13 @@ module Fog
           body = Fog::AWS.signed_params(
             params,
 
-            :aws_access_key_id  => @aws_access_key_id,
-            :aws_session_token  => @aws_session_token,
-            :hmac               => @hmac,
-            :host               => @host,
-            :path               => @path,
-            :port               => @port,
-            :version            => '2010-05-08'
+            :aws_access_key_id => @aws_access_key_id,
+            :aws_session_token => @aws_session_token,
+            :hmac              => @hmac,
+            :host              => @host,
+            :path              => @path,
+            :port              => @port,
+            :version           => '2010-05-08'
 
           )
 

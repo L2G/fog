@@ -28,12 +28,12 @@ module Fog
           end
           options['NextToken'] ||= nil
           request(
-            'Action'            => 'Select',
-            'ConsistentRead'    => !!options['ConsistentRead'],
-            'NextToken'         => options['NextToken'],
-            'SelectExpression'  => select_expression,
-            :idempotent         => true,
-            :parser             => Fog::Parsers::AWS::SimpleDB::Select.new(@nil_string)
+            'Action'           => 'Select',
+            'ConsistentRead'   => !!options['ConsistentRead'],
+            'NextToken'        => options['NextToken'],
+            'SelectExpression' => select_expression,
+            :idempotent        => true,
+            :parser            => Fog::Parsers::AWS::SimpleDB::Select.new(@nil_string)
           )
         end
 

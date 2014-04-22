@@ -95,48 +95,48 @@ module Fog
           image  = self.data[:images][image_id]
 
           server = {
-            'OS-DCF:diskConfig'      => 'AUTO',
-            'OS-EXT-STS:power_state' => 1,
-            'OS-EXT-STS:task_state'  => nil,
-            'OS-EXT-STS:vm_state'    => 'active',
-            'accessIPv4' => public_ip4,
-            'accessIPv6' => public_ip6,
-            'addresses' => {
+            'OS-DCF:diskConfig'       => 'AUTO',
+            'OS-EXT-STS:power_state'  => 1,
+            'OS-EXT-STS:task_state'   => nil,
+            'OS-EXT-STS:vm_state'     => 'active',
+            'accessIPv4'              => public_ip4,
+            'accessIPv6'              => public_ip6,
+            'addresses'               => {
               'private' => [
                 {
-                  'addr' => private_ip4,
+                  'addr'    => private_ip4,
                   'version' => 4
                 }
               ],
-                'public' => [
+              'public'  => [
                   {
-                    'addr' => public_ip4,
+                    'addr'    => public_ip4,
                     'version' => 4
                   },
                   {
-                    'addr' => public_ip6,
+                    'addr'    => public_ip6,
                     'version' => 6
                   }
               ]
             },
-            'created' => '2012-07-28T15:32:25Z',
-            'flavor' => Fog::Rackspace::MockData.keep(flavor, 'id', 'links'),
-            'hostId' => Fog::Mock.random_hex(56),
-            'id' => server_id,
-            'image'  => Fog::Rackspace::MockData.keep(image, 'id', 'links'),
-            'links' => [
+            'created'                 => '2012-07-28T15:32:25Z',
+            'flavor'                  => Fog::Rackspace::MockData.keep(flavor, 'id', 'links'),
+            'hostId'                  => Fog::Mock.random_hex(56),
+            'id'                      => server_id,
+            'image'                   => Fog::Rackspace::MockData.keep(image, 'id', 'links'),
+            'links'                   => [
               {
                 'href' => "https://dfw.servers.api.rackspacecloud.com/v2/010101/servers/#{server_id}",
-                'rel' => 'self',
+                'rel'  => 'self',
               },
               {
                 'href' => "https://dfw.servers.api.rackspacecloud.com/010101/servers/#{server_id}",
-                'rel' => 'bookmark',
+                'rel'  => 'bookmark',
               }
             ],
-            'metadata' => {},
-            'name' => name,
-            'progress' => 100,
+            'metadata'                => {},
+            'name'                    => name,
+            'progress'                => 100,
             'rax-bandwidth:bandwidth' => [
               {
                 'audit_period_end'   => '2012-08-16T14:12:00Z',
@@ -153,11 +153,11 @@ module Fog
                 'interface'          => 'private',
               }
             ],
-            'status'             => 'ACTIVE',
-            'tenant_id'          => '010101',
-            'updated'            => '2012-07-28T15:37:09Z',
-            'user_id'            => '170454',
-            :volume_ids          => [],
+            'status'                  => 'ACTIVE',
+            'tenant_id'               => '010101',
+            'updated'                 => '2012-07-28T15:37:09Z',
+            'user_id'                 => '170454',
+            :volume_ids               => [],
           }
 
           #  add in additional networks
@@ -172,9 +172,9 @@ module Fog
           response = {
             'server' => {
               'OS-DCF:diskConfig' => 'AUTO',
-              'adminPass' => admin_pass,
-              'id' => server_id,
-              'links' => [
+              'adminPass'         => admin_pass,
+              'id'                => server_id,
+              'links'             => [
                 {
                   'href' => "https://dfw.servers.api.rackspacecloud.com/v2/010101/servers/#{server_id}",
                   'rel'  => 'self'

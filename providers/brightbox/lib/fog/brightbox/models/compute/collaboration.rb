@@ -21,7 +21,7 @@ module Fog
           raise Fog::Errors::Error.new('Resaving an existing object may create a duplicate') if identity
 
           options = {
-            :role => role,
+            :role  => role,
             :email => email
           }.delete_if { |k, v| v.nil? || v == '' }
 

@@ -30,10 +30,10 @@ module Fog
         #       * metadata<~Hash>: Hash of metadata for the volume
         def list_volumes(options = {})
           response = request(
-            :expects  => 200,
-            :method   => 'GET',
-            :path     => 'volumes',
-            :query    => options
+            :expects => 200,
+            :method  => 'GET',
+            :path    => 'volumes',
+            :query   => options
           )
           response
         end

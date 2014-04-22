@@ -6,7 +6,7 @@ Shindo.tests('Fog::Rackspace::Queues | messages', ['rackspace']) do
   )
 
   options = {
-    :ttl => 300,
+    :ttl  => 300,
     :body => 'blah'
   }
 

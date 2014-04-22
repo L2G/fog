@@ -46,13 +46,13 @@ module Fog
           Excon::Response.new.tap do |response|
             response.status = 200
             self.data[:dhcp_options].push(
-              'dhcpOptionsId' => Fog::AWS::Mock.dhcp_options_id,
-              'dhcpConfigurationSet'  => {},
-              'tagSet'             => {}
+              'dhcpOptionsId'        => Fog::AWS::Mock.dhcp_options_id,
+              'dhcpConfigurationSet' => {},
+              'tagSet'               => {}
             )
             response.body = {
-              'requestId'    => Fog::AWS::Mock.request_id,
-              'dhcpOptionsSet'      => self.data[:dhcp_options]
+              'requestId'      => Fog::AWS::Mock.request_id,
+              'dhcpOptionsSet' => self.data[:dhcp_options]
             }
           end
         end

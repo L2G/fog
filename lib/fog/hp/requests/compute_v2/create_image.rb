@@ -14,8 +14,8 @@ module Fog
         # Does not return a response body.
         def create_image(server_id, name, metadata = {})
           body = { 'createImage' =>
-                   { 'name' => name,
-                     'metadata' => metadata
+                                    { 'name'     => name,
+                                      'metadata' => metadata
                    }
                  }
           server_action(server_id, body)
@@ -33,17 +33,17 @@ module Fog
             image_id = Fog::HP::Mock.uuid.to_s
 
             data = {
-              'id'        => image_id,
-              'server'    => { 'id' => server_id, 'links' => [{ 'href' => "http://nova1:8774/v1.1/servers/#{server_id}", 'rel' => 'bookmark' }] },
-              'links'     => [{ 'href' => "http://nova1:8774/v1.1/tenantid/images/#{image_id}", 'rel' => 'self' }, { 'href' => "http://nova1:8774/tenantid/images/#{image_id}", 'rel' => 'bookmark' }],
-              'metadata'  => metadata || {},
-              'name'      => name || "image_#{rand(999)}",
-              'progress'  => 0,
-              'minDisk'   => 0,
-              'minRam'    => 0,
-              'status'    => 'SAVING',
-              'updated'   => '2012-01-01T13:32:20Z',
-              'created'   => '2012-01-01T13:32:20Z'
+              'id'       => image_id,
+              'server'   => { 'id' => server_id, 'links' => [{ 'href' => "http://nova1:8774/v1.1/servers/#{server_id}", 'rel' => 'bookmark' }] },
+              'links'    => [{ 'href' => "http://nova1:8774/v1.1/tenantid/images/#{image_id}", 'rel' => 'self' }, { 'href' => "http://nova1:8774/tenantid/images/#{image_id}", 'rel' => 'bookmark' }],
+              'metadata' => metadata || {},
+              'name'     => name || "image_#{rand(999)}",
+              'progress' => 0,
+              'minDisk'  => 0,
+              'minRam'   => 0,
+              'status'   => 'SAVING',
+              'updated'  => '2012-01-01T13:32:20Z',
+              'created'  => '2012-01-01T13:32:20Z'
             }
 
             self.data[:last_modified][:images][data['id']] = Time.now

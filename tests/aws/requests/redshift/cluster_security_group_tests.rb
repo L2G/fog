@@ -4,7 +4,7 @@ Shindo.tests('Fog::Redshift[:aws] | cluster security group requests', ['aws']) d
   identifier = "test-cluster-security-group-#{suffix}"
 
   @cluster_security_group_format = {
-    'ClusterSecurityGroup'  => {
+    'ClusterSecurityGroup' => {
       'EC2SecurityGroups'        => Fog::Nullable::Array,
       'IPRanges'                 => Fog::Nullable::Array,
       'Description'              => String,

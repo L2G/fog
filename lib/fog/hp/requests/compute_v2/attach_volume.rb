@@ -19,15 +19,15 @@ module Fog
         #       *  'device':<~String>  - The name of the device
         def attach_volume(server_id, volume_id, device)
           data = { 'volumeAttachment' =>
-                   { 'volumeId' => volume_id,
-                     'device'   => device
+                                         { 'volumeId' => volume_id,
+                                           'device'   => device
                    }
                  }
           response = request(
-            :body     => Fog::JSON.encode(data),
-            :expects  => 200,
-            :method   => 'POST',
-            :path     => "servers/#{server_id}/os-volume_attachments"
+            :body    => Fog::JSON.encode(data),
+            :expects => 200,
+            :method  => 'POST',
+            :path    => "servers/#{server_id}/os-volume_attachments"
           )
           response
         end
@@ -46,7 +46,7 @@ module Fog
               raise(Excon::Errors.status_error({ :expects => 200 }, response))
             else
               resp_data = { 'volumeAttachment' =>
-                            {
+                                                  {
                               'device'   => device,
                               'serverId' => server_id,
                               'id'       => volume_id,

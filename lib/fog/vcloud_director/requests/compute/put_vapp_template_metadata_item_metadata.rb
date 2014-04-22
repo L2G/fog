@@ -17,7 +17,7 @@ module Fog
         def put_vapp_template_metadata_item_metadata(id, key, value)
           body = Nokogiri::XML::Builder.new do
             attrs = {
-              :xmlns => 'http://www.vmware.com/vcloud/v1.5',
+              :xmlns      => 'http://www.vmware.com/vcloud/v1.5',
               'xmlns:xsi' => 'http://www.w3.org/2001/XMLSchema-instance'
             }
             MetadataValue(attrs) {

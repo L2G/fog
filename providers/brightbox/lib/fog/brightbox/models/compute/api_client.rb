@@ -12,7 +12,7 @@ module Fog
         def save
           raise Fog::Errors::Error.new('Resaving an existing object may create a duplicate') if persisted?
           options = {
-            :name => name,
+            :name        => name,
             :description => description
           }.delete_if { |k, v| v.nil? || v == '' }
           data = service.create_api_client(options)

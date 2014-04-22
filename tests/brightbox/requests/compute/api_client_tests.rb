@@ -3,7 +3,7 @@ Shindo.tests('Fog::Compute[:brightbox] | api client requests', ['brightbox']) do
   tests('success') do
 
     create_options = {
-      :name => "Fog@#{Time.now.iso8601}",
+      :name        => "Fog@#{Time.now.iso8601}",
       :description => 'Description from Fog test'
     }
 

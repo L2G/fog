@@ -19,14 +19,14 @@ module Fog::Brightbox::OAuth2
     encoded_credentials = Base64.encode64(header_content).chomp
 
     connection.request(
-      :path => '/token',
-      :expects  => 200,
-      :headers  => {
+      :path    => '/token',
+      :expects => 200,
+      :headers => {
         'Authorization' => "Basic #{encoded_credentials}",
-        'Content-Type' => 'application/json'
+        'Content-Type'  => 'application/json'
       },
-      :method   => 'POST',
-      :body     => Fog::JSON.encode(token_strategy.authorization_body_data)
+      :method  => 'POST',
+      :body    => Fog::JSON.encode(token_strategy.authorization_body_data)
     )
   end
 

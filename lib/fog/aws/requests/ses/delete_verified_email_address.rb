@@ -16,9 +16,9 @@ module Fog
         #       * 'RequestId'<~String> - Id of request
         def delete_verified_email_address(email_address)
           request(
-            'Action'           => 'DeleteVerifiedEmailAddress',
-            'EmailAddress'     => email_address,
-            :parser            => Fog::Parsers::AWS::SES::DeleteVerifiedEmailAddress.new
+            'Action'       => 'DeleteVerifiedEmailAddress',
+            'EmailAddress' => email_address,
+            :parser        => Fog::Parsers::AWS::SES::DeleteVerifiedEmailAddress.new
           )
         end
 

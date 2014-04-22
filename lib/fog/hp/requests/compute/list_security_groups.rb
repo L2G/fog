@@ -27,9 +27,9 @@ module Fog
         # {Openstack API Reference}[http://docs.openstack.org]
         def list_security_groups
           request(
-            :expects  => [200],
-            :method   => 'GET',
-            :path     => 'os-security-groups.json'
+            :expects => [200],
+            :method  => 'GET',
+            :path    => 'os-security-groups.json'
           )
         end
 

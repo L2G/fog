@@ -1,8 +1,8 @@
 Shindo.tests('Fog::Identity[:openstack] | user requests', ['openstack']) do
 
   @user_format = {
-    'id'   => String,
-    'name' => String,
+    'id'       => String,
+    'name'     => String,
     'enabled'  => Fog::Boolean,
     'email'    => String,
     'tenantId' => Fog::Nullable::String

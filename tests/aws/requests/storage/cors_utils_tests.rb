@@ -18,9 +18,9 @@ Shindo.tests('Fog::Storage::AWS | CORS utils', ['aws']) do
           'AllowedOrigin' => ['origin_123', 'origin_456'],
           'AllowedMethod' => ['GET', 'POST'],
           'AllowedHeader' => ['Accept', 'Content-Type'],
-          'ID' => 'blah-888',
+          'ID'            => 'blah-888',
           'MaxAgeSeconds' => 2500,
-          'ExposeHeader' => ['x-some-header', 'x-other-header']
+          'ExposeHeader'  => ['x-some-header', 'x-other-header']
         }
       ]
     }
@@ -99,7 +99,7 @@ XML
         'AllowedHeader' => ['Content-Length', 'X-Foobar'],
         'AllowedMethod' => ['PUT', 'GET'],
         'MaxAgeSeconds' => 3000,
-        'ExposeHeader' => ['x-amz-server-side-encryption', 'x-amz-balls']
+        'ExposeHeader'  => ['x-amz-server-side-encryption', 'x-amz-balls']
       }]
     }, 'returns hash of CORS XML') do
       Fog::Storage::AWS.cors_to_hash(cors_xml)

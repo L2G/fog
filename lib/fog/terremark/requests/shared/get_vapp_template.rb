@@ -22,10 +22,10 @@ module Fog
         #     * 'name'<~String> - Name of catalog
         def get_vapp_template(vapp_template_id)
           request(
-            :expects  => 200,
-            :method   => 'GET',
-            :parser   => Fog::Parsers::Terremark::Shared::GetVappTemplate.new,
-            :path     => "vAppTemplate/#{vapp_template_id}"
+            :expects => 200,
+            :method  => 'GET',
+            :parser  => Fog::Parsers::Terremark::Shared::GetVappTemplate.new,
+            :path    => "vAppTemplate/#{vapp_template_id}"
           )
         end
 

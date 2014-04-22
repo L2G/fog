@@ -17,9 +17,9 @@ module Fog
         #   * status<~Integer> - 201 - domain successfully created, 400 - domain name not valid, see errors in response content
         def create_domain(domain)
           request(
-            :expects  => 201,
-            :method   => 'PUT',
-            :path     => "/V1.2/domains/#{domain}"
+            :expects => 201,
+            :method  => 'PUT',
+            :path    => "/V1.2/domains/#{domain}"
           )
         end
 

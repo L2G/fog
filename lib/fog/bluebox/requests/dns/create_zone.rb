@@ -30,11 +30,11 @@ module Fog
           body += %Q{<minimum>#{options[:minimum]}</minimum>} if options[:minimum]
           body += %Q{</domain>}
           request(
-            :body     => body,
-            :expects  => 202,
-            :method   => 'POST',
-            :parser   => Fog::Parsers::DNS::Bluebox::CreateZone.new,
-            :path     => '/api/domains.xml'
+            :body    => body,
+            :expects => 202,
+            :method  => 'POST',
+            :parser  => Fog::Parsers::DNS::Bluebox::CreateZone.new,
+            :path    => '/api/domains.xml'
           )
         end
 

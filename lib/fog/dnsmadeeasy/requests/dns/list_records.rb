@@ -29,10 +29,10 @@ module Fog
         #   * status<~Integer> - 200 - OK, 404 - specified domain name is not found
         def list_records(domain, options = {})
           request(
-            :expects  => 200,
-            :method   => 'GET',
-            :path     => "/V1.2/domains/#{domain}/records",
-            :query    => options
+            :expects => 200,
+            :method  => 'GET',
+            :path    => "/V1.2/domains/#{domain}/records",
+            :query   => options
           )
         end
 

@@ -238,8 +238,8 @@ module Fog
           def to_h
             {
               'body' => @data,
-              'age' => age,
-              'ttl' => @ttl,
+              'age'  => age,
+              'ttl'  => @ttl,
               'href' => href
             }
           end
@@ -303,9 +303,9 @@ module Fog
             ms = messages.map { |m| m.to_h }
 
             {
-              'age' => age,
-              'href' => "#{PATH_BASE}/#{@queue.name}/claims/#{@id}",
-              'ttl' => @ttl,
+              'age'      => age,
+              'href'     => "#{PATH_BASE}/#{@queue.name}/claims/#{@id}",
+              'ttl'      => @ttl,
               'messages' => ms
             }
           end

@@ -13,15 +13,15 @@ module Fog
         #     * 'name'<~String> - Name of organization
         def get_organizations
           request(
-            :expects  => 200,
-            :headers  => {
+            :expects => 200,
+            :headers => {
               'Authorization' => "Basic #{Base64.encode64("#{@terremark_username}:#{@terremark_password}").chomp!}",
               # Terremark said they're going to remove passing in the Content-Type to login in a future release
               'Content-Type'  => 'application/vnd.vmware.vcloud.orgList+xml'
             },
-            :method   => 'POST',
-            :parser   => Fog::Parsers::Terremark::Shared::GetOrganizations.new,
-            :path     => 'login'
+            :method  => 'POST',
+            :parser  => Fog::Parsers::Terremark::Shared::GetOrganizations.new,
+            :path    => 'login'
           )
         end
 

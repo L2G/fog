@@ -19,10 +19,10 @@ module Fog
         def messages
           @messages ||= begin
             Fog::Rackspace::Queues::Messages.new(
-              :service => service,
-              :queue => self,
+              :service   => service,
+              :queue     => self,
               :client_id => service.client_id,
-              :echo => true
+              :echo      => true
             )
           end
         end
@@ -50,7 +50,7 @@ module Fog
           @claims ||= begin
             Fog::Rackspace::Queues::Claims.new(
               :service => service,
-              :queue => self
+              :queue   => self
             )
           end
         end
@@ -86,7 +86,7 @@ module Fog
             options.merge(
 
               :limit => 1,
-              :ttl => ttl,
+              :ttl   => ttl,
               :grace => grace
             ))
 

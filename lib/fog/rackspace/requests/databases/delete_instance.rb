@@ -5,8 +5,8 @@ module Fog
         def delete_instance(instance_id)
           request(
             :expects => 202,
-            :method => 'DELETE',
-            :path => "instances/#{instance_id}"
+            :method  => 'DELETE',
+            :path    => "instances/#{instance_id}"
           )
         end
       end

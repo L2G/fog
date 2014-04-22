@@ -5,9 +5,9 @@ module Fog
 
         def avail_stackscripts(options = {})
           result = request(
-            :expects  => 200,
-            :method   => 'GET',
-            :query    => { :api_action => 'avail.stackscripts' }.merge!(options)
+            :expects => 200,
+            :method  => 'GET',
+            :query   => { :api_action => 'avail.stackscripts' }.merge!(options)
           )
           result.body['DATA'].each { |r| r['DISTRIBUTIONIDLIST'] = r['DISTRIBUTIONIDLIST'].to_s }
           result
@@ -22,7 +22,7 @@ module Fog
 
           body = {
             'ERRORARRAY' => [],
-            'ACTION' => 'avail.stackscripts'
+            'ACTION'     => 'avail.stackscripts'
           }
           if stackscript_id
             mock_stackscript = create_mock_stackscript(stackscript_id)

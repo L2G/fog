@@ -21,14 +21,14 @@ module Fog
               @device['access_methods'] = []
             when 'device'
               @device = {
-                'id'      => attr_value('id', attrs),
-                'label'   => attr_value('label', attrs),
-                'status'  => attr_value('status', attrs)
+                'id'     => attr_value('id', attrs),
+                'label'  => attr_value('label', attrs),
+                'status' => attr_value('status', attrs)
               }
             when 'err'
               @response['err'] = {
-                'code'  => attr_value('code', attrs),
-                'msg'   => attr_value('msg', attrs)
+                'code' => attr_value('code', attrs),
+                'msg'  => attr_value('msg', attrs)
               }
             when 'cage', 'facility', 'rack', 'row', 'zone'
               @device['location'][name] = { 'id' => attr_value('id', attrs) }

@@ -52,9 +52,9 @@ module Fog
         def post_instantiate_vapp_template(id, vapp_template_id, name, options = {})
           body = Nokogiri::XML::Builder.new do
             attrs = {
-              'xmlns' => 'http://www.vmware.com/vcloud/v1.5',
+              'xmlns'     => 'http://www.vmware.com/vcloud/v1.5',
               'xmlns:ovf' => 'http://schemas.dmtf.org/ovf/envelope/1',
-              :name => name
+              :name       => name
             }
             attrs[:deploy] = options[:deploy] if options.key?(:deploy)
             attrs[:powerOn] = options[:powerOn] if options.key?(:powerOn)

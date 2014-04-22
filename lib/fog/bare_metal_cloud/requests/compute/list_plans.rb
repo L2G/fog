@@ -17,10 +17,10 @@ module Fog
         #
         def list_plans
           request(
-            :expects  => 200,
-            :method   => 'GET',
-            :parser   => Fog::ToHashDocument.new,
-            :path     => 'api/listPlans'
+            :expects => 200,
+            :method  => 'GET',
+            :parser  => Fog::ToHashDocument.new,
+            :path    => 'api/listPlans'
           )
         end
 

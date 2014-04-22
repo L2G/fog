@@ -32,7 +32,7 @@ module Fog
               'ResponseMetadata' => {
                 'RequestId' => Fog::AWS::Mock.request_id
               },
-              'QueueUrls' => data[:queues].keys
+              'QueueUrls'        => data[:queues].keys
             }
           end
         end

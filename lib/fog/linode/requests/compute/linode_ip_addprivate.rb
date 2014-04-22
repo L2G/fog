@@ -5,9 +5,9 @@ module Fog
 
         def linode_ip_addprivate(linode_id)
           request(
-            :expects  => 200,
-            :method   => 'GET',
-            :query    => { :api_action => 'linode.ip.addprivate', :linodeId => linode_id }
+            :expects => 200,
+            :method  => 'GET',
+            :query   => { :api_action => 'linode.ip.addprivate', :linodeId => linode_id }
           )
         end
 

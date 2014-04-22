@@ -3,22 +3,22 @@ Shindo.tests('AWS::IAM | server certificate requests', ['aws']) do
   @key_name_chained = 'fog-test-chained'
 
   @certificate_format = {
-    'Arn' => String,
-    'Path' => String,
-    'ServerCertificateId' => String,
+    'Arn'                   => String,
+    'Path'                  => String,
+    'ServerCertificateId'   => String,
     'ServerCertificateName' => String,
-    'UploadDate' => Time
+    'UploadDate'            => Time
   }
   @upload_format = {
     'Certificate' => @certificate_format,
-    'RequestId' => String
+    'RequestId'   => String
   }
   @update_format = {
     'RequestId' => String
   }
   @get_server_certificate_format = {
     'Certificate' => @certificate_format,
-    'RequestId' => String
+    'RequestId'   => String
   }
   @list_format = {
     'Certificates' => [@certificate_format]

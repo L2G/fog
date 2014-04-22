@@ -10,8 +10,8 @@ module Fog
           virtualmachineids = [*virtualmachineids]
 
           options = {
-            'command' => 'assignToLoadBalancerRule',
-            'id' => id,
+            'command'           => 'assignToLoadBalancerRule',
+            'id'                => id,
             'virtualmachineids' => virtualmachineids.join(',')
           }
 

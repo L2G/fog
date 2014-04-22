@@ -2,10 +2,10 @@ Shindo.tests('AWS::IAM | mfa requests', ['aws']) do
 
   tests('success') do
     @mfa_devices_format = {
-      'MFADevices' => [{
-        'EnableDate'    => Time,
-        'SerialNumber'  => String,
-        'UserName'      => String
+      'MFADevices'  => [{
+        'EnableDate'   => Time,
+        'SerialNumber' => String,
+        'UserName'     => String
       }],
       'IsTruncated' => Fog::Boolean,
       'RequestId'   => String

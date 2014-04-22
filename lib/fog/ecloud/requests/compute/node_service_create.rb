@@ -17,12 +17,12 @@ module Fog
           validate_node_service_data(service_data)
 
           request(
-            :body => generate_node_service_request(service_data),
+            :body    => generate_node_service_request(service_data),
             :expects => 201,
-            :method => 'POST',
+            :method  => 'POST',
             :headers => {},
-            :uri => service_data[:uri],
-            :parse => true
+            :uri     => service_data[:uri],
+            :parse   => true
           )
         end
 
@@ -55,10 +55,10 @@ module Fog
 
           service_id   = Fog::Mock.random_numbers(6).to_i
           service = {
-            :href => "/cloudapi/ecloud/nodeservices/#{service_id}",
-            :name => service_data[:name],
-            :type => 'application/vnd.tmrk.cloud.nodeService',
-            :Links => {
+            :href        => "/cloudapi/ecloud/nodeservices/#{service_id}",
+            :name        => service_data[:name],
+            :type        => 'application/vnd.tmrk.cloud.nodeService',
+            :Links       => {
               :Link => [
                 Fog::Ecloud.keep(internet_service, :href, :name, :type),
               ],
@@ -68,9 +68,9 @@ module Fog
             :Enabled     => service_data[:enabled],
             :Description => service_data[:description],
             :IpAddress   => {
-              :href => ip_address[:href],
-              :name => ip_address[:name],
-              :type => ip_address[:type],
+              :href    => ip_address[:href],
+              :name    => ip_address[:name],
+              :type    => ip_address[:type],
               :Network => {
                 :href => network[:href],
                 :name => network[:name],

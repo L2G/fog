@@ -13,9 +13,9 @@ module Fog
         # @see http://docs.rackspace.com/servers/api/v2/cs-devguide/content/Delete_Image-d1e4957.html
         def delete_image(image_id)
           request(
-            :expects  => 204,
-            :method   => 'DELETE',
-            :path     => "images/#{image_id}"
+            :expects => 204,
+            :method  => 'DELETE',
+            :path    => "images/#{image_id}"
           )
         end
 

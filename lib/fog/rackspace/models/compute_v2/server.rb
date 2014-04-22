@@ -175,7 +175,7 @@ module Fog
           @metadata ||= begin
             Fog::Compute::RackspaceV2::Metadata.new(
               :service => service,
-              :parent => self
+              :parent  => self
             )
           end
         end
@@ -275,7 +275,7 @@ module Fog
         def update
           requires :identity
           options = {
-            'name' => name,
+            'name'       => name,
             'accessIPv4' => ipv4_address,
             'accessIPv6' => ipv6_address
           }
@@ -360,7 +360,7 @@ module Fog
           @attachments ||= begin
             Fog::Compute::RackspaceV2::Attachments.new(
               :service => service,
-              :server => self
+              :server  => self
             )
           end
         end

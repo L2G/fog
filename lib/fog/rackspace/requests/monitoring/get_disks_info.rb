@@ -5,9 +5,9 @@ module Fog
 
         def get_disks_info(agent_id)
           request(
-            :expects  => [200, 203],
-            :method   => 'GET',
-            :path     => "agents/#{agent_id}/host_info/disks"
+            :expects => [200, 203],
+            :method  => 'GET',
+            :path    => "agents/#{agent_id}/host_info/disks"
           )
         end
       end
@@ -22,16 +22,16 @@ module Fog
           response = Excon::Response.new
           response.status = 200
           response.body = {
-            'info'  => [
+            'info' => [
               {
-                'read_bytes'      => Fog::Mock.random_numbers(10).to_i,
-                'reads'           => Fog::Mock.random_numbers(6).to_i,
-                'rtime'           => Fog::Mock.random_numbers(6).to_i,
-                'write_bytes'     => Fog::Mock.random_numbers(10).to_i,
-                'writes'          => Fog::Mock.random_numbers(8).to_i,
-                'wtime'           => Fog::Mock.random_numbers(9).to_i,
-                'time'            => Fog::Mock.random_numbers(7).to_i,
-                'name'            => '/dev/xvda1'
+                'read_bytes'  => Fog::Mock.random_numbers(10).to_i,
+                'reads'       => Fog::Mock.random_numbers(6).to_i,
+                'rtime'       => Fog::Mock.random_numbers(6).to_i,
+                'write_bytes' => Fog::Mock.random_numbers(10).to_i,
+                'writes'      => Fog::Mock.random_numbers(8).to_i,
+                'wtime'       => Fog::Mock.random_numbers(9).to_i,
+                'time'        => Fog::Mock.random_numbers(7).to_i,
+                'name'        => '/dev/xvda1'
               }
             ]
           }

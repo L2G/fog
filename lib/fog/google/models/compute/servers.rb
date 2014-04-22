@@ -47,9 +47,9 @@ module Fog
           if disks.nil? or disks.empty?
             # create the persistent boot disk
             disk_defaults = {
-              :name => name,
-              :size_gb => 10,
-              :zone_name => zone,
+              :name         => name,
+              :size_gb      => 10,
+              :zone_name    => zone,
               :source_image => 'debian-7-wheezy-v20140408',
             }
 
@@ -62,13 +62,13 @@ module Fog
           end
 
           defaults = {
-            :name => name,
-            :disks => disks,
-            :machine_type => 'n1-standard-1',
-            :zone_name => zone,
+            :name             => name,
+            :disks            => disks,
+            :machine_type     => 'n1-standard-1',
+            :zone_name        => zone,
             :private_key_path => File.expand_path('~/.ssh/id_rsa'),
-            :public_key_path => File.expand_path('~/.ssh/id_rsa.pub'),
-            :username => ENV['USER'],
+            :public_key_path  => File.expand_path('~/.ssh/id_rsa.pub'),
+            :username         => ENV['USER'],
           }
 
           server = create(defaults.merge(new_attributes))

@@ -5,17 +5,17 @@ module Fog
         def create_user(instance_id, name, password, options = {})
           data = {
             'users' => [{
-              'name' => name,
-              'password' => password,
+              'name'      => name,
+              'password'  => password,
               'databases' => options[:databases] || []
             }]
           }
 
           request(
-            :body => Fog::JSON.encode(data),
+            :body    => Fog::JSON.encode(data),
             :expects => 202,
-            :method => 'POST',
-            :path => "instances/#{instance_id}/users"
+            :method  => 'POST',
+            :path    => "instances/#{instance_id}/users"
           )
         end
       end

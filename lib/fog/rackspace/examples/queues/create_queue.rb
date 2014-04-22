@@ -24,9 +24,9 @@ end
 
 # create Queue Service
 service = Fog::Rackspace::Queues.new(
-  :rackspace_username   => rackspace_username,
-  :rackspace_api_key    => rackspace_api_key,
-  :rackspace_region => :ord #Use Chicago Region
+  :rackspace_username => rackspace_username,
+  :rackspace_api_key  => rackspace_api_key,
+  :rackspace_region   => :ord #Use Chicago Region
 )
 
 #prompt for queue name

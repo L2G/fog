@@ -16,7 +16,7 @@ module Fog
           api_method = @compute.target_pools.insert
           parameters = {
             'project' => @project,
-            'region' => region_name
+            'region'  => region_name
           }
           body_object = { 'name' => target_pool_name }
           body_object.merge!(opts)

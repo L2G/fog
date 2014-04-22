@@ -54,11 +54,11 @@ module Fog
           end
 
           request(params.merge!(
-            :expects  => [ 200, 206 ],
+            :expects     => [ 200, 206 ],
             :bucket_name => bucket_name,
             :object_name => object_name,
-            :idempotent => true,
-            :method   => 'GET'
+            :idempotent  => true,
+            :method      => 'GET'
           ))
         end
 
@@ -130,12 +130,12 @@ module Fog
               response.status = 400
               response.body = {
                 'Error' => {
-                  'Code' => 'InvalidArgument',
-                  'Message' => 'Invalid version id specified',
+                  'Code'          => 'InvalidArgument',
+                  'Message'       => 'Invalid version id specified',
                   'ArgumentValue' => version_id,
-                  'ArgumentName' => 'versionId',
-                  'RequestId' => Fog::Mock.random_hex(16),
-                  'HostId' => Fog::Mock.random_base64(65)
+                  'ArgumentName'  => 'versionId',
+                  'RequestId'     => Fog::Mock.random_hex(16),
+                  'HostId'        => Fog::Mock.random_base64(65)
                 }
               }
 

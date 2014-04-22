@@ -7,8 +7,8 @@ module Fog
         def get_launch_config(group_id)
           request(
             :expects => [200],
-            :method => 'GET',
-            :path => "groups/#{group_id}/launch"
+            :method  => 'GET',
+            :path    => "groups/#{group_id}/launch"
           )
         end
       end

@@ -85,16 +85,16 @@ module Fog
           links = [Fog::Ecloud.keep(compute_pool, :name, :href, :type), Fog::Ecloud.keep(environment, :name, :href, :type)]
           networks.each{|network| links << Fog::Ecloud.keep(network, :name, :href, :type)}
           server = {
-            :href        => "/cloudapi/ecloud/virtualmachines/#{server_id}",
-            :name        => options[:name],
-            :type        => 'application/vnd.tmrk.cloud.virtualMachine',
-            :Description => options[:description],
-            :Status      => 'Deployed',
-            :PoweredOn   => 'false',
+            :href                  => "/cloudapi/ecloud/virtualmachines/#{server_id}",
+            :name                  => options[:name],
+            :type                  => 'application/vnd.tmrk.cloud.virtualMachine',
+            :Description           => options[:description],
+            :Status                => 'Deployed',
+            :PoweredOn             => 'false',
             :HardwareConfiguration => {
-              :href => "/cloudapi/ecloud/virtualmachines/#{server_id}/hardwareconfiguration",
-              :type => 'application/vnd.tmrk.cloud.virtualMachineHardware',
-              :Links => {
+              :href           => "/cloudapi/ecloud/virtualmachines/#{server_id}/hardwareconfiguration",
+              :type           => 'application/vnd.tmrk.cloud.virtualMachineHardware',
+              :Links          => {
                 :Link => {
                   :href => "/cloudapi/ecloud/virtualmachines/#{server_id}",
                   :name => options[:name],
@@ -103,11 +103,11 @@ module Fog
                 }
               },
               :ProcessorCount => options[:cpus],
-              :Memory => {
+              :Memory         => {
                 :Unit  => 'MB',
                 :Value => options[:memory],
               },
-              :Disks => { # Default drive
+              :Disks          => { # Default drive
                 :Disk => [{
                   :Index => '0',
                   :Name  => 'Hard Disk 1',
@@ -117,25 +117,25 @@ module Fog
                   },
                 }],
               },
-              :Nics => {
+              :Nics           => {
                 :Nic => nics,
               },
             },
-            :Links => { :Link => links },
+            :Links                 => { :Link => links },
           }
 
           row = {
-            :id => row_id,
-            :name => options[:row],
-            :href => "/cloudapi/ecloud/layoutrows/#{row_id}",
-            :type => 'application/vnd.tmrk.cloud.layoutRow',
-            :Links => {
+            :id             => row_id,
+            :name           => options[:row],
+            :href           => "/cloudapi/ecloud/layoutrows/#{row_id}",
+            :type           => 'application/vnd.tmrk.cloud.layoutRow',
+            :Links          => {
               :Link => [
                 Fog::Ecloud.keep(environment, :name, :href, :type)
               ],
             },
-            :Index => 0,
-            :Groups => {
+            :Index          => 0,
+            :Groups         => {
               :Group => [
               ],
             },
@@ -143,22 +143,22 @@ module Fog
           }
 
           group = {
-            :id => group_id,
-            :name => options[:group],
-            :href => "/cloudapi/ecloud/layoutgroups/#{group_id}",
-            :type => 'application/vnd.tmrk.cloud.layoutGroup',
-            :Links => {
+            :id              => group_id,
+            :name            => options[:group],
+            :href            => "/cloudapi/ecloud/layoutgroups/#{group_id}",
+            :type            => 'application/vnd.tmrk.cloud.layoutGroup',
+            :Links           => {
               :Link => [
                 Fog::Ecloud.keep(row, :name, :href, :type),
               ],
             },
-            :Index => 0,
+            :Index           => 0,
             :VirtualMachines => {
               :VirtualMachine => [
                 server,
               ],
             },
-            :row_id => row_id,
+            :row_id          => row_id,
           }
           row[:Groups][:Group].push(group)
           layout[:Rows][:Row].push(row)

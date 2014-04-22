@@ -15,9 +15,9 @@ module Fog
         #      * 'error'<~String>
         def delete_domain(id)
           request(
-                  :expects  => 200,
-                  :method   => 'GET',
-                  :path     => "/rapi/deletedomain/#{id}" )
+                  :expects => 200,
+                  :method  => 'GET',
+                  :path    => "/rapi/deletedomain/#{id}" )
 
         end
 

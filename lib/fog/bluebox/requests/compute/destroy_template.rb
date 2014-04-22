@@ -14,9 +14,9 @@ module Fog
         # TODO
         def destroy_template(id)
           request(
-            :expects  => 200,
-            :method   => 'DELETE',
-            :path     => "api/block_templates/#{id}.json"
+            :expects => 200,
+            :method  => 'DELETE',
+            :path    => "api/block_templates/#{id}.json"
           )
         end
 

@@ -57,15 +57,15 @@ module Fog
           requires :hostname, :rootpassword
 
           options = {
-            :datacenter     => datacenter   || 'Falkenberg',
-            :platform       => platform     || 'Xen',
-            :hostname       => hostname,
-            :templatename   => templatename || 'Debian-6 x64',
-            :disksize       => disksize     || '10',
-            :memorysize     => memorysize   || '512',
-            :cpucores       => cpucores     || '1',
-            :rootpassword   => rootpassword,
-            :transfer       => transfer     || '500',
+            :datacenter   => datacenter   || 'Falkenberg',
+            :platform     => platform     || 'Xen',
+            :hostname     => hostname,
+            :templatename => templatename || 'Debian-6 x64',
+            :disksize     => disksize     || '10',
+            :memorysize   => memorysize   || '512',
+            :cpucores     => cpucores     || '1',
+            :rootpassword => rootpassword,
+            :transfer     => transfer     || '500',
           }
 
           # optional options when creating a server:

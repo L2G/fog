@@ -4,9 +4,9 @@ module Fog
       class Real
         def set_monitor(load_balancer_id, type, delay, timeout, attempsBeforeDeactivation, options = {})
           data = {
-            'type' => type,
-            'delay' => delay,
-            'timeout' => timeout,
+            'type'                       => type,
+            'delay'                      => delay,
+            'timeout'                    => timeout,
             'attemptsBeforeDeactivation' => attempsBeforeDeactivation
           }
           if options.has_key? :path
@@ -19,10 +19,10 @@ module Fog
             data['statusRegex'] = options[:status_regex]
           end
           request(
-            :body     => Fog::JSON.encode(data),
-            :expects  => [200, 202],
-            :path     => "loadbalancers/#{load_balancer_id}/healthmonitor",
-            :method   => 'PUT'
+            :body    => Fog::JSON.encode(data),
+            :expects => [200, 202],
+            :path    => "loadbalancers/#{load_balancer_id}/healthmonitor",
+            :method  => 'PUT'
           )
         end
       end

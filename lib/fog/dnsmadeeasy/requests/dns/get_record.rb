@@ -26,9 +26,9 @@ module Fog
         #   * status<~Integer> - 200 - OK, 404 - specified domain name or record id is not found
         def get_record(domain, record_id)
           request(
-            :expects  => 200,
-            :method   => 'GET',
-            :path     => "/V1.2/domains/#{domain}/records/#{record_id}"
+            :expects => 200,
+            :method  => 'GET',
+            :path    => "/V1.2/domains/#{domain}/records/#{record_id}"
           )
         end
 

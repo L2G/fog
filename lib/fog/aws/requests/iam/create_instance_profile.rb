@@ -34,10 +34,10 @@ module Fog
         #
         def create_instance_profile(instance_profile_name, path = '/', options = {})
           request({
-            'Action'    => 'CreateInstanceProfile',
+            'Action'              => 'CreateInstanceProfile',
             'InstanceProfileName' => instance_profile_name,
-            'Path'      => path,
-            :parser     => Fog::Parsers::AWS::IAM::InstanceProfile.new
+            'Path'                => path,
+            :parser               => Fog::Parsers::AWS::IAM::InstanceProfile.new
           }.merge!(options))
         end
       end

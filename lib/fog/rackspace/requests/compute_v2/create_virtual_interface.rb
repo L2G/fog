@@ -20,9 +20,9 @@ module Fog
 
           request(
             :expects => [200],
-            :method => 'POST',
-            :path => "/servers/#{server_id}/os-virtual-interfacesv2",
-            :body => Fog::JSON.encode(data)
+            :method  => 'POST',
+            :path    => "/servers/#{server_id}/os-virtual-interfacesv2",
+            :body    => Fog::JSON.encode(data)
           )
         end
       end

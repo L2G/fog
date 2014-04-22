@@ -20,8 +20,8 @@ module Fog
           requires :volume_id
 
           options = {
-            'volumeid'      => volume_id,
-            'domainid'      => domain_id
+            'volumeid' => volume_id,
+            'domainid' => domain_id
           }
           data = service.create_snapshot(options)
           merge_attributes(data['createsnapshotresponse'])

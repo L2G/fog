@@ -16,11 +16,11 @@ module Fog
         #     * 'ImageID'<~String>: id of new image
         def clone_image(image_id, name, description)
           request(
-            :method   => 'POST',
-            :expects  => 200,
-            :path     => "/offerings/image/#{image_id}",
-            :body     => {
-              'name' => name,
+            :method  => 'POST',
+            :expects => 200,
+            :path    => "/offerings/image/#{image_id}",
+            :body    => {
+              'name'        => name,
               'description' => description
             }
           )

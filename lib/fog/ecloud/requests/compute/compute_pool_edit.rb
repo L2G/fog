@@ -24,11 +24,11 @@ module Fog
           body = build_compute_pool_body_edit(options)
           request(
             :expects => 200,
-            :method => 'PUT',
+            :method  => 'PUT',
             :headers => {},
-            :body => body,
-            :uri => options[:uri],
-            :parse => true
+            :body    => body,
+            :uri     => options[:uri],
+            :parse   => true
           )
         end
       end

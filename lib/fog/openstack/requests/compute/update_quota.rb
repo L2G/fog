@@ -6,10 +6,10 @@ module Fog
         def update_quota(tenant_id, options = {})
           options['tenant_id'] = tenant_id
           request(
-            :body => Fog::JSON.encode( 'quota_set' => options ),
+            :body    => Fog::JSON.encode( 'quota_set' => options ),
             :expects => 200,
-            :method => 'PUT',
-            :path => "/os-quota-sets/#{tenant_id}"
+            :method  => 'PUT',
+            :path    => "/os-quota-sets/#{tenant_id}"
           )
         end
 

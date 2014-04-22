@@ -17,10 +17,10 @@ module Fog
 
         def params
           options = {
-            'label'       => label,
-            'metadata'    => metadata,
+            'label'        => label,
+            'metadata'     => metadata,
             'ip_addresses' => ip_addresses,
-            'agent_id'    => agent_id
+            'agent_id'     => agent_id
           }
           options.reject {|key, value| value.nil?}
         end
@@ -38,7 +38,7 @@ module Fog
         def checks
           @checks ||= begin
             Fog::Rackspace::Monitoring::Checks.new(
-              :entity     => self,
+              :entity  => self,
               :service => service
             )
           end
@@ -47,7 +47,7 @@ module Fog
         def alarms
           @alarms ||= begin
             Fog::Rackspace::Monitoring::Alarms.new(
-              :entity     => self,
+              :entity  => self,
               :service => service
             )
           end

@@ -105,7 +105,7 @@ module Fog
           @metadata ||= begin
             Fog::Storage::HP::Metadata.new(
               :service => service,
-              :parent => self
+              :parent  => self
             )
           end
         end
@@ -135,7 +135,7 @@ module Fog
         def files
           @files ||= begin
             Fog::Storage::HP::Files.new(
-              :directory    => self,
+              :directory => self,
               :service   => service
             )
           end

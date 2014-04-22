@@ -6,10 +6,10 @@ Shindo.tests('Fog::Compute::RackspaceV2 | attachment_tests', ['rackspace']) do
 
   attachment_format = {
     'volumeAttachment' => {
-      'id' => String,
+      'id'       => String,
       'serverId' => String,
       'volumeId' => String,
-      'device' => Fog::Nullable::String
+      'device'   => Fog::Nullable::String
     }
   }
 

@@ -3,24 +3,24 @@ Shindo.tests('Fog::Network[:openstack] | network', ['openstack']) do
   tests('success') do
 
     tests('#create').succeeds do
-      @instance = Fog::Network[:openstack].networks.create(:name => 'net_name',
-                                                           :shared => false,
+      @instance = Fog::Network[:openstack].networks.create(:name           => 'net_name',
+                                                           :shared         => false,
                                                            :admin_state_up => true,
-                                                           :tenant_id => 'tenant_id')
+                                                           :tenant_id      => 'tenant_id')
       !@instance.id.nil?
     end
 
     tests('#create+extensions').succeeds do
       net = Fog::Network[:openstack].networks.create(
-        :name => 'net_name',
-        :shared => false,
-        :admin_state_up => true,
-        :tenant_id => 'tenant_id',
-        :router_external => true,
+        :name                     => 'net_name',
+        :shared                   => false,
+        :admin_state_up           => true,
+        :tenant_id                => 'tenant_id',
+        :router_external          => true,
         # local, gre, vlan. Depends on the provider.
         # May rise an exception if the network_type isn't valid:
         # QuantumError: "Invalid input for operation: provider:physical_network"
-        :provider_network_type => 'gre',
+        :provider_network_type    => 'gre',
         :provider_segmentation_id => 22
       )
       net.destroy

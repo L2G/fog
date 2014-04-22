@@ -16,8 +16,8 @@ module Fog
         def delete_queue(queue_name)
           request(
             :expects => 204,
-            :method => 'DELETE',
-            :path => "queues/#{queue_name}"
+            :method  => 'DELETE',
+            :path    => "queues/#{queue_name}"
           )
         end
 

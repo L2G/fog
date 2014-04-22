@@ -19,10 +19,10 @@ module Fog
         # @raise [Fog::Storage::Rackspace::ServiceError]
         def head_container(container)
           request(
-            :expects  => 204,
-            :method   => 'HEAD',
-            :path     => Fog::Rackspace.escape(container),
-            :query    => { 'format' => 'json' }
+            :expects => 204,
+            :method  => 'HEAD',
+            :path    => Fog::Rackspace.escape(container),
+            :query   => { 'format' => 'json' }
           )
         end
 

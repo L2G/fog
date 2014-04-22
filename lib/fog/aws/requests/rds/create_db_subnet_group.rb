@@ -15,10 +15,10 @@ module Fog
         # * response<~Excon::Response>:
         #   * body<~Hash>:
         def create_db_subnet_group(name, subnet_ids, description = name)
-          params = { 'Action'  => 'CreateDBSubnetGroup',
-            'DBSubnetGroupName' => name,
-            'DBSubnetGroupDescription' => description,
-            :parser   => Fog::Parsers::AWS::RDS::CreateDBSubnetGroup.new }
+          params = { 'Action'                   => 'CreateDBSubnetGroup',
+                     'DBSubnetGroupName'        => name,
+                     'DBSubnetGroupDescription' => description,
+                     :parser                    => Fog::Parsers::AWS::RDS::CreateDBSubnetGroup.new }
           params.merge!(Fog::AWS.indexed_param('SubnetIds.member', Array(subnet_ids)))
           request(params)
         end
@@ -45,15 +45,15 @@ module Fog
           vpc_id = subnets.first.vpc_id
 
           data = {
-            'DBSubnetGroupName' => name,
+            'DBSubnetGroupName'        => name,
             'DBSubnetGroupDescription' => description,
-            'SubnetGroupStatus' => 'Complete',
-            'Subnets' => subnet_ids,
-            'VpcId' => vpc_id
+            'SubnetGroupStatus'        => 'Complete',
+            'Subnets'                  => subnet_ids,
+            'VpcId'                    => vpc_id
           }
           self.data[:subnet_groups][name] = data
           response.body = {
-            'ResponseMetadata' => { 'RequestId' => Fog::AWS::Mock.request_id },
+            'ResponseMetadata'          => { 'RequestId' => Fog::AWS::Mock.request_id },
             'CreateDBSubnetGroupResult' => { 'DBSubnetGroup' => data }
           }
           response

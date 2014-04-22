@@ -33,10 +33,10 @@ module Fog
           }
 
           request(
-            :method   => 'POST',
-            :expects  => 200,
-            :path     => '/os-keypairs',
-            :body     => Fog::JSON.encode(data)
+            :method  => 'POST',
+            :expects => 200,
+            :path    => '/os-keypairs',
+            :body    => Fog::JSON.encode(data)
           )
         end
       end

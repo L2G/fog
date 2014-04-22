@@ -9,9 +9,9 @@ module Fog
         # * 'router_id'<~String> - UUId for the router to delete
         def delete_router(router_id)
           request(
-            :expects  => 204,
-            :method   => 'DELETE',
-            :path     => "routers/#{router_id}"
+            :expects => 204,
+            :method  => 'DELETE',
+            :path    => "routers/#{router_id}"
           )
         end
       end

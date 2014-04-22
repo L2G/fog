@@ -5,9 +5,9 @@ def test
   zone = 'us-central1-a'
 
   disk = connection.disks.create(
-    :name => name,
-    :size_gb => 10,
-    :zone_name => zone,
+    :name         => name,
+    :size_gb      => 10,
+    :zone_name    => zone,
     :source_image => 'debian-7-wheezy-v20140318'
   )
 
@@ -20,12 +20,12 @@ def test
   ]
 
   server = connection.servers.create(
-    :name => name,
-    :disks => [disk],
-    :machine_type => 'n1-standard-1',
-    :zone_name => zone,
-    :metadata => { 'foo' => 'bar' },
-    :tags => ['t1', 't2', 't3'],
+    :name            => name,
+    :disks           => [disk],
+    :machine_type    => 'n1-standard-1',
+    :zone_name       => zone,
+    :metadata        => { 'foo' => 'bar' },
+    :tags            => ['t1', 't2', 't3'],
     :servce_accounts => scopes
   )
   sleep(90)

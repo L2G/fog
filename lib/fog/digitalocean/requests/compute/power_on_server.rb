@@ -5,9 +5,9 @@ module Fog
 
         def power_on_server( id )
           request(
-            :expects  => [200],
-            :method   => 'GET',
-            :path     => "droplets/#{id}/power_on"
+            :expects => [200],
+            :method  => 'GET',
+            :path    => "droplets/#{id}/power_on"
           )
         end
 
@@ -22,7 +22,7 @@ module Fog
           server['status'] = 'active' if server
           response.body = {
             'event_id' => Fog::Mock.random_numbers(1).to_i,
-            'status' => 'OK'
+            'status'   => 'OK'
           }
           response
         end

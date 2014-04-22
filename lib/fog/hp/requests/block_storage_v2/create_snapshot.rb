@@ -28,7 +28,7 @@ module Fog
         def create_snapshot(volume_id, options = {})
           data = {
             'snapshot' => {
-              'volume_id'  => volume_id
+              'volume_id' => volume_id
             }
           }
 
@@ -38,10 +38,10 @@ module Fog
           end
 
           request(
-            :body     => Fog::JSON.encode(data),
-            :expects  => 200,
-            :method   => 'POST',
-            :path     => 'snapshots'
+            :body    => Fog::JSON.encode(data),
+            :expects => 200,
+            :method  => 'POST',
+            :path    => 'snapshots'
           )
         end
 

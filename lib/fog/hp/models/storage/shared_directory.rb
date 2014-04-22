@@ -15,7 +15,7 @@ module Fog
         def files
           @files ||= begin
             Fog::Storage::HP::SharedFiles.new(
-              :shared_directory    => self,
+              :shared_directory => self,
               :service          => service
             )
           end

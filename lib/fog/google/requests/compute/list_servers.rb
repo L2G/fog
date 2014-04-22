@@ -9,10 +9,10 @@ module Fog
           zone = self.data[:zones][zone_name]
           servers = self.data[:servers].values.select{|s| s['zone'] == zone['selfLink']}
           build_response(:body => {
-            'kind' => 'compute#instanceList',
+            'kind'     => 'compute#instanceList',
             'selfLink' => "https://www.googleapis.com/compute/#{api_version}/projects/#{@project}/zones/#{zone_name}/instances",
-            'id' => "projects/#{@project}/zones/#{zone_name}/instances",
-            'items' => servers
+            'id'       => "projects/#{@project}/zones/#{zone_name}/instances",
+            'items'    => servers
           })
         end
 
@@ -24,7 +24,7 @@ module Fog
           api_method = @compute.instances.list
           parameters = {
             'project' => @project,
-            'zone' => zone_name,
+            'zone'    => zone_name,
           }
 
           result = self.build_result(api_method, parameters)

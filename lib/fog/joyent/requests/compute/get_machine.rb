@@ -18,9 +18,9 @@ module Fog
       class Real
         def get_machine(uuid)
           request(
-            :method => 'GET',
-            :path => "/my/machines/#{uuid}",
-            :expects => [200, 410],
+            :method     => 'GET',
+            :path       => "/my/machines/#{uuid}",
+            :expects    => [200, 410],
             :idempotent => true
           )
         end

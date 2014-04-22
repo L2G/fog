@@ -44,11 +44,11 @@ Shindo.tests('AWS::ELB | load_balancer_tests', ['aws', 'elb']) do
 
     tests('#configure_health_check').formats(AWS::ELB::Formats::CONFIGURE_HEALTH_CHECK) do
       health_check = {
-        'Target' => 'HTTP:80/index.html',
-        'Interval' => 10,
-        'Timeout' => 5,
+        'Target'             => 'HTTP:80/index.html',
+        'Interval'           => 10,
+        'Timeout'            => 5,
         'UnhealthyThreshold' => 2,
-        'HealthyThreshold' => 3
+        'HealthyThreshold'   => 3
       }
 
       Fog::AWS[:elb].configure_health_check(@load_balancer_id, health_check).body

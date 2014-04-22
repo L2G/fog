@@ -19,11 +19,11 @@ module Fog
           body = build_request_body_detach_disk(options)
           request(
             :expects => 201,
-            :method => 'POST',
+            :method  => 'POST',
             :headers => {},
-            :body => body,
-            :uri => href,
-            :parse => true
+            :body    => body,
+            :uri     => href,
+            :parse   => true
           )
         end
       end
@@ -36,23 +36,23 @@ module Fog
           compute_pool     = self.data[:compute_pools][compute_pool_id]
           detached_disk_id = Fog::Mock.random_numbers(6).to_i
           detached_disk    = {
-            :id              => detached_disk_id,
-            :href            => "/cloudapi/ecloud/detacheddisks/#{detached_disk_id}",
-            :name            => options[:name],
-            :type            => 'application/vnd.tmrk.cloud.detachedDisk',
-            :Links => {
+            :id                                   => detached_disk_id,
+            :href                                 => "/cloudapi/ecloud/detacheddisks/#{detached_disk_id}",
+            :name                                 => options[:name],
+            :type                                 => 'application/vnd.tmrk.cloud.detachedDisk',
+            :Links                                => {
               :Link => [
                 Fog::Ecloud.keep(compute_pool, :href, :name, :type),
               ],
             },
-            :Description => options[:description],
+            :Description                          => options[:description],
             :LastKnownVirtualMachineConfiguration => Fog::Ecloud.keep(server, :name, :ProcessorCount, :Memory, :OperatingSystem),
-            :Type => 'Data',
-            :Size => {
+            :Type                                 => 'Data',
+            :Size                                 => {
               :Unit  => 'GB',
               :Value => options[:disk][:Size][:Value],
             },
-            :Status => 'Available',
+            :Status                               => 'Available',
           }
 
           server[:HardwareConfiguration][:Disks][:Disk].delete_if { |disk| disk[:Index] == options[:disk][:Index] }

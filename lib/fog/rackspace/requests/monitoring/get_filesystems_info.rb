@@ -5,9 +5,9 @@ module Fog
 
         def get_filesystems_info(agent_id)
           request(
-            :expects  => [200, 203],
-            :method   => 'GET',
-            :path     => "agents/#{agent_id}/host_info/filesystems"
+            :expects => [200, 203],
+            :method  => 'GET',
+            :path    => "agents/#{agent_id}/host_info/filesystems"
           )
         end
       end
@@ -22,24 +22,24 @@ module Fog
           response = Excon::Response.new
           response.status = 200
           response.body = {
-            'info'  => [
+            'info' => [
               {
-                'dir_name'        => '/',
-                'dev_name'        => '/dev/xvda1',
-                'sys_type_name'   => 'ext4',
-                'options'         => 'rw,noatime,acl,errors=remount-ro,barrier=0',
-                'free'            => Fog::Mock.random_numbers(8).to_i,
-                'used'            => Fog::Mock.random_numbers(5).to_i,
-                'avail'           => Fog::Mock.random_numbers(7).to_i,
-                'total'           => Fog::Mock.random_numbers(9).to_i,
-                'files'           => Fog::Mock.random_numbers(6).to_i,
-                'free_files'      => Fog::Mock.random_numbers(6).to_i,
+                'dir_name'      => '/',
+                'dev_name'      => '/dev/xvda1',
+                'sys_type_name' => 'ext4',
+                'options'       => 'rw,noatime,acl,errors=remount-ro,barrier=0',
+                'free'          => Fog::Mock.random_numbers(8).to_i,
+                'used'          => Fog::Mock.random_numbers(5).to_i,
+                'avail'         => Fog::Mock.random_numbers(7).to_i,
+                'total'         => Fog::Mock.random_numbers(9).to_i,
+                'files'         => Fog::Mock.random_numbers(6).to_i,
+                'free_files'    => Fog::Mock.random_numbers(6).to_i,
               },
               {
-                'dir_name'        => '/proc',
-                'dev_name'        => 'proc',
-                'sys_type_name'    => 'ext4',
-                'options'         => 'rw',
+                'dir_name'      => '/proc',
+                'dev_name'      => 'proc',
+                'sys_type_name' => 'ext4',
+                'options'       => 'rw',
               }
             ]
           }

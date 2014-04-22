@@ -20,10 +20,10 @@ module Fog
         #     * 'status'<~String> - Current status of the slice
         def get_records(zone_id)
           request(
-            :expects  => 200,
-            :method   => 'GET',
-            :parser   => Fog::Parsers::DNS::Bluebox::GetRecords.new,
-            :path     => "/api/domains/#{zone_id}/records.xml"
+            :expects => 200,
+            :method  => 'GET',
+            :parser  => Fog::Parsers::DNS::Bluebox::GetRecords.new,
+            :path    => "/api/domains/#{zone_id}/records.xml"
           )
         end
 

@@ -171,46 +171,46 @@ module Fog
               owner_id = Fog::AWS::Mock.owner_id
               security_group_id = Fog::AWS::Mock.security_group_id
               region_hash[key] = {
-                :deleted_at => {},
-                :addresses  => {},
-                :images     => {},
+                :deleted_at               => {},
+                :addresses                => {},
+                :images                   => {},
                 :image_launch_permissions => Hash.new do |permissions_hash, image_key|
                   permissions_hash[image_key] = {
                     :users => []
                   }
                 end,
-                :instances  => {},
-                :reserved_instances => {},
-                :key_pairs  => {},
-                :limits     => { :addresses => 5 },
-                :owner_id   => owner_id,
-                :security_groups => {
-                  'default' => {
+                :instances                => {},
+                :reserved_instances       => {},
+                :key_pairs                => {},
+                :limits                   => { :addresses => 5 },
+                :owner_id                 => owner_id,
+                :security_groups          => {
+                  'default'       => {
                     'groupDescription'    => 'default group',
                     'groupName'           => 'default',
                     'groupId'             => security_group_id,
                     'ipPermissionsEgress' => [],
                     'ipPermissions'       => [
                       {
-                        'groups'      => [{ 'groupName' => 'default', 'userId' => owner_id, 'groupId' => security_group_id }],
-                        'fromPort'    => -1,
-                        'toPort'      => -1,
-                        'ipProtocol'  => 'icmp',
-                        'ipRanges'    => []
+                        'groups'     => [{ 'groupName' => 'default', 'userId' => owner_id, 'groupId' => security_group_id }],
+                        'fromPort'   => -1,
+                        'toPort'     => -1,
+                        'ipProtocol' => 'icmp',
+                        'ipRanges'   => []
                       },
                       {
-                        'groups'      => [{ 'groupName' => 'default', 'userId' => owner_id, 'groupId' => security_group_id }],
-                        'fromPort'    => 0,
-                        'toPort'      => 65535,
-                        'ipProtocol'  => 'tcp',
-                        'ipRanges'    => []
+                        'groups'     => [{ 'groupName' => 'default', 'userId' => owner_id, 'groupId' => security_group_id }],
+                        'fromPort'   => 0,
+                        'toPort'     => 65535,
+                        'ipProtocol' => 'tcp',
+                        'ipRanges'   => []
                       },
                       {
-                        'groups'      => [{ 'groupName' => 'default', 'userId' => owner_id, 'groupId' => security_group_id }],
-                        'fromPort'    => 0,
-                        'toPort'      => 65535,
-                        'ipProtocol'  => 'udp',
-                        'ipRanges'    => []
+                        'groups'     => [{ 'groupName' => 'default', 'userId' => owner_id, 'groupId' => security_group_id }],
+                        'fromPort'   => 0,
+                        'toPort'     => 65535,
+                        'ipProtocol' => 'udp',
+                        'ipRanges'   => []
                       }
                     ],
                     'ownerId'             => owner_id
@@ -224,20 +224,20 @@ module Fog
                     'ipPermissions'      => [],
                   },
                 },
-                :network_acls => {},
-                :network_interfaces => {},
-                :snapshots => {},
-                :volumes => {},
-                :internet_gateways => {},
-                :tags => {},
-                :tag_sets => Hash.new do |tag_set_hash, resource_id|
+                :network_acls             => {},
+                :network_interfaces       => {},
+                :snapshots                => {},
+                :volumes                  => {},
+                :internet_gateways        => {},
+                :tags                     => {},
+                :tag_sets                 => Hash.new do |tag_set_hash, resource_id|
                   tag_set_hash[resource_id] = {}
                 end,
-                :subnets => [],
-                :vpcs => [],
-                :dhcp_options => [],
-                :route_tables => [],
-                :account_attributes => [
+                :subnets                  => [],
+                :vpcs                     => [],
+                :dhcp_options             => [],
+                :route_tables             => [],
+                :account_attributes       => [
                   {
                     'values'        => ['5'],
                     'attributeName' => 'vpc-max-security-groups-per-interface'
@@ -424,13 +424,13 @@ module Fog
           body = Fog::AWS.signed_params(
             params,
 
-            :aws_access_key_id  => @aws_access_key_id,
-            :aws_session_token  => @aws_session_token,
-            :hmac               => @hmac,
-            :host               => @host,
-            :path               => @path,
-            :port               => @port,
-            :version            => @version
+            :aws_access_key_id => @aws_access_key_id,
+            :aws_session_token => @aws_session_token,
+            :hmac              => @hmac,
+            :host              => @host,
+            :path              => @path,
+            :port              => @port,
+            :version           => @version
 
           )
 

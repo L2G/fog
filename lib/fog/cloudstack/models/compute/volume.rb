@@ -69,8 +69,8 @@ module Fog
 
           new_attributes = {
             'virtualmachineid' => nil,
-            'vmname' => nil,
-            'vmdisplayname' => nil
+            'vmname'           => nil,
+            'vmdisplayname'    => nil
           }.merge(data.attributes)
 
           merge_attributes(new_attributes)

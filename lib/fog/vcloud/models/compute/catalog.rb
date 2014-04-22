@@ -13,7 +13,7 @@ module Fog
         def catalog_items
           @catalog_items ||= Fog::Vcloud::Compute::CatalogItems.
             new( :service => service,
-                 :href => href )
+                 :href    => href )
         end
 
       end

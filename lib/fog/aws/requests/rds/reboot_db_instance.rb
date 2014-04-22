@@ -14,9 +14,9 @@ module Fog
         #   * body<~Hash>:
         def reboot_db_instance(instance_identifier)
           request(
-            'Action'  => 'RebootDBInstance',
+            'Action'               => 'RebootDBInstance',
             'DBInstanceIdentifier' => instance_identifier,
-            :parser   => Fog::Parsers::AWS::RDS::RebootDBInstance.new
+            :parser                => Fog::Parsers::AWS::RDS::RebootDBInstance.new
           )
         end
 
@@ -34,7 +34,7 @@ module Fog
               self.data[:reboot_time] = Time.now
               response.status = 200
               response.body = {
-                'ResponseMetadata' => { 'RequestId' => Fog::AWS::Mock.request_id },
+                'ResponseMetadata'       => { 'RequestId' => Fog::AWS::Mock.request_id },
                 'RebootDBInstanceResult' => { 'DBInstance' => server }
               }
               response

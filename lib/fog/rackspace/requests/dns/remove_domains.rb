@@ -16,9 +16,9 @@ module Fog
           end
 
           request(
-            :expects  => [202, 204],
-            :method   => 'DELETE',
-            :path     => path
+            :expects => [202, 204],
+            :method  => 'DELETE',
+            :path    => path
           )
         end
       end

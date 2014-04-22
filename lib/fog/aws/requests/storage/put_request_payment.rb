@@ -18,12 +18,12 @@ module Fog
 </RequestPaymentConfiguration>
 DATA
           request(
-            :body     => data,
-            :expects  => 200,
-            :headers  => {},
+            :body        => data,
+            :expects     => 200,
+            :headers     => {},
             :bucket_name => bucket_name,
-            :method   => 'PUT',
-            :query    => { 'requestPayment' => nil }
+            :method      => 'PUT',
+            :query       => { 'requestPayment' => nil }
           )
         end
 

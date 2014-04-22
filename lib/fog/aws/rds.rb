@@ -88,17 +88,17 @@ module Fog
           @data ||= Hash.new do |hash, region|
             hash[region] = Hash.new do |region_hash, key|
               region_hash[key] = {
-                :servers => {},
-                :security_groups => {},
-                :subnet_groups => {},
-                :snapshots => {},
+                :servers          => {},
+                :security_groups  => {},
+                :subnet_groups    => {},
+                :snapshots        => {},
                 :parameter_groups => { 'default.mysql5.1' => { 'DBParameterGroupFamily' => 'mysql5.1',
-                                                              'Description' => 'Default parameter group for mysql5.1',
-                                                              'DBParameterGroupName' => 'default.mysql5.1'
+                                                               'Description'            => 'Default parameter group for mysql5.1',
+                                                               'DBParameterGroupName'   => 'default.mysql5.1'
                                                             },
-                                      'default.mysql5.5' => { 'DBParameterGroupFamily' => 'mysql5.5',
-                                                            'Description' => 'Default parameter group for mysql5.5',
-                                                            'DBParameterGroupName' => 'default.mysql5.5'
+                                       'default.mysql5.5' => { 'DBParameterGroupFamily' => 'mysql5.5',
+                                                               'Description'            => 'Default parameter group for mysql5.5',
+                                                               'DBParameterGroupName'   => 'default.mysql5.5'
                                                             }
                                       }
                                  }
@@ -200,13 +200,13 @@ module Fog
           body = Fog::AWS.signed_params(
             params,
 
-            :aws_access_key_id  => @aws_access_key_id,
-            :aws_session_token  => @aws_session_token,
-            :hmac               => @hmac,
-            :host               => @host,
-            :path               => @path,
-            :port               => @port,
-            :version            => @version
+            :aws_access_key_id => @aws_access_key_id,
+            :aws_session_token => @aws_session_token,
+            :hmac              => @hmac,
+            :host              => @host,
+            :path              => @path,
+            :port              => @port,
+            :version           => @version
 
           )
 

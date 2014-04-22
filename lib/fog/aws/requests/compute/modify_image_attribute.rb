@@ -29,10 +29,10 @@ module Fog
           params.merge!(Fog::AWS.indexed_param('LaunchPermission.Remove.%d.UserId', attributes['Remove.UserId'] || []))
           params.merge!(Fog::AWS.indexed_param('ProductCode', attributes['ProductCode'] || []))
           request({
-            'Action'        => 'ModifyImageAttribute',
-            'ImageId'       => image_id,
-            :idempotent     => true,
-            :parser         => Fog::Parsers::Compute::AWS::Basic.new
+            'Action'    => 'ModifyImageAttribute',
+            'ImageId'   => image_id,
+            :idempotent => true,
+            :parser     => Fog::Parsers::Compute::AWS::Basic.new
           }.merge!(params))
         end
 
@@ -62,8 +62,8 @@ module Fog
           response = Excon::Response.new
           response.status = 200
           response.body = {
-            'return'        => true,
-            'requestId'     => Fog::AWS::Mock.request_id
+            'return'    => true,
+            'requestId' => Fog::AWS::Mock.request_id
           }
           response
         end

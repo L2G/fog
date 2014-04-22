@@ -77,17 +77,17 @@ Shindo.tests do
 
   tests('symbolize_credentials') do
     h = {
-      'a' => 3,
-      :something => 2,
+      'a'                  => 3,
+      :something           => 2,
       'connection_options' => { 'val' => 5 },
-      :headers => { 'User-Agent' => 'my user agent' }
+      :headers             => { 'User-Agent' => 'my user agent' }
       }
 
       returns(
-        :a => 3,
-        :something => 2,
+        :a                  => 3,
+        :something          => 2,
         :connection_options => { :val => 5 },
-        :headers => { 'User-Agent' => 'my user agent' }
+        :headers            => { 'User-Agent' => 'my user agent' }
         ) { Fog.symbolize_credentials h }
   end
 end

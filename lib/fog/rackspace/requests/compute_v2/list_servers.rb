@@ -40,8 +40,8 @@ module Fog
         def list_servers
           request(
             :expects => [200, 203, 300],
-            :method => 'GET',
-            :path => 'servers/detail'
+            :method  => 'GET',
+            :path    => 'servers/detail'
           )
         end
       end

@@ -8,12 +8,12 @@ module Fog
           validate_data([:interval, :response_timeout, :retries, :downtime, :enabled], data)
 
           request(
-            :body => generate_edit_ping_request(data),
+            :body    => generate_edit_ping_request(data),
             :expects => 200,
-            :method => 'PUT',
+            :method  => 'PUT',
             :headers => {},
-            :uri => data[:uri],
-            :parse => true
+            :uri     => data[:uri],
+            :parse   => true
           )
         end
 

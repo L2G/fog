@@ -8,7 +8,7 @@ Shindo.tests('Fog::Compute[:aws] | address requests', ['aws']) do
       'instanceId'    => Fog::Nullable::String,
       'publicIp'      => String
     }],
-    'requestId' => String
+    'requestId'    => String
   }
   @server = Fog::Compute[:aws].servers.create
   @server.wait_for { ready? }

@@ -21,9 +21,9 @@ module Fog
         # @see http://docs.rackspace.com/servers/api/v2/cs-devguide/content/List_Addresses_by_Network-d1e3118.html
         def list_addresses_by_network(server_id, network_id)
           request(
-            :method   => 'GET',
-            :expects  => 200,
-            :path     => "servers/#{server_id}/ips/#{network_id}"
+            :method  => 'GET',
+            :expects => 200,
+            :path    => "servers/#{server_id}/ips/#{network_id}"
           )
         end
 
@@ -33,7 +33,7 @@ module Fog
 
         RESPONSE_BODY = {
           'addresses' => {
-            'public' => [{ 'version' => 6, 'addr' => '2001:4800:7811:0513:0fe1:75e8:ff04:760b' }, { 'version' => 4, 'addr' => '166.78.18.176' }],
+            'public'  => [{ 'version' => 6, 'addr' => '2001:4800:7811:0513:0fe1:75e8:ff04:760b' }, { 'version' => 4, 'addr' => '166.78.18.176' }],
             'private' => [{ 'version' => 4, 'addr' => '10.181.129.68' }]
           }
         }

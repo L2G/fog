@@ -14,7 +14,7 @@ module Fog
         def post_update_disk_metadata(id, metadata = {})
           body = Nokogiri::XML::Builder.new do
             attrs = {
-              :xmlns => 'http://www.vmware.com/vcloud/v1.5',
+              :xmlns      => 'http://www.vmware.com/vcloud/v1.5',
               'xmlns:xsi' => 'http://www.w3.org/2001/XMLSchema-instance'
             }
             Metadata(attrs) {

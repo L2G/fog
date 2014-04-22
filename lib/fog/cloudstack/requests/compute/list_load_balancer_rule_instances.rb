@@ -9,7 +9,7 @@ module Fog
         def list_load_balancer_rule_instances(load_balancer_rule_id,options = {})
           options.merge!(
             'command' => 'listLoadBalancerRuleInstances',
-            'id' => load_balancer_rule_id
+            'id'      => load_balancer_rule_id
           )
 
           request(options)

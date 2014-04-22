@@ -32,10 +32,10 @@ Shindo.tests('Fog::Brightbox::OAuth2', ['brightbox']) do
 
     tests('with existing tokens') do
       options = {
-        :username => @username,
-        :access_token => @access_token,
+        :username      => @username,
+        :access_token  => @access_token,
         :refresh_token => @refresh_token,
-        :expires_in => @expires_in
+        :expires_in    => @expires_in
       }
       credentials = Fog::Brightbox::OAuth2::CredentialSet.new(@client_id, @client_secret, options)
       tests('#user_details?').returns(false) { credentials.user_details? }

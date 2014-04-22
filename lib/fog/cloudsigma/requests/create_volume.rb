@@ -11,14 +11,14 @@ module Fog
         def create_volume(data)
           uuid = self.class.random_uuid
 
-          defaults = { 'uuid' => uuid,
-                      'status' => 'unmounted',
-                      'tags' => [],
-                      'mounted_on' => [],
-                      'affinities' => [],
-                      'licenses' => [],
-                      'jobs' => [],
-                      'allow_multimount' => false,
+          defaults = { 'uuid'             => uuid,
+                       'status'           => 'unmounted',
+                       'tags'             => [],
+                       'mounted_on'       => [],
+                       'affinities'       => [],
+                       'licenses'         => [],
+                       'jobs'             => [],
+                       'allow_multimount' => false,
           }
 
           mock_create(:volumes, 202, data, uuid, defaults)

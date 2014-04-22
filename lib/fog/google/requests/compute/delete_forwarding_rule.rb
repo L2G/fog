@@ -20,9 +20,9 @@ module Fog
 
           api_method = @compute.forwarding_rules.delete
           parameters = {
-            'project' => @project,
+            'project'        => @project,
             'forwardingRule' => forwarding_rule_name,
-            'region' => region_name
+            'region'         => region_name
           }
 
           result = self.build_result(api_method, parameters)

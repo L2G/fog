@@ -26,8 +26,8 @@ module Fog
         #       * 'AttributeName'<~Hash>: in form of {"type":value}
         def get_item(table_name, key, options = {})
           body = {
-            'Key'               => key,
-            'TableName'         => table_name
+            'Key'       => key,
+            'TableName' => table_name
           }.merge(options)
 
           request(

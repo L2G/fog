@@ -9,7 +9,7 @@ module Fog
         model Fog::Billing::StormOnDemand::Payment
 
         def make(amount, card_code)
-          service.make_payment(:amount => amount,
+          service.make_payment(:amount    => amount,
                                :card_code => card_code).body['amount']
         end
       end

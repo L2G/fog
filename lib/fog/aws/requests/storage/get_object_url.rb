@@ -14,7 +14,7 @@ module Fog
           signed_url(options.merge(
             :bucket_name => bucket_name,
             :object_name => object_name,
-            :method => 'GET'
+            :method      => 'GET'
           ), expires)
         end
       end

@@ -42,15 +42,15 @@ module Fog
         def all!
           data = []
 
-          merge_attributes('NextRecordName' => nil,
-                            'NextRecordType' => nil,
-                            'NextRecordIdentifier' => nil,
-                            'IsTruncated' => nil)
+          merge_attributes('NextRecordName'       => nil,
+                           'NextRecordType'       => nil,
+                           'NextRecordIdentifier' => nil,
+                           'IsTruncated'          => nil)
 
           loop do
             options = {
-                :name => next_record_name,
-                :type => next_record_type,
+                :name       => next_record_name,
+                :type       => next_record_type,
                 :identifier => next_record_identifier
             }
             options.delete_if {|key, value| value.nil?}
@@ -84,9 +84,9 @@ module Fog
           record_type = record_type.upcase unless record_type.nil?
 
           options = {
-              :max_items => 1,
-              :name => record_name,
-              :type => record_type,
+              :max_items  => 1,
+              :name       => record_name,
+              :type       => record_type,
               :identifier => record_identifier
           }
           options.delete_if {|key, value| value.nil?}

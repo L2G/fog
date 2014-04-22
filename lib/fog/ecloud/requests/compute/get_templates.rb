@@ -16,21 +16,21 @@ module Fog
 
           template_response = { :Template => (templates.size > 1 ? templates : templates.first) } # GAH
           body = {
-            :href  => uri,
-            :type  => 'application/vnd.tmrk.cloud.template; type=collection',
-            :Links => {
+            :href     => uri,
+            :type     => 'application/vnd.tmrk.cloud.template; type=collection',
+            :Links    => {
               :Link => compute_pool,
             },
             :Families => {
               :Family => {
-                :Name => 'Standard Templates',
+                :Name       => 'Standard Templates',
                 :Categories => {
                   :Category => [
                     {
-                      :Name => 'OS Only',
+                      :Name             => 'OS Only',
                       :OperatingSystems => {
                         :OperatingSystem => {
-                          :Name => 'Linux',
+                          :Name      => 'Linux',
                           :Templates => template_response,
                         }
                       }

@@ -1,66 +1,66 @@
 Shindo.tests('Fog::Compute[:aws] | volume requests', ['aws']) do
 
   @volume_format = {
-    'availabilityZone'  => String,
-    'createTime'        => Time,
-    'iops'              => Fog::Nullable::Integer,
-    'requestId'         => String,
-    'size'              => Integer,
-    'snapshotId'        => Fog::Nullable::String,
-    'status'            => String,
-    'volumeId'          => String,
-    'volumeType'        => String
+    'availabilityZone' => String,
+    'createTime'       => Time,
+    'iops'             => Fog::Nullable::Integer,
+    'requestId'        => String,
+    'size'             => Integer,
+    'snapshotId'       => Fog::Nullable::String,
+    'status'           => String,
+    'volumeId'         => String,
+    'volumeType'       => String
   }
 
   @volume_attachment_format = {
-    'attachTime'  => Time,
-    'device'      => String,
-    'instanceId'  => String,
-    'requestId'   => String,
-    'status'      => String,
-    'volumeId'    => String
+    'attachTime' => Time,
+    'device'     => String,
+    'instanceId' => String,
+    'requestId'  => String,
+    'status'     => String,
+    'volumeId'   => String
   }
 
   @volume_status_format = {
     'volumeStatusSet' => [{
-      'availabilityZone'  => String,
-      'volumeId'          => String,
-      'volumeStatus'      => {
-        'status'            => String,
-        'details'           => [{
-          'name'              => String,
-          'status'            => String
+      'availabilityZone' => String,
+      'volumeId'         => String,
+      'volumeStatus'     => {
+        'status'  => String,
+        'details' => [{
+          'name'   => String,
+          'status' => String
         }]
       },
-      'actionsSet'        => [{
-        'code'              => String,
-        'description'       => String,
-        'eventId'           => String,
-        'eventType'         => String
+      'actionsSet'       => [{
+        'code'        => String,
+        'description' => String,
+        'eventId'     => String,
+        'eventType'   => String
       }],
       'eventsSet'        => [{
-        'description'       => String,
-        'eventId'           => String,
-        'eventType'         => String,
-        'notBefore'         => Time,
-        'notAfter'          => Time
+        'description' => String,
+        'eventId'     => String,
+        'eventType'   => String,
+        'notBefore'   => Time,
+        'notAfter'    => Time
       }]
     }],
-    'requestId' => String
+    'requestId'       => String
   }
 
   @volumes_format = {
     'volumeSet' => [{
-      'availabilityZone'  => String,
-      'attachmentSet'     => Array,
-      'createTime'        => Time,
-      'iops'              => Fog::Nullable::Integer,
-      'size'              => Integer,
-      'snapshotId'        => Fog::Nullable::String,
-      'status'            => String,
-      'tagSet'            => Hash,
-      'volumeId'          => String,
-      'volumeType'        => String
+      'availabilityZone' => String,
+      'attachmentSet'    => Array,
+      'createTime'       => Time,
+      'iops'             => Fog::Nullable::Integer,
+      'size'             => Integer,
+      'snapshotId'       => Fog::Nullable::String,
+      'status'           => String,
+      'tagSet'           => Hash,
+      'volumeId'         => String,
+      'volumeType'       => String
     }],
     'requestId' => String
   }

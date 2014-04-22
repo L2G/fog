@@ -19,7 +19,7 @@ module Fog
             'CacheParameterGroupFamily' => options[:engine] || 'memcached1.4',
             'Marker'                    => options[:marker],
             'MaxRecords'                => options[:max_records],
-            :parser => Fog::Parsers::AWS::Elasticache::DescribeEngineDefaultParameters.new
+            :parser                     => Fog::Parsers::AWS::Elasticache::DescribeEngineDefaultParameters.new
           )
         end
 

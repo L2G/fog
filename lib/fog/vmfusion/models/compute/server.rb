@@ -243,11 +243,11 @@ module Fog
           @raw = new_raw
 
           raw_attributes = {
-            :name            => new_raw[:fission].name,
-            :power_state     => new_raw[:state],
-            :ipaddress       => ip(new_raw[:fission]),
-            :mac_addresses   => macs(new_raw[:fission]),
-            :path            => new_raw[:fission].path
+            :name          => new_raw[:fission].name,
+            :power_state   => new_raw[:state],
+            :ipaddress     => ip(new_raw[:fission]),
+            :mac_addresses => macs(new_raw[:fission]),
+            :path          => new_raw[:fission].path
           }
 
           merge_attributes(raw_attributes)

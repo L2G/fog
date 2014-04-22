@@ -43,14 +43,14 @@ module Fog
 
         def compute
           @compute ||= Fog::Compute.new(
-            :provider       => 'HP',
-            :version        => :v2,
-            :hp_access_key  => @hp_access_key,
-            :hp_secret_key  => @hp_secret_key,
-            :hp_auth_uri    => @hp_auth_uri,
-            :hp_tenant_id   => @hp_tenant_id,
-            :hp_avl_zone    => @hp_avl_zone,
-            :credentials    => @credentials,
+            :provider           => 'HP',
+            :version            => :v2,
+            :hp_access_key      => @hp_access_key,
+            :hp_secret_key      => @hp_secret_key,
+            :hp_auth_uri        => @hp_auth_uri,
+            :hp_tenant_id       => @hp_tenant_id,
+            :hp_avl_zone        => @hp_avl_zone,
+            :credentials        => @credentials,
             :connection_options => @connection_options
           )
         end
@@ -63,8 +63,8 @@ module Fog
         def self.data
           @data ||= Hash.new do |hash, key|
             hash[key] = {
-              :volumes => {},
-              :snapshots => {},
+              :volumes        => {},
+              :snapshots      => {},
               :volume_backups => {}
             }
           end
@@ -137,12 +137,12 @@ module Fog
         def request(params, parse_json = true, &block)
           begin
             response = @connection.request(params.merge!(
-              :headers  => {
+              :headers => {
                 'Content-Type' => 'application/json',
                 'Accept'       => 'application/json',
                 'X-Auth-Token' => @auth_token
               }.merge!(params[:headers] || {}),
-              :path     => "#{@path}/#{params[:path]}"
+              :path    => "#{@path}/#{params[:path]}"
             ), &block)
           rescue Excon::Errors::HTTPStatusError => error
             raise case error

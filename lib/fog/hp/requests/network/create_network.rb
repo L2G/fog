@@ -35,10 +35,10 @@ module Fog
           end
 
           request(
-            :body     => Fog::JSON.encode(data),
-            :expects  => 201,
-            :method   => 'POST',
-            :path     => 'networks'
+            :body    => Fog::JSON.encode(data),
+            :expects => 201,
+            :method  => 'POST',
+            :path    => 'networks'
           )
         end
       end

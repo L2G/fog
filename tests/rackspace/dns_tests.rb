@@ -37,7 +37,7 @@ Shindo.tests('Fog::DNS::Rackspace', ['rackspace']) do
 
     tests('custom endpoint') do
       @service = Fog::DNS::Rackspace.new :rackspace_auth_url => 'https://identity.api.rackspacecloud.com/v1.0',
-        :rackspace_dns_url => 'https://my-custom-endpoint.com'
+                                         :rackspace_dns_url  => 'https://my-custom-endpoint.com'
         returns(true, 'auth token populated') { !@service.send(:auth_token).nil? }
         returns(true, 'uses custom endpoint') { (@service.instance_variable_get('@uri').host =~ /my-custom-endpoint\.com/) != nil }
     end
@@ -59,7 +59,7 @@ Shindo.tests('Fog::DNS::Rackspace', ['rackspace']) do
     end
     tests('custom endpoint') do
       @service = Fog::DNS::Rackspace.new :rackspace_auth_url => 'https://identity.api.rackspacecloud.com/v2.0',
-        :rackspace_dns_url => 'https://my-custom-endpoint.com'
+                                         :rackspace_dns_url  => 'https://my-custom-endpoint.com'
         returns(true, 'auth token populated') { !@service.send(:auth_token).nil? }
         returns(true, 'uses custom endpoint') { (@service.instance_variable_get('@uri').host =~ /my-custom-endpoint\.com/) != nil }
     end

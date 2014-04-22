@@ -5,9 +5,9 @@ module Fog
 
         def list_public_addresses(server_id)
           request(
-            :expects  => [200, 203],
-            :method   => 'GET',
-            :path     => "servers/#{server_id}/ips/public.json"
+            :expects => [200, 203],
+            :method  => 'GET',
+            :path    => "servers/#{server_id}/ips/public.json"
           )
         end
 

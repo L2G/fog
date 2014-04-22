@@ -15,9 +15,9 @@ module Fog
         # @raise [Fog::Storage::Rackspace::ServiceError]
         def get_object(container, object, &block)
           params = {
-            :expects  => 200,
-            :method   => 'GET',
-            :path     => "#{Fog::Rackspace.escape(container)}/#{Fog::Rackspace.escape(object)}"
+            :expects => 200,
+            :method  => 'GET',
+            :path    => "#{Fog::Rackspace.escape(container)}/#{Fog::Rackspace.escape(object)}"
           }
 
           if block_given?

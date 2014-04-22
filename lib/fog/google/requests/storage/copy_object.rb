@@ -28,12 +28,12 @@ module Fog
         def copy_object(source_bucket_name, source_object_name, target_bucket_name, target_object_name, options = {})
           headers = { 'x-goog-copy-source' => "/#{source_bucket_name}/#{source_object_name}" }.merge(options)
           request(
-            :expects  => 200,
-            :headers  => headers,
-            :host     => "#{target_bucket_name}.#{@host}",
-            :method   => 'PUT',
-            :parser   => Fog::Parsers::Storage::Google::CopyObject.new,
-            :path     => CGI.escape(target_object_name)
+            :expects => 200,
+            :headers => headers,
+            :host    => "#{target_bucket_name}.#{@host}",
+            :method  => 'PUT',
+            :parser  => Fog::Parsers::Storage::Google::CopyObject.new,
+            :path    => CGI.escape(target_object_name)
           )
         end
 
@@ -55,8 +55,8 @@ module Fog
             )
             target_bucket[:objects][target_object_name] = target_object
             response.body = {
-              'ETag'          => target_object['ETag'],
-              'LastModified'  => Time.parse(target_object['Last-Modified'])
+              'ETag'         => target_object['ETag'],
+              'LastModified' => Time.parse(target_object['Last-Modified'])
             }
           else
             response.status = 404

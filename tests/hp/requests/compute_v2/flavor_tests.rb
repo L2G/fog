@@ -3,13 +3,13 @@ Shindo.tests('Fog::Compute::HPV2 | flavor requests', ['hp', 'v2', 'compute']) do
   service = Fog::Compute.new(:provider => 'HP', :version => :v2)
 
   @flavor_format = {
-    'id'         => String,
-    'name'       => String,
-    'vcpus'      => Integer,
-    'disk'       => Integer,
-    'ram'        => Integer,
+    'id'                        => String,
+    'name'                      => String,
+    'vcpus'                     => Integer,
+    'disk'                      => Integer,
+    'ram'                       => Integer,
     'OS-FLV-EXT-DATA:ephemeral' => Integer,
-    'links'      => [Hash]
+    'links'                     => [Hash]
   }
 
   @list_flavors_format = {

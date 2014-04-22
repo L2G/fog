@@ -16,9 +16,9 @@ module Fog
 
         def delete_topic(arn)
           request(
-            'Action'    => 'DeleteTopic',
-            'TopicArn'  => arn.strip,
-            :parser     => Fog::Parsers::AWS::SNS::DeleteTopic.new
+            'Action'   => 'DeleteTopic',
+            'TopicArn' => arn.strip,
+            :parser    => Fog::Parsers::AWS::SNS::DeleteTopic.new
           )
         end
 

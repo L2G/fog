@@ -46,13 +46,13 @@ module Fog
           headers['Date'] = Fog::Time.now.to_date_header
 
           request(
-            :body     => data,
-            :expects  => 200,
-            :headers  => headers,
-            :host     => "#{bucket_name}.#{@host}",
-            :method   => 'PUT',
-            :path       => CGI.escape(object_name),
-            :query    => query
+            :body    => data,
+            :expects => 200,
+            :headers => headers,
+            :host    => "#{bucket_name}.#{@host}",
+            :method  => 'PUT',
+            :path    => CGI.escape(object_name),
+            :query   => query
           )
         end
       end

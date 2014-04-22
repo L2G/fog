@@ -120,11 +120,11 @@ module Fog
 
           body = %Q{<?xml version="1.0" encoding="UTF-8"?><ChangeResourceRecordSetsRequest xmlns="https://route53.amazonaws.com/doc/#{@version}/">#{changes}</ChangeResourceRecordSetsRequest>}
           request(
-            :body       => body,
-            :parser     => Fog::Parsers::DNS::AWS::ChangeResourceRecordSets.new,
-            :expects    => 200,
-            :method     => 'POST',
-            :path       => "hostedzone/#{zone_id}/rrset"
+            :body    => body,
+            :parser  => Fog::Parsers::DNS::AWS::ChangeResourceRecordSets.new,
+            :expects => 200,
+            :method  => 'POST',
+            :path    => "hostedzone/#{zone_id}/rrset"
           )
 
         end
@@ -161,10 +161,10 @@ module Fog
                     }
                   end
                   zone[:records][change[:type]][change[:name]] = {
-                    :change_id => change_id,
+                    :change_id        => change_id,
                     :resource_records => change[:resource_records] || [],
-                    :name => change[:name],
-                    :type => change[:type]
+                    :name             => change[:name],
+                    :type             => change[:type]
                   }.merge(record)
                 else
                   errors << "Tried to create resource record set #{change[:name]}. type #{change[:type]}, but it already exists"
@@ -178,14 +178,14 @@ module Fog
 
             if errors.empty?
               change = {
-                :id => change_id,
-                :status => 'PENDING',
+                :id           => change_id,
+                :status       => 'PENDING',
                 :submitted_at => Time.now.utc.iso8601
               }
               self.data[:changes][change[:id]] = change
               response.body = {
-                'Id' => change[:id],
-                'Status' => change[:status],
+                'Id'          => change[:id],
+                'Status'      => change[:status],
                 'SubmittedAt' => change[:submitted_at]
               }
               response

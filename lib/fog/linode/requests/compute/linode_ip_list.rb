@@ -9,9 +9,9 @@ module Fog
             options.merge!(:ipaddressId => ip_id)
           end
           request(
-            :expects  => 200,
-            :method   => 'GET',
-            :query    => { :api_action => 'linode.ip.list', :linodeId => linode_id }.merge!(options)
+            :expects => 200,
+            :method  => 'GET',
+            :query   => { :api_action => 'linode.ip.list', :linodeId => linode_id }.merge!(options)
           )
         end
 
@@ -23,7 +23,7 @@ module Fog
           response.status = 200
           body = {
             'ERRORARRAY' => [],
-            'ACTION' => 'linode.ip.list'
+            'ACTION'     => 'linode.ip.list'
           }
 
           if ip_id
@@ -47,10 +47,10 @@ module Fog
         def create_mock_ip(linode_id, ip_id, is_public = true)
           {
             'IPADDRESSID' => ip_id,
-            'RDNS_NAME' => 'li-test.members.linode.com',
-            'LINODEID' => linode_id,
-            'ISPUBLIC' => is_public ? 1 : 0,
-            'IPADDRESS' => is_public ? '1.2.3.4' : '192.168.1.2'
+            'RDNS_NAME'   => 'li-test.members.linode.com',
+            'LINODEID'    => linode_id,
+            'ISPUBLIC'    => is_public ? 1 : 0,
+            'IPADDRESS'   => is_public ? '1.2.3.4' : '192.168.1.2'
           }
         end
       end

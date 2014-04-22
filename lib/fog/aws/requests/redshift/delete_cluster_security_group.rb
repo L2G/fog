@@ -16,10 +16,10 @@ module Fog
 
           path = '/'
           params = {
-            :headers    => {},
-            :path       => path,
-            :method     => :put,
-            :query      => {}
+            :headers => {},
+            :path    => path,
+            :method  => :put,
+            :query   => {}
           }
 
           params[:query]['Action']                     = 'DeleteClusterSecurityGroup'

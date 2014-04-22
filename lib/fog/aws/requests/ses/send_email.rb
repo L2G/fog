@@ -62,8 +62,8 @@ module Fog
           end
 
           request({
-            'Action'           => 'SendEmail',
-            :parser            => Fog::Parsers::AWS::SES::SendEmail.new
+            'Action' => 'SendEmail',
+            :parser  => Fog::Parsers::AWS::SES::SendEmail.new
           }.merge(params))
         end
 

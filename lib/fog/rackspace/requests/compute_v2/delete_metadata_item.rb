@@ -16,8 +16,8 @@ module Fog
         def delete_metadata_item(collection, obj_id, key)
           request(
             :expects => 204,
-            :method => 'DELETE',
-            :path => "/#{collection}/#{obj_id}/metadata/#{key}"
+            :method  => 'DELETE',
+            :path    => "/#{collection}/#{obj_id}/metadata/#{key}"
           )
         end
       end

@@ -122,13 +122,13 @@ module Fog
           body = AWS.signed_params(
             params,
 
-            :aws_access_key_id  => @aws_access_key_id,
-            :aws_session_token  => @aws_session_token,
-            :hmac               => @hmac,
-            :host               => @host,
-            :path               => @path,
-            :port               => @port,
-            :version            => '2011-01-01'
+            :aws_access_key_id => @aws_access_key_id,
+            :aws_session_token => @aws_session_token,
+            :hmac              => @hmac,
+            :host              => @host,
+            :path              => @path,
+            :port              => @port,
+            :version           => '2011-01-01'
 
           )
 
@@ -187,23 +187,23 @@ module Fog
             owner_id = Fog::AWS::Mock.owner_id
             hash[region] = Hash.new do |region_hash, key|
               region_hash[key] = {
-                :adjustment_types => [
+                :adjustment_types            => [
                   'ChangeInCapacity',
                   'ExactCapacity',
                   'PercentChangeInCapacity'
                 ],
-                :auto_scaling_groups => {},
-                :scaling_policies => {},
-                :health_states => [
+                :auto_scaling_groups         => {},
+                :scaling_policies            => {},
+                :health_states               => [
                   'Healthy',
                   'Unhealthy'
                 ],
-                :launch_configurations => {},
-                :metric_collection_types => {
+                :launch_configurations       => {},
+                :metric_collection_types     => {
                   :granularities => [
                     '1Minute'
                   ],
-                  :metrics => [
+                  :metrics       => [
                     'GroupMinSize',
                     'GroupMaxSize',
                     'GroupDesiredCapacity',
@@ -214,15 +214,15 @@ module Fog
                   ]
                 },
                 :notification_configurations => {},
-                :notification_types => [
+                :notification_types          => [
                   'autoscaling:EC2_INSTANCE_LAUNCH',
                   'autoscaling:EC2_INSTANCE_LAUNCH_ERROR',
                   'autoscaling:EC2_INSTANCE_TERMINATE',
                   'autoscaling:EC2_INSTANCE_TERMINATE_ERROR',
                   'autoscaling:TEST_NOTIFICATION'
                 ],
-                :owner_id => owner_id,
-                :process_types => [
+                :owner_id                    => owner_id,
+                :process_types               => [
                   'AZRebalance',
                   'AddToLoadBalancer',
                   'AlarmNotification',
@@ -232,7 +232,7 @@ module Fog
                   'ScheduledActions',
                   'Terminate'
                 ],
-                :termination_policy_types => [
+                :termination_policy_types    => [
                   'ClosestToNextInstanceHour',
                   'Default',
                   'NewestInstance',

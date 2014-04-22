@@ -5,7 +5,7 @@ for provider, config in storage_providers
     if !Fog.mocking? || config[:mocked]
 
       file_attributes = {
-        :key => 'fog_files_tests',
+        :key  => 'fog_files_tests',
         :body => lorem_file
       }.merge!(config[:file_attributes] || {})
 

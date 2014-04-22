@@ -36,8 +36,8 @@ module Fog
         def create_server(flavor_id, image_id, options = {})
           data = {
             'server' => {
-              'flavorId'  => flavor_id,
-              'imageId'   => image_id
+              'flavorId' => flavor_id,
+              'imageId'  => image_id
             }
           }
           if options['metadata']
@@ -50,16 +50,16 @@ module Fog
             data['server']['personality'] = []
             for file in options['personality']
               data['server']['personality'] << {
-                'contents'  => Base64.encode64(file['contents']),
-                'path'      => file['path']
+                'contents' => Base64.encode64(file['contents']),
+                'path'     => file['path']
               }
             end
           end
           request(
-            :body     => Fog::JSON.encode(data),
-            :expects  => [200, 202],
-            :method   => 'POST',
-            :path     => 'servers.json'
+            :body    => Fog::JSON.encode(data),
+            :expects => [200, 202],
+            :method  => 'POST',
+            :path    => 'servers.json'
           )
         end
 

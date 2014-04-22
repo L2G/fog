@@ -21,10 +21,10 @@ module Fog
         # @raise [Fog::Storage::Rackspace::ServiceError]
         def post_container(name, options = {})
           response = request(
-            :expects  => [201, 202],
-            :headers  => options,
-            :method   => 'POST',
-            :path     => CGI.escape(name)
+            :expects => [201, 202],
+            :headers => options,
+            :method  => 'POST',
+            :path    => CGI.escape(name)
           )
           response
         end

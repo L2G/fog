@@ -8,14 +8,14 @@ module Fog
             'accessList' => [
               {
                 'address' => address,
-                'type' => type
+                'type'    => type
               }
           ] }
           request(
-            :body     => Fog::JSON.encode(data),
-            :expects  => [200, 202],
-            :method   => 'POST',
-            :path     => "loadbalancers/#{load_balancer_id}/accesslist"
+            :body    => Fog::JSON.encode(data),
+            :expects => [200, 202],
+            :method  => 'POST',
+            :path    => "loadbalancers/#{load_balancer_id}/accesslist"
           )
         end
       end

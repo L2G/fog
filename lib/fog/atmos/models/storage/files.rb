@@ -59,7 +59,7 @@ module Fog
           data = service.head_namespace(directory.key + key, :parse => false)
           file_data = data.headers.merge(
             :body => data.body,
-            :key => key
+            :key  => key
           )
           new(file_data)
         rescue Fog::Storage::Atmos::NotFound

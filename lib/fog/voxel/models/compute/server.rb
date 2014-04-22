@@ -58,10 +58,10 @@ module Fog
           requires :name, :image_id, :processing_cores, :facility, :disk_size
 
           data = service.voxcloud_create(
-            :disk_size => disk_size,
-            :facility => facility,
-            :hostname => name,
-            :image_id => image_id,
+            :disk_size        => disk_size,
+            :facility         => facility,
+            :hostname         => name,
+            :image_id         => image_id,
             :processing_cores => processing_cores
           ).body
 

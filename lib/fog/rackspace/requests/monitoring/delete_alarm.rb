@@ -5,9 +5,9 @@ module Fog
 
         def delete_alarm(entity_id, alarm_id)
           request(
-            :expects  => [204],
-            :method   => 'DELETE',
-            :path     => "entities/#{entity_id}/alarms/#{alarm_id}"
+            :expects => [204],
+            :method  => 'DELETE',
+            :path    => "entities/#{entity_id}/alarms/#{alarm_id}"
           )
         end
       end

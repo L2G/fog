@@ -23,10 +23,10 @@ module Fog
         # {Amazon API Reference}[http://docs.amazonwebservices.com/AWSEC2/latest/APIReference/ApiReference-query-GetPasswordData.html]
         def get_password_data(instance_id)
           request(
-            'Action'      => 'GetPasswordData',
-            'InstanceId'  => instance_id,
-            :idempotent   => true,
-            :parser       => Fog::Parsers::Compute::AWS::GetPasswordData.new
+            'Action'     => 'GetPasswordData',
+            'InstanceId' => instance_id,
+            :idempotent  => true,
+            :parser      => Fog::Parsers::Compute::AWS::GetPasswordData.new
           )
         end
 

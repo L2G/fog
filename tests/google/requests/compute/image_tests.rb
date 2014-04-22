@@ -3,52 +3,52 @@ Shindo.tests('Fog::Compute[:google] | image requests', ['google']) do
   @google = Fog::Compute[:google]
 
   @insert_image_format = {
-      'kind' => String,
-      'id' => String,
-      'selfLink' => String,
-      'name' => String,
-      'targetLink' => String,
-      'status' => String,
-      'user' => String,
-      'progress' => Integer,
-      'insertTime' => String,
-      'startTime' => String,
+      'kind'          => String,
+      'id'            => String,
+      'selfLink'      => String,
+      'name'          => String,
+      'targetLink'    => String,
+      'status'        => String,
+      'user'          => String,
+      'progress'      => Integer,
+      'insertTime'    => String,
+      'startTime'     => String,
       'operationType' => String
   }
 
   @get_image_format = {
-      'kind' => String,
-      'id' => String,
+      'kind'              => String,
+      'id'                => String,
       'creationTimestamp' => String,
-      'selfLink' => String,
-      'name' => String,
-      'description' => String,
-      'sourceType' => String,
-      'rawDisk' => {
+      'selfLink'          => String,
+      'name'              => String,
+      'description'       => String,
+      'sourceType'        => String,
+      'rawDisk'           => {
         'containerType' => String,
-        'source' => String
+        'source'        => String
       }
   }
 
   @delete_image_format = {
-      'kind' => String,
-      'id' => String,
-      'selfLink' => String,
-      'name' => String,
-      'targetLink' => String,
-      'status' => String,
-      'user' => String,
-      'progress' => Integer,
-      'insertTime' => String,
-      'startTime' => String,
+      'kind'          => String,
+      'id'            => String,
+      'selfLink'      => String,
+      'name'          => String,
+      'targetLink'    => String,
+      'status'        => String,
+      'user'          => String,
+      'progress'      => Integer,
+      'insertTime'    => String,
+      'startTime'     => String,
       'operationType' => String
   }
 
   @list_images_format = {
-      'kind' => String,
-      'id' => String,
+      'kind'     => String,
+      'id'       => String,
       'selfLink' => String,
-      'items' => [@get_image_format]
+      'items'    => [@get_image_format]
   }
 
   tests('success') do

@@ -36,10 +36,10 @@ module Fog
         def get_container(container, options = {})
           options = options.reject {|key, value| value.nil?}
           request(
-            :expects  => 200,
-            :method   => 'GET',
-            :path     => Fog::Rackspace.escape(container),
-            :query    => { 'format' => 'json' }.merge!(options)
+            :expects => 200,
+            :method  => 'GET',
+            :path    => Fog::Rackspace.escape(container),
+            :query   => { 'format' => 'json' }.merge!(options)
           )
         end
 
@@ -52,11 +52,11 @@ module Fog
           results = []
           c.objects.each do |key, mock_file|
             results << {
-              'hash' => mock_file.hash,
+              'hash'          => mock_file.hash,
               'last_modified' => mock_file.last_modified.strftime('%Y-%m-%dT%H:%M:%S.%L'),
-              'bytes' => mock_file.bytes_used,
-              'name' => key,
-              'content_type' => mock_file.content_type
+              'bytes'         => mock_file.bytes_used,
+              'name'          => key,
+              'content_type'  => mock_file.content_type
             }
           end
 

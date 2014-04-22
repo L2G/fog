@@ -15,10 +15,10 @@ module Fog
             :ttl => ttl
           }
           request(
-            :body => Fog::JSON.encode(body),
+            :body    => Fog::JSON.encode(body),
             :expects => 204,
-            :method => 'PATCH',
-            :path => "queues/#{queue_name}/claims/#{claim_id}"
+            :method  => 'PATCH',
+            :path    => "queues/#{queue_name}/claims/#{claim_id}"
           )
         end
 

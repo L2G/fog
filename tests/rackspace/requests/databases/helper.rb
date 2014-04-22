@@ -1,7 +1,7 @@
 FLAVOR_FORMAT = {
-  'id' => Integer,
-  'name' => String,
-  'ram' => Integer,
+  'id'    => Integer,
+  'name'  => String,
+  'ram'   => Integer,
   'links' => LINKS_FORMAT
 }
 
@@ -14,12 +14,12 @@ LIST_FLAVORS_FORMAT = {
 }
 
 INSTANCE_FORMAT = {
-  'id' => String,
-  'name' => String,
+  'id'     => String,
+  'name'   => String,
   'status' => String,
-  'links' => LINKS_FORMAT,
+  'links'  => LINKS_FORMAT,
   'flavor' => {
-    'id' => String,
+    'id'    => String,
     'links' => LINKS_FORMAT
   },
   'volume' => {
@@ -28,8 +28,8 @@ INSTANCE_FORMAT = {
 }
 
 INSTANCE_DETAILS_FORMAT = INSTANCE_FORMAT.merge(
-  'created' => String,
-  'updated' => String,
+  'created'  => String,
+  'updated'  => String,
   'hostname' => String
 )
 
@@ -58,7 +58,7 @@ CHECK_ROOT_USER_FORMAT = {
 
 ENABLE_ROOT_USER_FORMAT = {
   'user' => {
-    'name' => String,
+    'name'     => String,
     'password' => String
   }
 }
@@ -71,7 +71,7 @@ LIST_DATABASES_FORMAT = {
 
 LIST_USERS_FORMAT = {
   'users' => [{
-    'name' => String,
+    'name'      => String,
     'databases' => [{
       'name' => String
     }]

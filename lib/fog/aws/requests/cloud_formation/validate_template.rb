@@ -20,8 +20,8 @@ module Fog
         #
         def validate_template(options = {})
           request({
-            'Action'    => 'ValidateTemplate',
-            :parser     => Fog::Parsers::AWS::CloudFormation::ValidateTemplate.new
+            'Action' => 'ValidateTemplate',
+            :parser  => Fog::Parsers::AWS::CloudFormation::ValidateTemplate.new
           }.merge!(options))
         end
 

@@ -16,9 +16,9 @@ module Fog
         #       * 'RequestId'<~String> - Id of request
         def verify_email_address(email_address)
           request(
-            'Action'           => 'VerifyEmailAddress',
-            'EmailAddress'     => email_address,
-            :parser            => Fog::Parsers::AWS::SES::VerifyEmailAddress.new
+            'Action'       => 'VerifyEmailAddress',
+            'EmailAddress' => email_address,
+            :parser        => Fog::Parsers::AWS::SES::VerifyEmailAddress.new
           )
         end
 

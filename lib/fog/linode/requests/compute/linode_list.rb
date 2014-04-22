@@ -18,9 +18,9 @@ module Fog
             options.merge!(:linodeId => linode_id)
           end
           request(
-            :expects  => 200,
-            :method   => 'GET',
-            :query    => { :api_action => 'linode.list' }.merge!(options)
+            :expects => 200,
+            :method  => 'GET',
+            :query   => { :api_action => 'linode.list' }.merge!(options)
           )
         end
 
@@ -30,7 +30,7 @@ module Fog
         def linode_list(linode_id = nil)
           body = {
             'ERRORARRAY' => [],
-            'ACTION' => 'linode.list'
+            'ACTION'     => 'linode.list'
           }
           response = Excon::Response.new
           response.status = 200

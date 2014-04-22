@@ -38,15 +38,15 @@ module Fog
 
         def auth_token
           response = @connection.request(
-            :expects   => 200,
-            :headers   => {
+            :expects => 200,
+            :headers => {
               'Authorization' => "Basic #{Base64.encode64("#{@terremark_username}:#{@terremark_password}").chomp!}",
               'Content-Type'  => 'application/vnd.vmware.vcloud.orgList+xml'
             },
-            :host      => @host,
-            :method    => 'POST',
-            :parser    => Fog::Parsers::Terremark::Shared::GetOrganizations.new,
-            :path      => "#{@path}/login"
+            :host    => @host,
+            :method  => 'POST',
+            :parser  => Fog::Parsers::Terremark::Shared::GetOrganizations.new,
+            :path    => "#{@path}/login"
           )
           response.headers['Set-Cookie']
         end
@@ -82,13 +82,13 @@ module Fog
               path = "#{@path}"
           end
           @connection.request(
-            :body     => params[:body],
-            :expects  => params[:expects],
-            :headers  => headers.merge!(params[:headers] || {}),
-            :host     => @host,
-            :method   => params[:method],
-            :parser   => params[:parser],
-            :path     => path
+            :body    => params[:body],
+            :expects => params[:expects],
+            :headers => headers.merge!(params[:headers] || {}),
+            :host    => @host,
+            :method  => params[:method],
+            :parser  => params[:parser],
+            :path    => path
           )
         end
 
@@ -100,78 +100,78 @@ module Fog
         def self.mock_data
         {
           :organizations =>
-          [
+                            [
             {
               :info => {
                 :name => 'Boom Inc.',
-                :id => 1
+                :id   => 1
               },
               :vdcs => [
-                { :id => 21,
-                  :name => 'Boomstick',
-                  :storage => { :used => 105, :allocated => 200 },
-                  :cpu => { :allocated => 10000 },
-                  :memory => { :allocated => 20480 },
-                  :networks => [
-                    { :id => 31,
-                      :name => '1.2.3.0/24',
-                      :subnet => '1.2.3.0/24',
-                      :gateway => '1.2.3.1',
-                      :netmask => '255.255.255.0',
+                { :id         => 21,
+                  :name       => 'Boomstick',
+                  :storage    => { :used => 105, :allocated => 200 },
+                  :cpu        => { :allocated => 10000 },
+                  :memory     => { :allocated => 20480 },
+                  :networks   => [
+                    { :id        => 31,
+                      :name      => '1.2.3.0/24',
+                      :subnet    => '1.2.3.0/24',
+                      :gateway   => '1.2.3.1',
+                      :netmask   => '255.255.255.0',
                       :fencemode => 'isolated'
                     },
-                    { :id => 32,
-                      :name => '4.5.6.0/24',
-                      :subnet => '4.5.6.0/24',
-                      :gateway => '4.5.6.1',
-                      :netmask => '255.255.255.0',
+                    { :id        => 32,
+                      :name      => '4.5.6.0/24',
+                      :subnet    => '4.5.6.0/24',
+                      :gateway   => '4.5.6.1',
+                      :netmask   => '255.255.255.0',
                       :fencemode => 'isolated'
                     },
                   ],
-                  :vms => [
-                    { :id => 41,
+                  :vms        => [
+                    { :id   => 41,
                       :name => 'Broom 1'
                     },
-                    { :id => 42,
+                    { :id   => 42,
                       :name => 'Broom 2'
                     },
-                    { :id => 43,
+                    { :id   => 43,
                       :name => 'Email!'
                     }
                   ],
                   :public_ips => [
-                    { :id => 51,
+                    { :id   => 51,
                       :name => '99.1.2.3'
                     },
-                    { :id => 52,
+                    { :id   => 52,
                       :name => '99.1.2.4'
                     },
-                    { :id => 53,
+                    { :id   => 53,
                       :name => '99.1.9.7'
                     }
                   ]
                 },
-                { :id => 22,
-                  :storage => { :used => 40, :allocated => 150 },
-                  :cpu => { :allocated => 1000 },
-                  :memory => { :allocated => 2048 },
-                  :name => 'Rock-n-Roll',
-                  :networks => [
-                    { :id => 33,
-                      :name => '7.8.9.0/24',
-                      :subnet => '7.8.9.0/24',
-                      :gateway => '7.8.9.1',
-                      :netmask => '255.255.255.0',
+                { :id         => 22,
+                  :storage    => { :used => 40, :allocated => 150 },
+                  :cpu        => { :allocated => 1000 },
+                  :memory     => { :allocated => 2048 },
+                  :name       => 'Rock-n-Roll',
+                  :networks   => [
+                    { :id        => 33,
+                      :name      => '7.8.9.0/24',
+                      :subnet    => '7.8.9.0/24',
+                      :gateway   => '7.8.9.1',
+                      :netmask   => '255.255.255.0',
                       :fencemode => 'isolated'
                     }
                   ],
-                  :vms => [
-                    { :id => 44,
+                  :vms        => [
+                    { :id   => 44,
                       :name => 'Master Blaster'
                     }
                   ],
                   :public_ips => [
-                    { :id => 54,
+                    { :id   => 54,
                       :name => '99.99.99.99'
                     }
                   ]
@@ -183,12 +183,12 @@ module Fog
         end
 
         def self.error_headers
-          { 'X-Powered-By' => 'ASP.NET',
-           'Date' => Time.now.to_s,
-           'Content-Type' => 'text/html',
-           'Content-Length' => '0',
-           'Server' => 'Microsoft-IIS/7.0',
-           'Cache-Control' => 'private' }
+          { 'X-Powered-By'   => 'ASP.NET',
+            'Date'           => Time.now.to_s,
+            'Content-Type'   => 'text/html',
+            'Content-Length' => '0',
+            'Server'         => 'Microsoft-IIS/7.0',
+            'Cache-Control'  => 'private' }
         end
 
         def self.unathorized_status
@@ -196,13 +196,13 @@ module Fog
         end
 
         def self.headers(body, content_type)
-          { 'X-Powered-By' => 'ASP.NET',
-           'Date' => Time.now.to_s,
-           'Content-Type' => content_type,
-           'Content-Length' => body.to_s.length,
-           'Server' => 'Microsoft-IIS/7.0',
-           'Set-Cookie' => 'vcloud-token=ecb37bfc-56f0-421d-97e5-bf2gdf789457; path=/',
-           'Cache-Control' => 'private' }
+          { 'X-Powered-By'   => 'ASP.NET',
+            'Date'           => Time.now.to_s,
+            'Content-Type'   => content_type,
+            'Content-Length' => body.to_s.length,
+            'Server'         => 'Microsoft-IIS/7.0',
+            'Set-Cookie'     => 'vcloud-token=ecb37bfc-56f0-421d-97e5-bf2gdf789457; path=/',
+            'Cache-Control'  => 'private' }
         end
 
         def self.status

@@ -42,11 +42,11 @@ module Fog
         # @see http://docs.rackspace.com/servers/api/v2/cs-devguide/content/List_Images-d1e4435.html
         def all(options = {})
           options = {
-            'name'          => name,
-            'status'        => status,
-            'marker'        => marker,
-            'limit'         => limit,
-            'type'          => type
+            'name'   => name,
+            'status' => status,
+            'marker' => marker,
+            'limit'  => limit,
+            'type'   => type
           }.merge!(options)
           merge_attributes(options)
 

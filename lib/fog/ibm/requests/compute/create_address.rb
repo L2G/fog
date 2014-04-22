@@ -20,10 +20,10 @@ module Fog
         #     * 'state'<~Integer>: status of address (0 when new)
         def create_address(location, offering_id, options = {})
           request(
-            :method   => 'POST',
-            :expects  => 200,
-            :path     => '/addresses',
-            :body     => {
+            :method  => 'POST',
+            :expects => 200,
+            :path    => '/addresses',
+            :body    => {
               'offeringID' => offering_id,
               'location'   => location,
               'vlanID'     => options[:vlan_id]

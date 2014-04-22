@@ -12,10 +12,10 @@ def test
   (1..3).each do |i|
     begin
       disk = gce.disks.create(
-        :name => "#{name}-#{i}",
-        :size_gb => 10,
-          :zone_name => zone,
-          :source_image => 'debian-7-wheezy-v20131120'
+        :name         => "#{name}-#{i}",
+        :size_gb      => 10,
+        :zone_name    => zone,
+        :source_image => 'debian-7-wheezy-v20131120'
       )
       disk.wait_for { disk.ready? }
     rescue
@@ -24,10 +24,10 @@ def test
 
     begin
       server = gce.servers.create(
-        :name => "#{name}-#{i}",
-        :disks => [ disk.get_as_boot_disk(true, true) ],
-          :machine_type => 'f1-micro',
-          :zone_name => zone
+        :name         => "#{name}-#{i}",
+        :disks        => [ disk.get_as_boot_disk(true, true) ],
+        :machine_type => 'f1-micro',
+        :zone_name    => zone
       )
       servers << server
     rescue
@@ -44,10 +44,10 @@ def test
 
   begin
     pool = gce.target_pools.new(
-      :name => name,
-      :region => region,
+      :name          => name,
+      :region        => region,
       :health_checks => health.self_link,
-      :instances => servers.map(&:self_link)
+      :instances     => servers.map(&:self_link)
     )
     pool.save
   rescue
@@ -56,11 +56,11 @@ def test
 
   begin
     rule = gce.forwarding_rules.new(
-      :name => name,
-      :region => region,
-      :port_range => '1-65535',
+      :name        => name,
+      :region      => region,
+      :port_range  => '1-65535',
       :ip_protocol => 'TCP',
-      :target => pool.self_link
+      :target      => pool.self_link
     )
     rule.save
   rescue

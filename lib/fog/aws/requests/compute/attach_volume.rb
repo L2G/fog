@@ -25,12 +25,12 @@ module Fog
         # {Amazon API Reference}[http://docs.amazonwebservices.com/AWSEC2/latest/APIReference/ApiReference-query-AttachVolume.html]
         def attach_volume(instance_id, volume_id, device)
           request(
-            'Action'      => 'AttachVolume',
-            'VolumeId'    => volume_id,
-            'InstanceId'  => instance_id,
-            'Device'      => device,
-            :idempotent   => true,
-            :parser       => Fog::Parsers::Compute::AWS::AttachVolume.new
+            'Action'     => 'AttachVolume',
+            'VolumeId'   => volume_id,
+            'InstanceId' => instance_id,
+            'Device'     => device,
+            :idempotent  => true,
+            :parser      => Fog::Parsers::Compute::AWS::AttachVolume.new
           )
         end
 
@@ -50,11 +50,11 @@ module Fog
               end
 
               data = {
-                'attachTime'  => Time.now,
-                'device'      => device,
-                'instanceId'  => instance_id,
-                'status'      => 'attaching',
-                'volumeId'    => volume_id
+                'attachTime' => Time.now,
+                'device'     => device,
+                'instanceId' => instance_id,
+                'status'     => 'attaching',
+                'volumeId'   => volume_id
               }
               volume['attachmentSet'] = [data]
               volume['status'] = 'attaching'

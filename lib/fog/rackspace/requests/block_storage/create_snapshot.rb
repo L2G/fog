@@ -38,10 +38,10 @@ module Fog
           data['snapshot']['force'] = options[:force] unless options[:force].nil?
 
           request(
-            :body => Fog::JSON.encode(data),
+            :body    => Fog::JSON.encode(data),
             :expects => [200],
-            :method => 'POST',
-            :path => 'snapshots'
+            :method  => 'POST',
+            :path    => 'snapshots'
           )
         end
       end

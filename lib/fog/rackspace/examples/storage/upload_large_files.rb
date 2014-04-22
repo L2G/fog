@@ -43,10 +43,10 @@ end
 
 # create Cloud Files service
 service = Fog::Storage.new(
-  :provider             => 'Rackspace',
-  :rackspace_username   => rackspace_username,
-  :rackspace_api_key    => rackspace_api_key,
-  :rackspace_region     => :ord
+  :provider           => 'Rackspace',
+  :rackspace_username => rackspace_username,
+  :rackspace_api_key  => rackspace_api_key,
+  :rackspace_region   => :ord
   )
 
 # retrieve directories with files

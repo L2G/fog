@@ -5,9 +5,9 @@ module Fog
 
         def list_hosts
           request(
-            :expects  => [200, 203],
-            :method   => 'GET',
-            :path     => 'os-hosts.json'
+            :expects => [200, 203],
+            :method  => 'GET',
+            :path    => 'os-hosts.json'
           )
         end
 

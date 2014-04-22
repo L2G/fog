@@ -1,10 +1,10 @@
 Shindo.tests('Fog::Compute[:rackspace] | flavor requests', ['rackspace']) do
 
   @flavor_format = {
-    'disk'  => Integer,
-    'id'    => Integer,
-    'name'  => String,
-    'ram'   => Integer
+    'disk' => Integer,
+    'id'   => Integer,
+    'name' => String,
+    'ram'  => Integer
   }
 
   @service = Fog::Compute.new(:provider => :rackspace, :version => :v1)

@@ -15,9 +15,9 @@ module Fog
         # TODO: docs
         def support_password_get(id, options = {})
           request(
-            :path     => 'support/password/get',
-            :query    => {
-              'id'    => id
+            :path  => 'support/password/get',
+            :query => {
+              'id' => id
             }.merge!(options)
           )
         end

@@ -8,11 +8,11 @@ module Fog
           body = build_request_body_edit_hardware_configuration(data)
           request(
             :expects => 202,
-            :method => 'PUT',
+            :method  => 'PUT',
             :headers => {},
-            :body => body,
-            :uri => vm_uri,
-            :parse => true
+            :body    => body,
+            :uri     => vm_uri,
+            :parse   => true
           )
         end
 

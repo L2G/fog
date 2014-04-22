@@ -2,10 +2,10 @@
 Shindo.tests('Fog::Compute[:sakuracloud] | list_zones request', ['sakuracloud', 'compute']) do
 
   @zone_format = {
-    'Index'        => Integer,
-    'ID'           => Integer,
-    'Name'         => String,
-    'Description'  => String
+    'Index'       => Integer,
+    'ID'          => Integer,
+    'Name'        => String,
+    'Description' => String
   }
 
   tests('success') do

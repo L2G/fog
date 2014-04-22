@@ -2,28 +2,28 @@ Shindo.tests('Fog::Compute[:aws] | spot instance requests', ['aws']) do
 
   @spot_instance_requests_format = {
     'spotInstanceRequestSet' => [{
-      'createTime'                => Time,
-      'instanceId'                => Fog::Nullable::String,
-      'launchedAvailabilityZone'  => Fog::Nullable::String,
-      'launchSpecification'       => {
-        'blockDeviceMapping'  => [],
-        'groupSet'            => [String],
-        'keyName'             => Fog::Nullable::String,
-        'imageId'             => String,
-        'instanceType'        => String,
-        'monitoring'          => Fog::Boolean,
-        'ebsOptimized'        => Fog::Boolean,
-        'subnetId'            => Fog::Nullable::String,
-        'iamInstanceProfile'  => Fog::Nullable::Hash,
+      'createTime'               => Time,
+      'instanceId'               => Fog::Nullable::String,
+      'launchedAvailabilityZone' => Fog::Nullable::String,
+      'launchSpecification'      => {
+        'blockDeviceMapping' => [],
+        'groupSet'           => [String],
+        'keyName'            => Fog::Nullable::String,
+        'imageId'            => String,
+        'instanceType'       => String,
+        'monitoring'         => Fog::Boolean,
+        'ebsOptimized'       => Fog::Boolean,
+        'subnetId'           => Fog::Nullable::String,
+        'iamInstanceProfile' => Fog::Nullable::Hash,
       },
-      'productDescription'        => String,
-      'spotInstanceRequestId'     => String,
-      'spotPrice'                 => Float,
-      'state'                     => String,
-      'type'                      => String,
-      'fault'                     => Fog::Nullable::Hash,
+      'productDescription'       => String,
+      'spotInstanceRequestId'    => String,
+      'spotPrice'                => Float,
+      'state'                    => String,
+      'type'                     => String,
+      'fault'                    => Fog::Nullable::Hash,
     }],
-    'requestId' => String
+    'requestId'              => String
   }
 
   @cancel_spot_instance_request_format = {
@@ -31,7 +31,7 @@ Shindo.tests('Fog::Compute[:aws] | spot instance requests', ['aws']) do
       'spotInstanceRequestId' => String,
       'state'                 => String
     }],
-    'requestId' => String
+    'requestId'              => String
   }
 
   tests('success') do

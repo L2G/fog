@@ -6,9 +6,9 @@ module Fog
         def get_snapshot_details(snapshot_id)
 
           request(
-            :expects  => 200,
-            :method   => 'GET',
-            :path     => "snapshots/#{snapshot_id}"
+            :expects => 200,
+            :method  => 'GET',
+            :path    => "snapshots/#{snapshot_id}"
           )
         end
 
@@ -21,12 +21,12 @@ module Fog
           response.status = 200
           response.body = {
             'snapshot' => {
-              'id'                 => '1',
+              'id'                  => '1',
               'display_name'        => 'Snapshot1',
               'display_description' => 'Volume1 snapshot',
-              'size'               => 1,
+              'size'                => 1,
               'volume_id'           => '1',
-              'status'             => 'available',
+              'status'              => 'available',
               'created_at'          => Time.now
             }
           }

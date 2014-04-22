@@ -20,10 +20,10 @@ module Fog
         def get_containers(options = {})
           options = options.reject {|key, value| value.nil?}
           response = request(
-            :expects  => [200, 204],
-            :method   => 'GET',
-            :path     => '',
-            :query    => { 'format' => 'json' }.merge!(options)
+            :expects => [200, 204],
+            :method  => 'GET',
+            :path    => '',
+            :query   => { 'format' => 'json' }.merge!(options)
           )
           response
         end

@@ -1,6 +1,6 @@
 Shindo.tests('Fog::Network[:openstack] | lb_pools', ['openstack']) do
   @lb_pool = Fog::Network[:openstack].lb_pools.create(:subnet_id => 'subnet_id',
-                                                      :protocol => 'HTTP',
+                                                      :protocol  => 'HTTP',
                                                       :lb_method => 'ROUND_ROBIN')
   @lb_pools = Fog::Network[:openstack].lb_pools
 

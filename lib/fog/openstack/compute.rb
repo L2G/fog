@@ -179,29 +179,29 @@ module Fog
         def self.data
           @data ||= Hash.new do |hash, key|
             hash[key] = {
-              :last_modified => {
-                :images  => {},
-                :servers => {},
-                :key_pairs => {},
+              :last_modified             => {
+                :images          => {},
+                :servers         => {},
+                :key_pairs       => {},
                 :security_groups => {},
-                :addresses => {}
+                :addresses       => {}
               },
-              :images  => {
+              :images                    => {
                 '0e09fbd6-43c5-448a-83e9-0d3d05f9747e' => {
-                  'id' => '0e09fbd6-43c5-448a-83e9-0d3d05f9747e',
-                  'name' => 'cirros-0.3.0-x86_64-blank',
-                  'progress'  => 100,
-                  'status'    => 'ACTIVE',
-                  'updated'   => '',
-                  'minRam'    => 0,
-                  'minDisk'   => 0,
-                  'metadata'  => {},
-                  'links'     => [{ 'href' => 'http://nova1:8774/v1.1/admin/images/1', 'rel' => 'self' }, { 'href' => 'http://nova1:8774/admin/images/2', 'rel' => 'bookmark' }]
+                  'id'       => '0e09fbd6-43c5-448a-83e9-0d3d05f9747e',
+                  'name'     => 'cirros-0.3.0-x86_64-blank',
+                  'progress' => 100,
+                  'status'   => 'ACTIVE',
+                  'updated'  => '',
+                  'minRam'   => 0,
+                  'minDisk'  => 0,
+                  'metadata' => {},
+                  'links'    => [{ 'href' => 'http://nova1:8774/v1.1/admin/images/1', 'rel' => 'self' }, { 'href' => 'http://nova1:8774/admin/images/2', 'rel' => 'bookmark' }]
                 }
               },
-              :servers => {},
-              :key_pairs => {},
-              :security_groups => {
+              :servers                   => {},
+              :key_pairs                 => {},
+              :security_groups           => {
                 0 => {
                   'id'          => 0,
                   'tenant_id'   => Fog::Mock.random_hex(8),
@@ -219,23 +219,23 @@ module Fog
                 },
               },
               :server_security_group_map => {},
-              :addresses => {},
-              :quota => {
-                'security_group_rules' => 20,
-                'security_groups' => 10,
+              :addresses                 => {},
+              :quota                     => {
+                'security_group_rules'        => 20,
+                'security_groups'             => 10,
                 'injected_file_content_bytes' => 10240,
-                'injected_file_path_bytes' => 256,
-                'injected_files' => 5,
-                'metadata_items' => 128,
-                'floating_ips'   => 10,
-                'instances'      => 10,
-                'key_pairs'      => 10,
-                'gigabytes'      => 5000,
-                'volumes'        => 10,
-                'cores'          => 20,
-                'ram'            => 51200
+                'injected_file_path_bytes'    => 256,
+                'injected_files'              => 5,
+                'metadata_items'              => 128,
+                'floating_ips'                => 10,
+                'instances'                   => 10,
+                'key_pairs'                   => 10,
+                'gigabytes'                   => 5000,
+                'volumes'                     => 10,
+                'cores'                       => 20,
+                'ram'                         => 51200
               },
-              :volumes => {}
+              :volumes                   => {}
             }
           end
         end
@@ -272,10 +272,10 @@ module Fog
         end
 
         def credentials
-          { :provider                 => 'openstack',
-            :openstack_auth_url       => @openstack_auth_uri.to_s,
-            :openstack_auth_token     => @auth_token,
-            :openstack_management_url => @openstack_management_url,
+          { :provider                    => 'openstack',
+            :openstack_auth_url          => @openstack_auth_uri.to_s,
+            :openstack_auth_token        => @auth_token,
+            :openstack_management_url    => @openstack_management_url,
             :openstack_identity_endpoint => @openstack_identity_public_endpoint }
         end
       end
@@ -323,14 +323,14 @@ module Fog
         end
 
         def credentials
-          { :provider                 => 'openstack',
-            :openstack_auth_url       => @openstack_auth_uri.to_s,
-            :openstack_auth_token     => @auth_token,
-            :openstack_management_url => @openstack_management_url,
+          { :provider                    => 'openstack',
+            :openstack_auth_url          => @openstack_auth_uri.to_s,
+            :openstack_auth_token        => @auth_token,
+            :openstack_management_url    => @openstack_management_url,
             :openstack_identity_endpoint => @openstack_identity_public_endpoint,
-            :openstack_region         => @openstack_region,
-            :current_user             => @current_user,
-            :current_tenant           => @current_tenant }
+            :openstack_region            => @openstack_region,
+            :current_user                => @current_user,
+            :current_tenant              => @current_tenant }
         end
 
         def reload
@@ -340,13 +340,13 @@ module Fog
         def request(params)
           begin
             response = @connection.request(params.merge(
-              :headers  => {
+              :headers => {
                 'Content-Type' => 'application/json',
-                'Accept' => 'application/json',
+                'Accept'       => 'application/json',
                 'X-Auth-Token' => @auth_token
               }.merge!(params[:headers] || {}),
-              :path     => "#{@path}/#{@tenant_id}/#{params[:path]}",
-              :query    => params[:query]
+              :path    => "#{@path}/#{@tenant_id}/#{params[:path]}",
+              :query   => params[:query]
             ))
           rescue Excon::Errors::Unauthorized => error
             if error.response.body != 'Bad username or password' # token expiration
@@ -377,16 +377,16 @@ module Fog
         def authenticate
           if !@openstack_management_url || @openstack_must_reauthenticate
             options = {
-              :openstack_api_key    => @openstack_api_key,
-              :openstack_username   => @openstack_username,
-              :openstack_auth_token => @auth_token,
-              :openstack_auth_uri   => @openstack_auth_uri,
-              :openstack_region     => @openstack_region,
-              :openstack_tenant     => @openstack_tenant,
-              :openstack_service_type => @openstack_service_type,
-              :openstack_service_name => @openstack_service_name,
+              :openstack_api_key               => @openstack_api_key,
+              :openstack_username              => @openstack_username,
+              :openstack_auth_token            => @auth_token,
+              :openstack_auth_uri              => @openstack_auth_uri,
+              :openstack_region                => @openstack_region,
+              :openstack_tenant                => @openstack_tenant,
+              :openstack_service_type          => @openstack_service_type,
+              :openstack_service_name          => @openstack_service_name,
               :openstack_identity_service_type => @openstack_identity_service_type,
-              :openstack_endpoint_type => @openstack_endpoint_type
+              :openstack_endpoint_type         => @openstack_endpoint_type
             }
 
             if @openstack_auth_uri.path =~ /\/v2.0/

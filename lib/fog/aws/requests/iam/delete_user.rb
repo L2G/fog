@@ -20,9 +20,9 @@ module Fog
         #
         def delete_user(user_name)
           request(
-            'Action'    => 'DeleteUser',
-            'UserName'  => user_name,
-            :parser     => Fog::Parsers::AWS::IAM::Basic.new
+            'Action'   => 'DeleteUser',
+            'UserName' => user_name,
+            :parser    => Fog::Parsers::AWS::IAM::Basic.new
           )
         end
 

@@ -18,7 +18,7 @@ module Fog
           response.body = {
               'members' => [
                   { 'member_id' => 'ff528b20431645ebb5fa4b0a71ca002f',
-                   'can_share' => false }
+                    'can_share' => false }
                          ]
               }
           response

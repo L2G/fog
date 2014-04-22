@@ -37,7 +37,7 @@ module Fog
           @invalidations ||= begin
             Fog::CDN::AWS::Invalidations.new(
               :distribution => self,
-              :service => service
+              :service      => service
             )
           end
         end
@@ -67,14 +67,14 @@ module Fog
 
         def attributes_to_options
           options = {
-            'CallerReference' => caller_reference,
-            'S3Origin' => s3_origin,
-            'CustomOrigin' => custom_origin,
-            'CNAME' => cname,
-            'Comment' => comment,
-            'Enabled' => enabled,
-            'Logging' => logging,
-            'TrustedSigners' => trusted_signers,
+            'CallerReference'   => caller_reference,
+            'S3Origin'          => s3_origin,
+            'CustomOrigin'      => custom_origin,
+            'CNAME'             => cname,
+            'Comment'           => comment,
+            'Enabled'           => enabled,
+            'Logging'           => logging,
+            'TrustedSigners'    => trusted_signers,
             'DefaultRootObject' => default_root_object
           }
           options.reject! { |k,v| v.nil? }

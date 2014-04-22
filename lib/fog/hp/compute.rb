@@ -130,18 +130,18 @@ module Fog
         def self.data
           @data ||= Hash.new do |hash, key|
             hash[key] = {
-              :last_modified => {
-                :images  => {},
-                :key_pairs => {},
+              :last_modified   => {
+                :images          => {},
+                :key_pairs       => {},
                 :security_groups => {},
-                :servers => {},
-                :addresses => {}
+                :servers         => {},
+                :addresses       => {}
               },
-              :images  => {},
-              :key_pairs => {},
+              :images          => {},
+              :key_pairs       => {},
               :security_groups => {},
-              :servers => {},
-              :addresses => {}
+              :servers         => {},
+              :addresses       => {}
             }
           end
         end
@@ -230,12 +230,12 @@ module Fog
         def request(params, parse_json = true, &block)
           begin
             response = @connection.request(params.merge!(
-              :headers  => {
+              :headers => {
                 'Content-Type' => 'application/json',
                 'Accept'       => 'application/json',
                 'X-Auth-Token' => @auth_token
               }.merge!(params[:headers] || {}),
-              :path     => "#{@path}/#{params[:path]}"
+              :path    => "#{@path}/#{params[:path]}"
             ), &block)
           rescue Excon::Errors::HTTPStatusError => error
             raise case error

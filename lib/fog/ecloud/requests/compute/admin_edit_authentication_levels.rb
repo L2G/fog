@@ -8,11 +8,11 @@ module Fog
           body = build_authentication_levels_edit(data)
           request(
             :expects => 202,
-            :method => 'PUT',
+            :method  => 'PUT',
             :headers => {},
-            :body => body,
-            :uri => data[:uri],
-            :parse => true
+            :body    => body,
+            :uri     => data[:uri],
+            :parse   => true
           )
         end
 

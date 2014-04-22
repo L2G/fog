@@ -18,7 +18,7 @@ module Fog
             'project' => @project,
           }
           body_object = {
-            'name' => network_name,
+            'name'      => network_name,
             'IPv4Range' => ip_range
           }
 

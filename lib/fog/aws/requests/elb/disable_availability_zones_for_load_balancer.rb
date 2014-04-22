@@ -41,7 +41,7 @@ module Fog
           load_balancer['AvailabilityZones'].delete_if { |az| availability_zones.include? az }
 
           response.body = {
-            'ResponseMetadata' => {
+            'ResponseMetadata'                              => {
               'RequestId' => Fog::AWS::Mock.request_id
             },
             'DisableAvailabilityZonesForLoadBalancerResult' => {

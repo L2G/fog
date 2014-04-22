@@ -4,50 +4,50 @@ Shindo.tests('Fog::Compute[:google] | firewall requests', ['google']) do
   @google = Fog::Compute[:google]
 
   @insert_firewall_format = {
-      'kind' => String,
-      'id' => String,
-      'selfLink' => String,
-      'name' => String,
-      'targetLink' => String,
-      'status' => String,
-      'user' => String,
-      'progress' => Integer,
-      'insertTime' => String,
-      'startTime' => String,
+      'kind'          => String,
+      'id'            => String,
+      'selfLink'      => String,
+      'name'          => String,
+      'targetLink'    => String,
+      'status'        => String,
+      'user'          => String,
+      'progress'      => Integer,
+      'insertTime'    => String,
+      'startTime'     => String,
       'operationType' => String
   }
 
   @get_firewall_format = {
-      'kind' => String,
-      'id' => String,
-      'selfLink' => String,
+      'kind'              => String,
+      'id'                => String,
+      'selfLink'          => String,
       'creationTimestamp' => DateTime,
-      'name' => String,
-      'network' => String,
-      'sourceRanges' => [],
-      'allowed' => [],
+      'name'              => String,
+      'network'           => String,
+      'sourceRanges'      => [],
+      'allowed'           => [],
   }
 
   @delete_firewall_format = {
-      'kind' => String,
-      'id' => String,
-      'selfLink' => String,
-      'name' => String,
-      'targetLink' => String,
-      'status' => String,
-      'user' => String,
-      'progress' => Integer,
-      'targetId' => String,
-      'insertTime' => String,
-      'startTime' => String,
+      'kind'          => String,
+      'id'            => String,
+      'selfLink'      => String,
+      'name'          => String,
+      'targetLink'    => String,
+      'status'        => String,
+      'user'          => String,
+      'progress'      => Integer,
+      'targetId'      => String,
+      'insertTime'    => String,
+      'startTime'     => String,
       'operationType' => String
   }
 
   @list_firewalls_format = {
-      'kind' => String,
-      'id' => String,
+      'kind'     => String,
+      'id'       => String,
       'selfLink' => String,
-      'items' => []
+      'items'    => []
   }
 
   tests('success') do
@@ -56,10 +56,10 @@ Shindo.tests('Fog::Compute[:google] | firewall requests', ['google']) do
     source_range = [ '10.0.0.0/8' ]
     allowed = [{
       'IPProtocol' => 'tcp',
-      'ports' => [ '1-65535' ]
+      'ports'      => [ '1-65535' ]
     }, {
       'IPProtocol' => 'udp',
-      'ports' => [ '1-65535' ]
+      'ports'      => [ '1-65535' ]
     }, {
       'IPProtocol' => 'icmp'
     }]

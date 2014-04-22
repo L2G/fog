@@ -5,9 +5,9 @@ module Fog
 
         def get_cpus_info(agent_id)
           request(
-            :expects  => [200, 203],
-            :method   => 'GET',
-            :path     => "agents/#{agent_id}/host_info/cpus"
+            :expects => [200, 203],
+            :method  => 'GET',
+            :path    => "agents/#{agent_id}/host_info/cpus"
           )
         end
       end
@@ -22,23 +22,23 @@ module Fog
           response = Excon::Response.new
           response.status = 200
           response.body = {
-            'info'  => [
+            'info' => [
               {
-                'name'            => 'cpu.0',
-                'vendor'          => 'AMD',
-                'model'           => 'Opteron',
-                'mhz'             => Fog::Mock.random_numbers(4).to_i,
-                'idle'            => Fog::Mock.random_numbers(10).to_i,
-                'irq'             => Fog::Mock.random_numbers(5).to_i,
-                'soft_irq'        => Fog::Mock.random_numbers(7).to_i,
-                'nice'            => Fog::Mock.random_numbers(9).to_i,
-                'stolen'          => Fog::Mock.random_numbers(7).to_i,
-                'sys'             => Fog::Mock.random_numbers(7).to_i,
-                'user'            => Fog::Mock.random_numbers(9).to_i,
-                'wait'            => Fog::Mock.random_numbers(7).to_i,
-                'total'           => Fog::Mock.random_numbers(11).to_i,
-                'total_cores'     => 1,
-                'total_sockets'   => 1
+                'name'          => 'cpu.0',
+                'vendor'        => 'AMD',
+                'model'         => 'Opteron',
+                'mhz'           => Fog::Mock.random_numbers(4).to_i,
+                'idle'          => Fog::Mock.random_numbers(10).to_i,
+                'irq'           => Fog::Mock.random_numbers(5).to_i,
+                'soft_irq'      => Fog::Mock.random_numbers(7).to_i,
+                'nice'          => Fog::Mock.random_numbers(9).to_i,
+                'stolen'        => Fog::Mock.random_numbers(7).to_i,
+                'sys'           => Fog::Mock.random_numbers(7).to_i,
+                'user'          => Fog::Mock.random_numbers(9).to_i,
+                'wait'          => Fog::Mock.random_numbers(7).to_i,
+                'total'         => Fog::Mock.random_numbers(11).to_i,
+                'total_cores'   => 1,
+                'total_sockets' => 1
               }
             ]
           }

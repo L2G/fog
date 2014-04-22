@@ -32,9 +32,9 @@ module Fog
           end
           params = Fog::AWS.indexed_filters(filters)
           request({
-            'Action' => 'DescribeDhcpOptions',
+            'Action'    => 'DescribeDhcpOptions',
             :idempotent => true,
-            :parser => Fog::Parsers::Compute::AWS::DescribeDhcpOptions.new
+            :parser     => Fog::Parsers::Compute::AWS::DescribeDhcpOptions.new
           }.merge!(params))
         end
       end
@@ -44,8 +44,8 @@ module Fog
           Excon::Response.new.tap do |response|
             response.status = 200
             response.body = {
-              'requestId' => Fog::AWS::Mock.request_id,
-              'dhcpOptionsSet'    => self.data[:dhcp_options]
+              'requestId'      => Fog::AWS::Mock.request_id,
+              'dhcpOptionsSet' => self.data[:dhcp_options]
             }
           end
         end

@@ -32,16 +32,16 @@ module Fog
         def create_security_group(name, description)
           data = {
             'security_group' => {
-              'name'       => name,
+              'name'        => name,
               'description' => description
             }
           }
 
           request(
-            :body     => Fog::JSON.encode(data),
-            :expects  => 200,
-            :method   => 'POST',
-            :path     => 'os-security-groups.json'
+            :body    => Fog::JSON.encode(data),
+            :expects => 200,
+            :method  => 'POST',
+            :path    => 'os-security-groups.json'
           )
         end
 
@@ -62,11 +62,11 @@ module Fog
           else
             response.status = 200
             data = {
-              'rules'        => [],
-              'id'           => Fog::Mock.random_numbers(3).to_i,
-              'tenant_id'    => Fog::HP::Mock.user_id.to_s,
-              'name'         => name,
-              'description'  => description
+              'rules'       => [],
+              'id'          => Fog::Mock.random_numbers(3).to_i,
+              'tenant_id'   => Fog::HP::Mock.user_id.to_s,
+              'name'        => name,
+              'description' => description
             }
             self.data[:last_modified][:security_groups][data['id']] = Time.now
             self.data[:security_groups][data['id']] = data

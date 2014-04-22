@@ -26,10 +26,10 @@ module Fog
         #   * 'status'<~Integer> - 200 indicates success
         def get_host(host_id)
           request(
-            :expects  => 200,
-            :method   => 'GET',
-            :parser   => Fog::Parsers::DNS::Zerigo::GetHost.new,
-            :path     => "/api/1.1/hosts/#{host_id}.xml"
+            :expects => 200,
+            :method  => 'GET',
+            :parser  => Fog::Parsers::DNS::Zerigo::GetHost.new,
+            :path    => "/api/1.1/hosts/#{host_id}.xml"
           )
         end
 

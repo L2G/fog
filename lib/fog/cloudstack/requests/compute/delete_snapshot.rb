@@ -39,16 +39,16 @@ module Fog
           job_id = Fog::Cloudstack.uuid
 
           job = {
-            'id' => job_id,
-            'user_id' => self.data[:users].first, # TODO use current user
-            'account_id' => self.data[:accounts].first, # TODO use current user
-            'cmd' => 'com.cloud.api.commands.DeleteSnapshotCmd',
-            'job_status' => 1,
+            'id'              => job_id,
+            'user_id'         => self.data[:users].first, # TODO use current user
+            'account_id'      => self.data[:accounts].first, # TODO use current user
+            'cmd'             => 'com.cloud.api.commands.DeleteSnapshotCmd',
+            'job_status'      => 1,
             'job_result_type' => nil,
             'job_result_code' => 0,
             'job_proc_status' => 0,
-            'created_at' => Time.now.iso8601,
-            'job_result' => { 'success' => true }
+            'created_at'      => Time.now.iso8601,
+            'job_result'      => { 'success' => true }
           }
 
           self.data[:jobs][job_id] = job

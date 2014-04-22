@@ -10,10 +10,10 @@ Shindo.tests('Fog::Compute::RackspaceV2 | metadata_tests', ['rackspace']) do
 
       unless Fog.mocking?
         name = "fog-server-metadata-#{Time.now.to_i}"
-        @server = @service.servers.create(:name => name,
+        @server = @service.servers.create(:name      => name,
                                           :flavor_id => flavor_id,
-                                          :image_id => image_id,
-                                          :metadata => metadata)
+                                          :image_id  => image_id,
+                                          :metadata  => metadata)
         @server.wait_for { ready? }
 
         @server_id = @server.id

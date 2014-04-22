@@ -53,7 +53,7 @@ module Fog
 
           response.body = {
             'reservedInstancesId' => reserved_instances_id,
-            'requestId' => Fog::AWS::Mock.request_id
+            'requestId'           => Fog::AWS::Mock.request_id
           }
 
           response

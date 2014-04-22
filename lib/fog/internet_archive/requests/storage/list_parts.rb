@@ -38,14 +38,14 @@ module Fog
         def list_parts(bucket_name, object_name, upload_id, options = {})
           options['uploadId'] = upload_id
           request(
-            :expects  => 200,
-            :headers  => {},
-            :host     => "#{bucket_name}.#{@host}",
+            :expects    => 200,
+            :headers    => {},
+            :host       => "#{bucket_name}.#{@host}",
             :idempotent => true,
-            :method   => 'GET',
-            :parser   => Fog::Parsers::Storage::InternetArchive::ListParts.new,
-            :path     => CGI.escape(object_name),
-            :query    => options.merge!('uploadId' => upload_id)
+            :method     => 'GET',
+            :parser     => Fog::Parsers::Storage::InternetArchive::ListParts.new,
+            :path       => CGI.escape(object_name),
+            :query      => options.merge!('uploadId' => upload_id)
           )
         end
 

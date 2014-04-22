@@ -14,14 +14,14 @@ module Fog
           if disk.nil? or disk['zone'] != zone['selfLink']
             return build_response(:body => {
               'error' => {
-                'errors' => [
+                'errors'  => [
                  {
-                  'domain' => 'global',
-                  'reason' => 'notFound',
+                  'domain'  => 'global',
+                  'reason'  => 'notFound',
                   'message' => "The resource 'projects/#{@project}/zones/#{zone_name}/disks/#{disk_name}' was not found"
                  }
                 ],
-                'code' => 404,
+                'code'    => 404,
                 'message' => "The resource 'projects/#{@project}/zones/#{zone_name}/disks/#{disk_name}' was not found"
               }
             })
@@ -44,8 +44,8 @@ module Fog
           api_method = @compute.disks.get
           parameters = {
             'project' => @project,
-            'disk' => disk_name,
-            'zone' => zone_name
+            'disk'    => disk_name,
+            'zone'    => zone_name
           }
 
           result = self.build_result(api_method, parameters)

@@ -22,8 +22,8 @@ Shindo.tests('AWS::IAM | group policy requests', ['aws']) do
     end
 
     @group_policy_format = {
-      'GroupName' => String,
-      'PolicyName' => String,
+      'GroupName'      => String,
+      'PolicyName'     => String,
       'PolicyDocument' => Hash,
     }
 

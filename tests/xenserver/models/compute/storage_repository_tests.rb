@@ -69,9 +69,9 @@ Shindo.tests('Fog::Compute[:xenserver] | StorageRepository model', ['xenserver']
   tests('#save should') do
     sr = nil
     test('save with required attributes') do
-      sr = conn.storage_repositories.create :name => 'FOG TEST SR',
-                                            :host => conn.hosts.first,
-                                            :type => 'ext',
+      sr = conn.storage_repositories.create :name          => 'FOG TEST SR',
+                                            :host          => conn.hosts.first,
+                                            :type          => 'ext',
                                             :device_config => { :device => '/dev/sdb' }
       !(conn.storage_repositories.find { |sr| sr.name == 'FOG TEST SR' }).nil?
     end
@@ -79,21 +79,21 @@ Shindo.tests('Fog::Compute[:xenserver] | StorageRepository model', ['xenserver']
     sr.pbds.each { |pbd| pbd.unplug }
     sr.destroy
     test('save with additional attributes') do
-      sr = conn.storage_repositories.create :name => 'FOG TEST SR',
-                                            :host => conn.hosts.first,
-                                            :type => 'ext',
-                                            :content_type => 'user',
+      sr = conn.storage_repositories.create :name          => 'FOG TEST SR',
+                                            :host          => conn.hosts.first,
+                                            :type          => 'ext',
+                                            :content_type  => 'user',
                                             :device_config => { :device => '/dev/sdb' },
-                                            :shared => false
+                                            :shared        => false
       !(conn.storage_repositories.find { |sr| sr.name == 'FOG TEST SR' }).nil?
     end
     # Cleanup
     sr.pbds.each { |pbd| pbd.unplug }
     sr.destroy
     test('return sane defaults') do
-      sr = conn.storage_repositories.create :name => 'FOG TEST SR',
-                                            :host => conn.hosts.first,
-                                            :type => 'ext',
+      sr = conn.storage_repositories.create :name          => 'FOG TEST SR',
+                                            :host          => conn.hosts.first,
+                                            :type          => 'ext',
                                             :device_config => { :device => '/dev/sdb' }
       sr.reload
       (sr.content_type == 'user') and \

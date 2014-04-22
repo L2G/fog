@@ -7,8 +7,8 @@ module Fog
 
         def remove_permission(options = {})
           request({
-            'Action'  => 'RemovePermission',
-            :parser   => Fog::Parsers::AWS::SNS::RemovePermission.new
+            'Action' => 'RemovePermission',
+            :parser  => Fog::Parsers::AWS::SNS::RemovePermission.new
           }.merge!(options))
         end
 

@@ -26,8 +26,8 @@ module Fog
         #
         def create_access_key(options = {})
           request({
-            'Action'    => 'CreateAccessKey',
-            :parser     => Fog::Parsers::AWS::IAM::CreateAccessKey.new
+            'Action' => 'CreateAccessKey',
+            :parser  => Fog::Parsers::AWS::IAM::CreateAccessKey.new
           }.merge!(options))
         end
 
@@ -47,8 +47,8 @@ module Fog
           end
 
           key = { 'SecretAccessKey' => Fog::Mock.random_base64(40),
-                  'Status' => 'Active',
-                  'AccessKeyId' => Fog::AWS::Mock.key_id(20),
+                  'Status'          => 'Active',
+                  'AccessKeyId'     => Fog::AWS::Mock.key_id(20),
                 }
           if user
             key['UserName'] = user

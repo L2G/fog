@@ -21,9 +21,9 @@ module Fog
         #       * check_interval<~Integer> - time between checks, in milliseconds
         def get_lb_backends(lb_service_id)
           request(
-            :expects  => 200,
-            :method   => 'GET',
-            :path     => "api/lb_services/#{lb_service_id}/lb_backends.json"
+            :expects => 200,
+            :method  => 'GET',
+            :path    => "api/lb_services/#{lb_service_id}/lb_backends.json"
           )
         end
       end

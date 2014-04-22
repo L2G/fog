@@ -5,8 +5,8 @@ module Fog
         def remove_ssl_termination(load_balancer_id)
           request(
             :expects => [200, 202],
-            :path => "loadbalancers/#{load_balancer_id}/ssltermination",
-            :method => 'DELETE'
+            :path    => "loadbalancers/#{load_balancer_id}/ssltermination",
+            :method  => 'DELETE'
           )
         end
       end

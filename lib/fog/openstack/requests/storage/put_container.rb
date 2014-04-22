@@ -10,9 +10,9 @@ module Fog
         #
         def put_container(name)
           request(
-            :expects  => [201, 202],
-            :method   => 'PUT',
-            :path     => Fog::OpenStack.escape(name)
+            :expects => [201, 202],
+            :method  => 'PUT',
+            :path    => Fog::OpenStack.escape(name)
           )
         end
 

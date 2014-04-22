@@ -10,9 +10,9 @@ module Fog
         #
         def destroy_ssh_key(id)
           request(
-            :expects  => [200],
-            :method   => 'GET',
-            :path     => "ssh_keys/#{id}/destroy"
+            :expects => [200],
+            :method  => 'GET',
+            :path    => "ssh_keys/#{id}/destroy"
           )
         end
 

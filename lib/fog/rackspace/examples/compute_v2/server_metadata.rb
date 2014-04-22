@@ -26,11 +26,11 @@ end
 
 #create Next Generation Cloud Server service
 service = Fog::Compute.new(
-  :provider             => 'rackspace',
-  :rackspace_username   => rackspace_username,
-  :rackspace_api_key    => rackspace_api_key,
-  :version => :v2,  # Use Next Gen Cloud Servers
-  :rackspace_region => :ord #Use Chicago Region
+  :provider           => 'rackspace',
+  :rackspace_username => rackspace_username,
+  :rackspace_api_key  => rackspace_api_key,
+  :version            => :v2,  # Use Next Gen Cloud Servers
+  :rackspace_region   => :ord #Use Chicago Region
 )
 
 # Pick the first flavor
@@ -40,10 +40,10 @@ flavor = service.flavors.first
 image = service.images.find {|image| image.name =~ /Ubuntu/}
 
 #create server
-server = service.servers.create :name => 'meta-cumulus',
+server = service.servers.create :name      => 'meta-cumulus',
                                 :flavor_id => flavor.id,
-                                :image_id => image.id,
-                                :metadata => { 'color' => 'red' }
+                                :image_id  => image.id,
+                                :metadata  => { 'color' => 'red' }
 
 puts "Waiting for server to be created\n"
 server.wait_for(600, 5) do

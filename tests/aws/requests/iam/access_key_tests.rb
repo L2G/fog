@@ -21,7 +21,7 @@ Shindo.tests('AWS::IAM | access key requests', ['aws']) do
     end
 
     @access_keys_format = {
-      'AccessKeys' => [{
+      'AccessKeys'  => [{
         'AccessKeyId' => String,
         'Status'      => String
       }],

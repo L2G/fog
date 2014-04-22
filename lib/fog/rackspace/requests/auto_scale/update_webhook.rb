@@ -9,9 +9,9 @@ module Fog
 
           request(
             :expects => [204],
-            :method => 'PUT',
-            :path => "groups/#{group_id}/policies/#{policy_id}/webhooks/#{webhook_id}",
-            :body => Fog::JSON.encode(body)
+            :method  => 'PUT',
+            :path    => "groups/#{group_id}/policies/#{policy_id}/webhooks/#{webhook_id}",
+            :body    => Fog::JSON.encode(body)
           )
         end
       end

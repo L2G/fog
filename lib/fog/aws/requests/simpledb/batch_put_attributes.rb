@@ -22,9 +22,9 @@ module Fog
         #     * 'RequestId'
         def batch_put_attributes(domain_name, items, replace_attributes = Hash.new([]))
           request({
-            'Action'      => 'BatchPutAttributes',
-            'DomainName'  => domain_name,
-            :parser       => Fog::Parsers::AWS::SimpleDB::Basic.new(@nil_string)
+            'Action'     => 'BatchPutAttributes',
+            'DomainName' => domain_name,
+            :parser      => Fog::Parsers::AWS::SimpleDB::Basic.new(@nil_string)
           }.merge!(encode_batch_attributes(items, replace_attributes)))
         end
 

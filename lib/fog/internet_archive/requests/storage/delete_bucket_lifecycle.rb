@@ -14,11 +14,11 @@ module Fog
 
         def delete_bucket_lifecycle(bucket_name)
           request(
-                    :expects  => 204,
-                    :headers  => {},
-                    :host     => "#{bucket_name}.#{@host}",
-                    :method   => 'DELETE',
-                    :query    => { 'lifecycle' => nil }
+                    :expects => 204,
+                    :headers => {},
+                    :host    => "#{bucket_name}.#{@host}",
+                    :method  => 'DELETE',
+                    :query   => { 'lifecycle' => nil }
                   )
         end
       end

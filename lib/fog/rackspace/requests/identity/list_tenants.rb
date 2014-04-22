@@ -5,8 +5,8 @@ module Fog
         def list_tenants()
           response = request(
             :expects => [200, 203],
-            :method => 'GET',
-            :path => 'tenants'
+            :method  => 'GET',
+            :path    => 'tenants'
           )
 
           unless response.body['tenants'].is_a?(Array)
@@ -23,15 +23,15 @@ module Fog
           response = Excon::Response.new
           response.status = [200, 203][rand(1)]
           response.body = {
-            'tenants' => [
+            'tenants'       => [
               {
-                'id' => Fog::Mock.random_numbers(6),
-                'name' => 'Enabled tenant',
+                'id'      => Fog::Mock.random_numbers(6),
+                'name'    => 'Enabled tenant',
                 'enabled' => true
               },
               {
-                'id' => Fog::Mock.random_numbers(6),
-                'name' => 'Disabled tenant',
+                'id'      => Fog::Mock.random_numbers(6),
+                'name'    => 'Disabled tenant',
                 'enabled' => false
               },
             ],

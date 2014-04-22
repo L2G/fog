@@ -43,8 +43,8 @@ Shindo.tests('Fog::Compute[:xenserver] | VLAN model', ['xenserver']) do
       unless pif
         pif = compute.pifs.find { |p| p.device == 'eth0' and p.vlan == '-1' }
       end
-      @vlan = vlans.create :tag => 1499,
-                           :pif => pif,
+      @vlan = vlans.create :tag     => 1499,
+                           :pif     => pif,
                            :network => @net
       @vlan.is_a? Fog::Compute::XenServer::VLAN
     end

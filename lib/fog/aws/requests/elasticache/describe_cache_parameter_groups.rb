@@ -18,7 +18,7 @@ module Fog
             'CacheParameterGroupName' => name,
             'Marker'                  => options[:marker],
             'MaxRecords'              => options[:max_records],
-            :parser => Fog::Parsers::AWS::Elasticache::DescribeParameterGroups.new
+            :parser                   => Fog::Parsers::AWS::Elasticache::DescribeParameterGroups.new
           }.merge(options))
         end
 

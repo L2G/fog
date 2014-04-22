@@ -24,7 +24,7 @@ module Fog
       class Real
         def create_domain(name, email, options = {})
           data = {
-            :name => name,
+            :name  => name,
             :email => email
           }
 
@@ -48,13 +48,13 @@ module Fog
           response.status = 200
 
           data = {
-              'id'         => Fog::HP::Mock.uuid.to_s,
-              'name'       => name || 'domain1.com.',
-              'email'      => email || 'nsadmin@example.org',
+              'id'          => Fog::HP::Mock.uuid.to_s,
+              'name'        => name || 'domain1.com.',
+              'email'       => email || 'nsadmin@example.org',
               'description' => options[:description] || 'desc domain1.com.',
-              'ttl'        => options[:ttl] || 3600,
-              'serial'     => Fog::Mock.random_numbers(10).to_i,
-              'created_at' => '2012-01-01T13:32:20Z'
+              'ttl'         => options[:ttl] || 3600,
+              'serial'      => Fog::Mock.random_numbers(10).to_i,
+              'created_at'  => '2012-01-01T13:32:20Z'
           }
           self.data[:domains][data['id']] = data
           response.body = data

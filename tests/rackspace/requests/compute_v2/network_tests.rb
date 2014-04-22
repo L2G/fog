@@ -2,9 +2,9 @@ Shindo.tests('Fog::Compute::RackspaceV2 | network_tests', ['rackspace']) do
   service   = Fog::Compute.new(:provider => 'Rackspace', :version => 'V2')
 
   network_format = {
-    'id' => String,
+    'id'    => String,
     'label' => String,
-    'cidr' => Fog::Nullable::String
+    'cidr'  => Fog::Nullable::String
   }
 
   get_network_format = {

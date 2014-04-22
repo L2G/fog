@@ -5,15 +5,15 @@ Shindo.tests('Storage[:internetarchive] | file', ['internetarchive']) do
   require 'tempfile'
 
   file_attributes = {
-    :key => 'fog_file_tests',
-    :body => lorem_file,
-    :public => true,
+    :key              => 'fog_file_tests',
+    :body             => lorem_file,
+    :public           => true,
     :auto_make_bucket => 1,
   }
 
   directory_attributes = {
     # Add a random suffix to prevent collision
-    :key => "fogfilestests-#{rand(65536)}",
+    :key         => "fogfilestests-#{rand(65536)}",
     :collections => ['test_collection']
   }
 

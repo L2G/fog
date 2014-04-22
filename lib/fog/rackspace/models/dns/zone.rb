@@ -28,7 +28,7 @@ module Fog
         def records
           @records ||= begin
             Fog::DNS::Rackspace::Records.new(
-              :zone       => self,
+              :zone    => self,
               :service => service
             )
           end

@@ -1,11 +1,11 @@
 Shindo.tests('Fog::Network[:openstack] | security_group requests', ['openstack']) do
 
   @security_group_format = {
-    'id'                    => String,
-    'name'                  => String,
-    'description'           => String,
-    'tenant_id'             => String,
-    'security_group_rules'  => [Hash]
+    'id'                   => String,
+    'name'                 => String,
+    'description'          => String,
+    'tenant_id'            => String,
+    'security_group_rules' => [Hash]
   }
 
   tests('success') do

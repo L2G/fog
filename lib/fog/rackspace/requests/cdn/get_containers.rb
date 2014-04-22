@@ -22,10 +22,10 @@ module Fog
         # @raise [Fog::Storage::Rackspace::ServiceError]
         def get_containers(options = {})
           response = request(
-            :expects  => [200, 204],
-            :method   => 'GET',
-            :path     => '',
-            :query    => { 'format' => 'json' }.merge!(options)
+            :expects => [200, 204],
+            :method  => 'GET',
+            :path    => '',
+            :query   => { 'format' => 'json' }.merge!(options)
           )
           response
         end
@@ -39,9 +39,9 @@ module Fog
           response.status = 200
           response.headers = {
             'Content-Length' => '4402',
-            'Date' => 'Fri, 01 Feb 2013 21:16:54 GMT',
-            'Content-Type' => 'application/json',
-            'X-Trans-Id' => 'tx6c79ea47300941c49f2291b4d47d4ef5'
+            'Date'           => 'Fri, 01 Feb 2013 21:16:54 GMT',
+            'Content-Type'   => 'application/json',
+            'X-Trans-Id'     => 'tx6c79ea47300941c49f2291b4d47d4ef5'
           }
           response.body = [
             { 'log_retention' => false,

@@ -58,9 +58,9 @@ module Fog
         def save
           requires :subnet_id
           options = {
-            'PrivateIpAddress'      => private_ip_address,
-            'Description'           => description,
-            'GroupSet'              => group_set,
+            'PrivateIpAddress' => private_ip_address,
+            'Description'      => description,
+            'GroupSet'         => group_set,
           }
           options.delete_if {|key, value| value.nil?}
           data = service.create_network_interface(subnet_id, options).body['networkInterface']

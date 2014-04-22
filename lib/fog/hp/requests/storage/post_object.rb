@@ -11,10 +11,10 @@ module Fog
         # * headers<~Hash> - Hash of metadata name/value pairs
         def post_object(container, object, headers = {})
           response = request(
-            :expects  => 202,
-            :headers  => headers,
-            :method   => 'POST',
-            :path     => "#{Fog::HP.escape(container)}/#{Fog::HP.escape(object)}"
+            :expects => 202,
+            :headers => headers,
+            :method  => 'POST',
+            :path    => "#{Fog::HP.escape(container)}/#{Fog::HP.escape(object)}"
           )
           response
         end
@@ -38,10 +38,10 @@ module Fog
 
             container[:objects][object_name] = object
             response.headers = {
-              'Content-Length'  => object['Content-Length'],
-              'Content-Type'    => object['Content-Type'],
-              'ETag'            => object['ETag'],
-              'Date'            => object['Date']
+              'Content-Length' => object['Content-Length'],
+              'Content-Type'   => object['Content-Type'],
+              'ETag'           => object['ETag'],
+              'Date'           => object['Date']
             }
           else
             raise Fog::Storage::HP::NotFound

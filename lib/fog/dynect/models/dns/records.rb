@@ -26,9 +26,9 @@ module Fog
 
             data << {
               :identity => record['record_id'],
-              :fqdn => record['fqdn'],
-              :type => record['record_type'],
-              :rdata => record['rdata']
+              :fqdn     => record['fqdn'],
+              :type     => record['record_type'],
+              :rdata    => record['rdata']
             }
           end
 
@@ -47,9 +47,9 @@ module Fog
 
           new(
             :identity => record['record_id'],
-            :fqdn => record['fqdn'],
-            :type => record['record_type'],
-            :rdata => record['rdata']
+            :fqdn     => record['fqdn'],
+            :type     => record['record_type'],
+            :rdata    => record['rdata']
           )
         end
 

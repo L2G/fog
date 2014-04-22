@@ -19,8 +19,8 @@ module Fog
           unless filter.has_key?(:name)
             vms = ::Fission::VM.all.data
             vms.each do |vm|
-              data << { :raw =>  { :fission => vm,
-                                   :state   => states[vm.name] } }
+              data << { :raw => { :fission => vm,
+                                  :state   => states[vm.name] } }
             end
           else
             data << { :raw => { :fission => ::Fission::VM.new(filter[:name]),

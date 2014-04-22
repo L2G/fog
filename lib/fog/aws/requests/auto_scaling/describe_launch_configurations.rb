@@ -105,7 +105,7 @@ module Fog
           response.status = 200
           response.body = {
             'DescribeLaunchConfigurationsResult' => { 'LaunchConfigurations' => launch_configurations },
-            'ResponseMetadata' => { 'RequestId' => Fog::AWS::Mock.request_id }
+            'ResponseMetadata'                   => { 'RequestId' => Fog::AWS::Mock.request_id }
           }
           response
         end

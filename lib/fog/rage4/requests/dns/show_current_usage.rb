@@ -12,9 +12,9 @@ module Fog
         #   * body<~Array>
         def show_current_usage(id)
           request(
-                  :expects  => 200,
-                  :method   => 'GET',
-                  :path     => "/rapi/showcurrentusage/#{id}" )
+                  :expects => 200,
+                  :method  => 'GET',
+                  :path    => "/rapi/showcurrentusage/#{id}" )
 
         end
 

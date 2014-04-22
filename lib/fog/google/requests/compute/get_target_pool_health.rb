@@ -15,9 +15,9 @@ module Fog
         def get_target_pool_health(target_pool)
           api_method = @compute.target_pools.get_health
           parameters = {
-            'project' => @project,
+            'project'    => @project,
             'targetPool' => target_pool.name,
-            'region' => target_pool.region.split('/')[-1]
+            'region'     => target_pool.region.split('/')[-1]
           }
 
           health_results = target_pool.instances.collect do |instance|

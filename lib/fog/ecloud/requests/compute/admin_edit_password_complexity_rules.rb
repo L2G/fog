@@ -12,11 +12,11 @@ module Fog
           body = build_password_complexity_rules_edit(data)
           request(
             :expects => 202,
-            :method => 'PUT',
+            :method  => 'PUT',
             :headers => {},
-            :body => body,
-            :uri => data[:uri],
-            :parse => true
+            :body    => body,
+            :uri     => data[:uri],
+            :parse   => true
           )
         end
 

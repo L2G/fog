@@ -4,67 +4,67 @@ NODES_FORMAT = { 'nodes' => [SINGLE_NODE_FORMAT] }
 VIRTUAL_IP_FORMAT = { 'type' => String, 'id' => Integer, 'type' => String, 'ipVersion' => String, 'address' => String }
 VIRTUAL_IPS_FORMAT = { 'virtualIps' => [VIRTUAL_IP_FORMAT] }
 SOURCE_ADDRESSES = {
-  'ipv4Servicenet'  => String,
-  'ipv4Public'      => String,
-  'ipv6Public'      => String,
+  'ipv4Servicenet' => String,
+  'ipv4Public'     => String,
+  'ipv6Public'     => String,
 }
 LOAD_BALANCER_USAGE_FORMAT = {
-  'links' => [
+  'links'                    => [
     {
       'otherAttributes' => [],
-      'href' => Fog::Nullable::String,
-      'rel' => Fog::Nullable::String
+      'href'            => Fog::Nullable::String,
+      'rel'             => Fog::Nullable::String
     }
   ],
   'loadBalancerUsageRecords' => [
     {
-      'id' => Fog::Nullable::Integer,
-      'eventType' => Fog::Nullable::String,
+      'id'                    => Fog::Nullable::Integer,
+      'eventType'             => Fog::Nullable::String,
       'averageNumConnections' => Fog::Nullable::Float,
-      'incomingTransfer' => Fog::Nullable::Integer,
-      'outgoingTransfer' => Fog::Nullable::Integer,
-      'numVips' => Fog::Nullable::Integer,
-      'numPolls' => Fog::Nullable::Integer,
-      'startTime' => Fog::Nullable::String,
-      'endTime' => Fog::Nullable::String,
-      'vipType' => Fog::Nullable::String,
+      'incomingTransfer'      => Fog::Nullable::Integer,
+      'outgoingTransfer'      => Fog::Nullable::Integer,
+      'numVips'               => Fog::Nullable::Integer,
+      'numPolls'              => Fog::Nullable::Integer,
+      'startTime'             => Fog::Nullable::String,
+      'endTime'               => Fog::Nullable::String,
+      'vipType'               => Fog::Nullable::String,
     }
   ]
 }
 
 LOAD_BALANCER_STATS_FORMAT = {
-    'connectTimeOut' => Integer,
-    'connectError' => Integer,
-    'connectFailure' => Integer,
-    'dataTimedOut' => Integer,
+    'connectTimeOut'    => Integer,
+    'connectError'      => Integer,
+    'connectFailure'    => Integer,
+    'dataTimedOut'      => Integer,
     'keepAliveTimedOut' => Integer,
-    'maxConn' => Integer
+    'maxConn'           => Integer
 }
 
 SSL_TERMINATION_FORMAT = {
   'sslTermination' => {
-    'certificate' => String,
-    'privatekey' => String,
-    'enabled' => Fog::Boolean,
-    'securePort' => Integer,
-    'secureTrafficOnly' => Fog::Boolean,
+    'certificate'             => String,
+    'privatekey'              => String,
+    'enabled'                 => Fog::Boolean,
+    'securePort'              => Integer,
+    'secureTrafficOnly'       => Fog::Boolean,
     'intermediateCertificate' => Fog::Nullable::String
   }
 }
 
 USAGE_FORMAT = {
-  'accountId' => Integer,
+  'accountId'          => Integer,
   'loadBalancerUsages' => [
     {
-      'loadBalancerId' => Fog::Nullable::Integer,
+      'loadBalancerId'   => Fog::Nullable::Integer,
       'loadBalancerName' => Fog::Nullable::String
     }.merge(LOAD_BALANCER_USAGE_FORMAT)
   ],
-  'accountUsage' => [
+  'accountUsage'       => [
     {
-      'startTime' => Fog::Nullable::String,
-      'numLoadBalancers' => Fog::Nullable::Integer,
-      'numPublicVips' => Fog::Nullable::Integer,
+      'startTime'         => Fog::Nullable::String,
+      'numLoadBalancers'  => Fog::Nullable::Integer,
+      'numPublicVips'     => Fog::Nullable::Integer,
       'numServicenetVips' => Fog::Nullable::Integer
     }
   ]
@@ -76,10 +76,10 @@ CONNECTION_LOGGING_FORMAT = {
 }
 CONNECTION_THROTTLING_FORMAT = {
   'connectionThrottle' => {
-    'maxConnections' => Fog::Nullable::Integer,
-    'minConnections' => Fog::Nullable::Integer,
+    'maxConnections'    => Fog::Nullable::Integer,
+    'minConnections'    => Fog::Nullable::Integer,
     'maxConnectionRate' => Fog::Nullable::Integer,
-    'rateInterval' => Fog::Nullable::Integer
+    'rateInterval'      => Fog::Nullable::Integer
   }
 }
 SESSION_PERSISTENCE_FORMAT = {
@@ -96,20 +96,20 @@ ACCESS_LIST_FORMAT = {
   'accessList' => [
     {
       'address' => String,
-      'id' => Integer,
-      'type' => String
+      'id'      => Integer,
+      'type'    => String
     }
   ]
 }
 HEALTH_MONITOR_FORMAT = {
   'healthMonitor' => {
-    'type' => Fog::Nullable::String,
-    'delay' => Fog::Nullable::Integer,
-    'timeout' => Fog::Nullable::Integer,
+    'type'                       => Fog::Nullable::String,
+    'delay'                      => Fog::Nullable::Integer,
+    'timeout'                    => Fog::Nullable::Integer,
     'attemptsBeforeDeactivation' => Fog::Nullable::Integer,
-    'path' => Fog::Nullable::String,
-    'bodyRegex' => Fog::Nullable::String,
-    'statusRegex' => Fog::Nullable::String
+    'path'                       => Fog::Nullable::String,
+    'bodyRegex'                  => Fog::Nullable::String,
+    'statusRegex'                => Fog::Nullable::String
   }
 }
 
@@ -118,52 +118,52 @@ STATUS_ACTIVE = 'ACTIVE'
 LOAD_BALANCERS_FORMAT = {
   'loadBalancers' => [
     {
-      'name' => String,
-      'id' => Integer,
-      'port' => Integer,
-      'protocol' => String,
-      'algorithm' => String,
-      'status' => String,
+      'name'       => String,
+      'id'         => Integer,
+      'port'       => Integer,
+      'protocol'   => String,
+      'algorithm'  => String,
+      'status'     => String,
       'virtualIps' => [VIRTUAL_IP_FORMAT],
-      'created' => { 'time' => String },
-      'updated' => { 'time' => String },
-      'nodeCount' => Integer
+      'created'    => { 'time' => String },
+      'updated'    => { 'time' => String },
+      'nodeCount'  => Integer
     }]
 }
 
 LOAD_BALANCERS_DETAIL_FORMAT = {
   'loadBalancers' => [
     {
-      'name' => String,
-      'id' => Integer,
-      'port' => Integer,
-      'protocol' => String,
-      'algorithm' => String,
+      'name'            => String,
+      'id'              => Integer,
+      'port'            => Integer,
+      'protocol'        => String,
+      'algorithm'       => String,
       'sourceAddresses' => SOURCE_ADDRESSES,
-      'status' => String,
-      'timeout' => Integer,
-      'virtualIps' => [VIRTUAL_IP_FORMAT],
-      'nodes' => [SINGLE_NODE_FORMAT],
-      'created' => { 'time' => String },
-      'updated' => { 'time' => String }
+      'status'          => String,
+      'timeout'         => Integer,
+      'virtualIps'      => [VIRTUAL_IP_FORMAT],
+      'nodes'           => [SINGLE_NODE_FORMAT],
+      'created'         => { 'time' => String },
+      'updated'         => { 'time' => String }
     }]
 }
 LOAD_BALANCER_FORMAT = {
   'loadBalancer' => {
-    'name' => String,
-    'id' => Integer,
-    'port' => Integer,
-    'protocol' => String,
-    'algorithm' => String,
+    'name'            => String,
+    'id'              => Integer,
+    'port'            => Integer,
+    'protocol'        => String,
+    'algorithm'       => String,
     'sourceAddresses' => SOURCE_ADDRESSES,
-    'status' => String,
-    'timeout' => Integer,
-    'cluster' => { 'name' => String },
-    'virtualIps' => [VIRTUAL_IP_FORMAT],
-    'nodes' => [SINGLE_NODE_FORMAT],
-    'created' => { 'time' => String },
-    'updated' => { 'time' => String },
-    'contentCaching' => { 'enabled' => Fog::Boolean }
+    'status'          => String,
+    'timeout'         => Integer,
+    'cluster'         => { 'name' => String },
+    'virtualIps'      => [VIRTUAL_IP_FORMAT],
+    'nodes'           => [SINGLE_NODE_FORMAT],
+    'created'         => { 'time' => String },
+    'updated'         => { 'time' => String },
+    'contentCaching'  => { 'enabled' => Fog::Boolean }
   }.merge(CONNECTION_LOGGING_FORMAT)
 }
 

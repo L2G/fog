@@ -50,10 +50,10 @@ module Fog
           data['rebuild']['imageRef'] = image_id
 
           request(
-            :body => Fog::JSON.encode(data),
+            :body    => Fog::JSON.encode(data),
             :expects => [202],
-            :method => 'POST',
-            :path => "servers/#{server_id}/action"
+            :method  => 'POST',
+            :path    => "servers/#{server_id}/action"
           )
         end
       end
@@ -62,7 +62,7 @@ module Fog
         def rebuild_server(server_id, image_id, options = {})
           server = self.data[:servers][server_id]
           response(
-            :body => { 'server' => server },
+            :body   => { 'server' => server },
             :status => 202
           )
         end

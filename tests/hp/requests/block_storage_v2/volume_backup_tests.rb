@@ -1,24 +1,24 @@
 Shindo.tests('Fog::HP::BlockStorageV2 | volume backup requests', ['hp', 'v2', 'block_storage', 'volume_backup']) do
 
   @backup_details_format = {
-    'id'                  => String,
-    'status'              => String,
-    'name'                => Fog::Nullable::String,
-    'description'         => Fog::Nullable::String,
-    'container'           => String,
-    'availability_zone'   => String,
-    'created_at'          => String,
-    'volume_id'           => String,
-    'size'                => Integer,
-    'links'               => [Fog::Nullable::Hash],
-    'fail_reason'         => Fog::Nullable::String,
-    'object_count'        => Integer
+    'id'                => String,
+    'status'            => String,
+    'name'              => Fog::Nullable::String,
+    'description'       => Fog::Nullable::String,
+    'container'         => String,
+    'availability_zone' => String,
+    'created_at'        => String,
+    'volume_id'         => String,
+    'size'              => Integer,
+    'links'             => [Fog::Nullable::Hash],
+    'fail_reason'       => Fog::Nullable::String,
+    'object_count'      => Integer
   }
 
   @backup_format = {
-    'id'     => String,
-    'name'   => Fog::Nullable::String,
-    'links'  => [Fog::Nullable::Hash]
+    'id'    => String,
+    'name'  => Fog::Nullable::String,
+    'links' => [Fog::Nullable::Hash]
   }
 
   @restore_format = {

@@ -13,9 +13,9 @@ module Fog
         # * response<~Excon::Response>:
         #   * body<~Hash>:
         def delete_db_subnet_group(name)
-          params = { 'Action'  => 'DeleteDBSubnetGroup',
-            'DBSubnetGroupName' => name,
-            :parser   => Fog::Parsers::AWS::RDS::DeleteDBSubnetGroup.new }
+          params = { 'Action'            => 'DeleteDBSubnetGroup',
+                     'DBSubnetGroupName' => name,
+                     :parser             => Fog::Parsers::AWS::RDS::DeleteDBSubnetGroup.new }
           request(params)
         end
 
@@ -31,7 +31,7 @@ module Fog
 
           response.body = {
             'ResponseMetadata' => { 'RequestId' => Fog::AWS::Mock.request_id },
-            'return' => true,
+            'return'           => true,
           }
           response
         end

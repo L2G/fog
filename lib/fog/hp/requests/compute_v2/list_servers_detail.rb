@@ -45,10 +45,10 @@ module Fog
         #     * 'OS-EXT-STS:vm_state'<~String> - Extended vm state
         def list_servers_detail(options = {})
           request(
-            :expects  => 200,
-            :method   => 'GET',
-            :path     => 'servers/detail',
-            :query    => options
+            :expects => 200,
+            :method  => 'GET',
+            :path    => 'servers/detail',
+            :query   => options
           )
         end
 

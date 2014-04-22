@@ -23,8 +23,8 @@ module Fog
         def delete_vpc(vpc_id)
           request(
             'Action' => 'DeleteVpc',
-            'VpcId' => vpc_id,
-            :parser => Fog::Parsers::Compute::AWS::Basic.new
+            'VpcId'  => vpc_id,
+            :parser  => Fog::Parsers::Compute::AWS::Basic.new
           )
         end
       end
@@ -42,7 +42,7 @@ module Fog
 
               response.body = {
                 'requestId' => Fog::AWS::Mock.request_id,
-                'return' => true
+                'return'    => true
               }
             else
               message = 'MissingParameter => '

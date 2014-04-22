@@ -14,9 +14,9 @@ module Fog
         #     * 'disk'<~Integer> - Amount of diskspace for the flavor
         def get_flavor_details(flavor_id)
           request(
-            :expects  => [200, 203],
-            :method   => 'GET',
-            :path     => "flavors/#{flavor_id}.json"
+            :expects => [200, 203],
+            :method  => 'GET',
+            :path    => "flavors/#{flavor_id}.json"
           )
         end
 

@@ -126,8 +126,8 @@ module Fog
 
           vol_id = volume.kind_of?(String) ? volume : volume.identity
           mountpoint_data = {
-              'drive' => vol_id,
-              'device' => device,
+              'drive'       => vol_id,
+              'device'      => device,
               'dev_channel' => dev_channel,
           }
 
@@ -161,8 +161,8 @@ module Fog
 
         def add_nic(vlan = nil, ip_v4_conf = nil, ip_v6_conf = nil, model = 'virtio', boot_order = nil)
           nic_data = {
-              'model' => model,
-              'vlan' => vlan,
+              'model'      => model,
+              'vlan'       => vlan,
               'ip_v4_conf' => ip_v4_conf,
               'ip_v6_conf' => ip_v6_conf
           }

@@ -37,7 +37,7 @@ module Fog
             'jobresultcode' => 0,
             'jobresulttype' => 'object',
             'jobresult'     =>
-              { 'virtualmachine' => server }
+                               { 'virtualmachine' => server }
           }
 
           self.data[:jobs][job_id] = job

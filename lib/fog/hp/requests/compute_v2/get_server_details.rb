@@ -45,9 +45,9 @@ module Fog
         #     * 'OS-EXT-STS:vm_state'<~String> - Extended vm state
         def get_server_details(server_id)
           request(
-            :expects  => [200, 203],
-            :method   => 'GET',
-            :path     => "servers/#{server_id}"
+            :expects => [200, 203],
+            :method  => 'GET',
+            :path    => "servers/#{server_id}"
           )
         end
 

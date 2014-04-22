@@ -1,19 +1,19 @@
 Shindo.tests('Fog::Compute[:cloudstack] | disk offering requests', ['cloudstack']) do
 
   @disk_offerings_format = {
-    'listdiskofferingsresponse'  => {
-      'count' => Integer,
+    'listdiskofferingsresponse' => {
+      'count'        => Integer,
       'diskoffering' => [
-        'id' => String,
-        'created' => String,
-        'disksize' => Integer,
-        'displaytext' => String,
-        'domain' => Fog::Nullable::String,
-        'domainid' => Fog::Nullable::String,
+        'id'           => String,
+        'created'      => String,
+        'disksize'     => Integer,
+        'displaytext'  => String,
+        'domain'       => Fog::Nullable::String,
+        'domainid'     => Fog::Nullable::String,
         'iscustomized' => Fog::Boolean,
-        'name' => String,
-        'storagetype' => String,
-        'tags' => Fog::Nullable::String
+        'name'         => String,
+        'storagetype'  => String,
+        'tags'         => Fog::Nullable::String
       ]
     }
   }

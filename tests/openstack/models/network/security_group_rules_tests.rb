@@ -6,12 +6,12 @@ Shindo.tests('Fog::Network[:openstack] | security_group_rules collection', ['ope
 
   tests('success') do
     attributes = {
-      :security_group_id  => @secgroup.id,
-      :direction          => 'ingress',
-      :protocol           => 'tcp',
-      :port_range_min     => 22,
-      :port_range_max     => 22,
-      :remote_ip_prefix   => '0.0.0.0/0'
+      :security_group_id => @secgroup.id,
+      :direction         => 'ingress',
+      :protocol          => 'tcp',
+      :port_range_min    => 22,
+      :port_range_max    => 22,
+      :remote_ip_prefix  => '0.0.0.0/0'
     }
     @secgrouprule = Fog::Network[:openstack].security_group_rules.create(attributes)
 

@@ -15,9 +15,9 @@ module Fog
         #     * 'updated'<~String> - Timestamp of last update
         def get_image_details(image_id)
           request(
-            :expects  => [200, 203],
-            :method   => 'GET',
-            :path     => "images/#{image_id}.json"
+            :expects => [200, 203],
+            :method  => 'GET',
+            :path    => "images/#{image_id}.json"
           )
         end
 

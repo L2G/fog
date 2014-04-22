@@ -22,10 +22,10 @@ module Fog
         #       * 'minimum'<~Integer> - minimum value for intervals for this zone, in seconds
         def get_zones
           request(
-            :expects  => 200,
-            :method   => 'GET',
-            :parser   => Fog::Parsers::DNS::Bluebox::GetZones.new,
-            :path     => '/api/domains.xml'
+            :expects => 200,
+            :method  => 'GET',
+            :parser  => Fog::Parsers::DNS::Bluebox::GetZones.new,
+            :path    => '/api/domains.xml'
           )
         end
 

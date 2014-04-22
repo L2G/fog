@@ -44,11 +44,11 @@ module Fog
           if (zone = self.data[:zones][zone_id])
             response.status = 200
             response.body = {
-              'HostedZone' => {
-                'Id' => zone[:id],
-                'Name' => zone[:name],
+              'HostedZone'  => {
+                'Id'              => zone[:id],
+                'Name'            => zone[:name],
                 'CallerReference' => zone[:reference],
-                'Comment' => zone[:comment]
+                'Comment'         => zone[:comment]
               },
               'NameServers' => Fog::AWS::Mock.nameservers
             }

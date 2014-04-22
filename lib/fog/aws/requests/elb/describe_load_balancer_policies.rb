@@ -26,9 +26,9 @@ module Fog
         def describe_load_balancer_policies(lb_name = nil, names = [])
           params = Fog::AWS.indexed_param('PolicyNames.member', [*names])
           request({
-            'Action'  => 'DescribeLoadBalancerPolicies',
+            'Action'           => 'DescribeLoadBalancerPolicies',
             'LoadBalancerName' => lb_name,
-            :parser   => Fog::Parsers::AWS::ELB::DescribeLoadBalancerPolicies.new
+            :parser            => Fog::Parsers::AWS::ELB::DescribeLoadBalancerPolicies.new
           }.merge!(params))
         end
 
@@ -56,7 +56,7 @@ module Fog
           response.status = 200
 
           response.body = {
-            'ResponseMetadata' => {
+            'ResponseMetadata'                   => {
               'RequestId' => Fog::AWS::Mock.request_id
             },
             'DescribeLoadBalancerPoliciesResult' => {

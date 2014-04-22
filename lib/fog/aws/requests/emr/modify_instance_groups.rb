@@ -22,8 +22,8 @@ module Fog
           end
 
           request({
-            'Action'  => 'ModifyInstanceGroups',
-            :parser   => Fog::Parsers::AWS::EMR::ModifyInstanceGroups.new,
+            'Action' => 'ModifyInstanceGroups',
+            :parser  => Fog::Parsers::AWS::EMR::ModifyInstanceGroups.new,
           }.merge(options))
         end
       end

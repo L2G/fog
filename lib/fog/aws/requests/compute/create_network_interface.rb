@@ -53,9 +53,9 @@ module Fog
             options.merge!(Fog::AWS.indexed_param('SecurityGroupId', [*security_groups]))
           end
           request({
-            'Action'     => 'CreateNetworkInterface',
-            'SubnetId'   => subnetId,
-            :parser      => Fog::Parsers::Compute::AWS::CreateNetworkInterface.new
+            'Action'   => 'CreateNetworkInterface',
+            'SubnetId' => subnetId,
+            :parser    => Fog::Parsers::Compute::AWS::CreateNetworkInterface.new
           }.merge!(options))
 
         end

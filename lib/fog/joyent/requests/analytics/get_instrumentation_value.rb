@@ -4,14 +4,14 @@ module Fog
       class Real
         def get_instrumentation_value(url, requested_start_time, ndatapoints, duration)
           request(
-              :path => url,
-              :method => 'GET',
-              :expects => 200,
+              :path       => url,
+              :method     => 'GET',
+              :expects    => 200,
               :idempotent => true,
-              :query => {
+              :query      => {
                   :ndatapoints => ndatapoints,
-                  :start_time => requested_start_time.to_i,
-                  :duration => duration
+                  :start_time  => requested_start_time.to_i,
+                  :duration    => duration
               }
           )
         end

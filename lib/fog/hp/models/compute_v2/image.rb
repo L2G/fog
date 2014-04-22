@@ -22,7 +22,7 @@ module Fog
           @metadata ||= begin
             Fog::Compute::HPV2::Metadata.new(
               :service => service,
-              :parent => self
+              :parent  => self
             )
           end
         end

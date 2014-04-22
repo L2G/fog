@@ -15,9 +15,9 @@ module Fog
         #      * 'error'<~String>
         def delete_record(id)
           request(
-                  :expects  => 200,
-                  :method   => 'GET',
-                  :path     => "/rapi/deleterecord/#{id}" )
+                  :expects => 200,
+                  :method  => 'GET',
+                  :path    => "/rapi/deleterecord/#{id}" )
 
         end
 

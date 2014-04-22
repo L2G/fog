@@ -22,10 +22,10 @@ module Fog
           }
 
           request(
-            :body => Fog::JSON.encode(data),
+            :body    => Fog::JSON.encode(data),
             :expects => [204],
-            :method => 'POST',
-            :path => "servers/#{server_id}/action"
+            :method  => 'POST',
+            :path    => "servers/#{server_id}/action"
           )
         end
       end

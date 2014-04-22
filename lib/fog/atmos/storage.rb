@@ -104,8 +104,8 @@ module Fog
           req_path = params[:path]
           # Force set host and port
           params.merge!(
-                          :host     => @storage_host,
-                          :path     => "#{@api_path}/rest/#{params[:path]}"
+                          :host => @storage_host,
+                          :path => "#{@api_path}/rest/#{params[:path]}"
                         )
           # Set default method and headers
           params = { :method => 'GET', :headers => {} }.merge params

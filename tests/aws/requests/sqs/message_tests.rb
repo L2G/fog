@@ -5,8 +5,8 @@ Shindo.tests('AWS::SQS | message requests', ['aws']) do
     @queue_url = Fog::AWS[:sqs].create_queue('fog_message_tests').body['QueueUrl']
 
     send_message_format = AWS::SQS::Formats::BASIC.merge(
-      'MessageId'         => String,
-      'MD5OfMessageBody'  => String
+      'MessageId'        => String,
+      'MD5OfMessageBody' => String
     )
 
     tests("#send_message('#{@queue_url}', 'message')").formats(send_message_format) do
@@ -16,10 +16,10 @@ Shindo.tests('AWS::SQS | message requests', ['aws']) do
     receive_message_format = AWS::SQS::Formats::BASIC.merge(
       'Message' => [{
         'Attributes'    => {
-          'ApproximateFirstReceiveTimestamp'  => Time,
-          'ApproximateReceiveCount'           => Integer,
-          'SenderId'                          => String,
-          'SentTimestamp'                     => Time
+          'ApproximateFirstReceiveTimestamp' => Time,
+          'ApproximateReceiveCount'          => Integer,
+          'SenderId'                         => String,
+          'SentTimestamp'                    => Time
         },
         'Body'          => String,
         'MD5OfBody'     => String,

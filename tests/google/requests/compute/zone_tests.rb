@@ -3,26 +3,26 @@ Shindo.tests('Fog::Compute[:google] | zone requests', ['google']) do
   @google = Fog::Compute[:google]
 
   @get_zone_format = {
-      'kind' => String,
-      'id' => String,
-      'selfLink' => String,
-      'creationTimestamp' => String,
-      'name' => String,
-      'description' => String,
-      'status' => String,
+      'kind'               => String,
+      'id'                 => String,
+      'selfLink'           => String,
+      'creationTimestamp'  => String,
+      'name'               => String,
+      'description'        => String,
+      'status'             => String,
       'maintenanceWindows' => Fog::Nullable::Array,
-      'quotas' => [{
+      'quotas'             => [{
         'metric' => String,
-        'limit' => Float,
-        'usage' => Float },
+        'limit'  => Float,
+        'usage'  => Float },
       ],
   }
 
   @list_zones_format = {
-      'kind' => String,
-      'id' => String,
+      'kind'     => String,
+      'id'       => String,
       'selfLink' => String,
-      'items' => [@get_zone_format]
+      'items'    => [@get_zone_format]
   }
 
   tests('success') do

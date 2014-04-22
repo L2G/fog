@@ -21,12 +21,12 @@ module Fog
           account_id = options.delete('account_id') || '-'
           path = "/#{account_id}/vaults"
           request(
-            :expects  => 200,
+            :expects    => 200,
             :idempotent => true,
-            :headers => {},
-            :method   => 'GET',
-            :path     => path,
-            :query => options
+            :headers    => {},
+            :method     => 'GET',
+            :path       => path,
+            :query      => options
           )
         end
       end

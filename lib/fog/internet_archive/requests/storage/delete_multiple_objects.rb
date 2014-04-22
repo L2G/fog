@@ -47,13 +47,13 @@ module Fog
                                    gsub("\n", '')
 
           request(
-            :body       => data,
-            :expects    => 200,
-            :headers    => headers,
-            :host       => "#{bucket_name}.#{@host}",
-            :method     => 'POST',
-            :parser     => Fog::Parsers::Storage::InternetArchive::DeleteMultipleObjects.new,
-            :query      => { 'delete' => nil }
+            :body    => data,
+            :expects => 200,
+            :headers => headers,
+            :host    => "#{bucket_name}.#{@host}",
+            :method  => 'POST',
+            :parser  => Fog::Parsers::Storage::InternetArchive::DeleteMultipleObjects.new,
+            :query   => { 'delete' => nil }
           )
         end
 

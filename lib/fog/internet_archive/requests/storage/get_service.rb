@@ -20,12 +20,12 @@ module Fog
         #
         def get_service
           request(
-            :expects  => 200,
-            :headers  => {},
-            :host     => @host,
+            :expects    => 200,
+            :headers    => {},
+            :host       => @host,
             :idempotent => true,
-            :method   => 'GET',
-            :parser   => Fog::Parsers::Storage::InternetArchive::GetService.new
+            :method     => 'GET',
+            :parser     => Fog::Parsers::Storage::InternetArchive::GetService.new
           )
         end
 

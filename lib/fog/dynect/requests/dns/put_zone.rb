@@ -44,10 +44,10 @@ module Fog
             end
             zone[:records_to_delete] = []
             data = {
-              'zone_type' => zone[:zone_type],
+              'zone_type'    => zone[:zone_type],
               'serial_style' => zone[:serial_style],
-              'serial' => zone[:serial] += 1,
-              'zone' => zone[:zone]
+              'serial'       => zone[:serial] += 1,
+              'zone'         => zone[:zone]
             }
             info = "publish: #{zone[:zone]} published"
           elsif options['thaw']
@@ -59,13 +59,13 @@ module Fog
 
           response.body = {
             'status' => 'success',
-            'data' => data,
+            'data'   => data,
             'job_id' => Fog::Dynect::Mock.job_id,
-            'msgs' => [{
-              'INFO' => info,
+            'msgs'   => [{
+              'INFO'   => info,
               'SOURCE' => 'BLL',
               'ERR_CD' => nil,
-              'LVL' => 'INFO'
+              'LVL'    => 'INFO'
             }]
           }
 

@@ -22,10 +22,10 @@ module Fog
             raise ArgumentError.new('object_name is required')
           end
           https_url({
-            :headers  => headers,
-            :host     => @host,
-            :method   => 'PUT',
-            :path     => "#{bucket_name}/#{object_name}"
+            :headers => headers,
+            :host    => @host,
+            :method  => 'PUT',
+            :path    => "#{bucket_name}/#{object_name}"
           }, expires)
         end
 
@@ -41,10 +41,10 @@ module Fog
             raise ArgumentError.new('object_name is required')
           end
           https_url({
-            :headers  => headers,
-            :host     => @host,
-            :method   => 'PUT',
-            :path     => "#{bucket_name}/#{object_name}"
+            :headers => headers,
+            :host    => @host,
+            :method  => 'PUT',
+            :path    => "#{bucket_name}/#{object_name}"
           }, expires)
         end
 

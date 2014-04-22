@@ -19,8 +19,8 @@ module Fog
           opts = { 'DBSecurityGroupName' => opts } if opts.is_a?(String)
 
           request({
-            'Action'  => 'DescribeDBSecurityGroups',
-            :parser   => Fog::Parsers::AWS::RDS::DescribeDBSecurityGroups.new
+            'Action' => 'DescribeDBSecurityGroups',
+            :parser  => Fog::Parsers::AWS::RDS::DescribeDBSecurityGroups.new
           }.merge(opts))
         end
 
@@ -72,7 +72,7 @@ module Fog
 
           response.status = 200
           response.body = {
-            'ResponseMetadata' => { 'RequestId' => Fog::AWS::Mock.request_id },
+            'ResponseMetadata'               => { 'RequestId' => Fog::AWS::Mock.request_id },
             'DescribeDBSecurityGroupsResult' => { 'DBSecurityGroups' => sec_group_set }
           }
           response

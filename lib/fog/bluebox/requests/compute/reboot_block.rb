@@ -15,9 +15,9 @@ module Fog
         # TODO
         def reboot_block(block_id, type = 'SOFT')
           request(
-            :expects  => 200,
-            :method   => 'PUT',
-            :path     => "api/blocks/#{block_id}/#{'soft_' if type == 'SOFT'}reboot.json"
+            :expects => 200,
+            :method  => 'PUT',
+            :path    => "api/blocks/#{block_id}/#{'soft_' if type == 'SOFT'}reboot.json"
           )
         end
 

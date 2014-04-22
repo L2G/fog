@@ -20,8 +20,8 @@ module Fog
         # TODO: docs
         def grid_image_list(options = {})
           request(
-            :path     => 'grid/image/list',
-            :query    => options
+            :path  => 'grid/image/list',
+            :query => options
           )
         end
 

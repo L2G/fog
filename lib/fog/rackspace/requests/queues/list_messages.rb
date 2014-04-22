@@ -32,10 +32,10 @@ module Fog
         def list_messages(client_id, queue_name, options = {})
           request(
             :expects => [200, 204],
-            :method => 'GET',
-            :path => "queues/#{queue_name}/messages",
+            :method  => 'GET',
+            :path    => "queues/#{queue_name}/messages",
             :headers => { 'Client-ID' => client_id },
-            :query => options
+            :query   => options
           )
         end
       end
@@ -61,9 +61,9 @@ module Fog
             response.status = 200
             response.body = {
               'messages' => messages.map { |m| m.to_h },
-              'links' => [{
+              'links'    => [{
                 'href' => "#{PATH_BASE}/#{queue_name}/messages?marker=#{next_marker}",
-                'rel' => 'next'
+                'rel'  => 'next'
               }]
             }
           end

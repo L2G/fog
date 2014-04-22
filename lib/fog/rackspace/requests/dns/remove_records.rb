@@ -9,9 +9,9 @@ module Fog
           path = "domains/#{domain_id}/records?" + record_ids.collect { |record_id| "id=#{record_id}" }.join('&')
 
           request(
-            :expects  => [202, 204],
-            :method   => 'DELETE',
-            :path     => path
+            :expects => [202, 204],
+            :method  => 'DELETE',
+            :path    => path
           )
         end
       end

@@ -17,14 +17,14 @@ module Fog
       @clodo_api_key  = options[:clodo_api_key]
       @clodo_username = options[:clodo_username]
       response = connection.request(
-        :expects  => [200, 204],
-        :headers  => {
+        :expects => [200, 204],
+        :headers => {
           'X-Auth-Key'  => @clodo_api_key,
           'X-Auth-User' => @clodo_username
         },
-        :host     => uri.host,
-        :method   => 'GET',
-        :path     =>  (uri.path and not uri.path.empty?) ? uri.path : 'v1.0'
+        :host    => uri.host,
+        :method  => 'GET',
+        :path    => (uri.path and not uri.path.empty?) ? uri.path : 'v1.0'
       )
       response.headers.reject do |key, value|
         !['X-Server-Management-Url', 'X-Storage-Url', 'X-CDN-Management-Url', 'X-Auth-Token'].include?(key)

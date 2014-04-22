@@ -5,9 +5,9 @@ module Fog
 
         def get_agent_token(id)
           request(
-            :expects  => [200, 203],
-            :method   => 'GET',
-            :path     => "agent_tokens/#{id}"
+            :expects => [200, 203],
+            :method  => 'GET',
+            :path    => "agent_tokens/#{id}"
           )
         end
       end
@@ -24,9 +24,9 @@ module Fog
           response = Excon::Response.new
           response.status = 200
           response.body = {
-            'id'      => token,
-            'token'   => token,
-            'label'   => 'mock_token'
+            'id'    => token,
+            'token' => token,
+            'label' => 'mock_token'
           }
           response.headers = {
             'Date'                  => Time.now.utc.to_s,

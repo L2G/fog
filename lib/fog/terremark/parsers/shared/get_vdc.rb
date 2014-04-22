@@ -12,16 +12,16 @@ module Fog
             @in_instantiated_vms_quota = false
             @in_deployed_vms_quota = false
             @response = {
-              'links' => [],
+              'links'             => [],
               'AvailableNetworks' => [],
               'ComputeCapacity'   => {
-                'Cpu' => {},
-                'DeployedVmsQuota' => {},
+                'Cpu'                  => {},
+                'DeployedVmsQuota'     => {},
                 'InstantiatedVmsQuota' => {},
-                'Memory' => {}
+                'Memory'               => {}
               },
-              'StorageCapacity'  => {},
-              'ResourceEntities' => []
+              'StorageCapacity'   => {},
+              'ResourceEntities'  => []
             }
           end
 

@@ -25,10 +25,10 @@ module Fog
           end
 
           request(
-            :expects  => [202, 204],
-            :method   => 'PUT',
-            :path     => path,
-            :body     => Fog::JSON.encode(data)
+            :expects => [202, 204],
+            :method  => 'PUT',
+            :path    => path,
+            :body    => Fog::JSON.encode(data)
           )
         end
       end

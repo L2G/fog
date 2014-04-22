@@ -14,8 +14,8 @@ module Fog
         # TODO: docs
         def grid_server_get(servers)
           request(
-            :path     => 'grid/server/get',
-            :query    => { 'server' => [*servers] }
+            :path  => 'grid/server/get',
+            :query => { 'server' => [*servers] }
           )
         end
 

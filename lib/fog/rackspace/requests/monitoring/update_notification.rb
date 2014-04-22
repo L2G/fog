@@ -4,10 +4,10 @@ module Fog
       class Real
         def update_notification(id, options)
           request(
-            :body     => JSON.encode(options),
-            :expects  => [204],
-            :method   => 'PUT',
-            :path     => "notifications/#{id}"
+            :body    => JSON.encode(options),
+            :expects => [204],
+            :method  => 'PUT',
+            :path    => "notifications/#{id}"
           )
         end
       end

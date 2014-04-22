@@ -53,13 +53,13 @@ module Fog
             raise ArgumentError.new('bucket_name is required')
           end
           request(
-            :expects  => 200,
-            :headers  => {},
+            :expects     => 200,
+            :headers     => {},
             :bucket_name => bucket_name,
-            :idempotent => true,
-            :method   => 'GET',
-            :parser   => Fog::Parsers::Storage::AWS::GetBucketObjectVersions.new,
-            :query    => { 'versions' => nil }.merge!(options)          )
+            :idempotent  => true,
+            :method      => 'GET',
+            :parser      => Fog::Parsers::Storage::AWS::GetBucketObjectVersions.new,
+            :query       => { 'versions' => nil }.merge!(options)          )
         end
 
       end
@@ -80,11 +80,11 @@ module Fog
             response.status = 400
             response.body = {
               'Error' => {
-                'Code' => 'InvalidArgument',
-                'Message' => 'A version-id marker cannot be specified without a key marker.',
+                'Code'          => 'InvalidArgument',
+                'Message'       => 'A version-id marker cannot be specified without a key marker.',
                 'ArgumentValue' => version_id_marker,
-                'RequestId' => Fog::Mock.random_hex(16),
-                'HostId' => Fog::Mock.random_base64(65)
+                'RequestId'     => Fog::Mock.random_hex(16),
+                'HostId'        => Fog::Mock.random_base64(65)
               }
             }
 
@@ -144,11 +144,11 @@ module Fog
             response.status = 404
             response.body = {
               'Error' => {
-                'Code' => 'NoSuchBucket',
-                'Message' => 'The specified bucket does not exist',
+                'Code'       => 'NoSuchBucket',
+                'Message'    => 'The specified bucket does not exist',
                 'BucketName' => bucket_name,
-                'RequestId' => Fog::Mock.random_hex(16),
-                'HostId' => Fog::Mock.random_base64(65)
+                'RequestId'  => Fog::Mock.random_hex(16),
+                'HostId'     => Fog::Mock.random_base64(65)
               }
             }
 

@@ -47,7 +47,7 @@ Shindo.tests('Fog::Rackspace::Service', ['rackspace']) do
 
     HEADER_HASH = {
       'Content-Type' => 'application/json',
-      'Accept' => 'application/json',
+      'Accept'       => 'application/json',
       'X-Auth-Token' => @service.auth_token
     }.freeze
 
@@ -66,7 +66,7 @@ Shindo.tests('Fog::Rackspace::Service', ['rackspace']) do
 
   tests('request_params') do
     REQUEST_HASH = {
-      :path => '/endpoint/my_service',
+      :path    => '/endpoint/my_service',
       :headers => { 'Content-Type' => 'application/json', 'Accept' => 'application/json', 'X-Auth-Token' => 'my_auth_token' },
     }.freeze
 

@@ -45,14 +45,14 @@ module Fog
             "The user with name #{group_name} cannot be found."
           ) unless self.data[:groups].key?(group_name)
           Excon::Response.new.tap do |response|
-            response.body = { 'Group' =>  {
+            response.body = { 'Group'     => {
                                              'GroupId'   => data[:groups][group_name][:group_id],
-                                             'Path'     => data[:groups][group_name][:path],
+                                             'Path'      => data[:groups][group_name][:path],
                                              'GroupName' => group_name,
-                                             'Arn'      => (data[:groups][group_name][:arn]).strip
+                                             'Arn'       => (data[:groups][group_name][:arn]).strip
                                           },
-                              'Users' => data[:groups][group_name][:members].map { |user| get_user(user).body['User'] },
-                              'RequestId'   => Fog::AWS::Mock.request_id }
+                              'Users'     => data[:groups][group_name][:members].map { |user| get_user(user).body['User'] },
+                              'RequestId' => Fog::AWS::Mock.request_id }
             response.status = 200
           end
         end

@@ -13,9 +13,9 @@ module Fog
         #   * body<~Hash>:
         def remove_tags_from_resource(rds_id, keys)
           request(
-            { 'Action'        => 'RemoveTagsFromResource',
-              'ResourceName'  => "arn:aws:rds:#{@region}:#{owner_id}:db:#{rds_id}",
-              :parser         => Fog::Parsers::AWS::RDS::Base.new,
+            { 'Action'       => 'RemoveTagsFromResource',
+              'ResourceName' => "arn:aws:rds:#{@region}:#{owner_id}:db:#{rds_id}",
+              :parser        => Fog::Parsers::AWS::RDS::Base.new,
             }.merge(Fog::AWS.indexed_param('TagKeys.member.%d', keys))
           )
         end

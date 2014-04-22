@@ -17,12 +17,12 @@ module Fog
         def query_objects(id, sphere, options = {})
           params = {
             'pipelineId' => id,
-            'sphere' => sphere,
+            'sphere'     => sphere,
           }
           params['marker'] = options[:marker] if options[:marker]
 
           response = request(
-            :body => Fog::JSON.encode(params),
+            :body    => Fog::JSON.encode(params),
             :headers => { 'X-Amz-Target' => 'DataPipeline.QueryObjects' }
           )
 

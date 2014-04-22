@@ -14,9 +14,9 @@ module Fog
         #   * status<~Integer> 200 - OK, 404 - specified domain name or record id is not found
         def delete_record(domain, record_id)
           request(
-            :expects  => 200,
-            :method   => 'DELETE',
-            :path     => "/V1.2/domains/#{domain}/records/#{record_id}"
+            :expects => 200,
+            :method  => 'DELETE',
+            :path    => "/V1.2/domains/#{domain}/records/#{record_id}"
           )
         end
 

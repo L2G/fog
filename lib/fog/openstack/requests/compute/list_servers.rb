@@ -8,9 +8,9 @@ module Fog
           params['all_tenants'] = 'True' if options[:all_tenants]
 
           request(
-            :expects  => [200, 203],
-            :method   => 'GET',
-            :path     => 'servers.json',
+            :expects => [200, 203],
+            :method  => 'GET',
+            :path    => 'servers.json',
             :query   => params
           )
         end

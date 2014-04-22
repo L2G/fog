@@ -3,9 +3,9 @@ module Fog
     class CloudSigma
       class Real
         def close_vnc(server_id)
-          request(:path => "servers/#{server_id}/action/",
-                  :method => 'POST',
-                  :query => { :do => :close_vnc },
+          request(:path    => "servers/#{server_id}/action/",
+                  :method  => 'POST',
+                  :query   => { :do => :close_vnc },
                   :expects => [200, 202])
         end
       end
@@ -18,7 +18,7 @@ module Fog
           response.body = {
               'action' => 'close_vnc',
               'result' => 'success',
-              'uuid' => server_id,
+              'uuid'   => server_id,
           }
 
           response

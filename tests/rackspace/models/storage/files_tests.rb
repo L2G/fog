@@ -1,12 +1,12 @@
 Shindo.tests('Fog::Rackspace::Storage | files', ['rackspace', 'storage']) do
 
   file_attributes = {
-    :key => 'fog_files_tests',
+    :key  => 'fog_files_tests',
     :body => lorem_file
   }
 
   directory_attributes = {
-    :key => 'fogfilestests',
+    :key    => 'fogfilestests',
     :public => true
   }
 

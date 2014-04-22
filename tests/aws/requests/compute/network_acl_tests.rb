@@ -11,12 +11,12 @@ Shindo.tests('Fog::Compute[:aws] | network acl requests', ['aws']) do
       'egress'       => Fog::Boolean,
       'cidrBlock'    => String,
       'icmpTypeCode' => {
-        'code'       => Fog::Nullable::Integer,
-        'type'       => Fog::Nullable::Integer
+        'code' => Fog::Nullable::Integer,
+        'type' => Fog::Nullable::Integer
       },
-      'portRange' => {
-        'from'       => Fog::Nullable::Integer,
-        'to'         => Fog::Nullable::Integer
+      'portRange'    => {
+        'from' => Fog::Nullable::Integer,
+        'to'   => Fog::Nullable::Integer
       }
     }],
     'associationSet' => Array,

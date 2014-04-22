@@ -13,7 +13,7 @@ module Fog
           api_method = @compute.routes.get
           parameters = {
             'project' => @project,
-            'route' => identity,
+            'route'   => identity,
           }
 
           result = self.build_result(api_method, parameters)

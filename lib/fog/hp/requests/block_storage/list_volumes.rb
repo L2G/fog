@@ -25,9 +25,9 @@ module Fog
         #       * metadata<~Hash>: Hash of metadata for the volume
         def list_volumes
           response = request(
-            :expects  => 200,
-            :method   => 'GET',
-            :path     => 'os-volumes'
+            :expects => 200,
+            :method  => 'GET',
+            :path    => 'os-volumes'
           )
           response
         end

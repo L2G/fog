@@ -7,10 +7,10 @@ module Fog
           validate_path_fragment :job_id, job_id
 
           request(
-            :expects  => [200, 202, 204],
-            :method   => 'GET',
-            :path     => "status/#{job_id}",
-            :query    => "showDetails=#{show_details}"
+            :expects => [200, 202, 204],
+            :method  => 'GET',
+            :path    => "status/#{job_id}",
+            :query   => "showDetails=#{show_details}"
           )
         end
       end

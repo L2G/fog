@@ -4,7 +4,7 @@ Shindo.tests('Fog::Network[:openstack] | router', ['openstack']) do
 
     tests('#create').succeeds do
       @instance = Fog::Network[:openstack].routers.create(
-        :name => 'router_name',
+        :name           => 'router_name',
         :admin_state_up => true
       )
       !@instance.id.nil?

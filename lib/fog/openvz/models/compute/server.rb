@@ -44,17 +44,17 @@ module Fog
           raise Fog::Errors::Error.new('Resaving an existing object may create a duplicate') if persisted?
           meta_hash = {}
           create_options = {
-            'ctid' => ctid,
+            'ctid'       => ctid,
             'ostemplate' => ostemplate,
-            'layout' => layout ,
-            'hostname' => hostname,
-            'name' => name,
-            'ipadd' => ipadd,
-            'diskspace' => diskspace,
-            'private' => private,
-            'root' => root,
-            'local_uid' => local_uid,
-            'local_gid' => local_gid
+            'layout'     => layout ,
+            'hostname'   => hostname,
+            'name'       => name,
+            'ipadd'      => ipadd,
+            'diskspace'  => diskspace,
+            'private'    => private,
+            'root'       => root,
+            'local_uid'  => local_uid,
+            'local_gid'  => local_gid
           }
           data = service.create_server(create_options)
           reload

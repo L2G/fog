@@ -33,18 +33,18 @@ module Fog
           if zone_id.nil?
             #look for matching host across all zones
             request(
-              :expects  => 200,
-              :method   => 'GET',
-              :parser   => Fog::Parsers::DNS::Zerigo::FindHosts.new,
-              :path     => "/api/1.1/hosts.xml?fqdn=#{fqdn}"
+              :expects => 200,
+              :method  => 'GET',
+              :parser  => Fog::Parsers::DNS::Zerigo::FindHosts.new,
+              :path    => "/api/1.1/hosts.xml?fqdn=#{fqdn}"
             )
           else
             #look for hosts in a specific zone
             request(
-              :expects  => 200,
-              :method   => 'GET',
-              :parser   => Fog::Parsers::DNS::Zerigo::FindHosts.new,
-              :path     => "/api/1.1/zones/#{zone_id}/hosts.xml?fqdn=#{fqdn}"
+              :expects => 200,
+              :method  => 'GET',
+              :parser  => Fog::Parsers::DNS::Zerigo::FindHosts.new,
+              :path    => "/api/1.1/zones/#{zone_id}/hosts.xml?fqdn=#{fqdn}"
             )
           end
         end

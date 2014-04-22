@@ -29,7 +29,7 @@ module Fog
         def self.data
           @data ||= Hash.new do |hash, key|
             hash[key] = {
-              :users => {},
+              :users   => {},
               :tenants => {}
             }
           end
@@ -133,12 +133,12 @@ module Fog
         def request(params)
           begin
             response = @connection.request(params.merge(
-              :headers  => {
+              :headers => {
                 'Content-Type' => 'application/json',
-                'Accept' => 'application/json',
+                'Accept'       => 'application/json',
                 'X-Auth-Token' => @auth_token
               }.merge!(params[:headers] || {}),
-              :path     => "#{@path}/v2/#{params[:path]}"#
+              :path    => "#{@path}/v2/#{params[:path]}"#
               # Causes errors for some requests like tenants?limit=1
               # :query    => ('ignore_awful_caching' << Time.now.to_i.to_s)
             ))
@@ -169,13 +169,13 @@ module Fog
         def authenticate
           if !@openstack_management_url || @openstack_must_reauthenticate
             options = {
-              :openstack_tenant   => @openstack_tenant,
-              :openstack_api_key  => @openstack_api_key,
-              :openstack_username => @openstack_username,
-              :openstack_auth_uri => @openstack_auth_uri,
-              :openstack_auth_token => @openstack_auth_token,
-              :openstack_service_type => @openstack_service_type,
-              :openstack_service_name => @openstack_service_name,
+              :openstack_tenant        => @openstack_tenant,
+              :openstack_api_key       => @openstack_api_key,
+              :openstack_username      => @openstack_username,
+              :openstack_auth_uri      => @openstack_auth_uri,
+              :openstack_auth_token    => @openstack_auth_token,
+              :openstack_service_type  => @openstack_service_type,
+              :openstack_service_name  => @openstack_service_name,
               :openstack_endpoint_type => @openstack_endpoint_type
             }
 

@@ -7,8 +7,8 @@ module Fog
 
         def devices_list(device_id = nil)
           options = {
-            :parser     => Fog::Parsers::Compute::Voxel::DevicesList.new,
-            :verbosity  => 'normal'
+            :parser    => Fog::Parsers::Compute::Voxel::DevicesList.new,
+            :verbosity => 'normal'
           }
 
           unless device_id.nil?

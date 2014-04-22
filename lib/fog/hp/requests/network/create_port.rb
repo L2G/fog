@@ -51,10 +51,10 @@ module Fog
           end
 
           request(
-            :body     => Fog::JSON.encode(data),
-            :expects  => 201,
-            :method   => 'POST',
-            :path     => 'ports'
+            :body    => Fog::JSON.encode(data),
+            :expects => 201,
+            :method  => 'POST',
+            :path    => 'ports'
           )
         end
       end
@@ -65,18 +65,18 @@ module Fog
           if list_networks.body['networks'].detect {|_| _['id'] == network_id}
             response.status = 201
             data = {
-              'id'             => Fog::HP::Mock.uuid.to_s,
-              'name'           => options[:name] || '',
-              'network_id'     => network_id,
-              'fixed_ips'      => options[:fixed_ips] || [{ 'subnet_id' => "#{Fog::HP::Mock.uuid}", 'ip_address' => "#{Fog::HP::Mock.ip_address}" }],
-              'mac_address'    => options[:mac_address] || Fog::HP::Mock.mac_address.to_s,
-              'status'         => 'ACTIVE',
-              'admin_state_up' => options[:admin_state_up] || true,
-              'binding:vif_type'  => 'other',
-              'device_owner'   => options[:device_owner] || '',
-              'device_id'      => options[:device_id] || '',
+              'id'               => Fog::HP::Mock.uuid.to_s,
+              'name'             => options[:name] || '',
+              'network_id'       => network_id,
+              'fixed_ips'        => options[:fixed_ips] || [{ 'subnet_id' => "#{Fog::HP::Mock.uuid}", 'ip_address' => "#{Fog::HP::Mock.ip_address}" }],
+              'mac_address'      => options[:mac_address] || Fog::HP::Mock.mac_address.to_s,
+              'status'           => 'ACTIVE',
+              'admin_state_up'   => options[:admin_state_up] || true,
+              'binding:vif_type' => 'other',
+              'device_owner'     => options[:device_owner] || '',
+              'device_id'        => options[:device_id] || '',
               'security_groups'  => ["#{Fog::HP::Mock.uuid}"],
-              'tenant_id'      => options[:tenant_id] || Fog::Mock.random_numbers(14).to_s
+              'tenant_id'        => options[:tenant_id] || Fog::Mock.random_numbers(14).to_s
             }
             self.data[:ports][data['id']] = data
             response.body = { 'port' => data }

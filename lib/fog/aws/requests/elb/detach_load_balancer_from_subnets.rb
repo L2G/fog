@@ -43,7 +43,7 @@ module Fog
           load_balancer['Subnets'].flatten!.uniq!
 
           response.body = {
-            'ResponseMetadata' => {
+            'ResponseMetadata'                    => {
               'RequestId' => Fog::AWS::Mock.request_id
             },
             'DetachLoadBalancerFromSubnetsResult' => {

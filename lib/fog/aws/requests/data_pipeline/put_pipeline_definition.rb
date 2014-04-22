@@ -14,12 +14,12 @@ module Fog
         #   * body<~Hash>:
         def put_pipeline_definition(id, objects)
           params = {
-            'pipelineId' => id,
+            'pipelineId'      => id,
             'pipelineObjects' => transform_objects(objects),
           }
 
           response = request(
-            :body => Fog::JSON.encode(params),
+            :body    => Fog::JSON.encode(params),
             :headers => { 'X-Amz-Target' => 'DataPipeline.PutPipelineDefinition' }
           )
 
@@ -41,8 +41,8 @@ module Fog
 
           def to_api
             {
-              'id' => @id,
-              'name' => @name,
+              'id'     => @id,
+              'name'   => @name,
               'fields' => fields
             }
           end

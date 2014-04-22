@@ -10,10 +10,10 @@ Shindo.tests('HP::DNS | domain requests', ['hp', 'dns', 'domain']) do
   }
 
   @server_format = {
-    'id'          => String,
-    'name'        => String,
-    'created_at'  => String,
-    'updated_at'  => String
+    'id'         => String,
+    'name'       => String,
+    'created_at' => String,
+    'updated_at' => String
   }
 
   tests('success') do

@@ -518,10 +518,10 @@ module Fog
         # from fog ecloud server's _compose_vapp_data
         def to_configure_vapp_hash
           {
-            :name => name,
-            :cpus => cpus,
+            :name   => name,
+            :cpus   => cpus,
             :memory => memory,
-            :disks => disks.map {|d| { :number => d.address.to_s, :size => d.vcloud_size, :resource => d.vcloud_size.to_s } }
+            :disks  => disks.map {|d| { :number => d.address.to_s, :size => d.vcloud_size, :resource => d.vcloud_size.to_s } }
           }
         end
 

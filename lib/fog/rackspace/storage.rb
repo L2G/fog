@@ -63,10 +63,10 @@ module Fog
             :provider           => 'Rackspace',
             :rackspace_api_key  => @rackspace_api_key,
             :rackspace_auth_url => @rackspace_auth_url,
-            :rackspace_cdn_url => @rackspace_cdn_url,
+            :rackspace_cdn_url  => @rackspace_cdn_url,
             :rackspace_username => @rackspace_username,
-            :rackspace_region => @rackspace_region,
-            :rackspace_cdn_ssl => @rackspace_cdn_ssl
+            :rackspace_region   => @rackspace_region,
+            :rackspace_cdn_ssl  => @rackspace_cdn_ssl
           )
           if @cdn.enabled?
             @cdn
@@ -157,7 +157,7 @@ module Fog
           def to_headers
             @meta.merge(
               'X-Container-Object-Count' => @objects.size,
-              'X-Container-Bytes-Used' => bytes_used
+              'X-Container-Bytes-Used'   => bytes_used
             )
           end
 
@@ -309,10 +309,10 @@ module Fog
           # @return [Hash<String, String>] Header values stored in a Hash.
           def to_headers
             {
-              'Content-Type' => @content_type,
+              'Content-Type'   => @content_type,
               'Content-Length' => @bytes_used,
-              'Last-Modified' => @last_modified.strftime('%a, %b %d %Y %H:%M:%S %Z'),
-              'ETag' => @hash
+              'Last-Modified'  => @last_modified.strftime('%a, %b %d %Y %H:%M:%S %Z'),
+              'ETag'           => @hash
             }.merge(@meta)
           end
         end

@@ -13,10 +13,10 @@ module Fog
                            options = {} )
 
           query_hash = {
-            :name        => name,
-            :size_id     => size_id,
-            :image_id    => image_id,
-            :region_id   => region_id
+            :name      => name,
+            :size_id   => size_id,
+            :image_id  => image_id,
+            :region_id => region_id
           }
 
           if options[:ssh_key_ids]
@@ -27,10 +27,10 @@ module Fog
           query_hash[:private_networking] = !!options[:private_networking]
 
           request(
-            :expects  => [200],
-            :method   => 'GET',
-            :path     => 'droplets/new',
-            :query    => query_hash
+            :expects => [200],
+            :method  => 'GET',
+            :path    => 'droplets/new',
+            :query   => query_hash
           )
         end
 
@@ -47,20 +47,20 @@ module Fog
           response.status = 200
 
           mock_data = {
-            'id' => Fog::Mock.random_numbers(1).to_i,
-            'event_id' => Fog::Mock.random_numbers(2).to_i,
-            'name' => name,
-            'size_id' => size_id,
-            'image_id' => image_id,
-            'region_id' => region_id,
+            'id'         => Fog::Mock.random_numbers(1).to_i,
+            'event_id'   => Fog::Mock.random_numbers(2).to_i,
+            'name'       => name,
+            'size_id'    => size_id,
+            'image_id'   => image_id,
+            'region_id'  => region_id,
             'ip_address' => '127.0.0.1',
-            'status' => 'active',
+            'status'     => 'active',
             'created_at' => Time.now.strftime('%FT%TZ')
           }
 
           response.body = {
-            'status' => 'OK',
-            'droplet'  => mock_data
+            'status'  => 'OK',
+            'droplet' => mock_data
           }
 
           self.data[:servers] << mock_data

@@ -6,8 +6,8 @@ module Fog
         def resume_group_state(group_id)
           request(
             :expects => [204],
-            :method => 'POST',
-            :path => "groups/#{group_id}/resume"
+            :method  => 'POST',
+            :path    => "groups/#{group_id}/resume"
           )
         end
       end

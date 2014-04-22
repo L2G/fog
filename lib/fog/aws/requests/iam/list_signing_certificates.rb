@@ -27,8 +27,8 @@ module Fog
         #
         def list_signing_certificates(options = {})
           request({
-            'Action'  => 'ListSigningCertificates',
-            :parser   => Fog::Parsers::AWS::IAM::ListSigningCertificates.new
+            'Action' => 'ListSigningCertificates',
+            :parser  => Fog::Parsers::AWS::IAM::ListSigningCertificates.new
           }.merge!(options))
         end
 

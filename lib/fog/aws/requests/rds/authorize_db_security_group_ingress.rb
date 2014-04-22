@@ -21,8 +21,8 @@ module Fog
           end
 
           request({
-            'Action'  => 'AuthorizeDBSecurityGroupIngress',
-            :parser   => Fog::Parsers::AWS::RDS::AuthorizeDBSecurityGroupIngress.new,
+            'Action'              => 'AuthorizeDBSecurityGroupIngress',
+            :parser               => Fog::Parsers::AWS::RDS::AuthorizeDBSecurityGroupIngress.new,
             'DBSecurityGroupName' => name
           }.merge(opts))
 
@@ -53,7 +53,7 @@ module Fog
             end
             response.status = 200
             response.body = {
-              'ResponseMetadata' => { 'RequestId' => Fog::AWS::Mock.request_id },
+              'ResponseMetadata'                      => { 'RequestId' => Fog::AWS::Mock.request_id },
               'AuthorizeDBSecurityGroupIngressResult' => {
                 'DBSecurityGroup' => sec_group
               }

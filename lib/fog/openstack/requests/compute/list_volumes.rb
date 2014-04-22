@@ -6,9 +6,9 @@ module Fog
         def list_volumes(detailed = true)
           path = detailed ? 'os-volumes/detail' : 'os-volumes'
           request(
-            :expects  => 200,
-            :method   => 'GET',
-            :path     => path
+            :expects => 200,
+            :method  => 'GET',
+            :path    => path
           )
         end
 

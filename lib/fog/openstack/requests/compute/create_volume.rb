@@ -17,10 +17,10 @@ module Fog
             data['volume'][key] = options[key]
           end
           request(
-            :body     => Fog::JSON.encode(data),
-            :expects  => [200, 202],
-            :method   => 'POST',
-            :path     => 'os-volumes'
+            :body    => Fog::JSON.encode(data),
+            :expects => [200, 202],
+            :method  => 'POST',
+            :path    => 'os-volumes'
           )
         end
 
@@ -32,17 +32,17 @@ module Fog
           response = Excon::Response.new
           response.status = 202
           data = {
-            'id'                  => Fog::Mock.random_numbers(2),
-            'displayName'         => name,
-            'displayDescription'  => description,
-            'size'                => size,
-            'status'              => 'creating',
-            'snapshotId'          => nil,
-            'volumeType'          => 'None',
-            'availabilityZone'    => 'nova',
-            'createdAt'           => Time.now.strftime('%FT%T.%6N'),
-            'attachments'         => [],
-            'metadata'            => {}
+            'id'                 => Fog::Mock.random_numbers(2),
+            'displayName'        => name,
+            'displayDescription' => description,
+            'size'               => size,
+            'status'             => 'creating',
+            'snapshotId'         => nil,
+            'volumeType'         => 'None',
+            'availabilityZone'   => 'nova',
+            'createdAt'          => Time.now.strftime('%FT%T.%6N'),
+            'attachments'        => [],
+            'metadata'           => {}
           }
           self.data[:volumes][data['id']] = data
           response.body = { 'volume' => data }

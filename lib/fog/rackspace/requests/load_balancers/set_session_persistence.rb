@@ -9,10 +9,10 @@ module Fog
             }
           }
           request(
-            :body     => Fog::JSON.encode(data),
-            :expects  => [200, 202],
-            :path     => "loadbalancers/#{load_balancer_id}/sessionpersistence",
-            :method   => 'PUT'
+            :body    => Fog::JSON.encode(data),
+            :expects => [200, 202],
+            :path    => "loadbalancers/#{load_balancer_id}/sessionpersistence",
+            :method  => 'PUT'
           )
         end
       end

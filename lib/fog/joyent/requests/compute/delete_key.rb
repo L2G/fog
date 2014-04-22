@@ -17,8 +17,8 @@ module Fog
       class Real
         def delete_key(name)
           request(
-            :method => 'DELETE',
-            :path => "/my/keys/#{name}",
+            :method  => 'DELETE',
+            :path    => "/my/keys/#{name}",
             :expects => 204
           )
         end

@@ -12,10 +12,10 @@ module Fog
         #   * body<~Hash>:
         def restore_db_instance_from_db_snapshot(snapshot_id, db_name, opts = {})
           request({
-            'Action'  => 'RestoreDBInstanceFromDBSnapshot',
+            'Action'               => 'RestoreDBInstanceFromDBSnapshot',
             'DBSnapshotIdentifier' => snapshot_id,
             'DBInstanceIdentifier' => db_name,
-            :parser   => Fog::Parsers::AWS::RDS::RestoreDBInstanceFromDBSnapshot.new,
+            :parser                => Fog::Parsers::AWS::RDS::RestoreDBInstanceFromDBSnapshot.new,
           }.merge(opts))
         end
 

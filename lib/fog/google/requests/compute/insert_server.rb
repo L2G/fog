@@ -11,13 +11,13 @@ module Fog
           options.delete('disks').each do |disk|
             disk = Disk.new(disk) unless disk.is_a? Disk
             disks << {
-              'kind' => 'compute#attachedDisk',
-              'index' => i,
-              'type' => 'PERSISTENT',
-              'mode' => 'READ_WRITE',
-              'source' => "https://www.googleapis.com/compute/#{api_version}/projects/#{@project}/zones/#{zone_name}/disks/#{disk.name}",
+              'kind'       => 'compute#attachedDisk',
+              'index'      => i,
+              'type'       => 'PERSISTENT',
+              'mode'       => 'READ_WRITE',
+              'source'     => "https://www.googleapis.com/compute/#{api_version}/projects/#{@project}/zones/#{zone_name}/disks/#{disk.name}",
               'deviceName' => "persistent-disk-#{i}",
-              'boot' => true
+              'boot'       => true
             }
             i += 1
           end
@@ -35,59 +35,59 @@ module Fog
 
           id = Fog::Mock.random_numbers(19).to_s
           self.data[:servers][server_name] = {
-            'kind' => 'compute#instance',
-            'id' => id,
+            'kind'              => 'compute#instance',
+            'id'                => id,
             'creationTimestamp' => Time.now.iso8601,
-            'zone' => "https://www.googleapis.com/compute/#{api_version}/projects/#{@project}/zones/#{zone_name}",
-            'status' => 'PROVISIONING',
-            'name' => server_name,
-            'tags' => { 'fingerprint' => '42WmSpB8rSM=' },
-            'machineType' => "https://www.googleapis.com/compute/#{api_version}/projects/#{@project}/zones/#{zone_name}/machineTypes/#{options['machineType']}",
-            'canIpForward' => false,
+            'zone'              => "https://www.googleapis.com/compute/#{api_version}/projects/#{@project}/zones/#{zone_name}",
+            'status'            => 'PROVISIONING',
+            'name'              => server_name,
+            'tags'              => { 'fingerprint' => '42WmSpB8rSM=' },
+            'machineType'       => "https://www.googleapis.com/compute/#{api_version}/projects/#{@project}/zones/#{zone_name}/machineTypes/#{options['machineType']}",
+            'canIpForward'      => false,
             'networkInterfaces' => [
               {
-                'network' => "https://www.googleapis.com/compute/#{api_version}/projects/#{@project}/global/networks/default",
-                'networkIP' => Fog::Mock.random_ip,
-                'name' => 'nic0',
+                'network'       => "https://www.googleapis.com/compute/#{api_version}/projects/#{@project}/global/networks/default",
+                'networkIP'     => Fog::Mock.random_ip,
+                'name'          => 'nic0',
                 'accessConfigs' => [
                   {
-                    'kind' => 'compute#accessConfig',
-                    'type' => 'ONE_TO_ONE_NAT',
-                    'name' => 'External NAT',
+                    'kind'  => 'compute#accessConfig',
+                    'type'  => 'ONE_TO_ONE_NAT',
+                    'name'  => 'External NAT',
                     'natIP' => Fog::Mock.random_ip
                   }
                 ]
               }
             ],
-            'disks' => handle_disks(options, zone_name),
-            'metadata' => {
-              'kind' => 'compute#metadata',
+            'disks'             => handle_disks(options, zone_name),
+            'metadata'          => {
+              'kind'        => 'compute#metadata',
               'fingerprint' => '5_hasd_gC3E=',
-              'items' => [
+              'items'       => [
                 {
-                  'key' => 'sshKeys',
+                  'key'   => 'sshKeys',
                   'value' => 'sysadmin:ssh-rsa AAAAB3NzaC1yc2EAAAABIwAAAgEA1zc7mx+0H8Roywet/L0aVX6MUdkDfzd/17kZhprAbpUXYOILv9AG4lIzQk6xGxDIltghytjfVGme/4A42Sb0Z9LN0pxB4KnWTNoOSHPJtp6jbXpq6PdN9r3Z5NKQg0A/Tfw7gt2N0GDsj6vpK8VbHHdW78JAVUxql18ootJxjaksdocsiHNK8iA6/v9qiLRhX3fOgtK7KpxxdZxLRzFg9vkp8jcGISgpZt27kOgXWhR5YLhi8pRJookzphO5O4yhflgoHoAE65XkfrsRCe0HU5QTbY2jH88rBVkq0KVlZh/lEsuwfmG4d77kEqaCGGro+j1Wrvo2K3DSQ+rEcvPp2CYRUySjhaeLF18UzQLtxNeoN14QOYqlm9ITdkCnmq5w4Wn007MjSOFp8LEq2RekrnddGXjg1/vgmXtaVSGzJAlXwtVfZor3dTRmF0JCpr7DsiupBaDFtLUlGFFlSKmPDVMPOOB5wajexmcvSp2Vu4U3yP8Lai/9/ZxMdsGPhpdCsWVL83B5tF4oYj1HVIycbYIxIIfFqOxZcCru3CMfe9jmzKgKLv2UtkfOS8jpS/Os2gAiB3wPweH3agvtwYAYBVMDwt5cnrhgHYWoOz7ABD8KgmCrD7Y9HikiCqIUNkgUFd9YmjcYi5FkU5rFXIawN7efs341lsdf923lsdf923fs= johndoe@acme'
                 }
               ]
             },
-            'selfLink' => "https://www.googleapis.com/compute/#{api_version}/projects/#{@project}/zones/#{zone_name}/instances/#{server_name}"
+            'selfLink'          => "https://www.googleapis.com/compute/#{api_version}/projects/#{@project}/zones/#{zone_name}/instances/#{server_name}"
           }
 
           operation = self.random_operation
           self.data[:operations][operation] = {
-            'kind' => 'compute#operation',
-            'id' => Fog::Mock.random_numbers(19).to_s,
-            'name' => operation,
-            'zone' => "https://www.googleapis.com/compute/#{api_version}/projects/#{@project}/zones/#{zone_name}",
+            'kind'          => 'compute#operation',
+            'id'            => Fog::Mock.random_numbers(19).to_s,
+            'name'          => operation,
+            'zone'          => "https://www.googleapis.com/compute/#{api_version}/projects/#{@project}/zones/#{zone_name}",
             'operationType' => 'insert',
-            'targetLink' => "https://www.googleapis.com/compute/#{api_version}/projects/#{@project}/zones/#{zone_name}/instances/#{server_name}",
-            'targetId' => id,
-            'status' => Fog::Compute::Google::Operation::PENDING_STATE,
-            'user' => '123456789012-qwertyuiopasdfghjkl1234567890qwe@developer.gserviceaccount.com',
-            'progress' => 0,
-            'insertTime' => Time.now.iso8601,
-            'startTime' => Time.now.iso8601,
-            'selfLink' => "https://www.googleapis.com/compute/#{api_version}/projects/#{@project}/zones/#{zone_name}/operations/#{operation}"
+            'targetLink'    => "https://www.googleapis.com/compute/#{api_version}/projects/#{@project}/zones/#{zone_name}/instances/#{server_name}",
+            'targetId'      => id,
+            'status'        => Fog::Compute::Google::Operation::PENDING_STATE,
+            'user'          => '123456789012-qwertyuiopasdfghjkl1234567890qwe@developer.gserviceaccount.com',
+            'progress'      => 0,
+            'insertTime'    => Time.now.iso8601,
+            'startTime'     => Time.now.iso8601,
+            'selfLink'      => "https://www.googleapis.com/compute/#{api_version}/projects/#{@project}/zones/#{zone_name}/operations/#{operation}"
           }
 
           build_response(:body => self.data[:operations][operation])
@@ -125,7 +125,7 @@ module Fog
           api_method = @compute.instances.insert
           parameters = {
               'project' => @project,
-              'zone' => zone_name,
+              'zone'    => zone_name,
           }
           body_object = { :name => server_name }
 
@@ -152,7 +152,7 @@ module Fog
           end
 
           scheduling = {
-            'automaticRestart' => false,
+            'automaticRestart'  => false,
             'onHostMaintenance' => 'MIGRATE'
           }
           if options.has_key? 'auto_restart'

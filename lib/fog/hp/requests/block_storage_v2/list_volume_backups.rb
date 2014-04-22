@@ -21,10 +21,10 @@ module Fog
         #       * 'links'<~Array> - array of volume backup links
         def list_volume_backups(options = {})
           response = request(
-            :expects  => 200,
-            :method   => 'GET',
-            :path     => 'backups',
-            :query    => options
+            :expects => 200,
+            :method  => 'GET',
+            :path    => 'backups',
+            :query   => options
           )
           response
         end

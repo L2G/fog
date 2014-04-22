@@ -5,9 +5,9 @@ module Fog
 
         def get_quotas
           request(
-            :expects  => 200,
-            :method   => 'GET',
-            :path     => '/quotas'
+            :expects => 200,
+            :method  => 'GET',
+            :path    => '/quotas'
           )
         end
 

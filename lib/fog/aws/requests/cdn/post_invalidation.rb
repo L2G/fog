@@ -50,12 +50,12 @@ module Fog
           if distribution
             invalidation_id = Fog::CDN::AWS::Mock.distribution_id
             invalidation = {
-              'Id' => invalidation_id,
-              'Status' => 'InProgress',
-              'CreateTime' => Time.now.utc.iso8601,
+              'Id'                => invalidation_id,
+              'Status'            => 'InProgress',
+              'CreateTime'        => Time.now.utc.iso8601,
               'InvalidationBatch' => {
                 'CallerReference' => caller_reference,
-                'Path' => paths
+                'Path'            => paths
               }
             }
 

@@ -14,9 +14,9 @@ module Fog
         #   * body: Empty
         def detach_volume(server_id, volume_id)
           response = request(
-            :expects  => 202,
-            :method   => 'DELETE',
-            :path     => "servers/#{server_id}/os-volume_attachments/#{volume_id}"
+            :expects => 202,
+            :method  => 'DELETE',
+            :path    => "servers/#{server_id}/os-volume_attachments/#{volume_id}"
           )
           response
         end

@@ -70,14 +70,14 @@ module Fog
           response.body = {
             'HostedZones' => zones.map do |z|
               {
-                'Id' => z[:id],
-                'Name' => z[:name],
+                'Id'              => z[:id],
+                'Name'            => z[:name],
                 'CallerReference' => z[:reference],
-                'Comment' => z[:comment],
+                'Comment'         => z[:comment],
               }
             end,
-            'Marker' => options[:marker].to_s,
-            'MaxItems' => maxitems,
+            'Marker'      => options[:marker].to_s,
+            'MaxItems'    => maxitems,
             'IsTruncated' => truncated
           }
 

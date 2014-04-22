@@ -23,15 +23,15 @@ module Fog
 
           builder = Builder::XmlMarkup.new(:target => STDOUT, :indent => 2) # TODO - remove params
           builder.VirtualHardwareSection(
-                                         :"vcloud:href" => vm_data[:"vcloud_href"],
-                                         :"vcloud:type" => vm_data[:"vcloud_type"],
-                                         :name => vm_data[:name],
-                                         :status => 2,
-                                         :size => 0,
-                                         :xmlns => xmlns,
+                                         :"vcloud:href"  => vm_data[:"vcloud_href"],
+                                         :"vcloud:type"  => vm_data[:"vcloud_type"],
+                                         :name           => vm_data[:name],
+                                         :status         => 2,
+                                         :size           => 0,
+                                         :xmlns          => xmlns,
                                          :"xmlns:vcloud" => xmlns_vcloud,
-                                         :"xmlns:rasd" => xmlns_rasd,
-                                         :"xmlns:vssd" => xmlns_vssd) {
+                                         :"xmlns:rasd"   => xmlns_rasd,
+                                         :"xmlns:vssd"   => xmlns_vssd) {
             #builder.VirtualHardwareSection(:xmlns => 'http://schemas.dmtf.org/ovf/envelope/1') {
 
             builder.Info(vm_data[:"ovf:Info"])
@@ -92,12 +92,12 @@ module Fog
           validate_vm_data(vm_data)
 
           request(
-            :body     => generate_configure_vm_request(vm_uri, vm_data),
-            :expects  => 202,
-            :headers  => { 'Content-Type' => 'application/vnd.vmware.vcloud.vm+xml' },
-            :method   => 'PUT',
-            :uri      => vm_uri,
-            :parse    => true
+            :body    => generate_configure_vm_request(vm_uri, vm_data),
+            :expects => 202,
+            :headers => { 'Content-Type' => 'application/vnd.vmware.vcloud.vm+xml' },
+            :method  => 'PUT',
+            :uri     => vm_uri,
+            :parse   => true
           )
         end
 

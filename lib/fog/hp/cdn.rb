@@ -131,12 +131,12 @@ module Fog
         def request(params, parse_json = true, &block)
           begin
             response = @connection.request(params.merge!(
-              :headers  => {
+              :headers => {
                 'Content-Type' => 'application/json',
                 'Accept'       => 'application/json',
                 'X-Auth-Token' => @auth_token
               }.merge!(params[:headers] || {}),
-              :path     => "#{@path}/#{params[:path]}"
+              :path    => "#{@path}/#{params[:path]}"
             ), &block)
           rescue Excon::Errors::HTTPStatusError => error
             raise case error

@@ -21,11 +21,11 @@ module Fog
           account_id = options['account_id'] || '-'
           path = "/#{account_id}/vaults/#{Fog::AWS.escape(name)}/archives/#{archive_id}"
           request(
-            :expects  => 204,
+            :expects    => 204,
             :idempotent => true,
-            :headers => {},
-            :method   => :delete,
-            :path     => path
+            :headers    => {},
+            :method     => :delete,
+            :path       => path
           )
         end
       end

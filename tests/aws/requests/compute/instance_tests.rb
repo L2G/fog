@@ -1,49 +1,49 @@
 Shindo.tests('Fog::Compute[:aws] | instance requests', ['aws']) do
 
   @instance_format = {
-    'architecture'        => String,
-    'amiLaunchIndex'      => Integer,
-    'associatePublicIP'   => Fog::Nullable::Boolean,
-    'attachmentId'        => Fog::Nullable::String,
-    'blockDeviceMapping'  => [Fog::Nullable::Hash],
-    'networkInterfaces'   => [Fog::Nullable::Hash],
-    'clientToken'         => Fog::Nullable::String,
-    'dnsName'             => NilClass,
-    'ebsOptimized'        => Fog::Boolean,
-    'imageId'             => String,
-    'instanceId'          => String,
-    'instanceState'       => { 'code' => Integer, 'name' => String },
-    'instanceType'        => String,
-    'kernelId'            => Fog::Nullable::String,
-    'keyName'             => Fog::Nullable::String,
-    'launchTime'          => Time,
-    'monitoring'          => { 'state' => Fog::Boolean },
-    'networkInterfaceId'  => Fog::Nullable::String,
-    'placement'           => {
+    'architecture'       => String,
+    'amiLaunchIndex'     => Integer,
+    'associatePublicIP'  => Fog::Nullable::Boolean,
+    'attachmentId'       => Fog::Nullable::String,
+    'blockDeviceMapping' => [Fog::Nullable::Hash],
+    'networkInterfaces'  => [Fog::Nullable::Hash],
+    'clientToken'        => Fog::Nullable::String,
+    'dnsName'            => NilClass,
+    'ebsOptimized'       => Fog::Boolean,
+    'imageId'            => String,
+    'instanceId'         => String,
+    'instanceState'      => { 'code' => Integer, 'name' => String },
+    'instanceType'       => String,
+    'kernelId'           => Fog::Nullable::String,
+    'keyName'            => Fog::Nullable::String,
+    'launchTime'         => Time,
+    'monitoring'         => { 'state' => Fog::Boolean },
+    'networkInterfaceId' => Fog::Nullable::String,
+    'placement'          => {
       'availabilityZone' => String,
       'groupName'        => Fog::Nullable::String,
       'tenancy'          => String
     },
-    'platform'            => Fog::Nullable::String,
-    'privateDnsName'      => NilClass,
-    'productCodes'        => Array,
-    'reason'              => Fog::Nullable::String,
-    'rootDeviceType'      => String,
-    'sourceDestCheck'     => Fog::Nullable::Boolean,
-    'subnetId'            => Fog::Nullable::String,
-    'vpcId'               => Fog::Nullable::String
+    'platform'           => Fog::Nullable::String,
+    'privateDnsName'     => NilClass,
+    'productCodes'       => Array,
+    'reason'             => Fog::Nullable::String,
+    'rootDeviceType'     => String,
+    'sourceDestCheck'    => Fog::Nullable::Boolean,
+    'subnetId'           => Fog::Nullable::String,
+    'vpcId'              => Fog::Nullable::String
   }
 
   @run_instances_format = {
-    'groupSet'        => [String],
-    'instancesSet'    => [@instance_format],
-    'ownerId'         => Fog::Nullable::String,
-    'requestId'       => String,
-    'reservationId'   => String
+    'groupSet'      => [String],
+    'instancesSet'  => [@instance_format],
+    'ownerId'       => Fog::Nullable::String,
+    'requestId'     => String,
+    'reservationId' => String
   }
 
   @describe_instances_format = {
-    'reservationSet'  => [{
+    'reservationSet' => [{
       'groupSet'      => [String],
       'groupIds'      => [String],
       'instancesSet'  => [@instance_format.merge(
@@ -63,14 +63,14 @@ Shindo.tests('Fog::Compute[:aws] | instance requests', ['aws']) do
       'ownerId'       => Fog::Nullable::String,
       'reservationId' => String
     }],
-    'requestId'       => String
+    'requestId'      => String
   }
 
   @get_console_output_format = {
-    'instanceId'  => String,
-    'output'      => Fog::Nullable::String,
-    'requestId'   => String,
-    'timestamp'   => Time
+    'instanceId' => String,
+    'output'     => Fog::Nullable::String,
+    'requestId'  => String,
+    'timestamp'  => Time
   }
 
   @get_password_data_format = {
@@ -81,33 +81,33 @@ Shindo.tests('Fog::Compute[:aws] | instance requests', ['aws']) do
   }
 
   @terminate_instances_format = {
-    'instancesSet'  => [{
-      'currentState' => { 'code' => Integer, 'name' => String },
+    'instancesSet' => [{
+      'currentState'  => { 'code' => Integer, 'name' => String },
       'instanceId'    => String,
       'previousState' => { 'code' => Integer, 'name' => String },
     }],
-    'requestId'     => String
+    'requestId'    => String
   }
 
   @describe_reserved_instances_offerings_format = {
     'reservedInstancesOfferingsSet' => [{
-      'reservedInstancesOfferingId'     => String,
-      'instanceType'                    => String,
-      'availabilityZone'                => String,
-      'duration'                        => Integer,
-      'fixedPrice'                      => Float,
-      'offeringType'                    => String,
-      'usagePrice'                      => Float,
-      'productDescription'              => String,
-      'instanceTenancy'                 => String,
-      'currencyCode'                    => String
+      'reservedInstancesOfferingId' => String,
+      'instanceType'                => String,
+      'availabilityZone'            => String,
+      'duration'                    => Integer,
+      'fixedPrice'                  => Float,
+      'offeringType'                => String,
+      'usagePrice'                  => Float,
+      'productDescription'          => String,
+      'instanceTenancy'             => String,
+      'currencyCode'                => String
     }],
     'requestId'                     => String
   }
 
   @purchase_reserved_instances_offering_format = {
     'reservedInstancesId' => String,
-    'requestId' => String
+    'requestId'           => String
   }
 
   @describe_reserved_instances_format = {
@@ -125,13 +125,13 @@ Shindo.tests('Fog::Compute[:aws] | instance requests', ['aws']) do
       'productDescription'  => String,
       'state'               => String,
       'tagSet'              => [{
-        'key'                   => String,
-        'value'                 => String
+        'key'   => String,
+        'value' => String
       }],
       'instanceTenancy'     => String,
       'currencyCode'        => String
     }],
-    'requestId'     => String
+    'requestId'            => String
   }
 
   @describe_instance_status_format = {
@@ -139,22 +139,22 @@ Shindo.tests('Fog::Compute[:aws] | instance requests', ['aws']) do
     'instanceStatusSet' => [{
       'instanceId'       => String,
       'availabilityZone' => String,
-      'instanceState' => {
+      'instanceState'    => {
         'code' => Integer,
         'name' => String
       },
       'systemStatus'     => {
         'status'  => String,
         'details' => [{
-          'name'    => String,
-          'status'  => String
+          'name'   => String,
+          'status' => String
         }]
       },
       'instanceStatus'   => {
         'status'  => String,
         'details' => [{
-          'name'    => String,
-          'status'  => String
+          'name'   => String,
+          'status' => String
         }]
       },
       'eventsSet'        => [Fog::Nullable::Hash],

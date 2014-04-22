@@ -77,10 +77,10 @@ module Fog
 
           @data ||= Hash.new do |hash, key|
             hash[key] = {
-              :users           => @users,
-              :roles           => @roles,
-              :tenants         => @tenants,
-              :ec2_credentials => @ec2_credentials,
+              :users                  => @users,
+              :roles                  => @roles,
+              :tenants                => @tenants,
+              :ec2_credentials        => @ec2_credentials,
               :user_tenant_membership => @user_tenant_membership
             }
           end
@@ -204,13 +204,13 @@ module Fog
         end
 
         def credentials
-          { :provider                 => 'openstack',
-            :openstack_auth_url       => @openstack_auth_uri.to_s,
-            :openstack_auth_token     => @auth_token,
-            :openstack_management_url => @openstack_management_url,
+          { :provider                  => 'openstack',
+            :openstack_auth_url        => @openstack_auth_uri.to_s,
+            :openstack_auth_token      => @auth_token,
+            :openstack_management_url  => @openstack_management_url,
             :openstack_current_user_id => @openstack_current_user_id,
-            :current_user             => @current_user,
-            :current_tenant           => @current_tenant }
+            :current_user              => @current_user,
+            :current_tenant            => @current_tenant }
         end
 
         def reload
@@ -221,12 +221,12 @@ module Fog
           retried = false
           begin
             response = @connection.request(params.merge(
-              :headers  => {
+              :headers => {
                 'Content-Type' => 'application/json',
-                'Accept' => 'application/json',
+                'Accept'       => 'application/json',
                 'X-Auth-Token' => @auth_token
               }.merge!(params[:headers] || {}),
-              :path     => "#{@path}/#{params[:path]}"#
+              :path    => "#{@path}/#{params[:path]}"#
             ))
           rescue Excon::Errors::Unauthorized => error
             raise if retried
@@ -254,13 +254,13 @@ module Fog
         def authenticate
           if !@openstack_management_url || @openstack_must_reauthenticate
             options = {
-              :openstack_api_key  => @openstack_api_key,
-              :openstack_username => @openstack_username,
-              :openstack_auth_token => @openstack_auth_token,
-              :openstack_auth_uri => @openstack_auth_uri,
-              :openstack_tenant   => @openstack_tenant,
-              :openstack_service_type => @openstack_service_type,
-              :openstack_service_name => @openstack_service_name,
+              :openstack_api_key       => @openstack_api_key,
+              :openstack_username      => @openstack_username,
+              :openstack_auth_token    => @openstack_auth_token,
+              :openstack_auth_uri      => @openstack_auth_uri,
+              :openstack_tenant        => @openstack_tenant,
+              :openstack_service_type  => @openstack_service_type,
+              :openstack_service_name  => @openstack_service_name,
               :openstack_endpoint_type => @openstack_endpoint_type
             }
 

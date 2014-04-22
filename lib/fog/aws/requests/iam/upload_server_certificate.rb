@@ -76,16 +76,16 @@ module Fog
             response.status = 200
             path = options['Path'] || '/'
             data = {
-              'Arn' => Fog::AWS::Mock.arn('iam', self.data[:owner_id], "server-certificate/#{name}"),
-              'Path' => path,
-              'ServerCertificateId' => Fog::AWS::IAM::Mock.server_certificate_id,
+              'Arn'                   => Fog::AWS::Mock.arn('iam', self.data[:owner_id], "server-certificate/#{name}"),
+              'Path'                  => path,
+              'ServerCertificateId'   => Fog::AWS::IAM::Mock.server_certificate_id,
               'ServerCertificateName' => name,
-              'UploadDate' => Time.now
+              'UploadDate'            => Time.now
             }
             self.data[:server_certificates][name] = data
             response.body = {
               'Certificate' => data,
-              'RequestId' => Fog::AWS::Mock.request_id
+              'RequestId'   => Fog::AWS::Mock.request_id
             }
           end
 

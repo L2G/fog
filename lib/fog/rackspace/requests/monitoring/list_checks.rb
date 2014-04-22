@@ -5,9 +5,9 @@ module Fog
 
         def list_checks(entity_id)
           request(
-            :expects  => [200, 203],
-            :method   => 'GET',
-            :path     => "entities/#{entity_id}/checks"
+            :expects => [200, 203],
+            :method  => 'GET',
+            :path    => "entities/#{entity_id}/checks"
           )
         end
       end
@@ -24,22 +24,22 @@ module Fog
           response = Excon::Response.new
           response.status = 200
           response.body = {
-            'values'  => [
+            'values'   => [
               {
-                'id'              => check_id,
-                'label'           => 'load',
-                'type'            => 'agent.load_average',
-                'details'         => {},
+                'id'                    => check_id,
+                'label'                 => 'load',
+                'type'                  => 'agent.load_average',
+                'details'               => {},
                 'monitoring_zones_poll' => nil,
-                'timeout'         => 10,
-                'period'          => 30,
-                'target_alias'    => nil,
-                'target_hostname' => nil,
-                'target_resolver' => nil,
-                'disabled'        => false,
-                'metadata'        => nil,
-                'created_at'      => Time.now.to_i - 1,
-                'updated_at'      => Time.now.to_i
+                'timeout'               => 10,
+                'period'                => 30,
+                'target_alias'          => nil,
+                'target_hostname'       => nil,
+                'target_resolver'       => nil,
+                'disabled'              => false,
+                'metadata'              => nil,
+                'created_at'            => Time.now.to_i - 1,
+                'updated_at'            => Time.now.to_i
               }
             ],
             'metadata' => {

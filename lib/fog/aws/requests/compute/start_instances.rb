@@ -44,9 +44,9 @@ module Fog
 
             response.body = {
               'instancesSet' => instance_set.inject([]) do |ia, instance|
-                                  ia << { 'currentState' => { 'code' => 0, 'name' => 'pending' },
-                                         'previousState' => instance['instanceState'],
-                                         'instanceId' => instance['instanceId'] }
+                                  ia << { 'currentState'  => { 'code' => 0, 'name' => 'pending' },
+                                          'previousState' => instance['instanceState'],
+                                          'instanceId'    => instance['instanceId'] }
                                   instance['instanceState'] = { 'code' => 0, 'name' => 'pending' }
                                   ia
               end

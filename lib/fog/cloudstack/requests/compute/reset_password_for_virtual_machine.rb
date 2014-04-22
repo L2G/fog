@@ -9,7 +9,7 @@ module Fog
         def reset_password_for_virtual_machine(id)
           options = {
             'command' => 'resetPasswordForVirtualMachine',
-            'id' => id
+            'id'      => id
           }
 
           request(options)

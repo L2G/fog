@@ -3,23 +3,23 @@ Shindo.tests('Fog::Compute::HPV2 | image requests', ['hp', 'v2', 'compute']) do
   service = Fog::Compute.new(:provider => 'HP', :version => :v2)
 
   @image_format = {
-    'id'        => String,
-    'links'     => [Hash],
-    'metadata'  => Fog::Nullable::Hash,
-    'server'    => Fog::Nullable::Hash,
-    'name'      => String,
-    'progress'  => Fog::Nullable::Integer,
-    'minDisk'   => Fog::Nullable::Integer,
-    'minRam'    => Fog::Nullable::Integer,
-    'status'    => String,
-    'created'   => Fog::Nullable::String,
-    'updated'   => Fog::Nullable::String
+    'id'       => String,
+    'links'    => [Hash],
+    'metadata' => Fog::Nullable::Hash,
+    'server'   => Fog::Nullable::Hash,
+    'name'     => String,
+    'progress' => Fog::Nullable::Integer,
+    'minDisk'  => Fog::Nullable::Integer,
+    'minRam'   => Fog::Nullable::Integer,
+    'status'   => String,
+    'created'  => Fog::Nullable::String,
+    'updated'  => Fog::Nullable::String
   }
 
   @list_images_format = {
-    'id'        => String,
-    'links'     => Fog::Nullable::Array,
-    'name'      => String
+    'id'    => String,
+    'links' => Fog::Nullable::Array,
+    'name'  => String
   }
 
   @base_image_id = ENV['BASE_IMAGE_ID'] || '7f60b54c-cd15-433f-8bed-00acbcd25a17'

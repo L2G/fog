@@ -15,10 +15,10 @@ module Fog
         #     * 'success'<~Bool>: success status of update request
         def modify_key(key_name, params = {})
           request(
-            :method   => 'PUT',
-            :expects  => 200,
-            :path     => "/keys/#{key_name}",
-            :body     => params
+            :method  => 'PUT',
+            :expects => 200,
+            :path    => "/keys/#{key_name}",
+            :body    => params
           )
         end
 

@@ -127,7 +127,7 @@ module Fog
         def memory
           if memory_mess
             { :amount => memory_mess[:"rasd:VirtualQuantity"].to_i,
-              :units => memory_mess[:"rasd:AllocationUnits"] }
+              :units  => memory_mess[:"rasd:AllocationUnits"] }
           end
         end
 
@@ -159,9 +159,9 @@ module Fog
             @disk_change = :added
 
             @add_disk = {
-              :'rasd:HostResource' => { :vcloud_capacity => size },
-              :'rasd:AddressOnParent' =>  (disk_mess.map { |dm| dm[:'rasd:AddressOnParent'] }.sort.last.to_i + 1).to_s,
-              :'rasd:ResourceType' => '17'
+              :'rasd:HostResource'    => { :vcloud_capacity => size },
+              :'rasd:AddressOnParent' => (disk_mess.map { |dm| dm[:'rasd:AddressOnParent'] }.sort.last.to_i + 1).to_s,
+              :'rasd:ResourceType'    => '17'
             }
           end
           true

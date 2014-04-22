@@ -15,9 +15,9 @@ module Fog
           networks = networks.map{|n| Fog::Ecloud.slice(n, :environment, :id)}
 
           body = {
-            :href  => uri,
-            :type  => 'application/vnd.tmrk.cloud.network; type=collection',
-            :Links => {
+            :href    => uri,
+            :type    => 'application/vnd.tmrk.cloud.network; type=collection',
+            :Links   => {
               :Link => Fog::Ecloud.keep(environment, :name, :href, :type)
             },
             :Network => (networks.size > 1 ? networks : networks.first),

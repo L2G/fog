@@ -49,15 +49,15 @@ module Fog
           end
 
           body = {
-            :xmlns => xmlns,
-            :xmlns_xsi => xmlns_xsi,
+            :xmlns              => xmlns,
+            :xmlns_xsi          => xmlns_xsi,
             :xsi_schemaLocation => xsi_schema_location
           }.merge(disk_body(id))
 
           Excon::Response.new(
-            :status => 200,
+            :status  => 200,
             :headers => { 'Content-Type' => "#{body[:type]};version=#{@version}" },
-            :body => body
+            :body    => body
           )
         end
 
@@ -68,27 +68,27 @@ module Fog
           storage_class_id = disk[:vdc_storage_class]
 
           body = {
-            :href => make_href("disk/#{id}"),
-            :type => 'application/vnd.vmware.vcloud.disk+xml',
-            :id => "urn:vcloud:disk:#{id}",
-            :name => disk[:name],
-            :status => disk[:status].to_s,
-            :busSubType => disk[:bus_sub_type],
-            :busType => disk[:bus_type],
-            :size => disk[:size].to_s,
-            :Link => [
+            :href           => make_href("disk/#{id}"),
+            :type           => 'application/vnd.vmware.vcloud.disk+xml',
+            :id             => "urn:vcloud:disk:#{id}",
+            :name           => disk[:name],
+            :status         => disk[:status].to_s,
+            :busSubType     => disk[:bus_sub_type],
+            :busType        => disk[:bus_type],
+            :size           => disk[:size].to_s,
+            :Link           => [
               {
                 :href => make_href("vdc/#{disk[:vdc_id]}"),
-                :rel => 'up',
+                :rel  => 'up',
                 :type => 'application/vnd.vmware.vcloud.vdc+xml'
               }
             ],
-            :Description => disk[:description],
-            :Tasks => {
+            :Description    => disk[:description],
+            :Tasks          => {
               # FIXME: there's only one for now
               :Task => disk[:tasks].map {|task_id| task_body(task_id)}.first
             },
-            :Files => {
+            :Files          => {
               :File => []
             },
             :StorageProfile => {
@@ -96,7 +96,7 @@ module Fog
               :name => data[:vdc_storage_classes][storage_class_id][:name],
               :type => 'application/vnd.vmware.vcloud.vdcStorageProfile+xml',
             },
-            :Owner => {
+            :Owner          => {
               :type => 'application/vnd.vmware.vcloud.owner+xml',
               :User => {
                 :href => make_href("admin/user/#{user_uuid}"),

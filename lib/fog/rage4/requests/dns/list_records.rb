@@ -19,9 +19,9 @@ module Fog
         #     * record_type<~String>
         #     * priority<~Integer>
         def list_records(id)
-          request( :expects  => 200,
-                   :method   => 'GET',
-                   :path     => "/rapi/getrecords/#{id}" )
+          request( :expects => 200,
+                   :method  => 'GET',
+                   :path    => "/rapi/getrecords/#{id}" )
         end
 
       end

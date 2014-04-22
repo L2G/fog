@@ -14,9 +14,9 @@ module Fog
         #   * body: Empty
         def get_server_volume_details(server_id, volume_id)
           response = request(
-            :expects  => 200,
-            :method   => 'GET',
-            :path     => "servers/#{server_id}/os-volume_attachments/#{volume_id}"
+            :expects => 200,
+            :method  => 'GET',
+            :path    => "servers/#{server_id}/os-volume_attachments/#{volume_id}"
           )
           response
         end

@@ -18,9 +18,9 @@ module Fog
             options.merge!(:kernelId => kernel_id)
           end
           request(
-            :expects  => 200,
-            :method   => 'GET',
-            :query    => { :api_action => 'avail.kernels' }.merge!(options)
+            :expects => 200,
+            :method  => 'GET',
+            :query   => { :api_action => 'avail.kernels' }.merge!(options)
           )
         end
 
@@ -33,7 +33,7 @@ module Fog
 
           body = {
             'ERRORARRAY' => [],
-            'ACTION' => 'avail.kernels'
+            'ACTION'     => 'avail.kernels'
           }
           if kernel_id
             mock_kernel = create_mock_kernel(kernel_id)

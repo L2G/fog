@@ -30,20 +30,20 @@ module Fog
         def create_cache_cluster(id, options = {})
 
           req_options = {
-            'Action'          => 'CreateCacheCluster',
-            'CacheClusterId'  => id.strip,
-            'CacheNodeType'   => options[:node_type]  || 'cache.m1.large',
-            'Engine'          => options[:engine]     || 'memcached',
-            'NumCacheNodes'   => options[:num_nodes]  || 1,
-            'AutoMinorVersionUpgrade'     => options[:auto_minor_version_upgrade],
-            'CacheParameterGroupName'     => options[:parameter_group_name],
-            'CacheSubnetGroupName'        => options[:cache_subnet_group_name],
-            'EngineVersion'               => options[:engine_version],
-            'NotificationTopicArn'        => options[:notification_topic_arn],
-            'Port'                        => options[:port],
-            'PreferredAvailabilityZone'   => options[:preferred_availablility_zone],
-            'PreferredMaintenanceWindow'  => options[:preferred_maintenance_window],
-            :parser => Fog::Parsers::AWS::Elasticache::SingleCacheCluster.new
+            'Action'                     => 'CreateCacheCluster',
+            'CacheClusterId'             => id.strip,
+            'CacheNodeType'              => options[:node_type]  || 'cache.m1.large',
+            'Engine'                     => options[:engine]     || 'memcached',
+            'NumCacheNodes'              => options[:num_nodes]  || 1,
+            'AutoMinorVersionUpgrade'    => options[:auto_minor_version_upgrade],
+            'CacheParameterGroupName'    => options[:parameter_group_name],
+            'CacheSubnetGroupName'       => options[:cache_subnet_group_name],
+            'EngineVersion'              => options[:engine_version],
+            'NotificationTopicArn'       => options[:notification_topic_arn],
+            'Port'                       => options[:port],
+            'PreferredAvailabilityZone'  => options[:preferred_availablility_zone],
+            'PreferredMaintenanceWindow' => options[:preferred_maintenance_window],
+            :parser                      => Fog::Parsers::AWS::Elasticache::SingleCacheCluster.new
           }
 
           if s3_snapshot_location = options.delete(:s3_snapshot_location)
@@ -67,26 +67,26 @@ module Fog
         def create_cache_cluster(id, options = {})
           response        = Excon::Response.new
           cluster         = { # create an in-memory representation of this cluster
-            'CacheClusterId'  => id.strip,
-            'NumCacheNodes'   => options[:num_nodes]      || 1,
-            'CacheNodeType'   => options[:node_type]      || 'cache.m1.large',
-            'Engine'          => options[:engine]         || 'memcached',
-            'EngineVersion'   => options[:engine_version] || '1.4.5',
-            'CacheClusterStatus'  => 'available',
-            'CacheNodes'          => create_cache_nodes(id.strip, options[:num_nodes]),
-            'CacheSecurityGroups' => [],
-            'CacheParameterGroup' => { 'CacheParameterGroupName' =>
-                options[:parameter_group_name] || 'default.memcached1.4' },
-            'CacheSubnetGroupName' => options[:cache_subnet_group_name],
-            'PendingModifiedValues'       => {},
-            'AutoMinorVersionUpgrade'     =>
-              options[:auto_minor_version_upgrade]    || 'true',
-            'PreferredMaintenanceWindow'  =>
-              options[:preferred_maintenance_window]  || 'sun:05:00-sun:09:00',
+            'CacheClusterId'             => id.strip,
+            'NumCacheNodes'              => options[:num_nodes]      || 1,
+            'CacheNodeType'              => options[:node_type]      || 'cache.m1.large',
+            'Engine'                     => options[:engine]         || 'memcached',
+            'EngineVersion'              => options[:engine_version] || '1.4.5',
+            'CacheClusterStatus'         => 'available',
+            'CacheNodes'                 => create_cache_nodes(id.strip, options[:num_nodes]),
+            'CacheSecurityGroups'        => [],
+            'CacheParameterGroup'        => { 'CacheParameterGroupName' =>
+                                                                           options[:parameter_group_name] || 'default.memcached1.4' },
+            'CacheSubnetGroupName'       => options[:cache_subnet_group_name],
+            'PendingModifiedValues'      => {},
+            'AutoMinorVersionUpgrade'    =>
+                                            options[:auto_minor_version_upgrade]    || 'true',
+            'PreferredMaintenanceWindow' =>
+                                            options[:preferred_maintenance_window]  || 'sun:05:00-sun:09:00',
           }
           self.data[:clusters][id] = cluster  # store the in-memory cluster
           response.body = {
-            'CacheCluster' => cluster.merge('CacheClusterStatus' => 'creating'),
+            'CacheCluster'     => cluster.merge('CacheClusterStatus' => 'creating'),
             'ResponseMetadata' => { 'RequestId' => Fog::AWS::Mock.request_id }
           }
           response

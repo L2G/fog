@@ -37,9 +37,9 @@ module Fog
         #       * 'verb'<~String>            - the http request the limit applies to
         def list_limits
           request(
-            :expects  => [200, 203],
-            :method   => 'GET',
-            :path     => 'limits'
+            :expects => [200, 203],
+            :method  => 'GET',
+            :path    => 'limits'
           )
         end
 

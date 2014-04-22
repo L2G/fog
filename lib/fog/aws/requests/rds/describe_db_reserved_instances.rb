@@ -23,8 +23,8 @@ module Fog
           end
 
           request({
-            'Action'  => 'DescribeReservedDBInstances',
-            :parser   => Fog::Parsers::AWS::RDS::DescribeDBReservedInstances.new
+            'Action' => 'DescribeReservedDBInstances',
+            :parser  => Fog::Parsers::AWS::RDS::DescribeDBReservedInstances.new
           }.merge(params))
         end
 

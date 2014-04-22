@@ -19,15 +19,15 @@ module Fog
             response.status = 200
             response.body = {
               'network' => {
-                'id' => 'e624a36d-762b-481f-9b50-4154ceb78bbb',
-                'name' => 'network_1',
-                'subnets' => [
+                'id'             => 'e624a36d-762b-481f-9b50-4154ceb78bbb',
+                'name'           => 'network_1',
+                'subnets'        => [
                   '2e4ec6a4-0150-47f5-8523-e899ac03026e'
                 ],
-                'shared' => false,
-                'status' => 'ACTIVE',
+                'shared'         => false,
+                'status'         => 'ACTIVE',
                 'admin_state_up' => true,
-                'tenant_id' => 'f8b26a6032bc47718a7702233ac708b9',
+                'tenant_id'      => 'f8b26a6032bc47718a7702233ac708b9',
               }
             }
             response

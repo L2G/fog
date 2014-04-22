@@ -19,10 +19,10 @@ module Fog
         # {Amazon API Reference}[http://docs.amazonwebservices.com/AWSEC2/latest/APIReference/ApiReference-query-DeleteSnapshot.html]
         def delete_snapshot(snapshot_id)
           request(
-            'Action'      => 'DeleteSnapshot',
-            'SnapshotId'  => snapshot_id,
-            :idempotent   => true,
-            :parser       => Fog::Parsers::Compute::AWS::Basic.new
+            'Action'     => 'DeleteSnapshot',
+            'SnapshotId' => snapshot_id,
+            :idempotent  => true,
+            :parser      => Fog::Parsers::Compute::AWS::Basic.new
           )
         end
 

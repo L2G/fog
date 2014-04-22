@@ -45,10 +45,10 @@ module Fog
           end
 
           request(
-            :body     => Fog::JSON.encode(data),
-            :expects  => 201,
-            :method   => 'POST',
-            :path     => 'security-group-rules'
+            :body    => Fog::JSON.encode(data),
+            :expects => 201,
+            :method  => 'POST',
+            :path    => 'security-group-rules'
           )
         end
 
@@ -59,7 +59,7 @@ module Fog
         def create_security_group_rule(security_group_id, direction, options = {})
           response = Excon::Response.new
           data = {
-            'id' => Fog::HP::Mock.uuid.to_s,
+            'id'                => Fog::HP::Mock.uuid.to_s,
             'remote_group_id'   => options[:remote_group_id],
             'direction'         => direction,
             'remote_ip_prefix'  => options[:remote_ip_prefix],

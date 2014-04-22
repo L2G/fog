@@ -22,9 +22,9 @@ module Fog
         #       * 'state'<~Integer>: state of address
         def list_addresses
           request(
-            :method   => 'GET',
-            :expects  => 200,
-            :path     => '/addresses'
+            :method  => 'GET',
+            :expects => 200,
+            :path    => '/addresses'
           )
         end
 

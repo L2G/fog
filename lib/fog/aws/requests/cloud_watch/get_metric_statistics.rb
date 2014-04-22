@@ -37,8 +37,8 @@ module Fog
           end
 
           request({
-              'Action'    => 'GetMetricStatistics',
-              :parser     => Fog::Parsers::AWS::CloudWatch::GetMetricStatistics.new
+              'Action' => 'GetMetricStatistics',
+              :parser  => Fog::Parsers::AWS::CloudWatch::GetMetricStatistics.new
             }.merge(options))
         end
 

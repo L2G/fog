@@ -14,11 +14,11 @@ module Fog
 
         def delete_bucket_policy(bucket_name)
           request(
-            :expects  => 204,
-            :headers  => {},
-            :host     => "#{bucket_name}.#{@host}",
-            :method   => 'DELETE',
-            :query    => { 'policy' => nil }
+            :expects => 204,
+            :headers => {},
+            :host    => "#{bucket_name}.#{@host}",
+            :method  => 'DELETE',
+            :query   => { 'policy' => nil }
           )
         end
 

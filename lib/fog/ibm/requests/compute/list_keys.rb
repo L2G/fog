@@ -34,9 +34,9 @@ module Fog
         #       * 'owner'<~String>: instance owner
         def list_keys
           request(
-            :method   => 'GET',
-            :expects  => 200,
-            :path     => '/keys'
+            :method  => 'GET',
+            :expects => 200,
+            :path    => '/keys'
           )
         end
 

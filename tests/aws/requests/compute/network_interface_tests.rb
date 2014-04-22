@@ -22,7 +22,7 @@ Shindo.tests('Fog::Compute[:aws] | network interface requests', ['aws']) do
 
   @network_interface_create_format = {
     'networkInterface' => @network_interface_format,
-    'requestId' => String
+    'requestId'        => String
   }
 
   @network_interfaces_format = {
@@ -47,13 +47,13 @@ Shindo.tests('Fog::Compute[:aws] | network interface requests', ['aws']) do
 
     @security_groups = [
       @security_group.name, {
-        'groupDescription'  => @security_group.description,
-        'groupName'         => @security_group.name,
-        'groupId'           => @security_group_id,
+        'groupDescription'    => @security_group.description,
+        'groupName'           => @security_group.name,
+        'groupId'             => @security_group_id,
         'ipPermissionsEgress' => [],
-        'ipPermissions'     => [],
-        'ownerId'           => @owner_id,
-        'vpcId'             => @vpc.id
+        'ipPermissions'       => [],
+        'ownerId'             => @owner_id,
+        'vpcId'               => @vpc.id
       }
     ]
 

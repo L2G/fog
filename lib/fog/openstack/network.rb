@@ -139,7 +139,7 @@ module Fog
             tenant_id  = Fog::Mock.random_hex(8)
 
             hash[key] = {
-              :networks => {
+              :networks             => {
                 network_id => {
                   'id'                    => network_id,
                   'name'                  => 'Public',
@@ -152,8 +152,8 @@ module Fog
                   'admin_state_up'        => true,
                 }
               },
-              :ports => {},
-              :subnets => {
+              :ports                => {},
+              :subnets              => {
                 subnet_id => {
                   'id'               => subnet_id,
                   'name'             => 'Public',
@@ -168,27 +168,27 @@ module Fog
                   'tenant_id'        => tenant_id,
                 }
               },
-              :floating_ips => {},
-              :routers => {},
-              :lb_pools => {},
-              :lb_members => {},
-              :lb_health_monitors => {},
-              :lb_vips => {},
-              :quota => {
-                'subnet' => 10,
-                'router' => 10,
-                'port' => 50,
-                'network' => 10,
+              :floating_ips         => {},
+              :routers              => {},
+              :lb_pools             => {},
+              :lb_members           => {},
+              :lb_health_monitors   => {},
+              :lb_vips              => {},
+              :quota                => {
+                'subnet'     => 10,
+                'router'     => 10,
+                'port'       => 50,
+                'network'    => 10,
                 'floatingip' => 50
               },
-              :quotas => [
+              :quotas               => [
                 {
-                  'subnet' => 10,
-                  'network' => 10,
+                  'subnet'     => 10,
+                  'network'    => 10,
                   'floatingip' => 50,
-                  'tenant_id' => tenant_id,
-                  'router' => 10,
-                  'port' => 30
+                  'tenant_id'  => tenant_id,
+                  'router'     => 10,
+                  'port'       => 30
                 }
               ],
               :security_groups      => {},
@@ -276,12 +276,12 @@ module Fog
         def request(params)
           begin
             response = @connection.request(params.merge(
-              :headers  => {
+              :headers => {
                 'Content-Type' => 'application/json',
-                'Accept' => 'application/json',
+                'Accept'       => 'application/json',
                 'X-Auth-Token' => @auth_token
               }.merge!(params[:headers] || {}),
-              :path     => "#{@path}/#{params[:path]}"#
+              :path    => "#{@path}/#{params[:path]}"#
             ))
           rescue Excon::Errors::Unauthorized => error
             if error.response.body != 'Bad username or password' # token expiration
@@ -310,15 +310,15 @@ module Fog
         def authenticate
           if @openstack_must_reauthenticate || @openstack_auth_token.nil?
             options = {
-              :openstack_tenant   => @openstack_tenant,
-              :openstack_api_key  => @openstack_api_key,
-              :openstack_username => @openstack_username,
-              :openstack_auth_uri => @openstack_auth_uri,
-              :openstack_auth_token => @openstack_auth_token,
-              :openstack_service_type => @openstack_service_type,
-              :openstack_service_name => @openstack_service_name,
+              :openstack_tenant        => @openstack_tenant,
+              :openstack_api_key       => @openstack_api_key,
+              :openstack_username      => @openstack_username,
+              :openstack_auth_uri      => @openstack_auth_uri,
+              :openstack_auth_token    => @openstack_auth_token,
+              :openstack_service_type  => @openstack_service_type,
+              :openstack_service_name  => @openstack_service_name,
               :openstack_endpoint_type => @openstack_endpoint_type,
-              :openstack_region => @openstack_region
+              :openstack_region        => @openstack_region
             }
 
             credentials = Fog::OpenStack.authenticate_v2(options, @connection_options)

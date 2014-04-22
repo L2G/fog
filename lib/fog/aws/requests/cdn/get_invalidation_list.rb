@@ -27,8 +27,8 @@ module Fog
           request(
             :expects    => 200,
             :idempotent => true,
-            :method   => 'GET',
-            :parser   => Fog::Parsers::CDN::AWS::GetInvalidationList.new,
+            :method     => 'GET',
+            :parser     => Fog::Parsers::CDN::AWS::GetInvalidationList.new,
             :path       => "/distribution/#{distribution_id}/invalidation",
             :query      => options
           )
@@ -57,9 +57,9 @@ module Fog
           response.status = 200
 
           response.body = {
-            'Marker' => Fog::Mock.random_hex(16),
-            'IsTruncated' => false,
-            'MaxItems' => 100,
+            'Marker'              => Fog::Mock.random_hex(16),
+            'IsTruncated'         => false,
+            'MaxItems'            => 100,
             'InvalidationSummary' => invalidations.map { |i| to_invalidation_summary(i) }
           }
           response
@@ -69,7 +69,7 @@ module Fog
 
         def to_invalidation_summary(d)
           {
-            'Id' => d['Id'],
+            'Id'     => d['Id'],
             'Status' => d['Status']
           }
         end

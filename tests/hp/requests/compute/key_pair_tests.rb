@@ -3,17 +3,17 @@ Shindo.tests('Fog::Compute[:hp] | key pair requests', ['hp']) do
   tests('success') do
 
     @keypair_format = {
-      'public_key'   => String,
-      'fingerprint'  => String,
-      'name'         => String
+      'public_key'  => String,
+      'fingerprint' => String,
+      'name'        => String
     }
 
     @keypairs_format = {
       'keypairs' => [{
         'keypair' => {
-          'public_key'   => String,
-          'fingerprint'  => String,
-          'name'         => Fog::Nullable::String
+          'public_key'  => String,
+          'fingerprint' => String,
+          'name'        => Fog::Nullable::String
         }
       }]
     }

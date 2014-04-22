@@ -14,8 +14,8 @@ module Fog
         def delete_virtual_interface(server_id, interface_id)
           request(
             :expects => [200],
-            :method => 'DELETE',
-            :path => "/servers/#{server_id}/os-virtual-interfacesv2/#{interface_id}"
+            :method  => 'DELETE',
+            :path    => "/servers/#{server_id}/os-virtual-interfacesv2/#{interface_id}"
           )
         end
       end

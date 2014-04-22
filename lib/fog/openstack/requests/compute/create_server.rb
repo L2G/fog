@@ -6,9 +6,9 @@ module Fog
         def create_server(name, image_ref, flavor_ref, options = {})
           data = {
             'server' => {
-              'flavorRef'  => flavor_ref,
-              'imageRef'   => image_ref,
-              'name'       => name
+              'flavorRef' => flavor_ref,
+              'imageRef'  => image_ref,
+              'name'      => name
             }
           }
 
@@ -38,8 +38,8 @@ module Fog
             data['server']['personality'] = []
             for file in options['personality']
               data['server']['personality'] << {
-                'contents'  => Base64.encode64(file['contents']),
-                'path'      => file['path']
+                'contents' => Base64.encode64(file['contents']),
+                'path'     => file['path']
               }
             end
           end
@@ -62,10 +62,10 @@ module Fog
             data['server']['block_device_mapping'] =
             [options['block_device_mapping']].flatten.map do |mapping|
               {
-                'volume_size' => mapping[:volume_size],
-                'volume_id' => mapping[:volume_id],
+                'volume_size'           => mapping[:volume_size],
+                'volume_id'             => mapping[:volume_id],
                 'delete_on_termination' => mapping[:delete_on_termination],
-                'device_name' => mapping[:device_name]
+                'device_name'           => mapping[:device_name]
               }
             end
           end
@@ -77,10 +77,10 @@ module Fog
                  end
 
           request(
-            :body     => Fog::JSON.encode(data),
-            :expects  => [200, 202],
-            :method   => 'POST',
-            :path     => path
+            :body    => Fog::JSON.encode(data),
+            :expects => [200, 202],
+            :method  => 'POST',
+            :path    => path
           )
         end
 
@@ -139,9 +139,9 @@ module Fog
             response_data = { 'reservation_id' => "r-#{Fog::Mock.random_numbers(6)}" }
           else
             response_data = {
-              'adminPass'       => 'password',
-              'id'              => server_id,
-              'links'           => mock_data['links'],
+              'adminPass' => 'password',
+              'id'        => server_id,
+              'links'     => mock_data['links'],
             }
           end
 

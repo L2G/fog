@@ -3,15 +3,15 @@ Shindo.tests('Fog::Compute[:aws] | key pair requests', ['aws']) do
   tests('success') do
 
     @keypair_format = {
-      'keyFingerprint'  => String,
-      'keyName'         => String,
-      'requestId'       => String
+      'keyFingerprint' => String,
+      'keyName'        => String,
+      'requestId'      => String
     }
 
     @keypairs_format = {
-      'keySet' => [{
+      'keySet'    => [{
         'keyFingerprint' => String,
-        'keyName' => String
+        'keyName'        => String
       }],
       'requestId' => String
     }

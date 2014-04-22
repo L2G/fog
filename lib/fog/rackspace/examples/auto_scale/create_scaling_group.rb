@@ -45,18 +45,18 @@ end
 
 # create auto scaling service
 auto_scale_service = Fog::Rackspace::AutoScale.new(
-  :rackspace_username   => rackspace_username,
-  :rackspace_api_key    => rackspace_api_key,
-  :rackspace_region => :ord # Use Chicago Region
+  :rackspace_username => rackspace_username,
+  :rackspace_api_key  => rackspace_api_key,
+  :rackspace_region   => :ord # Use Chicago Region
 )
 
 # create Next Generation Cloud Server service to get list of flavors
 compute_service = Fog::Compute.new(
-  :provider             => 'rackspace',
-  :rackspace_username   => rackspace_username,
-  :rackspace_api_key    => rackspace_api_key,
-  :version => :v2,  # Use Next Gen Cloud Servers
-  :rackspace_region => :ord # Use Chicago Region
+  :provider           => 'rackspace',
+  :rackspace_username => rackspace_username,
+  :rackspace_api_key  => rackspace_api_key,
+  :version            => :v2,  # Use Next Gen Cloud Servers
+  :rackspace_region   => :ord # Use Chicago Region
 )
 
 # prompt for scaling group name
@@ -83,21 +83,21 @@ image = select_image(images)
 flavor = compute_service.flavors.first
 
 attributes = {
-  :server_name => 'autoscale_server',
-  :image => image,
-  :flavor => flavor,
-  :networks => [INTERNET, SERVICE_NET],
-  :personality => [
+  :server_name        => 'autoscale_server',
+  :image              => image,
+  :flavor             => flavor,
+  :networks           => [INTERNET, SERVICE_NET],
+  :personality        => [
     {
-      'path' => '/root/.csivh',
+      'path'     => '/root/.csivh',
       'contents' => 'VGhpcyBpcyBhIHRlc3QgZmlsZS4='
     }
   ],
-  :max_entities => max_entities,
-  :min_entities => min_entities,
-  :cooldown => cooldown,
-  :name => scaling_group_name,
-  :metadata => { 'created_by' => 'autoscale sample script' },
+  :max_entities       => max_entities,
+  :min_entities       => min_entities,
+  :cooldown           => cooldown,
+  :name               => scaling_group_name,
+  :metadata           => { 'created_by' => 'autoscale sample script' },
   :launch_config_type => :launch_server
 }
 
