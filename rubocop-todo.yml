@@ -122,10 +122,6 @@ ColonMethodCall:
 CommentAnnotation:
   Enabled: false
 
-# Offense count: 4  --LINT--
-ConditionPosition:
-  Enabled: false
-
 # Offense count: 1
 ConstantName:
   Enabled: false
