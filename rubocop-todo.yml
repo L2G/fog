@@ -86,10 +86,10 @@ CaseIndentation:
 ClassAndModuleChildren:
   Enabled: false
 
-# Offense count: 95
+# Offense count: 94
 # Configuration parameters: CountComments.
 ClassLength:
-  Max: 1131
+  Max: 700
 
 # Offense count: 46
 ClassVars:
@@ -265,7 +265,7 @@ MethodDefParentheses:
 # Offense count: 2003
 # Configuration parameters: CountComments.
 MethodLength:
-  Max: 1129
+  Max: 677
 
 # Offense count: 13
 # Configuration parameters: EnforcedStyle, SupportedStyles.

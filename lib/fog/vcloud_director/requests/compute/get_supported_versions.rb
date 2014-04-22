@@ -20,7 +20,10 @@ module Fog
         end
       end
 
+      # rubocop:disable ClassLength
       class Mock
+
+        # rubocop:disable MethodLength
         def get_supported_versions
           body =
             {:xmlns => 'http://www.vmware.com/vcloud/versions',
@@ -1153,7 +1156,11 @@ module Fog
             :status => 200
           )
         end
+        # rubocop:enable MethodLength
+
       end
+      # rubocop:enable ClassLength
+
     end
   end
 end
