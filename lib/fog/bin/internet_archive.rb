@@ -17,10 +17,10 @@ class InternetArchive < Fog::Bin
       @@connections ||= Hash.new do |hash, key|
         hash[key] = case key
         when :storage
-          Fog::Logger.warning("InternetArchive[:storage] is not recommended, use Storage[:aws] for portability")
+          Fog::Logger.warning(t.bin.warning.portability('InternetArchive[:storage]', 'Storage[:aws]'))
           Fog::Storage.new(:provider => 'InternetArchive')
         else
-          raise ArgumentError, "Unrecognized service: #{key.inspect}"
+          raise ArgumentError, t.bin.error.unrecognized_service(key.inspect)
         end
       end
       @@connections[service]

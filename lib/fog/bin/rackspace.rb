@@ -28,7 +28,7 @@ class Rackspace < Fog::Bin
       when :queues
         Fog::Rackspace::Queues
       else
-        raise ArgumentError, "Unrecognized service: #{key}"
+        raise ArgumentError, t.bin.error.unrecognized_service(key)
       end
     end
 
@@ -38,23 +38,23 @@ class Rackspace < Fog::Bin
         when :auto_scale
           Fog::Rackspace::AutoScale.new
         when :cdn
-          Fog::Logger.warning("Rackspace[:cdn] is not recommended, use CDN[:rackspace] for portability")
+          Fog::Logger.warning(t.bin.warning.portability('Rackspace[:cdn]', 'CDN[:rackspace]'))
           Fog::CDN.new(:provider => 'Rackspace')
         when :compute
-          Fog::Logger.warning("Rackspace[:compute] is not recommended, use Compute[:rackspace] for portability")
+          Fog::Logger.warning(t.bin.warning.portability('Rackspace[:compute]', 'Compute[:rackspace]'))
           Fog::Compute.new(:provider => 'Rackspace')
         when :compute_v2
-          Fog::Logger.warning("Rackspace[:compute] is not recommended, use Compute[:rackspace] for portability")
+          Fog::Logger.warning(t.bin.warning.portability('Rackspace[:compute]', 'Compute[:rackspace]'))
           Fog::Compute.new(:provider => 'Rackspace', :version => 'v2')
         when :dns
           Fog::DNS.new(:provider => 'Rackspace')
         when :load_balancers
           Fog::Rackspace::LoadBalancers.new
         when :storage
-          Fog::Logger.warning("Rackspace[:storage] is not recommended, use Storage[:rackspace] for portability")
+          Fog::Logger.warning(t.bin.warning.portability('Rackspace[:storage]', 'Storage[:rackspace]'))
           Fog::Storage.new(:provider => 'Rackspace')
         when :identity
-          Fog::Logger.warning("Rackspace[:identity] is not recommended, use Identity[:rackspace] for portability")
+          Fog::Logger.warning(t.bin.warning.portability('Rackspace[:identity]', 'Identity[:rackspace]'))
           Fog::Identity.new(:provider => 'Rackspace')
         when :databases
           Fog::Rackspace::Databases.new
@@ -65,7 +65,7 @@ class Rackspace < Fog::Bin
         when :queues
           Fog::Rackspace::Queues.new
         else
-          raise ArgumentError, "Unrecognized service: #{key.inspect}"
+          raise ArgumentError, t.bin.error.unrecognized_service(key.inspect)
         end
       end
       @@connections[service]

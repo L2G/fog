@@ -5,4 +5,14 @@ list:
 
 # Fog command-line utility (bin/fog)
 bin:
+  # General messages
   welcome: Welcome to fog interactive!
+
+  # Error messages
+  error:
+    unsupported_service: Unsupported %1 service: %2
+    unrecognized_service: Unrecognized service: %1
+
+  # Warning messages
+  warning:
+    portability: %1 is not recommended, use %2 for portability

@@ -14,10 +14,10 @@ class Openvz < Fog::Bin
       @@connections ||= Hash.new do |hash, key|
         hash[key] = case key
         when :compute
-          Fog::Logger.warning("Openvz[:compute] is not recommended, use Compute[:openvz] for portability")
+          Fog::Logger.warning(t.bin.warning.portability('Openvz[:compute]', 'Compute[:openvz]'))
           Fog::Compute.new(:provider => 'Openvz')
         else
-          raise ArgumentError, "Unrecognized service: #{key.inspect}"
+          raise ArgumentError, t.bin.error.unrecognized_service(key.inspect)
         end
       end
       @@connections[service]

@@ -6,7 +6,7 @@ class Fogdocker < Fog::Bin
       when :compute
         Fog::Compute::Fogdocker
       else
-        raise ArgumentError, "Unrecognized service: #{key}"
+        raise ArgumentError, t.bin.error.unrecognized_service(key)
       end
     end
 
@@ -16,7 +16,7 @@ class Fogdocker < Fog::Bin
                     when :compute
                       Fog::Compute.new(:provider => 'Fogdocker')
                     else
-                      raise ArgumentError, "Unrecognized service: #{key.inspect}"
+                      raise ArgumentError, t.bin.error.unrecognized_service(key.inspect)
                     end
       end
       @@connections[service]

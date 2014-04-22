@@ -6,7 +6,7 @@ class VcloudDirector < Fog::Bin
       when :compute
         Fog::Compute::VcloudDirector
       else
-        raise ArgumentError, "Unrecognized service: #{key}"
+        raise ArgumentError, t.bin.error.unrecognized_service(key)
       end
     end
 
@@ -16,7 +16,7 @@ class VcloudDirector < Fog::Bin
         when :compute
           Fog::Compute.new(:provider => 'VcloudDirector')
         else
-          raise ArgumentError, "Unrecognized service: #{key.inspect}"
+          raise ArgumentError, t.bin.error.unrecognized_service(key.inspect)
         end
       end
       @@connections[service]

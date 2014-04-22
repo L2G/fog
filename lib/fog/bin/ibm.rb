@@ -20,7 +20,7 @@ class IBM < Fog::Bin
         when :storage
           Fog::Storage.new(:provider => 'Storage')
         else
-          raise ArgumentError, "Unrecognized service: #{service}"
+          raise ArgumentError, t.bin.error.unrecognized_service(service)
         end
       end
       @@connections[service]

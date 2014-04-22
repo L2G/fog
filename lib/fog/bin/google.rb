@@ -16,13 +16,13 @@ module Google # deviates from other bin stuff to accomodate gem
       @@connections ||= Hash.new do |hash, key|
         hash[key] = case key
         when :storage
-          Fog::Logger.warning("Google[:storage] is not recommended, use Storage[:google] for portability")
+          Fog::Logger.warning(t.bin.warning.portability('Google[:storage]', 'Storage[:google]'))
           Fog::Storage.new(:provider => 'Google')
         when :compute
-          Fog::Logger.warning("Google[:compute] is not recommended, use Compute[:google] for portability")
+          Fog::Logger.warning(t.bin.warning.portability('Google[:compute]', 'Compute[:google]'))
           Fog::Compute.new(:provider => 'Google')
         else
-          raise ArgumentError, "Unrecognized service: #{key.inspect}"
+          raise ArgumentError, t.bin.error.unrecognized_service(key.inspect)
         end
       end
       @@connections[service]

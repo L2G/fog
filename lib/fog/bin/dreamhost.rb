@@ -6,7 +6,7 @@ class Dreamhost < Fog::Bin
       when :dns
         Fog::DNS::Dreamhost
       else
-        raise ArgumentError, "Unrecognized service: #{key}"
+        raise ArgumentError, t.bin.error.unrecognized_service(key)
       end
     end
 
@@ -14,10 +14,10 @@ class Dreamhost < Fog::Bin
       @@connections ||= Hash.new do |hash, key|
         hash[key] = case key
         when :dns
-          Fog::Logger.warning("Dreamhost[:dns] is not recommended, use DNS[:dreamhost] for portability")
+          Fog::Logger.warning(t.bin.warning.portability('Dreamhost[:dns]', 'DNS[:dreamhost]'))
           Fog::DNS.new(:provider => 'Dreamhost')
         else
-          raise ArgumentError, "Unrecognized service: #{key.inspect}"
+          raise ArgumentError, t.bin.error.unrecognized_service(key.inspect)
         end
       end
       @@connections[service]

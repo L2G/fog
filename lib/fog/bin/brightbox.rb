@@ -6,7 +6,7 @@ class Brightbox < Fog::Bin
       when :compute
         Fog::Compute::Brightbox
       else
-        raise ArgumentError, "Unrecognized service: #{key}"
+        raise ArgumentError, t.bin.error.unrecognized_service(key)
       end
     end
 
@@ -14,10 +14,11 @@ class Brightbox < Fog::Bin
       @@connections ||= Hash.new do |hash, key|
         hash[key] = case key
         when :compute
-          Fog::Logger.warning("Brightbox[:compute] is not recommended, use Compute[:brightbox] for portability")
+          Fog::Logger.warning(t.bin.warning.portability('Brightbox[:compute]',
+                                                        'Compute[:brightbox]'))
           Fog::Compute.new(:provider => 'Brightbox')
         else
-          raise ArgumentError, "Unrecognized service: #{key.inspect}"
+          raise ArgumentError, t.bin.error.unrecognized_service(key.inspect)
         end
       end
       @@connections[service]

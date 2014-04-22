@@ -6,7 +6,7 @@ class Dynect < Fog::Bin
       when :dns
         Fog::DNS::Dynect
       else
-        raise ArgumentError, "Unrecognized service: #{key}"
+        raise ArgumentError, t.bin.error.unrecognized_service(key)
       end
     end
 
@@ -16,7 +16,7 @@ class Dynect < Fog::Bin
         when :dns
           Fog::DNS.new(:provider => 'Dynect')
         else
-          raise ArgumentError, "Unrecognized service: #{service}"
+          raise ArgumentError, t.bin.error.unrecognized_service(service)
         end
       end
       @@connections[service]

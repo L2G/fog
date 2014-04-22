@@ -6,7 +6,7 @@ class Rage4 < Fog::Bin
       when :dns
         Fog::DNS::Rage4
       else
-        raise ArgumentError, "Unrecognized service: #{key}"
+        raise ArgumentError, t.bin.error.unrecognized_service(key)
       end
     end
 
@@ -14,10 +14,10 @@ class Rage4 < Fog::Bin
       @@connections ||= Hash.new do |hash, key|
         hash[key] = case key
         when :dns
-          Fog::Logger.warning("Rage4[:dns] is not recommended, use DNS[:rage4] for portability")
+          Fog::Logger.warning(t.bin.warning.portability('Rage4[:dns]', 'DNS[:rage4]'))
           Fog::DNS.new(:provider => 'Rage4')
         else
-          raise ArgumentError, "Unrecognized service: #{key.inspect}"
+          raise ArgumentError, t.bin.error.unrecognized_service(key.inspect)
         end
       end
       @@connections[service]

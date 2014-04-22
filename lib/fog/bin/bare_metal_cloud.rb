@@ -6,7 +6,7 @@ class BareMetalCloud < Fog::Bin
       when :compute
         Fog::Compute::BareMetalCloud
       else
-        raise ArgumentError, "Unsupported #{self} service: #{key}"
+        raise ArgumentError, t.bin.error.unsupported_service(self, key)
       end
     end
 
@@ -14,10 +14,11 @@ class BareMetalCloud < Fog::Bin
       @@connections ||= Hash.new do |hash, key|
         hash[key] = case key
         when :compute
-          Fog::Logger.warning("BareMetalCloud[:compute] is not recommended, use Compute[:baremetalcloud] for portability")
+          Fog::Logger.warning(t.bin.warning.portability('BareMetalCloud[:compute]',
+                                                        'Compute[:baremetalcloud]'))
           Fog::Compute.new(:provider => 'BareMetalCloud')
         else
-          raise ArgumentError, "Unrecognized service: #{key.inspect}"
+          raise ArgumentError, t.bin.error.unrecognized_service(key.inspect)
         end
       end
       @@connections[service]

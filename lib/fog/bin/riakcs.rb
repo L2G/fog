@@ -8,7 +8,7 @@ class RiakCS < Fog::Bin
       when :usage
         Fog::RiakCS::Usage
       else
-        raise ArgumentError, "Unrecognized service: #{key}"
+        raise ArgumentError, t.bin.error.unrecognized_service(key)
       end
     end
 

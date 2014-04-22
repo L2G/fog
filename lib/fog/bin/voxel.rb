@@ -6,7 +6,7 @@ class Voxel < Fog::Bin
       when :compute
         Fog::Compute::Voxel
       else
-        raise ArgumentError, "Unrecognized service: #{key}"
+        raise ArgumentError, t.bin.error.unrecognized_service(key)
       end
     end
 
@@ -14,10 +14,10 @@ class Voxel < Fog::Bin
       @@connections ||= Hash.new do |hash, key|
         hash[key] = case key
         when :compute
-          Fog::Logger.warning("Voxel[:compute] is not recommended, use Compute[:voxel] for portability")
+          Fog::Logger.warning(t.bin.warning.portability('Voxel[:compute]', 'Compute[:voxel]'))
           Fog::Compute.new(:provider => 'Voxel')
         else
-          raise ArgumentError, "Unrecognized service: #{key.inspect}"
+          raise ArgumentError, t.bin.error.unrecognized_service(key.inspect)
         end
       end
       @@connections[service]

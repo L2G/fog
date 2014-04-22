@@ -6,7 +6,7 @@ module Vmfusion # deviates from other bin stuff to accomodate gem
       when :compute
         Fog::Compute::Vmfusion
       else
-        raise ArgumentError, "Unrecognized service: #{key}"
+        raise ArgumentError, t.bin.error.unrecognized_service(key)
       end
     end
 
@@ -14,10 +14,10 @@ module Vmfusion # deviates from other bin stuff to accomodate gem
       @@connections ||= Hash.new do |hash, key|
         hash[key] = case key
         when :compute
-          Fog::Logger.warning("Vmfusion[:compute] is not recommended, use Compute[:vmfusion] for portability")
+          Fog::Logger.warning(t.bin.warning.portability('Vmfusion[:compute]', 'Compute[:vmfusion]'))
           Fog::Compute.new(:provider => 'Vmfusion')
         else
-          raise ArgumentError, "Unrecognized service: #{key.inspect}"
+          raise ArgumentError, t.bin.error.unrecognized_service(key.inspect)
         end
       end
       @@connections[service]

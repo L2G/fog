@@ -6,7 +6,7 @@ class DNSimple < Fog::Bin
       when :dns
         Fog::DNS::DNSimple
       else
-        raise ArgumentError, "Unrecognized service: #{key}"
+        raise ArgumentError, t.bin.error.unrecognized_service(key)
       end
     end
 
@@ -14,10 +14,10 @@ class DNSimple < Fog::Bin
       @@connections ||= Hash.new do |hash, key|
         hash[key] = case key
         when :dns
-          Fog::Logger.warning("DNSimple[:dns] is not recommended, use DNS[:dnsimple] for portability")
+          Fog::Logger.warning(t.bin.warning.portability('DNSimple[:dns]', 'DNS[:dnsimple]'))
           Fog::DNS.new(:provider => 'DNSimple')
         else
-          raise ArgumentError, "Unrecognized service: #{key.inspect}"
+          raise ArgumentError, t.bin.error.unrecognized_service(key.inspect)
         end
       end
       @@connections[service]

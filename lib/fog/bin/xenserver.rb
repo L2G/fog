@@ -6,7 +6,7 @@ class XenServer < Fog::Bin
       when :compute
         Fog::Compute::XenServer
       else
-        raise ArgumentError, "Unrecognized service: #{key}"
+        raise ArgumentError, t.bin.error.unrecognized_service(key)
       end
     end
 
@@ -14,10 +14,10 @@ class XenServer < Fog::Bin
       @@connections ||= Hash.new do |hash, key|
         hash[key] = case key
         when :compute
-          Fog::Logger.warning("XenServer[:compute] is not recommended, use Compute[:xenserver] for portability")
+          Fog::Logger.warning(t.bin.warning.portability('XenServer[:compute]', 'Compute[:xenserver]'))
           Fog::Compute.new(:provider => 'XenServer')
         else
-          raise ArgumentError, "Unrecognized service: #{key.inspect}"
+          raise ArgumentError, t.bin.error.unrecognized_service(key.inspect)
         end
       end
       @@connections[service]

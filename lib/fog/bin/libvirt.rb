@@ -6,7 +6,7 @@ module Libvirt # deviates from other bin stuff to accomodate gem
       when :compute
         Fog::Compute::Libvirt
       else
-        raise ArgumentError, "Unrecognized service: #{key}"
+        raise ArgumentError, t.bin.error.unrecognized_service(key)
       end
     end
 
@@ -14,10 +14,10 @@ module Libvirt # deviates from other bin stuff to accomodate gem
       @@connections ||= Hash.new do |hash, key|
         hash[key] = case key
         when :compute
-          Fog::Logger.warning("Libvirt[:compute] is not recommended, use Compute[:libvirt] for portability")
+          Fog::Logger.warning(t.bin.warning.portability('Libvirt[:compute]', 'Compute[:libvirt]'))
           Fog::Compute.new(:provider => 'Libvirt')
         else
-          raise ArgumentError, "Unrecognized service: #{key.inspect}"
+          raise ArgumentError, t.bin.error.unrecognized_service(key.inspect)
         end
       end
       @@connections[service]

@@ -10,7 +10,7 @@ class Bluebox < Fog::Bin
       when :blb
         Fog::Bluebox::BLB
       else
-        raise ArgumentError, "Unsupported #{self} service: #{key}"
+        raise ArgumentError, t.bin.error.unsupported_service(self, key)
       end
     end
 
@@ -18,13 +18,14 @@ class Bluebox < Fog::Bin
       @@connections ||= Hash.new do |hash, key|
         hash[key] = case key
         when :compute
-          Fog::Logger.warning("Bluebox[:compute] is not recommended, use Compute[:bluebox] for portability")
+          Fog::Logger.warning(t.bin.warning.portability('Bluebox[:compute]',
+                                                        'Compute[:bluebox]'))
           Fog::Compute.new(:provider => 'Bluebox')
         when :dns
-          Fog::Logger.warning("Bluebox[:dns] is not recommended, use DNS[:bluebox] for portability")
+          Fog::Logger.warning(t.bin.warning.portability('Bluebox[:dns]', 'DNS[:bluebox]'))
           Fog::DNS.new(:provider => 'Bluebox')
         else
-          raise ArgumentError, "Unrecognized service: #{service}"
+          raise ArgumentError, t.bin.error.unrecognized_service(service)
         end
       end
       @@connections[service]

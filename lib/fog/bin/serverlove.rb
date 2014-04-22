@@ -6,7 +6,7 @@ class Serverlove < Fog::Bin
       when :compute
         Fog::Compute::Serverlove
       else
-        raise ArgumentError, "Unrecognized service: #{key}"
+        raise ArgumentError, t.bin.error.unrecognized_service(key)
       end
     end
 
@@ -14,10 +14,10 @@ class Serverlove < Fog::Bin
       @@connections ||= Hash.new do |hash, key|
         hash[key] = case key
         when :compute
-          Fog::Logger.warning("Serverlove[:compute] is not recommended, use Compute[:serverlove] for portability")
+          Fog::Logger.warning(t.bin.warning.portability('Serverlove[:compute]', 'Compute[:serverlove]'))
           Fog::Compute.new(:provider => 'Serverlove')
         else
-          raise ArgumentError, "Unrecognized service: #{key.inspect}"
+          raise ArgumentError, t.bin.error.unrecognized_service(key.inspect)
         end
       end
       @@connections[service]

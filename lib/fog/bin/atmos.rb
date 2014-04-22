@@ -6,7 +6,7 @@ class Atmos < Fog::Bin
       when :storage
         Fog::Storage::Atmos
       else
-        raise ArgumentError, "Unsupported #{self} service: #{key}"
+        raise ArgumentError, t.bin.error.unsupported_service(self, key)
       end
     end
 
@@ -14,10 +14,10 @@ class Atmos < Fog::Bin
       @@connections ||= Hash.new do |hash, key|
         hash[key] = case key
         when :storage
-          Fog::Logger.warning("Atmos[:storage] is not recommended, use Storage[:atmos] for portability")
+          Fog::Logger.warning(t.bin.warning.portability('Atmos[:storage]', 'Storage[:atmos]'))
           Fog::Storage.new(:provider => 'Atmos')
         else
-          raise ArgumentError, "Unrecognized service: #{service}"
+          raise ArgumentError, t.error.unrecognized_service(service)
         end
       end
       @@connections[service]

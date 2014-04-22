@@ -20,7 +20,7 @@ class OpenStack < Fog::Bin
       when :orchestration
         Fog::Orchestration::OpenStack
       else
-        raise ArgumentError, "Unrecognized service: #{key}"
+        raise ArgumentError, t.bin.error.unrecognized_service(key)
       end
     end
 
@@ -28,31 +28,31 @@ class OpenStack < Fog::Bin
       @@connections ||= Hash.new do |hash, key|
         hash[key] = case key
         when :compute
-          Fog::Logger.warning("OpenStack[:compute] is not recommended, use Compute[:openstack] for portability")
+          Fog::Logger.warning(t.bin.warning.portability('OpenStack[:compute]', 'Compute[:openstack]'))
           Fog::Compute.new(:provider => 'OpenStack')
         when :identity
-          Fog::Logger.warning("OpenStack[:identity] is not recommended, use Identity[:openstack] for portability")
+          Fog::Logger.warning(t.bin.warning.portability('OpenStack[:identity]', 'Identity[:openstack]'))
           Fog::Identity.new(:provider => 'OpenStack')
         when :image
-          Fog::Logger.warning("OpenStack[:image] is not recommended, use Image[:openstack] for portability")
+          Fog::Logger.warning(t.bin.warning.portability('OpenStack[:image]', 'Image[:openstack]'))
           Fog::Image.new(:provider => 'OpenStack')
         when :network
-          Fog::Logger.warning("OpenStack[:network] is not recommended, use Network[:openstack] for portability")
+          Fog::Logger.warning(t.bin.warning.portability('OpenStack[:network]', 'Network[:openstack]'))
           Fog::Network.new(:provider => 'OpenStack')
         when :storage
-          Fog::Logger.warning("OpenStack[:storage] is not recommended, use Storage[:openstack] for portability")
+          Fog::Logger.warning(t.bin.warning.portability('OpenStack[:storage]', 'Storage[:openstack]'))
           Fog::Storage.new(:provider => 'OpenStack')
         when :volume
-          Fog::Logger.warning("OpenStack[:volume] is not recommended, use Volume[:openstack] for portability")
+          Fog::Logger.warning(t.bin.warning.portability('OpenStack[:volume]', 'Volume[:openstack]'))
           Fog::Volume.new(:provider => 'OpenStack')
         when :metering
-          Fog::Logger.warning("OpenStack[:metering] is not recommended, use Metering[:openstack] for portability")
+          Fog::Logger.warning(t.bin.warning.portability('OpenStack[:metering]', 'Metering[:openstack]'))
           Fog::Metering.new(:provider => 'OpenStack')
         when :orchestration
-          Fog::Logger.warning("OpenStack[:orchestration] is not recommended, use Orchestration[:openstack] for portability")
+          Fog::Logger.warning(t.bin.warning.portability('OpenStack[:orchestration]', 'Orchestration[:openstack]'))
           Fog::Orchestration.new(:provider => 'OpenStack')
         else
-          raise ArgumentError, "Unrecognized service: #{key.inspect}"
+          raise ArgumentError, t.bin.error.unrecognized_service(key.inspect)
         end
       end
       @@connections[service]

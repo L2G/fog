@@ -8,7 +8,7 @@ class SakuraCloud < Fog::Bin
       when :volume
         Fog::Volume::SakuraCloud
       else
-        raise ArgumentError, "Unrecognized service: #{key}"
+        raise ArgumentError, t.bin.error.unrecognized_service(key)
       end
     end
 
@@ -16,13 +16,13 @@ class SakuraCloud < Fog::Bin
       @@connections ||= Hash.new do |hash, key|
         hash[key] = case key
         when :compute
-          Fog::Logger.warning("SakuraCloud[:compute] is not recommended, use Compute[:sakuracloud] for portability")
+          Fog::Logger.warning(t.bin.warning.portability('SakuraCloud[:compute]', 'Compute[:sakuracloud]'))
           Fog::Compute.new(:provider => 'SakuraCloud')
         when :volume
-          Fog::Logger.warning("SakuraCloud[:compute] is not recommended, use Compute[:SakuraCloud] for portability")
+          Fog::Logger.warning(t.bin.warning.portability('SakuraCloud[:compute]', 'Compute[:SakuraCloud]'))
           Fog::Compute.new(:provider => 'SakuraCloud')
         else
-          raise ArgumentError, "Unrecognized service: #{key.inspect}"
+          raise ArgumentError, t.bin.error.unrecognized_service(key.inspect)
         end
       end
       @@connections[service]

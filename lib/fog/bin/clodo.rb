@@ -6,7 +6,7 @@ class Clodo < Fog::Bin
       when :compute
         Fog::Compute::Clodo
       else
-        raise ArgumentError, "Unrecognized service: #{key}"
+        raise ArgumentError, t.bin.error.unrecognized_service(key)
       end
     end
 
@@ -17,7 +17,7 @@ class Clodo < Fog::Bin
           Formatador.display_line("[yellow][WARN] Clodo[:compute] is deprecated, use Compute[:clodo] instead[/]")
           Fog::Compute.new(:provider => 'Clodo')
         else
-          raise ArgumentError, "Unrecognized service: #{key.inspect}"
+          raise ArgumentError, t.bin.error.unrecognized_service(key.inspect)
         end
       end
       @@connections[service]

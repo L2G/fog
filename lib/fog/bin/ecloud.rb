@@ -10,7 +10,7 @@ class Ecloud < Fog::Bin
       when :compute
         Fog::Compute::Ecloud
       else
-        raise ArgumentError, "Unrecognized service: #{key}"
+        raise ArgumentError, t.bin.error.unrecognized_service(key)
       end
     end
 
@@ -18,10 +18,10 @@ class Ecloud < Fog::Bin
       @@connections ||= Hash.new do |hash, key|
         hash[key] = case key
         when :compute
-          Fog::Logger.warning("Ecloud[:compute] is not recommended, use Compute[:ecloud] for portability")
+          Fog::Logger.warning(t.bin.warning.portability('Ecloud[:compute]', 'Compute[:ecloud]'))
           Fog::Compute.new(:provider => 'Ecloud')
         else
-          raise ArgumentError, "Unrecognized service: #{key.inspect}"
+          raise ArgumentError, t.bin.error.unrecognized_service(key.inspect)
         end
       end
       @@connections[service]

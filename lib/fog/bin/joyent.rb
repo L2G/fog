@@ -8,7 +8,7 @@ class Joyent < Fog::Bin
       when :analytics
         Fog::Joyent::Analytics
       else
-        raise ArgumentError, "Unrecognized service: #{key}"
+        raise ArgumentError, t.bin.error.unrecognized_service(key)
       end
     end
 
@@ -16,12 +16,12 @@ class Joyent < Fog::Bin
       @@connections ||= Hash.new do |hash, key|
         hash[key] = case key
         when :compute
-          Fog::Logger.warning("Joyent[:compute] is not recommended, use Compute[:joyent] for portability")
+          Fog::Logger.warning(t.bin.warning.portability('Joyent[:compute]', 'Compute[:joyent]'))
           Fog::Compute.new(:provider => 'Joyent')
         when :analytics
           Fog::Joyent::Analytics.new
         else
-          raise ArgumentError, "Unrecognized service: #{key.inspect}"
+          raise ArgumentError, t.bin.error.unrecognized_service(key.inspect)
         end
       end
       @@connections[service]

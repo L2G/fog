@@ -16,13 +16,13 @@ class Ninefold < Fog::Bin
       @@connections ||= Hash.new do |hash, key|
         hash[key] = case key
         when :compute
-          Fog::Logger.warning("Ninefold[:compute] is not recommended, use Compute[:ninefold] for portability")
+          Fog::Logger.warning(t.bin.warning.portability('Ninefold[:compute]', 'Compute[:ninefold]'))
           Fog::Compute.new(:provider => 'Ninefold')
         when :storage
-          Fog::Logger.warning("Ninefold[:storage] is not recommended, use Storage[:ninefold] for portability")
+          Fog::Logger.warning(t.bin.warning.portability('Ninefold[:storage]', 'Storage[:ninefold]'))
           Fog::Storage.new(:provider => 'Ninefold')
         else
-          raise ArgumentError, "Unrecognized service: #{service}"
+          raise ArgumentError, t.bin.error.unrecognized_service(service)
         end
       end
       @@connections[service]

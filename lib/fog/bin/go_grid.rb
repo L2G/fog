@@ -14,10 +14,10 @@ class GoGrid < Fog::Bin
       @@connections ||= Hash.new do |hash, key|
         hash[key] = case key
         when :compute
-          Fog::Logger.warning("GoGrid[:compute] is not recommended, use Compute[:gogrid] for portability")
+          Fog::Logger.warning(t.bin.warning.portability('GoGrid[:compute]', 'Compute[:gogrid]'))
           Fog::Compute.new(:provider => 'GoGrid')
         else
-          raise ArgumentError, "Unrecognized service: #{key.inspect}"
+          raise ArgumentError, t.bin.error.unrecognized_service(key.inspect)
         end
       end
       @@connections[service]

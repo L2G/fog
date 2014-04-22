@@ -20,7 +20,7 @@ class HP < Fog::Bin
       when :storage
         Fog::Storage::HP
       else
-        raise ArgumentError, "Unrecognized service: #{key}"
+        raise ArgumentError, t.bin.error.unrecognized_service(key)
       end
     end
 
@@ -48,7 +48,7 @@ class HP < Fog::Bin
           Fog::Logger.warning("HP[:storage] is deprecated, use Storage[:hp] instead")
           Fog::Storage.new(:provider => 'HP')
         else
-          raise ArgumentError, "Unrecognized service: #{key.inspect}"
+          raise ArgumentError, t.bin.error.unrecognized_service(key.inspect)
         end
       end
       @@connections[service]
