@@ -57,7 +57,7 @@ AsciiComments:
 # Offense count: 581  --LINT--
 # Configuration parameters: AllowSafeAssignment.
 AssignmentInCondition:
-  Enabled: false
+  AllowSafeAssignment: true
 
 # Offense count: 3
 # Cop supports --auto-correct.
