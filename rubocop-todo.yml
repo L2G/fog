@@ -526,11 +526,6 @@ SpaceInsideParens:
 SpecialGlobalVars:
   Enabled: false
 
-# Offense count: 92  --LINT--
-# Cop supports --auto-correct.
-StringConversionInInterpolation:
-  Enabled: false
-
 # Offense count: 18307
 # Cop supports --auto-correct.
 # Configuration parameters: EnforcedStyle, SupportedStyles.
