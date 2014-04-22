@@ -464,11 +464,6 @@ SpaceAfterNot:
 SpaceAroundEqualsInParameterDefault:
   Enabled: false
 
-# Offense count: 4376
-# Cop supports --auto-correct.
-SpaceAroundOperators:
-  Enabled: false
-
 # Offense count: 433
 # Cop supports --auto-correct.
 # Configuration parameters: EnforcedStyle, SupportedStyles.
