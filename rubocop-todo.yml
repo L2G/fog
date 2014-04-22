@@ -513,10 +513,6 @@ SpecialGlobalVars:
 StringLiterals:
   Enabled: false
 
-# Offense count: 195
-Tab:
-  Enabled: false
-
 # Offense count: 219
 # Cop supports --auto-correct.
 TrailingBlankLines:
@@ -525,11 +521,6 @@ TrailingBlankLines:
 # Offense count: 565
 # Configuration parameters: EnforcedStyleForMultiline, SupportedStyles.
 TrailingComma:
-  Enabled: false
-
-# Offense count: 829
-# Cop supports --auto-correct.
-TrailingWhitespace:
   Enabled: false
 
 # Offense count: 125
