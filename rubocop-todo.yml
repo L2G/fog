@@ -38,10 +38,6 @@ AlignParameters:
   Enabled: false
 
 # Offense count: 2  --LINT--
-AmbiguousOperator:
-  Enabled: false
-
-# Offense count: 4  --LINT--
 AmbiguousRegexpLiteral:
   Enabled: false
 
