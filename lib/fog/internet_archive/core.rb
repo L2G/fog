@@ -78,17 +78,17 @@ module Fog
     end
 
     def self.signed_params(params, options = {})
-      params.merge!({
+      params.merge!(
         'AWSAccessKeyId'    => options[:ia_access_key_id],
         'SignatureMethod'   => 'HmacSHA256',
         'SignatureVersion'  => '2',
         'Timestamp'         => Time.now.utc.strftime('%Y-%m-%dT%H:%M:%SZ'),
         'Version'           => options[:version]
-      })
+      )
 
-      params.merge!({
+      params.merge!(
         'SecurityToken'     => options[:ia_session_token]
-      }) if options[:ia_session_token]
+      ) if options[:ia_session_token]
 
       body = ''
       for key in params.keys.sort

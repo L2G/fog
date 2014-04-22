@@ -52,14 +52,14 @@ module Fog
           unless bucket_name
             raise ArgumentError.new('bucket_name is required')
           end
-          request({
+          request(
             :expects  => 200,
             :headers  => {},
             :bucket_name => bucket_name,
             :idempotent => true,
             :method   => 'GET',
             :parser   => Fog::Parsers::Storage::AWS::GetBucketObjectVersions.new,
-            :query    => {'versions' => nil}.merge!(options)          })
+            :query    => {'versions' => nil}.merge!(options)          )
         end
 
       end
@@ -110,11 +110,11 @@ module Fog
 
                 data = {}
                 data[tag_name] = object.reject { |key, value| !extracted_attrs.include?(key) }
-                data[tag_name].merge!({
+                data[tag_name].merge!(
                   'LastModified' => Time.parse(object['Last-Modified']),
                   'Owner'        => bucket['Owner'],
                   'IsLatest'     => object == bucket[:objects][object['Key']].first
-                })
+                )
 
                 data[tag_name]['Size'] = object['Content-Length'].to_i if tag_name == 'Version'
               data

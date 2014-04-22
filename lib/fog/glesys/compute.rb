@@ -83,7 +83,7 @@ module Fog
 
         def request(method_name, options = {})
 
-          options.merge!( {:format => 'json'})
+          options.merge!( :format => 'json')
 
           begin
             parser = options.delete(:parser)

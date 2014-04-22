@@ -107,7 +107,7 @@ module Fog
           if block_device_mapping = options.delete('BlockDeviceMapping')
             block_device_mapping.each_with_index do |mapping, index|
               for key, value in mapping
-                options.merge!({ format("BlockDeviceMapping.%d.#{key}", index) => value })
+                options.merge!( format("BlockDeviceMapping.%d.#{key}", index) => value )
               end
             end
           end
@@ -128,7 +128,7 @@ module Fog
                 when 'SecurityGroupId'
                   options.merge!(Fog::AWS.indexed_param("#{iface}.SecurityGroupId", [*value]))
                 else
-                  options.merge!({ "#{iface}.#{key}" => value })
+                  options.merge!( "#{iface}.#{key}" => value )
                 end
               end
             end
@@ -234,7 +234,7 @@ module Fog
               'virtualizationType'  => 'paravirtual'
             }
             instances_set << instance
-            self.data[:instances][instance_id] = instance.merge({
+            self.data[:instances][instance_id] = instance.merge(
               'groupIds'            => [],
               'groupSet'            => group_set,
               'iamInstanceProfile'  => {},
@@ -243,7 +243,7 @@ module Fog
               'privateIpAddress'    => nil,
               'reservationId'       => reservation_id,
               'stateReason'         => {}
-            })
+            )
           end
           response.body = {
             'groupSet'      => group_set,

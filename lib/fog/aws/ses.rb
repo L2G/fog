@@ -106,7 +106,7 @@ module Fog
           body.chop! # remove trailing '&'
 
           begin
-            response = @connection.request({
+            response = @connection.request(
               :body       => body,
               :expects    => 200,
               :headers    => headers,
@@ -114,7 +114,7 @@ module Fog
               :host       => @host,
               :method     => 'POST',
               :parser     => parser
-            })
+            )
           rescue Excon::Errors::HTTPStatusError => error
             match = Fog::AWS::Errors.match_error(error)
             raise if match.empty?

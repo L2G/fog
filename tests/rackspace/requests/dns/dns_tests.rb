@@ -4,7 +4,7 @@ Shindo.tests('Fog::DNS[:rackspace] | DNS requests', ['rackspace', 'dns']) do
   domain_name = uniq_id + '.com'
 
   tests('success on simple domain') do
-    domain_tests(Fog::DNS[:rackspace], {:name => domain_name, :email => 'hostmaster@' + domain_name, :records => [{:ttl => 300, :name => domain_name, :type => 'A', :data => '192.168.1.1'}]}) do
+    domain_tests(Fog::DNS[:rackspace], :name => domain_name, :email => 'hostmaster@' + domain_name, :records => [{:ttl => 300, :name => domain_name, :type => 'A', :data => '192.168.1.1'}]) do
 
       tests('list_domains').formats(LIST_DOMAIN_FORMAT.reject {|key,value| key == 'links'}) do
         Fog::DNS[:rackspace].list_domains.body
@@ -27,26 +27,26 @@ Shindo.tests('Fog::DNS[:rackspace] | DNS requests', ['rackspace', 'dns']) do
 
   tests('success for domain with multiple records') do
     domain_tests(Fog::DNS[:rackspace],
-                 {
-                   :name => domain_name,
-                   :email => 'hostmaster@' + domain_name,
-                   :records =>
-                     [
-                       {
-                         :ttl => 300,
-                         :name => domain_name,
-                         :type => 'A',
-                         :data => '192.168.1.1'
-                       },
-                       {
-                         :ttl => 3600,
-                         :name => domain_name,
-                         :type => 'MX',
-                         :data => 'mx.' + domain_name,
-                         :priority => 10
-                       }
-                     ]
-                 })
+
+                 :name => domain_name,
+                 :email => 'hostmaster@' + domain_name,
+                 :records =>
+                   [
+                     {
+                       :ttl => 300,
+                       :name => domain_name,
+                       :type => 'A',
+                       :data => '192.168.1.1'
+                     },
+                     {
+                       :ttl => 3600,
+                       :name => domain_name,
+                       :type => 'MX',
+                       :data => 'mx.' + domain_name,
+                       :priority => 10
+                     }
+                   ]
+                 )
   end
 
   tests('success for multiple domains') do

@@ -25,7 +25,7 @@ module Fog
                   }
 
                   if record.has_key? :priority
-                    record_data.merge!({'priority' => record[:priority]})
+                    record_data.merge!('priority' => record[:priority])
                   else
                     record_data
                   end

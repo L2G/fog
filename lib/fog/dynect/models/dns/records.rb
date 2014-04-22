@@ -45,12 +45,12 @@ module Fog
           type = t.gsub(/Record$/, '')
           record = service.get_record(type, zone.domain, fqdn, 'record_id' => id).body['data']
 
-          new({
+          new(
             :identity => record['record_id'],
             :fqdn => record['fqdn'],
             :type => record['record_type'],
             :rdata => record['rdata']
-          })
+          )
         end
 
         def new(attributes = {})

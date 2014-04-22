@@ -1,5 +1,5 @@
 def test
-  connection = Fog::Compute.new({ :provider => 'Google' })
+  connection = Fog::Compute.new( :provider => 'Google' )
 
   # puts 'Listing images in all projects...'
   # puts '---------------------------------'

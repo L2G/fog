@@ -27,11 +27,11 @@ Shindo.tests('Fog::Compute[:aws] | vpc requests', ['aws']) do
     end
 
     tests("#modify_vpc_attribute('#{@vpc_id}', {'EnableDnsSupport.Value' => true})").formats(AWS::Compute::Formats::BASIC) do
-      Fog::Compute[:aws].modify_vpc_attribute(@vpc_id, {'EnableDnsSupport.Value' => true}).body
+      Fog::Compute[:aws].modify_vpc_attribute(@vpc_id, 'EnableDnsSupport.Value' => true).body
     end
 
     tests("#modify_vpc_attribute('#{@vpc_id}', {'EnableDnsHostnames.Value' => true})").formats(AWS::Compute::Formats::BASIC) do
-      Fog::Compute[:aws].modify_vpc_attribute(@vpc_id, {'EnableDnsHostnames.Value' => true}).body
+      Fog::Compute[:aws].modify_vpc_attribute(@vpc_id, 'EnableDnsHostnames.Value' => true).body
     end
 
     tests("#modify_vpc_attribute('#{@vpc_id}')").raises(Fog::Compute::AWS::Error) do
@@ -39,7 +39,7 @@ Shindo.tests('Fog::Compute[:aws] | vpc requests', ['aws']) do
     end
 
     tests("#modify_vpc_attribute('#{@vpc_id}', {'EnableDnsSupport.Value' => true, 'EnableDnsHostnames.Value' => true})").raises(Fog::Compute::AWS::Error) do
-      Fog::Compute[:aws].modify_vpc_attribute(@vpc_id, {'EnableDnsSupport.Value' => true, 'EnableDnsHostnames.Value' => true}).body
+      Fog::Compute[:aws].modify_vpc_attribute(@vpc_id, 'EnableDnsSupport.Value' => true, 'EnableDnsHostnames.Value' => true).body
     end
 
     tests("#delete_vpc('#{@vpc_id}')").formats(AWS::Compute::Formats::BASIC) do

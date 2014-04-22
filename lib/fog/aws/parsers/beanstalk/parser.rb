@@ -39,10 +39,10 @@ module Fog
               end
             elsif @list_tags.has_key?(name)
               set_value(name, [], :array) # Set an empty array
-              @parse_stack.push({ :type => @tags[name], :value => get_parent[name] })
+              @parse_stack.push( :type => @tags[name], :value => get_parent[name] )
             elsif @tags[name] == :object
               set_value(name, {}, :object)
-              @parse_stack.push({ :type => @tags[name], :value => get_parent[name] })
+              @parse_stack.push( :type => @tags[name], :value => get_parent[name] )
             end
           end
 

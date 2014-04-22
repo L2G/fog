@@ -20,7 +20,7 @@ module Fog
         end
 
         def create(key,value)
-          response = service.post_update_vapp_metadata(vm.id, { key => value} )
+          response = service.post_update_vapp_metadata(vm.id,  key => value )
           service.process_task(response.body)
         end
 

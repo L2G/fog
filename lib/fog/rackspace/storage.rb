@@ -155,10 +155,10 @@ module Fog
           #   container, plus additional headers indicating the container's
           #   size.
           def to_headers
-            @meta.merge({
+            @meta.merge(
               'X-Container-Object-Count' => @objects.size,
               'X-Container-Bytes-Used' => bytes_used
-            })
+            )
           end
 
           # Access a MockObject within this container by (unescaped) name.

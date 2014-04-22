@@ -89,9 +89,9 @@ module Fog
         def request(params)
           params[:headers] ||= {}
           key = "#{@zerigo_email}:#{@zerigo_token}"
-          params[:headers].merge!({
+          params[:headers].merge!(
             'Authorization' => "Basic #{Base64.encode64(key).delete("\r\n")}"
-          })
+          )
           case params[:method]
           when 'DELETE', 'GET', 'HEAD'
             params[:headers]['Accept'] = 'application/xml'
@@ -100,7 +100,7 @@ module Fog
           end
 
           begin
-            response = @connection.request(params.merge!({:host => @host}))
+            response = @connection.request(params.merge!(:host => @host))
           rescue Excon::Errors::HTTPStatusError => error
             raise case error
             when Excon::Errors::NotFound

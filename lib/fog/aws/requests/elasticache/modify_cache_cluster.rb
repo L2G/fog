@@ -88,9 +88,9 @@ module Fog
             pending_values['CacheNodeId'] = options[:nodes_to_remove].join(',')
           end
           response.body = {
-            'CacheCluster' => cluster.merge({
+            'CacheCluster' => cluster.merge(
               'PendingModifiedValues' => pending_values
-            }),
+            ),
             'ResponseMetadata' => { 'RequestId' => Fog::AWS::Mock.request_id }
           }
           response

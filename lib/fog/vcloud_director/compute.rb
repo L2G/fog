@@ -394,7 +394,7 @@ module Fog
           else
             path = "#{@path}"
           end
-          @connection.request({
+          @connection.request(
             :body       => params[:body],
             :expects    => params[:expects],
             :headers    => headers.merge!(params[:headers] || {}),
@@ -403,7 +403,7 @@ module Fog
             :parser     => params[:parser],
             :path       => path,
             :query      => params[:query]
-          })
+          )
         rescue Excon::Errors::HTTPStatusError => error
           raise case error
           when Excon::Errors::BadRequest   then BadRequest.slurp(error);

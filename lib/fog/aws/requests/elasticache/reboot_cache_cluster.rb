@@ -38,9 +38,9 @@ module Fog
         def reboot_cache_cluster(id, nodes_to_reboot)
           response        = Excon::Response.new
           response.body   = {
-            'CacheCluster' => self.data[:clusters][id].merge({
+            'CacheCluster' => self.data[:clusters][id].merge(
               'CacheClusterStatus' => 'rebooting cache cluster nodes'
-            }),
+            ),
             'ResponseMetadata'  => { 'RequestId' => Fog::AWS::Mock.request_id }
           }
           response

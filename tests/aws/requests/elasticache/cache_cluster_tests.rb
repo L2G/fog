@@ -99,11 +99,11 @@ Shindo.tests('AWS::Elasticache | cache cluster requests', ['aws', 'elasticache']
       Formatador.display_line "Removing node #{node_id}..."
       body = AWS[:elasticache]
                .modify_cache_cluster(c.id,
-                                     {
-                                       :num_nodes          => NUM_NODES - 1,
-                                       :nodes_to_remove    => [node_id],
-                                       :apply_immediately  => true,
-                                     }).body
+
+                                     :num_nodes          => NUM_NODES - 1,
+                                     :nodes_to_remove    => [node_id],
+                                     :apply_immediately  => true
+                                     ).body
       returns(node_id) {
         body['CacheCluster']['PendingModifiedValues']['CacheNodeId']
       }

@@ -3,7 +3,7 @@ module Fog
     class Provisioning
       class Real
         def create_user(email, name, options = {})
-          payload = Fog::JSON.encode({ :email => email, :name => name })
+          payload = Fog::JSON.encode( :email => email, :name => name )
           headers = { 'Content-Type' => 'application/json' }
 
           if(options[:anonymous])

@@ -18,12 +18,12 @@ module Fog
         #
         # {Amazon API Reference}[http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-ReplaceNetworkAclAssociation.html]
         def replace_network_acl_association(association_id, network_acl_id)
-          request({
+          request(
             'Action'        => 'ReplaceNetworkAclAssociation',
             'AssociationId' => association_id,
             'NetworkAclId'  => network_acl_id,
             :parser         => Fog::Parsers::Compute::AWS::ReplaceNetworkAclAssociation.new
-          })
+          )
         end
       end
 

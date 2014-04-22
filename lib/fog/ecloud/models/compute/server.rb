@@ -211,9 +211,9 @@ module Fog
           slice_networks = if slice_ips.empty?
                              []
                            else
-                             ips.map { |ip| {:href => ip.network.href, :name => ip.network.name.split(' ')[0], :type => ip.network.type} }.push({:href => options[:href], :name => options[:network_name], :type => 'application/vnd.tmrk.cloud.network'}).uniq
+                             ips.map { |ip| {:href => ip.network.href, :name => ip.network.name.split(' ')[0], :type => ip.network.type} }.push(:href => options[:href], :name => options[:network_name], :type => 'application/vnd.tmrk.cloud.network').uniq
                            end
-          slice_ips = slice_ips.map { |i| {:name => i.address.name, :network_name => i.network.name} }.push({:name => options[:ip], :network_name => options[:network_name]}).uniq
+          slice_ips = slice_ips.map { |i| {:name => i.address.name, :network_name => i.network.name} }.push(:name => options[:ip], :network_name => options[:network_name]).uniq
           slice_ips.each do |ip|
             slice_networks.each do |network|
               if network[:name] == ip[:network_name]

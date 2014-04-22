@@ -59,7 +59,7 @@ Shindo.tests('Fog::Compute[:aws] | network interface requests', ['aws']) do
 
     DESCRIPTION = 'Small and green'
     tests("#create_network_interface(#{@subnet_id})").formats(@network_interface_create_format) do
-      data = Fog::Compute[:aws].create_network_interface(@subnet_id, {'PrivateIpAddress' => '10.0.10.23'}).body
+      data = Fog::Compute[:aws].create_network_interface(@subnet_id, 'PrivateIpAddress' => '10.0.10.23').body
       @nic_id = data['networkInterface']['networkInterfaceId']
       data
     end
@@ -100,7 +100,7 @@ Shindo.tests('Fog::Compute[:aws] | network interface requests', ['aws']) do
     tests("#modify_network_interface_attribute(#{@nic_id}, 'groupSet', [#{@security_group_id}])").returns(true) do
       Fog::Compute[:aws].modify_network_interface_attribute(@nic_id, 'groupSet', [@security_group_id]).body['return']
     end
-    tests("#describe_network_interface_attribute(#{@nic_id}, 'groupSet')").returns({ @security_group_id => 'sg_name' }) do
+    tests("#describe_network_interface_attribute(#{@nic_id}, 'groupSet')").returns( @security_group_id => 'sg_name' ) do
       Fog::Compute[:aws].describe_network_interface_attribute(@nic_id, 'groupSet').body['groupSet']
     end
 
@@ -118,7 +118,7 @@ Shindo.tests('Fog::Compute[:aws] | network interface requests', ['aws']) do
       Fog::Compute[:aws].describe_network_interface_attribute(@nic_id, 'sourceDestCheck').body['sourceDestCheck']
     end
 
-    @server = Fog::Compute[:aws].servers.create({:flavor_id => 'm1.small', :subnet_id => @subnet_id })
+    @server = Fog::Compute[:aws].servers.create(:flavor_id => 'm1.small', :subnet_id => @subnet_id )
     @server.wait_for { ready? }
     @instance_id = @server.id
 
@@ -161,7 +161,7 @@ Shindo.tests('Fog::Compute[:aws] | network interface requests', ['aws']) do
     tests("#describe_network_interface_attribute(#{@nic2_id}, 'description')").returns(DESCRIPTION) do
       Fog::Compute[:aws].describe_network_interface_attribute(@nic2_id, 'description').body['description']
     end
-    tests("#describe_network_interface_attribute(#{@nic2_id}, 'groupSet')").returns({ @security_group_id => @security_groups }) do
+    tests("#describe_network_interface_attribute(#{@nic2_id}, 'groupSet')").returns( @security_group_id => @security_groups ) do
       Fog::Compute[:aws].describe_network_interface_attribute(@nic2_id, 'groupSet').body['groupSet']
     end
 

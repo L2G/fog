@@ -106,7 +106,7 @@ module Fog
             'DescribeLoadBalancersResult' => {
               'LoadBalancerDescriptions' => load_balancers.map do |lb|
                 lb['Instances'] = lb['Instances'].map { |i| i['InstanceId'] }
-                lb['Policies'] = lb['Policies']['Proper'].inject({'AppCookieStickinessPolicies' => [], 'LBCookieStickinessPolicies' => [], 'OtherPolicies' => []}) { |m, policy|
+                lb['Policies'] = lb['Policies']['Proper'].inject('AppCookieStickinessPolicies' => [], 'LBCookieStickinessPolicies' => [], 'OtherPolicies' => []) { |m, policy|
                   case policy['PolicyTypeName']
                   when 'AppCookieStickinessPolicyType'
                     cookie_name = policy['PolicyAttributeDescriptions'].detect{|h| h['AttributeName'] == 'CookieName'}['AttributeValue']

@@ -147,7 +147,7 @@ Shindo.tests('Fog::Storage[:internetarchive] | bucket requests', ['internetarchi
       Fog::Storage[:internetarchive].get_bucket_acl(@ia_bucket_name).body
     end
 
-    tests("#put_bucket_acl('#{@ia_bucket_name}', hash with email)").returns({
+    tests("#put_bucket_acl('#{@ia_bucket_name}', hash with email)").returns(
         'Owner' => @aws_owner,
         'AccessControlList' => [
           {
@@ -155,17 +155,17 @@ Shindo.tests('Fog::Storage[:internetarchive] | bucket requests', ['internetarchi
             'Permission' => 'FULL_CONTROL'
           }
         ]
-    }) do
+    ) do
       pending if Fog.mocking?
-      Fog::Storage[:internetarchive].put_bucket_acl(@ia_bucket_name, {
-        'Owner' => @aws_owner,
-        'AccessControlList' => [
-          {
-            'Grantee' => { 'EmailAddress' => 'mtd@amazon.com' },
-            'Permission' => 'FULL_CONTROL'
-          }
-        ]
-      })
+      Fog::Storage[:internetarchive].put_bucket_acl(@ia_bucket_name,
+                                                    'Owner' => @aws_owner,
+                                                    'AccessControlList' => [
+                                                      {
+                                                        'Grantee' => { 'EmailAddress' => 'mtd@amazon.com' },
+                                                        'Permission' => 'FULL_CONTROL'
+                                                      }
+                                                    ]
+      )
       Fog::Storage[:internetarchive].get_bucket_acl(@ia_bucket_name).body
     end
 

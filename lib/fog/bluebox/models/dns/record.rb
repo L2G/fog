@@ -37,7 +37,7 @@ module Fog
             unless identity
               service.create_record(zone.identity, type, name, value)
             else
-              service.update_record(zone.identity, identity, {:type => type, :name => name, :content => value})
+              service.update_record(zone.identity, identity, :type => type, :name => name, :content => value)
             end
           merge_attributes(data.body)
           true

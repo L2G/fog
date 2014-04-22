@@ -67,7 +67,7 @@ module Fog
       @openstack_api_key  = options[:openstack_api_key]
       @openstack_username = options[:openstack_username]
 
-      response = connection.request({
+      response = connection.request(
         :expects  => [200, 204],
         :headers  => {
           'X-Auth-Key'  => @openstack_api_key,
@@ -75,7 +75,7 @@ module Fog
         },
         :method   => 'GET',
         :path     =>  (uri.path and not uri.path.empty?) ? uri.path : 'v1.0'
-      })
+      )
 
       return {
         :token => response.headers['X-Auth-Token'],
@@ -102,13 +102,13 @@ module Fog
       unless service
         unless tenant_name
           response = Fog::Core::Connection.new(
-            "#{uri.scheme}://#{uri.host}:#{uri.port}/v2.0/tenants", false, connection_options).request({
+            "#{uri.scheme}://#{uri.host}:#{uri.port}/v2.0/tenants", false, connection_options).request(
             :expects => [200, 204],
             :headers => {'Content-Type' => 'application/json',
                          'Accept' => 'application/json',
                          'X-Auth-Token' => body['access']['token']['id']},
             :method  => 'GET'
-          })
+          )
 
           body = Fog::JSON.decode(response.body)
           if body['tenants'].empty?
@@ -200,26 +200,26 @@ module Fog
       end
       request_body[:auth][:tenantName] = tenant_name if tenant_name
 
-      response = connection.request({
+      response = connection.request(
         :expects  => [200, 204],
         :headers  => {'Content-Type' => 'application/json'},
         :body     => Fog::JSON.encode(request_body),
         :method   => 'POST',
         :path     => (uri.path and not uri.path.empty?) ? uri.path : 'v2.0'
-      })
+      )
 
       Fog::JSON.decode(response.body)
     end
 
     def self.get_supported_version(supported_versions, uri, auth_token, connection_options = {})
       connection = Fog::Core::Connection.new("#{uri.scheme}://#{uri.host}:#{uri.port}", false, connection_options)
-      response = connection.request({
+      response = connection.request(
         :expects => [200, 204, 300],
         :headers => {'Content-Type' => 'application/json',
                      'Accept' => 'application/json',
                      'X-Auth-Token' => auth_token},
         :method  => 'GET'
-      })
+      )
 
       body = Fog::JSON.decode(response.body)
       version = nil

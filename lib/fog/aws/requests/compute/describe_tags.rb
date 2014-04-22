@@ -63,10 +63,10 @@ module Fog
           tag_set.each do |key, values|
             values.each do |value, resources|
               resources.each do |resource|
-                tagged_resources << resource.merge({
+                tagged_resources << resource.merge(
                   'key' => key,
                   'value' => value
-                })
+                )
               end
             end
           end

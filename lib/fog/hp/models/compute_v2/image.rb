@@ -20,10 +20,10 @@ module Fog
 
         def metadata
           @metadata ||= begin
-            Fog::Compute::HPV2::Metadata.new({
+            Fog::Compute::HPV2::Metadata.new(
               :service => service,
               :parent => self
-            })
+            )
           end
         end
 

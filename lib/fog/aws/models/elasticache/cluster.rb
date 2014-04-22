@@ -54,22 +54,22 @@ module Fog
           notification_config ||= Hash.new
 
           service.create_cache_cluster(
-            id, {
-              :node_type                    => node_type,
-              :security_group_names         => security_groups,
-              :num_nodes                    => num_nodes,
-              :auto_minor_version_upgrade   => auto_upgrade,
-              :engine                       => engine,
-              :engine_version               => engine_version,
-              :notification_topic_arn       => notification_config['TopicArn'],
-              :port                         => port,
-              :preferred_availablility_zone => zone,
-              :preferred_maintenance_window => maintenance_window,
-              :s3_snapshot_location         => s3_snapshot_location,
-              :parameter_group_name         => parameter_group_name || parameter_group['CacheParameterGroupName'],
-              :cache_subnet_group_name      => cache_subnet_group_name,
-              :vpc_security_groups          => vpc_security_groups,
-            }
+            id,
+            :node_type                    => node_type,
+            :security_group_names         => security_groups,
+            :num_nodes                    => num_nodes,
+            :auto_minor_version_upgrade   => auto_upgrade,
+            :engine                       => engine,
+            :engine_version               => engine_version,
+            :notification_topic_arn       => notification_config['TopicArn'],
+            :port                         => port,
+            :preferred_availablility_zone => zone,
+            :preferred_maintenance_window => maintenance_window,
+            :s3_snapshot_location         => s3_snapshot_location,
+            :parameter_group_name         => parameter_group_name || parameter_group['CacheParameterGroupName'],
+            :cache_subnet_group_name      => cache_subnet_group_name,
+            :vpc_security_groups          => vpc_security_groups
+
           )
         end
 

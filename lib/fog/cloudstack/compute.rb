@@ -148,7 +148,7 @@ module Fog
           @path                         = options[:cloudstack_path]    || '/client/api'
           @port                         = options[:cloudstack_port]    || 443
           @scheme                       = options[:cloudstack_scheme]  || 'https'
-          @connection = Fog::XML::Connection.new("#{@scheme}://#{@host}:#{@port}#{@path}", options[:cloudstack_persistent], {:ssl_verify_peer => false})
+          @connection = Fog::XML::Connection.new("#{@scheme}://#{@host}:#{@port}#{@path}", options[:cloudstack_persistent], :ssl_verify_peer => false)
         end
 
         def reload
@@ -156,13 +156,13 @@ module Fog
         end
 
         def login(username,password,domain)
-          response = issue_request({
+          response = issue_request(
             'response' => 'json',
             'command'  => 'login',
             'username' => username,
             'password' => Digest::MD5.hexdigest(password),
             'domain'   => domain
-          })
+          )
 
           # Parse response cookies to retrive JSESSIONID token
           cookies   = CGI::Cookie.parse(response.headers['Set-Cookie'])
@@ -221,19 +221,19 @@ module Fog
           # sign the request parameters
           signature = Fog::Cloudstack.signed_params(@cloudstack_secret_access_key,params)
           # merge signature into request param
-          params.merge!({'signature' => signature})
+          params.merge!('signature' => signature)
 
           return params, headers
         end
 
         def issue_request(params = {},headers = {},method = 'GET',expects = 200)
           begin
-            @connection.request({
+            @connection.request(
               :query => params,
               :headers => headers,
               :method => method,
               :expects => expects
-            })
+            )
 
           rescue Excon::Errors::HTTPStatusError => error
             error_response = Fog::JSON.decode(error.response.body)

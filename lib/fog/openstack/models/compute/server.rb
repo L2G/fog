@@ -70,10 +70,10 @@ module Fog
 
         def metadata
           @metadata ||= begin
-            Fog::Compute::OpenStack::Metadata.new({
+            Fog::Compute::OpenStack::Metadata.new(
               :service => service,
               :parent => self
-            })
+            )
           end
         end
 
@@ -214,7 +214,7 @@ module Fog
           groups = service.list_security_groups(id).body['security_groups']
 
           groups.map do |group|
-            Fog::Compute::OpenStack::SecurityGroup.new group.merge({:service => service})
+            Fog::Compute::OpenStack::SecurityGroup.new group.merge(:service => service)
           end
         end
 

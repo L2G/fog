@@ -41,7 +41,7 @@ module Fog
           unless bucket_name
             raise ArgumentError.new('bucket_name is required')
           end
-          request({
+          request(
             :expects  => 200,
             :headers  => {},
             :host     => "#{bucket_name}.#{@host}",
@@ -49,7 +49,7 @@ module Fog
             :method   => 'GET',
             :parser   => Fog::Parsers::Storage::InternetArchive::GetBucket.new,
             :query    => options
-          })
+          )
         end
 
       end
@@ -74,11 +74,11 @@ module Fog
                 object.has_key?(:delete_marker)
               end.map do |object|
                 data = object.reject {|key, value| !['ETag', 'Key', 'StorageClass'].include?(key)}
-                data.merge!({
+                data.merge!(
                   'LastModified' => Time.parse(object['Last-Modified']),
                   'Owner'        => bucket['Owner'],
                   'Size'         => object['Content-Length'].to_i
-                })
+                )
               data
             end
             max_keys = max_keys || 1000

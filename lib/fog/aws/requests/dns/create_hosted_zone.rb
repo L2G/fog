@@ -43,13 +43,13 @@ module Fog
             optional_tags += "<HostedZoneConfig><Comment>#{options[:comment]}</Comment></HostedZoneConfig>"
           end
 
-          request({
+          request(
             :body    => %Q{<?xml version="1.0" encoding="UTF-8"?><CreateHostedZoneRequest xmlns="https://route53.amazonaws.com/doc/#{@version}/"><Name>#{name}</Name>#{optional_tags}</CreateHostedZoneRequest>},
             :parser  => Fog::Parsers::DNS::AWS::CreateHostedZone.new,
             :expects => 201,
             :method  => 'POST',
             :path    => 'hostedzone'
-          })
+          )
 
         end
 

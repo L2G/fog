@@ -27,7 +27,7 @@ Shindo.tests('AWS::ELB | policy_tests', ['aws', 'elb']) do
 
     tests('#create_load_balancer_policy').formats(AWS::ELB::Formats::BASIC) do
       policy = 'fog-policy'
-      Fog::AWS[:elb].create_load_balancer_policy(@load_balancer_id, policy, 'PublicKeyPolicyType', {'PublicKey' => AWS::IAM::SERVER_CERT_PUBLIC_KEY}).body
+      Fog::AWS[:elb].create_load_balancer_policy(@load_balancer_id, policy, 'PublicKeyPolicyType', 'PublicKey' => AWS::IAM::SERVER_CERT_PUBLIC_KEY).body
     end
 
     tests('#describe_load_balancer_policies') do
@@ -35,47 +35,47 @@ Shindo.tests('AWS::ELB | policy_tests', ['aws', 'elb']) do
       formats(AWS::ELB::Formats::DESCRIBE_LOAD_BALANCER_POLICIES) { body }
 
       # Check the result of each policy by name
-      returns({
+      returns(
                 'PolicyAttributeDescriptions' => [{
                                                   'AttributeName' => 'CookieName',
                                                   'AttributeValue' => 'fog-app-cookie'
                                                 }],
                 'PolicyName' => 'fog-app-policy',
                 'PolicyTypeName' => 'AppCookieStickinessPolicyType'
-              }) do
+              ) do
         body['DescribeLoadBalancerPoliciesResult']['PolicyDescriptions'].detect{|e| e['PolicyName'] == 'fog-app-policy' }
       end
 
-      returns({
+      returns(
                 'PolicyAttributeDescriptions' => [{
                                                   'AttributeName' => 'CookieExpirationPeriod',
                                                   'AttributeValue' => '300'
                                                 }],
                 'PolicyName' => 'fog-lb-expiry',
                 'PolicyTypeName' => 'LBCookieStickinessPolicyType'
-              }) do
+              ) do
         body['DescribeLoadBalancerPoliciesResult']['PolicyDescriptions'].detect{|e| e['PolicyName'] == 'fog-lb-expiry' }
       end
 
-      returns({
+      returns(
                 'PolicyAttributeDescriptions' => [{
                                                   'AttributeName' => 'CookieExpirationPeriod',
                                                   'AttributeValue' => '0'
                                                 }],
                 'PolicyName' => 'fog-lb-no-expiry',
                 'PolicyTypeName' => 'LBCookieStickinessPolicyType'
-              }) do
+              ) do
         body['DescribeLoadBalancerPoliciesResult']['PolicyDescriptions'].detect{|e| e['PolicyName'] == 'fog-lb-no-expiry' }
       end
 
-      returns({
+      returns(
                 'PolicyAttributeDescriptions' => [{
                                                   'AttributeName' => 'PublicKey',
                                                   'AttributeValue' => AWS::IAM::SERVER_CERT_PUBLIC_KEY
                                                 }],
                 'PolicyName' => 'fog-policy',
                 'PolicyTypeName' => 'PublicKeyPolicyType'
-              }) do
+              ) do
         body['DescribeLoadBalancerPoliciesResult']['PolicyDescriptions'].detect{|e| e['PolicyName'] == 'fog-policy' }
       end
     end
@@ -115,7 +115,7 @@ Shindo.tests('AWS::ELB | policy_tests', ['aws', 'elb']) do
     end
 
     proxy_policy = 'EnableProxyProtocol'
-    Fog::AWS[:elb].create_load_balancer_policy(@load_balancer_id, proxy_policy, 'ProxyProtocolPolicyType', { 'ProxyProtocol' => true })
+    Fog::AWS[:elb].create_load_balancer_policy(@load_balancer_id, proxy_policy, 'ProxyProtocolPolicyType',  'ProxyProtocol' => true )
 
     tests('#set_load_balancer_policies_for_backend_server replaces policies on port').formats(AWS::ELB::Formats::BASIC) do
       Fog::AWS[:elb].set_load_balancer_policies_for_backend_server(@load_balancer_id, 80, [proxy_policy]).body

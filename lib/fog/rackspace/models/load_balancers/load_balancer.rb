@@ -38,9 +38,9 @@ module Fog
 
         def access_rules
           @access_rules ||= begin
-            Fog::Rackspace::LoadBalancers::AccessRules.new({
+            Fog::Rackspace::LoadBalancers::AccessRules.new(
               :service => service,
-              :load_balancer => self})
+              :load_balancer => self)
           end
         end
 
@@ -50,9 +50,9 @@ module Fog
 
         def nodes
           @nodes ||= begin
-            Fog::Rackspace::LoadBalancers::Nodes.new({
+            Fog::Rackspace::LoadBalancers::Nodes.new(
               :service => service,
-              :load_balancer => self})
+              :load_balancer => self)
           end
         end
 
@@ -79,9 +79,9 @@ module Fog
 
         def virtual_ips
           @virtual_ips ||= begin
-            Fog::Rackspace::LoadBalancers::VirtualIps.new({
+            Fog::Rackspace::LoadBalancers::VirtualIps.new(
               :service => service,
-              :load_balancer => self})
+              :load_balancer => self)
           end
         end
 
