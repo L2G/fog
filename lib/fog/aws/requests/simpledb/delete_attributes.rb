@@ -37,33 +37,33 @@ module Fog
 
         def delete_attributes(domain_name, item_name, attributes = nil)
           response = Excon::Response.new
-          if self.data[:domains][domain_name]
-            if self.data[:domains][domain_name][item_name]
-              if attributes
-                for key, value in attributes
-                  if self.data[:domains][domain_name][item_name][key]
-                    if value.nil? || value.empty?
-                      self.data[:domains][domain_name][item_name].delete(key)
-                    else
-                      for v in value
-                        self.data[:domains][domain_name][item_name][key].delete(v)
-                      end
-                    end
-                  end
-                end
-              else
-                self.data[:domains][domain_name][item_name].clear
-              end
-            end
-            response.status = 200
-            response.body = {
-              'BoxUsage'  => Fog::AWS::Mock.box_usage,
-              'RequestId' => Fog::AWS::Mock.request_id
-            }
-          else
+          unless self.data[:domains][domain_name]
             response.status = 400
             raise(Excon::Errors.status_error({:expects => 200}, response))
           end
+
+          if self.data[:domains][domain_name][item_name]
+            if attributes
+              for key, value in attributes
+                if self.data[:domains][domain_name][item_name][key]
+                  if value.nil? || value.empty?
+                    self.data[:domains][domain_name][item_name].delete(key)
+                  else
+                    for v in value
+                      self.data[:domains][domain_name][item_name][key].delete(v)
+                    end
+                  end
+                end
+              end
+            else
+              self.data[:domains][domain_name][item_name].clear
+            end
+          end
+          response.status = 200
+          response.body = {
+            'BoxUsage'  => Fog::AWS::Mock.box_usage,
+            'RequestId' => Fog::AWS::Mock.request_id
+          }
           response
         end
 

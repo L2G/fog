@@ -59,7 +59,7 @@ BlockAlignment:
 
 # Offense count: 54
 BlockNesting:
-  Max: 7
+  Max: 6
 
 # Offense count: 225
 # Cop supports --auto-correct.
