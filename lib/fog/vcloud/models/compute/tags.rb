@@ -24,7 +24,7 @@ module Fog
         end
 
         def create(opts)
-          service.configure_metadata(opts.merge(href: href))
+          service.configure_metadata(opts.merge(:href => href))
         end
       end
     end
