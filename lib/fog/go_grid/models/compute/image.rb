@@ -26,7 +26,6 @@ module Fog
         attribute :object_type,   :aliases => 'object'
         attribute :owner
 
-
         def server=(new_server)
           requires :id
 

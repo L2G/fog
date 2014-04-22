@@ -19,7 +19,6 @@ module Fog
         #   * body<~Hash>:
         def create_db_instance_read_replica(instance_identifier, source_identifier, options = {})
 
-
           request({
             'Action'  => 'CreateDBInstanceReadReplica',
             'DBInstanceIdentifier' => instance_identifier,

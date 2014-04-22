@@ -17,7 +17,6 @@ module Fog
       recognizes :rackspace_queues_url
       recognizes :rackspace_queues_client_id
 
-
       model_path 'fog/rackspace/models/queues'
       model :queue
       collection :queues

@@ -2,12 +2,10 @@ require 'fog/core/model'
 require 'fog/cloudsigma/nested_model'
 require 'fog/cloudsigma/models/ipconf'
 
-
 module Fog
   module Compute
     class CloudSigma
       class Nic < Fog::CloudSigma::CloudsigmaModel
-
 
         attribute :boot_order
         attribute :mac, :type => :string

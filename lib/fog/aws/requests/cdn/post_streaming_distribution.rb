@@ -72,7 +72,6 @@ module Fog
 
       end
 
-
       class Mock
 
         require 'time'

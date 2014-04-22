@@ -6,11 +6,9 @@ Shindo.tests('Fog::Compute[:iam] | access_keys', ['aws','iam']) do
   @username = 'fake_user'
   @user = iam.users.create(:id => @username)
 
-
   tests('#all', 'there are no access keys for a new user').succeeds do
     @user.access_keys.empty?
   end
-
 
   tests('#create','an access key').succeeds do
     access_key = @user.access_keys.create

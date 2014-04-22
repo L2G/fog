@@ -37,7 +37,6 @@ module Fog
           super({ :vault => vault }.merge!(attributes))
         end
 
-
       end
 
     end

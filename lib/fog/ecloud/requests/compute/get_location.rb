@@ -6,7 +6,6 @@ module Fog
         basic_request :get_location
       end
 
-
     end
   end
 end

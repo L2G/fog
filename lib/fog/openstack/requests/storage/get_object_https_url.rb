@@ -46,7 +46,6 @@ module Fog
             raise ArgumentError.new("Invalid method '#{method}' specified. Valid methods are: #{allowed_methods.join(', ')}")
           end
 
-
           expires        = expires.to_i
           object_path_escaped   = "#{@path}/#{Fog::OpenStack.escape(container)}/#{Fog::OpenStack.escape(object,"/")}"
           object_path_unescaped = "#{@path}/#{Fog::OpenStack.escape(container)}/#{object}"

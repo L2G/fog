@@ -11,7 +11,6 @@ module Fog
         attribute :cpu, :aliases => 'CPU'
         attribute :memory_mb, :aliases => 'MemoryMB'
 
-
       end
     end
   end

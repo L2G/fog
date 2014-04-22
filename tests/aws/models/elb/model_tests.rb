@@ -11,8 +11,6 @@ Shindo.tests('AWS::ELB | models', ['aws', 'elb']) do
   @igw_id = @igw.id
   @igw.attach(@vpc_id)
 
-
-
   tests('success') do
     tests('load_balancers') do
       tests('getting a missing elb') do

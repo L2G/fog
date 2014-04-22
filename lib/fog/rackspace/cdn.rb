@@ -13,7 +13,6 @@ module Fog
       request :put_container
       request :delete_object
 
-
       module Base
         URI_HEADERS = {
           'X-Cdn-Ios-Uri' => :ios_uri,

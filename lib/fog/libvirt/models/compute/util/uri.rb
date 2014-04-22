@@ -120,7 +120,6 @@ module Fog
           value('pkipath')
         end
 
-
         # A libvirt URI allows you to specify extra params
         # http://libvirt.org/remote.html
         private
@@ -136,7 +135,6 @@ module Fog
             return nil
           end
         end
-
 
       end
     end

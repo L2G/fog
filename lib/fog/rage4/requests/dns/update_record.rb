@@ -26,9 +26,7 @@ module Fog
         #      * 'id'<~Integer>
         #      * 'error'<~String>
 
-
 # https://secure.rage4.com/rapi/createrecord/
-
 
         def update_record(record_id, name, content, type, options = {})
 
@@ -59,7 +57,6 @@ module Fog
         end
 
       end
-
 
     end
   end

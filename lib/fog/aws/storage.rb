@@ -459,7 +459,6 @@ DATA
           end
           string_to_sign << canonical_amz_headers
 
-
           query_string = ''
           if params[:query]
             query_args = []

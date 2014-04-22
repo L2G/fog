@@ -56,7 +56,6 @@ module Fog
           service.update_metadata(collection_name, @parent.id, meta_hash(data))
         end
 
-
         private
         def meta_hash(data = nil)
           if data.nil?

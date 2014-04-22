@@ -32,7 +32,6 @@ module Fog
         attribute :country, :type => :string
         attribute :postcode, :type => :string
 
-
         def save
           update
         end

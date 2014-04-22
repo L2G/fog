@@ -47,7 +47,6 @@ module Fog
           req_path = params[:path]
           params[:path] = "#{@path_prefix}#{req_path}"
 
-
           params[:body] = Fog::JSON.encode(params[:body]) if params[:body]
 
           begin

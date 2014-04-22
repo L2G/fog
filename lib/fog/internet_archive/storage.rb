@@ -78,7 +78,6 @@ module Fog
           http_url(params, expires)
         end
 
-
         private
 
         def scheme_host_path_query(params, expires)

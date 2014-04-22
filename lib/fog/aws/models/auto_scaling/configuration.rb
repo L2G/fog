@@ -22,7 +22,6 @@ module Fog
         attribute :user_data,             :aliases => 'UserData'
         attribute :spot_price,            :aliases => 'SpotPrice'
 
-
         def initialize(attributes = {})
           #attributes[:availability_zones] ||= %w(us-east-1a us-east-1b us-east-1c us-east-1d)
           #attributes['ListenerDescriptions'] ||= [{

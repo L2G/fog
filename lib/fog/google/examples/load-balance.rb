@@ -5,7 +5,6 @@ def test
   zone = 'us-central1-b'
   region = 'us-central1'
 
-
   # Setup
   gce = Fog::Compute.new :provider => 'Google'
   servers = []
@@ -68,10 +67,8 @@ def test
     puts "Failed to create forwarding rule #{name}"
   end
 
-
   # TODO(bensonk): Install apache, create individualized htdocs, and run some
   #                actual requests through the load balancer.
-
 
   # Cleanup
   begin

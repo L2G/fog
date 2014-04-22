@@ -38,7 +38,6 @@ module Fog
             parameter_set = self.data[:parameter_groups].values
           end
 
-
           response.status = 200
 
           response.body = { 'CacheParameterGroups' => parameter_set }

@@ -329,7 +329,6 @@ Shindo.tests('Fog::Rackspace::Storage | file', ['rackspace']) do
     end
   end
 
-
   model_tests(@directory.files, file_attributes, Fog.mocking?) do
 
     tests('#origin') do

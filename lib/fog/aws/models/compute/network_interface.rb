@@ -27,7 +27,6 @@ module Fog
         attribute :association,                 :aliases => 'association'
         attribute :tag_set,                     :aliases => 'tagSet'
 
-
         # Removes an existing network interface
         #
         # network_interface.destroy

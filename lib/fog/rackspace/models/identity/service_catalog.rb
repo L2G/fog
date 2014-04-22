@@ -22,7 +22,6 @@ module Fog
           h['endpoints'].select {|e| e[key]}
         end
 
-
         def display_service_regions(service_name, service_net = false)
           endpoints = get_endpoints(service_name, service_net)
           regions = endpoints.collect do |e|

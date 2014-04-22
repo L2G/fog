@@ -28,10 +28,6 @@
 #     </Item>
 # </RasdItemsList>
 
-
-
-
-
 module Fog
   module Vcloud
     class Compute

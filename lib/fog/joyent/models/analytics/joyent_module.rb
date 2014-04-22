@@ -1,6 +1,5 @@
 require 'fog/core/model'
 
-
 # named 'JoyentModule' to avoid name conflicts with ruby's 'Module'
 module Fog
   module Joyent

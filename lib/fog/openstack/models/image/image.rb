@@ -30,7 +30,6 @@ module Fog
         attribute :location
         attribute :copy_from
 
-
         def initialize(attributes)
           # Old 'connection' is renamed as service and should be used instead
           prepare_service_value(attributes)

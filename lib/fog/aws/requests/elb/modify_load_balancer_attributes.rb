@@ -5,7 +5,6 @@ module Fog
 
         require 'fog/aws/parsers/elb/empty'
 
-
         # Sets attributes of the load balancer
         #
         # Currently the only attribute that can be set is whether CrossZoneLoadBalancing

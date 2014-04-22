@@ -66,7 +66,6 @@ module Fog
           service.process_task(response.body)
         end
 
-
         # Reboot the VM.
         def reboot
           requires :id

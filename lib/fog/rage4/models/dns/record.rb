@@ -6,7 +6,6 @@ module Fog
 
       class Record < Fog::Model
 
-
         identity :id
 
         attribute :name
@@ -24,7 +23,6 @@ module Fog
         attribute :geo_lock
         attribute :is_active
         attribute :udp_limit
-
 
         def initialize(attributes = {})
           super

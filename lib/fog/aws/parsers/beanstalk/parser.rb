@@ -18,7 +18,6 @@ module Fog
             @parse_stack = [ { :type => :object, :value => @response[@result_name]} ]
           end
 
-
           def tag name, *traits
             if traits.delete(:list)
               @list_tags[name] = true

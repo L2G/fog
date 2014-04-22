@@ -19,7 +19,6 @@ module Fog
           nil
         end
 
-
       end
     end
   end

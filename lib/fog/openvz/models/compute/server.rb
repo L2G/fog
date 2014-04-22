@@ -178,7 +178,6 @@ module Fog
           data = service.resume_server(ctid, options)
         end
 
-
         def set(options)
           data = service.set_server(ctid,options)
         end

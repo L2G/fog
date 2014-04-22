@@ -36,10 +36,7 @@ module Fog
         new_error
       end
 
-
-
     end
-
 
   end
 end

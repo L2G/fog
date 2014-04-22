@@ -56,8 +56,6 @@ module Fog
               }
             ],
 
-
-
             'metadata' => {
               'count'       => 2,
               'limit'       => 100,

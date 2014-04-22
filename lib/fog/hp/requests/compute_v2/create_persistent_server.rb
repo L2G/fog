@@ -111,7 +111,6 @@ module Fog
             end
           end
 
-
           request(
             :body     => Fog::JSON.encode(data),
             :expects  => 202,

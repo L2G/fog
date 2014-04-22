@@ -66,7 +66,6 @@ module Fog
           res['reply'].to_i == 1 ? true : false
         end
 
-
       end
 
     end

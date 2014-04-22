@@ -9,7 +9,6 @@ module Fog
         # @return [String] The flavor id
         identity :id
 
-
         # @!attribute [r] name
         # @return [String] flavor name
         attribute :name

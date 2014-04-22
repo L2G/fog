@@ -22,7 +22,6 @@ module Fog
           account_id = options.delete('account_id') || '-'
           path = "/#{account_id}/vaults/#{Fog::AWS.escape(vault_name)}/jobs"
 
-
           request(
             :expects  => 200,
             :idempotent => true,

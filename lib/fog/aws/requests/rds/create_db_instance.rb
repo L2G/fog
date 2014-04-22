@@ -116,7 +116,6 @@ module Fog
                  'VpcSecurityGroups' => options['VpcSecurityGroups'],
              }
 
-
           self.data[:servers][db_name] = data
           response.body = {
             'ResponseMetadata' => { 'RequestId' => Fog::AWS::Mock.request_id },

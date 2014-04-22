@@ -2,7 +2,6 @@ require 'fog/rackspace/models/storage/metadata'
 require 'fog/rackspace/models/storage/directory'
 require 'fog/rackspace/models/storage/file'
 
-
 Shindo.tests('Fog::Rackspace::Storage | metadata', ['rackspace']) do
 
   def assert_directory(obj, assert_value)
@@ -66,7 +65,6 @@ Shindo.tests('Fog::Rackspace::Storage | metadata', ['rackspace']) do
         metadata.to_headers
      end
    end
-
 
    tests('File') do
      @file = Fog::Storage::Rackspace::File.new

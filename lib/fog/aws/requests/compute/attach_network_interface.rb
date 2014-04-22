@@ -30,7 +30,6 @@ module Fog
         end
       end
 
-
       class Mock
 
         def attach_network_interface(nic_id, instance_id, device_index)

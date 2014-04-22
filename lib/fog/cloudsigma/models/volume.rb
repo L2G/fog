@@ -20,7 +20,6 @@ module Fog
         attribute :size, :type => :integer
         attribute :resource_uri, :type => :string
 
-
         def save
           if persisted?
             update

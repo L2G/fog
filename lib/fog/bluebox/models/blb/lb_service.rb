@@ -17,7 +17,6 @@ module Fog
         attribute :status_password
         attribute :created,     :aliases => 'created_at'
 
-
         def lb_application
           collection.lb_application
         end

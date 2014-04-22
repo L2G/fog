@@ -18,7 +18,6 @@ module Fog
       model      :lb_backend
       collection :lb_backends
 
-
       request_path 'fog/bluebox/requests/blb'
 
       request :get_lb_application

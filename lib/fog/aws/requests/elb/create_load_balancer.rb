@@ -97,8 +97,6 @@ module Fog
                              default_sg
                            end
 
-
-
           self.data[:load_balancers][lb_name] = {
             'AvailabilityZones' => availability_zones,
             'BackendServerDescriptions' => [],

@@ -63,7 +63,6 @@ module Fog
         end
       end
 
-
       class Mock
 
         def describe_network_interfaces(filters = {})

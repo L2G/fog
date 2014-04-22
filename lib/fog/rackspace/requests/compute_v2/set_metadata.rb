@@ -25,7 +25,6 @@ module Fog
         end
       end
 
-
       class Mock
         def set_metadata(collection, obj_id, metadata = {})
           raise Fog::Compute::RackspaceV2::NotFound if obj_id == 0

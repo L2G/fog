@@ -66,7 +66,6 @@ module Fog
         end
         # End Lazy Loaded Attributes
 
-
         def vm_reconfig_memory(options = {})
           requires :instance_uuid, :memory
           service.vm_reconfig_memory('instance_uuid' => instance_uuid, 'memory' => memory_mb)

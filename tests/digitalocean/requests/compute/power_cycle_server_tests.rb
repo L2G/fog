@@ -16,5 +16,4 @@ Shindo.tests('Fog::Compute[:digitalocean] | power_cycle_server request', ['digit
 
   end
 
-
 end

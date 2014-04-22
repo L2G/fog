@@ -23,7 +23,6 @@ module Fog
                       'tags' => []
           }
 
-
           mock_create(:servers, 202, data, uuid, defaults)
         end
       end

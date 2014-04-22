@@ -59,7 +59,6 @@ module Fog
           end
         end
 
-
         private
         def meta_hash(data = nil)
           if data.nil?

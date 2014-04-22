@@ -16,7 +16,6 @@ module Fog
         attribute :template_description
         attribute :time_taken
 
-
         def destroy
           requires :identity
           service.delete_image(:id => identity)

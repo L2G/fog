@@ -15,7 +15,6 @@ module Fog
             @response = { 'ImportTablesCompleted' => [], 'ImportTablesInProgress' => [], 'ImportTablesNotStarted' => []}
           end
 
-
           def start_element(name, attrs = [])
             super
             case name

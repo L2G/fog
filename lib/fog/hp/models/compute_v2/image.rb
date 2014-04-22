@@ -79,7 +79,6 @@ module Fog
           m.value unless m.nil?
         end
 
-
       end
 
     end

@@ -12,7 +12,6 @@ module Fog
             @response = {}
           end
 
-
           def finished_instance_profile(profile)
             @response['InstanceProfile'] = profile
           end

@@ -52,5 +52,4 @@ Shindo.tests('Fog::Compute[:iam] | policies', ['aws','iam']) do
   # clean up
   @user.destroy
 
-
 end

@@ -16,7 +16,6 @@ module Fog
         attribute :size
         attribute :created_at,          :aliases => 'createdAt'
 
-
         def initialize(attributes)
           # Old 'connection' is renamed as service and should be used instead
           prepare_service_value(attributes)

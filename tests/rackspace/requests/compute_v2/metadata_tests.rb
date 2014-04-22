@@ -16,7 +16,6 @@ Shindo.tests('Fog::Compute::RackspaceV2 | metadata_tests', ['rackspace']) do
                                           :metadata => metadata)
         @server.wait_for { ready? }
 
-
         @server_id = @server.id
         @image  = @server.create_image(name, :metadata => metadata)
         @image_id = @image.id

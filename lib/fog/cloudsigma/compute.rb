@@ -79,7 +79,6 @@ module Fog
       model :pricing
       request :get_pricing
 
-
       module CommonMockAndReal
         def initialize(options = {})
           @init_options = options

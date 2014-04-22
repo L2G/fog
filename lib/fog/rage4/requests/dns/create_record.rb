@@ -26,12 +26,9 @@ module Fog
         #      * 'id'<~Integer>
         #      * 'error'<~String>
 
-
 # https://secure.rage4.com/rapi/createrecord/
 
-
         def create_record(domain_id, name, content, type, options = {})
-
 
           path = "/rapi/createrecord/#{domain_id}"
           path << "?name=#{name}&content=#{content}&type=#{type}"
@@ -60,7 +57,6 @@ module Fog
         end
 
       end
-
 
     end
   end

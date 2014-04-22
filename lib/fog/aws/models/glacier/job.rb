@@ -26,7 +26,6 @@ module Fog
         attribute :format
         attribute :type
 
-
         def ready?
           completed
         end

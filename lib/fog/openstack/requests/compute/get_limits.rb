@@ -14,7 +14,6 @@ module Fog
         end
       end
 
-
       class Mock
         def get_limits
           rate_limits = [
@@ -75,7 +74,6 @@ module Fog
             'totalSecurityGroupsUsed'  => 0,
             'totalFloatingIpsUsed'     => 0
           }
-
 
           Excon::Response.new(
             :status => 200,

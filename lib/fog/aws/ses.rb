@@ -86,7 +86,6 @@ module Fog
           idempotent  = params.delete(:idempotent)
           parser      = params.delete(:parser)
 
-
           headers = {
             'Content-Type'  => 'application/x-www-form-urlencoded',
             'Date'          => Fog::Time.now.to_date_header,

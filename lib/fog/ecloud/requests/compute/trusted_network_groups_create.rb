@@ -11,7 +11,6 @@ module Fog
             raise ArgumentError.new('Required data missing: Either hosts or networks must be present')
           end
 
-
           request(
             :body => generate_create_trusted_network_groups_request(data),
             :expects => 201,

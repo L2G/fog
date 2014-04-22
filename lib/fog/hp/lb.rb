@@ -42,7 +42,6 @@ module Fog
 
       class Mock
 
-
         def self.data
           @data ||= Hash.new do |hash, key|
             hash[key] = {
@@ -96,7 +95,6 @@ module Fog
 
       class Real
         attr_reader :credentials
-
 
         def initialize(options = {})
           @hp_access_key = options[:hp_access_key]

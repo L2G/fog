@@ -66,7 +66,6 @@ module Fog
         #attribute :flavor_id, :aliases => "server_type", :squash => "id"
         #attribute :zone_id, :aliases => "zone", :squash => "id"
 
-
         def initialize(attributes = {})
           merge_attributes({
             :flavor_id => 105, # '1CPU, 384MB, 80GB HDD'

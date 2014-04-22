@@ -15,7 +15,6 @@ module Fog
         CONTAINER_KEY_REGEX = /^#{CONTAINER_META_PREFIX}(.*)/
         OBJECT_KEY_REGEX = /^#{OBJECT_META_PREFIX}(.*)/
 
-
         # @!attribute [rw] data
         # @return [Hash] underlying data store for metadata class
         attr_reader :data
@@ -32,7 +31,6 @@ module Fog
           @deleted_hash = {}
           @parent = parent
         end
-
 
         # Delete key value pair from metadata
         # @param [String] key to be deleted

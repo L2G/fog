@@ -15,7 +15,6 @@ module Fog
 
       request_path 'fog/cloudstack/requests/compute'
 
-
       model_path 'fog/cloudstack/models/compute'
       model :address
       model :disk_offering

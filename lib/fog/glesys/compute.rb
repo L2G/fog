@@ -40,7 +40,6 @@ module Fog
       request :ip_add
       request :ip_remove
 
-
       class Mock
 
         def initialize(options = {})

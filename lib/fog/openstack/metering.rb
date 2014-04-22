@@ -16,7 +16,6 @@ module Fog
       model       :resource
       collection  :resources
 
-
       request_path 'fog/openstack/requests/metering'
 
       # Metering
@@ -25,7 +24,6 @@ module Fog
       request :get_statistics
       request :list_meters
       request :list_resources
-
 
       class Mock
         def self.data

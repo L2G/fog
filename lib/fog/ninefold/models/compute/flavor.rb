@@ -21,7 +21,6 @@ module Fog
         attribute :storagetype
         attribute :tags
 
-
       end
 
     end

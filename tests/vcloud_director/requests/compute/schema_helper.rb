@@ -382,7 +382,6 @@ class VcloudDirector
         :Other => Fog::Nullable::String
       }
 
-
       # Represents a firewall rule.
       FIREWALL_RULE_TYPE = {
         :Id => String,

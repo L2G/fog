@@ -99,7 +99,6 @@ module Fog
       class Real
         include Shared
 
-
         def initialize(options = {})
           require 'rbovirt'
           username   = options[:ovirt_username]

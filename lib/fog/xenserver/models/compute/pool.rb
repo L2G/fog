@@ -38,7 +38,6 @@ module Fog
         attribute :wlb_username
         attribute :wlb_verify_cert
 
-
         def default_sr
           service.storage_repositories.get __default_sr
         end

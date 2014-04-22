@@ -13,7 +13,6 @@ module Fog
         attribute :storage_type,    :aliases => 'storagetype'
         attribute :tags
 
-
         def save
           requires :display_text, :name
 

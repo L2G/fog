@@ -4,7 +4,6 @@ module Fog
 
       class Real
 
-
         def login
           headers = { 'Authorization' => authorization_header }
           uri = if version == '1.0'

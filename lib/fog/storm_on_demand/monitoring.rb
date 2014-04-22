@@ -26,7 +26,6 @@ module Fog
       request :get_service_status
       request :update_service
 
-
       class Mock
 
         def self.data

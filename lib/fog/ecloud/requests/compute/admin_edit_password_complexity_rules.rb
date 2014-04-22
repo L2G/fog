@@ -22,7 +22,6 @@ module Fog
 
         private
 
-
         def build_password_complexity_rules_edit(data)
           xml = Builder::XmlMarkup.new
           xml.PasswordComplexityRules do

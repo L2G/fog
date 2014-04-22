@@ -107,7 +107,6 @@ class AWS
         }
       })
 
-
       DB_PARAMETER = {
         'ParameterValue' => Fog::Nullable::String,
         'DataType' => String,

@@ -11,7 +11,6 @@ module Fog
             @response = {'InstanceProfiles' => []}
           end
 
-
           def finished_instance_profile(profile)
             @response['InstanceProfiles'] << profile
           end

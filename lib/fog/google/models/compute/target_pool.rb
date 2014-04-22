@@ -20,7 +20,6 @@ module Fog
         attribute :failover_ratio, :aliases => 'failoverRatio'
         attribute :backup_pool, :aliases => 'backupPool'
 
-
         def save
           requires :name, :region
 

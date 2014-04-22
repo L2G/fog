@@ -26,7 +26,6 @@ Shindo.tests('Fog::Compute[:aws] | vpc requests', ['aws']) do
       Fog::Compute[:aws].describe_vpcs.body
     end
 
-
     tests("#modify_vpc_attribute('#{@vpc_id}', {'EnableDnsSupport.Value' => true})").formats(AWS::Compute::Formats::BASIC) do
       Fog::Compute[:aws].modify_vpc_attribute(@vpc_id, {'EnableDnsSupport.Value' => true}).body
     end

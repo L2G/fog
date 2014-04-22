@@ -87,7 +87,6 @@ Shindo.tests('AWS::RDS | security group requests', ['aws', 'rds']) do
       body
     end
 
-
     #TODO, authorize ec2 security groups
 
     tests('#delete_db_security_group').formats(AWS::RDS::Formats::BASIC) do

@@ -67,7 +67,6 @@ DATA
         Fog::HMAC.new('sha256', kSigning)
       end
 
-
     end
   end
 end

@@ -19,7 +19,6 @@ module Fog
         attribute :created_at,          :aliases => 'createdAt'
         attribute :attachments
 
-
         def initialize(attributes)
           # Old 'connection' is renamed as service and should be used instead
           prepare_service_value(attributes)

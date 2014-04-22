@@ -7,7 +7,6 @@ module Fog
     class CloudSigma
       class Server < Fog::CloudSigma::CloudsigmaModel
 
-
         identity :uuid
 
         attribute :status, :type => :string
@@ -27,7 +26,6 @@ module Fog
         attribute :resource_uri, :type => :string
         model_attribute_array :volumes, MountPoint, :aliases => 'drives'
         model_attribute_array :nics, Nic
-
 
         def save
           if persisted?
@@ -125,7 +123,6 @@ module Fog
               dev_channel = '0:0'
             end
           end
-
 
           vol_id = volume.kind_of?(String) ? volume : volume.identity
           mountpoint_data = {

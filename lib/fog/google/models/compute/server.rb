@@ -193,7 +193,6 @@ module Fog
           return self.metadata
         end
 
-
         def reload
           data = service.get_server(self.name, zone_name).body
           self.merge_attributes(data)

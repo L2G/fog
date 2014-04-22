@@ -241,7 +241,6 @@ module Fog
             ssh_options[:port] = port unless keyfile.nil?
             ssh_options[:paranoid] = true if service.uri.no_verify?
 
-
             begin
               result = Fog::SSH.new(host, user, ssh_options).run(ip_command)
             rescue Errno::ECONNREFUSED
@@ -249,7 +248,6 @@ module Fog
             rescue Net::SSH::AuthenticationFailed
               raise Fog::Errors::Error.new("Error authenticating over ssh to host #{host} and user #{user}")
             end
-
 
             # Check for a clean exit code
             if result.first.status == 0
@@ -282,7 +280,6 @@ module Fog
             #Strip any new lines from the string
             ip_address = ip_address.chomp
           end
-
 
           # The Ip-address command has been run either local or remote now
 

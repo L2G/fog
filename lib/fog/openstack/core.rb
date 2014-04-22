@@ -94,7 +94,6 @@ module Fog
       endpoint_type         = (options[:openstack_endpoint_type] || 'publicURL').to_s
       openstack_region      = options[:openstack_region]
 
-
       body = retrieve_tokens_v2(options, connection_options)
       service = get_service(body, service_type, service_name)
 

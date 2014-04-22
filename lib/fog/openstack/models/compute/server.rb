@@ -54,7 +54,6 @@ module Fog
         attr_writer :image_ref, :flavor_ref, :nics, :os_scheduler_hints
         attr_accessor :block_device_mapping
 
-
         def initialize(attributes = {})
           # Old 'connection' is renamed as service and should be used instead
           prepare_service_value(attributes)

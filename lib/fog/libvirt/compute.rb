@@ -76,7 +76,6 @@ module Fog
         attr_reader :uri
         attr_reader :ip_command
 
-
         def initialize(options = {})
           @uri = ::Fog::Compute::LibvirtUtil::URI.new(enhance_uri(options[:libvirt_uri]))
           @ip_command = options[:libvirt_ip_command]

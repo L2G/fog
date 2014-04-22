@@ -20,7 +20,6 @@ module Fog
         attribute :attachments
         attribute :source_volid
 
-
         def initialize(attributes)
           # Old 'connection' is renamed as service and should be used instead
           prepare_service_value(attributes)

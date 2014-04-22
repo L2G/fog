@@ -22,8 +22,6 @@ def collection_tests(collection, params = {}, mocks_implemented = true)
       collection.all
     end
 
-
-
     if !Fog.mocking? || mocks_implemented
       @identity = @instance.identity
     end
@@ -72,7 +70,6 @@ def collection_tests(collection, params = {}, mocks_implemented = true)
       end
 
     end
-
 
     if block_given?
       yield

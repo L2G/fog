@@ -42,7 +42,6 @@ module Fog
           reload
         end
 
-
         # Removes an existing internet gateway
         #
         # internet_gateway.destroy

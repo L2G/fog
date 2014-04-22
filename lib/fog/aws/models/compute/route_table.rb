@@ -13,7 +13,6 @@ module Fog
         attribute :associations,     :aliases => 'associationSet'
         attribute :tags,             :aliases => 'tagSet'
 
-
         def initialize(attributes = {})
           super
         end

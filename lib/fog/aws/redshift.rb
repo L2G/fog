@@ -75,7 +75,6 @@ module Fog
         # ==== Returns
         # * Redshift object with connection to AWS.
 
-
         def initialize(options = {})
 
           @use_iam_profile = options[:use_iam_profile]
@@ -92,7 +91,6 @@ module Fog
 
           @connection = Fog::XML::Connection.new("#{@scheme}://#{@host}:#{@port}#{@path}", @persistent, @connection_options)
         end
-
 
         private
         def setup_credentials(options)

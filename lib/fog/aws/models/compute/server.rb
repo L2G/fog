@@ -56,7 +56,6 @@ module Fog
         attr_accessor                        :password
         attr_writer                          :iam_instance_profile_name, :iam_instance_profile_arn
 
-
         def initialize(attributes = {})
           self.groups     ||= ['default'] unless (attributes[:subnet_id] || attributes[:security_group_ids] || attributes[:network_interfaces])
           self.flavor_id  ||= 't1.micro'

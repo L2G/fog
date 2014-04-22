@@ -178,7 +178,6 @@ module Fog
           directory.public?
         end
 
-
         # Get a url for file.
         #
         #     required attributes: key

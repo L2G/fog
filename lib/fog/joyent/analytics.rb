@@ -46,7 +46,6 @@ module Fog
 
       model :value
 
-
       class Mock
         def self.data
           @data ||= Hash.new do |hash, key|
@@ -205,7 +204,6 @@ module Fog
           if opts[:body]
             opts[:body] = Fog::JSON.encode(opts[:body])
           end
-
 
           response = @connection.request(opts)
           if response.headers['Content-Type'] == 'application/json'

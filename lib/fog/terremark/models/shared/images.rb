@@ -5,7 +5,6 @@ module Fog
   module Terremark
     module Shared
 
-
       module Mock
         def images(options = {})
           Fog::Terremark::Shared::Images.new(options.merge(:service => self))
@@ -20,7 +19,6 @@ module Fog
 
       class Images < Fog::Collection
 
-
         model Fog::Terremark::Shared::Image
 
         def all
@@ -29,7 +27,6 @@ module Fog
           end
           load(data)
         end
-
 
         def vdc_id
           @vdc_id ||= service.default_vdc_id

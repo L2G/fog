@@ -18,7 +18,6 @@ module Fog
 
         attr_writer :body
 
-
         identity  :key,                 :aliases => 'Key'
 
         attribute :cache_control,       :aliases => 'Cache-Control'
@@ -67,7 +66,6 @@ module Fog
             end
         end
 
-
         # Set body attribute.
         #
         # @param [File] new_body
@@ -77,7 +75,6 @@ module Fog
           attributes[:body] = new_body
         end
 
-
         # Get the file instance's directory.
         #
         # @return [Fog::InternetArchive::Storage::Directory]
@@ -85,7 +82,6 @@ module Fog
         def directory
           @directory
         end
-
 
         # Copy object from one bucket to other bucket.
         #
@@ -102,7 +98,6 @@ module Fog
           target_directory = service.directories.new(:key => target_directory_key)
           target_directory.files.head(target_file_key)
         end
-
 
         # Destroy file via http DELETE.
         #
@@ -128,7 +123,6 @@ module Fog
           merge_attributes(new_metadata)
         end
 
-
         remove_method :owner=
         def owner=(new_owner)
           if new_owner
@@ -138,7 +132,6 @@ module Fog
             }
           end
         end
-
 
         # Set Access-Control-List permissions.
         #
@@ -150,7 +143,6 @@ module Fog
         def public=(new_public)
           'public-read'
         end
-
 
         # Get publicly acessible url via http GET.
         #
@@ -212,7 +204,6 @@ module Fog
           self.content_type ||= Fog::Storage.get_content_type(body)
           true
         end
-
 
         # Get a url for file.
         #

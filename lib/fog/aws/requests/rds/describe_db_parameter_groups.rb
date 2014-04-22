@@ -48,7 +48,6 @@ module Fog
             parameter_set = self.data[:parameter_groups].values
           end
 
-
           response.status = 200
           response.body = {
             'ResponseMetadata' => { 'RequestId' => Fog::AWS::Mock.request_id },

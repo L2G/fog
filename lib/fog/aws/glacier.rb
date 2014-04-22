@@ -137,7 +137,6 @@ module Fog
           @connection = Fog::XML::Connection.new("#{@scheme}://#{@host}:#{@port}#{@path}", @persistent, @connection_options)
         end
 
-
         private
         def setup_credentials(options)
           @aws_access_key_id      = options[:aws_access_key_id]

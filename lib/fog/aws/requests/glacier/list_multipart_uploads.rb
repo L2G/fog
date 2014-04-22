@@ -20,7 +20,6 @@ module Fog
           account_id = options.delete('account_id') || '-'
           path = "/#{account_id}/vaults/#{Fog::AWS.escape(vault_name)}/multipart-uploads"
 
-
           request(
             :expects  => 200,
             :idempotent => true,

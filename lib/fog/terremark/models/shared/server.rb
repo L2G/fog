@@ -10,7 +10,6 @@ module VAppStatus
   POWERED_ON = '4'
 end
 
-
 module Fog
   module Terremark
     module Shared

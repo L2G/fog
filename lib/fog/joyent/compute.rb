@@ -176,7 +176,6 @@ module Fog
             opts[:body] = Fog::JSON.encode(opts[:body])
           end
 
-
           response = @connection.request(opts)
           if response.headers['Content-Type'] == 'application/json'
             response.body = json_decode(response.body)

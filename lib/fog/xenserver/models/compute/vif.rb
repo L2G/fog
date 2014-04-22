@@ -32,7 +32,6 @@ module Fog
         attribute :status_detail
         attribute :__vm,               :aliases => :VM
 
-
         def destroy
           service.destroy_vif reference
         end

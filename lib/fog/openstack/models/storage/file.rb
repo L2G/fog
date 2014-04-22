@@ -83,7 +83,6 @@ module Fog
           self.collection.get_url(self.key)
         end
 
-
         def save(options = {})
           requires :body, :directory, :key
           options['Content-Type'] = content_type if content_type

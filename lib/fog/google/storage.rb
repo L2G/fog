@@ -35,7 +35,6 @@ module Fog
 
       module Utils
 
-
         def http_url(params, expires)
           'http://' << host_path_query(params, expires)
         end
@@ -194,7 +193,6 @@ module Fog
         end
 
       end
-
 
       class Real
         include Utils

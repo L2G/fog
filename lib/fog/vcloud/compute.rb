@@ -271,7 +271,6 @@ module Fog
           end
         end
 
-
         def basic_request_params(uri,*args)
           {
             :expects => args[0] || 200,

@@ -16,8 +16,6 @@ module Fog
             }
           }
 
-
-
           request(
             :headers => {
               'Authorization' => "Basic #{@auth_encord}"

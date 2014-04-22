@@ -34,7 +34,6 @@ DATA
           })
         end
 
-
         private
 
         def tag(name, value)

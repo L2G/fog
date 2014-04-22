@@ -45,7 +45,6 @@ module Fog
           service.delete_namespace key
         end
 
-
       end
 
     end
