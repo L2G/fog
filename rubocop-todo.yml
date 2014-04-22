@@ -146,11 +146,6 @@ ElseLayout:
 EmptyLineBetweenDefs:
   Enabled: false
 
-# Offense count: 375
-# Cop supports --auto-correct.
-EmptyLines:
-  Enabled: false
-
 # Offense count: 63
 EmptyLinesAroundAccessModifier:
   Enabled: false
