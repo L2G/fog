@@ -490,10 +490,6 @@ SpaceAroundOperators:
 SpaceBeforeBlockBraces:
   Enabled: false
 
-# Offense count: 16  --LINT--
-SpaceBeforeFirstArg:
-  Enabled: false
-
 # Offense count: 1956
 # Cop supports --auto-correct.
 # Configuration parameters: EnforcedStyle, SupportedStyles, EnforcedStyleForEmptyBraces, SpaceBeforeBlockParameters.
