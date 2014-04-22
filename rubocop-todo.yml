@@ -135,11 +135,6 @@ CyclomaticComplexity:
 DefWithParentheses:
   Enabled: false
 
-# Offense count: 7  --LINT--
-# Cop supports --auto-correct.
-DeprecatedClassMethods:
-  Enabled: false
-
 # Offense count: 308
 # Cop supports --auto-correct.
 DeprecatedHashMethods:
