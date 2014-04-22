@@ -31,5 +31,3 @@ def uniq_id(base_name = 'fog-test')
   suffix = rand(65536).to_s(16).rjust(4, '0')
   [base_name, suffix] * '-'
 end
-
-

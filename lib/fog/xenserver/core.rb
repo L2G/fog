@@ -80,5 +80,3 @@ module Fog
 
   end
 end
-
-
