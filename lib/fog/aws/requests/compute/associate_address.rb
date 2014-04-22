@@ -26,7 +26,7 @@ module Fog
         def associate_address(*args)
           if args.first.kind_of? Hash
             params = args.first
-          else 
+          else
             params = {
                 :instance_id => args[0],
                 :public_ip => args[1],
@@ -59,7 +59,7 @@ module Fog
         def associate_address(*args)
           if args.first.kind_of? Hash
             params = args.first
-          else 
+          else
             params = {
                 :instance_id => args[0],
                 :public_ip => args[1],

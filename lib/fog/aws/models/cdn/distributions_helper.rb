@@ -5,7 +5,7 @@ module Fog
     class AWS
 
       module DistributionsHelper
-        
+
         def all(options = {})
           merge_attributes(options)
           data = list_distributions(options).body

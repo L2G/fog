@@ -44,7 +44,7 @@ class Glesys
               'version'   => Fog::Nullable::Integer,
               'ipaddress' => Fog::Nullable::String,
               'currency'  => String
-            }], 
+            }],
             'description' => String,
             'hostname'    => String,
             'disksize'    => Integer,

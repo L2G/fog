@@ -9,7 +9,7 @@ module Fog
             @association = {}
             @entry = { 'icmpTypeCode' => {}, 'portRange' => {} }
             @tag = {}
-            
+
             @in_entry_set       = false
             @in_association_set = false
             @in_tag_set         = false

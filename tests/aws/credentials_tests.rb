@@ -19,9 +19,9 @@ Shindo.tests('AWS | credentials', ['aws']) do
 
 
     tests("#fetch_credentials") do
-      returns({:aws_access_key_id => 'dummykey', 
-                :aws_secret_access_key => 'dummysecret', 
-                :aws_session_token => 'dummytoken', 
+      returns({:aws_access_key_id => 'dummykey',
+                :aws_secret_access_key => 'dummysecret',
+                :aws_session_token => 'dummytoken',
                 :aws_credentials_expire_at => expires_at}) { Fog::Compute::AWS.fetch_credentials(:use_iam_profile => true) }
     end
 

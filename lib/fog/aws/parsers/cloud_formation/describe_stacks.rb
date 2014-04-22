@@ -21,7 +21,7 @@ module Fog
               @in_parameters = true
             when 'Capabilities'
               @in_capabilities = true
-            end            
+            end
           end
 
           def end_element(name)
@@ -46,12 +46,12 @@ module Fog
                 @in_parameters = false
               end
             elsif @in_capabilities
-              case name             
+              case name
               when 'member'
-                @stack['Capabilities'] << value        
+                @stack['Capabilities'] << value
               when 'Capabilities'
                 @in_capabilities = false
-              end  
+              end
             else
               case name
               when 'member'

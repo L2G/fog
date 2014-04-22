@@ -34,7 +34,7 @@ module Fog
             when 'architecture', 'clientToken', 'dnsName', 'hypervisor', 'imageId',
                   'instanceId', 'instanceType', 'ipAddress', 'kernelId', 'keyName',
                   'instanceLifecycle', 'platform', 'privateDnsName', 'privateIpAddress', 'ramdiskId',
-                  'reason', 'requesterId', 'rootDeviceType', 
+                  'reason', 'requesterId', 'rootDeviceType',
                   'spotInstanceRequestId', 'virtualizationType'
               @instance[name] = value
             when 'attachTime'
