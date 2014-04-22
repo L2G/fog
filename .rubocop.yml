@@ -1,0 +1,9 @@
+# Configuration for Rubocop
+
+AllCops:
+  Include:
+    - Rakefile
+    - providers/**/*.rb
+
+# This line can be removed once rubocop-todo.yml has been dispatched with
+inherit_from: rubocop-todo.yml
