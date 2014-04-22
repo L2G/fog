@@ -218,12 +218,6 @@ FormatString:
 HandleExceptions:
   Enabled: false
 
-# Offense count: 19279
-# Cop supports --auto-correct.
-# Configuration parameters: EnforcedStyle, SupportedStyles.
-HashSyntax:
-  Enabled: false
-
 # Offense count: 465
 # Configuration parameters: MaxLineLength.
 IfUnlessModifier:
