@@ -268,10 +268,6 @@ LineEndConcatenation:
 LineLength:
   Max: 1717
 
-# Offense count: 5  --LINT--
-Loop:
-  Enabled: false
-
 # Offense count: 66
 # Cop supports --auto-correct.
 MethodCallParentheses:
