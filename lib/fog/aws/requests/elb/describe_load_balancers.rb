@@ -77,15 +77,16 @@ module Fog
           lb_names = options['LoadBalancerNames'] || []
 
           lb_names = [*lb_names]
-          load_balancers = if lb_names.any?
-            lb_names.map do |lb_name|
-              lb = self.data[:load_balancers].find { |name, data| name == lb_name }
-              raise Fog::AWS::ELB::NotFound unless lb
-              lb[1].dup
-            end.compact
-          else
-            self.data[:load_balancers].map { |lb, values| values.dup }
-          end
+          load_balancers =
+            if lb_names.any?
+              lb_names.map do |lb_name|
+                lb = self.data[:load_balancers].find { |name, data| name == lb_name }
+                raise Fog::AWS::ELB::NotFound unless lb
+                lb[1].dup
+              end.compact
+            else
+              self.data[:load_balancers].map { |lb, values| values.dup }
+            end
 
           marker = options.fetch('Marker', 0).to_i
           if load_balancers.count - marker > 400

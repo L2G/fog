@@ -15,11 +15,12 @@ module Fog
         attribute :delete_marker,       :type => :boolean
 
         def file
-          @file ||= if collection.file
-            collection.file.directory.files.get(key, 'versionId' => version)
-          else
-            collection.directory.files.get(key, 'versionId' => version)
-          end
+          @file ||=
+            if collection.file
+              collection.file.directory.files.get(key, 'versionId' => version)
+            else
+              collection.directory.files.get(key, 'versionId' => version)
+            end
         end
 
         def destroy

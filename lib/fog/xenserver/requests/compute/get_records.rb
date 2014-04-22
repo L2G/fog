@@ -1,6 +1,6 @@
 module Fog
   module Compute
-   class XenServer
+    class XenServer
 
       class Real
 

@@ -12,10 +12,10 @@ module Fog
             raise ArgumentError.new('object_name is required')
           end
           host, path = if bucket_name =~ Fog::InternetArchive::COMPLIANT_BUCKET_NAMES
-            ["#{bucket_name}.#{@host}", object_name]
-          else
-            [@host, "#{bucket_name}/#{object_name}"]
-          end
+                         ["#{bucket_name}.#{@host}", object_name]
+                       else
+                         [@host, "#{bucket_name}/#{object_name}"]
+                       end
           scheme_host_path_query({
             :scheme   => options[:scheme],
             :headers  => {},

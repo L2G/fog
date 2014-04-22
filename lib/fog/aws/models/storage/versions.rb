@@ -13,10 +13,10 @@ module Fog
         model Fog::Storage::AWS::Version
 
         def all(options = {})
-          data = if file
-            service.get_bucket_object_versions(file.directory.key, options.merge('prefix' => file.key)).body['Versions']
+          if file
+            data = service.get_bucket_object_versions(file.directory.key, options.merge('prefix' => file.key)).body['Versions']
           else
-            service.get_bucket_object_versions(directory.key, options).body['Versions']
+            data = service.get_bucket_object_versions(directory.key, options).body['Versions']
           end
 
           load(data)

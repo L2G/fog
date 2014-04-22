@@ -8,7 +8,7 @@ module Fog
             :path => "loadbalancers/#{load_balancer_id}/connectionthrottle",
             :method => 'DELETE'
           )
-         end
+        end
       end
     end
   end

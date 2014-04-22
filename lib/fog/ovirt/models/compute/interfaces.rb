@@ -26,7 +26,7 @@ module Fog
           new service.get_interface(id)
         end
 
-     end
+      end
     end
   end
 end

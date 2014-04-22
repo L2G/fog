@@ -10,13 +10,16 @@ module Fog
       def check_href!(opts = {})
         unless href
           opts = { :parent => opts } if opts.is_a?(String)
-          msg = ":href missing, call with a :href pointing to #{if opts[:message]
-                  opts[:message]
-                elsif opts[:parent]
-                  "the #{opts[:parent]} whos #{self.class.to_s.split('::').last.downcase} you want to enumerate"
-                else
-                  "the resource"
-                end}"
+          target =
+            if opts[:message]
+              opts[:message]
+            elsif opts[:parent]
+              "the #{opts[:parent]} whos #{self.class.to_s.split('::').last.downcase} you want to enumerate"
+            else
+              'the resource'
+            end
+
+          msg = ":href missing, call with a :href pointing to #{target}"
           raise Fog::Errors::Error.new(msg)
         end
       end

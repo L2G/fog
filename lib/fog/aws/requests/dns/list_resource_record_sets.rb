@@ -76,11 +76,11 @@ module Fog
           end
 
           records = if options[:type]
-            records_type = zone[:records][options[:type]]
-            records_type.values if records_type
-          else
-            zone[:records].values.map{|r| r.values}.flatten
-          end
+                      records_type = zone[:records][options[:type]]
+                      records_type.values if records_type
+                    else
+                      zone[:records].values.map{|r| r.values}.flatten
+                    end
 
           records ||= []
 

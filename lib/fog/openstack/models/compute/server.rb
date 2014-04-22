@@ -132,7 +132,9 @@ module Fog
               -1
             elsif !a_manual and b_manual 
               1
-            else 0 end
+            else
+              0
+            end
           }
 
         end

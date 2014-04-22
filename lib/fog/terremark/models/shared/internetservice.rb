@@ -47,9 +47,9 @@ module Fog
                         "Description" => self.Name
                         }
                     )
-            end
-            merge_attributes(data.body)
-            true
+          end
+          merge_attributes(data.body)
+          true
         end
         private
 

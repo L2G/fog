@@ -212,11 +212,11 @@ module Fog
           key = @key_manager.known_identities.keys.first
 
           sig = if key.kind_of? OpenSSL::PKey::RSA
-            @key_manager.sign(key, date)[15..-1]
-          else
-            key = OpenSSL::PKey::DSA.new(File.read(@joyent_keyfile), @joyent_keyphrase)
-            key.sign('sha1', date)
-          end
+                  @key_manager.sign(key, date)[15..-1]
+                else
+                  key = OpenSSL::PKey::DSA.new(File.read(@joyent_keyfile), @joyent_keyphrase)
+                  key.sign('sha1', date)
+                end
 
           key_id = "/#{@joyent_username}/keys/#{@joyent_keyname}"
           key_type = key.class.to_s.split('::').last.downcase.to_sym

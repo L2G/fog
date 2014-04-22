@@ -94,20 +94,21 @@ module Fog
       if @stack.last.is_a?(Array)
         @stack.last << {name.to_sym => parsed_attributes}
       else
-        data = if @stack.empty?
-          @stack.push(parsed_attributes)
-          parsed_attributes
-        elsif @stack.last[name.to_sym]
-          unless @stack.last[name.to_sym].is_a?(Array)
-            @stack.last[name.to_sym] = [@stack.last[name.to_sym]]
+        data =
+          if @stack.empty?
+            @stack.push(parsed_attributes)
+            parsed_attributes
+          elsif @stack.last[name.to_sym]
+            unless @stack.last[name.to_sym].is_a?(Array)
+              @stack.last[name.to_sym] = [@stack.last[name.to_sym]]
+            end
+            @stack.last[name.to_sym] << parsed_attributes
+            @stack.last[name.to_sym].last
+          else
+            @stack.last[name.to_sym] = {}
+            @stack.last[name.to_sym].merge!(parsed_attributes)
+            @stack.last[name.to_sym]
           end
-          @stack.last[name.to_sym] << parsed_attributes
-          @stack.last[name.to_sym].last
-        else
-          @stack.last[name.to_sym] = {}
-          @stack.last[name.to_sym].merge!(parsed_attributes)
-          @stack.last[name.to_sym]
-        end
         @stack.push(data)
       end
     end

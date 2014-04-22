@@ -21,7 +21,7 @@ module Fog
               load service.list_template_volumes(server.id)
             else
               raise 'volumes should have vm or template'
-            end
+          end
 
           self.each { |volume| volume.server_id = server.id }
           self
@@ -42,7 +42,7 @@ module Fog
           end
         end
 
-     end
+      end
     end
   end
 end

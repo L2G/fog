@@ -24,7 +24,7 @@ module Fog
             :path     => "loadbalancers/#{load_balancer_id}/healthmonitor",
             :method   => 'PUT'
           )
-         end
+        end
       end
     end
   end

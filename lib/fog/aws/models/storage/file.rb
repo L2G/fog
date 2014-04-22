@@ -52,11 +52,12 @@ module Fog
         # @return [File]
         # 
         def body
-          attributes[:body] ||= if last_modified && (file = collection.get(identity))
-            file.body
-          else
-            ''
-          end
+          attributes[:body] ||=
+            if last_modified && (file = collection.get(identity))
+              file.body
+            else
+              ''
+            end
         end
 
 

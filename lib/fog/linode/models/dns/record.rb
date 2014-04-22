@@ -48,12 +48,13 @@ module Fog
           options[:priority]  = priority if priority
           options[:target]    = value if value
           options[:ttl_sec]   = ttl if ttl
-          response = unless identity
-            service.domain_resource_create(zone.identity, type, options)
-          else
-            options[:type] = type if type
-            service.domain_resource_update(zone.identity, identity, options)
-          end
+          response =
+            unless identity
+              service.domain_resource_create(zone.identity, type, options)
+            else
+              options[:type] = type if type
+              service.domain_resource_update(zone.identity, identity, options)
+            end
           merge_attributes(response.body['DATA'])
           true
         end

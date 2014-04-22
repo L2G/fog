@@ -71,12 +71,12 @@ module Fog
           #   * restrict_axfr<~String> - indicates if AXFR transfers should be restricted to IPs in axfr-ips
           #   * tag_list<~String> - List of all tags associated with this domain
           data = unless identity
-            service.create_zone(domain, ttl, type, options)
-          else
-            options[:default_ttl] = ttl
-            options[:ns_type]     = type
-            service.update_zone(identity, options)
-          end
+                   service.create_zone(domain, ttl, type, options)
+                 else
+                   options[:default_ttl] = ttl
+                   options[:ns_type]     = type
+                   service.update_zone(identity, options)
+                 end
           merge_attributes(data.body)
           true
         end

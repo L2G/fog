@@ -20,10 +20,10 @@ module Fog
 
         def get(id)
           data = if service.joyent_version.gsub(/[^0-9.]/,'').to_f < 7.0
-            service.get_dataset(id).body
-          else
-            service.get_image(id).body
-          end
+                   service.get_dataset(id).body
+                 else
+                   service.get_image(id).body
+                 end
           new(data)
         end
 

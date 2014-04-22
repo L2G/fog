@@ -56,10 +56,10 @@ Shindo.tests("Fog::Compute[:joyent] | package requests", ["joyent"]) do
 
   tests("#get_package") do
     pkgid = if Fog.mock?
-      @data[:packages].keys.first
-    else
-      Fog::Compute[:joyent].list_packages.body.first["name"]
-    end
+              @data[:packages].keys.first
+            else
+              Fog::Compute[:joyent].list_packages.body.first["name"]
+            end
 
     formats(@package_format) do
       Fog::Compute[:joyent].get_package(pkgid).body

@@ -8,7 +8,7 @@ module Fog
             :path => "loadbalancers/#{load_balancer_id}/sessionpersistence",
             :method => 'GET'
           )
-         end
+        end
       end
     end
   end

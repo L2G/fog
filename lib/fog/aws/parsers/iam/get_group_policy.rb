@@ -15,11 +15,12 @@ module Fog
             when 'GroupName', 'PolicyName'
               @response[name] = value
             when 'PolicyDocument'
-              @response['Policy'][name] = if decoded_string = URI.decode(value)
-                                  Fog::JSON.decode(decoded_string) rescue value
-                                else
-                                  value
-                                end
+              @response['Policy'][name] =
+                if decoded_string = URI.decode(value)
+                  Fog::JSON.decode(decoded_string) rescue value
+                else
+                  value
+                end
             when 'RequestId'
               @response[name] = value
             end

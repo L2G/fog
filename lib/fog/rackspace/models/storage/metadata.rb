@@ -133,7 +133,7 @@ module Fog
            a.collect!(&:downcase)
            str = a.join('_')
            str.to_sym
-         end
+        end
 
         def to_header_key(key, value)
           prefix = value.nil? ?  remove_meta_prefix : meta_prefix

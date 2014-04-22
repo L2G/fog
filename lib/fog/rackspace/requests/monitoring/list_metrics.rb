@@ -12,8 +12,8 @@ module Fog
         end
       end
 
-    class Mock
-      def list_metrics(entity_id, check_id)
+      class Mock
+        def list_metrics(entity_id, check_id)
           response = Excon::Response.new
           response.status = 200
           response.body = {
@@ -57,23 +57,23 @@ module Fog
               "next_href"   => nil
             }
 
-        }
+          }
 
-        response.headers = {
-          "Date"                  => Time.now.utc.to_s,
-          "Content-Type"          => "application/json; charset=UTF-8",
-          "X-RateLimit-Limit"     => "50000",
-          "X-RateLimit-Remaining" => "49627",
-          "X-RateLimit-Window"    => "24 hours",
-          "X-RateLimit-Type"      => "global",
-          "X-Response-Id"         => "zsdvasdtrq345",
-          "X-LB"                  => "dfw1-maas-prod-api0",
-          "Vary"                  => "Accept-Encoding",
-          "Transfer-Encoding"     => "chunked"
-        }
+          response.headers = {
+            "Date"                  => Time.now.utc.to_s,
+            "Content-Type"          => "application/json; charset=UTF-8",
+            "X-RateLimit-Limit"     => "50000",
+            "X-RateLimit-Remaining" => "49627",
+            "X-RateLimit-Window"    => "24 hours",
+            "X-RateLimit-Type"      => "global",
+            "X-Response-Id"         => "zsdvasdtrq345",
+            "X-LB"                  => "dfw1-maas-prod-api0",
+            "Vary"                  => "Accept-Encoding",
+            "Transfer-Encoding"     => "chunked"
+          }
 
-        response.remote_ip = Fog::Rackspace::MockData.ipv4_address
-        response
+          response.remote_ip = Fog::Rackspace::MockData.ipv4_address
+          response
         end
       end
 

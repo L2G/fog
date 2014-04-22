@@ -8,7 +8,7 @@ module Fog
             :path => "loadbalancers/#{load_balancer_id}/nodes/#{node_id}.json",
             :method => 'GET'
           )
-         end
+        end
       end
     end
   end

@@ -39,11 +39,12 @@ module Google # deviates from other bin stuff to accomodate gem
     # based off of virtual_box.rb
     def available?
       # Make sure the gem we use is enabled.
-      availability = if Gem::Specification.respond_to?(:find_all_by_name)
-        !Gem::Specification.find_all_by_name('google-api-client').empty? # newest rubygems
-      else
-        !Gem.source_index.find_name('google-api-client').empty? # legacy
-      end
+      availability =
+        if Gem::Specification.respond_to?(:find_all_by_name)
+          !Gem::Specification.find_all_by_name('google-api-client').empty? # newest rubygems
+        else
+          !Gem.source_index.find_name('google-api-client').empty? # legacy
+        end
 
       # Then make sure we have all of the requirements
       for service in services

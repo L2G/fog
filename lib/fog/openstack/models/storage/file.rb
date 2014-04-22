@@ -18,10 +18,10 @@ module Fog
 
         def body
           attributes[:body] ||= if last_modified
-            collection.get(identity).body
-          else
-            ''
-          end
+                                  collection.get(identity).body
+                                else
+                                  ''
+                                end
         end
 
         def body=(new_body)

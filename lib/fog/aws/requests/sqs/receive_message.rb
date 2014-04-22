@@ -42,12 +42,13 @@ module Fog
               queue[:messages].values.each do |m|
                 message_id = m['MessageId']
 
-                invisible = if (received_handles = queue[:receipt_handles][message_id])
-                  visibility_timeout = m['Attributes']['VisibilityTimeout'] || queue['Attributes']['VisibilityTimeout']
-                  received_handles.any? { |handle, time| now < time + visibility_timeout }
-                else
-                  false
-                end
+                invisible =
+                  if (received_handles = queue[:receipt_handles][message_id])
+                    visibility_timeout = m['Attributes']['VisibilityTimeout'] || queue['Attributes']['VisibilityTimeout']
+                    received_handles.any? { |handle, time| now < time + visibility_timeout }
+                  else
+                    false
+                  end
 
                 unless invisible
                   receipt_handle = Fog::Mock.random_base64(300)

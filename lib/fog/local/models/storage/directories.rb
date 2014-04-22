@@ -11,14 +11,14 @@ module Fog
 
         def all
           data = if ::File.directory?(service.local_root)
-            Dir.entries(service.local_root).select do |entry|
-              entry[0...1] != '.' && ::File.directory?(service.path_to(entry))
-            end.map do |entry|
-              {:key => entry}
-            end
-          else
-            []
-          end
+                   Dir.entries(service.local_root).select do |entry|
+                     entry[0...1] != '.' && ::File.directory?(service.path_to(entry))
+                   end.map do |entry|
+                     {:key => entry}
+                   end
+                 else
+                   []
+                 end
           load(data)
         end
 

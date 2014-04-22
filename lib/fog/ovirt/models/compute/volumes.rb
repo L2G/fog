@@ -26,7 +26,7 @@ module Fog
           new service.get_volume(id)
         end
 
-     end
+      end
     end
   end
 end

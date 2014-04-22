@@ -31,7 +31,7 @@ module Fog
           end.find { | cv | cv.key == key }
         end
 
-     end
+      end
     end
   end
 end

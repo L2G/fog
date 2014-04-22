@@ -54,7 +54,7 @@ module Fog
             super
           end
         end
-     end
+      end
     end
   end
 end

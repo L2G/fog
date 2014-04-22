@@ -5,7 +5,7 @@ module Fog
   module Compute
     class Glesys
 
-        class Servers < Fog::Collection
+      class Servers < Fog::Collection
 
         model Fog::Compute::Glesys::Server
 

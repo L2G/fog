@@ -65,13 +65,14 @@ module Fog
           options[:description] = description if description
           options[:soa_email]   = email if email
           options[:ttl_sec]     = ttl if ttl
-          response = unless identity
-            service.domain_create(domain, type, options)
-          else
-            options[:domain]  = domain if domain
-            options[:type]    = type if type
-            service.domain_update(identity, options)
-          end
+          response =
+            unless identity
+              service.domain_create(domain, type, options)
+            else
+              options[:domain]  = domain if domain
+              options[:type]    = type if type
+              service.domain_update(identity, options)
+            end
           merge_attributes(response.body['DATA'])
           true
         end

@@ -1,8 +1,8 @@
 module Fog
   module Parsers
-      module CDN
-        module AWS
-        
+    module CDN
+      module AWS
+
         class StreamingDistribution < Fog::Parsers::Base
 
           def reset

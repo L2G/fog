@@ -23,7 +23,7 @@ module Fog
 
         def entity=(obj)
            attributes[:entity] = obj.is_a?(String) ? Entity.new(:id => obj) : obj
-         end
+        end
 
         def params(options={})
           h = {

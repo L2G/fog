@@ -165,11 +165,11 @@ Shindo.tests('Fog::Compute[:aws] | instance requests', ['aws']) do
 
     @instance_id = nil
     @ami = if ENV['FASTER_TEST_PLEASE']
-      'ami-79c0ae10' # ubuntu 12.04 daily build 20120728
-    else
-      # Use a MS Windows AMI to test #get_password_data
-      'ami-71b50018' # Amazon Public Images - Windows_Server-2008-SP2-English-64Bit-Base-2012.07.11
-    end
+             'ami-79c0ae10' # ubuntu 12.04 daily build 20120728
+           else
+             # Use a MS Windows AMI to test #get_password_data
+             'ami-71b50018' # Amazon Public Images - Windows_Server-2008-SP2-English-64Bit-Base-2012.07.11
+           end
 
     # Create a keypair for decrypting the password
     key_name = 'fog-test-key'

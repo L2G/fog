@@ -16,7 +16,7 @@ module Fog
 
       end
 
-       class Mock
+      class Mock
 
         # Deletes a specified snapashot.
         #

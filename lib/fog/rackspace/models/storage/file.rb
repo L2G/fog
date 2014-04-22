@@ -78,10 +78,10 @@ module Fog
         # @see Fog::Storage::Rackspace::Files#get
         def body
           attributes[:body] ||= if last_modified
-            collection.get(identity).body
-          else
-            ''
-          end
+                                  collection.get(identity).body
+                                else
+                                  ''
+                                end
         end
 
         # Sets the body/contents of file

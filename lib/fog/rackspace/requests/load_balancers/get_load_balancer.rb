@@ -8,7 +8,7 @@ module Fog
             :path => "loadbalancers/#{load_balancer_id}.json",
             :method => 'GET'
           )
-         end
+        end
       end
 
 
@@ -36,8 +36,8 @@ module Fog
                 "halfClosed"=>false,
                 "connectionLogging"=>{"enabled"=>false},
                 "contentCaching"=>{"enabled"=>false}}}
-            response
-         end
+          response
+        end
       end
 
     end

@@ -24,10 +24,10 @@ module Fog
           requires :name
 
           data = if public_key
-            service.import_key_pair(name, public_key).body
-          else
-            service.create_key_pair(name).body
-          end
+                   service.import_key_pair(name, public_key).body
+                 else
+                   service.create_key_pair(name).body
+                 end
           new_attributes = data.reject {|key,value| !['keyFingerprint', 'keyMaterial', 'keyName'].include?(key)}
           merge_attributes(new_attributes)
           true

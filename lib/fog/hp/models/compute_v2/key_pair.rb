@@ -21,11 +21,12 @@ module Fog
 
         def save
           requires :name
-          data = if public_key
-            service.create_key_pair(name, public_key).body['keypair']
-          else
-            service.create_key_pair(name).body['keypair']
-          end
+          data =
+            if public_key
+              service.create_key_pair(name, public_key).body['keypair']
+            else
+              service.create_key_pair(name).body['keypair']
+            end
           new_attributes = data.reject {|key,value| !['fingerprint', 'public_key', 'name', 'private_key', 'user_id'].include?(key)}
           merge_attributes(new_attributes)
           true

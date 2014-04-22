@@ -14,7 +14,7 @@ module Fog
             :path => "loadbalancers/#{load_balancer_id}/usage#{query}",
             :method => 'GET'
           )
-         end
+        end
       end
     end
   end

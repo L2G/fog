@@ -17,13 +17,14 @@ module Fog
             t[:parent] = opts
             opts = t
           end
-          msg = ":href missing, call with a :href pointing to #{if opts[:message]
-                  opts[:message]
-                elsif opts[:parent]
-                  "the #{opts[:parent]} whos #{self.class.to_s.split('::').last.downcase} you want to enumerate"
-                else
-                  "the resource"
-                end}"
+          msg = ':href missing, call with a :href pointing to '
+          msg += if opts[:message]
+                   opts[:message]
+                 elsif opts[:parent]
+                   "the #{opts[:parent]} whos #{self.class.to_s.split('::').last.downcase} you want to enumerate"
+                 else
+                   'the resource'
+                 end
           raise Fog::Errors::Error.new(msg)
         end
       end

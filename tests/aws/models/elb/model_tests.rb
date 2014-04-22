@@ -75,7 +75,7 @@ Shindo.tests('AWS::ELB | models', ['aws', 'elb']) do
         @subnet.destroy
         sleep 5
         @vpc.destroy
-     end
+      end
 
       tests('with availability zones') do
         Fog::Compute[:aws].ec2_compatibility_mode(true)

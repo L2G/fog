@@ -8,10 +8,10 @@ module Fog
         def login
           headers = { 'Authorization' => authorization_header }
           uri = if version == '1.0'
-            "#{base_url}/login"
-          else
-            "#{base_path_url}/sessions"
-          end
+                  "#{base_url}/login"
+                else
+                  "#{base_path_url}/sessions"
+                end
           unauthenticated_request({
             :expects  => 200,
             :headers  => headers,

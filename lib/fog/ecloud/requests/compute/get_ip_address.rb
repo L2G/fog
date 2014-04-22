@@ -6,7 +6,7 @@ module Fog
         basic_request :get_ip_address
       end
 
-			class Mock
+      class Mock
         def get_ip_address(uri)
 
           network_id, ip_address_id = uri.match(/\/networks\/(\d+)\/(\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3})$/).captures

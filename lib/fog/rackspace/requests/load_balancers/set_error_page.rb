@@ -14,7 +14,7 @@ module Fog
             :path     => "loadbalancers/#{load_balancer_id}/errorpage",
             :method   => 'PUT'
           )
-         end
+        end
       end
     end
   end

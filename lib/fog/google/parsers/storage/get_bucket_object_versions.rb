@@ -49,10 +49,10 @@ module Fog
               elsif @in_version
                 @version
               end['IsLatest'] = if value == 'true'
-                true
-              else
-                false
-              end
+                                  true
+                                else
+                                  false
+                                end
             when 'IsTruncated'
               if value == 'true'
                 @response['IsTruncated'] = true

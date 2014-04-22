@@ -12,10 +12,10 @@ module Fog
 
         def all
           raw_orgs = if service.version == '1.0'
-            service.login
-          else
-            service.request(service.basic_request_params("#{service.base_path_url}/org/"))
-          end
+                       service.login
+                     else
+                       service.request(service.basic_request_params("#{service.base_path_url}/org/"))
+                     end
           data = raw_orgs.body[:Org]
           load(data)
         end
