@@ -100,7 +100,8 @@ module Fog
         }
 
         def self.error(code, argument = '')
-          if error = CDN_ERRORS[code]
+          error = CDN_ERRORS[code]
+          if error
             raise_error(error[:status], error[:code], error[:msg] % argument)
           end
         end

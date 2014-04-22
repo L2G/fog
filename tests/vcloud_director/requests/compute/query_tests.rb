@@ -36,14 +36,10 @@ Shindo.tests('Compute::VcloudDirector | query requests', ['vclouddirector']) do
 
       unless ( type == 'event' || type == 'edgeGateway' )
         records_key = @body.keys.detect {|key| key.to_s =~ /Record|Reference$/}
-        if records = @body[records_key]
-          records.first do |record|
-            case format
-            when 'records'
-              tests("record is correct schema").data_matches_schema(VcloudDirector::Compute::Schema::REFERENCE_TYPE) do
-                record
-              end
-            end
+        records = @body[records_key]
+        if records && format == 'records'
+          tests("record is correct schema").data_matches_schema(VcloudDirector::Compute::Schema::REFERENCE_TYPE) do
+            records.first
           end
         end
       end

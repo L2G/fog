@@ -14,9 +14,8 @@ module Fog
         end
 
         def get(application_name)
-          if data = service.describe_applications([application_name]).body['DescribeApplicationsResult']['Applications'].first
-            new(data)
-          end
+          data = service.describe_applications([application_name]).body['DescribeApplicationsResult']['Applications'].first
+          new(data) if data
         end
 
       end

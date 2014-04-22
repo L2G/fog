@@ -195,10 +195,10 @@ module Fog
           data = service.run_instances(image_id, 1, 1, options)
           merge_attributes(data.body['instancesSet'].first)
 
-          if tags = self.tags
+          if tags
             # expect eventual consistency
             Fog.wait_for { self.reload rescue nil }
-            for key, value in (self.tags = tags)
+            for key, value in tags
               service.tags.create(
                 :key          => key,
                 :resource_id  => self.identity,

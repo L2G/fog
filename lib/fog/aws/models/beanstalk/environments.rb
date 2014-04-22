@@ -18,9 +18,8 @@ module Fog
         def get(environment_name)
           options = { 'EnvironmentNames' => [environment_name] }
 
-          if data = service.describe_environments(options).body['DescribeEnvironmentsResult']['Environments'].first
-            new(data)
-          end
+          data = service.describe_environments(options).body['DescribeEnvironmentsResult']['Environments'].first
+          new(data) if data
         end
 
       end

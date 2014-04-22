@@ -10,7 +10,8 @@ module Fog
           merge_attributes(options)
           data = list_distributions(options).body
           merge_attributes('IsTruncated' => data['IsTruncated'], 'Marker' => data['Marker'], 'MaxItems' => data['MaxItems'])
-          if summary = data['DistributionSummary']
+          summary = data['DistributionSummary']
+          if summary
             load(summary.map { |a| { 'DistributionConfig' => a } })
           else
             load((data['StreamingDistributionSummary'] || {}).map { |a| { 'StreamingDistributionConfig' => a }})

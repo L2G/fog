@@ -386,7 +386,8 @@ module Fog
 
           validate_aws_region @region
 
-          if @endpoint = options[:endpoint]
+          @endpoint = options[:endpoint]
+          if @endpoint
             endpoint = URI.parse(@endpoint)
             @host = endpoint.host
             @path = endpoint.path
