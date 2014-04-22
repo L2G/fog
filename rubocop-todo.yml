@@ -596,10 +596,6 @@ VariableInterpolation:
 VariableName:
   Enabled: false
 
-# Offense count: 23  --LINT--
-Void:
-  Enabled: false
-
 # Offense count: 6
 # Cop supports --auto-correct.
 WhileUntilDo:
