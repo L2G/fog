@@ -74,8 +74,8 @@ module Fog
           )
           ensure_list! response.body, :Link
           ensure_list! response.body,
-            response.body[:type] == 'application/vnd.vmware.vcloud.query.references+xml' ?
-              :MediaReference : :MediaRecord
+                       response.body[:type] == 'application/vnd.vmware.vcloud.query.references+xml' ?
+                         :MediaReference : :MediaRecord
 
           %w[firstPage previousPage nextPage lastPage].each do |rel|
             if link = response.body[:Link].detect {|l| l[:rel] == rel}

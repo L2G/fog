@@ -63,14 +63,14 @@ module Fog
           # missing
           attr = service.get_record(
             service.create_sr( host.reference,
-                                  name,
-                                  type,
-                                  description || '',
-                                  device_config || {},
-                                  physical_size || '0',
-                                  content_type || 'user',
-                                  shared || false,
-                                  sm_config || {}),
+                               name,
+                               type,
+                               description || '',
+                               device_config || {},
+                               physical_size || '0',
+                               content_type || 'user',
+                               shared || false,
+                               sm_config || {}),
             'SR'
           )
           merge_attributes attr

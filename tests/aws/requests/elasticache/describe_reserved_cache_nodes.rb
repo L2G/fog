@@ -1,5 +1,5 @@
 Shindo.tests('AWS::Elasticache | describe reserved cache nodes',
-  ['aws', 'elasticache']) do
+             ['aws', 'elasticache']) do
 
   tests('success') do
     pending if Fog.mocking?

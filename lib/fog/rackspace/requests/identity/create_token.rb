@@ -86,55 +86,55 @@ module Fog
         def build_service_catalog(compute_tenant, object_tenant)
           [
             service_catalog_entry('cloudFilesCDN', 'rax:object-cdn', object_tenant,
-              :public_url => lambda do |r|
-                "https://cdn#{Fog::Mock.random_numbers(1)}.clouddrive.com/v1/#{object_tenant}"
-              end),
+                                  :public_url => lambda do |r|
+                                    "https://cdn#{Fog::Mock.random_numbers(1)}.clouddrive.com/v1/#{object_tenant}"
+                                  end),
 
             service_catalog_entry('cloudFiles', 'object-store', object_tenant,
-              :internal_url_snet => true,
-              :public_url => lambda do |r|
-                "https://storage101.#{r}#{Fog::Mock.random_numbers(1)}.clouddrive.com/v1/#{object_tenant}"
-              end),
+                                  :internal_url_snet => true,
+                                  :public_url => lambda do |r|
+                                    "https://storage101.#{r}#{Fog::Mock.random_numbers(1)}.clouddrive.com/v1/#{object_tenant}"
+                                  end),
 
             service_catalog_entry('cloudMonitoring', 'rax:monitor', compute_tenant,
-              :single_endpoint => true, :rackspace_api_name => 'monitoring'),
+                                  :single_endpoint => true, :rackspace_api_name => 'monitoring'),
 
             service_catalog_entry('cloudServersOpenStack', 'compute', compute_tenant,
-              :version_base_url => lambda { |r| "https://#{r}.servers.api.rackspacecloud.com" },
-              :version_id => '2'),
+                                  :version_base_url => lambda { |r| "https://#{r}.servers.api.rackspacecloud.com" },
+                                  :version_id => '2'),
 
             service_catalog_entry('cloudBlockStorage', 'volume', compute_tenant,
-              :rackspace_api_name => 'blockstorage', :rackspace_api_version => '1'),
+                                  :rackspace_api_name => 'blockstorage', :rackspace_api_version => '1'),
 
             service_catalog_entry('cloudDatabases', 'rax:database', compute_tenant,
-              :rackspace_api_name => 'databases'),
+                                  :rackspace_api_name => 'databases'),
 
             service_catalog_entry('cloudLoadBalancers', 'rax:load-balander', compute_tenant,
-              :rackspace_api_name => 'loadbalancers'),
+                                  :rackspace_api_name => 'loadbalancers'),
 
             service_catalog_entry('cloudDNS', 'rax:dns', compute_tenant,
-              :single_endpoint => true, :rackspace_api_name => 'dns'),
+                                  :single_endpoint => true, :rackspace_api_name => 'dns'),
 
             service_catalog_entry('cloudOrchestration', 'orchestration', compute_tenant,
-              :rackspace_api_name => 'orchestration', :rackspace_api_version => '1'),
+                                  :rackspace_api_name => 'orchestration', :rackspace_api_version => '1'),
 
             service_catalog_entry('cloudQueues', 'rax:queues', compute_tenant,
-              :internal_url_snet => true,
-              :rackspace_api_name => 'queues', :rackspace_api_version => '1'),
+                                  :internal_url_snet => true,
+                                  :rackspace_api_name => 'queues', :rackspace_api_version => '1'),
 
             service_catalog_entry('cloudBackup', 'rax:backup', compute_tenant,
-              :rackspace_api_name => 'backup'),
+                                  :rackspace_api_name => 'backup'),
 
             service_catalog_entry('cloudImages', 'image', compute_tenant,
-              :rackspace_api_name => 'images', :rackspace_api_version => '2'),
+                                  :rackspace_api_name => 'images', :rackspace_api_version => '2'),
 
             service_catalog_entry('autoscale', 'rax:autoscale', compute_tenant,
-              :rackspace_api_name => 'autoscale'),
+                                  :rackspace_api_name => 'autoscale'),
 
             service_catalog_entry('cloudServers', 'compute', compute_tenant,
-              :single_endpoint => true,
-              :version_base_url => lambda { |r| 'https://servers.api.rackspacecloud.com' },
-              :version_id => '1.0')
+                                  :single_endpoint => true,
+                                  :version_base_url => lambda { |r| 'https://servers.api.rackspacecloud.com' },
+                                  :version_id => '1.0')
           ]
         end
 

@@ -9,9 +9,10 @@ Shindo.tests('AWS::Elasticache | cache cluster requests', ['aws', 'elasticache']
     tests(
     '#create_cache_cluster'
     ).formats(AWS::Elasticache::Formats::SINGLE_CACHE_CLUSTER) do
-      body = AWS[:elasticache].create_cache_cluster(CLUSTER_ID,
-        :num_nodes => NUM_NODES
-      ).body
+      body = AWS[:elasticache]
+               .create_cache_cluster(CLUSTER_ID,
+                                     :num_nodes => NUM_NODES)
+               .body
       cluster = body['CacheCluster']
       returns(CLUSTER_ID) { cluster['CacheClusterId'] }
       returns('creating') { cluster['CacheClusterStatus'] }
@@ -52,9 +53,10 @@ Shindo.tests('AWS::Elasticache | cache cluster requests', ['aws', 'elasticache']
     tests(
     '#describe_cache_clusters with node info'
     ).formats(AWS::Elasticache::Formats::CACHE_CLUSTER_RUNNING) do
-      cluster = AWS[:elasticache].describe_cache_clusters(CLUSTER_ID,
-        :show_node_info => true
-      ).body['CacheClusters'].first
+      cluster = AWS[:elasticache]
+                  .describe_cache_clusters(CLUSTER_ID, :show_node_info => true)
+                  .body['CacheClusters']
+                  .first
       returns(NUM_NODES, "has #{NUM_NODES} nodes") do
         cluster['CacheNodes'].count
       end
@@ -64,9 +66,10 @@ Shindo.tests('AWS::Elasticache | cache cluster requests', ['aws', 'elasticache']
     tests(
     '#modify_cache_cluster - change a non-pending cluster attribute'
     ).formats(AWS::Elasticache::Formats::CACHE_CLUSTER_RUNNING) do
-      body = AWS[:elasticache].modify_cache_cluster(CLUSTER_ID,
-        :auto_minor_version_upgrade => false
-      ).body
+      body = AWS[:elasticache]
+               .modify_cache_cluster(CLUSTER_ID,
+                                     :auto_minor_version_upgrade => false)
+               .body
       # now check that parameter change is in place
       returns('false')  { body['CacheCluster']['AutoMinorVersionUpgrade'] }
       body['CacheCluster']
@@ -94,12 +97,13 @@ Shindo.tests('AWS::Elasticache | cache cluster requests', ['aws', 'elasticache']
       c = AWS[:elasticache].clusters.get(CLUSTER_ID)
       node_id = c.nodes.last['CacheNodeId']
       Formatador.display_line "Removing node #{node_id}..."
-      body = AWS[:elasticache].modify_cache_cluster(c.id,
-      {
-        :num_nodes          => NUM_NODES - 1,
-        :nodes_to_remove    => [node_id],
-        :apply_immediately  => true,
-      }).body
+      body = AWS[:elasticache]
+               .modify_cache_cluster(c.id,
+                                     {
+                                       :num_nodes          => NUM_NODES - 1,
+                                       :nodes_to_remove    => [node_id],
+                                       :apply_immediately  => true,
+                                     }).body
       returns(node_id) {
         body['CacheCluster']['PendingModifiedValues']['CacheNodeId']
       }

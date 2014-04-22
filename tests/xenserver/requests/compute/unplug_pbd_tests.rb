@@ -14,14 +14,14 @@ Shindo.tests('Fog::Compute[:xenserver] | unplug_pbd request', ['xenserver']) do
   # Creating a new SR automatically plugs the PBD
   # We need the SR available for this to work, so create it first
   ref = compute.create_sr compute.hosts.first.reference,
-                         'FOG TEST SR',
-                         'ext',
-                         '',
-                         { :device => '/dev/sdb' },
-                         '0',
-                         'user',
-                         false,
-                         {}
+                          'FOG TEST SR',
+                          'ext',
+                          '',
+                          { :device => '/dev/sdb' },
+                          '0',
+                          'user',
+                          false,
+                          {}
 
   tests('#unplug_pbd') do
     test('unplugged') do

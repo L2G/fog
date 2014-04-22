@@ -68,7 +68,7 @@ module Fog
             response.body = { 'DeleteResult' => [] }
             object_names.each do |object_name|
               response.body['DeleteResult'] << delete_object_helper(bucket,
-                                                                object_name)
+                                                                    object_name)
             end
           else
             response.status = 404

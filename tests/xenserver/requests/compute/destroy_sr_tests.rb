@@ -13,14 +13,14 @@ Shindo.tests('Fog::Compute[:xenserver] | destroy_sr request', ['xenserver']) do
   compute = Fog::Compute[:xenserver]
   # We need the SR available for this to work, so create it first
   ref = compute.create_sr compute.hosts.first.reference,
-                         'FOG TEST SR',
-                         'ext',
-                         '',
-                         { :device => '/dev/sdb' },
-                         '0',
-                         'user',
-                         false,
-                         {}
+                          'FOG TEST SR',
+                          'ext',
+                          '',
+                          { :device => '/dev/sdb' },
+                          '0',
+                          'user',
+                          false,
+                          {}
 
   tests('#destroy_sr') do
     test('destroyed "FOG TEST SR"') do

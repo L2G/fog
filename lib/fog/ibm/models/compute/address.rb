@@ -38,8 +38,8 @@ module Fog
         def save
           requires :offering_id, :location
           data = service.create_address(location, offering_id,
-                                           :vlan_id => vlan_id,
-                                           :ip => ip)
+                                        :vlan_id => vlan_id,
+                                        :ip => ip)
           merge_attributes(data.body)
           true
         end

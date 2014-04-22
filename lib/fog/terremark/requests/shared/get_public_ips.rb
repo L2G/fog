@@ -51,12 +51,12 @@ module Fog
             response.status = 200
             response.body = body
             response.headers = Fog::Terremark::Shared::Mock.headers(response.body,
-                              case self
-                              when Fog::Terremark::Ecloud::Mock
-                                'application/vnd.tmrk.ecloud.publicIpsList+xml'
-                              when Fog::Terremark::Vcloud::Mock
-                                'application/xml; charset=utf-8'
-                              end
+                                                                    case self
+                                                                    when Fog::Terremark::Ecloud::Mock
+                                                                      'application/vnd.tmrk.ecloud.publicIpsList+xml'
+                                                                    when Fog::Terremark::Vcloud::Mock
+                                                                      'application/xml; charset=utf-8'
+                                                                    end
             )
           else
             response.status = Fog::Terremark::Shared::Mock.unathorized_status

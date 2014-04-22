@@ -52,7 +52,7 @@ module Fog
 
         def create_disk_from_stack_script
           disk = service.linode_disk_createfromstackscript(server.id, @stack_script.id, @image.id,
-                                                              "#{@name}_main", @size, @password, @stack_script.options)
+                                                           "#{@name}_main", @size, @password, @stack_script.options)
           self.id = disk.body['DATA']['DiskID']
           reload
         end

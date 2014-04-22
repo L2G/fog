@@ -31,16 +31,16 @@ module Fog
         def create
           requires :network_id, :cidr, :ip_version
           merge_attributes(service.create_subnet(self.network_id,
-                                                    self.cidr,
-                                                    self.ip_version,
-                                                    self.attributes).body['subnet'])
+                                                 self.cidr,
+                                                 self.ip_version,
+                                                 self.attributes).body['subnet'])
           self
         end
 
         def update
           requires :id, :network_id, :cidr, :ip_version
           merge_attributes(service.update_subnet(self.id,
-                                                    self.attributes).body['subnet'])
+                                                 self.attributes).body['subnet'])
           self
         end
 

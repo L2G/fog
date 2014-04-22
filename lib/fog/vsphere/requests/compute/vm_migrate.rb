@@ -14,7 +14,7 @@ module Fog
 
           unless vm_mob_ref.kind_of? RbVmomi::VIM::VirtualMachine
             raise Fog::Vsphere::Errors::NotFound,
-              "Could not find VirtualMachine with instance uuid #{options['instance_uuid']}"
+                  "Could not find VirtualMachine with instance uuid #{options['instance_uuid']}"
           end
           task = vm_mob_ref.MigrateVM_Task(:pool => options['pool'], :host => options['host'], :priority => "#{priority}", :state => options['state'] )
           task.wait_for_completion

@@ -30,14 +30,14 @@ module Fog
         def create
           requires :network_id
           merge_attributes(service.create_port(self.network_id,
-                                                  self.attributes).body['port'])
+                                               self.attributes).body['port'])
           self
         end
 
         def update
           requires :id, :network_id
           merge_attributes(service.update_port(self.id,
-                                                  self.attributes).body['port'])
+                                               self.attributes).body['port'])
           self
         end
 

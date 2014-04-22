@@ -15,27 +15,27 @@ Shindo.tests('Fog::Compute[:xenserver] | create_sr request', ['xenserver']) do
   tests('#create_sr "FOG TEST SR" with device /dev/sdb') do
     test('create an EXT SR') do
       ref = compute.create_sr compute.hosts.first.reference,
-                             'FOG TEST SR',
-                             'ext',
-                             '',
-                             { :device => '/dev/sdb' },
-                             '0',
-                             'user',
-                             false,
-                             {}
+                              'FOG TEST SR',
+                              'ext',
+                              '',
+                              { :device => '/dev/sdb' },
+                              '0',
+                              'user',
+                              false,
+                              {}
       valid_ref? ref
     end
 
     raises(Fog::XenServer::RequestFailed, 'raise when device in use') do
       ref = compute.create_sr compute.hosts.first.reference,
-                             'FOG TEST SR',
-                             'ext',
-                             '',
-                             { :device => '/dev/sdb' },
-                             '0',
-                             'user',
-                             false,
-                             {}
+                              'FOG TEST SR',
+                              'ext',
+                              '',
+                              { :device => '/dev/sdb' },
+                              '0',
+                              'user',
+                              false,
+                              {}
       valid_ref? ref
     end
   end

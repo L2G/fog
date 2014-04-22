@@ -102,8 +102,8 @@ module Fog
                       user.id
                     else
                        response = identity.create_user(@openstack_username,
-                         'password',
-                         "#{@openstack_username}@example.com")
+                                                       'password',
+                                                       "#{@openstack_username}@example.com")
                        response.body['user']['id']
                     end
 

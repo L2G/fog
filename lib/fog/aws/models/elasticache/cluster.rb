@@ -19,21 +19,21 @@ module Fog
         # complex attributes
         attribute :nodes, :aliases => 'CacheNodes', :type => :array
         attribute :parameter_group,
-          :aliases => 'CacheParameterGroup', :type => :hash
+                  :aliases => 'CacheParameterGroup', :type => :hash
         attribute :pending_values,
-          :aliases => 'PendingModifiedValues', :type => :hash
+                  :aliases => 'PendingModifiedValues', :type => :hash
         attribute :create_time,
-          :aliases => 'CacheClusterCreateTime', :type => :date_time
+                  :aliases => 'CacheClusterCreateTime', :type => :date_time
         attribute :security_groups,
-          :aliases => 'CacheSecurityGroups', :type => :array
+                  :aliases => 'CacheSecurityGroups', :type => :array
         attribute :notification_config,
-          :aliases => 'NotificationConfiguration', :type => :hash
+                  :aliases => 'NotificationConfiguration', :type => :hash
         attribute :cache_subnet_group_name,
-          :aliases => 'CacheSubnetGroupName'
+                  :aliases => 'CacheSubnetGroupName'
         attribute :vpc_security_groups,
-          :aliases => 'VpcSecurityGroups', :type => :array
+                  :aliases => 'VpcSecurityGroups', :type => :array
         attribute :s3_snapshot_location,
-          :aliases => 'SnapshotArns', :type => :array
+                  :aliases => 'SnapshotArns', :type => :array
 
         attr_accessor :parameter_group_name
 

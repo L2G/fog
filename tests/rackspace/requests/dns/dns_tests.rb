@@ -27,26 +27,26 @@ Shindo.tests('Fog::DNS[:rackspace] | DNS requests', ['rackspace', 'dns']) do
 
   tests('success for domain with multiple records') do
     domain_tests(Fog::DNS[:rackspace],
-      {
-        :name => domain_name,
-        :email => 'hostmaster@' + domain_name,
-        :records =>
-          [
-            {
-              :ttl => 300,
-              :name => domain_name,
-              :type => 'A',
-              :data => '192.168.1.1'
-            },
-            {
-              :ttl => 3600,
-              :name => domain_name,
-              :type => 'MX',
-              :data => 'mx.' + domain_name,
-              :priority => 10
-            }
-          ]
-     })
+                 {
+                   :name => domain_name,
+                   :email => 'hostmaster@' + domain_name,
+                   :records =>
+                     [
+                       {
+                         :ttl => 300,
+                         :name => domain_name,
+                         :type => 'A',
+                         :data => '192.168.1.1'
+                       },
+                       {
+                         :ttl => 3600,
+                         :name => domain_name,
+                         :type => 'MX',
+                         :data => 'mx.' + domain_name,
+                         :priority => 10
+                       }
+                     ]
+                 })
   end
 
   tests('success for multiple domains') do
@@ -54,18 +54,18 @@ Shindo.tests('Fog::DNS[:rackspace] | DNS requests', ['rackspace', 'dns']) do
     domain2_name = uniq_id + '-2.com'
 
     domains_tests(Fog::DNS[:rackspace],
-      [
-        {:name => domain1_name, :email => 'hostmaster@' + domain1_name, :records => [{:ttl => 300, :name => domain1_name, :type => 'A', :data => '192.168.1.1'}]},
-        {:name => domain2_name, :email => 'hostmaster@' + domain2_name, :records => [{:ttl => 300, :name => domain2_name, :type => 'A', :data => '192.168.1.1'}]}
-      ])
+                  [
+                    {:name => domain1_name, :email => 'hostmaster@' + domain1_name, :records => [{:ttl => 300, :name => domain1_name, :type => 'A', :data => '192.168.1.1'}]},
+                    {:name => domain2_name, :email => 'hostmaster@' + domain2_name, :records => [{:ttl => 300, :name => domain2_name, :type => 'A', :data => '192.168.1.1'}]}
+                  ])
   end
 
   tests('success for domain with subdomain') do
     domains_tests(Fog::DNS[:rackspace],
-      [
-        {:name => domain_name, :email => 'hostmaster@' + domain_name, :records => [{:ttl => 300, :name => domain_name, :type => 'A', :data => '192.168.1.1'}]},
-        {:name => 'subdomain.' + domain_name, :email => 'hostmaster@subdomain.' + domain_name, :records => [{:ttl => 300, :name => 'subdomain.' + domain_name, :type => 'A', :data => '192.168.1.1'}]}
-      ], true) do
+                  [
+                    {:name => domain_name, :email => 'hostmaster@' + domain_name, :records => [{:ttl => 300, :name => domain_name, :type => 'A', :data => '192.168.1.1'}]},
+                    {:name => 'subdomain.' + domain_name, :email => 'hostmaster@subdomain.' + domain_name, :records => [{:ttl => 300, :name => 'subdomain.' + domain_name, :type => 'A', :data => '192.168.1.1'}]}
+                  ], true) do
 
       @root_domain_id = @domain_details.find { |domain| domain['name'] == domain_name }['id']
 

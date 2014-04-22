@@ -77,8 +77,8 @@ module Fog
             object_names.each do |object_name|
               object_version = version_ids.nil? ? nil : version_ids[object_name]
               response.body['DeleteResult'] << delete_object_helper(bucket,
-                                                                object_name,
-                                                                object_version)
+                                                                    object_name,
+                                                                    object_version)
             end
           else
             response.status = 404

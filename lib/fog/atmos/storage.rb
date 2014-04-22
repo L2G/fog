@@ -84,7 +84,7 @@ module Fog
           @persistent = options.fetch(:persistent, false)
 
           @connection = Fog::XML::Connection.new("#{@prefix}://#{@storage_host}:#{@storage_port}",
-              @persistent, @connection_options)
+                                                 @persistent, @connection_options)
         end
 
         def uid
