@@ -11,7 +11,7 @@ module Fog
         #     * 'os_type'<~String> - OS distribution
         #     * 'os_bits'<~Integer> - OS bits
         #     * 'os_hvm'<~Integer> - HVM flag
-	#     * '_attr'<~Hash>:
+        #     * '_attr'<~Hash>:
         #      * 'id'<~Integer> - Id of the image
         #      * 'name'<~String> - Name of the image
         #      * 'status'<~String> - Status of the image

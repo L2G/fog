@@ -18,7 +18,7 @@ module Fog
 
         def cores
           # Each server is assigned 4 virtual cores and
-	  # given a percentage of CPU cycles based on size
+          # given a percentage of CPU cycles based on size
           4 * case ram
           when 256
             1/64.0

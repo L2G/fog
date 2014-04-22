@@ -26,7 +26,7 @@ Shindo.tests('Fog::Rackspace::AutoScale | config_tests', ['rackspace', 'rackspac
       end
       tests('#update_launch_config').returns(204) do
         data = service.update_launch_config(@group_id, {
-		"args" => {
+            "args" => {
               "loadBalancers" => [
                 {
                   "port" => 8000,

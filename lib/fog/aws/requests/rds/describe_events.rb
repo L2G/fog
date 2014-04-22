@@ -6,20 +6,20 @@ module Fog
         require 'fog/aws/parsers/rds/event_list'
 
         # Returns a list of service events
-		#
+        #
         # For more information see:
-		# http://docs.amazonwebservices.com/AmazonRDS/latest/APIReference/API_DescribeEvents.html
-		#
+        # http://docs.amazonwebservices.com/AmazonRDS/latest/APIReference/API_DescribeEvents.html
+        #
         # === Parameters (optional)
         # * options <~Hash> (optional):
         # *  :start_time <~DateTime> - starting time for event records
         # *  :end_time <~DateTime> - ending time for event records
         # *  :duration <~Integer> - The number of minutes to retrieve events for
-		#			Default = 60 Mins
+        #            Default = 60 Mins
         # *  :marker <~String> - marker provided in the previous request
         # *  :max_records <~Integer> - the maximum number of records to include
-		#			Default = 100
-		#			Constraints: min = 20, maximum 100
+        #            Default = 100
+        #            Constraints: min = 20, maximum 100
         # *  :source_identifier <~String> - identifier of the event source
         # *  :source_type <~DateTime> - event type, one of:
         #      (db-instance | db-parameter-group | db-security-group | db-snapshot)

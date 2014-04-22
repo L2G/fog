@@ -48,7 +48,7 @@ module Fog
                   if !@in_value_set
                     @dhcp_configuration[name] = value
                   else
- 			@value_set << value
+                    @value_set << value
                   end
                 when 'valueSet'
                   @in_value_set = false

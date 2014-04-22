@@ -6,8 +6,8 @@ module Fog
         require 'fog/aws/parsers/elasticache/event_list'
 
         # Returns a list of service events
-		#
-		# For more information see:
+        #
+        # For more information see:
         # http://docs.amazonwebservices.com/AmazonElastiCache/latest/APIReference/API_DescribeEvents.html
         #
         # === Parameters (optional)

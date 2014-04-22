@@ -4,7 +4,7 @@ module Fog
       module STS
 
         class GetSessionToken < Fog::Parsers::Base
-					# http://docs.amazonwebservices.com/IAM/latest/UserGuide/index.html?CreatingFedTokens.html
+          # http://docs.amazonwebservices.com/IAM/latest/UserGuide/index.html?CreatingFedTokens.html
 
           def reset
             @response = {}

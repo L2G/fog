@@ -19,16 +19,16 @@ module Fog
           response.body = {
           "values"=>[
           {
-          	"id"		=> Fog::Rackspace::MockData.uuid,
-          	"last_connected"  => Time.now.to_i - 100
+            "id" => Fog::Rackspace::MockData.uuid,
+            "last_connected"  => Time.now.to_i - 100
           },
           {
-          	"id"		=> Fog::Rackspace::MockData.uuid,
-          	"last_connected"  => Time.now.to_i - 110
+            "id" => Fog::Rackspace::MockData.uuid,
+            "last_connected"  => Time.now.to_i - 110
           },
           {
-          	"id"		=> Fog::Rackspace::MockData.uuid,
-          	"last_connected"  => Time.now.to_i - 120
+            "id" => Fog::Rackspace::MockData.uuid,
+            "last_connected"  => Time.now.to_i - 120
           }
         ],
 

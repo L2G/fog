@@ -48,7 +48,7 @@ module Fog
             :headers  => {'Content-Type' => 'application/vnd.tmrk.vCloud.internetService+xml'},
             :method   => 'POST',
             :parser   => Fog::Parsers::Terremark::Shared::InternetService.new,
-	    :path     => path,
+            :path     => path,
             :override_path => true
           )
           response

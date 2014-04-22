@@ -141,7 +141,7 @@ LIST_WEBHOOKS_FORMAT = [
 ### OPTIONS
 
 LAUNCH_CONFIG_OPTIONS = {
-	"args" => {
+  "args" => {
       "loadBalancers" => [
         {
           "port" => 8080,
@@ -178,14 +178,14 @@ LAUNCH_CONFIG_OPTIONS = {
 }
 
 GROUP_CONFIG_OPTIONS = {
-	"maxEntities" => 3,
-	"cooldown" => 360,
-	"name" => "testscalinggroup198547",
-	"minEntities" => 0,
-	"metadata" => {
-	  "gc_meta_key_2" => "gc_meta_value_2",
-	  "gc_meta_key_1" => "gc_meta_value_1"
-	}
+  "maxEntities" => 3,
+  "cooldown" => 360,
+  "name" => "testscalinggroup198547",
+  "minEntities" => 0,
+  "metadata" => {
+    "gc_meta_key_2" => "gc_meta_value_2",
+    "gc_meta_key_1" => "gc_meta_value_1"
+  }
 }
 
 POLICIES_OPTIONS = [
