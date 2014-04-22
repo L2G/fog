@@ -60,12 +60,6 @@ BlockNesting:
 Blocks:
   Enabled: false
 
-# Offense count: 1357
-# Cop supports --auto-correct.
-# Configuration parameters: EnforcedStyle, SupportedStyles.
-BracesAroundHashParameters:
-  Enabled: false
-
 # Offense count: 9
 CaseEquality:
   Enabled: false
