@@ -111,7 +111,7 @@ Shindo.tests('Fog::Rackspace::LoadBalancers', ['rackspace']) do
       @service.instance_variable_set("@auth_token", "bad-token")
       returns(200) { @service.list_load_balancers.status }    end
     tests('should terminate with incorrect credentials') do
-      raises(Excon::Errors::Unauthorized) { Fog::Rackspace::LoadBalancers.new:rackspace_api_key => 'bad_key' }
+      raises(Excon::Errors::Unauthorized) { Fog::Rackspace::LoadBalancers.new :rackspace_api_key => 'bad_key' }
     end
   end
 
